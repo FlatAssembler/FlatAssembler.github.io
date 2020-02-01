@@ -1,0 +1,129 @@
+<html>
+<head>
+    <title>Javascript calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+</head>
+<body bgcolor="#AAAAFF" style="text-align:center"><input type="text" id="expression" placeholder="0"
+    onclick="reset()"
+    style="color:rgb(194, 255, 194);width:256px;height:50px;text-align:right;background-color:black;font-size:32px;font-family:'Courier New';margin-bottom:2px;" readonly/><script type="text/javascript">
+        var polje=document.getElementById("expression");
+        var shift=false;
+        function addButton(natpis)
+        {
+            var tipka=document.createElement("button");
+            tipka.setAttribute("onclick",'polje.value=polje.value+"'+natpis+'"');
+            tipka.setAttribute("type","button");
+            tipka.setAttribute("style","color:rgb(129, 0, 0);width:50px;height:50px;background-color:darkGray;margin-top:1px;margin-right:1px;margin-left:1px;margin-bottom:1px;font-size:28px;font-family:'Courier New'");
+            tipka.appendChild(document.createTextNode(natpis));
+            document.body.appendChild(tipka);
+        }
+        function reset()
+        {
+            polje.value="";
+        }
+    </script><br><button style="color:rgb(129, 0, 0);width:50px;height:50px;background-color:darkGray;margin-top:1px;margin-right:1px;margin-left:1px;margin-bottom:1px;font-size:24px;font-family:'Lucida Console'"
+            onclick="m_plus()">M+</button><button style="color:rgb(129, 0, 0);width:50px;height:50px;background-color:darkGray;margin-top:1px;margin-right:1px;margin-left:1px;margin-bottom:1px;font-size:24px;font-family:'Lucida Console'"
+            onclick="m_minus()">M-</button><button style="color:rgb(129, 0, 0);width:50px;height:50px;background-color:darkGray;margin-top:1px;margin-right:1px;margin-left:1px;margin-bottom:1px;font-size:24px;font-family:'Lucida Console'"
+            onclick="polje.value=polje.value+'MV'">MV</button><button style="color:rgb(129, 0, 0);width:50px;height:50px;background-color:darkGray;margin-top:1px;margin-right:1px;margin-left:1px;margin-bottom:1px;font-size:24px;font-family:'Lucida Console'"
+            onclick="m_store()">MS</button><button style="color:rgb(129, 0, 0);width:50px;height:50px;background-color:darkGray;margin-top:1px;margin-right:1px;margin-left:1px;margin-bottom:1px;font-size:24px;font-family:'Lucida Console'"
+            onclick="m_clear()">MC</button><br><script>
+        addButton("7");
+        addButton("8");
+        addButton("9");
+        addButton("(");
+        addButton("+");
+    </script><br><script>
+        addButton("4");
+        addButton("5");
+        addButton("6");
+    </script><button style="color:rgb(129, 0, 0);width:50px;height:50px;background-color:darkGray;margin-top:1px;margin-right:1px;margin-left:1px;margin-bottom:1px;font-size:24px;font-family:'Lucida Console'"
+        onclick="polje.value=String(Math.log(polje.value)).slice(0,10)">ln</button><script>addButton("-")</script><br><script>
+        addButton("1");
+        addButton("2");
+        addButton("3");
+    </script><button style="color:rgb(129, 0, 0);width:50px;height:50px;text-align:left;background-color:darkGray;margin-top:1px;margin-right:1px;margin-left:1px;margin-bottom:1px;font-size:24px;font-family:'Lucida Console'"
+        onclick="polje.value=String(Math.exp(polje.value)).slice(0,10)">exp</button><script>addButton("*")</script><br><script>
+        addButton("0");
+        addButton(".");
+    </script><button style="color:rgb(129, 0, 0);width:50px;height:50px;background-color:darkGray;margin-top:1px;margin-right:1px;margin-left:1px;margin-bottom:1px;font-size:28px;font-family:'Courier New'"
+        onclick="polje.value=String(eval(polje.value)).slice(0,10)">=</button><script>
+        addButton(")");
+        addButton("/");
+    </script><br><button style="color:rgb(129, 0, 0);width:50px;height:50px;background-color:darkGray;margin-top:1px;margin-right:1px;margin-left:1px;margin-bottom:1px;font-size:24px;font-family:'Lucida Console'"
+            onclick="mySin()">sin</button><button style="color:rgb(129, 0, 0);width:50px;height:50px;background-color:darkGray;margin-top:1px;margin-right:1px;margin-left:1px;margin-bottom:1px;font-size:24px;font-family:'Lucida Console'"
+            onclick="myCos()">cos</button><button style="color:rgb(129, 0, 0);width:50px;height:50px;background-color:darkGray;margin-top:1px;margin-right:1px;margin-left:1px;margin-bottom:1px;font-size:24px;font-family:'Lucida Console'"
+            onclick="myTan()">tan</button><button style="color:rgb(129, 0, 0);width:50px;height:50px;background-color:darkGray;margin-top:1px;margin-right:1px;margin-left:1px;margin-bottom:1px;font-size:24px;font-family:'Lucida Console'"
+            onclick="myCtg()">ctg</button><button style="color:rgb(129, 0, 0);width:50px;height:50px;background-color:darkGray;margin-top:1px;margin-right:1px;margin-left:1px;margin-bottom:1px;font-size:24px;font-family:'Lucida Console'"
+                id="shiftButton" onclick="changeShift()">SH</button>
+    <script>
+        var MV=0;
+        function changeShift()
+        {
+            sftButton=document.getElementById("shiftButton");
+            if (shift==false)
+            {
+                sftButton.style.backgroundColor="lightGray";
+                shift=true;
+            }
+            else
+            {
+                sftButton.style.backgroundColor="DarkGray";
+                shift=false;
+            }
+        }
+    function mySin()
+    {
+        if (!shift)
+            polje.value=String(Math.sin(polje.value*Math.PI/180)).slice(0,10);
+        else
+            polje.value=String(Math.asin(polje.value)/Math.PI*180).slice(0,10);
+    }
+    function myCos()
+    {
+        if (polje.value=="90")
+            polje.value=0;
+        else if (!shift)
+            polje.value=String(Math.cos(polje.value*Math.PI/180)).slice(0,10);
+        else
+            polje.value=String(Math.acos(polje.value)/Math.PI*180).slice(0,10);
+    }
+    function myTan()
+    {
+        if (!shift)
+            polje.value=String(Math.tan(polje.value*Math.PI/180)).slice(0,10);
+        else
+            polje.value=String(Math.atan(polje.value)/Math.PI*180).slice(0,10);
+    }
+    function myCtg()
+    {
+        if (!shift)
+            polje.value=String(1/Math.tan(polje.value*Math.PI/180)).slice(0,10);
+        else
+            polje.value=String(90-Math.atan(polje.value)/Math.PI*180).slice(0,10);
+    }
+    function m_plus()
+    {
+        polje.value=String(eval(polje.value)).slice(0,10);
+        MV+=polje.value*1;
+    }
+    function m_minus()
+    {
+        polje.value=String(eval(polje.value)).slice(0,10);
+        MV-=polje.value*1;
+    }
+    function m_store()
+    {
+        polje.value=String(eval(polje.value)).slice(0,10);
+        MV=polje.value*1;
+    }
+    function m_clear()
+    {
+        polje.value=String(eval(polje.value)).slice(0,10);
+        MV=0;
+    }
+    </script>
+    <br/>
+    <div style="max-width: calc(50 * 5px); position: absolute; left: calc(50% - (50 * 5px) / 2); top: calc(8 * 50px); text-align: justify;">UPDATE on 30/4/2019: If you like this calculator, perhaps you should download the desktop version of it, which also has more features. I built it using the Rhino framework (developed by Mozilla), which allows me to use Java classes from JavaScript, without having to learn a lot of Java, making it relatively easy to make feature-full GUI programs. You can download it <a href="https://github.com/FlatAssembler/SimpleCalculator/raw/master/SimpleCalculator.zip">here</a> (and please download the latest version of Java Runtime Environment, I have no interest in dealing with the Java equivalents of Internet Explorer 6).<br/>
+    The feature that distinguishes it from other calculators is the ability to convert arithmetic expressions to assembly, particularly assembly that's easy to embed into other programming languages. You can see an example of how to embed it into C <a href="quadratic.c">here</a>. Or, maybe even better, watch <a href="https://youtu.be/6LZSy1IWi7I">this</a> video.</div>
+</body>
+</html>

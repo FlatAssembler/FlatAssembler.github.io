@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cycloid Animation</title>
+</head>
+    <svg style="width: 400px; height: 400px; background:black;">
+        <defs>
+            <radialGradient id="gradient1" cx="50%" cy="50%">
+                <stop offset="0%" style="stop-color: darkgreen"></stop>
+                <stop offset="100%" style="stop-color: aquamarine"></stop>
+            </radialGradient>
+            <radialGradient id="gradient2" cx="50%" cy="50%">
+                    <stop offset="0%" style="stop-color: lightBlue"></stop>
+                    <stop offset="100%" style="stop-color: darkBlue"></stop>
+            </radialGradient>
+        </defs>
+        <circle cx=200 cy=200 r=200 stroke="red" stroke-width=2 fill="url(#gradient2)"></circle>
+        <path id="trace" fill="url(#gradient1)" stroke="yellow" stroke-width=2 d="M 400 200 "></path>
+        <circle id="rotating" cx=350 cy=200 r=50 stroke="orange" stroke-width=2 fill="none"></circle>
+        <line id="traceLine" x1=350 y1=200 x2=400 y2=200 stroke="pink" stroke-width=2></line>
+    </svg>
+    <script type="text/javascript">
+        var interval=setInterval(update,50);
+        var counter=0;
+        function update(){
+            counter++;
+            if (counter>=360) {
+                clearInterval(interval);
+                rotating.parentNode.removeChild(rotating);
+                traceLine.parentNode.removeChild(traceLine);
+                var antrs=document.createElementNS("http://www.w3.org/2000/svg","animateTransform");
+                antrs.setAttribute("attributeName","transform");
+                antrs.setAttribute("begin","0s");
+                antrs.setAttribute("dur","30s");
+                antrs.setAttribute("type","rotate");
+                antrs.setAttribute("from","45 200 200");
+                antrs.setAttribute("to","405 200 200");
+                antrs.setAttribute("repeatCount","indefinite");
+                trace.appendChild(antrs);
+                return;
+            }
+            var x1=200+150*Math.cos(Math.PI/180*counter);
+            var y1=200+150*Math.sin(Math.PI/180*counter);
+            var x2=x1+50*Math.cos(Math.PI/180*(counter*3));
+            var y2=y1-50*Math.sin(Math.PI/180*(counter*3));
+            rotating.setAttribute("cx",x1);
+            rotating.setAttribute("cy",y1);
+            traceLine.setAttribute("x1",x1);
+            traceLine.setAttribute("x2",x2);
+            traceLine.setAttribute("y1",y1);
+            traceLine.setAttribute("y2",y2);
+            trace.setAttribute("d",trace.getAttribute("d")+"L "+x2+" "+y2+" ");
+        }
+    </script>
+</html>

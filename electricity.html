@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Electricity</title>
+</head>
+<body>
+    <svg id="crtanje" width=500 height=500 style="background-color:#EEEEEE">
+        <circle cx=150 cy=250 r=12 fill="red"/>
+        <line x1=495 y1=0 x2=495 y2=495 style="stroke-width:5; stroke:#333333"/>
+        <path stroke="green" stroke-width=3 fill-opacity=0 id="put"/>
+    </svg>
+    <script type="text/javascript">
+        crtanje.onclick=funkcija1;
+        var vx,vy,cx,cy,circle;
+        function funkcija1(event){
+            cx=event.offsetX,cy=event.offsetY;
+            vx=0,vy=0;
+            window.setTimeout(funkcija2,100);
+            put.setAttribute("d","M "+cx+" "+cy);
+        }
+    function funkcija2() {
+            vx*=0.975;vy*=0.975;
+            if (circle) crtanje.removeChild(circle);
+            vx+=100/((150-cx)*(150-cx)+(250-cy)*(250-cy))*Math.sin(Math.atan2(cx-150,cy-250));
+            vy+=100/((150-cx)*(150-cx)+(250-cy)*(250-cy))*Math.cos(Math.atan2(cx-150,cy-250));
+            for (var i=-500; i<1000; i+=20) {
+                vx-=150/((495-cx)*(495-cx)+(i-cy)*(i-cy))*Math.sin(Math.atan2(cx-495,cy-i));
+                vy-=150/((495-cx)*(495-cx)+(i-cy)*(i-cy))*Math.cos(Math.atan2(cx-495,cy-i));
+            }
+            cx+=4*vx;
+            cy+=4*vy;
+            put.setAttribute("d",put.getAttribute("d")+"L "+Math.round(cx)+" "+Math.round(cy)+" ");
+            circle=document.createElementNS("http://www.w3.org/2000/svg","circle");
+            circle.setAttribute("cx",cx);
+            circle.setAttribute("cy",cy);
+            circle.setAttribute("r",5);
+            circle.setAttribute("fill","blue");
+            crtanje.appendChild(circle);
+            if (cx<495 && cx>0 && cy>0 && cy<500)
+                window.setTimeout(funkcija2,100);
+        }
+    </script>
+    <div style="width:500px; text-align:justify">The script on this page simulates an electric field composed of a point charge (the red circle) and a charged line (the gray line in the right edge). To start it, click somewhere inside the lightgray area to put a small charged ball there.</div>
+</body>
+</html>

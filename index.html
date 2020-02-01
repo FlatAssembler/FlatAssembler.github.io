@@ -1,0 +1,552 @@
+<html lang="en">
+    <head>
+        <title>FlatAssembler's Homepage</title>
+        <meta name="author" content="Teo Samarzija"/>
+        <meta name="description" content="Teo Samarzija's homepage"/>
+        <meta name="keywords" content="Croatia, Vegetarianism, Libertarianism, Informatics, Computer Science, Linguistics"/>
+        <style type="text/css">
+            @-webkit-keyframes animacija
+            {
+                from {
+                    opacity:0;
+                }
+                50% {
+                    opacity:0;
+                }
+                to {
+                    opacity:1;
+                }
+            }
+            header
+            {
+                height:200px;
+                line-height:200px;
+                text-align:center;
+                /*background:#FFAAAA;*/
+                color:darkblue;
+                font-weight:bold;
+                font-size:36px;
+                font-family:Lucida;
+                -webkit-animation-name: animacija;
+                -webkit-animation-duration: 2s;
+            }
+            aside
+            {
+                width:25%;
+                background:#AAAAFF;
+                height:100%;
+                float:left;
+                color:#AA4400;
+                overflow:auto;
+                -webkit-animation-name: animacija;
+                -webkit-animation-duration: 2s;
+            }
+            aside a
+            {
+                text-decoration:none;
+            }
+            section
+            {
+                width:25%;
+                background:#FFFFAA;
+                height:100%;
+                float:right;
+                color:purple;
+                text-align: center;
+                -webkit-animation-name: animacija;
+                -webkit-animation-duration: 2s;
+            }
+            main
+            {
+                -webkit-animation-name: animacija;
+                -webkit-animation-duration: 2s;
+            }
+            .main1
+            {
+                background: black;
+                color:darkgray;
+                width:50%;
+                height:100%;
+                overflow: auto;
+                font-family: Verdana;
+            }
+            .main1 a
+            {
+                color:lightgreen;
+            }
+            .main2
+            {
+                background: black;
+                color:lightgreen;
+                width:50%;
+                height:100%;
+                overflow: auto;
+            }
+            .main2 a
+            {
+                color:#00FFFF;
+            }
+            .main3
+            {
+                background: #EEEEEE;
+                color:#333333;
+                width:50%;
+                height:100%;
+                overflow: auto;
+                font-family: Arial;
+            }
+            .main3 a
+            {
+                color:#00AAAA;
+            }
+            .link1
+            {
+                text-decoration:none;
+                background: linear-gradient(to right,#111111,#333333);
+                height:30px;
+                width:100%;
+                color:#FF3300;
+                line-height:30px;
+                text-indent:10px;
+                font-family:Verdana;
+                text-indent:5px;
+            }
+            .popup
+            {
+                display:none;
+                background:black;
+                font-size:14px;
+                line-height: 18px;
+                color:white;
+                opacity:0.75;
+                position:absolute;
+                left:25%;
+                border-width: 7px;
+                border-style: solid;
+                border-color: black;
+                max-width: 200px;
+                text-indent: 0px;
+            }
+            .popup::before
+            {
+                content:" ";
+            }
+            .link1:hover
+            {
+                background:darkGray;
+                color:black;
+            }
+            .link1:hover .popup
+            {
+                display:block;
+            }
+            .link2
+            {
+                background:linear-gradient(to right,#333333,#111111);
+                color:#FF3300;
+            }
+            footer
+            {
+                width:100%;
+                height:50px;
+                /*background: #AAFFAA;*/
+                text-align:center;
+                color:#007777;
+                line-height: 50px;
+                -webkit-animation-name: animacija;
+                -webkit-animation-duration: 2s;
+            }
+            #showNavigation
+            {
+                -webkit-animation-name: animacija;
+                -webkit-animation-duration: 2s;
+                line-height:36px;
+                height:41px;
+            }
+        </style>
+    </head>
+    <body style="background-image:url('background.jpg'); background-repeat:no-repeat; background-attachment: fixed; background-size:cover;">
+        <noscript>
+            <img src="gornjiLijevi.svg" style="position:absolute; left:8px; width:25%; height:200px; top:8px; -webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
+            <img src="gornjiDesni.svg" style="position:absolute; width:25%; height:200px; left:-webkit-calc(75% - 8px); left:calc(75% - 8px); top:8px;-webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
+            <img src="donjiLijevi.svg" style="position:absolute; width:25%; height:50px; left:8px; top:calc(100% + 200px - 8px); top:-webkit-calc(100% + 200px - 8px); -webkit-animation-name: animacija;-webkit-animation-duration: 2s;"/>
+            <div style="position:absolute; top:-webkit-calc(100% + 200px + 50px + 8px); top:calc(100% + 200px + 50px + 8px); width:100%; height:50px; font-size:36px; font-family:Arial; text-align:center; background:#333333; color:#AAAAAA; line-height:50px;">Please enable JavaScript!</div>
+        </noscript>
+        <div id="fb-root"></div>
+        <script>
+            var isMobileChrome=false;
+            (function(d, s, id) {
+                 var js, fjs = d.getElementsByTagName(s)[0];
+                 if (d.getElementById(id)) return;
+                 js = d.createElement(s); js.id = id;
+                 js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10';
+                 fjs.parentNode.insertBefore(js, fjs);
+                 }(document, 'script', 'facebook-jssdk'));</script>
+        <header>
+            <svg id="gornjiLijevi" style="float:left; width:25%; height:200px; /*background:white;*/"></svg>
+            <svg id="gornjiDesni" style="float:right; width:25%; height:200px; /*background:white;*/"></svg>
+            <div style="background:#FFAAAA; float:right; width:50%" id="naslov">FlatAssembler's Homepage</div>
+            <script type="text/javascript">
+                if (navigator.appName=="Microsoft Internet Explorer")
+	                document.body.style.backgroundImage="";
+                var svgNS = "http://www.w3.org/2000/svg";
+                function nacrtajRubove() {
+                    if (isMobileChrome) return;
+                    var crtanje = document.getElementById("gornjiLijevi");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    var visina = crtanje.clientHeight;
+                    var sirina = crtanje.clientWidth;
+                    if (!visina || !sirina)
+                    {
+                        visina=crtanje.parentNode.clientHeight;
+                        sirina=crtanje.parentNode.clientWidth/4;
+                    }
+                    var krug=document.createElementNS(svgNS,"circle");
+                    krug.setAttribute("cx",sirina);
+                    krug.setAttribute("cy",visina);
+                    krug.setAttribute("r",sirina/3);
+                    krug.setAttribute("fill","#FF77FF");
+                    if (!(navigator.userAgent.indexOf("Trident")+1))
+                        crtanje.appendChild(krug);
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = (270 + i * 3) / 57.3;
+                        var kut2 = (275 + i * 3) / 57.3;
+                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+                        var y1 = Math.round(visina + Math.sin(kut1) * visina);
+                        var y2 = Math.round(visina + Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina);
+                        trokut.setAttribute("fill", "rgb(" + Math.round(255 - i * 2.83) + ",170," + Math.round(170 + i * 2.83) + ")");
+                        crtanje.appendChild(trokut);
+                    }
+                    crtanje = document.getElementById("gornjiDesni");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    krug=document.createElementNS(svgNS,"circle");
+                    krug.setAttribute("cx",0);
+                    krug.setAttribute("cy",visina);
+                    krug.setAttribute("r",sirina/3);
+                    krug.setAttribute("fill","orange");
+                    if (!(navigator.userAgent.indexOf("Trident")+1))
+                        crtanje.appendChild(krug);
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = i * 3 / 57.3;
+                        var kut2 = (5 + i * 3) / 57.3;
+                        var x1 = Math.round(Math.cos(kut1) * sirina);
+                        var x2 = Math.round(Math.cos(kut2) * sirina);
+                        var y1 = Math.round(visina - Math.sin(kut1) * visina);
+                        var y2 = Math.round(visina - Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina);
+                        trokut.setAttribute("fill", "rgb(255," + Math.round(255 - i * 2.83) + ",170)");
+                        crtanje.appendChild(trokut);
+                    }
+                    if (document.body.clientWidth<900) {
+                        crtanje.style.display="none";
+                        document.getElementById("naslov").style.width="75%";
+                    }
+                    else {
+                        crtanje.style.display="block";
+                        document.getElementById("naslov").style.width="50%";
+                    }
+                    if (document.body.clientWidth<575)
+                        document.getElementById("naslov").style.lineHeight="100px";
+                    else
+                        document.getElementById("naslov").style.lineHeight="inherit";
+                }
+                nacrtajRubove();
+                window.addEventListener('resize', nacrtajRubove);
+            </script>
+        </header>
+        <aside>
+            <br/>
+            <center><b>Here are my online publications:</b></center>
+            <br/>
+            <b style="margin-left:5px">HTML5 stuff:</b>
+            <a href="sat.html"><div class="link1">
+                <div class="popup">A simple "grandfather clock" animation made in Javascript.</div>
+                Analog Clock
+            </div></a>
+            <a href="calculator.html"><div class="link2 link1">
+                <div class="popup">A simple HTML5 online calculator. Can solve parentheses!</div>
+                Calculator
+            </div></a>
+            <a href="fraktal.html"><div class="link1">
+                <div class="popup">A spiral fractal I've made by modifying the "Dragon Curve".</div>
+                The Dragon Curve
+            </div></a>
+            <a href="pacman.html"><div class="link2 link1">
+                <div class="popup">A Pacman game playable on touch screens. Made in Javascript using the SVG graphics.</div>
+                PacMan
+            </div></a>
+            <a href="etymologist.html">
+                <div class="link1">
+                    <div class="popup">A flashcard game in which the goal is to guess the etymologies of the words in simulated languages.</div>
+                Etymology Game
+            </div></a>
+            <br><b style="margin-left:5px">Webpages on this website:</b>
+            <a href="index.html"><div class="link1">
+                <div class="popup">The webpage you are currently browsing.</div>
+                Homepage
+            </div></a>
+            <a href="libertarianism.html"><div class="link2 link1">
+                <div class="popup">What do I think about politics?</div>
+                Libertarianism
+            </div></a>
+            <a href="vegetarianism.html"><div class="link1">
+                <div class="popup">Why I don't eat meat.</div>
+                Vegetarianism
+            </div></a>
+            <a href="Simulation.html"><div class="link2 link1">
+                <div class="popup">Could the universe be a giant computer?</div>
+                Digital Physics
+            </div></a>
+            <a href="linguistics.html"><div class="link1">
+                <div class="popup">Why I like languages.<br><br>
+                    See also:<br>
+                    <u style="color:#0077FF" onclick="window.open('http://flatassembler.github.io/toponyms.html'); window.close();">Croatian Toponyms</u><br>
+                    <u style="color:#0077FF" onclick="window.open('http://flatassembler.github.io/Indo-Austronesian.html'); window.close();">Indo-Austronesian</u></div>
+                Linguistics
+            </div></a>
+            <a href="informatics.html"><div class="link2 link1">
+                <div class="popup">Why I like computers.</div>
+                Informatics
+            </div></a>
+            <a href="pseudosciences.html"><div class="link1">
+                <div class="popup">My advice on how to recognize and deal with false sciences.</div>
+                Pseudosciences
+            </div></a>
+            <br><b style="margin-left:5px">On Internet forums and blogs:</b>
+            <a href="http://linguistforum.com/outside-of-the-box/croatian-toponyms/"><div class="link1">
+                <div class="popup">The forum thread in which I explained my linguistic theories in detail.</div>
+                Croatian Toponyms
+            </div></a>
+            <a href="https://atheistforums.org/thread-50241.html"><div class="link2 link1">
+                <div class="popup">My parody of the conspiracy theorists.</div>
+                Airplanes Don't Exist
+            </div></a>
+        </aside>
+        <section>
+            <p style="margin-left:5px; margin-right:5px;">FlatAssembler, also known as FASM, is a popular compiler for Assembly, an old programming language.<br><br><a href="https://flatassembler.net">A link to its website.</a><br>(You can download it for free,<br>the version for Windows still works on modern computers. I've created a <a href="compiler.html">web-app</a> that will assist you with converting arithmetic expressions to a format compatible with it.)<br><br>To program in old programming languages, you need to have a deep understanding of how computers work. I myself try not to be satisfied with surface explanations, and I try to give people a deeper perspective on some things.</p>
+            <a id="loptica" href="#vrh" style="position: absolute;">
+                <svg width="100" height="100">
+                <defs>
+                <radialgradient id="modrozelen">
+                <stop offset="0%" stop-color="#00FFFF"/>
+                <stop offset="100%" stop-color="#0000FF"/>
+                </radialgradient>
+                <radialgradient id="ljubicastoplav">
+                <stop offset="0%" stop-color="#FF00FF"/>
+                <stop offset="100%" stop-color="#0000FF"/>
+                </radialgradient>
+                </defs>
+                <circle cx="50" cy="50" r="50" fill="url(#modrozelen)"/>
+                <polygon points="50,25 25,50 38,50 38,75 62,75 62,50 75,50" fill="url(#ljubicastoplav)"/>
+                </svg>
+            </a>
+            <script type="text/javascript">
+                var niz=document.getElementsByTagName("u");
+                for (var i=0; i<niz.length; i++)
+                    niz.onclick=function(event){event.preventDefault(); event.stopPropagation();}
+                var udaraca = 0;
+                var loptica = document.getElementById("loptica");
+                var pocetna = loptica.parentNode.clientHeight + 200 - 100;
+                loptica.style.top = pocetna;
+                loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+                var h = 0;
+                var gk = 1;
+                var v = 15;
+                window.setInterval(pomakniLopticu, 80);
+                window.addEventListener("resize", promijeniPocetnu);
+                function promijeniPocetnu()
+                {
+                    pocetna = loptica.parentNode.clientHeight + 210 - 100;
+                    loptica.style.top = pocetna;
+                    loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+                    h = 0;
+                    gk = 1;
+                    v = 15;
+                }
+                function pomakniLopticu()
+                {
+                    h += v;
+                    v -= gk;
+                    if (h < 0)
+                    {
+                        v = -v * 0.75;
+                        h = 0;
+                        udaraca++;
+                        if (udaraca > 20)
+                        {
+                            udaraca = 0;
+                            v = 15;
+                        }
+                    }
+                    loptica.style.top = pocetna - h;
+                }
+            </script>
+        </section>
+        <main class="main1" id="glavni" style="display:block">
+            <a name="vrh"></a>
+            <h2 style="text-align: center">Hi there!</h2>
+            <div style="margin-left:10px; margin-right:10px;">
+                <div style="background:gray; float:right; color:purple; text-align:center; margin-top:5px; margin-left:10px; margin-bottom:5px;">
+                    <img src="Picture.png" style="margin-top:10px; margin-left:10px; margin-right:10px; margin-bottom:5px;" alt="Rose with a butterfly and a snail."/><br>
+                    <i>I often draw<br/>this on tests,<br/>and that drives<br/> teachers angry</i><br>
+                </div>
+                I am Teo Samar&#x17e;ija <sup><a href="javascript:void(0)" onclick="showPronunciation()">pronunciation</a></sup> from Croatia, born in 1999.<br>
+                <span id="pronunciation" style="display:none"><b>Short version:</b> The <i>&#x17e;</i> is pronounced as <i>g</i> in <i>garage</i> and <i>s</i> in <i>vision</i>, the <i>j</i> is pronounced as <i>y</i> in <i>yes</i>.<br/>
+                    <b>More about my name:</b> My name is pronounced <i>TAY-aw sah-MAHR-zhi-yah</i>, not <i>TAY-yaw
+                    SAH-mahr-jee-ah</i>, as many Croatians mispronounce it when they see it written. Google Translate pronounces the
+                Japanese Katakana string of characters <i>&#x30c6;&#x30aa;&#12539;&#x30b5;&#x30de;&#x30fc;&#x30b8;&#x30e4;</i>
+                very close to the way my name is actually pronounced. Both my name and my surname come from Greek. My name is the short
+                    form of the Greek name <i>&#920;&#949;&#959;&#948;&#969;&#961;&#959;&#962;</i>, meaning <i>gift from God</i>.
+                    My surname comes from the Greek word <i>&#963;&#945;&#956;&#945;&#961;&#953;&#959;&#957;</i>, meaning
+                    <i>one who makes seats for horseriding</i>.<br/></span>
+                I am known on various Internet forums as FlatAssembler.<br><br> I am interested in informatics and linguistics. I also like fighting pseudosciences, and Internet is full of them. I have many times been made to believe them by being bombarded with controversial statements I didn't know how to evaluate. So, I'd like to help others in the same position.<br><br> On this website, I'll publish the HTML5 stuff I've made (applications and games for websites), and I will also link to the forum topics I've started which I'd like to be discussed further.<br><br>And, I'll also be selling my <a href="Kuce/ivanaGoranaKovacica30.html">house</a> here.<br/><br/>The beliefs that define me as a person are perhaps libertarianism (the belief that human free will produces the best results when not affected by laws), vegetarianism (abstinence from eating meat of birds and mammals) and digital physics (belief that the universe is a giant computer).<br><br>My favourite song is <a href="https://youtu.be/iYCxeY8wTLU">The Green Fields of France</a> (<a href="GreenFields.mp3">MP3</a>).<br/><br/>
+                Previously, this site was hosted <a href="https://flatassembler.000webhostapp.com/">here</a>, but I got banned from 000webhost for hate speech. I don't think anything I posted there objectively qualifies as hate speech (yet alone my whole site), so I'll host it somewhere else.
+            </div>
+            </div>
+        </main>
+        <footer>
+            <div style="background: #AAFFAA; width: 25%; float: right; text-align:left; bottom:30px;">
+                Choose the style: 
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main1')">[1]</a>
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main2')">[2]</a>
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main3')">[3]</a>
+            </div>
+            <div style="background: #AAFFAA; float:right; width:50%;">Uploaded by Teo Samarzija on 06/12/2017</div>
+            <svg id="donjiLijevi" style="float:left; width:25%; height:100%;/* background: white;*/"></svg>
+            <script type="text/javascript">
+                function showPronunciation()
+                {
+                    if (document.getElementById("pronunciation").style.display=="none")
+                        document.getElementById("pronunciation").style.display="inline";
+                    else
+                        document.getElementById("pronunciation").style.display="none";
+                }
+            if (navigator.appName=="Microsoft Internet Explorer")
+            {
+            	var niz=document.getElementsByTagName("div");
+            	for (var i=0; i<niz.length; i++)
+            	{
+            		if (niz[i].className.indexOf("link1")==-1)
+            			continue;
+            		niz[i].onmouseenter=
+            			function()
+            				{this.children[0].style.display="inline";};
+            		niz[i].onmouseleave=
+            			function()
+            				{this.children[0].style.display="none";};
+        	    }
+        	    document.getElementById("glavni").removeAttribute("style");
+            }
+            else if (navigator.appName=="Opera") {
+	                document.body.setAttribute("style","");
+	                document.getElementById("glavni").style.backgroundColor="white";
+	                document.getElementById("glavni").style.color="black";
+            }
+            else if (((navigator.userAgent.indexOf("Safari")+1 || navigator.userAgent.indexOf("WebKit")+1)
+                      && navigator.userAgent.indexOf("Mobile")+1
+                      && (!(navigator.userAgent.indexOf("Chrome")+1) ||
+                          (navigator.userAgent.indexOf("Version")+1 && navigator.userAgent.indexOf("Chrome")+1))
+                      || (navigator.userAgent.indexOf("Mobile")+1 && navigator.userAgent.indexOf("Gecko")+1
+                          && !(navigator.userAgent.indexOf("like Gecko")+1))
+                      && !(navigator.userAgent.indexOf("Dolfin")+1)) && !(navigator.userAgent.indexOf("iPad")+1) && !(navigator.userAgent.indexOf("iPhone")+1))
+                         document.getElementById("glavni").style.fontSize="36px";
+                         else if (navigator.userAgent.indexOf("Mobi")+1)
+                         {
+                             document.head.innerHTML+="<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=0\">";
+                             var niz=document.getElementsByTagName("svg");
+                             for (var i=0; i<niz.length; i++)
+                                niz[i].style.display="none";
+                             document.getElementsByTagName("aside")[0].style.display="none";
+                             document.getElementsByTagName("aside")[0].style.float="none";
+                             document.getElementsByTagName("aside")[0].style.width="100%";
+                             document.getElementsByTagName("aside")[0].style.height="auto";
+                             document.getElementsByTagName("aside")[0].style.WebkitAnimationName="none";
+                             niz=document.getElementsByClassName("popup");
+                             for (var i=0; i<niz.length; i++) {
+                                 niz[i].style.width="50%"
+                                 niz[i].style.left="45%";
+                                 niz[i].style.maxWidth="none";
+                             }
+                             document.getElementsByTagName("section")[0].style.height="auto";
+                             document.getElementsByTagName("section")[0].style.float="none";
+                             document.getElementsByTagName("section")[0].style.width="100%";
+                             document.getElementsByTagName("header")[0].style.height="auto";
+                             document.getElementsByTagName("header")[0].style.lineHeight="normal";
+                             document.getElementsByTagName("main")[0].style.width="100%";
+                             document.getElementsByTagName("footer")[0].children[0].style.display="inline";
+                             document.getElementsByTagName("footer")[0].children[0].style.float="none";
+                             document.getElementsByTagName("footer")[0].children[0].innerHTML+="<br/><br/>";
+                             document.getElementsByTagName("footer")[0].style.height="auto";
+                             document.getElementsByTagName("footer")[0].style.lineHeight="normal";
+                             document.getElementsByTagName("header")[0].outerHTML+="<button id=\"showNavigation\" style=\"width:100%;\">Show navigation<\/button>";
+                             document.getElementById("showNavigation").onclick=
+                             function()
+                             {
+                                 if (document.getElementsByTagName("aside")[0].style.display=="none")
+                                 {
+                                     this.innerHTML="Hide navigation";
+                                     document.getElementsByTagName("aside")[0].style.display="block";
+                                 }
+                                 else
+                                 {
+                                     this.innerHTML="Show navigation";
+                                     document.getElementsByTagName("aside")[0].style.display="none";
+                                 }
+                             }
+//                           window.setTimeout(function(){document.body.removeChild(document.body.children[document.body.children.length-1]);},2000);
+                             document.getElementById("naslov").style.width="100%";
+                             document.getElementById("naslov").style.float="none";
+                             document.getElementsByTagName("header")[0].style.backgroundColor=document.getElementById("naslov").style.backgroundColor;
+                             document.getElementsByTagName("footer")[0].children[1].style.display="inline";
+                             document.getElementsByTagName("footer")[0].children[1].style.width="100%";
+                             document.getElementsByTagName("footer")[0].children[1].style.float="none";
+                             document.getElementsByTagName("footer")[0].style.backgroundColor=document.getElementsByTagName("footer")[0].children[0].style.backgroundColor;
+                             isMobileChrome=true;
+                             
+                         }
+                function footerScript() {
+                    var crtanje = document.getElementById("donjiLijevi");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    var visina = crtanje.clientHeight;
+                    var sirina = crtanje.clientWidth;
+                    if (!visina || !sirina)
+                    {
+                        visina=crtanje.parentNode.clientHeight;
+                        sirina=crtanje.parentNode.clientWidth/4;
+                    }
+                    var krug=document.createElementNS(svgNS,"circle");
+                    krug.setAttribute("cx",sirina);
+                    krug.setAttribute("cy",0);
+                    krug.setAttribute("r",visina);
+                    krug.setAttribute("fill","#00FFFF");
+                    if (!(navigator.userAgent.indexOf("Trident")+1))
+                        crtanje.appendChild(krug);
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = (270 + i * 3) / 57.3;
+                        var kut2 = (276 + i * 3) / 57.3;
+                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+                        var y1 = -Math.round(Math.sin(kut1) * visina);
+                        var y2 = -Math.round(Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0");
+                        trokut.setAttribute("fill", "rgb(170," + Math.round(255 - i * 2.83) + "," + Math.min(Math.round(170 + i * 4), 255) + ")");
+                        crtanje.appendChild(trokut);
+                    }
+                }
+                footerScript();
+                window.addEventListener('resize', footerScript);
+            </script>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>Fraktal u JavaScriptu</title>
+</head>
+<body>
+<svg style="background-color:black" id="svg01" height=500 width=500>
+    <defs>
+        <linearGradient id="linearni" x1="0%" x2="100%" y1="0%" y2="0%">
+            <stop offset="0%" stop-color="black"/>
+            <stop offset="100%" stop-color="blue"/>
+        </linearGradient>
+        <radialGradient id="radijalni">
+            <stop offset="0%" stop-color="white"/>
+            <stop offset="50%" stop-color="yellow"/>
+            <stop offset="100%" stop-color="black"/>
+        </radialGradient>
+    </defs>
+    <polygon points="30,430 430,430 480,410" fill="url(#linearni)"/>
+    <circle cx=250 cy=250 r=50 fill="url(#radijalni)"/>
+    <polygon points="0,480 232,480 250,500 0,500" fill="white"/>
+    <polygon points="250,500 268,480 500,480 500,500" fill="white"/>
+</svg>
+<div style="width:500px; text-align:justify;">UPDATE on 16/04/2019: I've made another picture by modifying the cycloid curve, you can see it <a href="Cycloid.html">here</a>.</div>
+<script type="text/javascript">
+    var svgNS="http://www.w3.org/2000/svg";
+    var crtanje=document.getElementById("svg01");
+    var sx=[0, 1, 0, -1];
+    var sy=[-1, 0, 1, 0];
+    var cx=173;
+    var cy=250;
+    var cs=0;
+    var put="R";
+    while (put.length<1000)
+        put=put+put+"L";
+    for (var i=0; i<1015; i++)
+    {
+        var line=document.createElementNS(svgNS,"line");
+        if (i==0)
+            line.style.stroke="yellow";
+        else if (put.slice(i-1,i)=="R")
+            line.style.stroke="red";
+        else
+            line.style.stroke="green";
+        var ncx=cx+sx[cs]*5;
+        var ncy=cy+sy[cs]*5;
+        line.setAttribute("x1",cx);
+        line.setAttribute("x2",ncx);
+        line.setAttribute("y1",cy);
+        line.setAttribute("y2",ncy);
+        cx=ncx;
+        cy=ncy;
+        crtanje.appendChild(line);
+        if (put.slice(i,i+1)=="R")
+            cs=(cs+1)%4;
+        else if (cs)
+            cs--;
+        else
+            cs=3;
+    }
+    var tekst=document.createElementNS(svgNS,"text")
+    tekst.setAttribute("x",25);
+    tekst.setAttribute("y",400);
+    tekst.setAttribute("fill","blue");
+    tekst.setAttribute("font-family","Comic Sans MS");
+    tekst.appendChild(document.createTextNode("The Dragon Curve"));
+    tekst.setAttribute("font-size",55);
+    crtanje.appendChild(tekst);
+</script>
+</body>
+</html>

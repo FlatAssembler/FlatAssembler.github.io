@@ -1,0 +1,440 @@
+<html>
+    <head>
+        <title>Linguistics</title>
+        <style type="text/css">
+            header
+            {
+                height:200px;
+                line-height:200px;
+                text-align:center;
+                background:#FFAAAA;
+                color:darkblue;
+                font-weight:bold;
+                font-size:36px;
+                font-family:Lucida;
+            }
+            aside
+            {
+                width:25%;
+                background:#AAAAFF;
+                height:100%;
+                float:left;
+                color:#AA4400;
+                overflow:auto;
+            }
+            aside a
+            {
+                text-decoration:none;
+            }
+            section
+            {
+                width:25%;
+                background:#FFFFAA;
+                height:100%;
+                float:right;
+                color:purple;
+                text-align: center;
+                overflow:auto;
+            }
+            .main1
+            {
+                background: black;
+                color:darkgray;
+                width:50%;
+                height:100%;
+                overflow: auto;
+                font-family: Verdana;
+            }
+            .main1 a
+            {
+                color:lightgreen;
+            }
+            .main2
+            {
+                background: black;
+                color:lightgreen;
+                width:50%;
+                height:100%;
+                overflow: auto;
+            }
+            .main2 a
+            {
+                color:#00FFFF;
+            }
+            .main3
+            {
+                background: #EEEEEE;
+                color:#333333;
+                width:50%;
+                height:100%;
+                overflow: auto;
+                font-family: Arial;
+            }
+            .main3 a
+            {
+                color:#00AAAA;
+            }
+        .link1
+        {
+            text-decoration:none;
+            background: linear-gradient(to right,#111111,#333333);
+            height:30px;
+            width:100%;
+            color:#FF3300;
+            line-height:30px;
+            text-indent:10px;
+            font-family:Verdana;
+            text-indent:5px;
+        }
+        .popup
+        {
+            display:none;
+            background:black;
+            font-size:14px;
+            line-height: 18px;
+            color:white;
+            opacity:0.75;
+            position:absolute;
+            left:25%;
+            border-width: 7px;
+            border-style: solid;
+            border-color: black;
+            max-width: 200px;
+            text-indent: 0px;
+        }
+        .popup::before
+        {
+            content:" ";
+        }
+        .link1:hover
+        {
+            background:darkGray;
+            color:black;
+        }
+        .link1:hover .popup
+        {
+            display:block;
+        }
+        .link2
+        {
+            background:linear-gradient(to right,#333333,#111111);
+            color:#FF3300;
+        }
+            footer
+            {
+                width:100%;
+                height:50px;
+                background: #AAFFAA;
+                text-align:center;
+                color:#007777;
+                line-height: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <noscript>
+            <img src="gornjiLijevi.svg" style="position:absolute; left:8px; width:25%; height:200px; top:8px; -webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
+            <img src="gornjiDesni.svg" style="position:absolute; width:25%; height:200px; left:-webkit-calc(75% - 8px); left:calc(75% - 8px); top:8px;-webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
+            <img src="donjiLijevi.svg" style="position:absolute; width:25%; height:50px; left:8px; top:calc(100% + 200px - 8px); top:-webkit-calc(100% + 200px - 8px); -webkit-animation-name: animacija;-webkit-animation-duration: 2s;"/>
+            <div style="position:absolute; top:-webkit-calc(100% + 200px + 50px + 8px); top:calc(100% + 200px + 50px + 8px); width:100%; height:50px; font-size:36px; font-family:Arial; text-align:center; background:#333333; color:#AAAAAA; line-height:50px;">Please enable JavaScript!</div>
+        </noscript>
+        <header>
+            <svg id="gornjiLijevi" style="float:left; width:25%; height:200px; background:white;"></svg>
+            Linguistics
+            <svg id="gornjiDesni" style="float:right; width:25%; height:200px; background:white;"></svg>
+            <script type="text/javascript">
+                var svgNS = "http://www.w3.org/2000/svg";
+                function nacrtajRubove() {
+                    var crtanje = document.getElementById("gornjiLijevi");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    var visina = crtanje.clientHeight;
+                    var sirina = crtanje.clientWidth;
+                    if (!visina || !sirina)
+                    {
+                        visina=crtanje.parentNode.clientHeight;
+                        sirina=crtanje.parentNode.clientWidth/4;
+                    }
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = (270 + i * 3) / 57.3;
+                        var kut2 = (274 + i * 3) / 57.3;
+                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+                        var y1 = Math.round(visina + Math.sin(kut1) * visina);
+                        var y2 = Math.round(visina + Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina);
+                        trokut.setAttribute("fill", "rgb(" + Math.round(255 - i * 2.83) + ",170," + Math.round(170 + i * 2.83) + ")");
+                        crtanje.appendChild(trokut);
+                    }
+                    crtanje = document.getElementById("gornjiDesni");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = i * 3 / 57.3;
+                        var kut2 = (4 + i * 3) / 57.3;
+                        var x1 = Math.round(Math.cos(kut1) * sirina);
+                        var x2 = Math.round(Math.cos(kut2) * sirina);
+                        var y1 = Math.round(visina - Math.sin(kut1) * visina);
+                        var y2 = Math.round(visina - Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina);
+                        trokut.setAttribute("fill", "rgb(255," + Math.round(255 - i * 2.83) + ",170)");
+                        crtanje.appendChild(trokut);
+                    }
+                }
+                nacrtajRubove();
+                window.addEventListener('resize', nacrtajRubove);
+            </script>
+        </header>
+        <aside>
+            <br/>
+            <center><b>Here are my online publications:</b></center>
+            <br/>
+            <b style="margin-left:5px">HTML5 stuff:</b>
+            <a href="sat.html"><div class="link1">
+                <div class="popup">A simple "grandfather clock" animation made in Javascript.</div>
+                Analog Clock
+            </div></a>
+            <a href="calculator.html"><div class="link2 link1">
+                <div class="popup">A simple HTML5 online calculator. Can solve parentheses!</div>
+                Calculator
+            </div></a>
+            <a href="fraktal.html"><div class="link1">
+                <div class="popup">A spiral fractal I've made by modifying the "Dragon Curve".</div>
+                The Dragon Curve
+            </div></a>
+            <a href="pacman.html"><div class="link2 link1">
+                <div class="popup">A Pacman game playable on touch screens. Made in Javascript using the SVG graphics.</div>
+                PacMan
+            </div></a>
+            <a href="etymologist.html">
+<div class="link1">
+<div class="popup">A flashcard game in which the goal is to guess the etymologies of the words in simulated languages.</div>
+Etymology Game
+</div></a>
+            <br><b style="margin-left:5px">Webpages on this website:</b>
+            <a href="index.html"><div class="link1">
+                <div class="popup">A webpage with a bunch of links.</div>
+                Homepage
+            </div></a>
+            <a href="libertarianism.html"><div class="link2 link1">
+                <div class="popup">What do I think about politics?</div>
+                Libertarianism
+            </div></a>
+            <a href="vegetarianism.html"><div class="link1">
+                <div class="popup">Why I don't eat meat.</div>
+                Vegetarianism
+            </div></a>
+            <a href="Simulation.html"><div class="link2 link1">
+                <div class="popup">Could the universe be a giant computer?</div>
+                Digital Physics
+            </div></a>
+            <a href="linguistics.html"><div class="link1">
+                <div class="popup">The webpage you are currently browsing.</div>
+                Linguistics
+            </div></a>
+            <a href="informatics.html"><div class="link2 link1">
+                <div class="popup">Why I like computers.</div>
+                Informatics
+            </div></a>
+            <a href="pseudosciences.html"><div class="link1">
+                <div class="popup">My advice on how to recognize and deal with false sciences.</div>
+                Pseudosciences
+            </div></a>
+            <br><b style="margin-left:5px">On Internet forums and blogs:</b>
+            <a href="http://linguistforum.com/outside-of-the-box/croatian-toponyms/"><div class="link1">
+                <div class="popup">The forum thread in which I explained my linguistic theories in detail.</div>
+                Croatian Toponyms
+            </div></a>
+            <a href="https://atheistforums.org/thread-50241.html"><div class="link2 link1">
+                <div class="popup">My parody of the conspiracy theorists.</div>
+                Airplanes Don't Exist
+            </div></a>
+        </aside>
+        <section>
+            <p style="margin-left:5px; margin-right:5px;">
+            <br>There are around 5000 languages around the world. More than a half of them will go extinct in the next 100 years.<br><br>I've listed some interesting etymologies I've found <a href="http://linguistforum.com/linguist's-lounge/favourite-etymologies/">here</a>.<br/><br/>You can learn some Latin phrases I consider useful for Internet forums <a href="http://www.textkit.com/greek-latin-forum/viewtopic.php?f=6&t=68573">here</a>.
+            </p><br>
+            <a id="loptica" href="#vrh" style="position: absolute;">
+                <svg width="100" height="100">
+                <defs>
+                <radialgradient id="modrozelen">
+                <stop offset="0%" stop-color="#00FFFF"/>
+                <stop offset="100%" stop-color="#0000FF"/>
+                </radialgradient>
+                <radialgradient id="ljubicastoplav">
+                <stop offset="0%" stop-color="#FF00FF"/>
+                <stop offset="100%" stop-color="#0000FF"/>
+                </radialgradient>
+                </defs>
+                <circle cx="50" cy="50" r="50" fill="url(#modrozelen)"/>
+                <polygon points="50,25 25,50 38,50 38,75 62,75 62,50 75,50" fill="url(#ljubicastoplav)"/>
+                </svg>
+            </a>
+            <script type="text/javascript">
+                var udaraca = 0;
+                var loptica = document.getElementById("loptica");
+                var pocetna = loptica.parentNode.clientHeight + 200 - 100;
+                loptica.style.top = pocetna;
+                loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+                var h = 0;
+                var gk = 1;
+                var v = 10;
+                window.setInterval(pomakniLopticu, 80);
+                window.addEventListener("resize", promijeniPocetnu);
+                function promijeniPocetnu()
+                {
+                    pocetna = loptica.parentNode.clientHeight + 210 - 100;
+                    loptica.style.top = pocetna;
+                    loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+                    h = 0;
+                    gk = 1;
+                    v = 10;
+                }
+                function pomakniLopticu()
+                {
+                    h += v;
+                    v -= gk;
+                    if (h < 0)
+                    {
+                        v = -v * 0.75;
+                        h = 0;
+                        udaraca++;
+                        if (udaraca > 20)
+                        {
+                            udaraca = 0;
+                            v = 10;
+                        }
+                    }
+                    loptica.style.top = pocetna - h;
+                }
+            </script>
+        </section>
+        <main class="main1" id="glavni" style="display:block">
+            <a name="vrh"></a>
+            <h2 style="text-align: center">Why am I interested in linguistics?</h2>
+            <div style="text-align: justify; margin-left:10px; margin-right:10px; margin-bottom:100px;">So, how did I get interested in linguistics? Well, what played the most part are probably the funny things that happened during my Latin classes.<br>To me, the funniest things that happened is this: The teacher asked a student "What was the name of the Caesar's assistant in the calendar reform?", and he, after hesitating for a few seconds, responded "Gastritis?" Of course, the teacher said "Gastritis?! A man named Gastritis?!" Then we all started to laugh. After a few seconds, the teacher said: "If only it even reminded of, but it doesn't. He was called Sosigenes. Try associating it with English word 'sausage'." After some 30 minutes, the teacher asked another student "So, who was Gastritis?". The student responded with: "He was Caesar's assistant in the calendar reform." Then the teacher said: "Well, you did very well if you didn't know his name." Sosigenes later got all sorts of funny names from the students. Syphilis, Schizogenic, Sisiguz (apparently derived from two Croatian vulgar words)...<br>The other funny thing that happened was that on the national competition in Latin (I was the  <a href="http://www.azoo.hr/images/rezultati_klas_jezici_lat_gimnazije2016.pdf">7th</a> in Croatia), someone allegedly mistranslated "Ea, quae fertilissima totius Germaniae sunt, loca" (the most fertile places in whole Germany) as "the most fertile German woman" in the first sentence, and therefore mistranslated the whole text. The text we had to translate in the first part of the competition was about some forest in modern-day Germany. Those fertile places were around that forest. Later that text was about the northern deer, the animals which were believed, by the ancient Romans, to be endemic to that forest. The text later went "Ea nascuntur alces, animalia quae reliquis in locis visa non sint." (There (=in that forest) the norhtern deer are born, the animals which aren't seen in other places.) The student in question allegedly translated that as: "She gives birth to the northern deer." We were allowed to use a dictionary, it's just that, if you don't know the grammar, you can very well mistranslate the whole text, even though you know all the words.<br>The third funny thing happened when it was a test in Latin and we had to translate a text from Croatian to Latin using a dictionary. The student next to me complained that there is no "ide" (goes) in the dictionary. I told him: "Well, you have to look up the verbs in infinitive." Then he asked: "What's infinitive? I am not very good at grammar, you know." I said: "The verb form that ends in -ti or -ci.  For example, the infinitive of 'je' (is) is 'biti' (to be), and the infinitive of 'ide' (goes) is 'ici' (to go)." Teacher commented on it: "You think that he will understand that?!" Then, after few minutes, he asked me: "Hey, what's the infinitive of 'crveni' (red, as an adjective)? 'Crveniti' (red+'ti') or...?"<br>
+                <div style="background:gray; float:right; color:purple; text-align:center; margin-top:5px; margin-left:10px; margin-bottom:5px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Devetaki_cave.jpg/240px-Devetaki_cave.jpg" style="margin-top:10px; margin-left:10px; margin-right:10px; margin-bottom:5px; width:200px;"/><br>
+                    <i>Plato said that<br>if you keep people<br>in a cave their<br>entire lives,<br>they will be<br>skeptical of<br>the real world.<br>The same appears<br>to be true<br>with modern education<br>system.</i><br>
+                </div>
+            So, I've spent years studying linguistics on the Internet, mostly on Wikipedia. I've figuered out that the linguistic education in the schools is very bad. They are bombarding students with controversial statements they have no clue how to evaluate. That would be acceptable if they gave students even the basic idea what linguistics is about, but it doesn't even do that. When I try to talk to those students about actual scientific linguistics, they are being skeptical becuase of their ignorance.<br>If there was only one thing I could teach you about linguistics, that would be the concept of regular sound changes. That is, the sound changes don't affect just one or a few words in a language, but they affect the whole languages. A sound change that would change "two" to be pronounced "dwo", but wouldn't affect any other word, isn't possible. But a sound change that would change every 't' in the beginning of a word to 'd' is likely. So, if a sound change occurs that changes "two" to "dwo", it will probably also change "ten" to "den". From that simple fact, much about languages can be derived.<br>For instance, new phonemes are created by two subsequent sound changes, the second one creating the conditions of the first one after the first one ended. For instance, the Latin words "cibus" and "clamo" were both pronounced with a 'k' at the beginning. But let's look at their Italian descendants. The first relevant sound change that occured was a change of the 'k' before the 'i' to 'ch' (written as 'c'). So, the Italian words after that were "chibo" and "klamo". Then what occured was a sound change that changed the 'l' in some conditions to 'y'. So the modern Italian words are "cibo" (pronounced "chibo") and "chiamo" (pronounced "kyamo"). And that's how 'k' and 'ch' came to be different phonemes. The allophones are created by a sound change changing an existing phoneme in some condition to a sound that's not yet a phoneme in a language. For instance, 'k' and 'ch' were allophones before the second sound change.<br>The accents are created primarily by sound changes merging the two similar phonemes together. For instance, if a sound change in English merged 'p' and 'b' into a single phoneme, "pin" and "bin" wouldn't become homophones, but words with different accents. Namely, the 'i' is already pronounced slightly differently in those two words.<br>But here is something we aren't taught at school, but it follows from the regular sound changes. In related languages, one phoneme in one language regularly corresponds to another phoneme in a related language. For instance, the English 't' in the beginning of a word regularly corresponds to German 'z'. Here are some examples: two-zwei, ten-zehn, tooth-Zahn, tongue-Zunge, twig-Zweig, toe-Zeh, too-zu, tame-zahm, token-Zeichen... This rule was exceptionless at the time that sound change occured in German. Since then, both German and English have changed significantly, but the rule is still unmistakable and undeniable. And the same goes for other languages, for instance, Latin 's' in the beginning of a word corresponds to Greek 'h': sex-hex, septem-hepta, sal-hals, sol-helios, sus-hys, super-hyper, similis-homoios, sollus-holos, silva-hyle, somnium-hypnos, sanguis-haima...<br>So, according to these rules, it's actually possible to reconstruct the ancient languages from which the modern languages were derived. And many of them have been, to a higher or lesser degree, it's just that the public is incredibly ignorant about it.<br>The linguistic theses I personally like to support on the Internet forums are my alternative interpretation of the Croatian <a href="toponyms.html">toponyms</a>, that Illyrian (contrary to the mainstream linguistics) didn't have sibilarization and that the Indo-European language family and the Austronesian language family share a <a href="Indo-Austronesian.html">common ancestor</a>. I've described them in great detail in the thread I linked to on the left.<br>I hope that has some educational value.<br><br>UPDATE on 15/12/2017: I am currently developing a <a href="etymologist.html">web-game</a> about linguistics.<br><br>UPDATE on 25/01/2018: The full version of the game is now available on-line. Special thanks to Boris Muminovic for helping me with informatics-related issues and to Daniel Ross for helping me with linguistics-related issues. I've wanted to make such a game for a long time, but I didn't have the knowledge needed to do it.</div>
+        </main>
+        <footer>
+            <div style="width: 25%; float: right; text-align:left; bottom:30px;">
+                Choose the style: 
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main1')">[1]</a>
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main2')">[2]</a>
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main3')">[3]</a>
+            </div>
+            Uploaded by Teo Samarzija on 21/10/2017
+            <svg id="donjiLijevi" style="float:left; width:25%; height:100%; background: white;"></svg>
+            <script type="text/javascript">
+            if (navigator.appName=="Microsoft Internet Explorer")
+            {
+            	var niz=document.getElementsByTagName("div");
+            	for (var i=0; i<niz.length; i++)
+            	{
+            		if (niz[i].className.indexOf("link1")==-1)
+            			continue;
+            		niz[i].onmouseenter=
+            			function()
+            				{this.children[0].style.display="inline";};
+            		niz[i].onmouseleave=
+            			function()
+            				{this.children[0].style.display="none";};
+        	    }
+        	    document.getElementById("glavni").removeAttribute("style");
+            }
+            else if (navigator.appName=="Opera") {
+            	document.getElementById("glavni").style.color="black";
+            	document.getElementById("glavni").style.backgroundColor="white";
+            	var gornjiDesni=document.getElementById("gornjiDesni");
+            	gornjiDesni.parentNode.removeChild(gornjiDesni);
+            }
+            else if (((navigator.userAgent.indexOf("Safari")+1 || navigator.userAgent.indexOf("WebKit")+1)
+                      && navigator.userAgent.indexOf("Mobile")+1
+                      && (!(navigator.userAgent.indexOf("Chrome")+1) ||
+                          (navigator.userAgent.indexOf("Version")+1 && navigator.userAgent.indexOf("Chrome")+1))
+                      || (navigator.userAgent.indexOf("Mobile")+1 && navigator.userAgent.indexOf("Gecko")+1
+                          && !(navigator.userAgent.indexOf("like Gecko")+1))
+                      && !(navigator.userAgent.indexOf("Dolfin")+1)) && !(navigator.userAgent.indexOf("iPad")+1) && !(navigator.userAgent.indexOf("iPhone")+1))
+                         document.getElementById("glavni").style.fontSize="36px";
+                         else if (navigator.userAgent.indexOf("Mobi")+1)
+                         {
+                             document.head.innerHTML+="<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=0\">";
+                             var niz=document.getElementsByTagName("svg");
+                             for (var i=0; i<niz.length; i++)
+                             niz[i].style.display="none";
+                             document.getElementsByTagName("aside")[0].style.display="none";
+                             document.getElementsByTagName("aside")[0].style.float="none";
+                             document.getElementsByTagName("aside")[0].style.width="100%";
+                             document.getElementsByTagName("aside")[0].style.height="auto";
+                             niz=document.getElementsByClassName("popup");
+                             for (var i=0; i<niz.length; i++) {
+                                 niz[i].style.width="50%"
+                                 niz[i].style.left="45%";
+                                 niz[i].style.maxWidth="none";
+                             }
+                             document.getElementsByTagName("section")[0].style.height="auto";
+                             document.getElementsByTagName("section")[0].style.float="none";
+                             document.getElementsByTagName("section")[0].style.width="100%";
+                             document.getElementsByTagName("header")[0].style.height="auto";
+                             document.getElementsByTagName("header")[0].style.lineHeight="normal";
+                             document.getElementsByTagName("main")[0].style.width="100%";
+                             document.getElementsByTagName("footer")[0].children[0].style.display="inline";
+                             document.getElementsByTagName("footer")[0].children[0].style.float="none";
+                             document.getElementsByTagName("footer")[0].children[0].innerHTML+="<br/><br/>";
+                             document.getElementsByTagName("footer")[0].style.height="auto";
+                             document.getElementsByTagName("footer")[0].style.lineHeight="normal";
+                             document.getElementsByTagName("header")[0].outerHTML+="<button id=\"showNavigation\" style=\"width:100%;line-height:36px;height:41px;\">Show navigation<\/button>";
+                             document.getElementById("showNavigation").onclick=
+                             function()
+                             {
+                                 if (document.getElementsByTagName("aside")[0].style.display=="none")
+                                 {
+                                     this.innerHTML="Hide navigation";
+                                     document.getElementsByTagName("aside")[0].style.display="block";
+                                 }
+                                 else
+                                 {
+                                     this.innerHTML="Show navigation";
+                                     document.getElementsByTagName("aside")[0].style.display="none";
+                                 }
+                             }
+                             //window.setTimeout(function(){document.body.removeChild(document.body.children[document.body.children.length-1]);},1000);
+                         }
+                function footerScript() {
+                    var crtanje = document.getElementById("donjiLijevi");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    var visina = crtanje.clientHeight;
+                    var sirina = crtanje.clientWidth;
+                    if (!visina || !sirina)
+                    {
+                        visina=crtanje.parentNode.clientHeight;
+                        sirina=crtanje.parentNode.clientWidth/4;
+                    }
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = (270 + i * 3) / 57.3;
+                        var kut2 = (274 + i * 3) / 57.3;
+                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+                        var y1 = -Math.round(Math.sin(kut1) * visina);
+                        var y2 = -Math.round(Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0");
+                        trokut.setAttribute("fill", "rgb(170," + Math.round(255 - i * 2.83) + "," + Math.min(Math.round(170 + i * 4), 255) + ")");
+                        crtanje.appendChild(trokut);
+                    }
+                }
+                footerScript();
+                window.addEventListener('resize', footerScript);
+            </script>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,551 @@
+<html>
+    <head>
+        <title>Informatics</title>
+        <style type="text/css">
+            header
+            {
+                height:200px;
+                line-height:200px;
+                text-align:center;
+                background:#FFAAAA;
+                color:darkblue;
+                font-weight:bold;
+                font-size:36px;
+                font-family:Lucida;
+            }
+            aside
+            {
+                width:25%;
+                background:#AAAAFF;
+                height:100%;
+                float:left;
+                color:#AA4400;
+                overflow:auto;
+            }
+            aside a
+            {
+                text-decoration:none;
+            }
+            section
+            {
+                width:25%;
+                background:#FFFFAA;
+                height:100%;
+                float:right;
+                color:purple;
+                text-align: center;
+                overflow:auto;
+            }
+            .main1
+            {
+                background: black;
+                color:darkgray;
+                width:50%;
+                height:100%;
+                overflow: auto;
+                font-family: Verdana;
+            }
+            .main1 a
+            {
+                color:lightgreen;
+            }
+            .main2
+            {
+                background: black;
+                color:lightgreen;
+                width:50%;
+                height:100%;
+                overflow: auto;
+            }
+            .main2 a
+            {
+                color:#00FFFF;
+            }
+            .main3
+            {
+                background: #EEEEEE;
+                color:#333333;
+                width:50%;
+                height:100%;
+                overflow: auto;
+                font-family: Arial;
+            }
+            .main3 a
+            {
+                color:#00AAAA;
+            }
+        .link1
+        {
+            text-decoration:none;
+            background: linear-gradient(to right,#111111,#333333);
+            height:30px;
+            width:100%;
+            color:#FF3300;
+            line-height:30px;
+            text-indent:10px;
+            font-family:Verdana;
+            text-indent:5px;
+        }
+        .popup
+        {
+            display:none;
+            background:black;
+            font-size:14px;
+            line-height: 18px;
+            color:white;
+            opacity:0.75;
+            position:absolute;
+            left:25%;
+            border-width: 7px;
+            border-style: solid;
+            border-color: black;
+            max-width: 200px;
+            text-indent: 0px;
+        }
+        .popup::before
+        {
+            content:" ";
+        }
+        .link1:hover
+        {
+            background:darkGray;
+            color:black;
+        }
+        .link1:hover .popup
+        {
+            display:block;
+        }
+        .link2
+        {
+            background:linear-gradient(to right,#333333,#111111);
+            color:#FF3300;
+        }
+            footer
+            {
+                width:100%;
+                height:50px;
+                background: #AAFFAA;
+                text-align:center;
+                color:#007777;
+                line-height: 50px;
+            }
+            pre
+            {
+                overflow:scroll;
+                color:lightGreen;
+                font-size:0.75em;
+            }
+        </style>
+    </head>
+    <body>
+        <noscript>
+            <img src="gornjiLijevi.svg" style="position:absolute; left:8px; width:25%; height:200px; top:8px; -webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
+            <img src="gornjiDesni.svg" style="position:absolute; width:25%; height:200px; left:-webkit-calc(75% - 8px); left:calc(75% - 8px); top:8px;-webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
+            <img src="donjiLijevi.svg" style="position:absolute; width:25%; height:50px; left:8px; top:calc(100% + 200px - 8px); top:-webkit-calc(100% + 200px - 8px); -webkit-animation-name: animacija;-webkit-animation-duration: 2s;"/>
+            <div style="position:absolute; top:-webkit-calc(100% + 200px + 50px + 8px); top:calc(100% + 200px + 50px + 8px); width:100%; height:50px; font-size:36px; font-family:Arial; text-align:center; background:#333333; color:#AAAAAA; line-height:50px;">Please enable JavaScript!</div>
+        </noscript>
+        <header>
+            <svg id="gornjiLijevi" style="float:left; width:25%; height:200px; background:white;"></svg>
+            Informatics
+            <svg id="gornjiDesni" style="float:right; width:25%; height:200px; background:white;"></svg>
+            <script type="text/javascript">
+                var svgNS = "http://www.w3.org/2000/svg";
+                function nacrtajRubove() {
+                    var crtanje = document.getElementById("gornjiLijevi");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    var visina = crtanje.clientHeight;
+                    var sirina = crtanje.clientWidth;
+                    if (!visina || !sirina)
+                    {
+                        visina=crtanje.parentNode.clientHeight;
+                        sirina=crtanje.parentNode.clientWidth/4;
+                    }
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = (270 + i * 3) / 57.3;
+                        var kut2 = (274 + i * 3) / 57.3;
+                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+                        var y1 = Math.round(visina + Math.sin(kut1) * visina);
+                        var y2 = Math.round(visina + Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina);
+                        trokut.setAttribute("fill", "rgb(" + Math.round(255 - i * 2.83) + ",170," + Math.round(170 + i * 2.83) + ")");
+                        crtanje.appendChild(trokut);
+                    }
+                    crtanje = document.getElementById("gornjiDesni");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = i * 3 / 57.3;
+                        var kut2 = (4 + i * 3) / 57.3;
+                        var x1 = Math.round(Math.cos(kut1) * sirina);
+                        var x2 = Math.round(Math.cos(kut2) * sirina);
+                        var y1 = Math.round(visina - Math.sin(kut1) * visina);
+                        var y2 = Math.round(visina - Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina);
+                        trokut.setAttribute("fill", "rgb(255," + Math.round(255 - i * 2.83) + ",170)");
+                        crtanje.appendChild(trokut);
+                    }
+                }
+                nacrtajRubove();
+                window.addEventListener('resize', nacrtajRubove);
+            </script>
+        </header>
+        <aside>
+            <br/>
+            <center><b>Here are my online publications:</b></center>
+            <br/>
+            <b style="margin-left:5px">HTML5 stuff:</b>
+            <a href="sat.html"><div class="link1">
+                <div class="popup">A simple "grandfather clock" animation made in Javascript.</div>
+                Analog Clock
+            </div></a>
+            <a href="calculator.html"><div class="link2 link1">
+                <div class="popup">A simple HTML5 online calculator. Can solve parentheses!</div>
+                Calculator
+            </div></a>
+            <a href="fraktal.html"><div class="link1">
+                <div class="popup">A spiral fractal I've made by modifying the "Dragon Curve".</div>
+                The Dragon Curve
+            </div></a>
+            <a href="pacman.html"><div class="link2 link1">
+                <div class="popup">A Pacman game playable on touch screens. Made in Javascript using the SVG graphics.</div>
+                PacMan
+            </div></a>
+            <a href="etymologist.html">
+<div class="link1">
+<div class="popup">A flashcard game in which the goal is to guess the etymologies of the words in simulated languages.</div>
+Etymology Game
+</div></a>
+            <br><b style="margin-left:5px">Webpages on this website:</b>
+            <a href="index.html"><div class="link1">
+                <div class="popup">A webpage with a bunch of links.</div>
+                Homepage
+            </div></a>
+            <a href="libertarianism.html"><div class="link2 link1">
+                <div class="popup">What do I think about politics?</div>
+                Libertarianism
+            </div></a>
+            <a href="vegetarianism.html"><div class="link1">
+                <div class="popup">Why I don't eat meat.</div>
+                Vegetarianism
+            </div></a>
+            <a href="Simulation.html"><div class="link2 link1">
+                <div class="popup">Could the universe be a giant computer?</div>
+                Digital Physics
+            </div></a>
+            <a href="linguistics.html"><div class="link1">
+                <div class="popup">Why I like languages.<br><br>
+                    See also:<br>
+                    <u style="color:#0077FF" onclick="window.open('http://flatassembler.github.io/toponyms.html'); window.close();">Croatian Toponyms</u><br>
+                    <u style="color:#0077FF" onclick="window.open('http://flatassembler.github.io/Indo-Austronesian.html'); window.close();">Indo-Austronesian</u></div>
+                Linguistics
+            </div></a>
+            <a href="informatics.html"><div class="link2 link1">
+                <div class="popup">The webpage you are currently browsing.</div>
+                Informatics
+            </div></a>
+            <a href="pseudosciences.html"><div class="link1">
+                <div class="popup">My advice on how to recognize and deal with false sciences.</div>
+                Pseudosciences
+            </div></a>
+            <br><b style="margin-left:5px">On Internet forums and blogs:</b>
+            <a href="http://linguistforum.com/outside-of-the-box/croatian-toponyms/"><div class="link1">
+                <div class="popup">The forum thread in which I explained my linguistic theories in detail.</div>
+                Croatian Toponyms
+            </div></a>
+            <a href="https://atheistforums.org/thread-50241.html"><div class="link2 link1">
+                <div class="popup">My parody of the conspiracy theorists.</div>
+                Airplanes Don't Exist
+            </div></a>
+        </aside>
+        <section>
+            <p style="margin-left:5px; margin-right:5px;">
+            <br>The first programmer is said to be Ada Lovelace, an English mathematician and writer (a woman!). In 1842, she wrote a program for a computer called Analytical Engine. However, that program never worked, because the computer it was written for was never finished.<br><br>The inventor of modern computer is said to be Konrad Zuse. In 1936, he made a computer called Z1. At the end of the 20th century, his ideas were reconsidered, and his computer was proven to be about as computationally powerful as the modern computers are. He was so advanced that he wasn't understood in his time.<br>
+            </p><br>
+            <a id="loptica" href="#vrh" style="position: absolute;">
+                <svg width="100" height="100">
+                <defs>
+                <radialgradient id="modrozelen">
+                <stop offset="0%" stop-color="#00FFFF"/>
+                <stop offset="100%" stop-color="#0000FF"/>
+                </radialgradient>
+                <radialgradient id="ljubicastoplav">
+                <stop offset="0%" stop-color="#FF00FF"/>
+                <stop offset="100%" stop-color="#0000FF"/>
+                </radialgradient>
+                </defs>
+                <circle cx="50" cy="50" r="50" fill="url(#modrozelen)"/>
+                <polygon points="50,25 25,50 38,50 38,75 62,75 62,50 75,50" fill="url(#ljubicastoplav)"/>
+                </svg>
+            </a>
+            <script type="text/javascript">
+                var udaraca = 0;
+                var loptica = document.getElementById("loptica");
+                var pocetna = loptica.parentNode.clientHeight + 200 - 100;
+                loptica.style.top = pocetna;
+                loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+                var h = 0;
+                var gk = 1;
+                var v = 10;
+                window.setInterval(pomakniLopticu, 80);
+                window.addEventListener("resize", promijeniPocetnu);
+                function promijeniPocetnu()
+                {
+                    pocetna = loptica.parentNode.clientHeight + 210 - 100;
+                    loptica.style.top = pocetna;
+                    loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+                    h = 0;
+                    gk = 1;
+                    v = 10;
+                }
+                function pomakniLopticu()
+                {
+                    h += v;
+                    v -= gk;
+                    if (h < 0)
+                    {
+                        v = -v * 0.75;
+                        h = 0;
+                        udaraca++;
+                        if (udaraca > 20)
+                        {
+                            udaraca = 0;
+                            v = 10;
+                        }
+                    }
+                    loptica.style.top = pocetna - h;
+                }
+            </script>
+        </section>
+        <main class="main1" id="glavni" style="display:block">
+            <a name="vrh"></a>
+            <h2 style="text-align: center">Why am I interested in informatics?</h2>
+            <div style="text-align: justify; margin-left:10px; margin-right:10px">So, why am I interested in informatics? Becuase it works! I see that if I write something in one of the so-called programming languages, a computer understands me. Sometimes it's hard to understand a computer, and it's often hard to make yourself understood by a computer, but that's because computers are different from human beings. They can easily do things human beings have no hope of doing, like displaying animations (which is basically drawing tens of images per second).<br>So, what are programming languages? Well, see, computers natively understand only machine code, made of ones and zeros. It's very hard for us to understand the language of ones and zeros. For similar reasons, computers have a very hard time understanding the human languages. That's why we needed to invent some special languages both humans and computers could understand. These are called programming languages. There are programs that translate the programming languages to ones and zeros, these are called compilers and interpreters.<br>So, what are programming languages like? Well, there are two basic types of programming languages. One are the so-called imperative languages, and the others are called declarative languages. An example of an imperative language is C++, and an example of a declarative language is Haskell. <a href="http://cpp.sh">Here</a> is an on-line compiler for C++, and <a href="https://www.haskell.org">here</a> is an on-line interpreter for Haskell. In declarative languages, the sentences would mostly translate to human languages as strict mathematical definitions, and in imperative languages, they would mostly translate as imperatives.<br>To explain the difference between the programming languages, I will use the following example of a simple program. Leonardo from Pisa, also known as Fibonacci, was a mathematician who introduced the Arabic numerals to Europe. He lived in the 12th and the 13th century. He has worked on many natural sciences. One of the questions he asked himself was how fast woud rabbits procreate if there was enough food for every single of them. So he did some experiments. What he found out was that there was indeed a rule. Namely, the number of rabbits in some generation is equal to the sum of the numbers of the rabbits in the previous two generations. For instance, if there are three rabbits in the current generation, and there had been two rabbits in the previous generation, there will be five rabbits in the next generation. From then on, the sequence of the numbers in which each one is equal to the some of the previous two is called the Fibonacci sequence. The zeroth number in that sequence is defined to be zero, and the first one to be one. So, that sequence goes like this: 0,1,1,2,3,5,8,13,21... We want to make a program to find some number that's far in that sequence (ignoring the obvious fact that that number would be far larger than the actual number of rabbits in nature because, well, once there are many of them, some of them will die before they procreate either because of the predators or the starvation).<br>So, how will we do it in Haskell? We just need to translate a strict mathematical definition of the Fibonacci's sequence to it. "Fibonacci's sequence is a sequence of integers (whole numbers). The zeroth number in that sequence is zero. The first one is one. For every other number, its Fibonacci's number is equal to the sum of the two right before it." Here we go:
+<pre style="font-face:'Lucida Console'; background:#111111; text-align:left; margin-top:0px; margin-bottom:0px">fibonacci :: Integer -> Integer
+fibonacci 0 = 0
+fibonacci 1 = 1
+fibonacci n = fibonacci (n-1) + fibonacci (n-2)</pre>
+                If you study the code (a set of sentences in a programming language), I believe it will become clear that it's a literal translation of the four sentences, every in their own row.<br>Now, how will we translate that to C++? We can't do it literally. We need to make an algorithm, a sequence of instructions a computer has to follow in order to calculate it. A concept you probably need to understand for that is called variables. Variables are readable and writable places in memory a symbol is assigned to. They can store various pieces of information, in this case, they will store whole numbers. So, in C++, when you say <i>int a;</i> that means "create a variable that stores integers (<i>int</i> means integer) and assign it the symbol 'a'." (the semicolon, in this case, marks the end of a sentence). Now, if you say <i>a=5;</i>, that means "Store the number 5 in the variable 'a'." If, after that, you say <i>a=a+5</i>, that means "Store the number a+5=5+5 (since we previously stored the number 5 into 'a')=10 into 'a'". So, what we will do is to make a program that will have two variables, 'a' and 'b'. In the beginning, 'a' will be zero and 'b' will be one. Now, we will add 'a' to 'b', and we will then assign the difference between 'b' and 'a' to 'a'. And we will repeat it 'n' times, the number of the Fibonacci's number we are trying to find. Then we will say that 'a' is the <i>n</i>th Fibonacci's number. Let's say we want to find the third Fibonacci's number. So, in the zeroth step 'a' is 0 and 'b' is '1'. In the first step, b=a+b=0+1=1, and a=b-a=1-0=1. In the second step, b=a+b=1+1=2, and a=b-a=2-1=1. And in the third step, b=a+b=1+2=3 and a=b-a=3-1=2. There we go, we will say that the solution is a=2. In C++, we say that we "return" 'a' (that phrase makes sense once you look deeper into the language). The usual way of saying you want to repeat something 'n' times in C++ is to say something that would literally translate as "For every integer 'i' from zero that's smaller than 'n', increasing 'i' every time by one, do...". Without further ado, here is the code:
+<pre style="font-face:'Lucida Console'; background:#111111; text-align:left; margin-top:0px; margin-bottom:0px">int fibonacci(int n)
+{
+    int a=0, b=1;
+    for (int i=0; i&#60n; i=i+1)
+    {
+        b=a+b;
+        a=b-a;
+    }
+    return a;
+}</pre>
+                A bit puzzling? Well, see, C++ is actually way easier to understand by a computer than Haskell is. Also, it gives the programmers more control over their programs. In Haskell, they tell the computer what to do, and in C++, they tell it how to do that. So, they can ensure they do it in an efficient way. Today, you still can't trust the compiler to do it for you.<br>Imperative languages are devided into the so-called higher and lower imperative languages. C++ is a higher imperative language. Lower imperative languages are rarely used today. They are hard to understand by a human, but easier to understand by a computer. An example of a lower imperative language is Assembly. It has, unlike Haskell or C++, many dialects. In fact, in general, each Assembly compiler has its own dialect of Assembly. So, an Assembly program that works on Windows doesn't work on Linux even if you have an Assembly compiler for Linux. A dialect of Assembly I am somewhat familiar with is Flat Assembler. Here is what the program would look like in Flat Assembler:
+                <pre style="font-face:'Lucida Console'; background:#111111; text-align:left; margin-top:0px; margin-bottom:0px">.global fibonacci
+fibonacci:
+mov eax,0
+mov ebx,1
+mov ecx, edi
+loop1:
+xchg eax,ebx
+add eax,ebx
+loop loop1
+ret</pre>
+                As you've probably guessed, this is not a literal translation from C++. That's because it can't be. I can't really explain this program simply. "Eax", "ebx", "ecx" and "edi" are the so-called registers. They are like variables, except that they aren't in the memory of a computer, but in the processor. "Mov eax,0" would translate to C++ as "eax=0;", and "add eax,ebx" would translate to "eax=eax+ebx;". "xchg eax,ebx" has no equivalent in C++, it means "Let eax and ebx exchange the numbers stored in them". For instance if "eax" was 0 and "ebx" was 1 before that sentence, after that sentence "eax" would be 1 and "ebx" would be 0. The words such as "mov", "add" and "xchg" are called mnemonics. "loop1:" creates a symbol for a place in a program called "loop1". "loop loop1" means "If the number stored in 'ecx' is bigger than 0, turn the execution of the program back to 'loop1' (so that the two sentences between the 'loop1:' and 'loop loop1' repeat themselves, creating a 'loop')." We say that "loop" jumps to "loop1". ".global fibonnaci" tells the compiler (actually a program beside the compiler called "linker") that "fibonnaci" isn't a place where you can "jump" on, but a name of a subprogram. So, before another part of a program starts this subprogram, it should store the number whose the Fibonnaci's number it wants in "edi" (if it wants the fifth Fibonnaci's number, it should store 5 in "edi"), and this subprogram should return the result in "eax". I hope I've given you some basic idea what the lower imperative language are like.<br>
+                Today, most of the programs are written in higher imperative languages like C++. We've gone an enormously long way from writing the programs in ones and zeros. There are two main streams of attempts to make the programming languages more productive. One is to make declarative languages, and the other is to keep the languages imperative, but to change their grammar to resemble the grammars of human languages more (like the word order usually being subject-verb-object), and that's called object-oriented programming.<br>The first one appears to be more scientific. It often does the experiments to determine whether a particular feature makes programming languages more productive. But it's hard to tell because this field of informatics, the comparisons of the programming languages, is filled with pseudosciences. Programmers are often quite dogmatic in defending their favorite programming languages.<br> While I have a lot of theoretical knowledge of programming, I don't have experience with writing long programs. The most complicated thing I've made is probably the PacMan game I've posted on this site. It's written mostly in Javascript, it's around 550 lines long, and I had to solve a lot of algorithmic problems. I've come to an idea to make this website when I learned how much Javascript (a programming language used by Internet browsers) has changed since I last studied it. It's made making websites, web applications and games much easier.<br>Everything on this website, including the animations and the game, is hand-written in HTML5 (a common name for CSS, Javascript and HTML). I haven't used any special web-designing tools nor frameworks. Looking at the source code of this website might help you study the HTML5, especially since I am still relatively a beginner (not knowing the "dirty tricks").<br>I hope that it will have some educational value. If you like the way I designed this website, you can make one that looks similar to mine by downloading the template I've designed <a href="template.html">here</a> (I'll warn you that you will probably want to dodge it to work better in Safari on iPhone, I haven't bothered to make all the features available in a browser full of quirks and without the developer tools allowing me to explore them).<br><br>
+                <br>UPDATE on 10/02/2018: I've just made a simple arithmetic-expression-to-assembly <a href="compiler.html">compiler</a> in JavaScript, runnable in a browser. I hope that playing with it will be useful in understanding how the programming languages work. If you are going to experiment with Assembly, you should probably use some virtualization software to protect the critical software on your computer from the damage poorly-written or malicious Assembly programs can do. You can read about my experience with free virtualization software <a href="https://atheistforums.org/thread-59713-post-1932224.html#pid1932224">here</a>.<br>
+<br/>UPDATE on 27/09/2019: I've just published two YouTube videos explaining why I think Donald Trump was wrong to ban Huawei, and why I think the new European Union Copyright directives won't be a big deal to the freedom of the Internet. You can see the video about the Huawei ban <a href="https://youtu.be/K9TpzrlEWAU">here</a> (in case you have trouble playing it, try <a href="DonaldTrump-minified.mp4">this</a> and <a href="DonaldTrump.mp3">this</a>), and you can see the video about Article 11 and Article 13 <a href="https://youtu.be/tsdUyIOHLlo">here</a> (in case you have trouble playing that, try <a href="Article11-13-minified.mp4">this</a> and <a href="Article11-13.mp3">this</a>).<br/>
+<br/>UPDATE on 03/11/2019: I've made an example of how to implement the QuickSort algorithm (slightly modified to be easier to implement in a very low-level-language, but not much slower than the traditional QuickSort) in the programming language I made, with comments in Croatian. You can see that <a href="https://github.com/FlatAssembler/ArithmeticExpressionCompiler/tree/master/QuickSort">here</a>.<br/><br/>
+UPDATE on 20/11/2019: I've just published a YouTube <a href="https://youtu.be/N2C1i8CW7Io">video</a> showing how you can set up a modern computer to be able to program it in your own programming language.<br/><br/>
+UPDATE on 23/12/2019: I've just written a seminar in Croatian about my implementation of QuickSort in my programming language, you can download it <a href="https://github.com/FlatAssembler/ArithmeticExpressionCompiler/tree/master/seminar">here</a> (it's available in many different formats, so you almost certainly don't need to install any software in order to read it). If you really can't open any of those files, try this <a href="QuickSort/seminar.html">one</a> (the formatting is greatly distorted).
+            </div>
+            <center>
+                <div id="okvir" style="margin-top:25px; background:gray; color:purple; margin-bottom:100px">
+                    <svg id="tetraedar" height=300 width=300 viewBox="0 0 300 300" style="max-width:95%; background:black; margin-top:5px; margin-bottom:5px; margin-left:5px; margin-right:5px">
+                        <line id="line1" x1=0 x2=0 y1=0 y2=300 stroke="lightGreen" style="stroke-width:3px"/>
+                        <line id="line2" x1=150 x2=150 y1=0 y2=300 stroke="lightGreen" style="stroke-width:3px"/>
+                        <line id="line3" x1=300 x2=300 y1=0 y2=300 stroke="lightGreen" style="stroke-width:3px"/>
+                        <line id="line4" x1=0 x2=300 y1=0 y2=0 stroke="lightGreen" style="stroke-width:3px"/>
+                        <line id="line5" x1=0 x2=300 y1=150 y2=150 stroke="lightGreen" style="stroke-width:3px"/>
+                        <line id="line6" x1=0 x2=300 y1=300 y2=300 stroke="lightGreen" style="stroke-width:3px"/>
+                    </svg><br>
+                    <i>A simple 3D animation<br/> in Javascript.<br/>Hover over it to rotate<br/> the tetrahedron.</i>
+                </div>
+            </center>
+            <script type="text/javascript">
+                window.onresize=function(){document.getElementById("okvir").style.width=Math.min(310,document.body.clientWidth*0.9)+"px";}
+                onresize();
+                var crtanje=document.getElementById("tetraedar");
+                var zadnjeX=document.body.clientWidth/2;
+                var line1=crtanje.getElementById("line1");
+                var line2=crtanje.getElementById("line2");
+                var line3=crtanje.getElementById("line3");
+                var line4=crtanje.getElementById("line4");
+                var line5=crtanje.getElementById("line5");
+                var line6=crtanje.getElementById("line6");
+                var z=[100,100,273,187];
+                var x=[-100,100,0,0];
+                var y=[-100,-100,-100,73];
+                var kut=[0,120,240];
+                function crtanoY(tocka)
+                {
+                    return 150-y[tocka]/(z[tocka]+300)*500;
+                }
+            function crtanoX(tocka)
+            {
+                return x[tocka]/(z[tocka]+300)*500+150;
+            }
+            function animationLoop(event)
+            {
+                for (var i=0; i<3; i++)
+                {
+                    kut[i]=(kut[i]+(event.clientX-zadnjeX)/1.6)%360;
+                    z[i]=187+100*Math.cos(kut[i]/57);
+                    x[i]=-100*Math.sin(kut[i]/57);
+                }
+                zadnjeX=event.clientX;
+                line1.setAttribute("x1",crtanoX(0));
+                line1.setAttribute("y1",crtanoY(0));
+                line1.setAttribute("x2",crtanoX(1));
+                line1.setAttribute("y2",crtanoY(1));
+                line2.setAttribute("x1",crtanoX(1));
+                line2.setAttribute("y1",crtanoY(1));
+                line2.setAttribute("x2",crtanoX(2));
+                line2.setAttribute("y2",crtanoY(2));
+                line3.setAttribute("x1",crtanoX(2));
+                line3.setAttribute("y1",crtanoY(2));
+                line3.setAttribute("x2",crtanoX(0));
+                line3.setAttribute("y2",crtanoY(0));
+                line4.setAttribute("x1",crtanoX(0));
+                line4.setAttribute("y1",crtanoY(0));
+                line4.setAttribute("x2",crtanoX(3));
+                line4.setAttribute("y2",crtanoY(3));
+                line5.setAttribute("x1",crtanoX(3));
+                line5.setAttribute("y1",crtanoY(3));
+                line5.setAttribute("x2",crtanoX(1));
+                line5.setAttribute("y2",crtanoY(1));
+                line6.setAttribute("x1",crtanoX(3));
+                line6.setAttribute("y1",crtanoY(3));
+                line6.setAttribute("x2",crtanoX(2));
+                line6.setAttribute("y2",crtanoY(2));
+            }
+            animationLoop({clientX:zadnjeX});
+            crtanje.onmousemove=animationLoop;
+            </script>
+        </main>
+        <footer>
+            <div style="width: 25%; float: right; text-align:left; bottom:30px;">
+                Choose the style: 
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main1')">[1]</a>
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main2')">[2]</a>
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main3')">[3]</a>
+            </div>
+            Uploaded by Teo Samarzija on 22/10/2017
+            <svg id="donjiLijevi" style="float:left; width:25%; height:100%; background: white;"></svg>
+            <script type="text/javascript">
+            if (navigator.appName=="Microsoft Internet Explorer")
+            {
+            	var niz=document.getElementsByTagName("div");
+            	for (var i=0; i<niz.length; i++)
+            	{
+            		if (niz[i].className.indexOf("link1")==-1)
+            			continue;
+            		niz[i].onmouseenter=
+            			function()
+            				{this.children[0].style.display="inline";};
+            		niz[i].onmouseleave=
+            			function()
+            				{this.children[0].style.display="none";};
+        	    }
+        	    document.getElementById("glavni").removeAttribute("style");
+            }
+            else if (navigator.appName=="Opera") {
+            	document.getElementById("glavni").style.color="black";
+            	document.getElementById("glavni").style.backgroundColor="white";
+            	var gornjiDesni=document.getElementById("gornjiDesni");
+            	gornjiDesni.parentNode.removeChild(gornjiDesni);
+            }
+            else if (((navigator.userAgent.indexOf("Safari")+1 || navigator.userAgent.indexOf("WebKit")+1)
+                      && navigator.userAgent.indexOf("Mobile")+1
+                      && (!(navigator.userAgent.indexOf("Chrome")+1) ||
+                          (navigator.userAgent.indexOf("Version")+1 && navigator.userAgent.indexOf("Chrome")+1))
+                      || (navigator.userAgent.indexOf("Mobile")+1 && navigator.userAgent.indexOf("Gecko")+1
+                          && !(navigator.userAgent.indexOf("like Gecko")+1))
+                      && !(navigator.userAgent.indexOf("Dolfin")+1)) && !(navigator.userAgent.indexOf("iPad")+1) && !(navigator.userAgent.indexOf("iPhone")+1))
+                         document.getElementById("glavni").style.fontSize="36px";
+                         else if (navigator.userAgent.indexOf("Mobi")+1)
+                         {
+                             document.head.innerHTML+="<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=0\">";
+                             var niz=document.getElementsByTagName("svg");
+                             for (var i=0; i<niz.length; i++)
+                             if (niz[i].id!="tetraedar") niz[i].style.display="none";
+                             document.getElementsByTagName("aside")[0].style.display="none";
+                             document.getElementsByTagName("aside")[0].style.float="none";
+                             document.getElementsByTagName("aside")[0].style.width="100%";
+                             document.getElementsByTagName("aside")[0].style.height="auto";
+                             niz=document.getElementsByClassName("popup");
+                             for (var i=0; i<niz.length; i++) {
+                                 niz[i].style.width="50%"
+                                 niz[i].style.left="45%";
+                                 niz[i].style.maxWidth="none";
+                             }
+                             document.getElementsByTagName("section")[0].style.height="auto";
+                             document.getElementsByTagName("section")[0].style.float="none";
+                             document.getElementsByTagName("section")[0].style.width="100%";
+                             document.getElementsByTagName("header")[0].style.height="auto";
+                             document.getElementsByTagName("header")[0].style.lineHeight="normal";
+                             document.getElementsByTagName("main")[0].style.width="100%";
+                             document.getElementsByTagName("footer")[0].children[0].style.display="inline";
+                             document.getElementsByTagName("footer")[0].children[0].style.float="none";
+                             document.getElementsByTagName("footer")[0].children[0].innerHTML+="<br/><br/>";
+                             document.getElementsByTagName("footer")[0].style.height="auto";
+                             document.getElementsByTagName("footer")[0].style.lineHeight="normal";
+                             document.getElementsByTagName("header")[0].outerHTML+="<button id=\"showNavigation\" style=\"width:100%;line-height:36px;height:41px;\">Show navigation<\/button>";
+                             document.getElementById("showNavigation").onclick=
+                             function()
+                             {
+                                 if (document.getElementsByTagName("aside")[0].style.display=="none")
+                                 {
+                                     this.innerHTML="Hide navigation";
+                                     document.getElementsByTagName("aside")[0].style.display="block";
+                                 }
+                                 else
+                                 {
+                                     this.innerHTML="Show navigation";
+                                     document.getElementsByTagName("aside")[0].style.display="none";
+                                 }
+                             }
+                             //window.setTimeout(function(){document.body.removeChild(document.body.children[document.body.children.length-1]);},1000);
+                         }
+                function footerScript() {
+                    var crtanje = document.getElementById("donjiLijevi");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    var visina = crtanje.clientHeight;
+                    var sirina = crtanje.clientWidth;
+                    if (!visina || !sirina)
+                    {
+                        visina=crtanje.parentNode.clientHeight;
+                        sirina=crtanje.parentNode.clientWidth/4;
+                    }
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = (270 + i * 3) / 57.3;
+                        var kut2 = (274 + i * 3) / 57.3;
+                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+                        var y1 = -Math.round(Math.sin(kut1) * visina);
+                        var y2 = -Math.round(Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0");
+                        trokut.setAttribute("fill", "rgb(170," + Math.round(255 - i * 2.83) + "," + Math.min(Math.round(170 + i * 4), 255) + ")");
+                        crtanje.appendChild(trokut);
+                    }
+                }
+                footerScript();
+                window.addEventListener('resize', footerScript);
+            </script>
+        </footer>
+    </body>
+</html>

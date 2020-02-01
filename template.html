@@ -1,0 +1,394 @@
+<html lang="hr">
+    <head>
+        <meta name="description" content="The HTML5 template made by Teo Samarzija for his web-site."/>
+        <meta name="keywords" content="HTML, HTML5, CSS, Croatia, JavaScript, Mobile-friendly, Cross-Browser, Browser-Sniffing"/>
+        <meta name="author" content="Teo Samarzija"/>
+        <title>A simple template</title>
+        <style type="text/css">
+            header
+            {
+                height:200px;
+                line-height:200px;
+                text-align:center;
+                background:#FFAAAA;
+                color:darkblue;
+                font-weight:bold;
+                font-size:36px;
+                font-family:Lucida;
+            }
+            aside
+            {
+                width:25%;
+                background:#AAAAFF;
+                height:100%;
+                float:left;
+                color:#AA4400;
+                overflow:auto;
+            }
+            aside a
+            {
+                text-decoration:none;
+            }
+            section
+            {
+                width:25%;
+                background:#FFFFAA;
+                height:100%;
+                float:right;
+                color:purple;
+                text-align: center;
+            }
+            .main1
+            {
+                background: black;
+                color:darkgray;
+                width:50%;
+                height:100%;
+                overflow: auto;
+                font-family: Verdana;
+            }
+            .main1 a
+            {
+                color:lightgreen;
+            }
+            .main2
+            {
+                background: black;
+                color:lightgreen;
+                width:50%;
+                height:100%;
+                overflow: auto;
+            }
+            .main2 a
+            {
+                color:#00FFFF;
+            }
+            .main3
+            {
+                background: #EEEEEE;
+                color:#333333;
+                width:50%;
+                height:100%;
+                overflow: auto;
+                font-family: Arial;
+            }
+            .main3 a
+            {
+                color:#00AAAA;
+            }
+        .link1
+        {
+            text-decoration:none;
+            background: linear-gradient(to right,#111111,#333333);
+            height:30px;
+            width:100%;
+            color:#FF3300;
+            line-height:30px;
+            text-indent:10px;
+            font-family:Verdana;
+            text-indent:5px;
+        }
+        .popup
+        {
+            display:none;
+            background:black;
+            font-size:14px;
+            line-height: 18px;
+            color:white;
+            opacity:0.75;
+            position:absolute;
+            left:25%;
+            border-width: 7px;
+            border-style: solid;
+            border-color: black;
+            max-width: 200px;
+            text-indent: 0px;
+        }
+        .popup::before
+        {
+            content:" ";
+        }
+        .link1:hover
+        {
+            background:darkGray;
+            color:black;
+        }
+        .link1:hover .popup
+        {
+            display:block;
+        }
+        .link2
+        {
+            background:linear-gradient(to right,#333333,#111111);
+            color:#FF3300;
+        }
+            footer
+            {
+                width:100%;
+                height:50px;
+                background: #AAFFAA;
+                text-align:center;
+                color:#007777;
+                line-height: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <noscript>
+            <img src="gornjiLijevi.svg" style="position:absolute; left:8px; width:25%; height:200px; top:8px; -webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
+            <img src="gornjiDesni.svg" style="position:absolute; width:25%; height:200px; left:-webkit-calc(75% - 8px); left:calc(75% - 8px); top:8px;-webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
+            <img src="donjiLijevi.svg" style="position:absolute; width:25%; height:50px; left:8px; top:calc(100% + 200px - 8px); top:-webkit-calc(100% + 200px - 8px); -webkit-animation-name: animacija;-webkit-animation-duration: 2s;"/>
+            <div style="position:absolute; top:-webkit-calc(100% + 200px + 50px + 8px); top:calc(100% + 200px + 50px + 8px); width:100%; height:50px; font-size:36px; font-family:Arial; text-align:center; background:#333333; color:#AAAAAA; line-height:50px;">Please enable JavaScript!</div>
+        </noscript>
+        <header>
+            <svg id="gornjiLijevi" style="float:left; width:25%; height:200px; background:white;"></svg>
+            Hello world!
+            <svg id="gornjiDesni" style="float:right; width:25%; height:200px; background:white;"></svg>
+            <script type="text/javascript">
+                var svgNS = "http://www.w3.org/2000/svg";
+                function nacrtajRubove() {
+                    var crtanje = document.getElementById("gornjiLijevi");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    var visina = crtanje.clientHeight;
+                    var sirina = crtanje.clientWidth;
+                    if (!visina || !sirina)
+                    {
+                        visina=crtanje.parentNode.clientHeight;
+                        sirina=crtanje.parentNode.clientWidth/4;
+                    }
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = (270 + i * 3) / 57.3;
+                        var kut2 = (274 + i * 3) / 57.3;
+                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+                        var y1 = Math.round(visina + Math.sin(kut1) * visina);
+                        var y2 = Math.round(visina + Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina);
+                        trokut.setAttribute("fill", "rgb(" + Math.round(255 - i * 2.83) + ",170," + Math.round(170 + i * 2.83) + ")");
+                        crtanje.appendChild(trokut);
+                    }
+                    crtanje = document.getElementById("gornjiDesni");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = i * 3 / 57.3;
+                        var kut2 = (4 + i * 3) / 57.3;
+                        var x1 = Math.round(Math.cos(kut1) * sirina);
+                        var x2 = Math.round(Math.cos(kut2) * sirina);
+                        var y1 = Math.round(visina - Math.sin(kut1) * visina);
+                        var y2 = Math.round(visina - Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina);
+                        trokut.setAttribute("fill", "rgb(255," + Math.round(255 - i * 2.83) + ",170)");
+                        crtanje.appendChild(trokut);
+                    }
+                }
+                nacrtajRubove();
+                window.addEventListener('resize', nacrtajRubove);
+            </script>
+        </header>
+        <aside>
+            <br/>
+            <center><b>Here are my online publications:</b></center>
+            <br/>
+            <a href="#"><div class="link1">
+                <div class="popup">A simple message.</div>
+                Link #1
+            </div></a>
+            <a href="#"><div class="link2 link1">
+                <div class="popup">Another message.</div>
+                Link #2
+            </div></a>
+            <a href="#"><div class="link1">
+                <div class="popup">So, there are two classes of links, one for the odd ones and one for the even ones.</div>
+                Link #3
+            </div></a>
+        </aside>
+        <section>
+            <br>Here are some interesting facts.<br>
+            <a id="loptica" href="#vrh" style="position: absolute;">
+                <svg width="100" height="100">
+                <defs>
+                <radialgradient id="modrozelen">
+                <stop offset="0%" stop-color="#00FFFF"/>
+                <stop offset="100%" stop-color="#0000FF"/>
+                </radialgradient>
+                <radialgradient id="ljubicastoplav">
+                <stop offset="0%" stop-color="#FF00FF"/>
+                <stop offset="100%" stop-color="#0000FF"/>
+                </radialgradient>
+                </defs>
+                <circle cx="50" cy="50" r="50" fill="url(#modrozelen)"/>
+                <polygon points="50,25 25,50 38,50 38,75 62,75 62,50 75,50" fill="url(#ljubicastoplav)"/>
+                </svg>
+            </a>
+            <script type="text/javascript">
+                var udaraca = 0;
+                var loptica = document.getElementById("loptica");
+                var pocetna = loptica.parentNode.clientHeight + 200 - 100;
+                loptica.style.top = pocetna;
+                loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+                var h = 0;
+                var gk = 1;
+                var v = 15;
+                window.setInterval(pomakniLopticu, 80);
+                window.addEventListener("resize", promijeniPocetnu);
+                function promijeniPocetnu()
+                {
+                    pocetna = loptica.parentNode.clientHeight + 210 - 100;
+                    loptica.style.top = pocetna;
+                    loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+                    h = 0;
+                    gk = 1;
+                    v = 15;
+                }
+                function pomakniLopticu()
+                {
+                    h += v;
+                    v -= gk;
+                    if (h < 0)
+                    {
+                        v = -v * 0.75;
+                        h = 0;
+                        udaraca++;
+                        if (udaraca > 20)
+                        {
+                            udaraca = 0;
+                            v = 15;
+                        }
+                    }
+                    loptica.style.top = pocetna - h;
+                }
+            </script>
+        </section>
+        <main class="main1" id="glavni" style="display:block">
+            <a name="vrh"></a>
+            <div style="text-align:center; font-weight: bold; font-size:1.5em; margin-top:10px;">Hello from the title!</div>
+            <div style="text-align: justify; margin-left:10px; margin-right:10px; margin-top:10px; margin-bottom: 100px;">
+                Doudgio okfe! Bup godoapvet ko! Boz, jat oe empindazdifaznieb koluom. Herurofvi ja u. Sekjer vo?<br/> Hi! Buszu takokder zavu? Pe afde bo dazmag rojejepe lot ar e jal, zi kun a gil. Jaj jupev. Dedkeoptozgum pofgojdenej gip. Sa tual zem e. Ri vaelov. Avlaz zenem fa musersib. Daj ku, jam mo i ki famefgo papodi? Di pesefepea jerzam fi me idhuvunip.<br/> Ziligkiu fun. Da! Sidov zahitak fom vonuosoef
+                <div style="background:gray; float:right; color:purple; text-align:center; margin-top:5px; margin-left:10px; margin-bottom:5px;">
+                    <img src="background.jpg" style="margin-top:10px; margin-left:10px; margin-right:10px; margin-bottom:5px; width:200px;"/><br>
+                    <i>A sample image<br/> with caption</i><br>
+                </div> erfozu rozbe ruduvgejatakefuku gimehuvoavhumeso hepifvo roj upil veta asobi! Deneru? Luh bugegakhorosoe jairte hiv keo oejura ao si vu lesi ilhuz bum zag dobo! Bi zaki <a href="#">voloprudsilodob</a> ou o. Di donap sibuto ma? Pe atjae rongahuse, peugarodjeda zojmo luovpovdujenfidarib, zo hujpema. Hes eatom uika, me Teoh, ih luz gi fab jubuikule je!<br/> Te ji boarebinda rap i? Ju kau evu opa kasu zevbef iv o pijzu zafo ladao emape vo, ozu ziho oufu ta guzav. Luru pu daietin kanse vej hig? Ho zu. Ki toseipburpub juv vitrisepmuvet josin han u. Eu ra? Og gone ha er. Vokro. Nu am. Falri? Gebri per tu pezuno? Gon ge tehumvi il! Rusadofa. Vap? Kue ba li. Sik naga, jo bi temu giop ibhu zer lo uhinoharsej jaon ravsonronon kiokuj doji pon? Nu, pomouobu vefeu jumupi tulau ruz he tu. Ka ze al honfih leme rar kij bup? Sued ahpon hitaejue gevla va or zon gavotag ri, hasuztefi gi ku olija nib fo o em zijra hoe loviz givlier emneafakdo hubodeb. Ota ne be pokubobea bu! Hogiluiasrau jumumoiga!<br/> Nu zup fikgivu dop ko suoi pe kojiana me veu huz hiro rosguzaso li? Ak? Mik oelti al esihe, serhe, kea zei ba sa, fe? <a href="#">Alkevurapso</a> dek! Jo zozivzuzi gupteu afvuze giha. Rofeltuk. Po uifadraghip vuhbonu jahi hupkukde fuguvub pe no. Fo e! Bid to uko raeimar, beb la zubuni ta ra, ja po o vo lohorubi veder? Du sag e deki ho ki gu neh! Em afaban? Kugebugogarfo upujovaduza metefah fu! U. Jal opofbej. Bo tus pifsed defekijguj jai? Goaf u, ti? Koip hemo, ke foehu tes ger fak efiva kev les enofta vi pavmal? Vo ika o! Sib ga e loju faizine kil rufa. San i ofemku tabufbof dusu noki i va ri, fezudrakaoba atiuikoteu! No ji zag vo ga ved uga da akunsohe, tub disas, mio naoie? Gumruidubi omid ni gu. Du. Gu lekaizusre, ajej hadekno! Mouiomo gupeno? Sop? Tiruk ir a tev i fen oru ao kad vo un u hadhu oher hujfuej ba ruori. Fievap! Bu utafhudokempo lu al nu su le ez mugosonepeza po, ef u ka soen hiz tuvu u lahodpu mi. Jokmu. Fene, keoazsorga <a href="#">kasobogzujipmifuj</a> jij opojveduvu jei esnej, heteh om lolpiut rev seju fisi li je bu uknaka i a gitefiav? Fobavou pe tog? Ki ga om. Ove u si je gop? Uk, rehu vokoljefejsoketfu fufuezgumukhosel ro rusifureti ludeb.<br/> Ojuzek ko akgofje kifore kofakpo! Ka zi o zutu. I hu rib he hu il e a ve ho i! Ajkehi fopjiazan keosofe etro ki pur li pan zavo oz jutu gitarmafu zohbua tu, ohlolakaj zafdihuefhiz siujuh bitgedmuduna izenvop jubaou fapu.<br/>Ho da mim pa! Depog riri jeh pa fadze joeobausa. Bi!
+            </div>
+        </main>
+        <footer>
+            <div style="width: 25%; float: right; text-align:left; bottom:30px;">
+                Choose the style: 
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main1')">[1]</a>
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main2')">[2]</a>
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main3')">[3]</a>
+            </div>
+            Uploaded by Teo Samarzija on 05/12/2017
+            <svg id="donjiLijevi" style="float:left; width:25%; height:100%; background: white;"></svg>
+            <script type="text/javascript">
+            if (navigator.appName=="Microsoft Internet Explorer")
+            {
+            	var niz=document.getElementsByTagName("div");
+            	for (var i=0; i<niz.length; i++)
+            	{
+            		if (niz[i].className.indexOf("link1")==-1)
+            			continue;
+            		niz[i].onmouseenter=
+            			function()
+            				{this.children[0].style.display="inline";};
+            		niz[i].onmouseleave=
+            			function()
+            				{this.children[0].style.display="none";};
+        	    }
+        	    document.getElementById("glavni").removeAttribute("style");
+            }
+            else if (navigator.appName=="Opera") {
+                document.getElementById("glavni").style.backgroundColor="white";
+            	document.getElementById("glavni").style.color="black";
+            	var gornjiDesni=document.getElementById("gornjiDesni");
+            	gornjiDesni.parentNode.removeChild(gornjiDesni);
+            }
+            else if (((navigator.userAgent.indexOf("Safari")+1 || navigator.userAgent.indexOf("WebKit")+1)
+                     && navigator.userAgent.indexOf("Mobile")+1
+                     && (!(navigator.userAgent.indexOf("Chrome")+1) ||
+                         (navigator.userAgent.indexOf("Version")+1 && navigator.userAgent.indexOf("Chrome")+1))
+                     || (navigator.userAgent.indexOf("Mobile")+1 && navigator.userAgent.indexOf("Gecko")+1
+                         && !(navigator.userAgent.indexOf("like Gecko")+1))
+                     && !(navigator.userAgent.indexOf("Dolfin")+1)) && !(navigator.userAgent.indexOf("iPad")+1)
+                        && !(navigator.userAgent.indexOf("iPhone")+1))
+                         document.getElementById("glavni").style.fontSize="36px";
+            else if (navigator.userAgent.indexOf("Mobi")+1)
+            {
+                document.head.innerHTML+="<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=0\">";
+                var niz=document.getElementsByTagName("svg");
+                for (var i=0; i<niz.length; i++)
+                    niz[i].style.display="none";
+                document.getElementsByTagName("aside")[0].style.display="none";
+                document.getElementsByTagName("aside")[0].style.float="none";
+                document.getElementsByTagName("aside")[0].style.width="100%";
+                document.getElementsByTagName("aside")[0].style.height="auto";
+                niz=document.getElementsByClassName("popup");
+                for (var i=0; i<niz.length; i++) {
+                    niz[i].style.width="50%"
+                    niz[i].style.left="45%";
+                    niz[i].style.maxWidth="none";
+                }
+                document.getElementsByTagName("section")[0].style.height="auto";
+                document.getElementsByTagName("section")[0].style.float="none";
+                document.getElementsByTagName("section")[0].style.width="100%";
+                document.getElementsByTagName("header")[0].style.height="auto";
+                document.getElementsByTagName("header")[0].style.lineHeight="normal";
+                document.getElementsByTagName("main")[0].style.width="100%";
+                document.getElementsByTagName("footer")[0].children[0].style.display="inline";
+                document.getElementsByTagName("footer")[0].children[0].style.float="none";
+                document.getElementsByTagName("footer")[0].children[0].innerHTML+="<br/><br/>";
+                document.getElementsByTagName("footer")[0].style.height="auto";
+                document.getElementsByTagName("footer")[0].style.lineHeight="normal";
+                document.getElementsByTagName("header")[0].outerHTML+="<button id=\"showNavigation\" style=\"width:100%;line-height:36px;height:41px;\">Show navigation<\/button>";
+                document.getElementById("showNavigation").onclick=
+                function()
+                {
+                    if (document.getElementsByTagName("aside")[0].style.display=="none")
+                    {
+                        this.innerHTML="Hide navigation";
+                        document.getElementsByTagName("aside")[0].style.display="block";
+                    }
+                    else
+                    {
+                        this.innerHTML="Show navigation";
+                        document.getElementsByTagName("aside")[0].style.display="none";
+                    }
+                }
+                ////window.setTimeout(function(){document.body.removeChild(document.body.children[document.body.children.length-1]);},1000);
+            }
+                function footerScript() {
+                    var crtanje = document.getElementById("donjiLijevi");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    var visina = crtanje.clientHeight;
+                    var sirina = crtanje.clientWidth;
+                    if (!visina || !sirina)
+                    {
+                        visina=crtanje.parentNode.clientHeight;
+                        sirina=crtanje.parentNode.clientWidth/4;
+                    }
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = (270 + i * 3) / 57.3;
+                        var kut2 = (274 + i * 3) / 57.3;
+                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+                        var y1 = -Math.round(Math.sin(kut1) * visina);
+                        var y2 = -Math.round(Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0");
+                        trokut.setAttribute("fill", "rgb(170," + Math.round(255 - i * 2.83) + "," + Math.min(Math.round(170 + i * 4), 255) + ")");
+                        crtanje.appendChild(trokut);
+                    }
+                }
+                footerScript();
+                window.addEventListener('resize', footerScript);
+            </script>
+        </footer>
+    </body>
+</html>

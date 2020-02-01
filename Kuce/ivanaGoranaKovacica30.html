@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<title>Ivana Gorana Kovačića 30, Donji Miholjac - prodaje se</title>
+<meta name="description" content="Prodaje se kuća u Ivana Gorana Kovačića 30, Donji Miholjac">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  margin:10px;
+  max-width:640px;
+}
+
+.mySlides {
+  display: none;
+  padding:0px;
+  margin:0px;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 35%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.numbertext {
+  color: #333333;
+  font-family:Verdana;
+  font-size: 18px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.caption-container {
+  font-family:Arial;
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  margin-bottom:4px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row {
+    display:block;
+    width:100%;
+}
+
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+h1 {
+    text-align:center;
+    font-family:Arial;
+}
+
+#gornjiNatpis {
+    text-align:justify;
+    font-family:Verdana;
+}
+
+#opis {
+    display:block;
+    text-align:justify;
+    padding:5px;
+    background:#FFFFDD;
+    font-family:Arial;
+    width:100%;
+    margin-bottom:5px;
+}
+#cijena {
+    display:block;
+    text-align:justify;
+    padding:5px;
+    background:#FFDDDD;
+    font-family:Courier;
+    width:100%;
+    margin-bottom:5px;
+}
+#kontakt
+{
+    display:block;
+    text-align:justify;
+    padding:5px;
+    background:#DDFFDD;
+    font-family:Arial;
+    width:100%;
+    margin-bottom:5px;
+}
+#oglasivac
+{
+    display:block;
+    text-align:center;
+    padding:5px;
+    background:#DDDDFF;
+    font-family:Times;
+    width:100%;
+    margin-bottom:35px;
+}
+body
+{
+    background-color:#EEEEEE;
+}
+</style>
+</head>
+<body>
+    <span style="display:block; max-width:640px; position:absolute; margin:5px;" id="content">
+        <h1>Prodaje se kuća</h1>
+        <span id="gornjiNatpis">Prodaje se kuća u Donjem Miholjcu, na adresi Ivana Gorana Kovačića 30. Ispod možete vidjeti fotografije, kontakt i osnovne podatke.</span>
+        <div class="container" id="container"></div>
+        <span id="opis">Kuća je na adresi Ivana Gorana Kovačića 30, u centru Donjeg Miholjca. To je na vrhu brijega kod autobusnog kolodvora, ali unatoč tomu je mirno. Na drugom kraju ulice je pošta. U toj ulici preko puta stanuje poznati nogometaš Domagoj Vida. U neposrednoj blizini je trgovina Bipa, a u blizini su i Lidl i Konzum, te pekara, tržnica i Ravlićeva mesnica. U blizini su dječji vrtić, osnovna i srednja škola te dom zdravlja.<br/> Kuća je trosobna (ima dnevnu, dječju i spavaću sobu; blagovaonica i kuhinja odvojene su zidom, zasebne su prostorije), obiteljska, ima predsoblje. S ulaznih vrata ulazi se u predsoblje iz kojeg se ulazi u blagovaonicu, kupaonicu s WC-om, dječju i dnevnu sobu, a iz dnevne u spavaću sobu. Duž cijele stražnje strane kuće proteže se prekrasna terasa, s vidikom na dvorište i vrt. Od sunca je skriva vinova loza te štiti izolirani limeni krov. Ispod prvog dijela terase je podrum od četiri prostorije. Ispod drugog dijela terase su prostorije i u sjevernom dijelu dvorišta su prostorije namijenjene raznim <i>hobbiesima</i>.<br/>Opremljena je gradskim plinskim grijanjem, strujom, telefonom i internetom te gradskom vodom i kanalizacijom. Zidovi su pokriveni kvalitetnim bavalitom. U dnevnoj sobi je klima. Kuća je bez tereta i legalizirana je. Krov je pokriven novim crijepom, modernizirana je štukatura i izolirana je staklenom vunom.<br/>Građena je 1968. godine.</span>
+        <span id="cijena">Cijena: 45'000 € (fiksno)</span>
+        <span id="kontakt">Telefon: +385'91/957-2473</span>
+        <span id="oglasivac">Postavio oglas: Teo Samaržija</span>
+    </span>
+<script>
+    if (document && !document.getElementsByClassName)
+        document.getElementsByClassName=function(str)
+        {
+            var niz=document.getElementsByTagName("*");
+            var ret=[];
+            for (var i=0; i<niz.length; i++)
+                if (eval("/(\\s|^)"+str+"(\\s|$)/").test(niz[i].className))
+                    ret.push(niz[i]);
+            return ret;
+        }
+    document.body.onresize=function()
+    {
+        var content=document.getElementById("content");
+        content.style.left=(window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth)/2-content.clientWidth/2+"px";
+    }
+    var alts=[];
+    alts[1]="Pogled na vrt iz dvorišta";
+    alts[2]="Stražnja prostorija podruma";
+    alts[3]="Dvorište";
+    alts[4]="Garaža";
+    alts[5]="Ograda";
+    alts[6]="Kokošinjac";
+    alts[7]="Grožđe";
+    alts[8]="Prozori na garaži";
+    alts[9]="Ulaz u podrum";
+    alts[10]="Hodnik podruma";
+    alts[11]="Šupa";
+    alts[12]="Pogled izvana";
+    alts[13]="Zamrzivač";
+    alts[14]="Pogled na terasu iz dvorišta";
+    alts[15]="Pogled na kuću sa brijega";
+    alts[16]="Prozori od podruma";
+    alts[17]="Terasa";
+    alts.splice(7,1);
+for (var i=1; i<=16; i++)
+	document.getElementById("container").innerHTML+="<div class=\"mySlides\">\n"+
+"<div class=\"numbertext\">"+i+" / 17</div>\n"+
+"<img src=\"Kuca IGK30-"+i+".jpg\" style=\"width:100%; margin:0px;\">\n"+
+"</div>\n";
+document.getElementById("container").innerHTML+="<a class=\"prev\" onclick=\"plusSlides(-1)\">&#10094;</a>\n"+
+"<a class=\"next\" onclick=\"plusSlides(1)\">&#10095;</a>\n"+
+"<div class=\"caption-container\">\n"+
+"<p id=\"caption\"></p>\n"+
+"</div>\n";
+for (var i=0; i<3; i++)
+{
+	var tmp="<div class=\"row\">\n";
+	for (var j=1; j<=6; j++)
+	if (i*6+j<17)
+        tmp+="<div class=\"column\">\n"+
+"<img class=\"demo cursor\" src=\"Kuca IGK30-"+(i*6+j)+".jpg\" style=\"width:100%\" onclick=\"currentSlide("+(i*6+j)+")\" alt=\""+alts[(i*6+j)]+"\">\n"+
+"</div>\n";
+	tmp+="</div>";
+    document.getElementById("container").innerHTML+=tmp;
+}
+var slideIndex = 11;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex + n);
+}
+
+function currentSlide(n) {
+  showSlides(n);
+}
+
+function showSlides(n) {
+  zadnjaPromjena=time;
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+//  fadeOut(slides[slideIndex],0);
+  slideIndex=n;
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+//  setTimeout(function(){fadeIn(slides[slideIndex-1],0);},500);
+  fadeIn(slides[slideIndex-1],0);
+//  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+function fadeIn(obj,n)
+{
+    if (!n) {obj.style.display="block"; obj.style.opacity=0; setTimeout(function(){fadeIn(obj,n+1);},50);}
+    else if (n<10) {obj.style.opacity=n*0.1;setTimeout(function(){fadeIn(obj,n+1);},50);}
+}
+function fadeOut(obj,n)
+{
+    if (!n) {obj.style.opacity=1; obj.style.display="block"; setTimeout(function(){fadeOut(obj,n+1);},50);}
+    else if (n<10) {obj.style.opacity=1-n*0.1; obj.style.display="block"; setTimeout(function(){fadeIn(obj,n+1);},50);}
+    else obj.style.display="none";
+}
+window.onload=document.body.onresize;
+var time=0,zadnjaPromjena=0;
+setInterval(function(){time++; if (time-zadnjaPromjena>10) {fadeOut(document.getElementsByClassName("mySlides")[slideIndex-1],0);setTimeout(function(){plusSlides(1);},500);}},1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,562 @@
+<html>
+    <head>
+        <title>Vegetarianism</title>
+        <style type="text/css">
+            header
+            {
+                height:200px;
+                line-height:200px;
+                text-align:center;
+                background:#FFAAAA;
+                color:darkblue;
+                font-weight:bold;
+                font-size:36px;
+                font-family:Lucida;
+            }
+            aside
+            {
+                width:25%;
+                background:#AAAAFF;
+                height:100%;
+                float:left;
+                color:#AA4400;
+                overflow:auto;
+            }
+            aside a
+            {
+                text-decoration:none;
+            }
+            section
+            {
+                width:25%;
+                background:#FFFFAA;
+                height:100%;
+                float:right;
+                color:purple;
+                text-align: center;
+                overflow:auto;
+            }
+            .main1
+            {
+                background: black;
+                color:darkgray;
+                width:50%;
+                height:100%;
+                overflow: auto;
+                font-family: Verdana;
+            }
+            .main1 a
+            {
+                color:lightgreen;
+            }
+            .main2
+            {
+                background: black;
+                color:lightgreen;
+                width:50%;
+                height:100%;
+                overflow: auto;
+            }
+            .main2 a
+            {
+                color:#00FFFF;
+            }
+            .main3
+            {
+                background: #EEEEEE;
+                color:#333333;
+                width:50%;
+                height:100%;
+                overflow: auto;
+                font-family: Arial;
+            }
+            .main3 a
+            {
+                color:#00AAAA;
+            }
+        .link1
+        {
+            text-decoration:none;
+            background: linear-gradient(to right,#111111,#333333);
+            height:30px;
+            width:100%;
+            color:#FF3300;
+            line-height:30px;
+            text-indent:10px;
+            font-family:Verdana;
+            text-indent:5px;
+        }
+        .popup
+        {
+            display:none;
+            background:black;
+            font-size:14px;
+            line-height: 18px;
+            color:white;
+            opacity:0.75;
+            position:absolute;
+            left:25%;
+            border-width: 7px;
+            border-style: solid;
+            border-color: black;
+            max-width: 200px;
+            text-indent: 0px;
+        }
+        .popup::before
+        {
+            content:" ";
+        }
+        .link1:hover
+        {
+            background:darkGray;
+            color:black;
+        }
+        .link1:hover .popup
+        {
+            display:block;
+        }
+        .link2
+        {
+            background:linear-gradient(to right,#333333,#111111);
+            color:#FF3300;
+        }
+            footer
+            {
+                width:100%;
+                height:50px;
+                background: #AAFFAA;
+                text-align:center;
+                color:#007777;
+                line-height: 50px;
+            }
+            .quotation
+            {
+                margin-top:5px;
+                margin-bottom:5px;
+                display:block;
+                font-family:Times;
+                padding-left:10px;
+                padding-right:10px;
+                padding-bottom:5px;
+                padding-top:5px;
+                background:#FFFFDD;
+                color:black;
+            }
+        </style>
+    </head>
+    <body>
+        <noscript>
+            <img src="gornjiLijevi.svg" style="position:absolute; left:8px; width:25%; height:200px; top:8px; -webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
+            <img src="gornjiDesni.svg" style="position:absolute; width:25%; height:200px; left:-webkit-calc(75% - 8px); left:calc(75% - 8px); top:8px;-webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
+            <img src="donjiLijevi.svg" style="position:absolute; width:25%; height:50px; left:8px; top:calc(100% + 200px - 8px); top:-webkit-calc(100% + 200px - 8px); -webkit-animation-name: animacija;-webkit-animation-duration: 2s;"/>
+            <div style="position:absolute; top:-webkit-calc(100% + 200px + 50px + 8px); top:calc(100% + 200px + 50px + 8px); width:100%; height:50px; font-size:36px; font-family:Arial; text-align:center; background:#333333; color:#AAAAAA; line-height:50px;">Please enable JavaScript!</div>
+        </noscript>
+        <header>
+            <svg id="gornjiLijevi" style="float:left; width:25%; height:200px; background:white;"></svg>
+            Vegetarianism
+            <svg id="gornjiDesni" style="float:right; width:25%; height:200px; background:white;"></svg>
+            <script type="text/javascript">
+                var svgNS = "http://www.w3.org/2000/svg";
+                function nacrtajRubove() {
+                    var crtanje = document.getElementById("gornjiLijevi");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    var visina = crtanje.clientHeight;
+                    var sirina = crtanje.clientWidth;
+                    if (!visina || !sirina)
+                    {
+                        visina=crtanje.parentNode.clientHeight;
+                        sirina=crtanje.parentNode.clientWidth/4;
+                    }
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = (270 + i * 3) / 57.3;
+                        var kut2 = (274 + i * 3) / 57.3;
+                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+                        var y1 = Math.round(visina + Math.sin(kut1) * visina);
+                        var y2 = Math.round(visina + Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina);
+                        trokut.setAttribute("fill", "rgb(" + Math.round(255 - i * 2.83) + ",170," + Math.round(170 + i * 2.83) + ")");
+                        crtanje.appendChild(trokut);
+                    }
+                    crtanje = document.getElementById("gornjiDesni");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = i * 3 / 57.3;
+                        var kut2 = (4 + i * 3) / 57.3;
+                        var x1 = Math.round(Math.cos(kut1) * sirina);
+                        var x2 = Math.round(Math.cos(kut2) * sirina);
+                        var y1 = Math.round(visina - Math.sin(kut1) * visina);
+                        var y2 = Math.round(visina - Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina);
+                        trokut.setAttribute("fill", "rgb(255," + Math.round(255 - i * 2.83) + ",170)");
+                        crtanje.appendChild(trokut);
+                    }
+                }
+                nacrtajRubove();
+                window.addEventListener('resize', nacrtajRubove);
+            </script>
+        </header>
+        <aside>
+            <br/>
+            <center><b>Here are my online publications:</b></center>
+            <br/>
+            <b style="margin-left:5px">HTML5 stuff:</b>
+            <a href="sat.html"><div class="link1">
+                <div class="popup">A simple "grandfather clock" animation made in Javascript.</div>
+                Analog Clock
+            </div></a>
+            <a href="calculator.html"><div class="link2 link1">
+                <div class="popup">A simple HTML5 online calculator. Can solve parentheses!</div>
+                Calculator
+            </div></a>
+            <a href="fraktal.html"><div class="link1">
+                <div class="popup">A spiral fractal I've made by modifying the "Dragon Curve".</div>
+                The Dragon Curve
+            </div></a>
+            <a href="pacman.html"><div class="link2 link1">
+                <div class="popup">A Pacman game playable on touch screens. Made in Javascript using the SVG graphics.</div>
+                PacMan
+            </div></a>
+            <a href="etymologist.html">
+<div class="link1">
+<div class="popup">A flashcard game in which the goal is to guess the etymologies of the words in simulated languages.</div>
+Etymology Game
+</div></a>
+            <br><b style="margin-left:5px">Webpages on this website:</b>
+            <a href="index.html"><div class="link1">
+                <div class="popup">A webpage with a bunch of links.</div>
+                Homepage
+            </div></a>
+            <a href="libertarianism.html"><div class="link2 link1">
+                <div class="popup">What do I think about politics?</div>
+                Libertarianism
+            </div></a>
+            <a href="vegetarianism.html"><div class="link1">
+                <div class="popup">The webpage you are currently browsing.</div>
+                Vegetarianism
+            </div></a>
+            <a href="Simulation.html"><div class="link2 link1">
+                <div class="popup">Could the universe be a giant computer?</div>
+                Digital Physics
+            </div></a>
+            <a href="linguistics.html"><div class="link1">
+                <div class="popup">Why I like languages.<br><br>
+                    See also:<br>
+                    <u style="color:#0077FF" onclick="window.open('http://flatassembler.github.io/toponyms.html'); window.close();">Croatian Toponyms</u><br>
+                    <u style="color:#0077FF" onclick="window.open('http://flatassembler.github.io/Indo-Austronesian.html'); window.close();">Indo-Austronesian</u></div>
+                Linguistics
+            </div></a>
+            <a href="informatics.html"><div class="link2 link1">
+                <div class="popup">Why I like computers.</div>
+                Informatics
+            </div></a>
+            <a href="pseudosciences.html"><div class="link1">
+                <div class="popup">My advice on how to recognize and deal with false sciences.</div>
+                Pseudosciences
+            </div></a>
+            <br><b style="margin-left:5px">On Internet forums and blogs:</b>
+            <a href="http://linguistforum.com/outside-of-the-box/croatian-toponyms/"><div class="link1">
+                <div class="popup">The forum thread in which I explained my linguistic theories in detail.</div>
+                Croatian Toponyms
+            </div></a>
+            <a href="https://atheistforums.org/thread-50241.html"><div class="link2 link1">
+                <div class="popup">My parody of the conspiracy theorists.</div>
+                Airplanes Don't Exist
+            </div></a>
+        </aside>
+        <section>
+            <p style="margin-left:5px; margin-right:5px;"><br>More than 50% of crops and soy we produce is used to feed animals in factory farms. Meanwhile, there are millions of people starving to death around the world.<br><br>Animal agriculture is responsible for more than 50% of the deforestation.<br><br>Pigs are, by some measures, way smarter than dogs.<br>
+            </p><br>
+            <a id="loptica" href="#vrh" style="position: absolute;">
+                <svg width="100" height="100">
+                <defs>
+                <radialgradient id="modrozelen">
+                <stop offset="0%" stop-color="#00FFFF"/>
+                <stop offset="100%" stop-color="#0000FF"/>
+                </radialgradient>
+                <radialgradient id="ljubicastoplav">
+                <stop offset="0%" stop-color="#FF00FF"/>
+                <stop offset="100%" stop-color="#0000FF"/>
+                </radialgradient>
+                </defs>
+                <circle cx="50" cy="50" r="50" fill="url(#modrozelen)"/>
+                <polygon points="50,25 25,50 38,50 38,75 62,75 62,50 75,50" fill="url(#ljubicastoplav)"/>
+                </svg>
+            </a>
+            <script type="text/javascript">
+                var udaraca = 0;
+                var loptica = document.getElementById("loptica");
+                var pocetna = loptica.parentNode.clientHeight + 200 - 100;
+                loptica.style.top = pocetna;
+                loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+                var h = 0;
+                var gk = 1;
+                var v = 10;
+                window.setInterval(pomakniLopticu, 80);
+                window.addEventListener("resize", promijeniPocetnu);
+                function promijeniPocetnu()
+                {
+                    pocetna = loptica.parentNode.clientHeight + 210 - 100;
+                    loptica.style.top = pocetna;
+                    loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+                    h = 0;
+                    gk = 1;
+                    v = 10;
+                }
+                function pomakniLopticu()
+                {
+                    h += v;
+                    v -= gk;
+                    if (h < 0)
+                    {
+                        v = -v * 0.75;
+                        h = 0;
+                        udaraca++;
+                        if (udaraca > 20)
+                        {
+                            udaraca = 0;
+                            v = 10;
+                        }
+                    }
+                    loptica.style.top = pocetna - h;
+                }
+            </script>
+        </section>
+        <main class="main1" id="glavni" style="display:block">
+            <a name="vrh"></a>
+                <h2 style="text-align: center">About Vegetarianism</h2>
+                <div style="text-align: justify; margin-left:10px; margin-right:10px; margin-bottom:100px;">Vegetarianism means abstaining from eating meat. It usually applies to the meat of the birds and mammals, the animals most neuroscientists <a href="https://en.wikipedia.org/wiki/Animal_consciousness#Cambridge_Declaration_on_Consciousness">agree</a> are capable of feeling pain. So, why do I adhere to vegetarianism?<div style="background:gray; float:right; color:purple; text-align:center; margin-top:5px; margin-left:10px; margin-bottom:5px;"><svg width=200 height=200 style="background:black; margin-top:10px; margin-bottom:5px; margin-left:10px; margin-right:10px;" id="colorCircle">
+                </svg><br><i>Valuing everyone's freedom,<br> regardless of how diverse<br> they are,<br> is a core of many peoples'<br> ideologies. However,<br> hardly anyone is consistent<br> enough to apply that to animals<br> of other species.</i></div>
+                <script type="text/javascript">
+                    var crtanje=document.getElementById("colorCircle");
+                    var kut1,kut2,x1,x2,y1,y2;
+                    var r=255;
+                    var g=0;
+                    var b=0;
+                    for (var i=0; i<108; i++)
+                    {
+                        
+                        kut1=2*Math.PI/108*i;
+                        kut2=2*Math.PI/108*(i+1);
+                        x1=Math.round(100+Math.sin(kut1)*75);
+                        x2=Math.round(100+Math.sin(kut2)*75);
+                        y1=Math.round(100-Math.cos(kut1)*75);
+                        y2=Math.round(100-Math.cos(kut2)*75);
+                        var trokut=document.createElementNS(svgNS,"polygon");
+                        trokut.setAttribute("points","100,100 "+x1+","+y1+" "+x2+","+y2);
+                        var boja="rgb("+Math.round(r)+","+Math.round(g)+","+Math.round(b)+")";
+                        trokut.setAttribute("fill",boja);
+                        trokut.setAttribute("stroke",boja);
+                        var rotacija=document.createElementNS(svgNS,"animateTransform");
+                        rotacija.setAttribute("attributeName","transform");
+                        rotacija.setAttribute("type","rotate");
+                        rotacija.setAttribute("from","0 100 100");
+                        rotacija.setAttribute("to","360 100 100");
+                        rotacija.setAttribute("dur","10s");
+                        rotacija.setAttribute("repeatCount","indefinite");
+                        trokut.appendChild(rotacija);
+                        crtanje.appendChild(trokut);
+                        if (i<18)
+                        {
+                            g+=14.2;
+                            continue;
+                        }
+                        if (i<36)
+                        {
+                            r-=14.2;
+                            continue;
+                        }
+                        if (i<54)
+                        {
+                            b+=14.2;
+                            continue;
+                        }
+                        if (i<72)
+                        {
+                            g-=14.2;
+                            continue;
+                        }
+                        if (i<90)
+                        {
+                            r+=14.2;
+                            continue;
+                        }
+                        b-=14.2;
+                    }
+                var krug=document.createElementNS(svgNS,"circle");
+                krug.setAttribute("fill","Gray");
+                krug.setAttribute("cx",100);
+                krug.setAttribute("cy",100);
+                krug.setAttribute("r",8);
+                crtanje.appendChild(krug);
+                var crta1=document.createElementNS(svgNS,"line");
+                crta1.setAttribute("x1",105);
+                crta1.setAttribute("x2",95);
+                crta1.setAttribute("y1",95);
+                crta1.setAttribute("y2",105);
+                crta1.setAttribute("stroke","darkGray");
+                crta1.setAttribute("stroke-width","2px");
+                rotacija=document.createElementNS(svgNS,"animateTransform");
+                rotacija.setAttribute("attributeName","transform");
+                rotacija.setAttribute("type","rotate");
+                rotacija.setAttribute("from","0 100 100");
+                rotacija.setAttribute("to","360 100 100");
+                rotacija.setAttribute("dur","10s");
+                rotacija.setAttribute("repeatCount","indefinite");
+                crta1.appendChild(rotacija);
+                crtanje.appendChild(crta1);
+                var crta2=document.createElementNS(svgNS,"line");
+                crta2.setAttribute("x1",105);
+                crta2.setAttribute("x2",95);
+                crta2.setAttribute("y1",105);
+                crta2.setAttribute("y2",95);
+                crta2.setAttribute("stroke","darkGray");
+                crta2.setAttribute("stroke-width","2px");
+                rotacija=document.createElementNS(svgNS,"animateTransform");
+                rotacija.setAttribute("attributeName","transform");
+                rotacija.setAttribute("type","rotate");
+                rotacija.setAttribute("from","0 100 100");
+                rotacija.setAttribute("to","360 100 100");
+                rotacija.setAttribute("dur","10s");
+                rotacija.setAttribute("repeatCount","indefinite");
+                crta2.appendChild(rotacija);
+                crtanje.appendChild(crta2);
+                    </script> Well, when I started to explore the world using the Internet, one of the first things I found out was that the reasons usually given for eating meat are nothing but modern-day myths.<br>It's said that eating meat is a natural and healthy way to get the Vitamin B12. However, chances are, the meat you can buy in a supermarket doesn't even contain it. Vitamin B12 is produced by the bacteria in the intestines of some animals. Today, the farmed animals are being regularly fed with antibiotics, which, among other things, kill those bacteria. It's often said that meat is a good source of the Omega-3 fatty acids, which prevent heart disease. Firstly, there isn't much evidence that Omega-3s help prevent heart-disease <b>in humans</b>, and, in fact, there are some good reasons to think they don't. Secondly, animals get the Omega-3 from grass, and most of the animals farmed for meat today never  see the grass, they spend their entire lives in the factory farms. The third argument used to justify eating meat is that it's a way to get enough protein. But, here is a thing, we don't actually know how much protein an adult human being actually needs. The figure of 35% of the energy intake written in many biology textbooks is without a doubt a huge overestimation. There are some experts who think that the reason there is so much osteoporosis these days is, in fact, that peoples blood pH is too low because they are taking too much protein. I am not saying they are right, I am just saying there isn't much evidence for some of the well-known things about nutrition.<br>Some of the other arguments used to justify eating meat is that animal agriculture supposedly helps the environment by fertilising the ground. The fact is, it does exactly the opposite. Actually, it <a href="http://www.cowspiracy.com/facts/">hurts the environment</a> at least as much as the modern traffic does. The other one is that it's supposedly easy to show that animals are incapable of higher cognitive functions. But, what requires little intelligence in humans often requires high intelligence in computers and vice versa, and who knows about animals (see <a href="https://en.wikipedia.org/wiki/Moravec%27s_paradox">The Moravec's Paradox</a>).<br>Of course, the most common argument for eating meat is that it's supposedly natural. Now, how exactly people think first humans were hunting before the tools necessary for that were invented, I have no idea. Being able to eat meat probably helped our ancestors survive in some cases. Today, it does more harm than good, and that's clear to everyone who looks at the evidence.<br>Vitamin B12 deficiency wasn't a problem for our ancestors, because they didn't use to clean the fruits and vegetables before eating them, and many bacteria in dust also produce Vitamin B12. Today, it's probably not a good idea. The best source of the Vitamin B12 today is probably shellfish. Many foods, including some exotic plants, contain it, but our body doesn't absorb it from them well. Since around a third of the worlds' population is deficient in the Vitamin B12, it's probably a good idea to take it in form of vitamin pills. Some plants, like flax, contain a lot of Omega-3. However, it contains a different form of Omega-3 than our body needs, and our bodies aren't good at converting between different forms of Omega-3. So, it's not entirely clear if it's better to get Omega-3 from plants or from fish. The foods richest in proteins are beans and cheese. Of course, not all protein is equal, and what our body actually needs is to get all the essential amino acids from the protein in our diet. The soybeans contain enough of all the essential amino acids except the methionine, and the seeds rich in methionine are sesame seeds. However, it's also important not to eat too much methionine. Contrary to popular belief, spinach isn't rich in iron at all. The best vegetarian source of iron is probably lentil. I hope this was enough information for you to understand vegetarianism.<br>I am not arguing for forcing people to be vegetarian (that would probably just lead to black markets), I just hope I've made some people think. Many people want to make the world a better place. But the right way to do that is to start from yourself. Do you strive not to cause unnecessary suffering of the innocent?<br/>
+                    <br/>UPDATE on 28/07/2018: I've just written a <a href="antiveg.html">parody</a> showing how anti-vegetarian propaganda sounds like to vegetarians (and to everybody else, I suppose).<br/>
+                <br/>UPDATE on 04/08/2019: I've started a <a href="https://textkit.com/greek-latin-forum/viewtopic.php?f=28&t=69452">thread</a> about vegetarian philosophy on a Latin forum, to see what people educated in philosophy and social sciences think about vegetarian philosophy. In case that website goes down, here is the short essay I wrote in the opening post, together with all the addenda and corrections (feel free to copy from me):
+            <span class="quotation">
+                Quid homines in hoc foro cogitant de vegetarianismo? Ego vegetarianista sum, ego credo carnem edere non licitum esse. Quomodo id licitum esse possit? Si carnem edimus, aliquis occidi debet. Id saepe non videmus, sed non licet nobis id ignorare. Et in Sina, multi homines canes edunt, easdem canes, quas nos amamus. In Helvetia etiam multi homines feles edunt. An canes et feles quodam modo differentes sunt a bubus et suibus, quas nos occidimus, ut carnem possimus edere? Forsan feles et canes sapientiores bubus et suibus sunt, sed boves et sues certe sapientiores liberis infantibus sunt, et quis neget infantes occidere non licitum esse? Sane, aliquae animalia non possunt vivere si ea animalia carnem non edant. Ergo quid? Mantides religiosae (magna insecta) etiam non possunt subolem habere, si eae non occidant et edant mares suos. An eius causa, quodam modo, licitum est mulieribus, quae homines sunt, suos maritos occidere?<br/>
+Argumenta pro carne edenda, quae saepe dantur, sunt:<br/>
+1) <i>Carnis minime carus modus vitamini B12 acquirendi est.</i><br/>
+Ita, multa animalia, boves inter alia, habent, in suis lactibus (intestinis), bacteria quae vitaminum B12 faciunt. Sed in carne, quae non cara est, vitaminum B12 paene non datur. Bubus, et aliis animalibus quae edimus, hodie semper antibiotica dantur. Ea antibiotica protegunt ea animalia a morbis, quos bacteria faciunt, quia ea animalia paene semper in parvis et sordidis spatiis sita sunt. Sed antibiotica etiam ea bacteria, quae vitaminum B12 faciunt, occidunt. Antibiotica enim et bona et mala bacteria occidunt. Carnis piscium vitaminum B12 continet, sed caro piscium multo carior (plures pecunias debes dare, ut carnem piscium possis emere) pilulis quae vitaminum B12 continent est.<br/>
+Dare magnam summam antibioticorum animalibus etiam possibile facit, ut aliquae bacteria, quae et animalia et homines morbidos faciunt, ab antibioticis invulnerabilia fiant. Materia genetica, de invulnerabilitate ab antibioticis, in paene omnibus bacteriis data est, et ea potest activa fieri. Probabiliter, id fit iam hodie. Forsan multos morbos, quae hodie possumus curare antibioticis, in futura non poterimus curare... carnem edendi causa.<br/>
+2) <i>Edere magnam summam omega-3-acidi protegit a morbis cordis.</i><br/>
+Simpliciter, hoc non est veritas. Evidentia huius non datur. Et si hoc veritas esset, non debeamus magnam summam carnis edere, debeamus magnam summam lini edere. Linum enim plenius omega-3-acidis quam caro est.<br/>
+3) <i>In optima diaeta, triens energiae ex proteinis acquisita est.</i><br/>
+De veritate huius informationis loquitur id, quod lac hominum continet paene nulla proteina.<br/>
+Spero, ut vos de his rebus cogitare faciam. Quod nos edimus, et quem aut quam nos edimus, afficit homines, et alia sentientia animalia, circa nos. Cum carnem emimus, facimus plures carnes fieri, id est, plura animalia ali et occidi. Leges de animalibus protegendis id non afficiunt.
+            </span><br/>
+        UPDATE on 01/10/2019: I've just posted a video about vegetarianism on YouTube, you can see it <a href="https://youtu.be/BZe4HO2ziAY">here</a>. If you can't, don't worry, all the information given there is also available on this website.<br/><br/>
+        UPDATE on 17/10/2019: I've posted a response video in which I try to debunk the anti-vegetarian claims made by Nina Teicholz, you can see it <a href="https://youtu.be/Lg-IBf5vtgM">here</a>. In case it doesn't work, try <a href="ResponseVideo-minified.mp4">this</a>.</div>
+        </main>
+        <footer>
+            <div style="width: 25%; float: right; text-align:left; bottom:30px;">
+                Choose the style: 
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main1')">[1]</a>
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main2')">[2]</a>
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main3')">[3]</a>
+            </div>
+            Uploaded by Teo Samarzija on 20/10/2017
+            <svg id="donjiLijevi" style="float:left; width:25%; height:100%; background: white;"></svg>
+            <script type="text/javascript">
+            if (navigator.appName=="Microsoft Internet Explorer")
+            {
+            	var niz=document.getElementsByTagName("div");
+            	for (var i=0; i<niz.length; i++)
+            	{
+            		if (niz[i].className.indexOf("link1")==-1)
+            			continue;
+            		niz[i].onmouseenter=
+            			function()
+            				{this.children[0].style.display="inline";};
+            		niz[i].onmouseleave=
+            			function()
+            				{this.children[0].style.display="none";};
+        	    }
+        	    document.getElementById("glavni").removeAttribute("style");
+            }
+            else if (navigator.appName=="Opera") {
+                document.getElementById("glavni").style.backgroundColor="white";
+            	document.getElementById("glavni").style.color="black";
+            	var gornjiDesni=document.getElementById("gornjiDesni");
+            	gornjiDesni.parentNode.removeChild(gornjiDesni);
+            }
+            else if (((navigator.userAgent.indexOf("Safari")+1 || navigator.userAgent.indexOf("WebKit")+1)
+                      && navigator.userAgent.indexOf("Mobile")+1
+                      && (!(navigator.userAgent.indexOf("Chrome")+1) ||
+                          (navigator.userAgent.indexOf("Version")+1 && navigator.userAgent.indexOf("Chrome")+1))
+                      || (navigator.userAgent.indexOf("Mobile")+1 && navigator.userAgent.indexOf("Gecko")+1
+                          && !(navigator.userAgent.indexOf("like Gecko")+1))
+                      && !(navigator.userAgent.indexOf("Dolfin")+1)) && !(navigator.userAgent.indexOf("iPad")+1) && !(navigator.userAgent.indexOf("iPhone")+1))
+                         document.getElementById("glavni").style.fontSize="36px";
+                         else if (navigator.userAgent.indexOf("Mobi")+1)
+                         {
+                             document.head.innerHTML+="<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=0\">";
+                             var niz=document.getElementsByTagName("svg");
+                             for (var i=0; i<niz.length; i++)
+                                if (niz[i].id!="colorCircle") niz[i].style.display="none";
+                             document.getElementsByTagName("aside")[0].style.display="none";
+                             document.getElementsByTagName("aside")[0].style.float="none";
+                             document.getElementsByTagName("aside")[0].style.width="100%";
+                             document.getElementsByTagName("aside")[0].style.height="auto";
+                             niz=document.getElementsByClassName("popup");
+                             for (var i=0; i<niz.length; i++) {
+                                 niz[i].style.width="50%"
+                                 niz[i].style.left="45%";
+                                 niz[i].style.maxWidth="none";
+                             }
+                             document.getElementsByTagName("section")[0].style.height="auto";
+                             document.getElementsByTagName("section")[0].style.float="none";
+                             document.getElementsByTagName("section")[0].style.width="100%";
+                             document.getElementsByTagName("header")[0].style.height="auto";
+                             document.getElementsByTagName("header")[0].style.lineHeight="normal";
+                             document.getElementsByTagName("main")[0].style.width="100%";
+                             document.getElementsByTagName("footer")[0].children[0].style.display="inline";
+                             document.getElementsByTagName("footer")[0].children[0].style.float="none";
+                             document.getElementsByTagName("footer")[0].children[0].innerHTML+="<br/><br/>";
+                             document.getElementsByTagName("footer")[0].style.height="auto";
+                             document.getElementsByTagName("footer")[0].style.lineHeight="normal";
+                             document.getElementsByTagName("header")[0].outerHTML+="<button id=\"showNavigation\" style=\"width:100%;line-height:36px;height:41px;\">Show navigation<\/button>";
+                             document.getElementById("showNavigation").onclick=
+                             function()
+                             {
+                                 if (document.getElementsByTagName("aside")[0].style.display=="none")
+                                 {
+                                     this.innerHTML="Hide navigation";
+                                     document.getElementsByTagName("aside")[0].style.display="block";
+                                 }
+                                 else
+                                 {
+                                     this.innerHTML="Show navigation";
+                                     document.getElementsByTagName("aside")[0].style.display="none";
+                                 }
+                             }
+                             //window.setTimeout(function(){document.body.removeChild(document.body.children[document.body.children.length-1]);},1000);
+                         }
+                function footerScript() {
+                    var crtanje = document.getElementById("donjiLijevi");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    var visina = crtanje.clientHeight;
+                    var sirina = crtanje.clientWidth;
+                    if (!visina || !sirina)
+                    {
+                        visina=crtanje.parentNode.clientHeight;
+                        sirina=crtanje.parentNode.clientWidth/4;
+                    }
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = (270 + i * 3) / 57.3;
+                        var kut2 = (274 + i * 3) / 57.3;
+                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+                        var y1 = -Math.round(Math.sin(kut1) * visina);
+                        var y2 = -Math.round(Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0");
+                        trokut.setAttribute("fill", "rgb(170," + Math.round(255 - i * 2.83) + "," + Math.min(Math.round(170 + i * 4), 255) + ")");
+                        crtanje.appendChild(trokut);
+                    }
+                }
+                footerScript();
+                window.addEventListener('resize', footerScript);
+            </script>
+        </footer>
+    </body>
+</html>

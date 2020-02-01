@@ -1,0 +1,938 @@
+<html lang="en">
+    <head>
+        <meta name="author" content="Teo Samarzija"/>
+        <meta name="description" content="Croatian toponyms don't come from Croatian, but from a now-extinct language that can be wonderfully reconstructed."/>
+        <meta name="keywords" content="Croatia, Toponyms, Placenames, Names, Places, Dubravka Ivsic, Historical Linguistics, Pseudolinguistics, Pseudoscience, Speculative History"/>
+        <title>Croatian Toponyms</title>
+        <meta charset="UTF-8">
+        <style type="text/css">
+            header
+            {
+                height:200px;
+                line-height:200px;
+                text-align:center;
+                background:#FFAAAA;
+                color:darkblue;
+                font-weight:bold;
+                font-size:36px;
+                font-family:Lucida;
+            }
+            aside
+            {
+                width:25%;
+                background:#AAAAFF;
+                height:100%;
+                float:left;
+                color:#AA4400;
+                overflow:auto;
+            }
+            aside a
+            {
+                text-decoration:none;
+            }
+            section
+            {
+                width:25%;
+                background:#FFFFAA;
+                height:100%;
+                float:right;
+                color:purple;
+                text-align: center;
+                overflow:auto;
+            }
+            .main1
+            {
+                background: black;
+                color:darkgray;
+                border-color:white;
+                width:50%;
+                height:100%;
+                overflow: auto;
+                font-family: Verdana;
+            }
+            .main1 a
+            {
+                color:lightgreen;
+            }
+            .main2
+            {
+                background: black;
+                color:lightgreen;
+                border-color:lightgreen;
+                width:50%;
+                height:100%;
+                overflow: auto;
+            }
+            .main2 a
+            {
+                color:#00FFFF;
+            }
+            .main3
+            {
+                background: #EEEEEE;
+                color:#333333;
+                border-color:black;
+                width:50%;
+                height:100%;
+                overflow: auto;
+                font-family: Arial;
+            }
+            .main3 a
+            {
+                color:#00AAAA;
+            }
+        .link1
+        {
+            text-decoration:none;
+            background: linear-gradient(to right,#111111,#333333);
+            height:30px;
+            width:100%;
+            color:#FF3300;
+            line-height:30px;
+            text-indent:10px;
+            font-family:Verdana;
+            text-indent:5px;
+        }
+        .popup
+        {
+            display:none;
+            background:black;
+            font-size:14px;
+            line-height: 18px;
+            color:white;
+            opacity:0.75;
+            position:absolute;
+            left:25%;
+            border-width: 7px;
+            border-style: solid;
+            border-color: black;
+            max-width: 200px;
+            text-indent: 0px;
+        }
+        .popup::before
+        {
+            content:" ";
+        }
+        .link1:hover
+        {
+            background:darkGray;
+            color:black;
+        }
+        .link1:hover .popup
+        {
+            display:block;
+        }
+        .link2
+        {
+            background:linear-gradient(to right,#333333,#111111);
+            color:#FF3300;
+        }
+            footer
+            {
+                width:100%;
+                height:50px;
+                background: #AAFFAA;
+                text-align:center;
+                color:#007777;
+                line-height: 50px;
+            }
+            .code
+            {
+		display:block;
+		font-family:monospace;
+		white-space:pre;
+		margin-top:0.5em;
+                margin-bottom: 0.5em;
+                margin-right: 0em;
+                margin-left: 0em;
+                color:lightGreen;
+		background-color:#222222;
+            }
+            .quotation
+            {
+                margin-top:5px;
+                margin-bottom:5px;
+                display:block;
+                font-family:Times;
+                padding-left:10px;
+                padding-right:10px;
+                padding-bottom:5px;
+                padding-top:5px;
+                background:#FFFFDD;
+                color:black;
+            }
+        </style>
+    </head>
+    <body>
+        <noscript>
+            <img src="gornjiLijevi.svg" alt="" style="position:absolute; left:8px; width:25%; height:200px; top:8px; -webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
+            <img src="gornjiDesni.svg" alt="" style="position:absolute; width:25%; height:200px; left:-webkit-calc(75% - 8px); left:calc(75% - 8px); top:8px;-webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
+            <img src="donjiLijevi.svg" alt="" style="position:absolute; width:25%; height:50px; left:8px; top:calc(100% + 200px - 8px); top:-webkit-calc(100% + 200px - 8px); -webkit-animation-name: animacija;-webkit-animation-duration: 2s;"/>
+            <div style="position:absolute; top:-webkit-calc(100% + 200px + 50px + 8px); top:calc(100% + 200px + 50px + 8px); width:100%; height:50px; font-size:36px; font-family:Arial; text-align:center; background:#333333; color:#AAAAAA; line-height:50px;">Please enable JavaScript!</div>
+        </noscript>
+        <header>
+            <svg id="gornjiLijevi" style="float:left; width:25%; height:200px; background:white;"></svg>
+            Croatian Toponyms
+            <svg id="gornjiDesni" style="float:right; width:25%; height:200px; background:white;"></svg>
+            <script type="text/javascript">
+                var svgNS = "http://www.w3.org/2000/svg";
+                function nacrtajRubove() {
+                    var crtanje = document.getElementById("gornjiLijevi");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    var visina = crtanje.clientHeight;
+                    var sirina = crtanje.clientWidth;
+                    if (!visina || !sirina)
+                    {
+                        visina=crtanje.parentNode.clientHeight;
+                        sirina=crtanje.parentNode.clientWidth/4;
+                    }
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = (270 + i * 3) / 57.3;
+                        var kut2 = (274 + i * 3) / 57.3;
+                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+                        var y1 = Math.round(visina + Math.sin(kut1) * visina);
+                        var y2 = Math.round(visina + Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina);
+                        trokut.setAttribute("fill", "rgb(" + Math.round(255 - i * 2.83) + ",170," + Math.round(170 + i * 2.83) + ")");
+                        crtanje.appendChild(trokut);
+                    }
+                    crtanje = document.getElementById("gornjiDesni");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = i * 3 / 57.3;
+                        var kut2 = (4 + i * 3) / 57.3;
+                        var x1 = Math.round(Math.cos(kut1) * sirina);
+                        var x2 = Math.round(Math.cos(kut2) * sirina);
+                        var y1 = Math.round(visina - Math.sin(kut1) * visina);
+                        var y2 = Math.round(visina - Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina);
+                        trokut.setAttribute("fill", "rgb(255," + Math.round(255 - i * 2.83) + ",170)");
+                        crtanje.appendChild(trokut);
+                    }
+                }
+                nacrtajRubove();
+                window.addEventListener('resize', nacrtajRubove);
+            </script>
+        </header>
+        <aside>
+            <br/>
+            <center><b>Here are my online publications:</b></center>
+            <br/>
+            <b style="margin-left:5px">HTML5 stuff:</b>
+            <a href="sat.html"><div class="link1">
+                <div class="popup">A simple "grandfather clock" animation made in Javascript.</div>
+                Analog Clock
+            </div></a>
+            <a href="calculator.html"><div class="link2 link1">
+                <div class="popup">A simple HTML5 online calculator. Can solve parentheses!</div>
+                Calculator
+            </div></a>
+            <a href="fraktal.html"><div class="link1">
+                <div class="popup">A spiral fractal I've made by modifying the "Dragon Curve".</div>
+                The Dragon Curve
+            </div></a>
+            <a href="pacman.html"><div class="link2 link1">
+                <div class="popup">A Pacman game playable on touch screens. Made in Javascript using the SVG graphics.</div>
+                PacMan
+            </div></a>
+            <a href="etymologist.html">
+<div class="link1">
+<div class="popup">A flashcard game in which the goal is to guess the etymologies of the words in simulated languages.</div>
+Etymology Game
+</div></a>
+            <br><b style="margin-left:5px">Webpages on this website:</b>
+            <a href="index.html"><div class="link1">
+                <div class="popup">A webpage with a bunch of links.</div>
+                Homepage
+            </div></a>
+            <a href="libertarianism.html"><div class="link2 link1">
+                <div class="popup">What do I think about politics?</div>
+                Libertarianism
+            </div></a>
+            <a href="vegetarianism.html"><div class="link1">
+                <div class="popup">Why I don't eat meat.</div>
+                Vegetarianism
+            </div></a>
+            <a href="Simulation.html"><div class="link2 link1">
+                <div class="popup">Could the universe be a giant computer?</div>
+                Digital Physics
+            </div></a>
+            <a href="linguistics.html"><div class="link1">
+                <div class="popup">Why I like languages.</div>
+                Linguistics
+            </div></a>
+            <a href="informatics.html"><div class="link2 link1">
+                <div class="popup">Why I like computers.</div>
+                Informatics
+            </div></a>
+            <a href="pseudosciences.html"><div class="link1">
+                <div class="popup">My advice on how to recognize and deal with false sciences.</div>
+                Pseudosciences
+            </div></a>
+            <br><b style="margin-left:5px">On Internet forums and blogs:</b>
+            <a href="http://linguistforum.com/outside-of-the-box/croatian-toponyms/"><div class="link1">
+                <div class="popup">The forum thread in which I explained my linguistic theories in detail.</div>
+                Croatian Toponyms
+            </div></a>
+            <a href="https://atheistforums.org/thread-50241.html"><div class="link2 link1">
+                <div class="popup">My parody of the conspiracy theorists.</div>
+                Airplanes Don't Exist
+            </div></a>
+        </aside>
+        <section>
+            <p style="margin-left:5px; margin-right:5px;">
+            <br/>Toponyms are often affected by the linguistic phenomenon called tautology.
+            A toponym is often composed of more words in different languages meaning exactly the same.
+            A famous example of that is <i>Torpenhow Hill</i>.<br>
+            </p><br>
+            <a id="loptica" href="#vrh" style="position: absolute;">
+                <svg width="100" height="100">
+                <defs>
+                <radialgradient id="modrozelen">
+                <stop offset="0%" stop-color="#00FFFF"/>
+                <stop offset="100%" stop-color="#0000FF"/>
+                </radialgradient>
+                <radialgradient id="ljubicastoplav">
+                <stop offset="0%" stop-color="#FF00FF"/>
+                <stop offset="100%" stop-color="#0000FF"/>
+                </radialgradient>
+                </defs>
+                <circle cx="50" cy="50" r="50" fill="url(#modrozelen)"/>
+                <polygon points="50,25 25,50 38,50 38,75 62,75 62,50 75,50" fill="url(#ljubicastoplav)"/>
+                </svg>
+            </a>
+            <script type="text/javascript">
+                var udaraca = 0;
+                var loptica = document.getElementById("loptica");
+                var pocetna = loptica.parentNode.clientHeight + 200 - 100;
+                loptica.style.top = pocetna;
+                loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+                var h = 0;
+                var gk = 1;
+                var v = 15;
+                window.setInterval(pomakniLopticu, 80);
+                window.addEventListener("resize", promijeniPocetnu);
+                function promijeniPocetnu()
+                {
+                    pocetna = loptica.parentNode.clientHeight + 210 - 100;
+                    loptica.style.top = pocetna;
+                    loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+                    h = 0;
+                    gk = 1;
+                    v = 15;
+                }
+                function pomakniLopticu()
+                {
+                    h += v;
+                    v -= gk;
+                    if (h < 0)
+                    {
+                        v = -v * 0.75;
+                        h = 0;
+                        udaraca++;
+                        if (udaraca > 20)
+                        {
+                            udaraca = 0;
+                            v = 15;
+                        }
+                    }
+                    loptica.style.top = pocetna - h;
+                }
+            </script>
+        </section>
+        <main class="main1" id="glavni" style="display:block">
+            <a name="vrh"></a>
+            <h1 style="text-align:center; font-weight: bold; font-size:1.5em; margin-top:10px;">My Interpretation of the Croatian Toponyms</h1>
+            <div style="margin-left:10px; margin-right:10px; margin-bottom:30px; text-align:justify">
+                <div style="background:gray; float:right; color:purple; text-align:center; margin-top:5px; margin-left:10px; margin-bottom:5px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Zalazak.jpg/260px-Zalazak.jpg" style="margin-top:10px; margin-left:10px; margin-right:10px; margin-bottom:5px; width:200px;" alt="Sunset on the island called Mljet."/><br>
+                    <i>The Salt Lake <br/> on the <a class="map">Mljet</a> Island. <hr style="border-color:#FF00FF;"> It's sometimes suggested<br/> that the islands<br/> were once the places richest<br/> in toponyms, because people<br/> had to use<br/> every single source of<br/> fresh water and every single<br/> piece of fertile land.</i><br>
+                </div>
+                So, I was asked to create a web-page in which I summarize my alternative interpretation of the Croatian toponyms, which I have supported on many Internet forums and on some conferences, so that we have everything about it on one page. Here we go!
+                <p id="attention"><font color="red">ATTENTION:</font> Some of the opinions stated in the following text are contrary to the mainstream science. I will not advise you to read it if you don't have a substantial background in linguistics. I am not a conspiracy theorist who wants to bombard people with controversial statements they don't know how to evaluate. If you are ready to read it, <a href="javascript::reading()" onclick="reading()">click here.</a></p>
+                <p id="interpretation" hidden="hidden" style="margin-top:0px; margin-bottom:0px">
+                <span style="display:block; margin-top:0.75em; width:auto; margin-bottom:0.5em; margin-left:auto; margin-right:auto; border-style:inset;border-width:1px; border-color:inherit;"></span>
+                <b>SUMMARY</b>: It will be argued that it is impossible that the Illyrian language died out in ancient times, as the mainstream historical linguistics claims, but that it is nearly certain that it, despite never being attested, died relatively recently and that many, if not most of the, Croatian toponyms come from it. The main argument for that is that, if the toponyms came from the Croatian language, most of them would make sense to those who speak Croatian, yet the vast majority of them don't. Alternative etymologies are proposed for 77 toponyms in or on the borders of Croatia. Some basic vocabulary of Illyrian is reconstructed, the most certain words are: *issa~iasa, meaning "source of a health-giving water", presumably coming from the Indo-European <a href="https://indo-european.info/pokorny-etymological-dictionary/i̯es.htm">root</a> meaning "boiling" or "spring", *karr~kurr, meaning "to flow", presumably from a Pre-Indo-European substrate language and cognate to the Late Latin fish names "carpa" and "carassius", *kull~kl meaning "mountain", presumably from the Indo-European <a href="https://indo-european.info/pokorny-etymological-dictionary/kel-1_kelə.htm">root</a> meaning "high", *mar~mur, meaning "marsh", almost certainly from the Indo-European <a href="https://indo-european.info/pokorny-etymological-dictionary/mori_mōri.htm">root</a> meaning "marsh" or "sea", *api, meaning "water", from the Indo-European <a href="https://indo-european.info/pokorny-etymological-dictionary/ā̆p-2.htm">root</a> meaning "body of water", the word *pis~pik meaning "coniferous forest", almost certainly <a href="https://indo-european.info/pokorny-etymological-dictionary/pei̯_ə_-_pī̆.htm">related</a> to the Latin word "pix" (resin), and the word *melit~malit, meaning "sea island", probably of Pre-Indo-European origin. The evidence is consistent enough that some grammatical features of Illyrian can also be inferred, such as the /a/~/u/ ablaut. My conclusion is that Illyrian was a centum Indo-European language with some specific sound changes, such as *b<sup>h</sup> turning to /p/ in some conditions (perhaps only before 'a') and into /β/ (voiced bilabial fricative) in others, *k<sup>j</sup> turning to /j/ (the semi-vowel) in front of a nasal, *g<sup>j</sup> turning into /x/ (velar fricative) in at least some conditions, *k<sup>w</sup> turning into /k/, single consonants being geminated after a short vowel (presumably because all the syllables had to be of equal length), the diphthongs *ew and *ey monophthongized into long /i/, syllabic consonants turning into /i+C/ and, most importantly, the initial laryngeals being preserved as /e/ (presumably because of a word-initial accent). The reconstructed grammar is then exemplified by translating the Lord's Prayer into Illyrian.
+                <span style="display:block; margin-top:0.75em; margin-bottom:0.5em; margin-left:auto; margin-right:auto; border-style:inset;border-width:1px;border-color:inherit"></span>
+                Croatian is a Slavic language. However,
+                I think there aren't actually that many Slavic toponyms in Croatia.
+                If there were, they would make sense to those who speak Croatian, and
+                the vast majority of them don't. Many of the toponyms commonly accepted
+                to be Croatian in origin don't even sound (phonotactically) Croatian,
+                such as <a class="map">Delnice</a> (the cluster <i>-eln-</i>, in native Croatian words,
+                the 'l' in <i>-iln-</i> and <i>-eln-</i> gets vocalized into 'o',
+                such as in "čeoni", derived from "čelo", or "dionica", derived from
+                the verb "dijel-i-ti"). So, I argue that attempts to explain
+                the Croatian toponyms without an obvious etymology with Slavic roots
+                is, in fact, a very flawed method, and I attempt to reconstruct a
+                language of the ancient Croatian toponyms (the Illyrian language) and
+                explain the toponyms using it.<br/>
+                To give you an example, <i>Issa</i>, the
+                ancient name for the island of <a class="map">Vis</a>, isn't explicable by Latin or
+                Greek, and is widely stated to have an unknown, perhaps
+                Pre-Indo-European etymology. But here is a clue: there were some
+                quite strong springs there in ancient times, that the Roman baths were
+                getting water from. And wherever there were large Roman baths in
+                Croatia, the same or similar element repeats. The ancient name for
+                <a class="map">Daruvar</a> was <i>Balissa</i> and the ancient name for
+                <a class="map">Varaždinske Toplice</a> was <i>Iasa</i>. There
+                we have it: *issa~iasa meant &quot;spas&quot; (health-giving springs). And I believe I can
+                trace that name back to Proto-Indo-European: it probably comes from
+                *yos (spring, derived from *yes, "to boil") and the collective noun
+                ending *eh<sub>2</sub> (probably pronounced &quot;ah&quot;). The <i>Bal-</i> in <i>Balissa</i>
+                can be explained as being related to the Latin word <i>bullire</i> (to boil), so that
+                <i>Balissa</i> means "boiling health-giving springs". Using that knowledge,
+                we can explain some modern Croatian toponyms without an obvious Croatian
+                etymology, like Jozinci (assuming an ancient name such as *Iasona,
+                meaning "on the health-giving spring", in the sense "on the source of salt water",
+                since salt was believed to have health-giving properties by people of ancient Slavonia).
+                Namely, Jozinci is a small village near <a class="map">Donji Miholjac</a>. It's known that, in ancient times,
+                there was a stream of brackish water flowing through Donji Miholjac, but it's
+                not certain where its source was. It might have very well been in Jozinci
+                (<a href="javascript:void(0)" onclick="toggle('jozinci')">show/hide details</a>).<br/>
+                <span id="jozinci" style="display:none">
+                Of course, things are a lot more complicated than the above paragraph might lead you to believe.
+                Here is what Dubravka Ivšić, perhaps the most prominent Croatian etymologist
+                (supporting the mainstream interpretations of the Croatian toponyms),
+                said about it when I asked her via e-mail:
+                <span class="quotation" lang="hr">
+                    Naselje "Issa" su osnovali Grci, a ne Iliri. Rimske terme su bile jednostavno
+                    kupališta, nisu nužno bile ljekovite. Puno je vjerojatnije da je "-issa"
+                    u toponimima poput "Balissa" i "Certissa" sufiks nego da su to složenice
+                    (uspoređuju se s keltskim toponimima u kojima je "-issa" sufiks). Drugim
+                    riječima, po svemu sudeći, toponim "Issa" morfološki nije usporediv s
+                    "-issa" u Balissa, a i čini se da ti toponimi pripadaju različitim
+                    slojevima, tj. različitim jezicima (treba voditi računa i o
+                    geografskoj udaljenosti). "Iasa" u "Aquae Iasae" se i inače izvodi od
+                    indoeuropskog *yes 'vreti', i moglo bi pripadati istom jeziku kao "Balissa", ali
+                    ponovno nije morfološki usporedivo. Ako i pretpostavimo da "Issa" i "Iasa"
+                    pripadaju istom jeziku (što je malo vjerojatno), trebalo bi objasniti
+                    razliku u obliku (ako ciljate na indoeuropski ablaut, treba objasniti kakav je
+                    to ablaut i zašto se razlikuju stupnjevi).
+                    <br/><br/>
+                    Pozdrav,<br/>
+                    Dubravka
+                </span>
+                If you are not able to understand it, not even using <a href="https://translate.google.com/">Google Translate</a>, which
+                usually does a good job translating Croatian to English (though not the other way around),
+                perhaps you shouldn't proceed reading.<br/>
+                Anyway, I find the arguments rather weak, primarily because the mainstream linguistics considers the name
+                "Issa" to be related to the toponym <a class="map" data-data-look="Antissa,+Greece">Antissa</a> on the Greek island of Lesbos, and Vis and Lesbos are
+                even further away from each other than Vis and Daruvar are. As for the Celtic suffix "-issa", it probably
+                doesn't go back to Proto-Indo-European for it to be relevant here, since Proto-Indo-European phonotactics generally avoided geminates
+                (<a href="javascript:void(0)" onclick="toggle('geminati')">show/hide details</a>).
+                There does indeed appear to be a suffix "-issia" in Illyrian. As for the differences in the grades of ablaut,
+                that's not so surprising if you take into account that there were two words for spring in Proto-Slavic that were different only
+                by a grade of ablaut, *virŭ and *vorŭ. Again, I can't promise you (and probably nobody can) to know all the relevant technical details.<br/>
+                <span id="geminati" style="display:none">
+                    Here is how Dubravka Ivšić responded to the question "Why would you assume that the suffix -issa, found in Celtic languages, also existed in Illyrian, when it obviously couldn't have existed in Proto-Indo-European (whose phonotactics didn't allow geminate consonants)?":
+                    <span class="quotation" lang="hr">
+                        Ako je sufiks -issa postojao u ilirskom, onda je to bio ilirski sufiks, kao što je svaki sufiks kojim se tvore hrvatske riječi hrvatski sufiks.<br/>
+                        Međutim, postavlja se pitanje što je to ilirski. Po onome što se danas zna, čini se da se naziv "ilirski" koristi za domorodačke indoeuropske jezike na našem tlu (i šire) koji su se govorili prije latinskog i grčkog (neko vrijeme su supostojali), i čije su jedine potvrde toponimi i antroponimi zapisani latinskim i grčkim slovima. Vjerojatno je bilo više "ilirskih" jezika (npr. liburnski, delmatski, histarski) i nije jasno koliko su bili srodni. U novije doba govori se i o jednom takvom "panonskom" jeziku, kojem bi pripadali i (neki) predslavenski toponimi u sjevernoj Hrvatskoj. U sjevernoj Hrvatskoj još postoji i teoretska mogućnost keltskih toponima (iako je samo Carrodunum sigurno keltski), pa ako je Certissa keltskog podrijetla, onda je u njemu sufiks -issa keltski. Uglavnom, to je metodološko pitanje - kako ćemo što definirati, a o svemu skupa ima premalo podataka da bismo išta sigurno tvrdili.<br/>
+                        To što u praindoeuropskom nisu postojale geminate ne znači da se one nisu mogle razviti u pojedinim jezicima.
+                    </span>
+                    Her reply doesn't make a lot of sense, does it?<br/>
+                </span>
+                </span>
+                By far the most common counter-argument I get is that, if a toponym doesn't come from Croatian, perhaps it comes from some other attested language, the most commonly proposed being Latin. Most of the such proposed etymologies can be easily refuted, <a href="javascript:void(0)" onclick="toggle('latin')">click here</a> to see (or hide) how.<br/>
+                <span id="latin" style="display:none">
+                    <img src="rules.png" style="width:100%;margin-top:5px;margin-bottom:5px" alt="The sound-change laws for the Latin toponyms in Croatia."/>
+                    Many, if not most of the, supposed Latin etymologies of the toponyms of modern-day Croatia can be refuted simply by pointing to the basic facts of the historical phonology. They should be the way of establishing the basic rigour in studying the toponyms. Nevertheless, they are only rarely mentioned in the papers about toponyms. Here are the ones that I consider to be most important. Classical Latin long /i/, in Vulgar Latin, turned into a sound similar or identical to the Old Croatian front yer, that later, according to the Havlik's Law (and, in the Chakavian dialect of Croatian, the law that the yers in the first syllable are always vocalized), turned into 'a' (or 'e' in the Kaikavian dialect) or simply disappeared. A beautiful example of that is the toponym <a class="map">Cavtat</a> (folk etymologies often connect it to the Croatian word <i>cvat</i>, meaning <i>flower</i>), derived from Latin <i>Cīvitāte (Vetere)</i> (in the old city). Similarly, the ancient name for <a class="map">Caska</a> was <i>Cīssa</i> (probably an Illyrian word related to the Greek name for the ivy plant, κισσος). Classical Latin short /i/, in Vulgar Latin, turned into a sound similar or identical to Old Croatian yat, which, in standard Croatian, turned into the diphthong /ie/ (spelled 'je' or 'ije'). A beautiful example of that is the toponym <a class="map">Srijem</a>, from the Latin name <i>Sĭrmĭum</i> (the name is obviously Illyrian in origin, from the Indo-European <a href="https://indo-european.info/pokorny-etymological-dictionary/ser-1.htm">root</a> meaning "flow", as there are many rivers there, the /r/ and the yat switched places regularly due to the metathesis of the liquids, operating in Croatian until the 11th century). The apparent counter-examples (<a class="map">Silba</a>&lt;sĭlva, <a class="map">Piškera</a>&lt;pĭscis...) are confined to the dialects in which the Old Croatian yat regularly turned to /i/. The same is true for the Classical Latin short 'e', which is illustrated by the Latin name for <a class="map">Mljet</a>, <i>Melita</i> (which is probably a Pre-Indo-European word for sea island, compare the toponyms <a class="map">Molat</a> and <a class="map" data-data-look="Malta">Malta</a>). Classical Latin long /u/ turned into a sound similar or identical to the Old Croatian back yer, which behaved just like the front yer, except that it didn't participate in the Second Slavic Palatalization (still productive in modern Croatian). For example, the Latin name for the island of <a class="map">Krk</a> was <i>Cūricum</i> (perhaps from an Illyrian word meaning "north", <a href="https://indo-european.info/pokorny-etymological-dictionary/k̂ēu̯ero-_k̂ōu̯ero-_auch_sk̂ūro.htm">related</a> to Lithuanian "šiaure" and Latin "caurus"). Vulgar Latin short 'u' turned into 'o'. For instance, the Latin name for <a class="map">Rovinj</a> was <i>Ruinium</i>. The only counter-example I know is the name <a class="map">Trogir</a>, derived from the Latin name <i>Tragurium</i>, but that's actually a name (apparently) derived from a Greek word (τραγος, goat), and the 'u' may have been pronounced /y/. Vulgar Latin long /o/ usually gets borrowed as /u/ in Old Croatian, because, quite simply, Old Croatian didn't have long /o/. An example of that is the toponym <a class="map">Pula</a> (from the Latin name <i>Pōla</i>, probably from an Illyrian word <a href="https://indo-european.info/pokorny-etymological-dictionary/pel-1_pelə-_plē.htm">related</a> to the Greek word πολις). Apparent counter-examples (<a class="map">Labin</a>&lt;Albona, <a class="map">Solin</a>&lt;Salona...) are explicable as Croats changing the suffix to fit their declension patterns. And, of course, the most obvious rule, yet apparently sometimes ignored, the Classical Latin long and short 'a' came to be pronounced as a sound that was almost always borrowed as 'o' in Old Croatian (<a class="map">Trogir</a>&lt;Tragurion, <a class="map">Solin</a>&lt;Salona, <a class="map">Mosor</a>&lt;Massarum...). Almost all the apparent counter-examples (<a class="map">Labin</a>&lt;Albona, <a class="map">Raša</a>&lt;Arsia, <a class="map">Skradin</a>&lt;Scardona...) are explicable as a result of the metathesis of liquids, which regularly turned *orC and *olC into /raC/ and /laC/. Other apparent counter-examples can be explained as borrowing directly from Illyrian (<a class="map">Drava</a>, <a class="map">Sava</a>...) or, coincidentally, unknown phonotactical details of Old Croatian (the Latin names for Drava and Sava were <i>Draus</i> and <i>Saus</i>, but Proto-Slavic didn't allow wovel sequences within a morpheme). Of course, sometimes (usually quite obvious) folk-etymologies change the accents (and therefore, by affecting the later sound-changes, the vowels), such as in the case of the island name <a class="map">Lastovo</a> (the ancient name was <i>Ladesta</i>, perhaps an Illyrian word derived from the Indo-European <a href="https://indo-european.info/pokorny-etymological-dictionary/lat.htm">root</a> meaning "water", but the modern name looks as if it was from the Croatian word for the swallow bird, "lasta"), however those things happen rather rarely. Another rule, maybe slightly less obvious, but still hard to miss if you study Croatian toponyms, the Classical Latin /v/ turned into /β/ in Vulgar Latin, which was regularly borrowed as /b/ in Old Croatian (<a class="map">Silba</a>&lt;silva, <a class="map">Bribir</a>&lt;Varvaria...). Therefore, the toponyms starting with a 'v' can't be Latin in origin. Those rules are especially accurate if you look at the names in the local dialects. For instance, the name for <a class="map">Brač</a> (ancient name <i>Brattia</i>) in the local dialect is <i>Broc</i>, the name for <a class="map">Hvar</a> (ancient name <i>Pharos</i>) in the local dialect is <i>For</i>, and the name for <a class="map">Šolta</a> (ancient name <i>Solenta</i>) in the local dialect is <i>Sulet</i> (probably because the exonyms weren't actually borrowed from Vulgar Latin).<br/>Yet, those things are often ignored by the etymologists. For instance, the mainstream etymology considers the toponym <a class="map">Viljevo</a> to be derived from the Latin word <i>vīlla</i>. The simple truth is, <i>vīlla</i>, borrowed into Old Croatian, would give something like <i>*Bal</i> (genitive singular <i>*Bla</i>) in Modern Croatian (in my opinion, the name <i>Viljevo</i> is indeed related to the homonymous dialectal Croatian word meaning <i>oak forest</i>, which is perhaps derived from a phrase meaning "in the Saint Elias'es forest"). The mainstream etymology considers the toponym <a class="map">Batina</a> to be derived from Latin <i>*Batinus</i> (dedicated to Bato the Illyrian). Well, first of all, the grammatical way for naming a city after a person named <i>Bato</i> would be <i>*Batinianus</i>. Second, <i>*Batinus</i>, borrowed into Old Croatian, would give <i>*Boten</i> or <i>*Botan</i> in modern Croatian. So much about it. Some people (though it's not really mainstream linguistics) say that the name of the river <a class="map">Una</a> derives from the Latin word <i>ūna</i> (one) supposedly in the sense "the most beautiful". Well, first, if you were to name a river as "the most beautiful", you would use the Latin word <i>primum (flumen)</i>, and certainly not <i>una</i>. Second, <i>ūna</i>, borrowed into Old Croatian, would give <i>*Van</i> in modern Croatian (the prothetic 'v' would have to be added in front of the back yer). I hope you see where I am coming from. The phonology of Vulgar Latin is known, and it doesn't explain most of the modern Croatian toponyms. The phonology of Illyrian is not known right now, but it can hopefully be reconstructed from the toponyms.<br/>
+                        And the same goes for some other languages that are suggested to be the source of modern-day Croatian toponyms. Mainstream linguistics connects the ancient name for <a class="map">Split</a>, <i>Spalatum</i>, with the Greek word for spiny broom (a flower), ασπαλαθος. Yet, the modern name <i>Split</i> points to it being borrowed as <i>*Speltos</i>, with an alternation between 'a' in <i>Spalatum</i> and 'e' in <i>*Speltos</i>. This alternation would have been irregular in Ancient Greek, but it might have very well been regular in Illyrian (since, for instance, the name <a class="map">Dalmatia</a> was also attested in antiquity as "Delmatia", and the ancient name for the island of Brač, "Brattia", was also attested as "Brettia", and those names are without a doubt Illyrian). In addition to that, a placename being apparently derived from a plant name or an animal name without there being a suffix (as in the case of <i>Spalatum</i> being apparently derived from <i>aspalathos</i>) is a typical sign of a folk-etymology.<br/>
+                </span>
+                Here is a list of
+                the etymologies of the Croatian toponyms I've supported on the
+                &quot;Croatian Toponyms&quot; thread linked on the left:<br/>
+                Aenona
+                (<a class="map">Nin</a>) &lt; *h<sub>2</sub>ek<sup>j</sup>-mon (where a lot of stones
+                are)<br/>
+                Albona (<a class="map">Labin</a>) &lt; *h<sub>2</sub>elb<sup>h</sup>
+                (white). It's unknown what the precise pronunciation of 'b' was, some sources spell it as 'v'. It might have been /β/.<br/>
+                Alma (<a class="map">Fruška Gora</a>) &lt; *h<sub>2</sub>elm
+                (fertile)<br/>
+                Almissia (<a class="map">Omiš</a>) &lt; *h<sub>2</sub>elm-yess (on a
+                fertile ground)<br/>
+                Andautonia (<a class="map">Zagreb</a>) &lt; *h<sub>2</sub>en-d<sup>h</sup>eh<sub>2</sub>-ont-om
+                (near that which flows). The name <i>Zagreb</i> itself probably means "the God's hill", from the Illyrian word <i>Dzis</i> (God), mentioned on the Messapian inscriptions, and a word related to Proto-Slavic *gora and Sanskrit <i>giri</i>. So, the Illyrian name might have been *Dzigurevos, borrowed into Old Croatian via Vulgar Latin.<br/>
+                <a class="map">Apševci</a> &lt; from an Illyrian name (borrowed directly from Illyrian, not via Vulgar Latin) such as *Apissios, meaning "river island", derived from the Indo-European root *h<sub>2</sub>ep (water), for the semantics compare the Croatian toponym <a class="map">Otok</a> near <a class="map">Vinkovci</a>. Similar names occur repeatedly in microtoponymy, for instance, near <a class="map">Donji Miholjac</a> there is a field called Apšaldol.<br/>
+                Arsia (<a class="map">Raša river</a>) &lt; *h<sub>3</sub>rews
+                (to flow fast)<br/>
+                Asinium (<a class="map">Sinj</a>) &lt; related to Proto-Slavic *asenŭ (ash tree). Or, perhaps even more likely, related to the Hittite word <i>haš</i> (stone), since the same element repeats in the names of other stony places. For instance, the ancient name for <a class="map">Osor</a> was <i>Assarum</i>.<br/>
+                Balissa (<a class="map">Daruvar</a>) &lt; *boll-yos-eh<sub>2</sub>
+                (where a lot of health-giving boiling springs are)<br/>
+                <a class="map">Baranja</a> &lt;
+                some sort of derivation from *mory (marsh), compare also Greek
+                βορβορος and the ancient (almost certainly Illyrian) name for the river <a class="map" data-look="Bojana+river,+Montenegro">Bojana</a>, "Barbanna". The Illyrian name might have been *Barrania, with the first 'a' stressed and long, compare the ancient name for <a class="map">Dinara</a>, "Dindaria" (while the modern name looks like as if it was from *Dinnaria), for the consonant cluster, in this case -rb- to -rr-, simplification.<br/>
+                <a class="map" data-look="Bosut,+Hrvatska">Biđ</a> (the river) &lt; From an Illyrian name such as *Vōdios, from Proto-Indo-European *wed (wet), borrowed into Old Croatian from Vulgar Latin (therefore, 'v' regularly being borrowed as *b, long 'o' as *y, turning into 'i' in Modern Croatian, and 'di' regularly yotated into 'đ').<br/>
+                <a class="map">Bosut</a> &lt; *bel-sewh<sub>1</sub>-nt (strong
+                waterer), see "Sutla" and "Sunja" for the sound changes.<br/>
+                Cersia (<a class="map">Cres</a>) &lt; *(s)k<sup>w</sup>er
+                (cliff)<br/>
+                Certissia (<a class="map">Đakovo</a>) &lt; *(s)ker-yess (on a sharp,
+                infertile ground)<br/>
+                Cibalae (<a class="map">Vinkovci</a>) &lt; *k<sup>j</sup>ey-bel
+                (strong house)<br/>
+                Colapis (<a class="map">Kupa</a>) &lt; *k<sup>w</sup>ol-h<sub>2</sub>ep
+                ("wondering water", river with many meanders)<br/>
+                <a class="map">Dalj</a> &lt; *d<sup>h</sup>el
+                (milkmen, the Illyran name might have been *Dillioi)<br/>
+                Daljok (<a class="map">Duboševica</a>) &lt; *d<sup>h</sup>el (milkmen)<br/>
+                Daurum (<a class="map">Dubrovnik</a>) &lt; *deh<sub>2</sub>w (fire, in the sense "a place that was built where the forest has been burnt down"). The toponym *Daurum wasn't attested in antiquity per se, but the ancient name for <a class="map">Cavtat</a> (some 10 kilometers from Dubrovnik) was <i>Epi-Daurum</i> ("epi" almost certainly being the Greek prefix meaning "beside"). *Daur- borrowed into Old Croatian would regularly give *Dubr in modern Croatian, for the sound changes compare the ancient name for <a class="map">Bribir</a>, <i>Varuaria</i>.<br/>
+                <a class="map">Dilj</a> (the mountain) &lt; *delh<sub>1</sub>
+                (wide, the Illyrian name might have been *Dilios, if borrowed directly from Illyrian, or *Delios, if borrowed through Latin)<br/>
+                Dindaria (<a class="map">Dinara</a> mountain) &lt; *dent (tooth)<br/>
+                <a class="map">Drava</a> (the river) &lt; *drew (to pour)<br/>
+                Dunav (<a class="map">Danube</a> river) &lt; *danu
+                (river, It's unknown what was the first vowel in Illyrian, because both nasalized 'a', nasalized 'o' and nasalized 'u' turn into 'u' in Croatian)<br/>
+                Eira (perhaps the river <a class="map">Mura</a>) &lt; *h<sub>1</sub>er (to flow)<br/>
+                <a class="map" data-look="Vinkovci,+Hrvatska">Ervenica</a> (a stream in Slavonia) &lt; *h<sub>3</sub>rews
+                (to flow fast)<br/>
+                Esseg (<a class="map">Osijek</a>) &lt; *h<sub>1</sub>es-seg (healthy
+                field)<br/>
+                Histria (the <a class="map">Istria</a> peninsula) &lt; related to Proto-Slavic *ostrovŭ (island), maybe in the sense "people from the island".<br/>
+                <a class="map" data-look="Hrvatska">Hrvat</a> (Croat) &lt; *ser-h<sub>2</sub>ek<sup>w</sup>-ot
+                (one who lives near a stream), from some language related to Armenian
+                (where PIE *s gives 'h')<br/>
+                Incerum (<a class="map">Požega</a>) &lt; *h<sub>1</sub>eyn-k<sup>j</sup>er
+                (the heart of the valley)<br/>
+                Iasa (<a class="map">Varaždinske Toplice</a>) &lt;
+                *yos-eh<sub>2</sub> (where a lot of health-giving springs are)<br/>
+                Iovallum
+                (<a class="map">Valpovo</a>) &lt; *yow-h<sub>2</sub>elom (magical, health-giving
+                herb)<br/>
+                Issa (<a class="map">Vis</a>) &lt; *yos-eh<sub>2</sub> (where a lot of
+                health-giving springs are)<br/>
+                <a class="map">Kalnik</a> &lt; *kelh<sub>3</sub> (high, the wovel in "Kal-" must have originally been short 'u', reguarly changing to back yer and then to 'a' in Croatian, and there must have been either short 'i' or short 'u' after l, disappearing due to the Havlik's law. So, the Illyrian form was either *Kullunnicos or *Kullinnicos. The toponym was borrowed from Illyrian into Old Croatian after the Third Slavic Palatalization, but possibly before the Second Slavic Palatalization.)<br/>
+                <a class="map">Karašica</a> &lt; from a verb *karr~kurr
+                meaning &quot;to flow&quot;, perhaps of Pre-Indo-European
+                origin<br/>
+                Kentina (<a class="map" data-look="Cetina,+Hrvatska">Sinjsko Polje</a>) &lt; *k<sup>j</sup>em-t-h<sub>1</sub>eyn
+                (the valley of horses)<br/>
+                <a class="map">Klek Mountain</a> &lt; *kelh<sub>3</sub> (high, the change from *kelk to *klek would be regular in Croatian, because the methatesis of the liquids ended way after the first Slavic palatalization.)<br/>
+                <a class="map">Korana</a> &lt; from a verb *karr~kurr meaning &quot;to
+                flow&quot;, perhaps of Pre-Indo-European origin<br/>
+                <a class="map">Krapina</a> &lt;
+                from a verb *karr~kurr meaning &quot;to flow&quot;, perhaps of
+                Pre-Indo-European origin, -ap- is probably from the Indo-European root *h<sub>2</sub>ep (water)<br/>
+                <a class="map">Krbava</a> (likely originally a hydronym) &lt;
+                from a verb *karr~kurr meaning &quot;to flow&quot;, perhaps of
+                Pre-Indo-European origin<br/>
+                <a class="map">Krka</a> &lt; from a verb *karr~kurr meaning &quot;to
+                flow&quot;, perhaps of Pre-Indo-European origin<br/>
+                <a class="map" data-look="Krndija+Mountain,+Hrvatska">Krndija</a> &lt;
+                *(s)ker-nt (cutting, steep). The Illyrian name might have been *Curindea (compare the ancient name for <a class="map">Krk</a>, <i>Curicum</i>, for the sound changes from Old Croatian to Modern Croatian). The change from Proto-Indo-European *-ent- to Illyrian -ind- is hard to explain, but it's not isolated (if <i>Dindaria</i> comes from *dent).<br/>
+                <a class="map">Lika</a> (likely originally a hydronym, attested in the ancient toponym "Epi-licum")
+                &lt; *lewk (clear)<br/>
+                Mantouna (<a class="map">Motovun</a>) &lt; *men (mountain)<br/>
+                Mariniana (<a class="map">Donji Miholjac</a>) &lt; *mory-h<sub>1</sub>eyn
+                (marshy valley)<br/>
+                Marsonia (<a class="map">Slavonski Brod</a>) &lt; *mory-h<sub>2</sub>en
+                (a town on a marsh)<br/>
+                <a class="map">Medvednica</a> (the mountain) &lt; from an Illyrian name such as *Menduenda, from the Indo-European root *men (to be high), perhaps exactly cognate to the Latin word <i>mons</i> (genitive singular <i>montis</i>), compare Dindaria for the change from <i>-nt-</i> to <i>-nd-</i>.<br/>
+                <a class="map" data-look="Moslavačka+Gora,+Hrvatska">Moslavina</a> (perhaps originally an oronym) &lt; *meg<sup>j</sup>s (large)<br/>
+                <a class="map">Mosor</a> (the mountain) &lt; *meg<sup>j</sup>s (large)<br/>
+                Mursa (<a class="map">Osijek</a>) &lt; *mory (marsh)<br/>
+                <a class="map">Neretva</a>
+                &lt; *ner (canyon)<br/>
+                <a class="map">Odra</a> &lt; *wodr (water) The Illyrian name might have been *Udra, coming into Croatian via Vulgar Latin, where short 'u' merges with 'o'.<br/>
+                <a class="map">Orljava</a> &lt; *h<sub>1</sub>or
+                (spring) The Illyrian name might have been *Arrulia (a river with many springs), coming into Old Croatian via Vulgar Latin, whose 'a' was regularly borrowed as 'o' in Old Croatian and whose long 'u' was regularly borrowed as back yer.<br/>
+                <a class="map" data-look="Davor,+Hrvatska">Osseratis</a> (unidentified city near the confluence of the
+                river Vrbas into Sava) &lt; *h<sub>1</sub>en-ser-ot (where one
+                [river] flows into [the other])<br/>
+                Padoma (an ancient place in the highlands on <a class="map">Vis</a>) &lt; *b<sup>h</sup>eh<sub>2</sub>g<sup>j</sup>os (beech tree)<br/>
+                <a class="map">Paklenica</a> &lt; *pik<sup>j</sup> (resin, the change from short 'i' to short 'a' is regular in Croatian when it's affected by the Havlik's law, so the Illyrian name might have been *Picculla)<br/>
+                <a href="https://commons.wikimedia.org/wiki/File:Pannonia_SPQR.png" target="_blank">Pannonia</a> &lt; *pen
+                (marshland)<br/>
+                <a class="map">Papuk</a> (originally a hydronym spelled &quot;Papugh&quot;)
+                &lt; *b<sup>h</sup>og<sup>j</sup> (to flow), the Illyrian name might have been *Pippuhos (that which flows and flows), borrowed into Old Croatian directly from Illyrian, compare the Proto-Indo-European *k<sup>w</sup>el (to turn)>*k<sup>w</sup>ek<sup>w</sup>los (wheel) for morphology.<br/>
+                Parentium (<a class="map">Poreč</a>) &lt;
+                *por-h<sub>1</sub>ey-nt-y-om ("around that which flows", river bank)<br/>
+                Permodios (<a class="map">Premuda</a>) &lt; The supperlative form of Proto-Indo-European preposition *per (in front of), so that it means "the first island in the archipelago".<br/>
+                Pharos (<a class="map">Hvar</a>) &lt; related to Proto-Slavic *borŭ (pine wood), compare the Italian name Lesina (from a Slavic word meaning "wood").<br/>
+                Pisinium (<a class="map">Pazin</a>) &lt; *peyH (resin), compare Greek
+                πισσα and Latin &quot;pinus&quot;<br/>
+                Pisunus (<a class="map">Psunj</a>) &lt; *peyH (resin), compare Greek
+                πισσα and Latin &quot;pinus&quot;<br/>
+                <a class="map">Plitvice</a> (the lakes) &lt;
+                *plew (to flow), compare also the German (perhaps borrowed directly from Illyrian) name for the <a class="map" data-look="Balaton,+Hungary">Balaton</a> lake, <i>Plattensee</i>.<br/>
+                <a class="map">Sava</a> (the river) &lt; *sewh<sub>1</sub> (to water)<br/>
+                Scardona
+                (<a class="map">Skradin</a>) &lt; *(s)k<sup>w</sup>or-d<sup>h</sup>os (big cliff)<br/>
+                <a class="map">Sčitarjevo</a> &lt; *skewH (shield), in the sense "embankment"<br/>
+                Serapia
+                (unidentified river in northern Croatia, perhaps <a class="map">Bednja</a>) &lt;
+                *ser-h<sub>2</sub>ep (flowing water)<br/>
+                <a class="map">Šibenik</a> &lt; from an Illyrian name such as *Sievennos (borrowed into Old Croatian through Vulgar Latin), perhaps meaning "flax field", derived from *syuh<sub>1</sub> (to sew).<br/>
+                Siscia (<a class="map">Sisak</a>) &lt; *sek (to cut), in the sense "where Romans have cut the forest".<br/>
+                <a class="map">Sopje</a> (perhaps from an
+                ancient name *salapia) &lt; *seh<sub>2</sub>l-h<sub>2</sub>ep (salt
+                lake), so that it's an eponym of the near-by town <a class="map">Slatina</a> (Croatian for "salt lake"), compare "Almissia">"Omiš" for the sound changes.<br/>
+                <a class="map">Sunja</a> (the river)
+                &lt; *suh<sub>1</sub>-nt (that which waters the ground), the Illyrian name might have been *Sunneos (with a consonant cluster simplification seen in "Dinara"), the Illyrian nasalized 'u' might have been borrowed as nasalized 'o' in Old Croatian.<br/>
+                <a class="map">Sutla</a> (the river) &lt;
+                *suh<sub>1</sub>-nt (that which waters the ground), the Illyrian nasalized 'u' might have been borrowed as nasalized 'o' in Old Croatian.<br/>
+                Tarda (<a class="map">Darda</a>)
+                &lt; *ters (dry land)<br/>
+                Ulciria (<a class="map">Učka mountain</a>) &lt; *wlk<sup>w</sup>os
+                (wolf)<br/>
+                <a class="map">Una</a> (the river) &lt; *unt (wave, the Illyrian nasalized 'u' could be borrowed as nasalized 'o' into Old Croatian, compare "Andautonia" for the change from Indo-European *nt to 'n' in Illyrian). There are some other cases around the world of a river being named after a word meaning "wave", for instance, the river <a href="https://en.wikipedia.org/wiki/Vilnia_River">Vilnia</a> in Lithuania. The name might be even influenced by phonosemantics, because "Una" is the <a href="https://en.wikipedia.org/wiki/Una_River">name</a> to numerous rivers around the world, and also the <a href="http://www.etruskisch.de/pgs/vc.htm">Etruscan</a> word for stream.<br/>
+                Valeriana (<a class="map">Baranja</a>) &lt; *wel-h<sub>1</sub>er (wet
+                valley)<br/>
+                <a class="map">Vuka</a> (the river) &lt; *welk (moisture, the change from syllabic 'l' to 'u' is regular in Croatian). The names such as <a class="map">Vukovar</a>, <a class="map">Vučica</a> and <a class="map">Vučedol</a> share the same root.<br/>
+                So, assuming those etymologies are true, it is, of course, possible to deduce quite a few things about the Illyrian grammar (<a href="javascript:void(0)" onclick="toggle('ostali')">show/hide details</a>).<br/>
+                <span id="ostali" style="display:none;">
+                    Here is what Dubravka Ivsic told me about some other toponyms I've attempted to interpret on this web-page:
+                    <span class="quotation" lang="hr">
+                        Poštovani g. Samaržija,<br/>
+                        hvala Vam na mailu. Otvorila sam Vašu stranicu, no nažalost sada nisam
+                        u mogućnosti detaljno se baviti time. Ipak, nekoliko usputnih
+                        napomena. Toponimi poput Kalnik, Paklenica, Plitvice ipak jesu
+                        slavenskoga podrijetla (za korijene usp. kal, paklina, plit-ak), Essek
+                        je jednostavno mađarski izgovor hrvatskoga Osijek, a toponim Jozinci
+                        puno je vjerojatnije izvoditi od osobnog imena Jozo nego
+                        pretpostavljati "ilirski" *Iasona. Toponim Mariniana sasvim se lijepo
+                        da izvesti kao predijalni toponim, (rimskoga podrijetla), od osobnog
+                        imena Marinius.  Problem s pojmom "ilirski" je taj što se u njega
+                        trpaju svi predslavenski toponimi na našem tlu koji nisu latinskog i
+                        grčkog podrijetla, a mogu se izvesti od nekih praindoeuropskih
+                        korijena. No, većina tih etimologija je "ad hoc", t.j. nema se s čime
+                        usporediti. Osim toga, "ilirski" toponimi su k nama dospjeli kroz
+                        latinski ili grčki filtar, pa mi zapravo ne znamo koji je bio njihov
+                        izvorni lik. Zbog toga ne možemo biti sigurni niti kako treba
+                        analizirati toponime, npr. Vaša analiza An-da-ut-on- ili ipak
+                        An-daut-on-ia. Zato u istraživanju toponima predslavenskoga podrijetla
+                        treba biti iznimno oprezan, a metodološki ispravan početak svakako je
+                        analiza povijesnih potvrda toponima. O mnogima od tih problema pisala
+                        sam u svojoj disertaciji, a upućujem Vas i na stariju literaturu o
+                        ilirskom (Krahe i Mayer).<br/><br/>
+
+                        Srdačan pozdrav,<br/>
+                        Dubravka Ivšić Majić
+                    </span>
+                </span>
+		A question I often get asked is how I know I'm not a victim of the <a href="https://en.wikipedia.org/wiki/Birthday_problem">Birthday Paradox</a>, that it's not that the toponyms came from unrelated languages, and that the apparent patterns I see, although they seem unlikely at the first sight, have arisen randomly because such patterns are actually bound to occur. You can see (or hide) my response by clicking <a href="javascript:void()" onclick="toggle('program');setCodeToAppropriateWidth();">here</a>.<br/>
+                <span id="program" style="display:none">So, one of the most striking patterns I see in Croatian toponyms is that 5 river names start with k(+vowel)+r: <a class="map" data-look="Krka+river,+Hrvatska">Krka</a> (once in Croatia, and <a class="map" data-look="Krka+river,+Slovenia">once</a> in Slovenia, but near Croatia), <a class="map">Korana</a>, <a class="map">Karašica</a> (2 rivers with the same name, both in Croatia), <a class="map">Krapina</a> and <a class="map">Krbavica</a>. So, since there are around 20 consonants in a language, there are around 20*20=400 possible consonant pairs for a river name to begin with. While not all consonants in a language occur equally often, an average language has slightly more than 20 consonants, so we can assume those two errors approximately offset each other out. Let's assume there are around 100 river names in Croatia (it's a safe assumption, since many river names both repeat themselves and have obvious Slavic roots, so they don't count here). What's the probability the same consonant pair will appear 5 times if the names were really random? Let me be clear, we are not asking what's the probability that this particular pattern of k(+vowel)+r would appear in the river names, we are asking what's the probability that any such pattern would appear. This is the equivalent of asking: If you randomly choose a number between 1 and 400, 100 times, what's the probability you will choose the same number <i>n</i> times? So, because of the Birthday Paradox, it's indeed hard to calculate that probability analytically, but I've made a computer program that estimates that numerically. Here it goes in the C programming language (my favorite compiler for C is <a href="https://bellard.org/tcc/">TCC</a>, by the way, but this program is also easy to compile to JavaScript by Emscripten, you can see it done <a href="birthday.html">here</a>):
+<span class="code" id="CProgram">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+int main() {
+	srand(time(0));
+	int number_of_repeats;
+	scanf("%d",&number_of_repeats);
+	const int number_of_rivers=100;
+	float sum=0;
+	int counter[400];
+	for (int i=0; i&lt;10000; i++)
+	{
+		for (int j=0; j&lt;400; j++)
+			counter[j]=0;
+		for (int j=0; j&lt;number_of_rivers; j++)
+			counter[rand()%400]++;
+		int max=0;
+		for (int j=0; j&lt;400; j++)
+			max=(counter[j]&gt;max)?(counter[j]):(max);
+		if (max>=number_of_repeats) sum++;
+	}
+	printf("%f\n",sum/100);
+}</span>
+                    So, that program estimates the probability of there being a consonant pair appearing at the beginning of the river names <i>number_of_repeats</i> times, where <i>number_of_repeats</i> is entered on the keyboard.<img id="graph" src="Graph.png" alt="The probability of there appearing to be a common two-consonant prefix in certain number of rivers falls rapidly." style="float:right; margin-left:5px; margin-top:5px; margin-bottom: 5px; width:50%;"/> The result will vary depending on how many times that program is being run, but it will always be approximately the same. So, here are some example sessions:
+<span class="code">1
+100.000000</span>
+Because the probability of some consonant pair appearing at the beginning of the river names at least once is, by definition, 100% (unless we assume there is a language in which river names are made only of vowels).
+<span class="code">2
+100.000000</span>
+That's because of the Birthday Paradox, although at the first glance it might seem unlikely that some consonant pair appears two times, the probability of that happening is very close to 100%.
+<span class="code">3
+56.779999
+</span>
+So, the probability of there being any consonant pair repeating three times is significantly lower than it repeating two times.
+<span class="code">4
+5.070000
+</span>
+So, the probability of there being a consonant pair repeating 4 times is only marginally statistically significant.
+<span class="code">5
+0.260000</span>
+The probability of there being any consonant pair repeating itself 4 times at the beginning of 100 random river names is significantly less than 1 percent.<br/>
+Taking there to be 6 such river names might be unfair, because the names of the two rivers named <a class="map">Karašica</a> are exactly the same and it's possible that one was named after the other. Otherwise, the probability of there being a consonant pair repeating itself six times in random river names is so low the program can't estimate it:
+<span class="code">6
+0.000000</span>
+So, the P-value of that pattern is indeed astoudingly low (less than 1/10000). I can not only claim that, if those river names come from the same language, there was a word <i>*kar~kur</i> meaning "to flow" with nearly 100% certainty, I can also claim they do come from the same language with nearly 100% certainty.<br/>The probabilities of some other patterns I found are indeed harder to model, but I expect their P-values to be similarly low.<br/>
+The most serious objection I get to this argument is that I am underestimating the <a href="https://en.wikipedia.org/wiki/Huffman_coding">Huffman's effect</a> (the effect, discovered back in 1951, that it's hard for a computer to encypher texts in human languages, but that it's easy for a computer to compress them, because some letters occur way more commonly than others). You can see my response my clicking <a href="javascript:void()" onclick="toggle('huffman')">here</a>.<br/>
+<span id="huffman" style="display: none">The Huffman effect is caused partly by morphology, partly by phonology, and partly by syntax. In toponyms, we can ignore the effects of morphology and syntax. The extent to which the syntax of a language is responsible for the Huffman's effect is fairly easy to measure, here is a program that can be used for that:
+    <span class="code" id="huffman_code">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;ctype.h&gt;
+#include &lt;time.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    srand(time(0));
+    FILE *input=fopen("text.txt","r");
+    if (!input) {
+        fprintf(stderr,"Can't open 'text.txt'!\n"),
+        exit(1);
+    }
+    fseek(input,0,SEEK_END);
+    int length=ftell(input),sum1=0,sum2=0;
+    /*Variable "length" now contains the total number
+    of characters in "text.txt".*/
+    int alphabet[26]={0};
+    const char *vowels="aeiou";
+    for (int i=0; i&lt;1000000; i++) {
+        int tmp=rand()%length;
+        fseek(input,tmp,SEEK_SET);
+        char first=fgetc(input);
+        tmp=rand()%length;
+        fseek(input,tmp,SEEK_SET);
+        char second=fgetc(input);
+        if (isalpha(first) && 
+            !strchr(vowels,tolower(first))
+            && isalpha(second) &&
+            !strchr(vowels,tolower(second))) {
+                /*If both randomly chosen characters
+                 from "text.txt" happen to be consonants...*/
+                sum2++;
+                if (first==second) {
+                    sum1++;
+                    alphabet[toupper(first)-'A']++;
+                }
+            }
+    }
+    printf("1/%f\n",(float)sum2/sum1);
+    int max=0;
+    for (int i=0; i&lt;26; i++)
+        if (alphabet[i]&gt;alphabet[max]) max=i;
+    printf("%c %f%%\n",max+'A',100.*alphabet[max]/sum1);
+}</span>The program will take some 10 seconds to execute on a modern computer. If you put a long English text in the file <i>text.txt</i>, it prints that the probability of choosing the same consonant two times in a row equals 1/11, and that the most common consonant in English is <i>t</i> (presumably because of the meaningless words that need to be there because of the English syntax, such as <i>the</i>, <i>it</i>, <i>that</i>, <i>than</i>...). Yet, if you eliminate the syntax of the language, by putting a spell-checker word-list instead of a text in the file <i>text.txt</i>, it prints that the probability of choosing the same consonant two times in a row is 1/13, and that the most common consonant in that word list is <i>r</i> (presumably because of the extremely common English prefix <i>re-</i> and the even more common English suffix <i>-er</i>). I hope you see why I think that, if you eliminate both the morphology and syntax, the letter frequency will become quite uniform. And the same goes for Croatian: the probability of choosing the same consonant two times in a row in a Croatian text is 1/13, and the probability of choosing the same consonant in a Croatian word-list is 1/14 (in both cases, the most common consonant is <i>n</i>, presumably because of the common Croatian prefixes). For German, the respective probabilities are 1/12 in a text and 1/15 in a word-list, and the most common consonant is again <i>n</i> in both cases. It's indeed hard to measure the effects of phonology, but you can see why I think that we are not very far off if we assume the probability will be around 1/20. I am happy to be proven wrong about this!<br/></span></span>
+                <script type="text/javascript">
+                    if (navigator.appName=="Microsoft Internet Explorer")
+                    {
+                        var niz=document.getElementsByTagName("span");
+                        for (var i=0; i<niz.length; i++)
+                        {
+                            if (!/(^|\s)code($|\s)/.test(niz[i].className)) continue;
+                            var code=niz[i].innerHTML;
+                            code=code.replace(/\n/g,"<br\/>");
+                            niz[i].innerHTML=code;
+                        }
+                    }
+                </script>
+                Here are the
+                sound changes I propose happened from Proto-Indo-European to
+                Illyrian:<br/>
+                [k<sup>w</sup>]&gt;k<br/>
+                [k<sup>j</sup>]m&gt;y<br/>
+                [k<sup>j</sup>]&gt;k<br/>
+                [b<sup>h</sup>]a&gt;p<br/>
+                [b<sup>h</sup>]&gt;β<br/>
+                [g<sup>j</sup>]&gt;gh<br/>
+                [l]s&gt;s<br/>
+                [n]s&gt;s<br/>
+                [m]r&gt;b<br/>
+                [ew]&gt;i<br/>
+                [ey]&gt;i<br/>
+                C[l]C&gt;il (perhaps not between all consonants)<br/>
+                0[H]C&gt;e<br/>
+                So,
+                because of the epenthetic vowel 'e' appearing only in the first
+                syllable (Ervenica), I suggest that the stress was always on the first syllable.
+                I also have a temptation to think that the nominative singular
+                actually ended in -i in Illyrian. The suffix -i- is seen in,
+                for instance, Serapia, Krndija,
+                Colapis, and possibly also in Andautonia. I believe that the primary
+                ablaut changed from e/o in PIE to a/u in Illyrian, for instance,
+                in the toponyms such as Mursa, Marsonia and Mariniana. The geminates in
+                the toponyms such as Issa and Pannonia are probably explicable by
+                some consonants being doubled after a short vowel, like in Middle English
+                more or less. It's not quite clear what sound changes the Proto-Indo-European syllabic 'l'
+                (and therefore probably other syllabic consonants) had undergone. It appears to have been
+                retained after a 'w' (Vuka, Ulciria), but not after a 'd' (Dilj), where it appears to
+                have been turned into 'il'.<br/>
+                So, here is what I think <a href="http://linguistforum.com/linguist%27s-lounge/pater-noster-in-proto-indo-european/">Pater Noster</a> might have sounded like in Illyrian:<br/>
+                <span style="text-align:center; font-style:italic; display:block; margin-bottom:12px; margin-top:6px;" lang="xil">
+                    Patir nos, kis divi esi!<br/>
+                    Kekluit ennomin teβi!<br/>
+                    Essis errehs!<br/>
+                    Βuind ki tu vessi<br/>
+                    neβesu errike!<br/>
+                    Ki nos ne essenti dogi toimi, dodi!<br/>
+                    Pagdike likona nos,<br/>
+                    kom vike pagmos likettirmos nos.<br/>
+                    Sentme ne dirtomos,<br/>
+                    solaske inzme tirnomos.<br/>
+                </span>
+                </p>
+                <script type="text/javascript">
+                    function reading()
+                    {
+                        document.getElementById("attention").setAttribute("hidden", "hidden");
+                        document.getElementById("interpretation").removeAttribute("hidden");
+                    }
+                </script>
+                <div style="background:gray; float:left; color:purple; text-align:center; margin-top:5px; margin-right:10px; margin-bottom:5px;">
+                    <img src="thermae.jpg" alt="The remainings of the Roman thermae in Issa." style="margin-top:10px; margin-left:10px; margin-right:10px; margin-bottom:5px; width:200px;"/><br>
+                    <i>The Roman Thermae<br> in Issa (<a class="map">Vis</a>)<br> were getting the water<br> from a mineral spring<br> that doesn't exist<br> any more.<br>However, it's possible<br> that Issa was<br> named after it,<br> from the Indo-European<br>root *yos (spring).</i><br>
+                </div>
+                That would be it! If you want to discuss my theory, go to the "Croatian Toponyms" forum thread I've linked to on the left. I'd like to have some sane opposition there, because I think my interpretation may be right. Ideas are correct or incorrect independent of their creators. The fact that I am not a linguist specializing in those things doesn't mean my ideas are wrong. I've used the methods that are well-accepted in linguistics, I've just come to the conclusions that are different from the mainstream ones.</div>
+                <div style="margin-left:10px; margin-right:10px; margin-bottom:100px; margin-top:10px; float:left; text-align:justify;">UPDATE on 09/07/2018: You can download my Illyrian-Croatian dictionary <a href="rjecnik.docx">here</a> (it's a .DOCX file!).</div>
+        </main>
+        <footer>
+            <div style="width: 25%; float: right; text-align:left; bottom:30px;">
+                Choose the style:
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main1')">[1]</a>
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main2')">[2]</a>
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main3')">[3]</a>
+            </div>
+            Uploaded by Teo Samarzija on 05/11/2017
+            <svg id="donjiLijevi" style="float:left; width:25%; height:100%; background:white;"></svg>
+            <script type="text/javascript">
+            function toggle(naziv)
+            {
+                var element=document.getElementById(naziv);
+                if (element.style.display=="none")
+                    element.style.display="inline";
+                else
+                    element.style.display="none";
+            }
+            if (navigator.appName=="Microsoft Internet Explorer")
+            {
+            	var niz=document.getElementsByTagName("div");
+            	for (var i=0; i<niz.length; i++)
+            	{
+            		if (niz[i].className.indexOf("link1")==-1)
+            			continue;
+            		niz[i].onmouseenter=
+            			function()
+            				{this.children[0].style.display="inline";};
+            		niz[i].onmouseleave=
+            			function()
+            				{this.children[0].style.display="none";};
+        	    }
+        	    document.getElementById("glavni").removeAttribute("style");
+            }
+            else if (navigator.appName=="Opera") {
+            	document.getElementById("glavni").style.color="black";
+            	document.getElementById("glavni").style.backgroundColor="white";
+            	var gornjiDesni=document.getElementById("gornjiDesni");
+            	gornjiDesni.parentNode.removeChild(gornjiDesni);
+            }
+            else if (((navigator.userAgent.indexOf("Safari")+1 || navigator.userAgent.indexOf("WebKit")+1)
+                      && navigator.userAgent.indexOf("Mobile")+1
+                      && (!(navigator.userAgent.indexOf("Chrome")+1) ||
+                          (navigator.userAgent.indexOf("Version")+1 && navigator.userAgent.indexOf("Chrome")+1))
+                      || (navigator.userAgent.indexOf("Mobile")+1 && navigator.userAgent.indexOf("Gecko")+1
+                          && !(navigator.userAgent.indexOf("like Gecko")+1))
+                      && !(navigator.userAgent.indexOf("Dolfin")+1)) && !(navigator.userAgent.indexOf("iPad")+1) && !(navigator.userAgent.indexOf("iPhone")+1))
+                         document.getElementById("glavni").style.fontSize="36px";
+                         else if (navigator.userAgent.indexOf("Mobi")+1)
+                         {
+                             document.head.innerHTML+="<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=0\">";
+                             var niz=document.getElementsByTagName("svg");
+                             for (var i=0; i<niz.length; i++)
+                             niz[i].style.display="none";
+                             document.getElementsByTagName("aside")[0].style.display="none";
+                             document.getElementsByTagName("aside")[0].style.float="none";
+                             document.getElementsByTagName("aside")[0].style.width="100%";
+                             document.getElementsByTagName("aside")[0].style.height="auto";
+                             niz=document.getElementsByClassName("popup");
+                             for (var i=0; i<niz.length; i++) {
+                                 niz[i].style.width="50%"
+                                 niz[i].style.left="45%";
+                                 niz[i].style.maxWidth="none";
+                             }
+                             document.getElementsByTagName("section")[0].style.height="auto";
+                             document.getElementsByTagName("section")[0].style.float="none";
+                             document.getElementsByTagName("section")[0].style.width="100%";
+                             document.getElementsByTagName("header")[0].style.height="auto";
+                             document.getElementsByTagName("header")[0].style.lineHeight="normal";
+                             document.getElementsByTagName("main")[0].style.width="100%";
+                             document.getElementsByTagName("footer")[0].children[0].style.display="inline";
+                             document.getElementsByTagName("footer")[0].children[0].style.float="none";
+                             document.getElementsByTagName("footer")[0].children[0].innerHTML+="<br/><br/>";
+                             document.getElementsByTagName("footer")[0].style.height="auto";
+                             document.getElementsByTagName("footer")[0].style.lineHeight="normal";
+                             document.getElementsByTagName("header")[0].outerHTML+="<button id=\"showNavigation\" style=\"width:100%;line-height:36px;height:41px;\">Show navigation<\/button>";
+                             document.getElementById("showNavigation").onclick=
+                             function()
+                             {
+                                 if (document.getElementsByTagName("aside")[0].style.display=="none")
+                                 {
+                                     this.innerHTML="Hide navigation";
+                                     document.getElementsByTagName("aside")[0].style.display="block";
+                                 }
+                                 else
+                                 {
+                                     this.innerHTML="Show navigation";
+                                     document.getElementsByTagName("aside")[0].style.display="none";
+                                 }
+                             }
+                             //window.setTimeout(function(){document.body.removeChild(document.body.children[document.body.children.length-1]);},1000);
+                         }
+                function footerScript() {
+                    var crtanje = document.getElementById("donjiLijevi");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    var visina = crtanje.clientHeight;
+                    var sirina = crtanje.clientWidth;
+                    if (!visina || !sirina)
+                    {
+                        visina=crtanje.parentNode.clientHeight;
+                        sirina=crtanje.parentNode.clientWidth/4;
+                    }
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = (270 + i * 3) / 57.3;
+                        var kut2 = (274 + i * 3) / 57.3;
+                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+                        var y1 = -Math.round(Math.sin(kut1) * visina);
+                        var y2 = -Math.round(Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0");
+                        trokut.setAttribute("fill", "rgb(170," + Math.round(255 - i * 2.83) + "," + Math.min(Math.round(170 + i * 4), 255) + ")");
+                        crtanje.appendChild(trokut);
+                    }
+                }
+                footerScript();
+                window.addEventListener('resize',footerScript);
+                var niz = document.getElementsByClassName("map");
+                for (var i=0; i<niz.length; i++)
+                {
+                    niz[i].style.textDecoration="underline";
+                    niz[i].style.cursor="pointer";
+                    niz[i].setAttribute("target","_blank");
+                    var lookUp;
+                    if (niz[i].getAttribute("data-look") && niz[i].getAttribute("data-look")!="")
+                        lookUp=niz[i].getAttribute ("data-look");
+                    else
+                        lookUp=niz[i].textContent.replace(/\s/g,'+')+",+Hrvatska";
+                    niz[i].setAttribute("href","https://www.google.com/maps/search/"+lookUp+"/");
+                }
+                function setCodeToAppropriateWidth()
+                {
+                    var niz=document.getElementsByClassName("code");
+                    var graphBottomOffset=document.getElementById("graph").offsetTop+document.getElementById("graph").offsetHeight;
+                    var glavniWidth=document.getElementById("glavni").clientWidth;
+                    for (var i=0; i<niz.length; i++) {
+                        if (niz[i].id=="CProgram" || niz[i].id=="huffman_code") continue;
+                        if (niz[i].offsetTop>graphBottomOffset)
+                            niz[i].style.width="auto";
+                        else
+                            niz[i].style.width=glavniWidth/2-15+"px";
+                    }
+                }
+                window.addEventListener('resize',setCodeToAppropriateWidth);
+                setCodeToAppropriateWidth();
+            </script>
+        </footer>
+    </body>
+</html>
