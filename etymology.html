@@ -74,32 +74,32 @@ and open the template in the editor.
             fonologija[2]="";
             var abeceda="abcdefghijklmnopqrstuvwxyz";
             var promjene=[];
-            promjene[0] = ['e', 'e', 'ei', 'o', 'o', 'o', 'i', 'u', 'ar', 'er']; //U koje ce se glasove najvjerojatnije promijeniti 'a'.
-            promjene[1] = ['p', 'p', 'p', 'v', 'v', 'v', 'f', 'f', 'f', '-']; //-||- 'b'
-            promjene[2] = ['s', 's', 's', 'k', 'k', 'k', 'h', 'h', 'g', '-']; //-||- 'c'
-            promjene[3] = ['t', 't', 'f', 'f', 'b', 'b', 'r', 'r', 't', '-']; //-||- 'd'
-            promjene[4] = ['i', 'i', 'ie', 'ei', '0', 'ey', 'a', 'o', 'u', '0']; //-||- 'e'
-            promjene[5] = ['v', 'v', 'v', 'h', 'h', 'h', 'w', 'w', 'w', '-']; //-||- 'f'
-            promjene[6] = ['k', 'k', 'y', 'w', 'w', 'j', 'y', 'z', 'z', '-']; //-||- 'g'
-            promjene[7] = ['s', 's', 's', 'a', 'f', 'f', '0', '0', '0', '-']; //-||- 'h'
-            promjene[8] = ['a', 'a', 'ai', 'yi', 'iy', 'u', 'e', 'ie', 'a', 'o']; //-||- 'i'
-            promjene[9] = ['z', 'z', 'z', 'y', 'y', 'y', 'h', 'h', 'h', '-']; //-||- 'j'
-            promjene[10] = ['c', 'c', 'p', 's', 's', 'p', 'h', 'h', 'h', '-']; //-||- 'k'
-            promjene[11] = ['y', 'y', 'y', 'j', 'j', 'j', 'a', 'o', '0', '-']; //-||- 'l'
-            promjene[12] = ['n', 'n', 'n', 'b', 'b', 'b', 'a', 'a', '0', '-']; //-||- 'm'
-            promjene[13] = ['t', 't', 'd', 'd', 'm', 'r', 'l', 'l', '0', '-']; //-||- 'n'
-            promjene[14] = ['u', 'u', 'ou', 'a', 'a', 'a', 'e', 'e', 'i', 'ow']; //-||- 'o'
-            promjene[15] = ['b', 'b', 'b', 'f', 'f', 'f', 'pf', 'pf', 'pf', '-']; //-||- 'p'
-            promjene[16] = ['h', 'h', 'k', 'k', 'w', 'w', 'v', 'z', 's', '-']; //-||- 'q'
-            promjene[17] = ['a', 'a', 'n', 'l', 'v', 't', '0', '0', '0', '-']; //-||- 'r'
-            promjene[18] = ['z', 'z', 'z', 'r', 'r', 'r', 'h', 'h', 'x', '-']; //-||- 's'
-            promjene[19] = ['th', 'th', 'c', 'r', 'r', 'd', 'd', 'ts', '0', '-']; //-||- 't'
-            promjene[20] = ['wu', 'uw', 'iu', 'yu', 'vu', 'o', 'a', 'a', 'a', 'i']; //-||- 'u'
-            promjene[21] = ['w', 'w', 'w', 'u', 'u', 'u', 'b', 'b', 'p', '-']; //-||- 'v'
-            promjene[22] = ['v', 'v', 'v', 'u', 'u', 'p', 'p', 'b', 'b', '-']; //-||- 'w'
-            promjene[23] = ['s', 's', 's', 'c', 'c', 'c', 'z', 'z', 'z', '-']; //-||- 'x'
-            promjene[24] = ['j', 'j', 'u', 'e', 'z', 'dz', 'i', 'i', 'i', '-']; //-||- 'y'
-            promjene[25] = ['r', 'r', 'r', 'j', 'j', 'j', 'dz', 'dz', 'ts', '-']; //-||- 'z'
+            promjene[0] = ['e', 'e', 'ei', 'ia', 'o', 'ua', 'i', 'u', 'ar', 'er', 'ia', '-']; //U koje ce se glasove najvjerojatnije promijeniti 'a'.
+            promjene[1] = ['p', 'p', 'p', 'v', 'v', 'v', 'f', 'f', 'f', 'd', '-', '-']; //-||- 'b'
+            promjene[2] = ['s', 's', 's', 'k', 'k', 'k', 'h', 'h', 'g', 'x', '-', '-']; //-||- 'c'
+            promjene[3] = ['t', 't', 'f', 'f', 'b', 'b', 'r', 'r', 't', 'th', '-', '-']; //-||- 'd'
+            promjene[4] = ['i', 'i', 'ie', 'ei', '0', 'y', 'a', 'o', 'u', '0', 'ei', '-']; //-||- 'e'
+            promjene[5] = ['v', 'v', 'b', 'h', 'h', 'h', 'w', 'w', 'p', 'p', '-', '-']; //-||- 'f'
+            promjene[6] = ['k', 'k', 'y', 'w', 'w', 'j', 'y', 'z', 'z', 'zy', '-', '-']; //-||- 'g'
+            promjene[7] = ['s', 's', 'x', 'a', 'w', 'f', 'f', '0', '0', '0', '-', '-']; //-||- 'h'
+            promjene[8] = ['a', 'a', 'ai', 'yi', 'iy', 'u', 'e', 'ie', 'ei', 'a', 'o', '-']; //-||- 'i'
+            promjene[9] = ['z', 'z', 'z', 'y', 'y', 'y', 'h', 'h', 'h', 'l', '-', '-']; //-||- 'j'
+            promjene[10] = ['c', 'c', 'p', 's', 's', 'p', 'h', 'h', 'h', 'qu', '-', '-']; //-||- 'k'
+            promjene[11] = ['y', 'y', 'y', 'j', 'j', 'a', 'a', 'o', '0', 'i', '-', '-']; //-||- 'l'
+            promjene[12] = ['n', 'n', 'n', 'b', 'b', 'bh', 'a', 'a', '0', 'f', '-', '-']; //-||- 'm'
+            promjene[13] = ['t', 't', 'd', 'd', 'm', 'r', 'l', 'l', '0', 'r', '-', '-']; //-||- 'n'
+            promjene[14] = ['u', 'u', 'ou', 'a', 'a', 'a', 'e', 'e', 'i', 'ow', 'uo', '-']; //-||- 'o'
+            promjene[15] = ['b', 'b', 'b', 'f', 'f', 'qu', 'pf', 'pf', 'ph', 'h', '-', '-']; //-||- 'p'
+            promjene[16] = ['h', 'h', 'k', 'k', 'w', 'w', 'v', 'z', 's', 'g', '-', '-']; //-||- 'q'
+            promjene[17] = ['a', 'a', 'n', 'l', 'v', 't', '0', '0', '0', 'l', '-', '-']; //-||- 'r'
+            promjene[18] = ['z', 'z', 'z', 'x', 'r', 'r', 'h', 'h', 'x', 'c', '-', '-']; //-||- 's'
+            promjene[19] = ['th', 'th', 'c', 'r', 'r', 'd', 'd', 'ts', '0', 'ty', '-', '-']; //-||- 't'
+            promjene[20] = ['wu', 'uw', 'iu', 'yu', 'vu', 'o', 'a', 'a', '-', 'i', 'ou', '-']; //-||- 'u'
+            promjene[21] = ['w', 'w', 'w', 'u', 'u', 'u', 'b', 'b', 'p', 'l', '-', '-']; //-||- 'v'
+            promjene[22] = ['v', 'v', 'v', 'u', 'u', 'p', 'p', 'b', 'b', 'h', '-', '-']; //-||- 'w'
+            promjene[23] = ['s', 's', 'si', 'c', 'c', 'c', 'z', 'z', 'z', 'k', '-', '-']; //-||- 'x'
+            promjene[24] = ['j', 'j', 'u', 'e', 'z', 'dz', 'i', 'i', 'i', 'di', '-', '-']; //-||- 'y'
+            promjene[25] = ['r', 'r', 'r', 'y', 'j', 'j', 'dz', 'dz', 'ts', 's', '-', '-']; //-||- 'z'
             function mySort(prvi,drugi)
             {
                 return drugi.length-prvi.length;
@@ -152,12 +152,45 @@ and open the template in the editor.
                 else
                     nakon=uvjeti.charAt(Math.floor(Math.random()*uvjeti.length));
                 if (nakon==='-')
-                    nakon=abeceda.charAt(Math.floor(Math.random()*abeceda.length));
+                    nakon = abeceda.charAt(Math.floor(Math.random() * abeceda.length));
                 var prvi=Math.floor(Math.random()*26);
-                var drugi=promjene[prvi][Math.floor(Math.random()*10)];
-                if (drugi==='-')
-                    drugi=abeceda.charAt(Math.floor(Math.random()*abeceda.length));
+                var drugi=promjene[prvi][Math.floor(Math.random()*12)];
+                if (drugi==='-') {
+                    var jeLiFonologijaURavnotezi=true;
+                    for (var k=0; k<=abeceda.length; k++) {
+                        var fonem=abeceda.charAt(k);
+                        var nalaziLiSeFonemUJeziku=false;
+                        if (i<BrojSimuliranihPromjena) {
+                            for (var j=0; j<language1.length; j++)
+                                if (language1[j].indexOf(fonem)+1) {
+                                    nalaziLiSeFonemUJeziku=true;
+                                    break;
+                                }
+                        }
+                        else {
+                            for (var j=0; j<language2.length; j++)
+                                if (language2[j].indexOf(fonem)+1) {
+                                    nalaziLiSeFonemUJeziku=true;
+                                    break;
+                                }
+                        }
+                        if (nalaziLiSeFonemUJeziku) continue;
+                        jeLiFonologijaURavnotezi=false;
+                        drugi=fonem;
+                        break;
+                    }
+                    if (jeLiFonologijaURavnotezi)
+                        drugi = abeceda.charAt(Math.floor(Math.random() * abeceda.length));
+                }
                 prvi=String.fromCharCode(prvi+97);
+                if (i>=BrojSimuliranihPromjena &&
+                     fonologija[1].indexOf(
+                         ((nakon === 'Z') ? ('') : (nakon)) + '[' + prvi + ']' + ((prije === 'Z') ? ('') : (prije)) + '>' + drugi)+1
+                         ) //Ne daj da se iste promjene dogode u oba simulirana jezika
+                         {
+                             i--;
+                             continue;
+                         }
                 if (i < BrojSimuliranihPromjena) {
                     var promjenjeno=false;
                     for (var j = 0; j < language1.length; j++)
@@ -282,6 +315,31 @@ and open the template in the editor.
                         consonants.search(language2[i].charAt(1))!==-1)
                         language2[i]=epenteza2+language2[i];
         }
+        for (var i=0; i<language1.length; i++) {
+            for (var j=0; j<vowels.length; j++)
+                language1[i]=language1[i].replace(RegExp("ii"+vowels.charAt(j),"g"),"iy"+vowels.charAt(j));
+            for (var j=0; j<vowels.length; j++)
+                language1[i]=language1[i].replace(RegExp(vowels.charAt(j)+"ii","g"),vowels.charAt(j)+"yi");
+            for (var j=0; j<vowels.length; j++)
+                language1[i]=language1[i].replace(RegExp("uu"+vowels.charAt(j),"g"),"uw"+vowels.charAt(j));
+            for (var j=0; j<vowels.length; j++)
+                language1[i]=language1[i].replace(RegExp(vowels.charAt(j)+"uu","g"),vowels.charAt(j)+"wu");
+            language1[i]=language1[i].replace(/yy/g,"iy");
+            language1[i]=language1[i].replace(/ww/g,"uw");
+        }
+        for (var i=0; i<language2.length; i++) {
+            for (var j=0; j<vowels.length; j++)
+                language2[i]=language2[i].replace(RegExp("ii"+vowels.charAt(j),"g"),"iy"+vowels.charAt(j));
+            for (var j=0; j<vowels.length; j++)
+                language2[i]=language2[i].replace(RegExp(vowels.charAt(j)+"ii","g"),vowels.charAt(j)+"yi");
+            for (var j=0; j<vowels.length; j++)
+                language2[i]=language2[i].replace(RegExp("uu"+vowels.charAt(j),"g"),"uw"+vowels.charAt(j));
+            for (var j=0; j<vowels.length; j++)
+                language2[i]=language2[i].replace(RegExp(vowels.charAt(j)+"uu","g"),vowels.charAt(j)+"wu");
+            language2[i]=language2[i].replace(/yy/g,"yi");
+            language2[i]=language2[i].replace(/ww/g,"wu");
+        
+        }
         tekst.appendChild(document.createTextNode("Introduction: One phoneme in one language corresponds to other phoneme in a related language. For instance, the English 't' in the beginning of a word corresponds to German 'z'. For example: two-zwei, ten-zehn, tooth-Zahn, tongue-Zunge, twig-Zweig, toe-Zeh, too-zu, tame-zahm... This game randomly generates words as if they were in two related languages."));
         for (var i=0; i<2; i++) tekst.appendChild(document.createElement("br"));
         tekst.appendChild(document.createTextNode("SUMMARY: The game has three parts. In the Part #1, you are supposed to find which words from the simulated languages are cognates. In the Part #2, you are supposed to find which words belong to which language. In the Part #3, you are supposed to find which set of sound changes belongs to which language."));
@@ -358,7 +416,10 @@ and open the template in the editor.
         for (var i=1; i<8; i++)
             do {
             rijeci[i]=Math.floor(Math.random()*original.length);
-            } while (language1[rijeci[i]]==language2[rijeci[i]]);
+            var jesmoLiJeVecOdabrali=0;
+            for (var j=0; j<i; j++)
+                if (rijeci[i]==rijeci[j]) jesmoLiJeVecOdabrali++;
+            } while (language1[rijeci[i]]==language2[rijeci[i]] || jesmoLiJeVecOdabrali);
         tekst.appendChild(document.createTextNode("Roots: "));
         var primjer=0;
         for (var i=0; i<language1.length; i++)
