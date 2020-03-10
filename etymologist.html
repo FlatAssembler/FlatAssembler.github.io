@@ -561,7 +561,7 @@
                 return rijec;
             }
 
-            var BrojSimuliranihPromjena = 9;
+            var BrojSimuliranihPromjena = 11;
             for (var i = 0; i < BrojSimuliranihPromjena * 2; i++) {
                 var prije;
                 if (Math.random() < 0.5)
@@ -586,7 +586,33 @@
                              i--;
                              continue;
                          }
-                var drugi=promjene[prvi][Math.floor(Math.random()*12)];
+                var drugi;
+                var jesmoLiOdabraliZamijenuZaPrvi = false;
+                for (var j = 0; j < 12; j++) {
+                    var fonem = promjene[prvi][j];
+                    if (fonem == '-' || fonem == '0') continue;
+                    var nalaziLiSeFonemUJeziku = false;
+                    if (i < BrojSimuliranihPromjena) {
+                        for (var k = 0; k < language1.length; k++)
+                            if (language1[k].indexOf(fonem) + 1) {
+                                nalaziLiSeFonemUJeziku = true;
+                                break;
+                            }
+                    }
+                    else {
+                        for (var k = 0; k < language2.length; k++)
+                            if (language2[k].indexOf(fonem) + 1) {
+                                nalaziLiSeFonemUJeziku = true;
+                                break;
+                            }
+                    }
+                    if (nalaziLiSeFonemUJeziku) continue;
+                    jesmoLiOdabraliZamijenuZaPrvi = true;
+                    drugi = fonem;
+                    break;
+                }
+                if (!jesmoLiOdabraliZamijenuZaPrvi)
+                    drugi = promjene[prvi][Math.floor(Math.random() * 12)];
                 if (drugi==='-') {
                     var jeLiFonologijaURavnotezi=true;
                     for (var k=0; k<=abeceda.length; k++) {
@@ -645,8 +671,46 @@
                         
                 }
             }
-            var epenteza1 = vowels.charAt(Math.floor(Math.random() * vowels.length));
-            var epenteza2 = vowels.charAt(Math.floor(Math.random() * vowels.length));
+            var jesmoLiOdabraliEpentetskiVokal=false;
+            var epenteza1;
+            for (var i=0; i<vowels.length; i++) {
+                var samoglasnik=vowels.charAt(i);
+                var nalaziLiSeFonemUJeziku=false;
+                for (var j=0; j<language1.length; j++)
+                    if (language1[j].indexOf(samoglasnik)+1)
+                    {
+                        nalaziLiSeFonemUJeziku=true;
+                        break;
+                    }
+                if (!nalaziLiSeFonemUJeziku)
+                {
+                    epenteza1=samoglasnik;
+                    jesmoLiOdabraliEpentetskiVokal=true;
+                    break;
+                }
+            }
+            if (!jesmoLiOdabraliEpentetskiVokal)
+                epenteza1=vowels.charAt(Math.floor(Math.random()*vowels.length));
+            jesmoLiOdabraliEpentetskiVokal=false;
+            var epenteza2;
+            for (var i=0; i<vowels.length; i++) {
+                var samoglasnik=vowels.charAt(i);
+                var nalaziLiSeFonemUJeziku=false;
+                for (var j=0; j<language2.length; j++)
+                    if (language2[j].indexOf(samoglasnik)+1)
+                    {
+                        nalaziLiSeFonemUJeziku=true;
+                        break;
+                    }
+                if (!nalaziLiSeFonemUJeziku)
+                {
+                    epenteza2=samoglasnik;
+                    jesmoLiOdabraliEpentetskiVokal=true;
+                    break;
+                }
+            }
+            if (!jesmoLiOdabraliEpentetskiVokal)
+                epenteza2=vowels.charAt(Math.floor(Math.random()*vowels.length));
             fonologija[1] += "CCC>C" + epenteza1 + "CC";
             fonologija[2] += "CCC>C" + epenteza2 + "CC";
             //Jednostavna fonotaktika: ne dopusti tri suglasnika za redom i ne dopusti q+suglasnik.
