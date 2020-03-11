@@ -104,7 +104,7 @@ and open the template in the editor.
         var language1 = [], language2 = [];
         for (var i = 0; i < original.length; i++)
             language1[i] = language2[i] = original[i];
-        var uvjeti = "VCN0-";
+        var uvjeti = "VCN0-VC0";
         function primjeniPromjenu(nakon, prvi, prije, drugi, rijec) {
             for (var i = 0; i < rijec.length; i++) {
                 if ((nakon !== "0" || i === 0) //Glasovna promjena zahvaca samo glasove na pocetku rijeci.
@@ -139,7 +139,7 @@ and open the template in the editor.
             if (prije === '-')
                 prije = abeceda.charAt(Math.floor(Math.random() * abeceda.length));
             var nakon;
-            if (Math.random() < 0.75)
+            if ((prije!="Z" && Math.random() < 0.75) || (prije=="Z" && Math.random()<0.25))
                 nakon = "Z";
             else
                 nakon = uvjeti.charAt(Math.floor(Math.random() * uvjeti.length));
