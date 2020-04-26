@@ -125,12 +125,26 @@ CSS (inline na nekoliko mjesta) - https://www.w3schools.com/css/default.asp
         </svg>
 		<br>
 <div id="bodovi" style="">Highscore: <i>0</i> by <i>anonymous</i>.</div>
-<div id="instructions">The game does NOT respond to keyboard buttons. On smartphones, the Pacman is supposed to follow your finger, to go in the direction where you last tapped. In case that doesn't work, you have buttons below the maze. On computers, it's playable by mouse.<br/>You can see the source code, with the comments in Croatian, <a href="https://github.com/FlatAssembler/SVG-Pacman/blob/master/pacman.php">here</a>.</div>
+<div id="instructions">The game does NOT respond to keyboard buttons. On smartphones, the Pacman is supposed to follow your finger, to go in the direction where you last tapped. In case that doesn't work, you have buttons below the maze. On computers, it's playable by mouse.<br/>You can see the source code, with the comments in Croatian, <a href="https://github.com/FlatAssembler/SVG-Pacman/blob/master/pacman.php">here</a>.<noscript><br/>Of course, nothing of this can work without JavaScript enabled in your browser.</noscript></div>
         </center>
         <script type="text/javascript">
+            if (document.getElementById("startButton").offsetLeft<=document.getElementById("zaslon").offsetLeft) { //Safari 5, recimo, ne podrzava CSS-ovu naredbu "calc", ali podrzava dovoljno JavaScripta i SVG-a da pokrene ovaj PacMan. Zato cemo tamo CSS-ov "calc" simulirati u JavaScriptu.
+                window.onresize=function() {
+                    var sredinaEkrana=document.body.clientWidth/2;
+                    var startButton=document.getElementById("startButton");
+                    if (startButton)
+                        startButton.style.left=(sredinaEkrana-100)+"px";
+                    var bodovi=document.getElementById("bodovi");
+                    bodovi.style.left=(sredinaEkrana-150)+"px";
+                    var instructions=document.getElementById("instructions");
+                    instructions.style.top=(458+50+5)+"px";
+                    instructions.style.width=(sredinaEkrana*2-2*8)+"px";
+                };
+                window.onresize();
+            }
             window.setTimeout(function(){document.body.removeChild(document.body.children[document.body.children.length-1]);},1000); //Ukloni "Powered by 000webhost", da ne smeta na smartphonima.
             var isGameFinished=false;
-            var highscore=0; //Ovaj podatak u JavaScript kod umece PHP program koji se vrti na serveru.
+            var highscore="0"; //Ovaj podatak u JavaScript kod umece PHP program koji se vrti na serveru.
             var kolikoJePacmanuPreostaloZivota = 3, time1 = 0, time2 = 0, score = 0, kadaJePacmanPojeoVelikuTocku = -100 /*"Plavi" duhovi se mogu "pojesti". Duhovi prestanu biti plavi nakon sto prode odredeno vrijeme (koje se broji varijablom 'brojacGlavnePetlje').*/
             var howManyDotsAreThere = 0 /*Broj tocaka u svakom nivou, PacMan ih mora pojesti sve da prijede na iduci nivo.*/
             var howManyDotsHasPacmanEaten = 0;
@@ -167,19 +181,29 @@ CSS (inline na nekoliko mjesta) - https://www.w3schools.com/css/default.asp
             pocetnoStanjeLabirinta[16] = " WPPPPPBPPPPPW ";
             pocetnoStanjeLabirinta[17] = " WWWWWWWWWWWWW ";
             pocetnoStanjeLabirinta[18] = "               ";
-            //Smjerovi kretanja. Smjer '0' znaci 'gore', smjer '1' znaci 'desno', smjer '2' znaci 'dolje', smjer '3' znaci 'lijevo', dok smjer '4' znaci 'stoji'.
+            var smjer={ //Ovako se u JavaScriptu radi ono sto se u C-u radi naredbom "enum".
+                "gore":0,
+                "desno":1,
+                "dolje":2,
+                "lijevo":3,
+                "stop":4
+            };
             var xKomponentaSmjeraPacmana = [0, 1, 0, -1, 0];
             var yKomponentaSmjeraPacmana = [-1, 0, 1, 0, 0];
-            //Smjerovi kretanja duhova i pacmana. Crveni ce se na pocetku nivoa kretati desno, ruzicasti gore, a narancasti lijevo. Pacman ce se kretati desno.
-            var smjerDuha = [1, 0, 3], smjerPacmana = 1;
-            var pocetnaXKoordinataPacmana, pocetnaYKoordinataPacmana, pocetnaXKoordinataDuha = [], pocetnaYKoordinataDuha = [];
+            var duhovi={
+                "crveni":0,
+                "ruzicasti":1,
+                "narancasti":2
+            };
+            var smjerDuha = [smjer.desno, smjer.gore, smjer.lijevo], smjerPacmana = smjer.desno;
+            var pocetnaXKoordinataPacmana, pocetnaYKoordinataPacmana, pocetnaXKoordinataDuha = new Array(3), pocetnaYKoordinataDuha = new Array(3);
             var xKoordinataPacmana = 0;
             var yKoordinataPacmana = 0;
             var xKoordinataDuha = new Array(3);
             var yKoordinataDuha = new Array(3);
             var jeLiPacmanPojeoDuha = [false, false, false];
             var bojaDuha = ["red", "pink", "orange"];
-            var smjerKretanjaSiluete = [4, 4, 4];
+            var smjerKretanjaSiluete = [smjer.stop, smjer.stop, smjer.stop];
             var xKoordinataSiluete = new Array(3);
             var yKoordinataSiluete = new Array(3);
             var xKoordinataCiljaSiluete = 7;
@@ -189,25 +213,25 @@ CSS (inline na nekoliko mjesta) - https://www.w3schools.com/css/default.asp
             {
                 hasPacmanChangedDirection = true;
                 if (pocetnoStanjeLabirinta[yKoordinataPacmana + 1].charAt(xKoordinataPacmana) != "W")
-                    smjerPacmana = 2;
+                    smjerPacmana = smjer.dolje;
             }
             function onButtonUp()
             {
                 hasPacmanChangedDirection = true;
                 if (pocetnoStanjeLabirinta[yKoordinataPacmana - 1].charAt(xKoordinataPacmana) != "W")
-                    smjerPacmana = 0;
+                    smjerPacmana = smjer.gore;
             }
             function onButtonLeft()
             {
                 hasPacmanChangedDirection = true;
                 if (pocetnoStanjeLabirinta[yKoordinataPacmana].charAt(xKoordinataPacmana - 1) != "W")
-                    smjerPacmana = 3;
+                    smjerPacmana = smjer.lijevo;
             }
             function onButtonRight()
             {
                 hasPacmanChangedDirection = true;
                 if (pocetnoStanjeLabirinta[yKoordinataPacmana].charAt(xKoordinataPacmana + 1) != "W")
-                    smjerPacmana = 1;
+                    smjerPacmana = smjer.desno;
             }
             function drawLine(x1, x2, y1, y2) //Za crtanje labirinta, 'W' iz 'pocetnoStanjeLabirinta'.
             {
@@ -286,7 +310,7 @@ CSS (inline na nekoliko mjesta) - https://www.w3schools.com/css/default.asp
                 usta.setAttribute("fill", "black");
                 usta.setAttribute("id", "usta");
                 usta.setAttribute("transform", "translate(" + (xKoordinataPacmana * 20 + 10) + " " + (yKoordinataPacmana * 20 + 10) + ")");
-                if (!((xKoordinataPacmana + yKoordinataPacmana) % 2) || smjerPacmana == 4) //Pacman zatvori usta kad se nade na neparnoj dijagonali i kada stoji.
+                if (!((xKoordinataPacmana + yKoordinataPacmana) % 2) || smjerPacmana == smjer.stop) //Pacman zatvori usta kad se nade na neparnoj dijagonali i kada stoji.
                     usta.setAttribute("transform", usta.getAttribute("transform") + " scale(1 0)");
                 usta.setAttribute("transform",
                         usta.getAttribute("transform") + " rotate(" + (90 * smjerPacmana - 90) + ")");
@@ -306,10 +330,10 @@ CSS (inline na nekoliko mjesta) - https://www.w3schools.com/css/default.asp
                            }
                            xKoordinataPacmana = pocetnaXKoordinataPacmana;
                            yKoordinataPacmana = pocetnaYKoordinataPacmana;
-                           smjerPacmana = 1;
-                           smjerDuha[0] = 1;
-                           smjerDuha[1] = 0;
-                           smjerDuha[2] = 3;
+                           smjerPacmana = smjer.desno;
+                           smjerDuha[duhovi.crveni] = smjer.desno;
+                           smjerDuha[duhovi.narancasti] = smjer.gore;
+                           smjerDuha[duhovi.ruzicasti] = smjer.lijevo;
                            for (var i = 0; i < 19; i++)
                                 for (var j = 0; j < 15; j++)
                                 {
@@ -359,7 +383,7 @@ CSS (inline na nekoliko mjesta) - https://www.w3schools.com/css/default.asp
                     zaslon.removeChild(zaslon.getElementById("TouchScreenInterface"));
                 }
                 if (pocetnoStanjeLabirinta[yKoordinataPacmana + yKomponentaSmjeraPacmana[smjerPacmana]].charAt(xKoordinataPacmana + xKomponentaSmjeraPacmana[smjerPacmana]) == "W") //Ako se PacMan nabio u zid, mora stati.
-                    smjerPacmana = 4;
+                    smjerPacmana = smjer.stop;
                 for (var i = 0; i < 3; i++) {
                     var duh = zaslon.getElementById("duh" + (i + 1));
                     if (duh != null) //Duhovi se crtaju svaki put iznova kada se ude u 'mainLoop'.
@@ -377,87 +401,87 @@ CSS (inline na nekoliko mjesta) - https://www.w3schools.com/css/default.asp
                                 && !((yKoordinataDuha[i] == 7 || yKoordinataDuha[i] == 8) && xKoordinataDuha[i] > 4 && xKoordinataDuha[i] < 9) /*Ako duh nije u "kucici" u sredini labirinta (gdje je bio na pocetku nivoa).*/)
                         {
                             //Crveni duh od treceg nivoa nadalje pokusava pratiti PacMana.
-                            if (xKoordinataPacmana < xKoordinataDuha[i] && i == 0 && pocetnoStanjeLabirinta[yKoordinataDuha[i]].charAt(xKoordinataDuha[i] - 1) != "W"
+                            if (xKoordinataPacmana < xKoordinataDuha[i] && i == duhovi.crveni && pocetnoStanjeLabirinta[yKoordinataDuha[i]].charAt(xKoordinataDuha[i] - 1) != "W"
                                     && level > 1) {
-                                smjerDuha[i] = 3; //Ako je PacMan lijevo, usmjeri crvenog duha lijevo.
+                                smjerDuha[i] = smjer.lijevo; //Ako je PacMan lijevo, usmjeri crvenog duha lijevo.
                                 continue;
                             }
-                            if (xKoordinataPacmana > xKoordinataDuha[i] && i == 0 && pocetnoStanjeLabirinta[yKoordinataDuha[i]].charAt(xKoordinataDuha[i] + 1) != "W"
+                            if (xKoordinataPacmana > xKoordinataDuha[i] && i == duhovi.crveni && pocetnoStanjeLabirinta[yKoordinataDuha[i]].charAt(xKoordinataDuha[i] + 1) != "W"
                                     && level > 1) {
-                                smjerDuha[i] = 1; //Ako je PacMan desno, usmjeri crvenog duha desno.
+                                smjerDuha[i] = smjer.desno; //Ako je PacMan desno, usmjeri crvenog duha desno.
                                 continue;
                             }
-                            if (yKoordinataPacmana < yKoordinataDuha[i] && i == 0 && pocetnoStanjeLabirinta[yKoordinataDuha[i] - 1].charAt(xKoordinataDuha[i]) != "W"
+                            if (yKoordinataPacmana < yKoordinataDuha[i] && i == duhovi.crveni && pocetnoStanjeLabirinta[yKoordinataDuha[i] - 1].charAt(xKoordinataDuha[i]) != "W"
                                     && !(xKoordinataDuha[i] == 7 && yKoordinataDuha[i] == 6) && level > 1) {
-                                smjerDuha[i] = 0; //Ako je PacMan gore, usmjeri crvenog duha gore.
+                                smjerDuha[i] = smjer.gore; //Ako je PacMan gore, usmjeri crvenog duha gore.
                                 continue;
                             }
-                            if (yKoordinataPacmana > yKoordinataDuha[i] && i == 0 && pocetnoStanjeLabirinta[yKoordinataDuha[i] + 1].charAt(xKoordinataDuha[i]) != "W"
+                            if (yKoordinataPacmana > yKoordinataDuha[i] && i == duhovi.crveni && pocetnoStanjeLabirinta[yKoordinataDuha[i] + 1].charAt(xKoordinataDuha[i]) != "W"
                                     && !(xKoordinataDuha[i] == 7 && yKoordinataDuha[i] == 6) && level > 1) {
-                                smjerDuha[i] = 2; //Ako je PacMan dolje, usmjeri crvenog duha dolje.
+                                smjerDuha[i] = smjer.dolje; //Ako je PacMan dolje, usmjeri crvenog duha dolje.
                                 continue;
                             }
                             //Narancasti duh od drugog nivoa nadalje "bjezi" od PacMana.
-                            if (xKoordinataPacmana < xKoordinataDuha[i] && i == 2 && pocetnoStanjeLabirinta[yKoordinataDuha[i]].charAt(xKoordinataDuha[i] + 1) != "W"
+                            if (xKoordinataPacmana < xKoordinataDuha[i] && i == duhovi.narancasti && pocetnoStanjeLabirinta[yKoordinataDuha[i]].charAt(xKoordinataDuha[i] + 1) != "W"
                                     && level) {
-                                smjerDuha[i] = 1; //Ako je PacMan lijevo, usmjeri narancastog duha desno.
+                                smjerDuha[i] = smjer.desno; //Ako je PacMan lijevo, usmjeri narancastog duha desno.
                                 continue;
                             }
-                            if (xKoordinataPacmana > xKoordinataDuha[i] && i == 2 && pocetnoStanjeLabirinta[yKoordinataDuha[i]].charAt(xKoordinataDuha[i] - 1) != "W"
+                            if (xKoordinataPacmana > xKoordinataDuha[i] && i == duhovi.narancasti && pocetnoStanjeLabirinta[yKoordinataDuha[i]].charAt(xKoordinataDuha[i] - 1) != "W"
                                     && level) {
-                                smjerDuha[i] = 3; //Ako je PacMan desno, usmjeri narancastog duha lijevo.
+                                smjerDuha[i] = smjer.lijevo; //Ako je PacMan desno, usmjeri narancastog duha lijevo.
                                 continue;
                             }
-                            if (yKoordinataPacmana < yKoordinataDuha[i] && i == 2 && pocetnoStanjeLabirinta[yKoordinataDuha[i] + 1].charAt(xKoordinataDuha[i]) != "W"
+                            if (yKoordinataPacmana < yKoordinataDuha[i] && i == duhovi.narancasti && pocetnoStanjeLabirinta[yKoordinataDuha[i] + 1].charAt(xKoordinataDuha[i]) != "W"
                                     && !(xKoordinataDuha[i] == 7 && yKoordinataDuha[i] == 6) && level) {
-                                smjerDuha[i] = 2; //Ako je PacMan gore, usmjeri narancastog duha dolje.
+                                smjerDuha[i] = smjer.dolje; //Ako je PacMan gore, usmjeri narancastog duha dolje.
                                 continue;
                             }
-                            if (yKoordinataPacmana > yKoordinataDuha[i] && i == 2 && pocetnoStanjeLabirinta[yKoordinataDuha[i] - 1].charAt(xKoordinataDuha[i]) != "W"
+                            if (yKoordinataPacmana > yKoordinataDuha[i] && i == duhovi.narancasti && pocetnoStanjeLabirinta[yKoordinataDuha[i] - 1].charAt(xKoordinataDuha[i]) != "W"
                                     && !(xKoordinataDuha[i] == 7 && yKoordinataDuha[i] == 6) && level) {
-                                smjerDuha[i] = 0; //Ako je PacMan dolje, usmjeri narancastog duha gore.
+                                smjerDuha[i] = smjer.gore; //Ako je PacMan dolje, usmjeri narancastog duha gore.
                                 continue;
                             }
                         } else if (!((yKoordinataDuha[i] == 7 || yKoordinataDuha[i] == 8) && xKoordinataDuha[i] > 4 && xKoordinataDuha[i] < 9)) //Ako je PacMan vise udaljen od duha u smjeru gore-dolje, a duh nije u "kucici" u sredini labirinta.
                         {
-                            if (yKoordinataPacmana < yKoordinataDuha[i] && i == 0 && pocetnoStanjeLabirinta[yKoordinataDuha[i] - 1].charAt(xKoordinataDuha[i]) != "W"
+                            if (yKoordinataPacmana < yKoordinataDuha[i] && i == duhovi.crveni && pocetnoStanjeLabirinta[yKoordinataDuha[i] - 1].charAt(xKoordinataDuha[i]) != "W"
                                     && !(xKoordinataDuha[i] == 7 && yKoordinataDuha[i] == 6) && level > 1) {
-                                smjerDuha[i] = 0; //Crveni prema gore
+                                smjerDuha[i] = smjer.gore; //Crveni prema gore
                                 continue;
                             }
-                            if (yKoordinataPacmana > yKoordinataDuha[i] && i == 0 && pocetnoStanjeLabirinta[yKoordinataDuha[i] + 1].charAt(xKoordinataDuha[i]) != "W"
+                            if (yKoordinataPacmana > yKoordinataDuha[i] && i == duhovi.crveni && pocetnoStanjeLabirinta[yKoordinataDuha[i] + 1].charAt(xKoordinataDuha[i]) != "W"
                                     && !(xKoordinataDuha[i] == 7 && yKoordinataDuha[i] == 6) && level > 1) {
-                                smjerDuha[i] = 2; //Crveni prema dolje
+                                smjerDuha[i] = smjer.dolje; //Crveni prema dolje
                                 continue;
                             }
-                            if (xKoordinataPacmana < xKoordinataDuha[i] && i == 0 && pocetnoStanjeLabirinta[yKoordinataDuha[i]].charAt(xKoordinataDuha[i] - 1) != "W"
+                            if (xKoordinataPacmana < xKoordinataDuha[i] && i == duhovi.crveni && pocetnoStanjeLabirinta[yKoordinataDuha[i]].charAt(xKoordinataDuha[i] - 1) != "W"
                                     && level > 1) {
-                                smjerDuha[i] = 3; //Crveni prema lijevo
+                                smjerDuha[i] = smjer.lijevo; //Crveni prema lijevo
                                 continue;
                             }
-                            if (xKoordinataPacmana > xKoordinataDuha[i] && i == 0 && pocetnoStanjeLabirinta[yKoordinataDuha[i]].charAt(xKoordinataDuha[i] + 1) != "W"
+                            if (xKoordinataPacmana > xKoordinataDuha[i] && i == duhovi.crveni && pocetnoStanjeLabirinta[yKoordinataDuha[i]].charAt(xKoordinataDuha[i] + 1) != "W"
                                     && level > 1) {
-                                smjerDuha[i] = 1; //Crveni prema desno
+                                smjerDuha[i] = smjer.desno; //Crveni prema desno
                                 continue;
                             }
-                            if (yKoordinataPacmana < yKoordinataDuha[i] && i == 2 && pocetnoStanjeLabirinta[yKoordinataDuha[i] + 1].charAt(xKoordinataDuha[i]) != "W"
+                            if (yKoordinataPacmana < yKoordinataDuha[i] && i == duhovi.narancasti && pocetnoStanjeLabirinta[yKoordinataDuha[i] + 1].charAt(xKoordinataDuha[i]) != "W"
                                     && !(xKoordinataDuha[i] == 7 && yKoordinataDuha[i] == 6) && level) {
-                                smjerDuha[i] = 2; //Narancasti prema dolje
+                                smjerDuha[i] = smjer.dolje; //Narancasti prema dolje
                                 continue;
                             }
-                            if (yKoordinataPacmana > yKoordinataDuha[i] && i == 2 && pocetnoStanjeLabirinta[yKoordinataDuha[i] - 1].charAt(xKoordinataDuha[i]) != "W"
+                            if (yKoordinataPacmana > yKoordinataDuha[i] && i == duhovi.narancasti && pocetnoStanjeLabirinta[yKoordinataDuha[i] - 1].charAt(xKoordinataDuha[i]) != "W"
                                     && !(xKoordinataDuha[i] == 7 && yKoordinataDuha[i] == 6) && level) {
-                                smjerDuha[i] = 0; //Narancasti prema gore
+                                smjerDuha[i] = smjer.gore; //Narancasti prema gore
                                 continue;
                             }
-                            if (xKoordinataPacmana < xKoordinataDuha[i] && i == 2 && pocetnoStanjeLabirinta[yKoordinataDuha[i]].charAt(xKoordinataDuha[i] + 1) != "W"
+                            if (xKoordinataPacmana < xKoordinataDuha[i] && i == duhovi.narancasti && pocetnoStanjeLabirinta[yKoordinataDuha[i]].charAt(xKoordinataDuha[i] + 1) != "W"
                                     && level) {
-                                smjerDuha[i] = 1; //Narancasti prema desno
+                                smjerDuha[i] = smjer.desno; //Narancasti prema desno
                                 continue;
                             }
-                            if (xKoordinataPacmana > xKoordinataDuha[i] && i == 2 && pocetnoStanjeLabirinta[yKoordinataDuha[i]].charAt(xKoordinataDuha[i] - 1) != "W"
+                            if (xKoordinataPacmana > xKoordinataDuha[i] && i == duhovi.narancasti && pocetnoStanjeLabirinta[yKoordinataDuha[i]].charAt(xKoordinataDuha[i] - 1) != "W"
                                     && level) {
-                                smjerDuha[i] = 3; //Narancasti prema lijevo
+                                smjerDuha[i] = smjer.lijevo; //Narancasti prema lijevo
                                 continue;
                             }
                         }
@@ -477,10 +501,10 @@ CSS (inline na nekoliko mjesta) - https://www.w3schools.com/css/default.asp
                             }
                             xKoordinataPacmana = pocetnaXKoordinataPacmana;
                             yKoordinataPacmana = pocetnaYKoordinataPacmana;
-                            smjerPacmana = 1;
-                            smjerDuha[0] = 1;
-                            smjerDuha[1] = 0;
-                            smjerDuha[2] = 3;
+                            smjerPacmana = smjer.desno;
+                            smjerDuha[duhovi.crveni] = smjer.desno;
+                            smjerDuha[duhovi.ruzicasti] = smjer.gore;
+                            smjerDuha[duhovi.narancasti] = smjer.lijevo;
                             return;
                         } else //Ako vise nema zivota.
                         {
@@ -493,6 +517,7 @@ CSS (inline na nekoliko mjesta) - https://www.w3schools.com/css/default.asp
                             clearInterval(time2); //Zaustavi animacije.
                             if (score>(highscore)*1)
                             {
+                                document.body.onresize=function(){return;}; //Safari 5.
                                 document.getElementById("instructions").style.top=(458+2*50+5)+"px";
                                 var player;
                                 do {
@@ -532,28 +557,28 @@ CSS (inline na nekoliko mjesta) - https://www.w3schools.com/css/default.asp
                 for (var i=0; i<3; i++)
                 {
                     if (xKoordinataSiluete[i]==xKoordinataCiljaSiluete && (yKoordinataSiluete[i]==yKoordinataCiljaSiluete || yKoordinataSiluete[i]==yKoordinataCiljaSiluete+1)) //Ako je bijeli duh pred vratima...
-                        {smjerKretanjaSiluete[i]=2; continue;} //... neka ude u kucicu.
+                        {smjerKretanjaSiluete[i]=smjer.dolje; continue;} //... neka ude u kucicu.
                     if (xKoordinataSiluete[i]==xKoordinataCiljaSiluete && yKoordinataSiluete[i]==yKoordinataCiljaSiluete+2 && smjerKretanjaSiluete[i]==2) //Ako je bijeli duh upravo usao u kucicu...
-                        {smjerKretanjaSiluete[i]=3; continue;} //... neka ide lijevo.
+                        {smjerKretanjaSiluete[i]=smjer.lijevo; continue;} //... neka ide lijevo.
                     if (xKoordinataSiluete[i]==xKoordinataCiljaSiluete && yKoordinataSiluete[i]==yKoordinataCiljaSiluete+2) //Ako je bijeli duh na sredini kucice...
                         continue; //Neka zadrzi smjer.
                     if (xKoordinataSiluete[i]==xKoordinataCiljaSiluete-1 && yKoordinataSiluete[i]==yKoordinataCiljaSiluete+2) //Ako je bijeli duh na lijevom zidu kucice
-                        {smjerKretanjaSiluete[i]=1; continue} //... neka ide desno.
+                        {smjerKretanjaSiluete[i]=smjer.desno; continue} //... neka ide desno.
                     if (xKoordinataSiluete[i]==xKoordinataCiljaSiluete+1 && yKoordinataSiluete[i]==yKoordinataCiljaSiluete+2) //Ako je bijeli duh na desnom zidu kucice...
-                        {smjerKretanjaSiluete[i]=3; continue;} //... neka ide lijevo.
+                        {smjerKretanjaSiluete[i]=smjer.lijevo; continue;} //... neka ide lijevo.
                     if ((Math.abs(xKoordinataSiluete[i]-xKoordinataCiljaSiluete)==1 || Math.abs(xKoordinataSiluete[i]-xKoordinataCiljaSiluete)==2) &&
                         pocetnoStanjeLabirinta[yKoordinataSiluete[i]+yKomponentaSmjeraPacmana[smjerKretanjaSiluete[i]]].charAt(xKoordinataSiluete[i]+xKomponentaSmjeraPacmana[smjerKretanjaSiluete[i]])!='W' && smjerKretanjaSiluete[i]-4)
-                        continue; //Greedy algoritam za odabiranje smjera ne funkcionira u nekim slucajevima.
+                        continue; //Greedy algoritam za odabiranje smjera ne funkcionira u nekim slucajevima, tada je bolje zadrzati smjer.
                     if (yKoordinataSiluete[i]>yKoordinataCiljaSiluete && pocetnoStanjeLabirinta[yKoordinataSiluete[i]-1].charAt(xKoordinataSiluete[i])!='W') //Ako je bijeli duh ispod cilja...
-                            {smjerKretanjaSiluete[i]=0; continue;} //... usmjeri ga prema gore.
+                            {smjerKretanjaSiluete[i]=smjer.gore; continue;} //... usmjeri ga prema gore.
                     if (yKoordinataSiluete[i]<yKoordinataCiljaSiluete && pocetnoStanjeLabirinta[yKoordinataSiluete[i]+1].charAt(xKoordinataSiluete[i])!='W') //Ako je bijeli duh iznad cilja...
-                            {smjerKretanjaSiluete[i]=2; continue;} //... usmjeri ga prema dolje.
+                            {smjerKretanjaSiluete[i]=smjer.dolje; continue;} //... usmjeri ga prema dolje.
                     if (xKoordinataSiluete[i]>xKoordinataCiljaSiluete && pocetnoStanjeLabirinta[yKoordinataSiluete[i]].charAt(xKoordinataSiluete[i]-1)!='W') //Ako je bijeli duh desno od cilja...
-                            {smjerKretanjaSiluete[i]=3; continue;} //... usmjeri ga prema lijevo.
+                            {smjerKretanjaSiluete[i]=smjer.lijevo; continue;} //... usmjeri ga prema lijevo.
                     if (xKoordinataSiluete[i]<xKoordinataCiljaSiluete && pocetnoStanjeLabirinta[yKoordinataSiluete[i]].charAt(xKoordinataSiluete[i]+1)!='W') //Ako je bijeli duh lijevo od cilja...
-                            {smjerKretanjaSiluete[i]=1; continue;} //... usmjeri ga prema desno.
+                            {smjerKretanjaSiluete[i]=smjer.desno; continue;} //... usmjeri ga prema desno.
                     if (xKoordinataSiluete[i]==xKoordinataCiljaSiluete && yKoordinataSiluete[i]>yKoordinataCiljaSiluete && pocetnoStanjeLabirinta[yKoordinataSiluete[i]-1].charAt(xKoordinataSiluete[i])=='W') //Ako je bijeli duh ravno ispod cilja, a iznad njega zid...
-                            {smjerKretanjaSiluete[i]=3; continue;} //... usmjeri ga prema lijevo.
+                            {smjerKretanjaSiluete[i]=smjer.lijevo; continue;} //... usmjeri ga prema lijevo.
                 }
                 if (zaslon.getElementById("krug" + (yKoordinataPacmana * 20 + xKoordinataPacmana)) != null) { //Ako pojede tockicu.
                     zaslon.removeChild(zaslon.getElementById("krug" + (yKoordinataPacmana * 20 + xKoordinataPacmana)));
@@ -590,10 +615,10 @@ CSS (inline na nekoliko mjesta) - https://www.w3schools.com/css/default.asp
                     }
                     xKoordinataDuha[i] += xKomponentaSmjeraPacmana[smjerDuha[i]];
                     yKoordinataDuha[i] += yKomponentaSmjeraPacmana[smjerDuha[i]];
-                    if (xKoordinataDuha[i] > 14) //Ako duh prode kroz prolaz desno u sredini labirinta.
-                        xKoordinataDuha[i] = 0;
-                    if (xKoordinataDuha[i] < 0) //Ako duh prode kroz prolaz lijevo u sredini labirinta.
-                        xKoordinataDuha[i] = 14;
+                    if (xKoordinataDuha[i] > 14) //Ako duh prode kroz krajnji desni prolaz u labirintu...
+                        xKoordinataDuha[i] = 0; //...prebaci ga na krajnji lijevi.
+                    if (xKoordinataDuha[i] < 0) //Ako duh prode kroz krajnji lijevi prolaz u labirintu...
+                        xKoordinataDuha[i] = 14; //...prebaci ga na krajnji desni.
                 }
                 xKoordinataPacmana += xKomponentaSmjeraPacmana[smjerPacmana];
                 yKoordinataPacmana += yKomponentaSmjeraPacmana[smjerPacmana];
@@ -628,16 +653,16 @@ CSS (inline na nekoliko mjesta) - https://www.w3schools.com/css/default.asp
                 if (!((xKoordinataPacmana + yKoordinataPacmana) % 2) /*Na poljima na parnim dijagonalama ce usta biti zatvorena, a na neparnima otvorena.*/ && (smjerPacmana == 1 || smjerPacmana == 3))
                     usta.setAttribute("transform",
                             usta.getAttribute("transform") + " scale(1 " + (brojacAnimacijskePetlje * 0.2) + ")");
-                else if (smjerPacmana == 1 || smjerPacmana == 3)
+                else if (smjerPacmana == smjer.desno || smjerPacmana == smjer.lijevo)
                     usta.setAttribute("transform",
                             usta.getAttribute("transform") + " scale(1 " + (1 - brojacAnimacijskePetlje * 0.2) + ")");
-                else if (!((xKoordinataPacmana + yKoordinataPacmana) % 2) && (smjerPacmana == 2 || !smjerPacmana))
+                else if (!((xKoordinataPacmana + yKoordinataPacmana) % 2) && (smjerPacmana == smjer.dolje || smjerPacmana == smjer.gore))
                     usta.setAttribute("transform",
                             usta.getAttribute("transform") + " scale(" + (brojacAnimacijskePetlje * 0.2) + " 1)");
-                else if (smjerPacmana == 2 || !smjerPacmana)
+                else if (smjerPacmana == smjer.dolje || smjerPacmana == smjer.gore)
                     usta.setAttribute("transform",
                             usta.getAttribute("transform") + " scale(" + (1 - brojacAnimacijskePetlje * 0.2) + " 1)");
-                else if (smjerPacmana == 4) //PacMan, ako se ne mice, uvijek drzi usta zatvorenima.
+                else if (smjerPacmana == smjer.stop) //PacMan, ako se ne mice, uvijek drzi usta zatvorenima.
                     usta.setAttribute("transform",
                             usta.getAttribute("transform") + " scale(1 0)");
                 usta.setAttribute("transform",
