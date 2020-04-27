@@ -523,7 +523,7 @@ CSS (inline na nekoliko mjesta) - https://www.w3schools.com/css/default.asp
                                 do {
                                     player=window.prompt("Enter your name, new highscore! Your name mustn't contain whitespaces or special characters.","player");
                                 }
-                                while (player && (player.indexOf("<")+1 || player.indexOf(">")+1 || player.indexOf("&")+1 || player.indexOf(" ")+1));
+                                while (player && (player.indexOf("<")+1 || player.indexOf(">")+1 || player.indexOf("&")+1 || player.indexOf(" ")+1 || player.indexOf("\"")+1 || player.indexOf("=")+1));
                                 if (player==null)
                                     player="anonymous";
                                 var hash=7;
