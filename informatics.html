@@ -133,7 +133,29 @@
             {
                 overflow:scroll;
                 color:lightGreen;
-                font-size:0.75em;
+                font-size:1em;
+            }
+            .Constant { color: #ffa0a0; }
+            .Statement { color: #f0e68c; font-weight: bold; }
+            .Type { color: #bdb76b; font-weight: bold; }
+            .sc0 {
+            }
+            .sc2 {
+            	color: #FF8000;
+            }
+            .sc4 {
+            	font-weight: bold;
+            	color: #FFFF80;
+            }
+            .sc5 {
+            }
+            .sc6 {
+            	font-weight: bold;
+            	color: #0000FF;
+            }
+            .sc8 {
+            	font-weight: bold;
+            	color: #8080FF;
             }
         </style>
     </head>
@@ -326,32 +348,34 @@ Etymology Game
             <a name="vrh"></a>
             <h2 style="text-align: center">Why am I interested in informatics?</h2>
             <div style="text-align: justify; margin-left:10px; margin-right:10px">So, why am I interested in informatics? Becuase it works! I see that if I write something in one of the so-called programming languages, a computer understands me. Sometimes it's hard to understand a computer, and it's often hard to make yourself understood by a computer, but that's because computers are different from human beings. They can easily do things human beings have no hope of doing, like displaying animations (which is basically drawing tens of images per second).<br>So, what are programming languages? Well, see, computers natively understand only machine code, made of ones and zeros. It's very hard for us to understand the language of ones and zeros. For similar reasons, computers have a very hard time understanding the human languages. That's why we needed to invent some special languages both humans and computers could understand. These are called programming languages. There are programs that translate the programming languages to ones and zeros, these are called compilers and interpreters.<br>So, what are programming languages like? Well, there are two basic types of programming languages. One are the so-called imperative languages, and the others are called declarative languages. An example of an imperative language is C++, and an example of a declarative language is Haskell. <a href="http://cpp.sh">Here</a> is an on-line compiler for C++, and <a href="https://www.haskell.org">here</a> is an on-line interpreter for Haskell. In declarative languages, the sentences would mostly translate to human languages as strict mathematical definitions, and in imperative languages, they would mostly translate as imperatives.<br>To explain the difference between the programming languages, I will use the following example of a simple program. Leonardo from Pisa, also known as Fibonacci, was a mathematician who introduced the Arabic numerals to Europe. He lived in the 12th and the 13th century. He has worked on many natural sciences. One of the questions he asked himself was how fast woud rabbits procreate if there was enough food for every single of them. So he did some experiments. What he found out was that there was indeed a rule. Namely, the number of rabbits in some generation is equal to the sum of the numbers of the rabbits in the previous two generations. For instance, if there are three rabbits in the current generation, and there had been two rabbits in the previous generation, there will be five rabbits in the next generation. From then on, the sequence of the numbers in which each one is equal to the some of the previous two is called the Fibonacci sequence. The zeroth number in that sequence is defined to be zero, and the first one to be one. So, that sequence goes like this: 0,1,1,2,3,5,8,13,21... We want to make a program to find some number that's far in that sequence (ignoring the obvious fact that that number would be far larger than the actual number of rabbits in nature because, well, once there are many of them, some of them will die before they procreate either because of the predators or the starvation).<br>So, how will we do it in Haskell? We just need to translate a strict mathematical definition of the Fibonacci's sequence to it. "Fibonacci's sequence is a sequence of integers (whole numbers). The zeroth number in that sequence is zero. The first one is one. For every other number, its Fibonacci's number is equal to the sum of the two right before it." Here we go:
-<pre style="font-face:'Lucida Console'; background:#111111; text-align:left; margin-top:0px; margin-bottom:0px">fibonacci :: Integer -> Integer
-fibonacci 0 = 0
-fibonacci 1 = 1
-fibonacci n = fibonacci (n-1) + fibonacci (n-2)</pre>
+<pre style="font-face:'Lucida Console'; background:#111111; text-align:left; margin-top:0px; margin-bottom:0px">fibonacci <span class="Statement">::</span> <span class="Type">Integer</span> <span class="Statement">-&gt;</span> <span class="Type">Integer</span>
+fibonacci <span class="Constant">0</span> <span class="Statement">=</span> <span class="Constant">0</span>
+fibonacci <span class="Constant">1</span> <span class="Statement">=</span> <span class="Constant">1</span>
+fibonacci n <span class="Statement">=</span> fibonacci (n<span class="Statement">-</span><span class="Constant">1</span>) <span class="Statement">+</span> fibonacci (n<span class="Statement">-</span><span class="Constant">2</span>)
+</pre>
                 If you study the code (a set of sentences in a programming language), I believe it will become clear that it's a literal translation of the four sentences, every in their own row.<br>Now, how will we translate that to C++? We can't do it literally. We need to make an algorithm, a sequence of instructions a computer has to follow in order to calculate it. A concept you probably need to understand for that is called variables. Variables are readable and writable places in memory a symbol is assigned to. They can store various pieces of information, in this case, they will store whole numbers. So, in C++, when you say <i>int a;</i> that means "create a variable that stores integers (<i>int</i> means integer) and assign it the symbol 'a'." (the semicolon, in this case, marks the end of a sentence). Now, if you say <i>a=5;</i>, that means "Store the number 5 in the variable 'a'." If, after that, you say <i>a=a+5</i>, that means "Store the number a+5=5+5 (since we previously stored the number 5 into 'a')=10 into 'a'". So, what we will do is to make a program that will have two variables, 'a' and 'b'. In the beginning, 'a' will be zero and 'b' will be one. Now, we will add 'a' to 'b', and we will then assign the difference between 'b' and 'a' to 'a'. And we will repeat it 'n' times, the number of the Fibonacci's number we are trying to find. Then we will say that 'a' is the <i>n</i>th Fibonacci's number. Let's say we want to find the third Fibonacci's number. So, in the zeroth step 'a' is 0 and 'b' is '1'. In the first step, b=a+b=0+1=1, and a=b-a=1-0=1. In the second step, b=a+b=1+1=2, and a=b-a=2-1=1. And in the third step, b=a+b=1+2=3 and a=b-a=3-1=2. There we go, we will say that the solution is a=2. In C++, we say that we "return" 'a' (that phrase makes sense once you look deeper into the language). The usual way of saying you want to repeat something 'n' times in C++ is to say something that would literally translate as "For every integer 'i' from zero that's smaller than 'n', increasing 'i' every time by one, do...". Without further ado, here is the code:
-<pre style="font-face:'Lucida Console'; background:#111111; text-align:left; margin-top:0px; margin-bottom:0px">int fibonacci(int n)
+<pre style="font-face:'Lucida Console'; background:#111111; text-align:left; margin-top:0px; margin-bottom:0px"><span class="Type">int</span> fibonacci(<span class="Type">int</span> n)
 {
-    int a=0, b=1;
-    for (int i=0; i&#60n; i=i+1)
+    <span class="Type">int</span> a=<span class="Constant">0</span>, b=<span class="Constant">1</span>;
+    <span class="Statement">for</span> (<span class="Type">int</span> i=<span class="Constant">0</span>; i&lt;n; i=i+<span class="Constant">1</span>)
     {
         b=a+b;
         a=b-a;
     }
-    return a;
-}</pre>
+    <span class="Statement">return</span> a;
+}
+</pre>
                 A bit puzzling? Well, see, C++ is actually way easier to understand by a computer than Haskell is. Also, it gives the programmers more control over their programs. In Haskell, they tell the computer what to do, and in C++, they tell it how to do that. So, they can ensure they do it in an efficient way. Today, you still can't trust the compiler to do it for you.<br>Imperative languages are devided into the so-called higher and lower imperative languages. C++ is a higher imperative language. Lower imperative languages are rarely used today. They are hard to understand by a human, but easier to understand by a computer. An example of a lower imperative language is Assembly. It has, unlike Haskell or C++, many dialects. In fact, in general, each Assembly compiler has its own dialect of Assembly. So, an Assembly program that works on Windows doesn't work on Linux even if you have an Assembly compiler for Linux. A dialect of Assembly I am somewhat familiar with is Flat Assembler. Here is what the program would look like in Flat Assembler:
-                <pre style="font-face:'Lucida Console'; background:#111111; text-align:left; margin-top:0px; margin-bottom:0px">.global fibonacci
-fibonacci:
-mov eax,0
-mov ebx,1
-mov ecx, edi
-loop1:
-xchg eax,ebx
-add eax,ebx
-loop loop1
-ret</pre>
+                <pre style="font-face:'Lucida Console'; background:#111111; text-align:left; margin-top:0px; margin-bottom:0px"><span class="sc6">.global</span><span class="sc0"> </span><span class="sc5">fibonacci</span><span class="sc0">
+</span><span class="sc5">fibonacci</span><span class="sc4">:</span><span class="sc0">
+</span><span class="sc6">mov</span><span class="sc0"> </span><span class="sc8">eax</span><span class="sc4">,</span><span class="sc2">0</span><span class="sc0">
+</span><span class="sc6">mov</span><span class="sc0"> </span><span class="sc8">ebx</span><span class="sc4">,</span><span class="sc2">1</span><span class="sc0">
+</span><span class="sc6">mov</span><span class="sc0"> </span><span class="sc8">ecx</span><span class="sc4">,</span><span class="sc0"> </span><span class="sc8">edi</span><span class="sc0">
+</span><span class="sc5">loop1</span><span class="sc4">:</span><span class="sc0">
+</span><span class="sc6">xchg</span><span class="sc0"> </span><span class="sc8">eax</span><span class="sc4">,</span><span class="sc8">ebx</span><span class="sc0">
+</span><span class="sc6">add</span><span class="sc0"> </span><span class="sc8">eax</span><span class="sc4">,</span><span class="sc8">ebx</span><span class="sc0">
+</span><span class="sc6">loop</span><span class="sc0"> </span><span class="sc5">loop1</span><span class="sc0">
+</span><span class="sc6">ret</span></pre>
                 As you've probably guessed, this is not a literal translation from C++. That's because it can't be. I can't really explain this program simply. "Eax", "ebx", "ecx" and "edi" are the so-called registers. They are like variables, except that they aren't in the memory of a computer, but in the processor. "Mov eax,0" would translate to C++ as "eax=0;", and "add eax,ebx" would translate to "eax=eax+ebx;". "xchg eax,ebx" has no equivalent in C++, it means "Let eax and ebx exchange the numbers stored in them". For instance if "eax" was 0 and "ebx" was 1 before that sentence, after that sentence "eax" would be 1 and "ebx" would be 0. The words such as "mov", "add" and "xchg" are called mnemonics. "loop1:" creates a symbol for a place in a program called "loop1". "loop loop1" means "If the number stored in 'ecx' is bigger than 0, turn the execution of the program back to 'loop1' (so that the two sentences between the 'loop1:' and 'loop loop1' repeat themselves, creating a 'loop')." We say that "loop" jumps to "loop1". ".global fibonnaci" tells the compiler (actually a program beside the compiler called "linker") that "fibonnaci" isn't a place where you can "jump" on, but a name of a subprogram. So, before another part of a program starts this subprogram, it should store the number whose the Fibonnaci's number it wants in "edi" (if it wants the fifth Fibonnaci's number, it should store 5 in "edi"), and this subprogram should return the result in "eax". I hope I've given you some basic idea what the lower imperative language are like.<br>
                 Today, most of the programs are written in higher imperative languages like C++. We've gone an enormously long way from writing the programs in ones and zeros. There are two main streams of attempts to make the programming languages more productive. One is to make declarative languages, and the other is to keep the languages imperative, but to change their grammar to resemble the grammars of human languages more (like the word order usually being subject-verb-object), and that's called object-oriented programming.<br>The first one appears to be more scientific. It often does the experiments to determine whether a particular feature makes programming languages more productive. But it's hard to tell because this field of informatics, the comparisons of the programming languages, is filled with pseudosciences. Programmers are often quite dogmatic in defending their favorite programming languages.<br> While I have a lot of theoretical knowledge of programming, I don't have experience with writing long programs. The most complicated thing I've made is probably the PacMan game I've posted on this site. It's written mostly in Javascript, it's around 550 lines long, and I had to solve a lot of algorithmic problems. I've come to an idea to make this website when I learned how much Javascript (a programming language used by Internet browsers) has changed since I last studied it. It's made making websites, web applications and games much easier.<br>Everything on this website, including the animations and the game, is hand-written in HTML5 (a common name for CSS, Javascript and HTML). I haven't used any special web-designing tools nor frameworks. Looking at the source code of this website might help you study the HTML5, especially since I am still relatively a beginner (not knowing the "dirty tricks").<br>I hope that it will have some educational value. If you like the way I designed this website, you can make one that looks similar to mine by downloading the template I've designed <a href="template.html">here</a> (I'll warn you that you will probably want to dodge it to work better in Safari on iPhone, I haven't bothered to make all the features available in a browser full of quirks and without the developer tools allowing me to explore them).<br><br>
                 <br>UPDATE on 10/02/2018: I've just made a simple arithmetic-expression-to-assembly <a href="compiler.html">compiler</a> in JavaScript, runnable in a browser. I hope that playing with it will be useful in understanding how the programming languages work. If you are going to experiment with Assembly, you should probably use some virtualization software to protect the critical software on your computer from the damage poorly-written or malicious Assembly programs can do. You can read about my experience with free virtualization software <a href="https://atheistforums.org/thread-59713-post-1932224.html#pid1932224">here</a>. (<i>The back-end of that compiler can't work since this web-site is hosted on GitHub Pages now, and GitHub Pages doesn't support any PHP!</i>)<br>

@@ -161,6 +161,14 @@
                 background:#FFFFDD;
                 color:black;
             }
+            .Type { color: #bdb76b; font-weight: bold; }
+            .Statement { color: #f0e68c; font-weight: bold; }
+            .PreProc { color: #cd5c5c; }
+            .Constant { color: #ffa0a0; }
+            .Special { color: #ffdead; }
+            #CProgram{color: #ffffff;}
+            #huffman_code{color: #ffffff;}
+            .Comment { color: #87ceeb; }
         </style>
     </head>
     <body>
@@ -623,30 +631,31 @@ Etymology Game
                 </span>
 		A question I often get asked is how I know I'm not a victim of the <a href="https://en.wikipedia.org/wiki/Birthday_problem">Birthday Paradox</a>, that it's not that the toponyms came from unrelated languages, and that the apparent patterns I see, although they seem unlikely at the first sight, have arisen randomly because such patterns are actually bound to occur. You can see (or hide) my response by clicking <a href="javascript:void()" onclick="toggle('program');setCodeToAppropriateWidth();">here</a>.<br/>
                 <span id="program" style="display:none">So, one of the most striking patterns I see in Croatian toponyms is that 5 river names start with k(+vowel)+r: <a class="map" data-look="Krka+river,+Hrvatska">Krka</a> (once in Croatia, and <a class="map" data-look="Krka+river,+Slovenia">once</a> in Slovenia, but near Croatia), <a class="map">Korana</a>, <a class="map">Karašica</a> (2 rivers with the same name, both in Croatia), <a class="map">Krapina</a> and <a class="map">Krbavica</a>. So, since there are around 20 consonants in a language, there are around 20*20=400 possible consonant pairs for a river name to begin with. While not all consonants in a language occur equally often, an average language has slightly more than 20 consonants, so we can assume those two errors approximately offset each other out. Let's assume there are around 100 river names in Croatia (it's a safe assumption, since many river names both repeat themselves and have obvious Slavic roots, so they don't count here). What's the probability the same consonant pair will appear 5 times if the names were really random? Let me be clear, we are not asking what's the probability that this particular pattern of k(+vowel)+r would appear in the river names, we are asking what's the probability that any such pattern would appear. This is the equivalent of asking: If you randomly choose a number between 1 and 400, 100 times, what's the probability you will choose the same number <i>n</i> times? So, because of the Birthday Paradox, it's indeed hard to calculate that probability analytically, but I've made a computer program that estimates that numerically. Here it goes in the C programming language (my favorite compiler for C is <a href="https://bellard.org/tcc/">TCC</a>, by the way, but this program is also easy to compile to JavaScript by Emscripten, you can see it done <a href="birthday.html">here</a>):
-<span class="code" id="CProgram">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;time.h&gt;
+<span class="code" id="CProgram"><span class="PreProc">#include </span><span class="Constant">&lt;stdio.h&gt;</span>
+<span class="PreProc">#include </span><span class="Constant">&lt;stdlib.h&gt;</span>
+<span class="PreProc">#include </span><span class="Constant">&lt;time.h&gt;</span>
 
-int main() {
-	srand(time(0));
-	int number_of_repeats;
-	scanf("%d",&number_of_repeats);
-	const int number_of_rivers=100;
-	float sum=0;
-	int counter[400];
-	for (int i=0; i&lt;10000; i++)
+<span class="Type">int</span> main() {
+	srand(time(<span class="Constant">0</span>));
+	<span class="Type">int</span> number_of_repeats;
+	scanf(<span class="Constant">&quot;</span><span class="Special">%d</span><span class="Constant">&quot;</span>,&amp;number_of_repeats);
+	<span class="Type">const</span> <span class="Type">int</span> number_of_rivers=<span class="Constant">100</span>;
+	<span class="Type">float</span> sum=<span class="Constant">0</span>;
+	<span class="Type">int</span> counter[<span class="Constant">400</span>];
+	<span class="Statement">for</span> (<span class="Type">int</span> i=<span class="Constant">0</span>; i&lt;<span class="Constant">10000</span>; i++)
 	{
-		for (int j=0; j&lt;400; j++)
-			counter[j]=0;
-		for (int j=0; j&lt;number_of_rivers; j++)
-			counter[rand()%400]++;
-		int max=0;
-		for (int j=0; j&lt;400; j++)
+		<span class="Statement">for</span> (<span class="Type">int</span> j=<span class="Constant">0</span>; j&lt;<span class="Constant">400</span>; j++)
+			counter[j]=<span class="Constant">0</span>;
+		<span class="Statement">for</span> (<span class="Type">int</span> j=<span class="Constant">0</span>; j&lt;number_of_rivers; j++)
+			counter[rand()%<span class="Constant">400</span>]++;
+		<span class="Type">int</span> max=<span class="Constant">0</span>;
+		<span class="Statement">for</span> (<span class="Type">int</span> j=<span class="Constant">0</span>; j&lt;<span class="Constant">400</span>; j++)
 			max=(counter[j]&gt;max)?(counter[j]):(max);
-		if (max>=number_of_repeats) sum++;
+		<span class="Statement">if</span> (max&gt;=number_of_repeats) sum++;
 	}
-	printf("%f\n",sum/100);
-}</span>
+	printf(<span class="Constant">&quot;</span><span class="Special">%f</span><span class="Special">\n</span><span class="Constant">&quot;</span>,sum/<span class="Constant">100</span>);
+}
+</span>
                     So, that program estimates the probability of there being a consonant pair appearing at the beginning of the river names <i>number_of_repeats</i> times, where <i>number_of_repeats</i> is entered on the keyboard.<img id="graph" src="Graph.png" alt="The probability of there appearing to be a common two-consonant prefix in certain number of rivers falls rapidly." style="float:right; margin-left:5px; margin-top:5px; margin-bottom: 5px; width:50%;"/> The result will vary depending on how many times that program is being run, but it will always be approximately the same. So, here are some example sessions:
 <span class="code">1
 100.000000</span>
@@ -671,51 +680,52 @@ Taking there to be 6 such river names might be unfair, because the names of the 
 So, the P-value of that pattern is indeed astoudingly low (less than 1/10000). I can not only claim that, if those river names come from the same language, there was a word <i>*kar~kur</i> meaning "to flow" with nearly 100% certainty, I can also claim they do come from the same language with nearly 100% certainty.<br/>The probabilities of some other patterns I found are indeed harder to model, but I expect their P-values to be similarly low.<br/>
 The most serious objection I get to this argument is that I am underestimating the <a href="https://en.wikipedia.org/wiki/Huffman_coding">Huffman's effect</a> (the effect, discovered back in 1951, that it's hard for a computer to encypher texts in human languages, but that it's easy for a computer to compress them, because some letters occur way more commonly than others). You can see my response my clicking <a href="javascript:void()" onclick="toggle('huffman')">here</a>.<br/>
 <span id="huffman" style="display: none">The Huffman effect is caused partly by morphology, partly by phonology, and partly by syntax. In toponyms, we can ignore the effects of morphology and syntax. The extent to which the syntax of a language is responsible for the Huffman's effect is fairly easy to measure, here is a program that can be used for that:
-    <span class="code" id="huffman_code">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;ctype.h&gt;
-#include &lt;time.h&gt;
-#include &lt;string.h&gt;
+    <span class="code" id="huffman_code"><span class="PreProc">#include </span><span class="Constant">&lt;stdio.h&gt;</span>
+<span class="PreProc">#include </span><span class="Constant">&lt;stdlib.h&gt;</span>
+<span class="PreProc">#include </span><span class="Constant">&lt;ctype.h&gt;</span>
+<span class="PreProc">#include </span><span class="Constant">&lt;time.h&gt;</span>
+<span class="PreProc">#include </span><span class="Constant">&lt;string.h&gt;</span>
 
-int main() {
-    srand(time(0));
-    FILE *input=fopen("text.txt","r");
-    if (!input) {
-        fprintf(stderr,"Can't open 'text.txt'!\n"),
-        exit(1);
+<span class="Type">int</span> main() {
+    srand(time(<span class="Constant">0</span>));
+    <span class="Type">FILE</span> *input=fopen(<span class="Constant">&quot;text.txt&quot;</span>,<span class="Constant">&quot;r&quot;</span>);
+    <span class="Statement">if</span> (!input) {
+        fprintf(<span class="Constant">stderr</span>,<span class="Constant">&quot;Can't open 'text.txt'!</span><span class="Special">\n</span><span class="Constant">&quot;</span>),
+        exit(<span class="Constant">1</span>);
     }
-    fseek(input,0,SEEK_END);
-    int length=ftell(input),sum1=0,sum2=0;
-    /*Variable "length" now contains the total number
-    of characters in "text.txt".*/
-    int alphabet[26]={0};
-    const char *vowels="aeiou";
-    for (int i=0; i&lt;1000000; i++) {
-        int tmp=rand()%length;
-        fseek(input,tmp,SEEK_SET);
-        char first=fgetc(input);
+    fseek(input,<span class="Constant">0</span>,<span class="Constant">SEEK_END</span>);
+    <span class="Type">int</span> length=ftell(input),sum1=<span class="Constant">0</span>,sum2=<span class="Constant">0</span>;
+    <span class="Comment">/*</span><span class="Comment">Variable &quot;length&quot; now contains the total number</span>
+<span class="Comment">    of characters in &quot;text.txt&quot;.</span><span class="Comment">*/</span>
+    <span class="Type">int</span> alphabet[<span class="Constant">26</span>]={<span class="Constant">0</span>};
+    <span class="Type">const</span> <span class="Type">char</span> *vowels=<span class="Constant">&quot;aeiou&quot;</span>;
+    <span class="Statement">for</span> (<span class="Type">int</span> i=<span class="Constant">0</span>; i&lt;<span class="Constant">1000000</span>; i++) {
+        <span class="Type">int</span> tmp=rand()%length;
+        fseek(input,tmp,<span class="Constant">SEEK_SET</span>);
+        <span class="Type">char</span> first=fgetc(input);
         tmp=rand()%length;
-        fseek(input,tmp,SEEK_SET);
-        char second=fgetc(input);
-        if (isalpha(first) && 
+        fseek(input,tmp,<span class="Constant">SEEK_SET</span>);
+        <span class="Type">char</span> second=fgetc(input);
+        <span class="Statement">if</span> (isalpha(first) &amp;&amp;
             !strchr(vowels,tolower(first))
-            && isalpha(second) &&
+            &amp;&amp; isalpha(second) &amp;&amp;
             !strchr(vowels,tolower(second))) {
-                /*If both randomly chosen characters
-                 from "text.txt" happen to be consonants...*/
+                <span class="Comment">/*</span><span class="Comment">If both randomly chosen characters</span>
+<span class="Comment">                 from &quot;text.txt&quot; happen to be consonants...</span><span class="Comment">*/</span>
                 sum2++;
-                if (first==second) {
+                <span class="Statement">if</span> (first==second) {
                     sum1++;
-                    alphabet[toupper(first)-'A']++;
+                    alphabet[toupper(first)-<span class="Constant">'A'</span>]++;
                 }
             }
     }
-    printf("1/%f\n",(float)sum2/sum1);
-    int max=0;
-    for (int i=0; i&lt;26; i++)
-        if (alphabet[i]&gt;alphabet[max]) max=i;
-    printf("%c %f%%\n",max+'A',100.*alphabet[max]/sum1);
-}</span>The program will take some 10 seconds to execute on a modern computer. If you put a long English text in the file <i>text.txt</i>, it prints that the probability of choosing the same consonant two times in a row equals 1/11, and that the most common consonant in English is <i>t</i> (presumably because of the meaningless words that need to be there because of the English syntax, such as <i>the</i>, <i>it</i>, <i>that</i>, <i>than</i>...). Yet, if you eliminate the syntax of the language, by putting a spell-checker word-list instead of a text in the file <i>text.txt</i>, it prints that the probability of choosing the same consonant two times in a row is 1/13, and that the most common consonant in that word list is <i>r</i> (presumably because of the extremely common English prefix <i>re-</i> and the even more common English suffix <i>-er</i>). I hope you see why I think that, if you eliminate both the morphology and syntax, the letter frequency will become quite uniform. And the same goes for Croatian: the probability of choosing the same consonant two times in a row in a Croatian text is 1/13, and the probability of choosing the same consonant in a Croatian word-list is 1/14 (in both cases, the most common consonant is <i>n</i>, presumably because of the common Croatian prefixes). For German, the respective probabilities are 1/12 in a text and 1/15 in a word-list, and the most common consonant is again <i>n</i> in both cases. It's indeed hard to measure the effects of phonology, but you can see why I think that we are not very far off if we assume the probability will be around 1/20. I am happy to be proven wrong about this!<br/></span></span>
+    printf(<span class="Constant">&quot;1/</span><span class="Special">%f</span><span class="Special">\n</span><span class="Constant">&quot;</span>,(<span class="Type">float</span>)sum2/sum1);
+    <span class="Type">int</span> max=<span class="Constant">0</span>;
+    <span class="Statement">for</span> (<span class="Type">int</span> i=<span class="Constant">0</span>; i&lt;<span class="Constant">26</span>; i++)
+        <span class="Statement">if</span> (alphabet[i]&gt;alphabet[max]) max=i;
+    printf(<span class="Constant">&quot;</span><span class="Special">%c</span><span class="Constant"> </span><span class="Special">%f%%</span><span class="Special">\n</span><span class="Constant">&quot;</span>,max+<span class="Constant">'A'</span>,<span class="Constant">100.</span>*alphabet[max]/sum1);
+}
+</span>The program will take some 10 seconds to execute on a modern computer. If you put a long English text in the file <i>text.txt</i>, it prints that the probability of choosing the same consonant two times in a row equals 1/11, and that the most common consonant in English is <i>t</i> (presumably because of the meaningless words that need to be there because of the English syntax, such as <i>the</i>, <i>it</i>, <i>that</i>, <i>than</i>...). Yet, if you eliminate the syntax of the language, by putting a spell-checker word-list instead of a text in the file <i>text.txt</i>, it prints that the probability of choosing the same consonant two times in a row is 1/13, and that the most common consonant in that word list is <i>r</i> (presumably because of the extremely common English prefix <i>re-</i> and the even more common English suffix <i>-er</i>). I hope you see why I think that, if you eliminate both the morphology and syntax, the letter frequency will become quite uniform. And the same goes for Croatian: the probability of choosing the same consonant two times in a row in a Croatian text is 1/13, and the probability of choosing the same consonant in a Croatian word-list is 1/14 (in both cases, the most common consonant is <i>n</i>, presumably because of the common Croatian prefixes). For German, the respective probabilities are 1/12 in a text and 1/15 in a word-list, and the most common consonant is again <i>n</i> in both cases. It's indeed hard to measure the effects of phonology, but you can see why I think that we are not very far off if we assume the probability will be around 1/20. I am happy to be proven wrong about this!<br/></span></span>
                 <script type="text/javascript">
                     if (navigator.appName=="Microsoft Internet Explorer")
                     {
