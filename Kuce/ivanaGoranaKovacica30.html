@@ -147,6 +147,16 @@ body
 {
     background-color:#EEEEEE;
 }
+#prodano
+{
+    background-color:#FF7777;
+    color:#000077;
+    font-size:36px;
+    line-height:50px;
+    position:fixed;
+    display:none; /*Has not yet been sold!*/
+    text-align:center;
+}
 </style>
 </head>
 <body>
@@ -159,6 +169,7 @@ body
         <span id="kontakt">Telefon: +385'91/957-2473</span>
         <span id="oglasivac">Postavio oglas: Teo Samaržija</span>
     </span>
+    <span id="prodano">PRODANO! - SOLD!</span>
 <script>
     if (document && !document.getElementsByClassName)
         document.getElementsByClassName=function(str)
@@ -173,8 +184,22 @@ body
     document.body.onresize=function()
     {
         var content=document.getElementById("content");
-        content.style.left=(window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth)/2-content.clientWidth/2+"px";
+        var sirinaProzora=(window.innerWidth || //Moderni internetski preglednici
+                            document.documentElement.clientWidth || //Internet Explorer 8
+                            document.body.clientWidth //Internet Explorer 6
+                            );
+        var visinaProzora=(window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight);
+        content.style.left=sirinaProzora/2-content.clientWidth/2+"px";
+        var prodano=document.getElementById("prodano");
+        var sirinaNatpisaProdano=Math.sqrt(Math.pow(sirinaProzora,2)+Math.pow(visinaProzora,2))+2*50;
+        prodano.style.width=sirinaNatpisaProdano+"px";
+        var nagibNatpisaProdano=Math.atan2(visinaProzora,sirinaProzora);
+        prodano.style.transform="rotate("+nagibNatpisaProdano+"rad)";
+        var yKoordinataNatpisa=(visinaProzora/2-Math.cos(nagibNatpisaProdano)*50); 
+        prodano.style.top=yKoordinataNatpisa+"px";
+        prodano.style.left=-(Math.sin(nagibNatpisaProdano)*yKoordinataNatpisa)+"px";
     }
+    window.onresize=document.body.onresize;
     var alts=[];
     alts[1]="Pogled na vrt iz dvorišta";
     alts[2]="Stražnja prostorija podruma";
