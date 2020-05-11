@@ -1,4 +1,4 @@
-const PRECISION: f64=512.; //Balance between speed and precision here.
+const PRECISION: f64=2048.; //Balance between speed and precision here.
 
 fn ln(x:f64) -> f64 {
     let mut sum=0 as f64;
@@ -12,20 +12,14 @@ fn ln(x:f64) -> f64 {
 }
 
 fn exp(x:f64) -> f64 {
-    let mut min=0 as f64;
-    let mut max=1000 as f64;
-    let mut i=(min+max)/2.;
-    while max-min>(1./(5.*PRECISION)) {
-        if ln(i)>x {
-            max=i;
-        }
-        else {
-            min=i;
-        }
-        i=(min+max)/2.;
+    let mut i=0 as f64;
+    let mut y=1 as f64;
+    let epsilon=x/PRECISION;
+    while (epsilon>0. && i<x) || (epsilon<0. && i>x) {
+        y+=epsilon*y;
+        i+=epsilon;
     }
-    return i;
-
+    return y;
 }
 
 fn arctan(x:f64) -> f64 {
@@ -40,27 +34,31 @@ fn arctan(x:f64) -> f64 {
 }
 
 fn tan(x:f64) -> f64 {
-    if x>90. {return -1./tan(x-90.);}
-    if x>45. {return 1./tan(90.-x);} 
-    let mut min=0 as f64;
-    let mut max=1000 as f64;
-    let mut i=(min+max)/2.;
-    while max-min>(1./(3.*PRECISION)) {
-        if arctan(i)>x {
-            max=i;
-        }
-        else {
-            min=i;
-        }
-        i=(min+max)/2.;
+    let radians=x/(180./pi());
+    let mut tmpsin=0 as f64;
+    let mut tmpcos=1 as f64;
+    let epsilon=x/(5.*PRECISION);
+    let mut i=0 as f64;
+    while (epsilon>0. && i<radians) || (epsilon<0. && i>radians) {
+        tmpsin+=epsilon*tmpcos;
+        tmpcos-=epsilon*tmpsin;
+        i+=epsilon;
     }
-    return i;
+    return tmpsin/tmpcos;
 }
 
 fn sin(x:f64) -> f64 {
-    if x>90. {return cos(x-90.);}
-    let tn=tan(x);
-    return 1./sqrt(1./(tn*tn)+1.);
+    let radians=x/(180./pi());
+    let mut tmpsin=0 as f64;
+    let mut tmpcos=1 as f64;
+    let epsilon=x/(5.*PRECISION);
+    let mut i=0 as f64;
+    while (epsilon>0. && i<radians) || (epsilon<0. && i>radians) {
+        tmpsin+=epsilon*tmpcos;
+        tmpcos-=epsilon*tmpsin;
+        i+=epsilon;
+    }
+    return tmpsin;
 }
 
 fn arcsin(x:f64) -> f64 {
@@ -72,8 +70,17 @@ fn arccos(x:f64) -> f64 {
 }
 
 fn cos(x:f64) -> f64 {
-    if x>90. {return -sin(x-90.);}
-    return sin(90.-x);
+    let radians=x/(180./pi());
+    let mut tmpsin=0 as f64;
+    let mut tmpcos=1 as f64;
+    let epsilon=x/(5.*PRECISION);
+    let mut i=0 as f64;
+    while (epsilon>0. && i<radians) || (epsilon<0. && i>radians) {
+        tmpsin+=epsilon*tmpcos;
+        tmpcos-=epsilon*tmpsin;
+        i+=epsilon;
+    }
+    return tmpcos;
 }
 
 fn sqrt(x:f64) -> f64 {
@@ -120,4 +127,6 @@ fn main() {
     println!("rad={:.4}",180./pi());
     println!("ln(1/pi)={:.4}",ln(1./pi()));
     println!("e={:.4}",exp(1 as f64));
+    println!("1/e={:.4}",exp(-1 as f64));
 }
+
