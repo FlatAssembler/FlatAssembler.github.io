@@ -1,4 +1,8 @@
 var letters,maxX,maxY,minX,maximumDepth,inputString;
+if (typeof Math.log2=="undefined") //Internet Explorer 11
+    Math.log2=function(x){
+        return Math.log(x)/Math.log(2);
+    }
 function onButtonClick() {
     inputString=document.getElementById("input").value;
     if (inputString.length<2) {
@@ -110,7 +114,7 @@ function onButtonClick() {
         document.getElementById("tree").removeChild(document.getElementById("tree").firstChild);
     maxX=maxY=minX=0;
     draw(rootNode,0,0,30*Math.pow(2,maximumDepth),0);
-    for (var i = 0; i < document.getElementById("tree").childNodes.length; i++) //In case a node falls left of the diagram, move all nodes rightwards.
+    for (let i = 0; i < document.getElementById("tree").childNodes.length; i++) //In case a node falls left of the diagram, move all nodes rightwards.
     {
         if (document.getElementById("tree").childNodes[i].getAttribute("x"))
             document.getElementById("tree").childNodes[i].setAttribute("x", document.getElementById("tree").childNodes[i].getAttribute("x") * 1 - minX);
