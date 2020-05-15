@@ -145,7 +145,7 @@ function draw(nodeName, x, y, space, id)
     rectangle.setAttribute("fill","#EEEEEE");
     document.getElementById("tree").appendChild(rectangle);
     var text = document.createElementNS(svgNS, "text");
-    text.innerHTML=letters[nodeName].frequency+"/"+inputString.length;
+    text.appendChild(document.createTextNode(letters[nodeName].frequency+"/"+inputString.length));
     text.setAttribute("x", x+5);
     text.setAttribute("y", y + 20);
     text.style.fill = "black";
@@ -154,7 +154,7 @@ function draw(nodeName, x, y, space, id)
     document.getElementById("tree").appendChild(text); 
     if (nodeName.length==1) {
         let character = document.createElementNS(svgNS, "text");
-        character.innerHTML=nodeName;
+        character.appendChild(document.createTextNode(nodeName));
         character.setAttribute("x", x+20);
         character.setAttribute("y", y + 40);
         character.style.fill = "black";
@@ -173,7 +173,7 @@ function draw(nodeName, x, y, space, id)
         line.setAttribute("stroke", "black");
         document.getElementById("tree").appendChild(line);
         let bit = document.createElementNS(svgNS,"text");
-        bit.innerHTML = i;
+        bit.appendChild(document.createTextNode(i));
         bit.setAttribute("x", x + (i - 0.5) * space + 25);
         bit.setAttribute("y", y + 80);
         bit.style.fill = "black";
