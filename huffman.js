@@ -23,6 +23,10 @@ function onButtonClick() {
         numberOfDistinctLetters++;
     }
     var bitsInEqualCode=Math.ceil(Math.log2(numberOfDistinctLetters));
+    if (numberOfDistinctLetters<2) {
+        alert("There need to be at least two different symbols!");
+        return;
+    }
     var howManyUnused=numberOfDistinctLetters;
     var rootNode;
     do {
@@ -53,6 +57,8 @@ function onButtonClick() {
     stackWithDepths=[0];
     var averageSymbolLength=0;
     maximumDepth=0;
+    var counter=0;
+    document.getElementById("table").innerHTML="<tr><td>symbol</td><td>frequency</td><td>Huffman code</td><td>equal-length code</td></tr>";
     while (stackWithNodes.length>0) {
         let currentNode=stackWithNodes.pop();
         let currentCode=stackWithCodes.pop();
@@ -61,6 +67,14 @@ function onButtonClick() {
         letters[currentNode].code=currentCode;
         if (letters[currentNode].childrenNodes.length==0) {
             averageSymbolLength+=letters[currentNode].probability*currentCode.length;
+            equalLengthCode=counter.toString(2);
+            while (equalLengthCode.length<bitsInEqualCode)
+                equalLengthCode='0'+equalLengthCode;
+            document.getElementById("table").innerHTML+="<tr><td>"+
+                                                        currentNode+"</td><td>"+
+                                                        letters[currentNode].frequency+"/"+inputString.length+
+                                                        "</td><td>"+currentCode+"</td><td>"+equalLengthCode+"</td></tr>";
+            counter++;
             continue;
         }
         stackWithNodes.push(letters[currentNode].childrenNodes[0]);
@@ -82,8 +96,11 @@ function onButtonClick() {
         output+=letters[inputString[i]].code;
     console.log(output);
     console.log("The average length of a symbol in Huffman code is: "+averageSymbolLength+" bits.");
+    document.getElementById("avgLength").innerHTML=averageSymbolLength;
     console.log("The average length of a symbol in the equal-length code is: "+bitsInEqualCode+" bits.");
+    document.getElementById("bitsInEqualCode").innerHTML=bitsInEqualCode;
     console.log("The entropy of the input string is: "+entropy+" bits.");
+    document.getElementById("entropy").innerHTML=entropy;
     console.log("The efficiency of the Huffman code is: "+(entropy/averageSymbolLength));
     console.log("The efficiency of the equal-length code is: "+(entropy/bitsInEqualCode));
     document.getElementById("output").innerText=output;
@@ -103,8 +120,10 @@ function onButtonClick() {
             document.getElementById("tree").childNodes[i].setAttribute("x2", document.getElementById("tree").childNodes[i].getAttribute("x2") * 1 - minX);
     }
     document.getElementById("tree").style.height = maxY + 100 + "px";
+    document.getElementById("tree").style.width= maxX - minX + 100 + "px";
+    document.getElementById("diagramSpan").scrollLeft = document.getElementById("node0").getAttribute("x") - document.getElementById("diagramSpan").clientWidth / 2 + 75; //The root of the tree will be in the center of the screen.
 }
-function draw(object, x, y, space, id)
+function draw(nodeName, x, y, space, id)
 {
     if (x > maxX)
         maxX = x;
@@ -122,16 +141,16 @@ function draw(object, x, y, space, id)
     rectangle.setAttribute("fill","#EEEEEE");
     document.getElementById("tree").appendChild(rectangle);
     var text = document.createElementNS(svgNS, "text");
-    text.innerHTML=letters[object].frequency+"/"+inputString.length;
+    text.innerHTML=letters[nodeName].frequency+"/"+inputString.length;
     text.setAttribute("x", x+5);
     text.setAttribute("y", y + 20);
     text.style.fill = "black";
     text.setAttribute("font-family", "monospace");
     text.setAttribute("font-size", 14);
     document.getElementById("tree").appendChild(text); 
-    if (object.length==1) {
+    if (nodeName.length==1) {
         let character = document.createElementNS(svgNS, "text");
-        character.innerHTML=object;
+        character.innerHTML=nodeName;
         character.setAttribute("x", x+20);
         character.setAttribute("y", y + 40);
         character.style.fill = "black";
@@ -139,8 +158,8 @@ function draw(object, x, y, space, id)
         character.setAttribute("font-size", 14);
         document.getElementById("tree").appendChild(character);
     }
-    for (let i = 0; i < letters[object].childrenNodes.length; i++) {
-        draw(letters[object].childrenNodes[i], x + (i - 0.5) * space, y + 100, space / 2, id + 1);
+    for (let i = 0; i < letters[nodeName].childrenNodes.length; i++) {
+        draw(letters[nodeName].childrenNodes[i], x + (i - 0.5) * space, y + 100, space / 2, id + 1);
         let line = document.createElementNS(svgNS, "line");
         line.setAttribute("x1", x + 25);
         line.setAttribute("y1", y + 50);

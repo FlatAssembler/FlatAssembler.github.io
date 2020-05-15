@@ -3,14 +3,24 @@
     <head>
         <title>Huffman Encoding in JavaScript</title>
         <script src="huffman.js"></script>
+        <style>
+            table,th,td {
+                border:1px black solid;
+            }
+        </style>
     </head>
     <body>
         Enter the string here:<br/>
         <input type="text" id="input" value="TEO SAMARZIJA"/>
         <button onclick="onButtonClick()">Encode!</button><br/>
         The Huffman encoded string is: <span id="output" style="font-family:monospace"></span><br/>
-        <svg id="tree" style="width: 100%;">
-            
-        </svg>
+        <span id="diagramSpan" style="display:block; width:100%; height:50%; overflow:scroll">
+            <svg id="tree">
+            </svg>
+        </span><br/>
+        <table id="table"></table><br/>
+        The average length of a symbol in the Huffman code is <span id="avgLength">0</span> bits.<br/>
+        The average length of a symbol in the equal-length code is <span id="bitsInEqualCode">0</span> bits.<br/>
+        The entropy of the input string is <span id="entropy">0</span> bits.<br/>
     </body>
 </html>
