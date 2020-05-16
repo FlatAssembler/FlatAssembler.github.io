@@ -97,7 +97,7 @@ function onButtonClick() {
                     letters[i].code+"\t"+((letters[i].childrenNodes[0])?("'"+letters[i].childrenNodes[0]+"'"):"null")+
                     "\t"+(letters[i].childrenNodes[1]?("'"+letters[i].childrenNodes[1]+"'"):"null"));
     console.log("The Huffman encoding is:");
-    output="";
+    let output="";
     for (let i=0; i<inputString.length; i++)
         output+=letters[inputString[i]].code;
     console.log(output);
