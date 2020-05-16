@@ -1,4 +1,5 @@
-var letters,maxX,maxY,minX,maximumDepth,inputString;
+"use strict"; //That means, approximately, "Interpret this JavaScript according to the standards, and don't try to be compatible with archaic JavaScript interpreters.".
+let letters,maxX,maxY,minX,maximumDepth,inputString;
 if (typeof Math.log2=="undefined") //Internet Explorer 11
     Math.log2=function(x){
         return Math.log(x)/Math.log(2);
@@ -13,26 +14,27 @@ function onButtonClick() {
     letters=new Object();
     for (let i=0; i<inputString.length; i++) {
         if (letters[inputString[i]]==undefined) {
-            letters[inputString[i]]=new Object();
-            letters[inputString[i]].frequency=0;
-            letters[inputString[i]].hasBeenUsed=false;
-            letters[inputString[i]].childrenNodes=[];
+            letters[inputString[i]]={
+                frequency:0,
+                hasBeenUsed:false,
+                childrenNodes:[]
+            };
         }
         letters[inputString[i]].frequency++;
     }
-    var entropy=0,numberOfDistinctLetters=0;
+    let entropy=0,numberOfDistinctLetters=0;
     for (let i in letters) {
         letters[i].probability=letters[i].frequency/inputString.length;
         entropy-=letters[i].probability*Math.log2(letters[i].probability);
         numberOfDistinctLetters++;
     }
-    var bitsInEqualCode=Math.ceil(Math.log2(numberOfDistinctLetters));
+    let bitsInEqualCode=Math.ceil(Math.log2(numberOfDistinctLetters));
     if (numberOfDistinctLetters<2) {
         alert("There need to be at least two different symbols!");
         return;
     }
-    var howManyUnused=numberOfDistinctLetters;
-    var rootNode;
+    let howManyUnused=numberOfDistinctLetters;
+    let rootNode;
     do {
         let minimum1,minimum2;
         for (let i in letters)
@@ -56,12 +58,12 @@ function onButtonClick() {
                 howManyUnused++;
     }
     while (howManyUnused>1);
-    stackWithNodes=[rootNode];
-    stackWithCodes=[""];
-    stackWithDepths=[0];
-    var averageSymbolLength=0;
+    let stackWithNodes=[rootNode];
+    let stackWithCodes=[""];
+    let stackWithDepths=[0];
+    let averageSymbolLength=0;
     maximumDepth=0;
-    var counter=0;
+    let counter=0;
     document.getElementById("table").innerHTML="<tr><td>symbol</td><td>frequency</td><td>Huffman code</td><td>equal-length code</td></tr>";
     while (stackWithNodes.length>0) {
         let currentNode=stackWithNodes.pop();
@@ -71,7 +73,7 @@ function onButtonClick() {
         letters[currentNode].code=currentCode;
         if (letters[currentNode].childrenNodes.length==0) {
             averageSymbolLength+=letters[currentNode].probability*currentCode.length;
-            equalLengthCode=counter.toString(2);
+            let equalLengthCode=counter.toString(2);
             while (equalLengthCode.length<bitsInEqualCode)
                 equalLengthCode='0'+equalLengthCode;
             document.getElementById("table").innerHTML+="<tr><td>"+
@@ -108,20 +110,20 @@ function onButtonClick() {
     console.log("The efficiency of the Huffman code is: "+(entropy/averageSymbolLength));
     console.log("The efficiency of the equal-length code is: "+(entropy/bitsInEqualCode));
     document.getElementById("output").innerText=output;
-    var tree=document.getElementById("tree");
-    var svgNS=tree.namespaceURI;
+    let tree=document.getElementById("tree");
+    const svgNS=tree.namespaceURI;
     while (document.getElementById("tree").childNodes.length) //Clear the diagram ("innerHTML" won't work because... SVG).
         document.getElementById("tree").removeChild(document.getElementById("tree").firstChild);
     maxX=maxY=minX=0;
     draw(rootNode,0,0,30*Math.pow(2,maximumDepth),0);
-    for (let i = 0; i < document.getElementById("tree").childNodes.length; i++) //In case a node falls left of the diagram, move all nodes rightwards.
+    for (let childNode of document.getElementById("tree").childNodes) //In case a node falls left of the diagram, move all nodes rightwards.
     {
-        if (document.getElementById("tree").childNodes[i].getAttribute("x"))
-            document.getElementById("tree").childNodes[i].setAttribute("x", document.getElementById("tree").childNodes[i].getAttribute("x") * 1 - minX);
-        if (document.getElementById("tree").childNodes[i].getAttribute("x1"))
-            document.getElementById("tree").childNodes[i].setAttribute("x1", document.getElementById("tree").childNodes[i].getAttribute("x1") * 1 - minX);
-        if (document.getElementById("tree").childNodes[i].getAttribute("x2"))
-            document.getElementById("tree").childNodes[i].setAttribute("x2", document.getElementById("tree").childNodes[i].getAttribute("x2") * 1 - minX);
+        if (childNode.getAttribute("x"))
+            childNode.setAttribute("x", childNode.getAttribute("x") * 1 - minX);
+        if (childNode.getAttribute("x1"))
+            childNode.setAttribute("x1", childNode.getAttribute("x1") * 1 - minX);
+        if (childNode.getAttribute("x2"))
+            childNode.setAttribute("x2", childNode.getAttribute("x2") * 1 - minX);
     }
     document.getElementById("tree").style.height = maxY + 100 + "px";
     document.getElementById("tree").style.width= maxX - minX + 100 + "px";
@@ -135,8 +137,8 @@ function draw(nodeName, x, y, space, id)
         minX = x;
     if (y > maxY)
         maxY = y;
-    var svgNS = document.getElementById("tree").namespaceURI;
-    var rectangle = document.createElementNS(svgNS, "rect");
+    const svgNS = document.getElementById("tree").namespaceURI;
+    let rectangle = document.createElementNS(svgNS, "rect");
     rectangle.setAttribute("x", x);
     rectangle.setAttribute("y", y);
     rectangle.setAttribute("width", 50);
@@ -144,7 +146,7 @@ function draw(nodeName, x, y, space, id)
     rectangle.setAttribute("id", "node" + id);
     rectangle.setAttribute("fill","#EEEEEE");
     document.getElementById("tree").appendChild(rectangle);
-    var text = document.createElementNS(svgNS, "text");
+    let text = document.createElementNS(svgNS, "text");
     text.appendChild(document.createTextNode(letters[nodeName].frequency+"/"+inputString.length));
     text.setAttribute("x", x+5);
     text.setAttribute("y", y + 20);
