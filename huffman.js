@@ -116,8 +116,9 @@ function onButtonClick() {
         document.getElementById("tree").removeChild(document.getElementById("tree").firstChild);
     maxX=maxY=minX=0;
     draw(rootNode,0,0,30*Math.pow(2,maximumDepth),0);
-    for (let childNode of document.getElementById("tree").childNodes) //In case a node falls left of the diagram, move all nodes rightwards.
+    for (let i=0; i<document.getElementById("tree").childNodes.length; i++) //In case a node falls left of the diagram, move all nodes rightwards.
     {
+        let childNode=document.getElementById("tree").childNodes[i];
         if (childNode.getAttribute("x"))
             childNode.setAttribute("x", childNode.getAttribute("x") * 1 - minX);
         if (childNode.getAttribute("x1"))
