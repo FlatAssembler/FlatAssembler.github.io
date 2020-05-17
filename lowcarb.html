@@ -1,0 +1,569 @@
+<html>
+    <head>
+        <title>Against Low-Carb Diets</title>
+        <style type="text/css">
+            header
+            {
+                height:200px;
+                line-height:200px;
+                text-align:center;
+                background:#FFAAAA;
+                color:darkblue;
+                font-weight:bold;
+                font-size:36px;
+                font-family:Lucida;
+            }
+            aside
+            {
+                width:25%;
+                background:#AAAAFF;
+                height:100%;
+                float:left;
+                color:#AA4400;
+                overflow:auto;
+            }
+            aside a
+            {
+                text-decoration:none;
+            }
+            section
+            {
+                width:25%;
+                background:#FFFFAA;
+                height:100%;
+                float:right;
+                color:purple;
+                text-align: center;
+                overflow:auto;
+            }
+            .main1
+            {
+                background: black;
+                color:darkgray;
+                width:50%;
+                height:100%;
+                overflow: auto;
+                font-family: Verdana;
+            }
+            .main1 a
+            {
+                color:lightgreen;
+            }
+            .main2
+            {
+                background: black;
+                color:lightgreen;
+                width:50%;
+                height:100%;
+                overflow: auto;
+            }
+            .main2 a
+            {
+                color:#00FFFF;
+            }
+            .main3
+            {
+                background: #EEEEEE;
+                color:#333333;
+                width:50%;
+                height:100%;
+                overflow: auto;
+                font-family: Arial;
+            }
+            .main3 a
+            {
+                color:#00AAAA;
+            }
+            .link1
+            {
+                text-decoration:none;
+                background: linear-gradient(to right,#111111,#333333);
+                height:30px;
+                width:100%;
+                color:#FF3300;
+                line-height:30px;
+                text-indent:10px;
+                font-family:Verdana;
+                text-indent:5px;
+            }
+            .popup
+            {
+                display:none;
+                background:black;
+                font-size:14px;
+                line-height: 18px;
+                color:white;
+                opacity:0.75;
+                position:absolute;
+                left:25%;
+                border-width: 7px;
+                border-style: solid;
+                border-color: black;
+                max-width: 200px;
+                text-indent: 0px;
+            }
+            .popup::before
+            {
+                content:" ";
+            }
+            .link1:hover
+            {
+                background:darkGray;
+                color:black;
+            }
+            .link1:hover .popup
+            {
+                display:block;
+            }
+            .link2
+            {
+                background:linear-gradient(to right,#333333,#111111);
+                color:#FF3300;
+            }
+            footer
+            {
+                width:100%;
+                height:50px;
+                background: #AAFFAA;
+                text-align:center;
+                color:#007777;
+                line-height: 50px;
+            }
+            .quotation
+            {
+                margin-top:5px;
+                margin-bottom:5px;
+                display:block;
+                font-family:Times;
+                padding-left:10px;
+                padding-right:10px;
+                padding-bottom:5px;
+                padding-top:5px;
+                background:#FFFFDD;
+                color:black;
+            }
+        </style>
+    </head>
+    <body>
+        <noscript>
+            <img src="gornjiLijevi.svg" style="position:absolute; left:8px; width:25%; height:200px; top:8px; -webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
+            <img src="gornjiDesni.svg" style="position:absolute; width:25%; height:200px; left:-webkit-calc(75% - 8px); left:calc(75% - 8px); top:8px;-webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
+            <img src="donjiLijevi.svg" style="position:absolute; width:25%; height:50px; left:8px; top:calc(100% + 200px - 8px); top:-webkit-calc(100% + 200px - 8px); -webkit-animation-name: animacija;-webkit-animation-duration: 2s;"/>
+            <div style="position:absolute; top:-webkit-calc(100% + 200px + 50px + 8px); top:calc(100% + 200px + 50px + 8px); width:100%; height:50px; font-size:36px; font-family:Arial; text-align:center; background:#333333; color:#AAAAAA; line-height:50px;">Please enable JavaScript!</div>
+        </noscript>
+        <header>
+            <svg id="gornjiLijevi" style="float:left; width:25%; height:200px; background:white;"></svg>
+            Against Low-Carb Diets
+            <svg id="gornjiDesni" style="float:right; width:25%; height:200px; background:white;"></svg>
+            <script type="text/javascript">
+                var svgNS = "http://www.w3.org/2000/svg";
+                function nacrtajRubove() {
+                    var crtanje = document.getElementById("gornjiLijevi");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    var visina = crtanje.clientHeight;
+                    var sirina = crtanje.clientWidth;
+                    if (!visina || !sirina)
+                    {
+                        visina=crtanje.parentNode.clientHeight;
+                        sirina=crtanje.parentNode.clientWidth/4;
+                    }
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = (270 + i * 3) / 57.3;
+                        var kut2 = (274 + i * 3) / 57.3;
+                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+                        var y1 = Math.round(visina + Math.sin(kut1) * visina);
+                        var y2 = Math.round(visina + Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina);
+                        trokut.setAttribute("fill", "rgb(" + Math.round(255 - i * 2.83) + ",170," + Math.round(170 + i * 2.83) + ")");
+                        crtanje.appendChild(trokut);
+                    }
+                    crtanje = document.getElementById("gornjiDesni");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = i * 3 / 57.3;
+                        var kut2 = (4 + i * 3) / 57.3;
+                        var x1 = Math.round(Math.cos(kut1) * sirina);
+                        var x2 = Math.round(Math.cos(kut2) * sirina);
+                        var y1 = Math.round(visina - Math.sin(kut1) * visina);
+                        var y2 = Math.round(visina - Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina);
+                        trokut.setAttribute("fill", "rgb(255," + Math.round(255 - i * 2.83) + ",170)");
+                        crtanje.appendChild(trokut);
+                    }
+                }
+                nacrtajRubove();
+                window.addEventListener('resize', nacrtajRubove);
+            </script>
+        </header>
+        <aside>
+            <br/>
+            <center><b>Here are my online publications:</b></center>
+            <br/>
+            <b style="margin-left:5px">HTML5 stuff:</b>
+            <a href="sat.html"><div class="link1">
+                <div class="popup">A simple "grandfather clock" animation made in Javascript.</div>
+                Analog Clock
+            </div></a>
+            <a href="calculator.html"><div class="link2 link1">
+                <div class="popup">A simple HTML5 online calculator. Can solve parentheses!</div>
+                Calculator
+            </div></a>
+            <a href="fraktal.html"><div class="link1">
+                <div class="popup">A spiral fractal I've made by modifying the "Dragon Curve".</div>
+                The Dragon Curve
+            </div></a>
+            <a href="pacman.html"><div class="link2 link1">
+                <div class="popup">A Pacman game playable on touch screens. Made in Javascript using the SVG graphics.</div>
+                PacMan
+            </div></a>
+            <a href="etymologist.html">
+<div class="link1">
+<div class="popup">A flashcard game in which the goal is to guess the etymologies of the words in simulated languages.</div>
+Etymology Game
+</div></a>
+            <br><b style="margin-left:5px">Webpages on this website:</b>
+            <a href="index.html"><div class="link1">
+                <div class="popup">A webpage with a bunch of links.</div>
+                Homepage
+            </div></a>
+            <a href="libertarianism.html"><div class="link2 link1">
+                <div class="popup">What do I think about politics?</div>
+                Libertarianism
+            </div></a>
+            <a href="vegetarianism.html"><div class="link1">
+                <div class="popup">Why I don't eat meat.</div>
+                Vegetarianism
+            </div></a>
+            <a href="Simulation.html"><div class="link2 link1">
+                <div class="popup">The webpage you are currently browsing.</div>
+                Digital Physics
+            </div></a>
+            <a href="linguistics.html"><div class="link1">
+                <div class="popup">Why I like languages.<br><br>
+                    See also:<br>
+                    <u style="color:#0077FF" onclick="window.open('http://flatassembler.github.io/toponyms.html'); window.close();">Croatian Toponyms</u><br>
+                    <u style="color:#0077FF" onclick="window.open('http://flatassembler.github.io/Indo-Austronesian.html'); window.close();">Indo-Austronesian</u></div>
+                Linguistics
+            </div></a>
+            <a href="informatics.html"><div class="link2 link1">
+                <div class="popup">Why I like computers.</div>
+                Informatics
+            </div></a>
+            <a href="pseudosciences.html"><div class="link1">
+                <div class="popup">My advice on how to recognize and deal with false sciences.</div>
+                Pseudosciences
+            </div></a>
+            <br><b style="margin-left:5px">On Internet forums and blogs:</b>
+            <a href="http://linguistforum.com/outside-of-the-box/croatian-toponyms/"><div class="link1">
+                <div class="popup">The forum thread in which I explained my linguistic theories in detail.</div>
+                Croatian Toponyms
+            </div></a>
+            <a href="https://atheistforums.org/thread-50241.html"><div class="link2 link1">
+                <div class="popup">My parody of the conspiracy theorists.</div>
+                Airplanes Don't Exist
+            </div></a>
+        </aside>
+        <section>
+            <p style="margin-left:5px; margin-right:5px;">
+            <br>I usually put some interesting facts here, but I don't know what would that be here.<br>
+            </p><br>
+            <a id="loptica" href="#vrh" style="position: absolute;">
+                <svg width="100" height="100">
+                <defs>
+                <radialgradient id="modrozelen">
+                <stop offset="0%" stop-color="#00FFFF"/>
+                <stop offset="100%" stop-color="#0000FF"/>
+                </radialgradient>
+                <radialgradient id="ljubicastoplav">
+                <stop offset="0%" stop-color="#FF00FF"/>
+                <stop offset="100%" stop-color="#0000FF"/>
+                </radialgradient>
+                </defs>
+                <circle cx="50" cy="50" r="50" fill="url(#modrozelen)"/>
+                <polygon points="50,25 25,50 38,50 38,75 62,75 62,50 75,50" fill="url(#ljubicastoplav)"/>
+                </svg>
+            </a>
+            <script type="text/javascript">
+                var udaraca = 0;
+                var loptica = document.getElementById("loptica");
+                var pocetna = loptica.parentNode.clientHeight + 200 - 100;
+                loptica.style.top = pocetna;
+                loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+                var h = 0;
+                var gk = 1;
+                var v = 10;
+                window.setInterval(pomakniLopticu, 80);
+                window.addEventListener("resize", promijeniPocetnu);
+                function promijeniPocetnu()
+                {
+                    pocetna = loptica.parentNode.clientHeight + 210 - 100;
+                    loptica.style.top = pocetna;
+                    loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+                    h = 0;
+                    gk = 1;
+                    v = 10;
+                }
+                function pomakniLopticu()
+                {
+                    h += v;
+                    v -= gk;
+                    if (h < 0)
+                    {
+                        v = -v * 0.75;
+                        h = 0;
+                        udaraca++;
+                        if (udaraca > 20)
+                        {
+                            udaraca = 0;
+                            v = 10;
+                        }
+                    }
+                    loptica.style.top = pocetna - h;
+                }
+            </script>
+        </section>
+        <main class="main1" id="glavni" style="display:block">
+            <a name="vrh"></a>
+            <h2 style="text-align: center">My Essay against Low-Carb Diets</h2>
+            <div style="text-align: justify; margin-left:10px; margin-right:10px; margin-bottom:100px;">
+            So, I will make a response to common arguments made by proponents of the low-carb diets.
+            I have read something about it, and it seems to me it's a dangerous diet fad.
+            I have made a few YouTube videos about related topics, but it seems to me it's a lot of effort with minimal gains in popularity, so I will write a blog-post this time.
+            First, let me address something to my fellow vegetarians reading this: this will not be particularly useful in propagating vegetarianism,
+            because very few people who are against vegetarianism actually believe in low-carb diets. So, don't just point people to this without making sure
+            they actually believe in low-carb diets, otherwise, they are going to feel misrepresented. Equivalently, if you aren't a vegetarian, but you also don't
+            believe in low-carb diets, don't feel insulted, I am in no way implying the quotes I respond to here are likely to represent you.<br/>
+            So, for those of you who are unaware of what low-carb diets are, let's start with a little history. In ancient times, a standard treatment for epilepsy was fasting,
+            completely or mostly abstaining from food for extended periods of time. Of course, as you probably realize, medicine back then was not really
+            based on science and was in many, if not most cases, worse than useless.
+            The standard treatment for many diseases was bloodletting, which continued all the way up to 19th century.
+            Then, in the early 1920s, a physician called Russell Morse Wilder
+            came up with an idea that, since a diet low in carbohydrates and low in protein has similar physiological
+            results as fasting does (hypoglycemia and liver producing ketone bodies),
+            such a diet could also be helpful against epilepsy. So he coined the term <i>ketogenic diet</i>, as a diet
+            that makes your body run primarily on ketone bodies rather than glucose.
+            <div style="background:gray; float:left; color:purple; text-align:center; margin-top:5px; margin-right:10px; margin-bottom:5px;">
+                 <img
+                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/3-Keto_butyric_acid_Structural_Formula_V1.svg/120px-3-Keto_butyric_acid_Structural_Formula_V1.svg.png"
+                     style="margin-top:10px; margin-left:10px; margin-right:10px; margin-bottom:5px; width:150px;"/><br>
+                  <i>Acetoacetic acid, the simplest ketone body</i><br>
+                </div>
+            Namely, in case you didn't know, our cells are capable of getting energy not only from glucose (via mitochondria), but also from fatty substances called ketone bodies.
+            Producing energy from ketone bodies is actually evolutionary much older (dates back before eukaryotes), but it's rarely used in modern organisms because producing
+            energy using mitochondria is much more efficient. Protein restriction is needed because your liver can convert some types of amino-acids into glucose, and, in fact,
+            it regularly does so, because that's triggered not only by actual lack of glucose in blood, but also in response to fructose and saturated fat, which make your liver behave
+            as if there was no insulin (production of which is triggered by glucose) in blood. And, as many of you probably know, converting protein into glucose has a side effect
+            of producing very low-density lipoprotein, the most dangerous form of cholesterol. Human body can't convert fat into carbohydrates. Only certain species of plants can convert
+            long-chain fatty acids into cellulose in case photosynthesis fails, which is then used not for energy, but for cell division. So, basically, a ketogenic diet is one that
+            is based mostly on avocados and coconuts, and possibly a little meat (but not too much meat, because of the protein restriction).<br/>
+            Nearly 100 years have passed, and science still hasn't found an answer to the question how can ketogenic diets or fasting possibly help against epilepsy. And more we know
+            about human brain, less plausible it seems that fasting or ketogenic diet help against epilepsy. Anti-diabetic drugs that result in hypoglycemia don't appear to be effective
+            against epilepsy, and neither do the drugs that cause the liver to produce ketone bodies. High-quality studies are, just with any supposed diet cure, difficult or
+            impossible to make because they are very hard to single-blind, yet alone double-blind. Those studies that show it works, of course, nearly always also show it also
+            causes kidney stones (as ketones usually cause), problems with concentration (because human brain is basically made for a high-starch diet and
+            doesn't work well without starch), high cholesterol (because the fats in coconuts and avocados are for the large part saturated fats), and so on.<br/>
+            <div style="background:gray; float:right; color:purple; text-align:center; margin-top:5px; margin-left:10px; margin-bottom:5px;">
+                 <img src="https://upload.wikimedia.org/wikipedia/en/c/c1/DrRobertAtkins.jpg"
+                        style="margin-top:10px; margin-left:10px; margin-right:10px; margin-bottom:5px; width:175px;"/><br>
+                 <i>Robert Atkins</i><br>
+            </div>
+            In the early 1990s, a physician named Robert Coleman Atkins came up with an idea that we should all be eating a diet that's low in carbohydrates, but not necessarily low
+            in protein. That's called <i>Atkins diet</i>. He came up with the idea that starch, along with sugar, is to be blamed for many diseases. In other words,
+            that we should be eating a meat-based diet. Of course, physiologically, blaming starch for diabetes
+            makes about as much sense saying that the cholesterol you eat is to be blamed for heart disease. Most of the cholesterol in your blood is produced by your liver in
+            response to saturated fats, and that's especially true if you have high cholesterol. And some cholesterol is produced in response to fructose, very little of it is
+            the cholesterol you eat. The same is true for glucose: the dangerous spike in glucose levels after eating sugar is not caused by the glucose in sugar, it's caused by the
+            fructose in sugar making your liver behave as if your glucose levels were much lower than they actually are, and mistakenly convert glycogen and protein into glucose.
+            Starch doesn't contain fructose. In fact, of foods that are commonly eaten, only sugar and honey contain large amounts of fructose. Saturated fat also slightly raises
+            the glucose levels in your blood, possibly more than starch.<br/> In spite of the fact that the Atkins'es
+            ideas weren't well-received by the experts, and the fact that Atkins soon died from heart attack (probably caused by his diet), his ideas actually got rather popular
+            among the American public. There still are quite a few popular bloggers that advocate meat-based diets. I am going to respond to the arguments against vegetarianism
+            made by the blogger DietDoctor <a href="https://www.dietdoctor.com/health-review-health-claims-backed-no-solid-evidence">here</a>. Here we go:
+            <span class="quotation">No human population in the history of civilization has ever been recorded surviving on a vegan diet.</span>
+            Even if that is true (and not everybody would <a href="https://nutritionfacts.org/video/the-okinawa-diet-living-to-100/">agree</a> with that), that's 
+            using a soft science to contradict a hard one. You don't use some empirical science to contradict mathematics, you don't use astronomy to contradict
+            particle physics, you don't use biology to contradict chemistry, and you don't use anthropology to contradict nutritional science.<br/> Besides, it works both ways.
+            Has there ever been a society which ate a ketogenic diet? You advocate eating coconuts and avocados, does that have a long tradition?
+            <span class="quotation">The vegan diet is nutritionally insufficient, lacking not only vitamin B12 but deficient in heme iron and folate (meaning that we should refer to it always as a “vegan diet plus supplements”).</span>
+            This coming from somebody who advocates a ketogenic diet... &#128513; Tell me, where would you get vitamin C on a ketogenic diet? From supplements, right?<br/>
+            B12 deficiency has more to do with people living in more sterile environments than with the diet. It's raising around the world, together with the meat consumption.
+            The danger of getting infected with bacteria from plants is way greater than the danger of B12 deficiency, so we kill the bacteria that produce B12 in the plants we eat.<br/>
+            Oh, and, heme iron? &#128533; As far as I know, according to the mainstream nutrition, heme iron is the bad form of iron that causes colon cancer.
+            Why it is that so many studies show red meat causes cancer, but that white meat and fish doesn't? The main difference between them is, well, the heme iron.<br/>
+            A common claim by those who advocate meat-based diets is that micronutrients are supposedly better absorbed from meat than from plants. Well, I see no reason to think
+            that's the case, other than the bias. It's well-known rabbit meat takes more vitamins to digest than what can be absorbed from it. While it's true that most plants
+            containing calcium contain oxalates (preventing calcium from getting absorbed), calcium in milk gets absorbed... into blood, but not in the bones (for cow's milk contains
+            little to no vitamin K, because cows can synthesize it themselves), and it's possible if not probable that it causes heart disease in humans. Another common argument is
+            that DHA (the form of omega-3-acids found in meat) protects against heart disease better than ALA (the form of omega-3-acids found in plants). But, here is a thing,
+            there is no evidence either protect against heart disease.
+            <span class="quotation">A near-vegan diet, in rigorous clinical trials, invariably causes HDL-cholesterol to drop and sometimes raises triglycerides, which are both signs of worsening heart attack risk.</span>
+            The idea that HDL protects against heart disease is a new one and is not really supported by science. We have a way to, to simplify, turn LDL cholesterol into HDL cholesterol
+            and it's called omega-3-acids. Yet, studies repeatedly fail to prove omega-3-acids protect against heart disease. If omega-3-acids don't help, then moderate drinking
+            (moderate amounts of alcohol raise the HDL but not LDL) doesn't help either, and saturated fats are certainly harmful.<br/>
+            Besides, why do you think clinical trials are the most rigorous form of nutritional science? The most rigorous form of nutritional science is obviously mechanicistic
+            evidence, taking knowledge from harder sciences and applying it to nutritional science. But you clearly don't value that, since mechanicistic evidence is clearly
+            against your claim that starch is to be blamed for various illnesses of today.
+            <span class="quotation">Over the last 30 years, as rates of obesity and diabetes have risen sharply in the U.S., the consumption of animal foods has declined steeply: whole milk is down 79%; red meat by 28% and beef by 35%; eggs are down by 13% and animal fats are down by 27%.<br/>
+            Meanwhile, consumption of fruits is up by 35% and vegetables by 20%. All trends therefore point towards Americans shifting from an animal-based diet to a plant-based one, and this data contradict the idea that a continued shift towards plant-based foods will promote health.</span>
+            And almost the same argument is used by those who claim sugar doesn't cause diabetes, <a href="https://www.pcrm.org/news/blog/does-sugar-cause-diabetes">here</a>:
+            <span class="quotation" style="background:#FFCCAA"> It has become fashionable in recent years to blame sugar for many health problems. However, per capita sugar consumption has actually been falling in the United States since 1999, when bottled water and sugar-free beverages began to edge sodas off the shelf.</span>
+            So, by the laws of logic, either both of them are right, or none of them are right. I don't know how somebody who has studied nutrition or something related to that
+            can find those arguments convincing, to me it seems worse than the anti-vaccination nonsense.<br/>First of all, how did you acquire those numbers? They seem wildly wrong.
+            I don't know about America, but, in Croatia, in the 1990s (30 years ago), there was a bad food shortage (it was war time). And it was easier to survive on a village
+            because you could grow your own fruits and vegetables. Home-grown fruits and vegetables made most of the diet for most of the people. Eggs being down is believable,
+            since many people in the 1990s were having backyard chickens, but fruits and vegetables being up or red meat being down really isn't plausible.<br/>
+            Second, even if this is true, this ignores the even-more-obvious long-term trend. You know how the emperor Hui Jin was talking <i>If they have no rice, let them eat meat.</i>
+            and was thrown out of power because of insulting his own people like that? Or when Marie Antoinette was talking <i>If they have no bread, let them eat cake.</i>?<br/>
+            <img src="https://rationalwiki.org/w/images/7/70/ArcticEscalator2012_med.gif"/><br/>
+            Third, even if there were no obvious long-term trend, it would still be the anti-vaccination level nonsense of <i>The rise of autism around the world appears to be
+            correlated with the rise of vaccination.</i>. Correlation does not imply causation. The reason autism is on the rise is that women today give birth when they are older
+            and women who give birth older have a greater chance of having a child with autism or other congenital complications. Similarly, people long ago didn't live long enough
+            to get type-2-diabetes or heart disease, people who would have gotten type-2-diabetes or heart disease simply died of other illnesses while they were young.
+            <span class="quotation">There’s the entire Indian subcontinent, where beef is not eaten by the large majority of people, which has seen diabetes explode over the past decade.
+            </span>
+            And you said you don't like epidemiological studies, but that you only take rigorous studies seriously? How about little consistency here? &#128528;<br/>
+            Besides, what's your evidence that total saturated fat intake is lower in India than in the US? I see no particular reason to think that's the case. The milk intake
+            is about the same.<br/>
+            <br/>
+            Nutrition is something we are forced to make decisions about every day. Yet, people don't know much about it. And much of what people think they know isn't true.
+            Nearly everybody believes rabbits like to eat carrots and lettuce, when those are dangerous for rabbits. Nearly everybody thinks mice like to eat cheese, when cheese
+            is lethal for rabbits even in small amounts. Nearly everybody thinks spinach is a good source of iron, when it isn't (lentil is a far better source). As such,
+            people are extremely vulnerable to nutritional pseudoscience.<br/>And this really makes me question my basic principles. In school, we are taught to value free speech.
+            As in, if there is free speech, the information is going to overcome all misinformation. But when that doesn't happen? What when, on the Internet, you hear nonsense
+            such as <i>Sugar doesn't cause diabetes.</i> and <i>Saturated fat doesn't cause heart disease.</i>, but you don't hear reasonable responses to that? I think that
+            what's going on is that nutritionists think they have better things to do than to respond to such arguments on the Internet, and that it takes way less effort to
+            produce such nonsense than to refute it. We are taught nobody should be forcing people to eat in a particular way. But what when there are huge externalities to dietary
+            choices people make they are spectacularly unaware of? If people choose to eat meat from factory farmed animals, there is the huge externality of what the animals have
+            to go through and of the antibiotic resistance. Governments don't have an excellent track record of basing their beliefs on science, but still they have a way better
+            track record than an average person does, and probably any particular person does (for they employ experts in various fields). Those are really tough questions.
+            On one hand, we are bombarded with evidence of a lack of free speech having horrible outcomes (Great Leap Forward Famine...). On the other hand, as somebody who has
+            published papers in some sciences, such as <a href="toponyms.html">linguistics</a> and 
+            <a href="https://github.com/FlatAssembler/ArithmeticExpressionCompiler/raw/master/seminar/PojednostavljeniSeminar.pdf">computer science</a>, I know very well that
+            science works precisely because there is a lack of complete freedom of speech there: there is a censorship system called peer review which prevents bad ideas from
+            being expressed. Maybe there is some fundamental difference between government censorship and peer review, maybe those who do peer review tend to be much more
+            competent than the governments are, and maybe they don't create this <i>It's being hidden, so maybe there is something to it.</i> mentality. But, still, things like
+            this make me question my core principles.
+            </div>
+        </main>
+        <footer>
+            <div style="width: 25%; float: right; text-align:left; bottom:30px;">
+                Choose the style: 
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main1')">[1]</a>
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main2')">[2]</a>
+                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main3')">[3]</a>
+            </div>
+            Uploaded by Teo Samarzija on 17/05/2020
+            <svg id="donjiLijevi" style="float:left; width:25%; height:100%; background: white;"></svg>
+            <script type="text/javascript">
+            if (navigator.appName=="Microsoft Internet Explorer")
+            {
+                var niz=document.getElementsByTagName("div");
+                for (var i=0; i<niz.length; i++)
+                {
+                    if (niz[i].className.indexOf("link1")==-1)
+                        continue;
+                    niz[i].onmouseenter=
+                        function()
+                            {this.children[0].style.display="inline";};
+                    niz[i].onmouseleave=
+                        function()
+                            {this.children[0].style.display="none";};
+                }
+                document.getElementById("glavni").removeAttribute("style");
+            }
+            else if (navigator.appName=="Opera") {
+                document.getElementById("glavni").style.color="black";
+                document.getElementById("glavni").style.backgroundColor="white";
+                var gornjiDesni=document.getElementById("gornjiDesni");
+                gornjiDesni.parentNode.removeChild(gornjiDesni);
+            }
+            else if (((navigator.userAgent.indexOf("Safari")+1 || navigator.userAgent.indexOf("WebKit")+1)
+                      && navigator.userAgent.indexOf("Mobile")+1
+                      && (!(navigator.userAgent.indexOf("Chrome")+1) ||
+                          (navigator.userAgent.indexOf("Version")+1 && navigator.userAgent.indexOf("Chrome")+1))
+                      || (navigator.userAgent.indexOf("Mobile")+1 && navigator.userAgent.indexOf("Gecko")+1
+                          && !(navigator.userAgent.indexOf("like Gecko")+1))
+                      && !(navigator.userAgent.indexOf("Dolfin")+1)) && !(navigator.userAgent.indexOf("iPad")+1) && !(navigator.userAgent.indexOf("iPhone")+1))
+                         document.getElementById("glavni").style.fontSize="36px";
+                         else if (navigator.userAgent.indexOf("Mobi")+1)
+                         {
+                             document.head.innerHTML+="<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=0\">";
+                             var niz=document.getElementsByTagName("svg");
+                             for (var i=0; i<niz.length; i++)
+                             niz[i].style.display="none";
+                             document.getElementsByTagName("aside")[0].style.display="none";
+                             document.getElementsByTagName("aside")[0].style.float="none";
+                             document.getElementsByTagName("aside")[0].style.width="100%";
+                             document.getElementsByTagName("aside")[0].style.height="auto";
+                             niz=document.getElementsByClassName("popup");
+                             for (var i=0; i<niz.length; i++) {
+                                 niz[i].style.width="50%"
+                                 niz[i].style.left="45%";
+                                 niz[i].style.maxWidth="none";
+                             }
+                             document.getElementsByTagName("section")[0].style.height="auto";
+                             document.getElementsByTagName("section")[0].style.float="none";
+                             document.getElementsByTagName("section")[0].style.width="100%";
+                             document.getElementsByTagName("header")[0].style.height="auto";
+                             document.getElementsByTagName("header")[0].style.lineHeight="normal";
+                             document.getElementsByTagName("main")[0].style.width="100%";
+                             document.getElementsByTagName("footer")[0].children[0].style.display="inline";
+                             document.getElementsByTagName("footer")[0].children[0].style.float="none";
+                             document.getElementsByTagName("footer")[0].children[0].innerHTML+="<br/><br/>";
+                             document.getElementsByTagName("footer")[0].style.height="auto";
+                             document.getElementsByTagName("footer")[0].style.lineHeight="normal";
+                             document.getElementsByTagName("header")[0].outerHTML+="<button id=\"showNavigation\" style=\"width:100%;line-height:36px;height:41px;\">Show navigation<\/button>";
+                             document.getElementById("showNavigation").onclick=
+                             function()
+                             {
+                                 if (document.getElementsByTagName("aside")[0].style.display=="none")
+                                 {
+                                     this.innerHTML="Hide navigation";
+                                     document.getElementsByTagName("aside")[0].style.display="block";
+                                 }
+                                 else
+                                 {
+                                     this.innerHTML="Show navigation";
+                                     document.getElementsByTagName("aside")[0].style.display="none";
+                                 }
+                             }
+                             //window.setTimeout(function(){document.body.removeChild(document.body.children[document.body.children.length-1]);},1000);
+                         }
+                function footerScript() {
+                    var crtanje = document.getElementById("donjiLijevi");
+                    while (crtanje.childNodes.length)
+                        crtanje.removeChild(crtanje.childNodes[0]);
+                    var visina = crtanje.clientHeight;
+                    var sirina = crtanje.clientWidth;
+                    if (!visina || !sirina)
+                    {
+                        visina=crtanje.parentNode.clientHeight;
+                        sirina=crtanje.parentNode.clientWidth/4;
+                    }
+                    for (var i = 0; i < 30; i++)
+                    {
+                        var kut1 = (270 + i * 3) / 57.3;
+                        var kut2 = (274 + i * 3) / 57.3;
+                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+                        var y1 = -Math.round(Math.sin(kut1) * visina);
+                        var y2 = -Math.round(Math.sin(kut2) * visina);
+                        var trokut = document.createElementNS(svgNS, "polygon");
+                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0");
+                        trokut.setAttribute("fill", "rgb(170," + Math.round(255 - i * 2.83) + "," + Math.min(Math.round(170 + i * 4), 255) + ")");
+                        crtanje.appendChild(trokut);
+                    }
+                }
+                footerScript();
+                window.addEventListener('resize', footerScript);
+            </script>
+        </footer>
+    </body>
+</html>
