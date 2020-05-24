@@ -1,13 +1,14 @@
 "use strict"; //That means, approximately, "Interpret this JavaScript according to the standards, and don't try to be compatible with archaic JavaScript interpreters.".
-let letters,maxX,maxY,minX,maximumDepth,inputString;
+let letters,maxX,maxY,minX,maximumDepth,inputString,ternary;
 if (typeof Math.log2=="undefined") //Internet Explorer 11
     Math.log2=function(x){
         return Math.log(x)/Math.log(2);
     }
 function onButtonClick() {
+    ternary=document.getElementById("ternary").checked;
     inputString=document.getElementById("input").value;
-    if (inputString.length<2) {
-        alert("Strings of length less than two can't be Huffman encoded.");
+    if (inputString.length<2 || inputString.length<3 && ternary) {
+        alert("Strings of length less than two can't be Huffman encoded, and string of length less than three can't be encoded ternary.");
         return;
     }
     console.log("Making a Huffman tree for the string \""+inputString+"\".");
@@ -25,33 +26,43 @@ function onButtonClick() {
     let entropy=0,numberOfDistinctLetters=0;
     for (let i in letters) {
         letters[i].probability=letters[i].frequency/inputString.length;
-        entropy-=letters[i].probability*Math.log2(letters[i].probability);
+        entropy-=letters[i].probability*(ternary?Math.log(letters[i].probability)/Math.log(3):Math.log2(letters[i].probability));
         numberOfDistinctLetters++;
     }
-    let bitsInEqualCode=Math.ceil(Math.log2(numberOfDistinctLetters));
-    if (numberOfDistinctLetters<2) {
-        alert("There need to be at least two different symbols!");
+    let bitsInEqualCode=Math.ceil(ternary?Math.log(numberOfDistinctLetters)/Math.log(3):Math.log2(numberOfDistinctLetters));
+    if (numberOfDistinctLetters<2 || numberOfDistinctLetters<3 && ternary) {
+        alert("There need to be at least as many distinct symbols in the string as the base is!");
         return;
     }
     let howManyUnused=numberOfDistinctLetters;
     let rootNode;
     do {
-        let minimum1,minimum2;
+        let minimum1,minimum2,minimum3;
         for (let i in letters)
             if (letters[i].hasBeenUsed==false && (minimum1==undefined || letters[i].frequency<letters[minimum1].frequency))
                 minimum1=i;
         for (let i in letters)
             if (letters[i].hasBeenUsed==false && i!=minimum1 && (minimum2==undefined || letters[i].frequency<letters[minimum2].frequency))
                 minimum2=i;
-        console.log("Connecting \'"+minimum1+"\' and \'"+minimum2+"\' into a single node.");
+        if (ternary)
+            for (let i in letters)
+                if (letters[i].hasBeenUsed==false && i!=minimum1 && i!=minimum2 && (minimum3==undefined || letters[i].frequency<letters[minimum3].frequency))
+                    minimum3=i;
+        if (ternary && minimum3)
+            console.log("Connecting \'"+minimum1+"\', \'"+minimum2+"\' and \'"+minimum3+"\' into a single node.");
+        else
+            console.log("Connecting \'"+minimum1+"\' and \'"+minimum2+"\' into a single node.");
         letters[minimum1].hasBeenUsed=true;
         letters[minimum2].hasBeenUsed=true;
-        letters[minimum1+minimum2]=new Object();
-        letters[minimum1+minimum2].childrenNodes=[minimum1, minimum2];
-        letters[minimum1+minimum2].frequency=letters[minimum1].frequency+letters[minimum2].frequency;
-        if (letters[minimum1+minimum2].frequency==inputString.length)
-            rootNode=minimum1+minimum2;
-        letters[minimum1+minimum2].hasBeenUsed=false;
+        if (ternary && minimum3)
+            letters[minimum3].hasBeenUsed=true;
+        let nameofTheNewNode=(ternary && minimum3)?(minimum1+minimum2+minimum3):(minimum1+minimum2);
+        letters[nameofTheNewNode]=new Object();
+        letters[nameofTheNewNode].childrenNodes=(ternary && minimum3)?[minimum1, minimum2, minimum3]:[minimum1, minimum2];
+        letters[nameofTheNewNode].frequency=letters[minimum1].frequency+letters[minimum2].frequency+((ternary && minimum3)?letters[minimum3].frequency:0);
+        if (letters[nameofTheNewNode].frequency==inputString.length)
+            rootNode=nameofTheNewNode;
+        letters[nameofTheNewNode].hasBeenUsed=false;
         howManyUnused=0;
         for (let i in letters)
             if (letters[i].hasBeenUsed==false)
@@ -73,7 +84,7 @@ function onButtonClick() {
         letters[currentNode].code=currentCode;
         if (letters[currentNode].childrenNodes.length==0) {
             averageSymbolLength+=letters[currentNode].probability*currentCode.length;
-            let equalLengthCode=counter.toString(2);
+            let equalLengthCode=counter.toString(ternary?3:2);
             while (equalLengthCode.length<bitsInEqualCode)
                 equalLengthCode='0'+equalLengthCode;
             document.getElementById("table").innerHTML+="<tr><td>"+
@@ -85,10 +96,16 @@ function onButtonClick() {
         }
         stackWithNodes.push(letters[currentNode].childrenNodes[0]);
         stackWithNodes.push(letters[currentNode].childrenNodes[1]);
+        if (ternary && letters[currentNode].childrenNodes.length>2)
+            stackWithNodes.push(letters[currentNode].childrenNodes[2]);
         stackWithCodes.push(currentCode+"0");
         stackWithCodes.push(currentCode+"1");
+        if (ternary && letters[currentNode].childrenNodes.length>2)
+            stackWithCodes.push(currentCode+"2");
         stackWithDepths.push(currentDepth+1);
         stackWithDepths.push(currentDepth+1);
+        if (ternary && letters[currentNode].childrenNodes.length>2)
+            stackWithDepths.push(currentDepth+1);
     }
     console.log("The Huffman tree is constructed:");
     console.log("node\tfreq\tcode\tleft\tright")
@@ -112,10 +129,10 @@ function onButtonClick() {
     document.getElementById("output").innerText=output;
     let tree=document.getElementById("tree");
     const svgNS=tree.namespaceURI;
-    while (document.getElementById("tree").childNodes.length) //Clear the diagram ("innerHTML" won't work because... SVG).
+    while (document.getElementById("tree").childNodes.length) //Clear the diagram ("innerHTML" won't work in Internet Explorer 11 because, to it, SVG is XML and not HTML).
         document.getElementById("tree").removeChild(document.getElementById("tree").firstChild);
     maxX=maxY=minX=0;
-    draw(rootNode,0,0,30*Math.pow(2,maximumDepth),0);
+    draw(rootNode,0,0,(ternary?20:30)*Math.pow(ternary?3:2,maximumDepth),0);
     for (let i=0; i<document.getElementById("tree").childNodes.length; i++) //In case a node falls left of the diagram, move all nodes rightwards.
     {
         let childNode=document.getElementById("tree").childNodes[i];
@@ -166,18 +183,18 @@ function draw(nodeName, x, y, space, id)
         document.getElementById("tree").appendChild(character);
     }
     for (let i = 0; i < letters[nodeName].childrenNodes.length; i++) {
-        draw(letters[nodeName].childrenNodes[i], x + (i - 0.5) * space, y + 100, space / 2, id + 1);
+        draw(letters[nodeName].childrenNodes[i], x + (i - (ternary?3:1)/(ternary?3:2)) * space, y + 100, space / (ternary?3:2), id + 1);
         let line = document.createElementNS(svgNS, "line");
         line.setAttribute("x1", x + 25);
         line.setAttribute("y1", y + 50);
-        line.setAttribute("x2", x + (i - 0.5) * space + 25);
+        line.setAttribute("x2", x + (i - (ternary?3:1)/(ternary?3:2)) * space + 25);
         line.setAttribute("y2", y + 100);
         line.setAttribute("stroke-width", 2);
         line.setAttribute("stroke", "black");
         document.getElementById("tree").appendChild(line);
         let bit = document.createElementNS(svgNS,"text");
         bit.appendChild(document.createTextNode(i));
-        bit.setAttribute("x", x + (i - 0.5) * space + 25);
+        bit.setAttribute("x", x + (i - (ternary?3:1)/(ternary?3:2)) * space + 25);
         bit.setAttribute("y", y + 80);
         bit.style.fill = "black";
         bit.setAttribute("font-family", "monospace");

@@ -13,6 +13,11 @@
         Enter the string here:<br/>
         <input type="text" id="input" value="TEO SAMARZIJA"/>
         <button onclick="onButtonClick()">Encode!</button><br/>
+        Specify the base:
+        <input type="radio" id="binary" name="base" value="binary" checked>
+        <label for="binary">binary</label>
+        <input type="radio" id="ternary" name="base" value="ternary">
+        <label for="trinary">ternary</label><br/>
         The Huffman encoded string is: <span id="output" style="font-family:monospace"></span><br/>
         <span id="diagramSpan" style="display:block; width:100%; height:50%; overflow:scroll">
             <svg id="tree">
