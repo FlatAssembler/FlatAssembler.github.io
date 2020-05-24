@@ -26,7 +26,7 @@ function onButtonClick() {
     let entropy=0,numberOfDistinctLetters=0;
     for (let i in letters) {
         letters[i].probability=letters[i].frequency/inputString.length;
-        entropy-=letters[i].probability*(ternary?Math.log(letters[i].probability)/Math.log(3):Math.log2(letters[i].probability));
+        entropy-=letters[i].probability*Math.log2(letters[i].probability);
         numberOfDistinctLetters++;
     }
     let bitsInEqualCode=Math.ceil(ternary?Math.log(numberOfDistinctLetters)/Math.log(3):Math.log2(numberOfDistinctLetters));
@@ -83,7 +83,7 @@ function onButtonClick() {
         maximumDepth=Math.max(maximumDepth,currentDepth);
         letters[currentNode].code=currentCode;
         if (letters[currentNode].childrenNodes.length==0) {
-            averageSymbolLength+=letters[currentNode].probability*currentCode.length;
+            averageSymbolLength+=letters[currentNode].probability*currentCode.length*(ternary?Math.log2(3):1);
             let equalLengthCode=counter.toString(ternary?3:2);
             while (equalLengthCode.length<bitsInEqualCode)
                 equalLengthCode='0'+equalLengthCode;
@@ -121,7 +121,7 @@ function onButtonClick() {
     console.log("The average length of a symbol in Huffman code is: "+averageSymbolLength+" bits.");
     document.getElementById("avgLength").innerHTML=averageSymbolLength;
     console.log("The average length of a symbol in the equal-length code is: "+bitsInEqualCode+" bits.");
-    document.getElementById("bitsInEqualCode").innerHTML=bitsInEqualCode;
+    document.getElementById("bitsInEqualCode").innerHTML=(ternary?Math.log2(3):1)*bitsInEqualCode;
     console.log("The entropy of the input string is: "+entropy+" bits.");
     document.getElementById("entropy").innerHTML=entropy;
     console.log("The efficiency of the Huffman code is: "+(entropy/averageSymbolLength));
