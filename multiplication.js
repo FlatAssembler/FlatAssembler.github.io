@@ -78,7 +78,7 @@ function calculate() {
           stroke-width=2
           stroke="black"/>
     <text x=20 y=${graph.clientHeight-5}>0-${n-1}</text>
-    <text x=${graph.clientWidth-20-n.toString().length*10*2} y=${graph.clientHeight-5}>
+    <text x=${graph.clientWidth-20-n.toString().length*15*2} y=${graph.clientHeight-5}>
           ${(n-1)*n}-${n*n-1}
     </text>
     `;
