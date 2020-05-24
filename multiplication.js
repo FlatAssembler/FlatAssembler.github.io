@@ -92,7 +92,7 @@ function calculate() {
                   height=${frequencies[i]*graphHeight/n}
                   stroke-width=2
                   stroke="black"
-                  fill="none"
+                  fill="${frequencies[i]>frequencies[i-1]?"red":"blue"}"
             />
         `;
     let mu3=0;
