@@ -106,8 +106,8 @@ function calculate() {
     for (let i=0; i<n; i++)
         table.innerHTML+="<tr><td>"+(i*n)+"-"+((i+1)*n-1)+"</td><td>"+tableRow[i]+
         "</td><td>"+frequencies[i]+"</td></tr>";
-    let cummulative=document.getElementById("cummulative");
-    cummulative.innerHTML=`
+    let cumulative=document.getElementById("cumulative");
+    cumulative.innerHTML=`
     <line x1=40
           x2=40
           y1=10
@@ -154,12 +154,12 @@ function calculate() {
           ${n*n}
     </text>
     `;
-    graphWidth=cummulative.clientWidth-30-10*4;
-    graphHeight=cummulative.clientHeight-30;
+    graphWidth=cumulative.clientWidth-30-10*4;
+    graphHeight=cumulative.clientHeight-30;
     let sumUntilNow=0; 
     for (let i=0; i<n; i++) {
         sumUntilNow+=frequencies[i]; 
-        cummulative.innerHTML+=`
+        cumulative.innerHTML+=`
             <rect x=${40+i*graphWidth/n}
                   y=${graph.clientHeight-20-sumUntilNow*graphHeight/(numbersInTable.size)}
                   width=${graphWidth/n}
