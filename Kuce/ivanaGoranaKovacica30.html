@@ -156,6 +156,13 @@ body
     position:fixed;
     display:none; /*Has not yet been sold!*/
     text-align:center;
+    left:0px;
+    top:0px;
+    transform-origin:left; /*I don't know what this means,
+                             but this answer suggested it and it solves
+                             the problem:
+                             https://stackoverflow.com/questions/61991187/how-to-make-a-span-across-the-diagonal-of-the-browser-window/61991637#61991637
+                             */
 }
 </style>
 </head>
@@ -191,13 +198,10 @@ body
         var visinaProzora=(window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight);
         content.style.left=sirinaProzora/2-content.clientWidth/2+"px";
         var prodano=document.getElementById("prodano");
-        var sirinaNatpisaProdano=Math.sqrt(Math.pow(sirinaProzora,2)+Math.pow(visinaProzora,2))+2*50;
+        var sirinaNatpisaProdano=Math.sqrt(Math.pow(sirinaProzora,2)+Math.pow(visinaProzora,2));
         prodano.style.width=sirinaNatpisaProdano+"px";
         var nagibNatpisaProdano=Math.atan2(visinaProzora,sirinaProzora);
-        prodano.style.transform="rotate("+nagibNatpisaProdano+"rad)";
-        var yKoordinataNatpisa=(visinaProzora/2-Math.cos(nagibNatpisaProdano)*50); 
-        prodano.style.top=yKoordinataNatpisa+"px";
-        prodano.style.left=-(Math.sin(nagibNatpisaProdano)*yKoordinataNatpisa)+"px";
+        prodano.style.transform="translateY(-50%) rotate("+nagibNatpisaProdano+"rad)";
     }
     window.onresize=document.body.onresize;
     var alts=[];
