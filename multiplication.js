@@ -44,7 +44,7 @@ function calculate() {
           stroke-width=2
     />
     <line x1=${n.toString().length*10}
-          x2=${graph.clientWidth-10}
+          x2=${graph.clientWidth-20}
           y1=${graph.clientHeight-20}
           y2=${graph.clientHeight-20}
           stroke="black"
@@ -66,24 +66,24 @@ function calculate() {
           stroke-width=2
           stroke="black"/>
     <line x1=${graph.clientWidth-25}
-          x2=${graph.clientWidth-10}
+          x2=${graph.clientWidth-20}
           y1=${graph.clientHeight-25}
           y2=${graph.clientHeight-20}
           stroke-width=2
           stroke="black"/>
     <line x1=${graph.clientWidth-25}
-          x2=${graph.clientWidth-10}
+          x2=${graph.clientWidth-20}
           y1=${graph.clientHeight-15}
           y2=${graph.clientHeight-20}
           stroke-width=2
           stroke="black"/>
     <text x=20 y=${graph.clientHeight-5}>0-${n-1}</text>
-    <text x=${graph.clientWidth-20-n.toString().length*15*2} y=${graph.clientHeight-5}>
+    <text x=${graph.clientWidth-40-(n*n).toString().length*10*2} y=${graph.clientHeight-5}>
           ${(n-1)*n}-${n*n-1}
     </text>
     `;
-    const graphWidth=graph.clientWidth-20-10*n.toString().length;
-    const graphHeight=graph.clientHeight-30;
+    let graphWidth=graph.clientWidth-30-10*n.toString().length;
+    let graphHeight=graph.clientHeight-30;
     for (let i=0; i<n; i++)
         graph.innerHTML+=`
             <rect x=${n.toString().length*10+i*graphWidth/n}
@@ -106,4 +106,68 @@ function calculate() {
     for (let i=0; i<n; i++)
         table.innerHTML+="<tr><td>"+(i*n)+"-"+((i+1)*n-1)+"</td><td>"+tableRow[i]+
         "</td><td>"+frequencies[i]+"</td></tr>";
+    let cummulative=document.getElementById("cummulative");
+    cummulative.innerHTML=`
+    <line x1=40
+          x2=40
+          y1=10
+          y2=${graph.clientHeight-20}
+          stroke="black"
+          stroke-width=2
+    />
+    <line x1=40
+          x2=${graph.clientWidth-20}
+          y1=${graph.clientHeight-20}
+          y2=${graph.clientHeight-20}
+          stroke="black"
+          stroke-width=2
+    />
+    <text x=0 y=20>100%</text>
+    <text x=0 y=${graph.clientHeight/2}>50%</text>
+    <text x=0 y=${graph.clientHeight-30}>0%</text>
+    <line x1=35
+          x2=40
+          y1=15
+          y2=10
+          stroke-width=2
+          stroke="black"/>
+    <line x1=40
+          x2=45
+          y1=10
+          y2=15 
+          stroke-width=2
+          stroke="black"/>
+    <line x1=${graph.clientWidth-25}
+          x2=${graph.clientWidth-20}
+          y1=${graph.clientHeight-25}
+          y2=${graph.clientHeight-20}
+          stroke-width=2
+          stroke="black"/>
+    <line x1=${graph.clientWidth-25}
+          x2=${graph.clientWidth-20}
+          y1=${graph.clientHeight-15}
+          y2=${graph.clientHeight-20}
+          stroke-width=2
+          stroke="black"/>
+    <text x=40 y=${graph.clientHeight-5}>0</text>
+    <text x=${graph.clientWidth-40-(n*n).toString().length*10} y=${graph.clientHeight-5}>
+          ${n*n}
+    </text>
+    `;
+    graphWidth=cummulative.clientWidth-30-10*4;
+    graphHeight=cummulative.clientHeight-30;
+    let sumUntilNow=0; 
+    for (let i=0; i<n; i++) {
+        sumUntilNow+=frequencies[i]; 
+        cummulative.innerHTML+=`
+            <rect x=${40+i*graphWidth/n}
+                  y=${graph.clientHeight-20-sumUntilNow*graphHeight/(numbersInTable.size)}
+                  width=${graphWidth/n}
+                  height=${sumUntilNow*graphHeight/(numbersInTable.size)}
+                  stroke-width=2
+                  stroke="black"
+                  fill="green"
+            />
+        `;
+    }
 }
