@@ -422,12 +422,12 @@
         // -||- dekadskim logaritmom (po formuli ln(x)/ln(10))
         flnp();
         asm(
-          "mov [result]," +
+          "mov dword [result]," +
             (highlight ? '<span style="color:#007700">' : "") +
             "10" +
             (highlight ? "</span>" : "")
         );
-        asm("fild [result]");
+        asm("fild dword [result]");
         flnp();
         fdivp();
       }
@@ -563,7 +563,7 @@
           else if (this.text == "ln(")
             return Math.log(this.operands[0].interpret());
           else if (this.text == "log(")
-            return Math.log10(this.operands[0].interpret());
+            return Math.log(this.operands[0].interpret()) / Math.log(10);
           else if (this.text == "exp(")
             return Math.exp(this.operands[0].interpret());
           else if (this.text == "pow(")
@@ -709,7 +709,7 @@
             //Broj
             if (typeof getIEEE754 != "function")
               asm(
-                "mov [result]," +
+                "mov dword [result]," +
                   (highlight ? '<span style="color:#007700">' : "") +
                   this.text +
                   "f" +
@@ -739,7 +739,7 @@
           else if (this.text == "ctg(") {
             ftanp();
             asm(
-              "mov [result]," +
+              "mov dword [result]," +
                 (highlight ? '<span style="color:#007700">' : "") +
                 "-1f" +
                 (highlight ? "</span>" : "")
@@ -752,7 +752,7 @@
             fatanp();
             asm("fldpi");
             asm(
-              "mov [result]," +
+              "mov dword [result]," +
                 (highlight ? '<span style="color:#007700">' : "") +
                 "2f" +
                 (highlight ? "</span>" : "")
