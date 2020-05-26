@@ -48,6 +48,77 @@
                 background:#777777;
                 position:absolute;
             }
+            #titleBar {
+                position:absolute;
+                top:8px;
+                margin:0px;
+                left:8px;
+                height:20px;
+                background:#0077AA;
+                color:white;
+                font-family:Arial;
+                font-size:12px;
+                line-height:20px;
+                padding-left:20px;
+                padding-right:5px;
+                font-weight:bold;
+                border-style:groove;
+                border-width:3px;
+                cursor:move;
+                border-bottom-style:none;
+            }
+            #content {
+                position:absolute;
+                top:28px;
+                left:8px;
+                border-style:groove;
+                padding:5px;
+                overflow:scroll;
+                background:#FFFFDD;
+                border-width:3px;
+            }
+            nav {
+                display:none;
+                position:absolute;
+                z-index:100;
+                width:250px;
+                background:white;
+                border-style:solid none none none;
+                border-width:2px;
+                overflow:hidden;
+            }
+            #assembly {
+                font-family:'Lucida Console';
+                background-color:#EEEEEE;
+                width:100%;
+                overflow:scroll;
+                max-height:100%;
+                white-space:nowrap;
+            }
+            #diagramSpan {
+                display:none;
+                width:100%;
+                height:300px;
+                overflow:scroll;
+                margin-bottom:30px;
+                background:white;
+            }
+            #ikona {
+                text-align:center;
+                display:none;
+                position:absolute;
+                color:white;
+                font-family:Arial;
+                font-size:10px;
+            }
+            #favicon {
+                width:15px;
+                height:15px;
+                position:absolute;
+                top:13px;
+                left:13px;
+                cursor:pointer;
+            }
         </style>
         <!--[if IE lt 9]>
 		To the programs we've left behind, fixed forever in their time... Lest we forget the Browser Wars!
@@ -82,12 +153,12 @@
         </span>
         </noscript>
         <div id="shareIt">Please share this web-app with as many people interested in Assembly or the compiler theory (or even just retroinformatics) as you can. I've put a lot of effort into making it.</div>
-        <h1 id="titleBar" style="position:absolute; top:8px; margin:0px; left:8px; height:20px; background:#0077AA; color:white; font-family:Arial; font-size:12px; line-height:20px; padding-left:20px; padding-right:5px; font-weight:bold; border-style:groove; border-width:3px; cursor:move; border-bottom-style:none;">Arithmetic Expression Compiler<span id="AJAXmessage" style="display:none"> - connecting to the server...</span></h1>
+        <h1 id="titleBar">Arithmetic Expression Compiler<span id="AJAXmessage" style="display:none"> - connecting to the server...</span></h1>
         <div id="smanji" class="gornjaDesnaTipka" style="font-size:14px;">_</div>
         <div id="povecaj" class="gornjaDesnaTipka">&#x25a2;</div>
         <div id="zatvori" class="gornjaDesnaTipka" style="font-family:Arial" onclick="history.back()">x</div>
-        <img src="https://www.theflatearthsociety.org/forum/avr/avatar_1461509_1483220545.png" style="width:15px; height:15px; position:absolute; top:13px; left:13px; cursor:pointer;" onclick="document.getElementsByTagName('nav')[0].style.display = 'block'" alt="AEC" id="favicon"/>
-        <nav style="display:none; position:absolute; z-index:100; width:250px; background:white; border-style:solid none none none; border-width:2px; overflow:hidden;" onmouseleave="this.style.display='none'">
+        <img src="https://www.theflatearthsociety.org/forum/avr/avatar_1461509_1483220545.png" onclick="document.getElementsByTagName('nav')[0].style.display = 'block'" alt="AEC" id="favicon"/>
+        <nav onmouseleave="this.style.display='none'">
             <mark id="about">About</mark>
             <mark id="mailMe">E-mail Teo Samarzija</mark>
             <mark id="download">Download FlatAssembler</mark>
@@ -95,7 +166,7 @@
             <mark id="backEndReset">Reset the Back-End</mark>
             <mark id="exit">Exit</mark>
         </nav>
-        <div id="content" style="position:absolute; top:28px; left:8px; border-style:groove; padding:5px; overflow:scroll; background:#FFFFDD; border-width:3px;">
+        <div id="content" style="">
             <button id="showMenu" style="display:none;">Show menu</button>
             Enter an arithmetic expression here:<br/>
             <input type="text" id="input"
@@ -108,7 +179,7 @@
             Parsed (AST converted to an <a href="https://en.wikipedia.org/wiki/S-expression">S-expression</a>):<br/>
             <div id="LISP" style="font-family:'Lucida Console'"></div><br/>
             Compiled (to x86 assembly, Intel Syntax):<br/>
-            <div id="assembly" style="font-family:'Lucida Console'; background-color:#EEEEEE; width:100%; overflow:scroll; max-height:100%; white-space:nowrap;"></div><br/>
+            <div id="assembly"></div><br/>
             Interpreter output: <span id="interpreter" style="font-family:'Courier New'">null</span><br><br>
             WARNING: The tokenizer, the parser and the compiler
             appear to generate correct results, but they haven't been rigorously tested.
@@ -142,12 +213,11 @@
             advanced SVG support, seen in, for example, Internet Explorer 11). If you don't have,
             don't worry, graphical representations of complex (that can't be done by hand) ASTs
             are useless (the maximal depth of a useful graphical AST is probably around 5).<br/>
-            <div id="diagramSpan" style="display:none; width:100%; height:300px; overflow:scroll; margin-bottom:30px; background:white;">
+            <div id="diagramSpan">
                 <svg id="diagram" style="overflow:visible;"></svg>
             </div>
         </div>
-        <div id="ikona"
-            style="text-align:center; display:none; position:absolute; color:white; font-family:Arial; font-size:10px;">
+        <div id="ikona">
             <img id="avatar" src="https://www.theflatearthsociety.org/forum/avr/avatar_1461509_1483220545.png" alt="AEC" style="width:75px;height:60px;" draggable="false"/><br/>
             <span id="opis">Arithmetic<br/>Expression<br/>Compiler</span>
         </div>
@@ -1126,7 +1196,8 @@
                     alerted = 1
                     return
                 }
-                draw(vrh, 0, 0, 200 * (Math.pow(2, vrh.DFS() - 2)), 0);
+                var trinarni=vrh.toLisp().indexOf("?:")!=-1;
+                draw(vrh, 0, 0, 200 * (Math.pow((trinarni?3:2), vrh.DFS() - 2)), 0,trinarni);
                 /*Ova formula za razmak izmedu cvorova od istog roditelja je vjerojatno
                  optimalno rjesenje za izraze gdje je AST potpuno binarno stablo ili
                  blizu potpunog binarnog stabla, kao sto je npr. izraz:
@@ -1148,7 +1219,7 @@
                         document.getElementById("node0").getAttribute("x")
                         - document.getElementById("diagramSpan").clientWidth / 2 + 75; //Namijestanje korijena stabla na sredinu ekrana.
             }
-            function draw(objekt, x, y, razmak, id)
+            function draw(objekt, x, y, razmak, id, imaLiTrinarnog)
             {
                 if (x > maxX)
                     maxX = x
@@ -1179,7 +1250,7 @@
                 document.getElementById("diagram").appendChild(tekst)
                 if (objekt.operands.length == 1 && !x)
                 {
-                    draw(objekt.operands[0], x, y + 100, razmak / 2, id + 1)
+                    draw(objekt.operands[0], x, y + 100, razmak / (imaLiTrinarnog?3:2), id + 1, imaLiTrinarnog)
                     var crta = document.createElementNS(svgNS, "line")
                     crta.setAttribute("x1", x + 75)
                     crta.setAttribute("y1", y + 50)
@@ -1190,38 +1261,64 @@
                     document.getElementById("diagram").appendChild(crta)
                 } else if (objekt.operands.length == 1 && x < 0)
                 {
-                    draw(objekt.operands[0], x + 0.5 * razmak, y + 100, razmak / 2, id + 1)
+                    draw(objekt.operands[0], x + (imaLiTrinarnog?3:1)/(imaLiTrinarnog?3:2) * razmak, y + 100, razmak / (imaLiTrinarnog?3:2), id + 1,imaLiTrinarnog)
                     var crta = document.createElementNS(svgNS, "line")
                     crta.setAttribute("x1", x + 75)
                     crta.setAttribute("y1", y + 50)
-                    crta.setAttribute("x2", x + 0.5 * razmak + 75)
+                    crta.setAttribute("x2", x + (imaLiTrinarnog?3:1)/(imaLiTrinarnog?3:2) * razmak + 75)
                     crta.setAttribute("y2", y + 100)
                     crta.setAttribute("stroke-width", 2)
                     crta.setAttribute("stroke", "black");
                     document.getElementById("diagram").appendChild(crta)
                 } else if (objekt.operands.length == 1 && x > 0)
                 {
-                    draw(objekt.operands[0], x - 0.5 * razmak, y + 100, razmak / 2, id + 1)
+                    draw(objekt.operands[0], x - (imaLiTrinarnog?3:1)/(imaLiTrinarnog?3:2) * razmak, y + 100, razmak / (imaLiTrinarnog?3:2), id + 1,imaLiTrinarnog)
                     var crta = document.createElementNS(svgNS, "line")
                     crta.setAttribute("x1", x + 75)
                     crta.setAttribute("y1", y + 50)
-                    crta.setAttribute("x2", x - 0.5 * razmak + 75)
+                    crta.setAttribute("x2", x - (imaLiTrinarnog?3:1)/(imaLiTrinarnog?3:2) * razmak + 75)
                     crta.setAttribute("y2", y + 100)
                     crta.setAttribute("stroke-width", 2)
                     crta.setAttribute("stroke", "black");
                     document.getElementById("diagram").appendChild(crta)
-                } else
-                    for (var i = 0; i < objekt.operands.length; i++) {
-                        draw(objekt.operands[i], x + (i - 0.5) * razmak, y + 100, razmak / 2, id + 1)
+                }
+                else if (objekt.operands.length==2 && imaLiTrinarnog && x<0)
+                    for (var i = 1; i < objekt.operands.length+1; i++) {
+                        draw(objekt.operands[i-1], x + (i - (imaLiTrinarnog?3:1)/(imaLiTrinarnog?3:2)) * razmak, y + 100, razmak / (imaLiTrinarnog?3:2), id + 1,imaLiTrinarnog)
                         var crta = document.createElementNS(svgNS, "line")
                         crta.setAttribute("x1", x + 75)
                         crta.setAttribute("y1", y + 50)
-                        crta.setAttribute("x2", x + (i - 0.5) * razmak + 75)
+                        crta.setAttribute("x2", x + (i - (imaLiTrinarnog?3:1)/(imaLiTrinarnog?3:2)) * razmak + 75)
                         crta.setAttribute("y2", y + 100)
                         crta.setAttribute("stroke-width", 2)
                         crta.setAttribute("stroke", "black");
                         document.getElementById("diagram").appendChild(crta)
                     }
+                else if (objekt.operands.length==2 && imaLiTrinarnog && !x)
+                    for (var i = 0; i < objekt.operands.length+1; i++) {
+                        if (i==1) continue;
+                        draw(objekt.operands[i==0?i:1], x + (i - (imaLiTrinarnog?3:1)/(imaLiTrinarnog?3:2)) * razmak, y + 100, razmak / (imaLiTrinarnog?3:2), id + 1)
+                        var crta = document.createElementNS(svgNS, "line")
+                        crta.setAttribute("x1", x + 75)
+                        crta.setAttribute("y1", y + 50)
+                        crta.setAttribute("x2", x + (i - (imaLiTrinarnog?3:1)/(imaLiTrinarnog?3:2)) * razmak + 75)
+                        crta.setAttribute("y2", y + 100)
+                        crta.setAttribute("stroke-width", 2)
+                        crta.setAttribute("stroke", "black");
+                        document.getElementById("diagram").appendChild(crta)
+                    }
+                else
+                    for (var i = 0; i < objekt.operands.length; i++) {
+                        draw(objekt.operands[i], x + (i - (imaLiTrinarnog?3:1)/(imaLiTrinarnog?3:2)) * razmak, y + 100, razmak / (imaLiTrinarnog?3:2), id + 1,imaLiTrinarnog)
+                        var crta = document.createElementNS(svgNS, "line")
+                        crta.setAttribute("x1", x + 75)
+                        crta.setAttribute("y1", y + 50)
+                        crta.setAttribute("x2", x + (i - (imaLiTrinarnog?3:1)/(imaLiTrinarnog?3:2)) * razmak + 75)
+                        crta.setAttribute("y2", y + 100)
+                        crta.setAttribute("stroke-width", 2)
+                        crta.setAttribute("stroke", "black");
+                        document.getElementById("diagram").appendChild(crta)
+                    }                
             }
         var sessionID;
             function downloadAJAX()
