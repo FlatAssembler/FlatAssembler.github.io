@@ -1,304 +1,315 @@
 <html lang="en">
-    <head>
-        <meta name="author" content="Teo Samarzija"/>
-        <meta name="description" content="A web-game about historical linguistics."/>
-        <meta name="keywords" content="historical linguistics, sound change, web-game"/>
-        <title>Etymology Game</title>
-        <style type="text/css">
-            @-webkit-keyframes oblakovaAnimacija {
-                from {
-                    left: -250px;
-                }
-                to {
-                    left: 500px;
-                }
-            }
+  <head>
+    <meta name="author" content="Teo Samarzija" />
+    <meta
+      name="description"
+      content="A web-game about historical linguistics."
+    />
+    <meta
+      name="keywords"
+      content="historical linguistics, sound change, web-game"
+    />
+    <title>Etymology Game</title>
+    <style type="text/css">
+      @-webkit-keyframes oblakovaAnimacija {
+        from {
+          left: -250px;
+        }
+        to {
+          left: 500px;
+        }
+      }
 
-            #oblak {
-                height: 250px;
-                position: relative;
-                -webkit-animation-name: oblakovaAnimacija;
-                -webkit-animation-duration: 20s;
-                -webkit-animation-iteration-count: infinite;
-                -webkit-animation-timing-function: linear;
-            }
+      #oblak {
+        height: 250px;
+        position: relative;
+        -webkit-animation-name: oblakovaAnimacija;
+        -webkit-animation-duration: 20s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+      }
 
-            #sky {
-                overflow: hidden;
-                background: #AAAAFF;
-                background: linear-gradient(#AAAAFF, #DDFFFF);
-                width: 500px;
-                height: 500px;
-            }
+      #sky {
+        overflow: hidden;
+        background: #aaaaff;
+        background: linear-gradient(#aaaaff, #ddffff);
+        width: 500px;
+        height: 500px;
+      }
 
-            div .introduction {
-                display: none;
-                background: #1100FF;
-                position: absolute;
-                top: 25px;
-                left: 50px;
-                width: 400px;
-                height: 350px;
-                color: white;
-                font-family: "Arial";
-                font-size: 24px;
-                text-align: center;
-                border-radius: 25px;
-                border-style: solid;
-                border-width: 10px;
-                border-color: #1100FF;
-                line-height: 28px;
-            }
+      div .introduction {
+        display: none;
+        background: #1100ff;
+        position: absolute;
+        top: 25px;
+        left: 50px;
+        width: 400px;
+        height: 350px;
+        color: white;
+        font-family: "Arial";
+        font-size: 24px;
+        text-align: center;
+        border-radius: 25px;
+        border-style: solid;
+        border-width: 10px;
+        border-color: #1100ff;
+        line-height: 28px;
+      }
 
-            div .proceed {
-                display: none;
-                position: absolute;
-                background: #00FF00;
-                color: white;
-                text-align: center;
-                width: 250px;
-                left: 125px;
-                top: 425px;
-                height: 50px;
-                text-align: center;
-                font-family: "Arial";
-                font-size: 24px;
-                border-radius: 12px;
-                line-height: 50px;
-            }
+      div .proceed {
+        display: none;
+        position: absolute;
+        background: #00ff00;
+        color: white;
+        text-align: center;
+        width: 250px;
+        left: 125px;
+        top: 425px;
+        height: 50px;
+        text-align: center;
+        font-family: "Arial";
+        font-size: 24px;
+        border-radius: 12px;
+        line-height: 50px;
+      }
 
-            .proceed:hover {
-                background: #AAFFAA;
-            }
+      .proceed:hover {
+        background: #aaffaa;
+      }
 
-            div .task {
-                display: none;
-                background: #1100FF;
-                position: absolute;
-                top: 25px;
-                left: 50px;
-                width: 400px;
-                height: 150px;
-                color: white;
-                font-family: "Arial";
-                font-size: 24px;
-                text-align: center;
-                border-radius: 25px;
-                border-style: solid;
-                border-width: 10px;
-                border-color: #1100FF;
-                line-height: 28px;
-            }
+      div .task {
+        display: none;
+        background: #1100ff;
+        position: absolute;
+        top: 25px;
+        left: 50px;
+        width: 400px;
+        height: 150px;
+        color: white;
+        font-family: "Arial";
+        font-size: 24px;
+        text-align: center;
+        border-radius: 25px;
+        border-style: solid;
+        border-width: 10px;
+        border-color: #1100ff;
+        line-height: 28px;
+      }
 
-            div .answer {
-                display: none;
-                position: absolute;
-                width: 375px;
-                height: 50px;
-                left: 75px;
-                line-height: 50px;
-                font-family: "Arial";
-                font-size: 24px;
-                text-align: left;
-                color: white;
-                background: #7700FF;
-            }
+      div .answer {
+        display: none;
+        position: absolute;
+        width: 375px;
+        height: 50px;
+        left: 75px;
+        line-height: 50px;
+        font-family: "Arial";
+        font-size: 24px;
+        text-align: left;
+        color: white;
+        background: #7700ff;
+      }
 
-            .answer .desniTrokut {
-                position: relative;
-                float: right;
-                left: 25px;
-                width: 0px;
-                height: 0px;
-                font-size: 0px;
-                content: '';
-                border-right-style: solid;
-                border-right-color: transparent;
-                border-top-style: solid;
-                border-top-color: transparent;
-                border-bottom-style: solid;
-                border-bottom-color: transparent;
-                border-left-style: solid;
-                border-left-color: #7700FF;
-                border-right-width: 0px;
-                border-left-width: 25px;
-                border-top-width: 25px;
-                border-bottom-width: 25px;
-                border-left-width: 25px;
-                line-height: 0px;
-            }
+      .answer .desniTrokut {
+        position: relative;
+        float: right;
+        left: 25px;
+        width: 0px;
+        height: 0px;
+        font-size: 0px;
+        content: "";
+        border-right-style: solid;
+        border-right-color: transparent;
+        border-top-style: solid;
+        border-top-color: transparent;
+        border-bottom-style: solid;
+        border-bottom-color: transparent;
+        border-left-style: solid;
+        border-left-color: #7700ff;
+        border-right-width: 0px;
+        border-left-width: 25px;
+        border-top-width: 25px;
+        border-bottom-width: 25px;
+        border-left-width: 25px;
+        line-height: 0px;
+      }
 
-            .answer:hover {
-                background: #FF00FF;
-            }
+      .answer:hover {
+        background: #ff00ff;
+      }
 
-            .answer:hover .desniTrokut {
-                border-left-color: #FF00FF;
-            }
+      .answer:hover .desniTrokut {
+        border-left-color: #ff00ff;
+      }
 
-            div .lijeviTrokut {
-                font-size: 0px;
-                content: '';
-                position: relative;
-                top: -50px;
-                left: -25px;
-                width: 0px;
-                height: 0px;
-                border-right-style: solid;
-                border-right-color: #7700FF;
-                border-top-style: solid;
-                border-top-color: transparent;
-                border-bottom-style: solid;
-                border-bottom-color: transparent;
-                border-left-style: solid;
-                border-left-color: transparent;
-                border-right-width: 25px;
-                border-left-width: 25px;
-                border-top-width: 25px;
-                border-bottom-width: 25px;
-                border-left-width: 0px;
-                line-height: 0px;
-            }
+      div .lijeviTrokut {
+        font-size: 0px;
+        content: "";
+        position: relative;
+        top: -50px;
+        left: -25px;
+        width: 0px;
+        height: 0px;
+        border-right-style: solid;
+        border-right-color: #7700ff;
+        border-top-style: solid;
+        border-top-color: transparent;
+        border-bottom-style: solid;
+        border-bottom-color: transparent;
+        border-left-style: solid;
+        border-left-color: transparent;
+        border-right-width: 25px;
+        border-left-width: 25px;
+        border-top-width: 25px;
+        border-bottom-width: 25px;
+        border-left-width: 0px;
+        line-height: 0px;
+      }
 
-            .answer:hover .lijeviTrokut {
-                border-right-color: #FF00FF;
-            }
+      .answer:hover .lijeviTrokut {
+        border-right-color: #ff00ff;
+      }
 
-            div .AnswerA {
-                top: 220px;
-            }
+      div .AnswerA {
+        top: 220px;
+      }
 
-            div .AnswerB {
-                top: 295px;
-            }
+      div .AnswerB {
+        top: 295px;
+      }
 
-            div .AnswerC {
-                top: 370px;
-            }
+      div .AnswerC {
+        top: 370px;
+      }
 
-            div .AnswerD {
-                top: 445px;
-            }
+      div .AnswerD {
+        top: 445px;
+      }
 
-            .zastor {
-                top: 8px;
-                left: 8px;
-                display: none;
-                position: absolute;
-                width: 500px;
-                height: 500px;
-                background: rgba(0, 0, 0, 0.75);
-                vertical-align: bottom;
-                text-align: right;
-                color: white;
-                line-height: 975px;
-                overflow: hidden;
-            }
+      .zastor {
+        top: 8px;
+        left: 8px;
+        display: none;
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: rgba(0, 0, 0, 0.75);
+        vertical-align: bottom;
+        text-align: right;
+        color: white;
+        line-height: 975px;
+        overflow: hidden;
+      }
 
-            .rjesenje {
-                position: absolute;
-                top: 50px;
-                left: 100px;
-                background: #AAAAAA;
-                border-top-left-radius: 25px;
-                border-top-right-radius: 25px;
-                width: 300px;
-                overflow: hidden;
-                font-family: "Arial";
-                font-size: 14px;
-                line-height: normal;
-                opacity: 1;
-            }
+      .rjesenje {
+        position: absolute;
+        top: 50px;
+        left: 100px;
+        background: #aaaaaa;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        width: 300px;
+        overflow: hidden;
+        font-family: "Arial";
+        font-size: 14px;
+        line-height: normal;
+        opacity: 1;
+      }
 
-            .okButton {
-                background: #777777;
-                color: black;
-                border-radius: 10px;
-                width: 100px;
-                height: 30px;
-                line-height: 30px;
-                text-align: center;
-                margin-bottom: 10px;
-            }
+      .okButton {
+        background: #777777;
+        color: black;
+        border-radius: 10px;
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
 
-            .okButton:hover {
-                background: #FFFFFF;
-            }
+      .okButton:hover {
+        background: #ffffff;
+      }
 
-            div .rijecUDrugomDijelu {
-                position: absolute;
-                background: #7777FF;
-                height: 25px;
-                display: none;
-                font-size: 14px;
-                width: 150px;
-                color: black;
-                font-family: Arial;
-                text-align: center;
-                line-height: 25px;
-            }
+      div .rijecUDrugomDijelu {
+        position: absolute;
+        background: #7777ff;
+        height: 25px;
+        display: none;
+        font-size: 14px;
+        width: 150px;
+        color: black;
+        font-family: Arial;
+        text-align: center;
+        line-height: 25px;
+      }
 
-            .rijecUDrugomDijelu:nth-child(even) {
-                background: #77FFFF;
-            }
+      .rijecUDrugomDijelu:nth-child(even) {
+        background: #77ffff;
+      }
 
-            div .submit {
-                position: absolute;
-                display: none;
-                height: 30px;
-                text-align: center;
-                font-family: Arial;
-                font-size: 18px;
-                line-height: 30px;
-                width: 100px;
-                left: 200px;
-                top: 465px;
-                background: #77FF77;
-                color: black
-            }
+      div .submit {
+        position: absolute;
+        display: none;
+        height: 30px;
+        text-align: center;
+        font-family: Arial;
+        font-size: 18px;
+        line-height: 30px;
+        width: 100px;
+        left: 200px;
+        top: 465px;
+        background: #77ff77;
+        color: black;
+      }
 
-            .submit:hover {
-                background: #AAFFAA;
-            }
+      .submit:hover {
+        background: #aaffaa;
+      }
 
-            div .fonoloskiOpis {
-                position: absolute;
-                height: 75px;
-                display: none;
-                font-size: 14px;
-                width: 275px;
-                left: 200px;
-                color: black;
-                font-family: Arial;
-                text-align: left;
-                line-height: 25px;
-                background: #77FFFF;
-                padding-left:5px;
-                padding-right:5px;
-            }
+      div .fonoloskiOpis {
+        position: absolute;
+        height: 75px;
+        display: none;
+        font-size: 14px;
+        width: 275px;
+        left: 200px;
+        color: black;
+        font-family: Arial;
+        text-align: left;
+        line-height: 25px;
+        background: #77ffff;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
 
-            div .nazivJezika {
-                position: absolute;
-                background: #7777FF;
-                height: 50px;
-                display: none;
-                font-size: 14px;
-                width: 125px;
-                color: black;
-                font-family: Arial;
-                text-align: center;
-                line-height: 25px;
-                left:25px;
-            }
-        
-            div .fonoloskiOpis, div .nazivJezika, div .submit, div .rijecUDrugomDijelu, div .okButton, div.answer, div .proceed
-            {
-                cursor: pointer;
-            }
+      div .nazivJezika {
+        position: absolute;
+        background: #7777ff;
+        height: 50px;
+        display: none;
+        font-size: 14px;
+        width: 125px;
+        color: black;
+        font-family: Arial;
+        text-align: center;
+        line-height: 25px;
+        left: 25px;
+      }
 
-            /* Boris */
+      div .fonoloskiOpis,
+      div .nazivJezika,
+      div .submit,
+      div .rijecUDrugomDijelu,
+      div .okButton,
+      div.answer,
+      div .proceed {
+        cursor: pointer;
+      }
 
-            /*.connect {
+      /* Boris */
+
+      /*.connect {
                 position: absolute;
                 display:none;
                 position:absolute;
@@ -325,14 +336,17 @@
             .connect line {
                 display: none;
             }*/
-        </style>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    </head>
-    <body>
-        <div id="sky">
-            <img id="oblak" alt="ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ"
-                 src="http://www.freepngimg.com/thumb/cloud/11-cloud-png-image-thumb.png"/>
-            <!--<svg width="400" height="400" class="connect" xmlns="http://www.w3.org/2000/svg">
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  </head>
+  <body>
+    <div id="sky">
+      <img
+        id="oblak"
+        alt="ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ"
+        src="http://www.freepngimg.com/thumb/cloud/11-cloud-png-image-thumb.png"
+      />
+      <!--<svg width="400" height="400" class="connect" xmlns="http://www.w3.org/2000/svg">
             <!- - Created with Method Draw - http://github.com/duopixel/Method-Draw/ - - >
             <defs>
             <!- -<linearGradient id="svg_1" x1="0" y1="0" x2="1" y2="0" spreadMethod="pad">- - >
@@ -387,1247 +401,1862 @@
             <text stroke="#000" transform="matrix(0.7896423873198737,0,0,0.5004895958168861,1.4129905195563701,13.506416432077652) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_4" y="15.5" x="19.5" stroke-width="0" fill="#000000">R</text>
         </g>
     </svg>-->
-            <svg id="connect" style="width:50px; height:220px; position:absolute; top:200px; left:150px; display:none;">
-            <polygon id="l1" points="0,0 0,10 5,5" fill="#7777FF"></polygon>
-            <polygon id="p1" points="50,0 50,10 45,5" fill="#77FFFF"></polygon>
-            <polygon id="l2" points="0,85 0,95 5,90" fill="#7777FF"></polygon>
-            <polygon id="p2" points="50,85 50,95 45,90" fill="#77FFFF"></polygon>
-            <polygon id="l3" points="0,170 0,180 5,175" fill="#7777FF"></polygon>
-            <polygon id="p3" points="50,170 50,180 45,175" fill="#77FFFF"></polygon>
-            </svg>
-        </div>
-        <div style="max-width: 500px">The graphic interface has been made and tested using Safari 6.2.8. If you have cross-browser compatibility issues, try the <a href="etymology.html">text-based</a> version (it works even in Internet Explorer 6).</div>
-        <script type="text/javascript">
-            if (!window.$)
-                alert("Unable to initialize JQuery (the JavaScript framework used for the graphics). You will need to use the text-based version.");
-            else if (!document.createElementNS)
-                alert("The SVG elements appear not to be accessible from JavaScript (and that is crucial for the graphics). You will need to use the text-based version.");
-            var svgNS = "http://www.w3.org/2000/svg";
-            var connect=document.getElementById("connect");
-            for (var i = 1; i < 4; i++)
-                for (var j = 1; j < 4; j++)
-                {
-                    var x1, x2, y1, y2;
-                    if (i === 1) {
-                        x1 = 5;
-                        y1 = 5;
-                    }
-                    if (i === 2) {
-                        x1 = 5;
-                        y1 = 90;
-                    }
-                    if (i === 3) {
-                        x1 = 5;
-                        y1 = 175;
-                    }
-                    if (j === 1) {
-                        x2 = 45;
-                        y2 = 5;
-                    }
-                    if (j === 2) {
-                        x2 = 45;
-                        y2 = 90;
-                    }
-                    if (j === 3) {
-                        x2 = 45;
-                        y2 = 175;
-                    }
-                    var crta = document.createElementNS(svgNS, "line");
-                    crta.setAttribute("id", "line" + i + j);
-                    crta.setAttribute("stroke", "black");
-                    crta.setAttribute("stroke-width", "3");
-                    crta.setAttribute("x1", x1);
-                    crta.setAttribute("x2", x2);
-                    crta.setAttribute("y1", y1);
-                    crta.setAttribute("y2", y2);
-                    crta.style.display = "none";
-                    connect.appendChild(crta);
-                }
-
-            var bodovi = 0;
-            var vowels = "aeiou";
-            var consonants = "bcdfghjklmnpqrstvwxyz";
-
-            function syllable() {
-                var ret = vowels.charAt(Math.floor(Math.random() * vowels.length));
-                if (Math.random() < 0.5) {
-                    ret += consonants.charAt(Math.floor(Math.random() * consonants.length));
-                    if (Math.random() > 0.75) {
-                        var znak = consonants.charAt(Math.floor(Math.random() * consonants.length));
-                        while (znak === "w" || znak === "y") //w+suglasnik i y+suglasnik se na pocetku rijeci ne mogu izgovoriti
-                            znak = consonants.charAt(Math.floor(Math.random() * consonants.length));
-                        ret += znak;
-                    }
-                }
-                if (Math.random() < 0.75) {
-                    ret = consonants.charAt(Math.floor(Math.random() * consonants.length)) + ret;
-                    if (Math.random() > 0.75) {
-                        var znak = consonants.charAt(Math.floor(Math.random() * consonants.length));
-                        while (znak === "w" || znak === "y" || znak === ret.charAt(0)) //Dugi suglasnik ne moze biti na pocetku rijeci.
-                            znak = consonants.charAt(Math.floor(Math.random() * consonants.length));
-                        ret = znak + ret;
-                    }
-                }
-                return ret;
-            }
-
-            function randomWord() {
-                var ret = syllable();
-                if (Math.random() > 0.9) {
-                    ret += syllable();
-                    if (Math.random() > 0.9)
-                        ret += syllable();
-                }
-                if (ret.length < 12)
-                    return ret;
-                return randomWord();
-            }
-
-            var original = [],brojPrimjenjenihPromjena=[];
-            for (var i = 0; i < 1024; i++) {
-                var rijec;
-                do {
-                    rijec = randomWord();
-                } while (original.indexOf(rijec) !== -1);
-                original.push(rijec);
-                brojPrimjenjenihPromjena.push(0);
-            }
-            var fonologija = [];
-            fonologija[0] = "0[w]C>0, C[w]0>0, 0[y]C>0, C[y]0>0, 0[C1]C1>0 ";
-            fonologija[1] = "";
-            fonologija[2] = "";
-            var abeceda = "abcdefghijklmnopqrstuvwxyz";
-            var promjene = [];
-            promjene[0] = ['e', 'e', 'ei', 'ia', 'o', 'ua', 'i', 'u', 'ar', 'er', 'ia', '-']; //U koje ce se glasove najvjerojatnije promijeniti 'a'.
-            promjene[1] = ['p', 'p', 'p', 'v', 'v', 'v', 'f', 'f', 'f', 'd', '-', '-']; //-||- 'b'
-            promjene[2] = ['s', 's', 's', 'k', 'k', 'k', 'h', 'h', 'g', 'x', '-', '-']; //-||- 'c'
-            promjene[3] = ['t', 't', 'f', 'f', 'b', 'b', 'r', 'r', 't', 'th', '-', '-']; //-||- 'd'
-            promjene[4] = ['i', 'i', 'ie', 'ei', '0', 'y', 'a', 'o', 'u', '0', 'ei', '-']; //-||- 'e'
-            promjene[5] = ['v', 'v', 'b', 'h', 'h', 'h', 'w', 'w', 'p', 'p', '-', '-']; //-||- 'f'
-            promjene[6] = ['k', 'k', 'y', 'h', 'w', 'j', 'y', 'z', 'z', 'zy', '-', '-']; //-||- 'g'
-            promjene[7] = ['s', 's', 'x', 'a', 'w', 'f', 'f', 'k', '0', '0', '-', '-']; //-||- 'h'
-            promjene[8] = ['a', 'a', 'ai', 'yi', 'iy', 'u', 'e', 'ie', 'ei', 'a', 'o', '-']; //-||- 'i'
-            promjene[9] = ['z', 'z', 'z', 'y', 'y', 'y', 'h', 'h', 'h', 'l', '-', '-']; //-||- 'j'
-            promjene[10] = ['c', 'c', 'p', 's', 's', 'p', 'g', 'h', 'h', 'qu', '-', '-']; //-||- 'k'
-            promjene[11] = ['y', 'y', 'y', 'j', 'j', 'a', 'a', 'o', '0', 'i', '-', '-']; //-||- 'l'
-            promjene[12] = ['n', 'n', 'n', 'b', 'b', 'bh', 'a', 'a', '0', 'f', '-', '-']; //-||- 'm'
-            promjene[13] = ['t', 't', 'd', 'd', 'm', 'r', 'l', 'l', '0', 'r', '-', '-']; //-||- 'n'
-            promjene[14] = ['u', 'u', 'ou', 'a', 'a', 'a', 'e', 'e', 'i', 'ow', 'uo', '-']; //-||- 'o'
-            promjene[15] = ['b', 'b', 'b', 'f', 'f', 'qu', 'pf', 'pf', 'ph', 'h', '-', '-']; //-||- 'p'
-            promjene[16] = ['h', 'h', 'k', 'k', 'w', 'w', 'v', 'z', 's', 'g', '-', '-']; //-||- 'q'
-            promjene[17] = ['a', 'a', 'n', 'l', 'v', 't', '0', '0', '0', 'l', '-', '-']; //-||- 'r'
-            promjene[18] = ['z', 'z', 'z', 'x', 'r', 'r', 'h', 'h', 'x', 'c', '-', '-']; //-||- 's'
-            promjene[19] = ['th', 'th', 'c', 'r', 'r', 'd', 'd', 'ts', '0', 'ty', '-', '-']; //-||- 't'
-            promjene[20] = ['wu', 'uw', 'iu', 'yu', 'vu', 'o', 'a', 'a', '-', 'i', 'ou', '-']; //-||- 'u'
-            promjene[21] = ['w', 'w', 'w', 'u', 'u', 'u', 'b', 'b', 'p', 'l', '-', '-']; //-||- 'v'
-            promjene[22] = ['v', 'v', 'v', 'u', 'u', 'p', 'p', 'b', 'b', 'h', '-', '-']; //-||- 'w'
-            promjene[23] = ['s', 's', 'si', 'c', 'c', 'c', 'z', 'z', 'z', 'k', '-', '-']; //-||- 'x'
-            promjene[24] = ['j', 'j', 'u', 'e', 'z', 'dz', 'i', 'i', 'i', 'di', '-', '-']; //-||- 'y'
-            promjene[25] = ['r', 'r', 'r', 'y', 'j', 'j', 'dz', 'dz', 'ts', 's', '-', '-']; //-||- 'z'
-            function mySort(prvi, drugi) {
-                return drugi.length - prvi.length;
-            }
-
-            original.sort(mySort);
-            var language1 = [], language2 = [];
-            for (var i = 0; i < original.length; i++)
-                language1[i] = language2[i] = original[i];
-            var uvjeti = "VCN0-VC0";
-
-            function primjeniPromjenu(nakon, prvi, prije, drugi, rijec) {
-                for (var i = 0; i < rijec.length; i++) {
-                    if ((nakon !== "0" || i === 0) //Glasovna promjena zahvaca samo glasove na pocetku rijeci.
-                            && (prije !== "0" || i === rijec.length - 1) //Samo na kraju rijeci.
-                            && (nakon !== "N" || rijec.charAt(i - 1) === 'm' || rijec.charAt(i - 1) === 'n') //Nakon nazalnog suglasnika.
-                            && (prije !== "N" || rijec.charAt(i + 1) === 'm' || rijec.charAt(i + 1) === 'n') //Prije nazalnog suglasnika.
-                            && (nakon !== "V" || vowels.search(rijec.charAt(i - 1)) !== -1) //Nakon samoglasnika
-                            && (prije !== "V" || vowels.search(rijec.charAt(i + 1)) !== -1) //Prije samoglasnika
-                            && (prije !== "C" || consonants.search(rijec.charAt(i + 1)) !== -1) //Prije suglasnika
-                            && (nakon !== "C" || consonants.search(rijec.charAt(i - 1)) !== -1) //Nakon suglasnika
-                            && (nakon === rijec.charAt(i - 1) || nakon === 'Z' || nakon === '0' || nakon === 'C' || nakon === 'N' || nakon === 'V') //Rijetke glasovne promjene koje se dogadaju samo nakon nekog odredenog glasa
-                            && (prije === rijec.charAt(i + 1) || prije === 'Z' || prije === '0' || prije === 'C' || prije === 'N' || prije === 'V') //One koje se dogadaju samo prije tog glasa
-                            && rijec.charAt(i) === prvi
-                            ) {
-                        var novi = rijec.slice(0, i);
-                        if (drugi !== "0")
-                            novi += drugi;
-                        novi += rijec.slice(i + 1);
-                        if (drugi === "0")
-                            i--;
-                        rijec = novi;
-                        i += drugi.length - 1;
-                    }
-                }
-                return rijec;
-            }
-
-            var BrojSimuliranihPromjena = 11;
-            for (var i = 0; i < BrojSimuliranihPromjena * 2; i++) {
-                var prije;
-                if (Math.random() < 0.5)
-                    prije = "Z"; //Bezuvjetna glasovna promjena.
-                else
-                    prije = uvjeti.charAt(Math.floor(Math.random() * uvjeti.length));
-                if (prije === '-')
-                    prije = abeceda.charAt(Math.floor(Math.random() * abeceda.length));
-                var nakon;
-                if ((prije!="Z" && Math.random() < 0.75) || (prije=="Z" && Math.random()<0.25))
-                    nakon = "Z";
-                else
-                    nakon = uvjeti.charAt(Math.floor(Math.random() * uvjeti.length));
-                if (nakon==='-')
-                    nakon = abeceda.charAt(Math.floor(Math.random() * abeceda.length));
-                var prvi=Math.floor(Math.random()*26);
-                if (i>=BrojSimuliranihPromjena &&
-                     fonologija[1].indexOf(
-                         ((nakon === 'Z') ? ('') : (nakon)) + '[' + prvi + ']' + ((prije === 'Z') ? ('') : (prije)) + '>' + drugi)+1
-                         ) //Ne daj da se iste promjene dogode u oba simulirana jezika
-                         {
-                             i--;
-                             continue;
-                         }
-                var drugi;
-                var jesmoLiOdabraliZamijenuZaPrvi = false;
-                for (var j = 0; j < 12; j++) {
-                    var fonem = promjene[prvi][j];
-                    if (fonem == '-' || fonem == '0') continue;
-                    var nalaziLiSeFonemUJeziku = false;
-                    if (i < BrojSimuliranihPromjena) {
-                        for (var k = 0; k < language1.length; k++)
-                            if (language1[k].indexOf(fonem) + 1) {
-                                nalaziLiSeFonemUJeziku = true;
-                                break;
-                            }
-                    }
-                    else {
-                        for (var k = 0; k < language2.length; k++)
-                            if (language2[k].indexOf(fonem) + 1) {
-                                nalaziLiSeFonemUJeziku = true;
-                                break;
-                            }
-                    }
-                    if (nalaziLiSeFonemUJeziku) continue;
-                    jesmoLiOdabraliZamijenuZaPrvi = true;
-                    drugi = fonem;
-                    break;
-                }
-                if (!jesmoLiOdabraliZamijenuZaPrvi)
-                    drugi = promjene[prvi][Math.floor(Math.random() * 12)];
-                if (drugi==='-') {
-                    var jeLiFonologijaURavnotezi=true;
-                    for (var k=0; k<=abeceda.length; k++) {
-                        var fonem=abeceda.charAt(k);
-                        var nalaziLiSeFonemUJeziku=false;
-                        if (i<BrojSimuliranihPromjena) {
-                            for (var j=0; j<language1.length; j++)
-                                if (language1[j].indexOf(fonem)+1) {
-                                    nalaziLiSeFonemUJeziku=true;
-                                    break;
-                                }
-                        }
-                        else {
-                            for (var j=0; j<language2.length; j++)
-                                if (language2[j].indexOf(fonem)+1) {
-                                    nalaziLiSeFonemUJeziku=true;
-                                    break;
-                                }
-                        }
-                        if (nalaziLiSeFonemUJeziku) continue;
-                        jeLiFonologijaURavnotezi=false;
-                        drugi=fonem;
-                        break;
-                    }
-                    if (jeLiFonologijaURavnotezi)
-                        drugi = abeceda.charAt(Math.floor(Math.random() * abeceda.length));
-                }
-                prvi = String.fromCharCode(prvi + 97);
-                if (i < BrojSimuliranihPromjena) {
-                    var promjenjeno=false;
-                    for (var j = 0; j < language1.length; j++)
-                    {
-                        var prijasnji=language1[j];
-                        language1[j] = primjeniPromjenu(nakon, prvi, prije, drugi, language1[j]);
-                        if (language1[j]!=prijasnji) {
-                            promjenjeno=true;
-                            brojPrimjenjenihPromjena[j]++;
-                        }
-                    }
-                    if (!promjenjeno) i--;
-                    else
-                    fonologija[1] += ((nakon === 'Z') ? ('') : (nakon)) + '[' + prvi + ']' + ((prije === 'Z') ? ('') : (prije)) + '>' + drugi + ", ";
-                } else {
-                    var promjenjeno=false;
-                    for (var j = 0; j < language2.length; j++) {
-                        var prijasnji=language2[j];
-                        language2[j] = primjeniPromjenu(nakon, prvi, prije, drugi, language2[j]);
-                        if (language2[j]!=prijasnji) {
-                            promjenjeno=true;
-                            brojPrimjenjenihPromjena[j]++;
-                        }
-                    }
-                    if (!promjenjeno) i--;
-                    else
-                    fonologija[2] += ((nakon === 'Z') ? ('') : (nakon)) + '[' + prvi + ']' + ((prije === 'Z') ? ('') : (prije)) + '>' + drugi + ", ";
-                        
-                }
-            }
-            var jesmoLiOdabraliEpentetskiVokal=false;
-            var epenteza1;
-            for (var i=0; i<vowels.length; i++) {
-                var samoglasnik=vowels.charAt(i);
-                var nalaziLiSeFonemUJeziku=false;
-                for (var j=0; j<language1.length; j++)
-                    if (language1[j].indexOf(samoglasnik)+1)
-                    {
-                        nalaziLiSeFonemUJeziku=true;
-                        break;
-                    }
-                if (!nalaziLiSeFonemUJeziku)
-                {
-                    epenteza1=samoglasnik;
-                    jesmoLiOdabraliEpentetskiVokal=true;
-                    break;
-                }
-            }
-            if (!jesmoLiOdabraliEpentetskiVokal)
-                epenteza1=vowels.charAt(Math.floor(Math.random()*vowels.length));
-            jesmoLiOdabraliEpentetskiVokal=false;
-            var epenteza2;
-            for (var i=0; i<vowels.length; i++) {
-                var samoglasnik=vowels.charAt(i);
-                var nalaziLiSeFonemUJeziku=false;
-                for (var j=0; j<language2.length; j++)
-                    if (language2[j].indexOf(samoglasnik)+1)
-                    {
-                        nalaziLiSeFonemUJeziku=true;
-                        break;
-                    }
-                if (!nalaziLiSeFonemUJeziku)
-                {
-                    epenteza2=samoglasnik;
-                    jesmoLiOdabraliEpentetskiVokal=true;
-                    break;
-                }
-            }
-            if (!jesmoLiOdabraliEpentetskiVokal)
-                epenteza2=vowels.charAt(Math.floor(Math.random()*vowels.length));
-            fonologija[1] += "CCC>C" + epenteza1 + "CC";
-            fonologija[2] += "CCC>C" + epenteza2 + "CC";
-            //Jednostavna fonotaktika: ne dopusti tri suglasnika za redom i ne dopusti q+suglasnik.
-            for (var i = 0; i < language1.length; i++) {
-                for (var j = 0; j < language1[i].length; j++)
-                    if ((consonants.search(language1[i].charAt(j - 1)) !== -1
-                            && consonants.search(language1[i].charAt(j)) !== -1
-                            && consonants.search(language1[i].charAt(j + 1)) !== -1)
-                            || (consonants.search(language1[i].charAt(j)) !== -1
-                                    && language1[i].charAt(j - 1) === 'q'))
-                        language1[i] = language1[i].slice(0, j) + epenteza1 + language1[i].slice(j);
-                if (language1[i].charAt(language1[i].length - 1) === 'q')
-                    language1[i] += epenteza1;
-            }
-            for (var i = 0; i < language2.length; i++) {
-                for (var j = 0; j < language2[i].length; j++)
-                    if ((consonants.search(language2[i].charAt(j - 1)) !== -1
-                            && consonants.search(language2[i].charAt(j)) !== -1
-                            && consonants.search(language2[i].charAt(j + 1)) !== -1)
-                            || (consonants.search(language2[i].charAt(j)) !== -1
-                                    && language2[i].charAt(j - 1) === 'q'))
-                        language2[i] = language2[i].slice(0, j) + epenteza2 + language2[i].slice(j);
-                if (language2[i].charAt(language2[i].length - 1) === 'q')
-                    language2[i] += epenteza2;
-            }
-            //Redukcija vokala.
-            for (var i = 0; i < language1.length; i++) {
-                var jaka = false;
-                if (language1[i].length > 8) {
-                    language1[i] = language1[i].replace(/y/g, "i");
-                    language1[i] = language1[i].replace(/w/g, "u");
-                    language1[i] = language1[i].replace(/v/g, "u");
-                    jaka = true;
-                }
-                for (var j = 0; j < language1[i].length; j++)
-                    if (vowels.search(language1[i].charAt(j)) !== -1
-                            && language1[i].charAt(j - 1) !== 'q'
-                            && ((!jaka) ?
-                                    (language1[i].charAt(j) === language1[i].charAt(j - 2)) :
-                                    (vowels.search(language1[i].charAt(j - 2)) !== -1))
-                            && ((!jaka) ?
-                                    (language1[i].charAt(j) === language1[i].charAt(j + 2)) :
-                                    (vowels.search(language1[i].charAt(j + 2)) !== -1))
-                            || (jaka
-                                    && vowels.search(language1[i].charAt(j)) !== -1
-                                    && language1[i].charAt(j - 1) !== 'q'
-                                    && (vowels.search(language1[i].charAt(j - 1)) !== -1
-                                            || vowels.search(language1[i].charAt(j + 1)) !== -1))
-                            || (jaka && language1[i].charAt(j) === language1[i].charAt(j - 1))) {
-                        language1[i] = language1[i].slice(0, j) + language1[i].slice(j + 1);
-                        j--;
-                    }
-                if (consonants.search(language1[i].charAt(language1[i].length - 1)) !== -1 &&
-                        consonants.search(language1[i].charAt(language1[i].length - 2)) !== -1)
-                    language1[i] += epenteza1;
-                if (consonants.search(language1[i].charAt(0)) !== -1 &&
-                        consonants.search(language1[i].charAt(1)) !== -1)
-                    language1[i] = epenteza1 + language1[i];
-            }
-            for (var i = 0; i < language2.length; i++) {
-                var jaka = false;
-                if (language2[i].length > 8) {
-                    language2[i] = language2[i].replace(/y/g, "i");
-                    language2[i] = language2[i].replace(/w/g, "u");
-                    language2[i] = language2[i].replace(/v/g, "u");
-                    jaka = true;
-                }
-                for (var j = 0; j < language2[i].length; j++)
-                    if (vowels.search(language2[i].charAt(j)) !== -1
-                            && language2[i].charAt(j - 1) !== 'q'
-                            && ((!jaka) ?
-                                    (language2[i].charAt(j) === language2[i].charAt(j - 2)) :
-                                    (vowels.search(language2[i].charAt(j - 2)) !== -1))
-                            && ((!jaka) ?
-                                    (language2[i].charAt(j) === language2[i].charAt(j + 2)) :
-                                    (vowels.search(language2[i].charAt(j + 2)) !== -1))
-                            || (jaka
-                                    && vowels.search(language2[i].charAt(j)) !== -1
-                                    && language2[i].charAt(j - 1) !== 'q'
-                                    && (vowels.search(language2[i].charAt(j - 1)) !== -1
-                                            || vowels.search(language2[i].charAt(j + 1)) !== -1))
-                            || (jaka && language2[i].charAt(j) === language2[i].charAt(j - 1))) {
-                        language2[i] = language2[i].slice(0, j) + language2[i].slice(j + 1);
-                        j--;
-                    }
-                if (consonants.search(language2[i].charAt(language2[i].length - 1)) !== -1 &&
-                        consonants.search(language2[i].charAt(language2[i].length - 2)) !== -1)
-                    language2[i] += epenteza2;
-                if (consonants.search(language2[i].charAt(0)) !== -1 &&
-                        consonants.search(language2[i].charAt(1)) !== -1)
-                    language2[i] = epenteza2 + language2[i];
-            }
-        for (var i=0; i<language1.length; i++) {
-            for (var j=0; j<vowels.length; j++)
-                language1[i]=language1[i].replace(RegExp("ii"+vowels.charAt(j),"g"),"iy"+vowels.charAt(j));
-            for (var j=0; j<vowels.length; j++)
-                language1[i]=language1[i].replace(RegExp(vowels.charAt(j)+"ii","g"),vowels.charAt(j)+"yi");
-            for (var j=0; j<vowels.length; j++)
-                language1[i]=language1[i].replace(RegExp("uu"+vowels.charAt(j),"g"),"uw"+vowels.charAt(j));
-            for (var j=0; j<vowels.length; j++)
-                language1[i]=language1[i].replace(RegExp(vowels.charAt(j)+"uu","g"),vowels.charAt(j)+"wu");
-            language1[i]=language1[i].replace(/yy/g,"iy");
-            language1[i]=language1[i].replace(/ww/g,"uw");
+      <svg
+        id="connect"
+        style="
+          width: 50px;
+          height: 220px;
+          position: absolute;
+          top: 200px;
+          left: 150px;
+          display: none;
+        "
+      >
+        <polygon id="l1" points="0,0 0,10 5,5" fill="#7777FF"></polygon>
+        <polygon id="p1" points="50,0 50,10 45,5" fill="#77FFFF"></polygon>
+        <polygon id="l2" points="0,85 0,95 5,90" fill="#7777FF"></polygon>
+        <polygon id="p2" points="50,85 50,95 45,90" fill="#77FFFF"></polygon>
+        <polygon id="l3" points="0,170 0,180 5,175" fill="#7777FF"></polygon>
+        <polygon id="p3" points="50,170 50,180 45,175" fill="#77FFFF"></polygon>
+      </svg>
+    </div>
+    <div style="max-width: 500px;">
+      The graphic interface has been made and tested using Safari 6.2.8. If you
+      have cross-browser compatibility issues, try the
+      <a href="etymology.html">text-based</a> version (it works even in Internet
+      Explorer 6).
+    </div>
+    <script type="text/javascript">
+      if (!window.$)
+        alert(
+          "Unable to initialize JQuery (the JavaScript framework used for the graphics). You will need to use the text-based version."
+        );
+      else if (!document.createElementNS)
+        alert(
+          "The SVG elements appear not to be accessible from JavaScript (and that is crucial for the graphics). You will need to use the text-based version."
+        );
+      var svgNS = "http://www.w3.org/2000/svg";
+      var connect = document.getElementById("connect");
+      for (var i = 1; i < 4; i++)
+        for (var j = 1; j < 4; j++) {
+          var x1, x2, y1, y2;
+          if (i === 1) {
+            x1 = 5;
+            y1 = 5;
+          }
+          if (i === 2) {
+            x1 = 5;
+            y1 = 90;
+          }
+          if (i === 3) {
+            x1 = 5;
+            y1 = 175;
+          }
+          if (j === 1) {
+            x2 = 45;
+            y2 = 5;
+          }
+          if (j === 2) {
+            x2 = 45;
+            y2 = 90;
+          }
+          if (j === 3) {
+            x2 = 45;
+            y2 = 175;
+          }
+          var crta = document.createElementNS(svgNS, "line");
+          crta.setAttribute("id", "line" + i + j);
+          crta.setAttribute("stroke", "black");
+          crta.setAttribute("stroke-width", "3");
+          crta.setAttribute("x1", x1);
+          crta.setAttribute("x2", x2);
+          crta.setAttribute("y1", y1);
+          crta.setAttribute("y2", y2);
+          crta.style.display = "none";
+          connect.appendChild(crta);
         }
-        for (var i=0; i<language2.length; i++) {
-            for (var j=0; j<vowels.length; j++)
-                language2[i]=language2[i].replace(RegExp("ii"+vowels.charAt(j),"g"),"iy"+vowels.charAt(j));
-            for (var j=0; j<vowels.length; j++)
-                language2[i]=language2[i].replace(RegExp(vowels.charAt(j)+"ii","g"),vowels.charAt(j)+"yi");
-            for (var j=0; j<vowels.length; j++)
-                language2[i]=language2[i].replace(RegExp("uu"+vowels.charAt(j),"g"),"uw"+vowels.charAt(j));
-            for (var j=0; j<vowels.length; j++)
-                language2[i]=language2[i].replace(RegExp(vowels.charAt(j)+"uu","g"),vowels.charAt(j)+"wu");
-            language2[i]=language2[i].replace(/yy/g,"yi");
-            language2[i]=language2[i].replace(/ww/g,"wu");
-        
+
+      var bodovi = 0;
+      var vowels = "aeiou";
+      var consonants = "bcdfghjklmnpqrstvwxyz";
+
+      function syllable() {
+        var ret = vowels.charAt(Math.floor(Math.random() * vowels.length));
+        if (Math.random() < 0.5) {
+          ret += consonants.charAt(
+            Math.floor(Math.random() * consonants.length)
+          );
+          if (Math.random() > 0.75) {
+            var znak = consonants.charAt(
+              Math.floor(Math.random() * consonants.length)
+            );
+            while (
+              znak === "w" ||
+              znak === "y" //w+suglasnik i y+suglasnik se na pocetku rijeci ne mogu izgovoriti
+            )
+              znak = consonants.charAt(
+                Math.floor(Math.random() * consonants.length)
+              );
+            ret += znak;
+          }
         }
-            var pozadina = document.getElementById("sky");
-            var uvod = document.createElement("div");
-            uvod.setAttribute("class", "introduction");
-            uvod.appendChild(document.createTextNode("Introduction:"));
-            for (var i = 0; i < 2; i++)
-                uvod.appendChild(document.createElement("br"));
-            uvod.appendChild(document.createTextNode(
-                    "One phoneme in one language corresponds to other phoneme in a related language. " +
-                    "For instance, the English 't' in the beginning of a word corresponds to German 'z'. " +
-                    "For example: two-zwei, ten-zehn, tooth-Zahn, tongue-Zunge, twig-Zweig, toe-Zeh, too-zu, tame-zahm... " +
-                    "This game randomly generates words as if they were in two related languages."
-                    ));
-            pozadina.appendChild(uvod);
-            var tipka = document.createElement("div");
-            tipka.setAttribute("class", "proceed");
-            tipka.appendChild(document.createTextNode("PROCEED >>"));
-            tipka.setAttribute("id", "krajUvoda");
-            pozadina.appendChild(tipka);
-            $(document).ready(function () {
-                setTimeout(
-                        function () {
-                            $(".introduction").fadeIn(3000,
-                                    function () {
-                                        $(".proceed").show();
-                                    });
-                        }
-                , 1500);
-            });
-            $(".proceed").click(function () {
-                $(".introduction").fadeOut(1000);
-                $(".proceed").fadeOut(1000, sazetak);
-            });
-            function sazetak()
-            {
-                pozadina.removeChild(uvod);
-                pozadina.removeChild(tipka);
-                var sp=document.createElement("span");
-                sp.innerHTML="<div class=\"introduction\">"+
-                                    "SUMMARY<hr\/>"+
-                                    "The game has three parts.<br\/> In the Part #1, "+
-                                    "you are supposed to find which words from the simulated languages are cognates.<br\/>"+
-                                    "In the Part #2, you are supposed to find which words belong to which language.<br\/>"+
-                                    "In the Part #3, you are supposed to find which set of sound changes belongs to which language."+
-                                    "<\/div>"+
-                                    "<div class=\"proceed\">PROCEED >><\/div>";
-                pozadina.appendChild(sp);
-                $(".introduction").fadeIn(2000,function(){$(".proceed").show()});
-                $(".proceed").click(function() {
-                                    $(".introduction").fadeOut(1000);
-                                    $(".proceed").fadeOut(1000,uvodUPrviDio);
-                });
-            }
+        if (Math.random() < 0.75) {
+          ret =
+            consonants.charAt(Math.floor(Math.random() * consonants.length)) +
+            ret;
+          if (Math.random() > 0.75) {
+            var znak = consonants.charAt(
+              Math.floor(Math.random() * consonants.length)
+            );
+            while (
+              znak === "w" ||
+              znak === "y" ||
+              znak === ret.charAt(0) //Dugi suglasnik ne moze biti na pocetku rijeci.
+            )
+              znak = consonants.charAt(
+                Math.floor(Math.random() * consonants.length)
+              );
+            ret = znak + ret;
+          }
+        }
+        return ret;
+      }
 
-            function uvodUPrviDio() {
-                $(".introduction").remove();
-                $(".proceed").remove();
-                uvod = document.createElement("div");
-                uvod.setAttribute("class", "introduction");
-                uvod.appendChild(document.createTextNode("Part 1:"));
-                for (var i = 0; i < 2; i++)
-                    uvod.appendChild(document.createElement("br"));
-                uvod.appendChild(
-                        document.createTextNode(
-                                "Here are two randomly generated related languages. " +
-                                "Choose the word in the second language that shares the same root as " +
-                                "the specified word in the first one."
-                                ));
-                pozadina.appendChild(uvod);
-                tipka = document.createElement("div");
-                tipka.setAttribute("class", "proceed");
-                tipka.appendChild(document.createTextNode("PROCEED >>"));
-                tipka.setAttribute("id", "pokreniPrviDio");
-                pozadina.appendChild(tipka);
-                setTimeout(function () {
-                    $(".introduction").fadeIn(2000, function () {
-                        $(".proceed").show();
-                    });
-                }, 500);
-                $(".proceed").click(function () {
-                    $(".introduction").fadeOut(1000);
-                    $(".proceed").fadeOut(1000, primjerPrvogDijela);
-                });
-            }
+      function randomWord() {
+        var ret = syllable();
+        if (Math.random() > 0.9) {
+          ret += syllable();
+          if (Math.random() > 0.9) ret += syllable();
+        }
+        if (ret.length < 12) return ret;
+        return randomWord();
+      }
 
-            function primjerPrvogDijela() {
-                pozadina.removeChild(uvod);
-                pozadina.removeChild(tipka);
-                var pitanje = document.createElement("div");
-                pitanje.setAttribute("class", "task");
-                pitanje.appendChild(document.createTextNode("EXAMPLE"));
-                pitanje.appendChild(document.createElement("hr"));
-                pitanje.appendChild(document.createTextNode("Choose the correct cognate to"));
-                for (var i = 0; i < 2; i++)
-                    pitanje.appendChild(document.createElement("br"));
-                pitanje.appendChild(document.createTextNode("\'twig\':"));
-                pozadina.appendChild(pitanje);
-                $(pitanje).fadeIn(1000);
-                var odgovorA = document.createElement("div");
-                odgovorA.setAttribute("class", "answer answerA");
-                odgovorA.appendChild(document.createTextNode("sonne"));
-                pozadina.appendChild(odgovorA);
-                $(odgovorA).append("<div class=\"desniTrokut\"></div><div class=\"lijeviTrokut\"></div>");
-                setTimeout(function () {
-                    $(odgovorA).show();
-                }, 1000);
-                var odgovorB = document.createElement("div");
-                odgovorB.setAttribute("class", "answer answerB");
-                odgovorB.appendChild(document.createTextNode("bett"));
-                pozadina.appendChild(odgovorB);
-                $(odgovorB).append("<div class=\"desniTrokut\"></div><div class=\"lijeviTrokut\"></div>");
-                setTimeout(function () {
-                    $(odgovorB).show();
-                }, 1000);
-                var odgovorC = document.createElement("div");
-                odgovorC.setAttribute("class", "answer answerC");
-                odgovorC.appendChild(document.createTextNode("zweig"));
-                pozadina.appendChild(odgovorC);
-                $(odgovorC).append("<div class=\"desniTrokut\"></div><div class=\"lijeviTrokut\"></div>");
-                setTimeout(function () {
-                    $(odgovorC).show();
-                }, 1000);
-                var odgovorD = document.createElement("div");
-                odgovorD.setAttribute("class", "answer answerD");
-                odgovorD.appendChild(document.createTextNode("traum"));
-                pozadina.appendChild(odgovorD);
-                $(odgovorD).append("<div class=\"desniTrokut\"></div><div class=\"lijeviTrokut\"></div>");
-                setTimeout(function () {
-                    $(odgovorD).show();
-                }, 1000);
-                if (navigator.appName=="Opera")
-                {
-                    var niz=document.getElementsByClassName("desniTrokut");
-                    for (var i=0; i<niz.length; i++)
-                        niz[i].style.top="-50px";
+      var original = [],
+        brojPrimjenjenihPromjena = [];
+      for (var i = 0; i < 1024; i++) {
+        var rijec;
+        do {
+          rijec = randomWord();
+        } while (original.indexOf(rijec) !== -1);
+        original.push(rijec);
+        brojPrimjenjenihPromjena.push(0);
+      }
+      var fonologija = [];
+      fonologija[0] = "0[w]C>0, C[w]0>0, 0[y]C>0, C[y]0>0, 0[C1]C1>0 ";
+      fonologija[1] = "";
+      fonologija[2] = "";
+      var abeceda = "abcdefghijklmnopqrstuvwxyz";
+      var promjene = [];
+      promjene[0] = [
+        "e",
+        "e",
+        "ei",
+        "ia",
+        "o",
+        "ua",
+        "i",
+        "u",
+        "ar",
+        "er",
+        "ia",
+        "-"
+      ]; //U koje ce se glasove najvjerojatnije promijeniti 'a'.
+      promjene[1] = [
+        "p",
+        "p",
+        "p",
+        "v",
+        "v",
+        "v",
+        "f",
+        "f",
+        "f",
+        "d",
+        "-",
+        "-"
+      ]; //-||- 'b'
+      promjene[2] = [
+        "s",
+        "s",
+        "s",
+        "k",
+        "k",
+        "k",
+        "h",
+        "h",
+        "g",
+        "x",
+        "-",
+        "-"
+      ]; //-||- 'c'
+      promjene[3] = [
+        "t",
+        "t",
+        "f",
+        "f",
+        "b",
+        "b",
+        "r",
+        "r",
+        "t",
+        "th",
+        "-",
+        "-"
+      ]; //-||- 'd'
+      promjene[4] = [
+        "i",
+        "i",
+        "ie",
+        "ei",
+        "0",
+        "y",
+        "a",
+        "o",
+        "u",
+        "0",
+        "ei",
+        "-"
+      ]; //-||- 'e'
+      promjene[5] = [
+        "v",
+        "v",
+        "b",
+        "h",
+        "h",
+        "h",
+        "w",
+        "w",
+        "p",
+        "p",
+        "-",
+        "-"
+      ]; //-||- 'f'
+      promjene[6] = [
+        "k",
+        "k",
+        "y",
+        "h",
+        "w",
+        "j",
+        "y",
+        "z",
+        "z",
+        "zy",
+        "-",
+        "-"
+      ]; //-||- 'g'
+      promjene[7] = [
+        "s",
+        "s",
+        "x",
+        "a",
+        "w",
+        "f",
+        "f",
+        "k",
+        "0",
+        "0",
+        "-",
+        "-"
+      ]; //-||- 'h'
+      promjene[8] = [
+        "a",
+        "a",
+        "ai",
+        "yi",
+        "iy",
+        "u",
+        "e",
+        "ie",
+        "ei",
+        "a",
+        "o",
+        "-"
+      ]; //-||- 'i'
+      promjene[9] = [
+        "z",
+        "z",
+        "z",
+        "y",
+        "y",
+        "y",
+        "h",
+        "h",
+        "h",
+        "l",
+        "-",
+        "-"
+      ]; //-||- 'j'
+      promjene[10] = [
+        "c",
+        "c",
+        "p",
+        "s",
+        "s",
+        "p",
+        "g",
+        "h",
+        "h",
+        "qu",
+        "-",
+        "-"
+      ]; //-||- 'k'
+      promjene[11] = [
+        "y",
+        "y",
+        "y",
+        "j",
+        "j",
+        "a",
+        "a",
+        "o",
+        "0",
+        "i",
+        "-",
+        "-"
+      ]; //-||- 'l'
+      promjene[12] = [
+        "n",
+        "n",
+        "n",
+        "b",
+        "b",
+        "bh",
+        "a",
+        "a",
+        "0",
+        "f",
+        "-",
+        "-"
+      ]; //-||- 'm'
+      promjene[13] = [
+        "t",
+        "t",
+        "d",
+        "d",
+        "m",
+        "r",
+        "l",
+        "l",
+        "0",
+        "r",
+        "-",
+        "-"
+      ]; //-||- 'n'
+      promjene[14] = [
+        "u",
+        "u",
+        "ou",
+        "a",
+        "a",
+        "a",
+        "e",
+        "e",
+        "i",
+        "ow",
+        "uo",
+        "-"
+      ]; //-||- 'o'
+      promjene[15] = [
+        "b",
+        "b",
+        "b",
+        "f",
+        "f",
+        "qu",
+        "pf",
+        "pf",
+        "ph",
+        "h",
+        "-",
+        "-"
+      ]; //-||- 'p'
+      promjene[16] = [
+        "h",
+        "h",
+        "k",
+        "k",
+        "w",
+        "w",
+        "v",
+        "z",
+        "s",
+        "g",
+        "-",
+        "-"
+      ]; //-||- 'q'
+      promjene[17] = [
+        "a",
+        "a",
+        "n",
+        "l",
+        "v",
+        "t",
+        "0",
+        "0",
+        "0",
+        "l",
+        "-",
+        "-"
+      ]; //-||- 'r'
+      promjene[18] = [
+        "z",
+        "z",
+        "z",
+        "x",
+        "r",
+        "r",
+        "h",
+        "h",
+        "x",
+        "c",
+        "-",
+        "-"
+      ]; //-||- 's'
+      promjene[19] = [
+        "th",
+        "th",
+        "c",
+        "r",
+        "r",
+        "d",
+        "d",
+        "ts",
+        "0",
+        "ty",
+        "-",
+        "-"
+      ]; //-||- 't'
+      promjene[20] = [
+        "wu",
+        "uw",
+        "iu",
+        "yu",
+        "vu",
+        "o",
+        "a",
+        "a",
+        "-",
+        "i",
+        "ou",
+        "-"
+      ]; //-||- 'u'
+      promjene[21] = [
+        "w",
+        "w",
+        "w",
+        "u",
+        "u",
+        "u",
+        "b",
+        "b",
+        "p",
+        "l",
+        "-",
+        "-"
+      ]; //-||- 'v'
+      promjene[22] = [
+        "v",
+        "v",
+        "v",
+        "u",
+        "u",
+        "p",
+        "p",
+        "b",
+        "b",
+        "h",
+        "-",
+        "-"
+      ]; //-||- 'w'
+      promjene[23] = [
+        "s",
+        "s",
+        "si",
+        "c",
+        "c",
+        "c",
+        "z",
+        "z",
+        "z",
+        "k",
+        "-",
+        "-"
+      ]; //-||- 'x'
+      promjene[24] = [
+        "j",
+        "j",
+        "u",
+        "e",
+        "z",
+        "dz",
+        "i",
+        "i",
+        "i",
+        "di",
+        "-",
+        "-"
+      ]; //-||- 'y'
+      promjene[25] = [
+        "r",
+        "r",
+        "r",
+        "y",
+        "j",
+        "j",
+        "dz",
+        "dz",
+        "ts",
+        "s",
+        "-",
+        "-"
+      ]; //-||- 'z'
+      function mySort(prvi, drugi) {
+        return drugi.length - prvi.length;
+      }
+
+      original.sort(mySort);
+      var language1 = [],
+        language2 = [];
+      for (var i = 0; i < original.length; i++)
+        language1[i] = language2[i] = original[i];
+      var uvjeti = "VCN0-VC0";
+
+      function primjeniPromjenu(nakon, prvi, prije, drugi, rijec) {
+        for (var i = 0; i < rijec.length; i++) {
+          if (
+            (nakon !== "0" || i === 0) && //Glasovna promjena zahvaca samo glasove na pocetku rijeci.
+            (prije !== "0" || i === rijec.length - 1) && //Samo na kraju rijeci.
+            (nakon !== "N" ||
+              rijec.charAt(i - 1) === "m" ||
+              rijec.charAt(i - 1) === "n") && //Nakon nazalnog suglasnika.
+            (prije !== "N" ||
+              rijec.charAt(i + 1) === "m" ||
+              rijec.charAt(i + 1) === "n") && //Prije nazalnog suglasnika.
+            (nakon !== "V" || vowels.search(rijec.charAt(i - 1)) !== -1) && //Nakon samoglasnika
+            (prije !== "V" || vowels.search(rijec.charAt(i + 1)) !== -1) && //Prije samoglasnika
+            (prije !== "C" || consonants.search(rijec.charAt(i + 1)) !== -1) && //Prije suglasnika
+            (nakon !== "C" || consonants.search(rijec.charAt(i - 1)) !== -1) && //Nakon suglasnika
+            (nakon === rijec.charAt(i - 1) ||
+              nakon === "Z" ||
+              nakon === "0" ||
+              nakon === "C" ||
+              nakon === "N" ||
+              nakon === "V") && //Rijetke glasovne promjene koje se dogadaju samo nakon nekog odredenog glasa
+            (prije === rijec.charAt(i + 1) ||
+              prije === "Z" ||
+              prije === "0" ||
+              prije === "C" ||
+              prije === "N" ||
+              prije === "V") && //One koje se dogadaju samo prije tog glasa
+            rijec.charAt(i) === prvi
+          ) {
+            var novi = rijec.slice(0, i);
+            if (drugi !== "0") novi += drugi;
+            novi += rijec.slice(i + 1);
+            if (drugi === "0") i--;
+            rijec = novi;
+            i += drugi.length - 1;
+          }
+        }
+        return rijec;
+      }
+
+      var BrojSimuliranihPromjena = 11;
+      for (var i = 0; i < BrojSimuliranihPromjena * 2; i++) {
+        var prije;
+        if (Math.random() < 0.5) prije = "Z";
+        //Bezuvjetna glasovna promjena.
+        else prije = uvjeti.charAt(Math.floor(Math.random() * uvjeti.length));
+        if (prije === "-")
+          prije = abeceda.charAt(Math.floor(Math.random() * abeceda.length));
+        var nakon;
+        if (
+          (prije != "Z" && Math.random() < 0.75) ||
+          (prije == "Z" && Math.random() < 0.25)
+        )
+          nakon = "Z";
+        else nakon = uvjeti.charAt(Math.floor(Math.random() * uvjeti.length));
+        if (nakon === "-")
+          nakon = abeceda.charAt(Math.floor(Math.random() * abeceda.length));
+        var prvi = Math.floor(Math.random() * 26);
+        if (
+          i >= BrojSimuliranihPromjena &&
+          fonologija[1].indexOf(
+            (nakon === "Z" ? "" : nakon) +
+              "[" +
+              prvi +
+              "]" +
+              (prije === "Z" ? "" : prije) +
+              ">" +
+              drugi
+          ) + 1
+        ) {
+          //Ne daj da se iste promjene dogode u oba simulirana jezika
+          i--;
+          continue;
+        }
+        var drugi;
+        var jesmoLiOdabraliZamijenuZaPrvi = false;
+        for (var j = 0; j < 12; j++) {
+          var fonem = promjene[prvi][j];
+          if (fonem == "-" || fonem == "0") continue;
+          var nalaziLiSeFonemUJeziku = false;
+          if (i < BrojSimuliranihPromjena) {
+            for (var k = 0; k < language1.length; k++)
+              if (language1[k].indexOf(fonem) + 1) {
+                nalaziLiSeFonemUJeziku = true;
+                break;
+              }
+          } else {
+            for (var k = 0; k < language2.length; k++)
+              if (language2[k].indexOf(fonem) + 1) {
+                nalaziLiSeFonemUJeziku = true;
+                break;
+              }
+          }
+          if (nalaziLiSeFonemUJeziku) continue;
+          jesmoLiOdabraliZamijenuZaPrvi = true;
+          drugi = fonem;
+          break;
+        }
+        if (!jesmoLiOdabraliZamijenuZaPrvi)
+          drugi = promjene[prvi][Math.floor(Math.random() * 12)];
+        if (drugi === "-") {
+          var jeLiFonologijaURavnotezi = true;
+          for (var k = 0; k <= abeceda.length; k++) {
+            var fonem = abeceda.charAt(k);
+            var nalaziLiSeFonemUJeziku = false;
+            if (i < BrojSimuliranihPromjena) {
+              for (var j = 0; j < language1.length; j++)
+                if (language1[j].indexOf(fonem) + 1) {
+                  nalaziLiSeFonemUJeziku = true;
+                  break;
                 }
-                $(".answer").click(function () {
-                    krajPrvogPrimjera(this.textContent);
-                });
-            }
-
-            function krajPrvogPrimjera(odgovor) {
-                var zastor = document.createElement("div");
-                zastor.setAttribute("class", "zastor");
-                zastor.appendChild(document.createTextNode("Click OK to remove this layer."));
-                var prozor = document.createElement("div");
-                prozor.setAttribute("class", "rjesenje");
-                prozor.setAttribute("id", "draggable-element"); // Boris
-                if (odgovor === "zweig")
-                    $(prozor).append("<div style=\"background: green; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;\">CORRECT!</div>");
-                else
-                    $(prozor).append("<div style=\"background: red; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;\">INCORRECT!</div>");
-                $(prozor).append("<div style=\"text-align:justify; margin-top:5px; margin-bottom:10px; color:#222222; width:290px; margin-left:5px; margin-right:5px;\" align=\"justfy\">" +
-                        "The solution is 'zweig'. Namely, if you didn't guess, the languages in this example were English and German (in further tasks, they will be simulated languages). The specified word, 'twig', is in English. It starts with a 't'. The English 't' in the beginning of a word corresponds to German 'z'. Only one of the presented German words start with a 'z', it's 'zweig'. Note that 'traum', for example, can't be a cognate, because English 't' in the beginning of a word corresponds to German 'z', and not to a 't'. If both English and German word meaning the same start with a 't', it's probably a result of borrowing (like both languages borrowing the word from Latin). This game doesn't simulate borrowing." +
-                        "</div>" +
-                        "<center><div class=\"okButton\">OK</div></center>"
-                        );
-                prozor.setAttribute("draggable", "true");
-                zastor.appendChild(prozor);
-                pozadina.appendChild(zastor);
-                $(zastor).show();
-                var gotovo = false;
-                $(".okButton").click(function () {
-                    if (!gotovo) {
-                        pozadina.removeChild(zastor);
-                        $(".task").fadeOut(1000);
-                        $(".answer").fadeOut(1000);
-                        setTimeout(prviDio, 1500);
-                    }
-                    gotovo = true;
-                });
-
-                // Boris
-                document.getElementById('draggable-element').onmousedown = function () {
-                    dragInit(this);
-                    return false;
-                };
-            }
-
-            var rjesenje = 0, task = 0, brojPitanja = 26, koristeno = [];
-            function prviDio() {
-                $(".task").remove();
-                $(".answer").remove();
-                if (task < brojPitanja) {
-                    task++;
-                    var iskoristen=false;
-                    do
-                    {
-                        iskoristen=false;
-                        rjesenje=Math.floor(Math.random()*original.length);
-                        for (var i=0; i<koristeno.length; i++)
-                            if (original[rjesenje].charAt(0)==koristeno[i].charAt(0))
-                                iskoristen=true;
-                    }
-                    while (iskoristen);
-                    koristeno.push(original[rjesenje]);
-                    $(pozadina).append("<div class=\"task\">TASK " + task +
-                            "/" + brojPitanja +
-                            "<hr>Choose the correct cognate to:<br><br>\'" + language1[rjesenje] + "\'</div>");
-                    $(".task").fadeIn(1000);
-                    var slucajno = Math.floor(Math.random() * 4);
-                    if (slucajno === 0)
-                        $(pozadina).append("<div class=\"answer answerA\">" + language2[rjesenje] +
-                                "<div class=\"desniTrokut\"/><div class=\"lijeviTrokut\"/></div>");
-                    else
-                        $(pozadina).append("<div class=\"answer answerA\">" + language2[Math.floor(Math.random() * original.length)] +
-                                "<div class=\"desniTrokut\"/><div class=\"lijeviTrokut\"/></div>");
-                    setTimeout(function () {
-                        $(".answerA").show();
-                    }, 1000);
-                    if (slucajno === 1)
-                        $(pozadina).append("<div class=\"answer answerB\">" + language2[rjesenje] +
-                                "<div class=\"desniTrokut\"/><div class=\"lijeviTrokut\"/></div>");
-                    else
-                        $(pozadina).append("<div class=\"answer answerB\">" + language2[Math.floor(Math.random() * original.length)] +
-                                "<div class=\"desniTrokut\"/><div class=\"lijeviTrokut\"/></div>");
-                    setTimeout(function () {
-                        $(".answerB").show();
-                    }, 1000);
-                    if (slucajno === 2)
-                        $(pozadina).append("<div class=\"answer answerC\">" + language2[rjesenje] +
-                                "<div class=\"desniTrokut\"/><div class=\"lijeviTrokut\"/></div>");
-                    else
-                        $(pozadina).append("<div class=\"answer answerC\">" + language2[Math.floor(Math.random() * original.length)] +
-                                "<div class=\"desniTrokut\"/><div class=\"lijeviTrokut\"/></div>");
-                    setTimeout(function () {
-                        $(".answerC").show();
-                    }, 1000);
-                    if (slucajno === 3)
-                        $(pozadina).append("<div class=\"answer answerD\">" + language2[rjesenje] +
-                                "<div class=\"desniTrokut\"/><div class=\"lijeviTrokut\"/></div>");
-                    else
-                        $(pozadina).append("<div class=\"answer answerD\">" + language2[Math.floor(Math.random() * original.length)] +
-                                "<div class=\"desniTrokut\"/><div class=\"lijeviTrokut\"/></div>");
-                    setTimeout(function () {
-                        $(".answerD").show();
-                    }, 1000);
-                    $(".answer").click(function () {
-                        rjesenjePrvogDijela($(this).text());
-                    });
-                    if (navigator.appName=="Opera")
-                    {
-                        var niz=document.getElementsByClassName("desniTrokut");
-                        for (var i=0; i<niz.length; i++)
-                            niz[i].style.top="-50px";
-                            setTimeout(
-                                       function(){
-                                       niz=document.getElementsByClassName("answer");
-                                       for (var i=0; i<niz.length; i++)
-                                            niz[i].style.display="block";
-                                       },1000);
-                    }
-                } else {
-                    uvodUDrugiDio();
-                }
-            }
-
-            function rjesenjePrvogDijela(odgovor) {
-                var zastor = document.createElement("div");
-                zastor.setAttribute("class", "zastor");
-                zastor.appendChild(document.createTextNode("Click OK to remove this layer."));
-                var prozor = document.createElement("div");
-                prozor.setAttribute("class", "rjesenje");
-                prozor.setAttribute("id", "draggable-element");
-                prozor.style.top = 200;
-                if (odgovor === language2[rjesenje]) {
-                    $(prozor).append("<div style=\"background: green; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;\">CORRECT!</div>");
-                    bodovi++;
-                } else
-                    $(prozor).append("<div style=\"background: red; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor: move;\">INCORRECT!</div>");
-                $(prozor).append("<div style=\"text-align:justify; margin-top:5px; margin-bottom:10px; color:#222222; width:290px; margin-left:5px; margin-right:5px;\" align=\"justfy\">" +
-                        "The solution is \'" + language2[rjesenje] + "\'. The root was *" + original[rjesenje] + "." +
-                        "</div>" +
-                        "<center><div class=\"okButton\">OK</div></center>"
-                        );
-                prozor.setAttribute("draggable", "true");
-                zastor.appendChild(prozor);
-                pozadina.appendChild(zastor);
-                $(zastor).show();
-                var gotovo = false;
-                $(".okButton").click(function () {
-                    if (!gotovo) {
-                        pozadina.removeChild(zastor);
-                        $(".task").fadeOut(1000);
-                        $(".answer").fadeOut(1000);
-                        setTimeout(prviDio, 1500);
-                    }
-                    gotovo = true;
-                });
-                document.getElementById('draggable-element').onmousedown = function () {
-                    dragInit(this);
-                    return false;
-                };
-            }
-
-            function uvodUDrugiDio() {
-                $(pozadina).append("<div class=\"introduction\">Part 2:<br><br>We hope you got familiar with the grammar of the two languages. Connect each word in the pairs to one of the two languages.</div>");
-                $(".introduction").fadeIn(2000);
-                $(pozadina).append("<div class=\"proceed\">PROCEED >></div>");
-                setTimeout(function () {
-                    $(".proceed").show();
-                }, 2000);
-                $(".proceed").click(function () {
-                    $(".introduction").fadeOut(1000);
-                    $(".proceed").fadeOut(1000);
-                    setTimeout(primjerDrugogDijela, 1500);
-                });
-            }
-
-            var odgovor1 = ["two", "zehn", "twig", "traum"];
-            var odgovor2 = ["zwei", "ten", "zweig", "dream"];
-            var tablica = [[], [], []];
-
-            function primjerDrugogDijela() {
-                $(".introduction").remove();
-                $(".proceed").remove();
-                $(pozadina).append("<div class=\"task\" style=\"font-size:23px\">EXAMPLE<hr>Connect each of the words in the pairs to the correct language. Click on a row in the table to swap the words.</div>");
-                $(".task").fadeIn(1000);
-                $(pozadina).append("<div class=\"rijecUDrugomDijelu\" style=\"top:200px;left:110px;cursor:not-allowed;\">English</div>");
-                $(pozadina).append("<div class=\"rijecUDrugomDijelu\" style=\"top:200px;left:263px;cursor:not-allowed;\">German</div>");
-                for (var j = 0; j < odgovor1.length; j++)
-                    for (var i = 1; i < 3; i++) {
-                        tablica[i][j] = document.createElement("div");
-                        tablica[i][j].setAttribute("class", "rijecUDrugomDijelu");
-                        if (i === 1)
-                            tablica[i][j].appendChild(document.createTextNode(odgovor1[j]));
-                        else if (i === 2)
-                            tablica[i][j].appendChild(document.createTextNode(odgovor2[j]));
-                        tablica[i][j].style.top = 228 + 27 * j;
-                        tablica[i][j].style.left = -153 + 110 + 153 * i; //U zadacima ce prvi biti na 20px.
-                        tablica[i][j].redak = j;
-                        tablica[i][j].onclick =
-                                function () {
-                                    var tmp = tablica[1][this.redak].style.left;
-                                    $(tablica[1][this.redak]).animate({left: (tablica[2][this.redak].style.left)}, 500);
-                                    $(tablica[2][this.redak]).animate({left: (tmp)}, 500);
-                                    tmp = odgovor1[this.redak];
-                                    odgovor1[this.redak] = odgovor2[this.redak];
-                                    odgovor2[this.redak] = tmp;
-                                };
-                        pozadina.appendChild(tablica[i][j]);
-                    }
-                $(pozadina).append("<div class=\"submit\">SUBMIT</div>");
-                setTimeout(function () {
-                    $(".rijecUDrugomDijelu").show();
-                    $(".submit").show();
-                }, 1000);
-                $(".submit").click(krajDrugogPrimjera);
-            }
-
-            function krajDrugogPrimjera() {
-                var zastor = document.createElement("div");
-                zastor.setAttribute("class", "zastor");
-                zastor.appendChild(document.createTextNode("Click OK to remove this layer."));
-                var prozor = document.createElement("div");
-                prozor.setAttribute("class", "rjesenje");
-                prozor.setAttribute("id", "draggable-element");
-                var score = 0;
-                if (odgovor1[0] === "two")
-                    score++;
-                if (odgovor1[1] === "ten")
-                    score++;
-                if (odgovor1[2] === "twig")
-                    score++;
-                if (odgovor1[3] === "dream")
-                    score++;
-                if (score === 4)
-                    $(prozor).append("<div style=\"background: green; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor: move;\">CORRECT!</div>");
-                else
-                    $(prozor).append("<div style=\"background: red; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;\">INCORRECT!</div>");
-                $(prozor).append("<div style=\"text-align:justify; margin-top:5px; margin-bottom:10px; color:#222222; width:290px; margin-left:5px; margin-right:5px;\" align=\"justfy\">" +
-                        "You scored " + score + "/4. The words 'ten', 'two' and 'twig' belong to English while the words 'zweig', 'zwei' and 'zehn' belong to German, because there is a regular sound correspondence between English 't' and German 'z' in the beginning of a word. The word 'traum' belongs to German while the word 'dream' belongs to English, because English 'd' corresponds to German 't' ('day'-'tag','daughter'-'tochter'...). If 'traum' was an English word, the German cognate would have to start with a 'z'." +
-                        "</div>" +
-                        "<center><div class=\"okButton\">OK</div></center>"
-                        );
-                prozor.setAttribute("draggable", "true");
-                zastor.appendChild(prozor);
-                pozadina.appendChild(zastor);
-                $(zastor).show();
-                var gotovo = false;
-                $(".okButton").click(function () {
-                    if (!gotovo) {
-                        pozadina.removeChild(zastor);
-                        $(".task").fadeOut(1000);
-                        $(".submit").fadeOut(1000);
-                        $(".rijecUDrugomDijelu").fadeOut(1000);
-                        setTimeout(drugiDio, 1500);
-                    }
-                    gotovo = true;
-                });
-                document.getElementById('draggable-element').onmousedown = function () {
-                    dragInit(this);
-                    return false;
-                };
-            }
-            var rijeci = [];
-            rijeci[0] = 0;
-            for (var i=0; i<language1.length; i++)
-                if (brojPrimjenjenihPromjena[i]*Math.sqrt(original[i].length)>brojPrimjenjenihPromjena[rijeci[0]]*Math.sqrt(original[rijeci[0]].length))
-                    rijeci[0]=i;
-                    for (var i=1; i<8; i++)
-            do {
-                rijeci[i]=Math.floor(Math.random()*original.length);
-                var jesmoLiJeVecOdabrali=0;
-                for (var j=0; j<i; j++)
-                    if (rijeci[i]==rijeci[j]) jesmoLiJeVecOdabrali++;
-            } while (language1[rijeci[i]]==language2[rijeci[i]] || jesmoLiJeVecOdabrali);
-            function drugiDio() {
-                odgovor1[0] = language1[rijeci[0]];
-                odgovor2[0] = language2[rijeci[0]];
-                for (var i = 1; i < 8; i++)
-                    if (Math.random() < 0.5)
-                    {
-                        odgovor1[i] = language1[rijeci[i]];
-                        odgovor2[i] = language2[rijeci[i]];
-                    } else
-                    {
-                        odgovor1[i] = language2[rijeci[i]];
-                        odgovor2[i] = language1[rijeci[i]];
-                    }
-                $(".task").remove();
-                $(".submit").remove();
-                $(".rijecUDrugomDijelu").remove();
-                $(pozadina).append("<div class=\"task\">TASK<hr>Connect each of the words in the pairs to the correct language. The first row words are examples.</div>");
-                $(".task").fadeIn(1000);
-                $(pozadina).append("<div class=\"rijecUDrugomDijelu\" style=\"top:200px;left:20px;cursor:not-allowed;\">The Roots</div>");
-                $(pozadina).append("<div class=\"rijecUDrugomDijelu\" style=\"top:200px;left:173px;cursor:not-allowed;\">Language A</div>");
-                $(pozadina).append("<div class=\"rijecUDrugomDijelu\" style=\"top:200px;left:326px;cursor:not-allowed\">Language B</div>");
-                for (var j = 0; j < odgovor1.length; j++)
-                    for (var i = 0; i < 3; i++) {
-                        tablica[i][j] = document.createElement("div");
-                        tablica[i][j].setAttribute("class", "rijecUDrugomDijelu");
-                        if (i === 1)
-                            tablica[i][j].appendChild(document.createTextNode(odgovor1[j]));
-                        else if (i === 2)
-                            tablica[i][j].appendChild(document.createTextNode(odgovor2[j]));
-                        else
-                            tablica[i][j].appendChild(document.createTextNode('*' + original[rijeci[j]]));
-                        tablica[i][j].style.top = 228 + 27 * j;
-                        tablica[i][j].style.left = 20 + 153 * i;
-                        if (j)
-                            tablica[i][j].redak = j;
-                        else
-                            tablica[i][j].style.cursor="not-allowed";
-                        tablica[i][j].onclick =
-                                function () {
-                                    var tmp = tablica[1][this.redak].style.left;
-                                    $(tablica[1][this.redak]).animate({left: (tablica[2][this.redak].style.left)}, 500);
-                                    $(tablica[2][this.redak]).animate({left: (tmp)}, 500);
-                                    tmp = odgovor1[this.redak];
-                                    odgovor1[this.redak] = odgovor2[this.redak];
-                                    odgovor2[this.redak] = tmp;
-                                };
-                        pozadina.appendChild(tablica[i][j]);
-                    }
-                $(pozadina).append("<div class=\"submit\">SUBMIT</div>");
-                setTimeout(function () {
-                    $(".rijecUDrugomDijelu").show();
-                    $(".submit").show();
-                }, 1000);
-                $(".submit").click(rjesenjeDrugogDijela);
-            }
-            function rjesenjeDrugogDijela()
-            {
-                var zastor = document.createElement("div");
-                zastor.setAttribute("class", "zastor");
-                zastor.appendChild(document.createTextNode("Click OK to remove this layer."));
-                var prozor = document.createElement("div");
-                prozor.setAttribute("class", "rjesenje");
-                prozor.style.top = 150;
-                prozor.setAttribute("id", "draggable-element");
-                var score = 0;
-                for (var i = 1; i < 8; i++)
-                    if (odgovor1[i] === language1[rijeci[i]])
-                        score++;
-                bodovi += score * 2;
-                if (score === 7)
-                    $(prozor).append("<div style=\"background: green; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;\">CORRECT!</div>");
-                else
-                    $(prozor).append("<div style=\"background: red; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;\">INCORRECT!</div>");
-                var languageA = "";
-                for (var i = 0; i < 8; i++)
-                    languageA += '"' + language1[rijeci[i]] + '"' + ((i < 6) ? (", ") : ((i === 6) ? (" and ") : ("")));
-                var languageB = "";
-                for (var i = 0; i < 8; i++)
-                    languageB += '"' + language2[rijeci[i]] + '"' + ((i < 6) ? (", ") : ((i === 6) ? (" and ") : ("")));
-
-                $(prozor).append("<div style=\"text-align:justify; margin-top:5px; margin-bottom:10px; color:#222222; width:290px; margin-left:5px; margin-right:5px;\" align=\"justfy\">" +
-                        "You scored " + score + "/7. That score is counted double in the final score. The words that belong to Language A are: " + languageA + ". The words that belong to Language B are: " + languageB + "." +
-                        "</div>" +
-                        "<center><div class=\"okButton\">OK</div></center>"
-                        );
-                prozor.setAttribute("draggable", "true");
-                zastor.appendChild(prozor);
-                pozadina.appendChild(zastor);
-                $(zastor).show();
-                var gotovo = false;
-                $(".okButton").click(function () {
-                    if (!gotovo) {
-                        pozadina.removeChild(zastor);
-                        $(".task").fadeOut(1000);
-                        $(".submit").fadeOut(1000);
-                        $(".rijecUDrugomDijelu").fadeOut(1000);
-                        setTimeout(uvodUTreciDio, 1500);
-                    }
-                    gotovo = true;
-                });
-                document.getElementById('draggable-element').onmousedown = function () {
-                    dragInit(this);
-                    return false;
-                };
-            }
-            function uvodUTreciDio()
-            {
-                $(".task").remove();
-                $(".submit").remove();
-                $(".rijecUDrugomDijelu").remove();
-                $("l2").hide();
-                $("p2").hide();
-                $(pozadina).append("<div class=\"introduction\">Part 3:<br><br>Here are three formally written descriptions of phonologies of the simulated languages, in a format that would be used by an actual linguist. Can you recognize which one belongs to which language?</div>");
-                $(".introduction").fadeIn(2000);
-                $(pozadina).append("<div class=\"proceed\">PROCEED >></div>");
-                setTimeout(function () {
-                    $(".proceed").show();
-                }, 2000);
-                $(".proceed").click(function () {
-                    $(".introduction").fadeOut(1000);
-                    $(".proceed").fadeOut(1000);
-                    setTimeout(primjerTrecegDijela, 1500);
-                });
-
-            }
-            var selectedLanguage = "none", odgovor3 = [0, 0, 0, 0];
-            function primjerTrecegDijela()
-            {
-                $(".introduction").remove();
-                $(".proceed").remove();
-                $("#l2").hide();
-                $("#p2").hide();
-                $(pozadina).append("<div class=\"task\">EXAMPLE<hr/>Connect the formal descriptions of the sound changes to the language they belong to:</div>");
-                $(pozadina).append("<div class=\"fonoloskiOpis\" id=\"lp1\" style=\"top:200px\">0[t]>z</div>");
-                $(pozadina).append("<div class=\"nazivJezika\" id=\"ln1\" style=\"top:200px\">English</div>");
-                $(pozadina).append("<div class=\"fonoloskiOpis\" id=\"lp3\" style=\"top:370px\">V[b]V>v</div>");
-                $(pozadina).append("<div class=\"nazivJezika\" id=\"ln3\" style=\"top:370px;\">German</div>");
-                $(pozadina).append("<div class=\"submit\">SUBMIT!</div>");
-                setTimeout(function () {
-                    $("#connect").show();
-                }, 1500);
-                $(".task").fadeIn(1500);
-                setTimeout(function () {
-                    $(".fonoloskiOpis").show();
-                }, 1500);
-                setTimeout(function () {
-                    $(".nazivJezika").show();
-                }, 1500);
-                setTimeout(function () {
-                    $(".submit").show();
-                }, 1500);
-                $(".nazivJezika").click(function () {
-                    selectLanguage(this.getAttribute("id").charAt(2));
-                });
-                $(".fonoloskiOpis").click(function () {
-                    selectPhonology(this.getAttribute("id").charAt(2));
-                });
-                $(".submit").click(krajTrecegPrimjera);
-            }
-            function krajTrecegPrimjera()
-            {
-                var zastor = document.createElement("div");
-                zastor.setAttribute("class", "zastor");
-                zastor.appendChild(document.createTextNode("Click OK to remove this layer."));
-                var prozor = document.createElement("div");
-                prozor.setAttribute("class", "rjesenje");
-                prozor.setAttribute("id", "draggable-element");
-                if (odgovor3[1] * 1 === 3 && odgovor3[3] * 1 === 1)
-                    $(prozor).append("<div style=\"background: green; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;\">CORRECT!</div>");
-                else
-                    $(prozor).append("<div style=\"background: red; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;\">INCORRECT!</div>");
-                $(prozor).append("<div style=\"text-align:justify; margin-top:5px; margin-bottom:10px; color:#222222; width:290px; margin-left:5px; margin-right:5px;\" align=\"justfy\">" +
-                        "The change '0[t]>z' belongs to German, because, in German, 't' in the beginning of a word changes into 'z'. The change 'V[b]V>v' belongs to English, because, in English, 'b' between two vowels turns to a 'v' (compare, for instance, English 'have' and German 'haben' or English 'give' and German 'geben')." +
-                        "</div>" +
-                        "<center><div class=\"okButton\">OK</div></center>"
-                        );
-                prozor.setAttribute("draggable", "true");
-                zastor.appendChild(prozor);
-                pozadina.appendChild(zastor);
-                $(zastor).show();
-                var gotovo = false;
-                $(".okButton").click(function () {
-                    if (!gotovo) {
-                        pozadina.removeChild(zastor);
-                        $(".task").fadeOut(1000);
-                        $(".fonoloskiOpis").fadeOut(1000);
-                        $(".nazivJezika").fadeOut(1000);
-                        $(".submit").fadeOut(1000);
-                        $("#connect").fadeOut(1000);
-                        setTimeout(treciDio, 1500);
-                    }
-                    gotovo = true;
-                });
-
-                document.getElementById('draggable-element').onmousedown = function () {
-                    dragInit(this);
-                    return false;
-                };
-            }
-            var prvi = Math.floor(Math.random() * 3);
-            var drugi;
-            do
-            {
-                drugi = Math.floor(Math.random() * 3);
-            } while (drugi === prvi);
-            var treci;
-            do
-            {
-                treci = Math.floor(Math.random() * 3);
-            } while (treci === drugi || treci === prvi);
-            function treciDio()
-            {
-                $(".task").remove();
-                $(".fonoloskiOpis").remove();
-                $(".nazivJezika").remove();
-                $(".submit").remove();
-                for (var i = 1; i < 4; i++)
-                    for (var j = 1; j < 4; j++)
-                        $("#line" + i + j).hide();
-                $("#l2").show();
-                $("#p2").show();
-                for (var i = 0; i < 4; i++)
-                    odgovor3[i] = 0;
-                selectedLanguage = "none";
-                $(pozadina).append("<div class=\"task\">TASK<hr/>Connect the formal descriptions of the sound changes to the language they belong to:</div>");
-                $(pozadina).append("<div class=\"fonoloskiOpis\" id=\"lp1\" style=\"top:200px\">" + fonologija[prvi] + "</div>");
-                $(pozadina).append("<div class=\"nazivJezika\" id=\"ln1\" style=\"top:200px\">Proto-Language<br>(the roots)</div>");
-                $(pozadina).append("<div class=\"fonoloskiOpis\" id=\"lp2\" style=\"top:285px\">" + fonologija[drugi] + "</div>");
-                $(pozadina).append("<div class=\"nazivJezika\" id=\"ln2\" style=\"top:285px;\">Language A</div>");
-                $(pozadina).append("<div class=\"fonoloskiOpis\" id=\"lp3\" style=\"top:370px\">" + fonologija[treci] + "</div>");
-                $(pozadina).append("<div class=\"nazivJezika\" id=\"ln3\" style=\"top:370px;\">Language B</div>");
-                $(pozadina).append("<div class=\"submit\">SUBMIT!</div>");
-                setTimeout(function () {
-                    $("#connect").show();
-                }, 1500);
-                $(".task").fadeIn(1500);
-                setTimeout(function () {
-                    $(".fonoloskiOpis").show();
-                }, 1500);
-                setTimeout(function () {
-                    $(".nazivJezika").show();
-                }, 1500);
-                setTimeout(function () {
-                    $(".submit").show();
-                }, 1500);
-                $(".nazivJezika").click(function () {
-                    selectLanguage(this.getAttribute("id").charAt(2));
-                });
-                $(".fonoloskiOpis").click(function () {
-                    selectPhonology(this.getAttribute("id").charAt(2));
-                });
-                $(".submit").click(krajTrecegDijela);
-            }
-            function krajTrecegDijela()
-            {
-                var zastor = document.createElement("div");
-                zastor.setAttribute("class", "zastor");
-                zastor.appendChild(document.createTextNode("Click OK to remove this layer."));
-                var prozor = document.createElement("div");
-                prozor.setAttribute("class", "rjesenje");
-                prozor.setAttribute("id", "draggable-element");
-                prozor.style.top = 200;
-                if (document.getElementById("lp" + odgovor3[1]).textContent === fonologija[0]
-                        && document.getElementById("lp" + odgovor3[2]).textContent === fonologija[1]) {
-                    $(prozor).append("<div style=\"background: green; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;\">CORRECT!</div>");
-                    bodovi += 15;
-                } else
-                    $(prozor).append("<div style=\"background: red; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;\">INCORRECT!</div>");
-                $(prozor).append("<div id=\"solution\" style=\"text-align:justify; margin-top:5px; margin-bottom:10px; color:#222222; width:290px; margin-left:5px; margin-right:5px;\" align=\"justfy\">" +
-                        "This puzzle is worth 15 points. The solution is:<br/>" +
-                        "</div>" +
-                        "<center><div class=\"okButton\">OK</div></center>"
-                        );
-                prozor.setAttribute("draggable", "true");
-                zastor.appendChild(prozor);
-                pozadina.appendChild(zastor);
-                $(zastor).show();
-                var gotovo = false;
-                $(".okButton").click(function () {
-                    if (!gotovo) {
-                        pozadina.removeChild(zastor);
-                        $(".task").fadeOut(1000);
-                        $(".fonoloskiOpis").fadeOut(1000);
-                        $(".nazivJezika").fadeOut(1000);
-                        $(".submit").fadeOut(1000);
-                        $("#connect").fadeOut(1000);
-                        setTimeout(kraj, 1500);
-                    }
-                    gotovo = true;
-                });
-                document.getElementById('draggable-element').onmousedown = function () {
-                    dragInit(this);
-                    return false;
-                };
-                var solution = document.getElementById("solution");
-                solution.appendChild(document.createTextNode("Proto-language: "));
-                if (prvi === 0)
-                    solution.appendChild(document.createTextNode("1)"));
-                else if (drugi === 0)
-                    solution.appendChild(document.createTextNode("2)"));
-                else
-                    solution.appendChild(document.createTextNode("3)"));
-                solution.appendChild(document.createElement("br"));
-                solution.appendChild(document.createTextNode("Language A: "));
-                if (prvi === 1)
-                    solution.appendChild(document.createTextNode("1)"));
-                else if (drugi === 1)
-                    solution.appendChild(document.createTextNode("2)"));
-                else
-                    solution.appendChild(document.createTextNode("3)"));
-                solution.appendChild(document.createElement("br"));
-                solution.appendChild(document.createTextNode("Language B: "));
-                if (prvi === 2)
-                    solution.appendChild(document.createTextNode("1)"));
-                else if (drugi === 2)
-                    solution.appendChild(document.createTextNode("2)"));
-                else
-                    solution.appendChild(document.createTextNode("3)"));
-                solution.appendChild(document.createElement("br"));
-            }
-            function kraj()
-            {
-                $(pozadina).append("<div class=\"introduction\">THE END!<br><br>Hope you enjoyed it!<br>You scored " + bodovi + "/" + (brojPitanja + 29) + " points.<br><br>Author: Teo Samar\u017eija<br>Thanks to Boris Muminovi\u0107 for his help with the graphic interface (draggable popups and Part 3).<br><br>Thanks to Daniel Ross for his help with the algorithm.</div>");
-                $(".introduction").fadeIn(2000);
-                $(pozadina).append("<div class=\"proceed\">EXIT</div>");
-                setTimeout(function () {
-                    $(".proceed").show();
-                }, 2000);
-                $(".proceed").click(function () {
-                    history.back();
-                    window.close();
-                });
-            }
-            function selectLanguage(broj)
-            {
-                if (selectedLanguage !== "none")
-                {
-                    document.getElementById("ln" + selectedLanguage).style.background = "#7777FF";
-                    document.getElementById("l" + selectedLanguage).setAttribute("fill", "#7777FF");
-                }
-                selectedLanguage = broj;
-                document.getElementById("ln" + selectedLanguage).style.background = "#FFAAFF";
-                document.getElementById("l" + selectedLanguage).setAttribute("fill", "#FFAAFF");
-                for (var i = 1; i < 4; i++)
-                    document.getElementById("line" + selectedLanguage + i).style.display = "none";
-                odgovor3[broj] = 0;
-            }
-            function selectPhonology(broj)
-            {
-                if (selectedLanguage === "none" || odgovor3[1] === broj || odgovor3[2] === broj || odgovor3[3] === broj)
-                    return;
-                document.getElementById("ln" + selectedLanguage).style.background = "#7777FF";
-                document.getElementById("l" + selectedLanguage).setAttribute("fill", "#7777FF");
-                $("#line" + selectedLanguage + broj).show();
-                odgovor3[selectedLanguage] = broj;
-                selectedLanguage = "none";
-            }
-            // Boris
-            // Draggable
-
-            var selected = null;
-            var x_pos = 0;
-            var y_pos = 0;
-            var x_elem = 0;
-            var y_elem = 0;
-
-
-            function dragInit(elem) {
-
-                selected = elem;
-                x_elem = x_pos - selected.offsetLeft;
-                y_elem = y_pos - selected.offsetTop;
-            }
-
-            function moveElement(e) {
-                x_pos = document.all ? window.event.clientX : e.pageX;
-                y_pos = document.all ? window.event.clientY : e.pageY;
-                if (selected !== null) {
-                    selected.style.left = (x_pos - x_elem) + 'px';
-                    selected.style.top = (y_pos - y_elem) + 'px';
+            } else {
+              for (var j = 0; j < language2.length; j++)
+                if (language2[j].indexOf(fonem) + 1) {
+                  nalaziLiSeFonemUJeziku = true;
+                  break;
                 }
             }
-
-            function destroy() {
-                selected = null;
+            if (nalaziLiSeFonemUJeziku) continue;
+            jeLiFonologijaURavnotezi = false;
+            drugi = fonem;
+            break;
+          }
+          if (jeLiFonologijaURavnotezi)
+            drugi = abeceda.charAt(Math.floor(Math.random() * abeceda.length));
+        }
+        prvi = String.fromCharCode(prvi + 97);
+        if (i < BrojSimuliranihPromjena) {
+          var promjenjeno = false;
+          for (var j = 0; j < language1.length; j++) {
+            var prijasnji = language1[j];
+            language1[j] = primjeniPromjenu(
+              nakon,
+              prvi,
+              prije,
+              drugi,
+              language1[j]
+            );
+            if (language1[j] != prijasnji) {
+              promjenjeno = true;
+              brojPrimjenjenihPromjena[j]++;
             }
+          }
+          if (!promjenjeno) i--;
+          else
+            fonologija[1] +=
+              (nakon === "Z" ? "" : nakon) +
+              "[" +
+              prvi +
+              "]" +
+              (prije === "Z" ? "" : prije) +
+              ">" +
+              drugi +
+              ", ";
+        } else {
+          var promjenjeno = false;
+          for (var j = 0; j < language2.length; j++) {
+            var prijasnji = language2[j];
+            language2[j] = primjeniPromjenu(
+              nakon,
+              prvi,
+              prije,
+              drugi,
+              language2[j]
+            );
+            if (language2[j] != prijasnji) {
+              promjenjeno = true;
+              brojPrimjenjenihPromjena[j]++;
+            }
+          }
+          if (!promjenjeno) i--;
+          else
+            fonologija[2] +=
+              (nakon === "Z" ? "" : nakon) +
+              "[" +
+              prvi +
+              "]" +
+              (prije === "Z" ? "" : prije) +
+              ">" +
+              drugi +
+              ", ";
+        }
+      }
+      var jesmoLiOdabraliEpentetskiVokal = false;
+      var epenteza1;
+      for (var i = 0; i < vowels.length; i++) {
+        var samoglasnik = vowels.charAt(i);
+        var nalaziLiSeFonemUJeziku = false;
+        for (var j = 0; j < language1.length; j++)
+          if (language1[j].indexOf(samoglasnik) + 1) {
+            nalaziLiSeFonemUJeziku = true;
+            break;
+          }
+        if (!nalaziLiSeFonemUJeziku) {
+          epenteza1 = samoglasnik;
+          jesmoLiOdabraliEpentetskiVokal = true;
+          break;
+        }
+      }
+      if (!jesmoLiOdabraliEpentetskiVokal)
+        epenteza1 = vowels.charAt(Math.floor(Math.random() * vowels.length));
+      jesmoLiOdabraliEpentetskiVokal = false;
+      var epenteza2;
+      for (var i = 0; i < vowels.length; i++) {
+        var samoglasnik = vowels.charAt(i);
+        var nalaziLiSeFonemUJeziku = false;
+        for (var j = 0; j < language2.length; j++)
+          if (language2[j].indexOf(samoglasnik) + 1) {
+            nalaziLiSeFonemUJeziku = true;
+            break;
+          }
+        if (!nalaziLiSeFonemUJeziku) {
+          epenteza2 = samoglasnik;
+          jesmoLiOdabraliEpentetskiVokal = true;
+          break;
+        }
+      }
+      if (!jesmoLiOdabraliEpentetskiVokal)
+        epenteza2 = vowels.charAt(Math.floor(Math.random() * vowels.length));
+      fonologija[1] += "CCC>C" + epenteza1 + "CC";
+      fonologija[2] += "CCC>C" + epenteza2 + "CC";
+      //Jednostavna fonotaktika: ne dopusti tri suglasnika za redom i ne dopusti q+suglasnik.
+      for (var i = 0; i < language1.length; i++) {
+        for (var j = 0; j < language1[i].length; j++)
+          if (
+            (consonants.search(language1[i].charAt(j - 1)) !== -1 &&
+              consonants.search(language1[i].charAt(j)) !== -1 &&
+              consonants.search(language1[i].charAt(j + 1)) !== -1) ||
+            (consonants.search(language1[i].charAt(j)) !== -1 &&
+              language1[i].charAt(j - 1) === "q")
+          )
+            language1[i] =
+              language1[i].slice(0, j) + epenteza1 + language1[i].slice(j);
+        if (language1[i].charAt(language1[i].length - 1) === "q")
+          language1[i] += epenteza1;
+      }
+      for (var i = 0; i < language2.length; i++) {
+        for (var j = 0; j < language2[i].length; j++)
+          if (
+            (consonants.search(language2[i].charAt(j - 1)) !== -1 &&
+              consonants.search(language2[i].charAt(j)) !== -1 &&
+              consonants.search(language2[i].charAt(j + 1)) !== -1) ||
+            (consonants.search(language2[i].charAt(j)) !== -1 &&
+              language2[i].charAt(j - 1) === "q")
+          )
+            language2[i] =
+              language2[i].slice(0, j) + epenteza2 + language2[i].slice(j);
+        if (language2[i].charAt(language2[i].length - 1) === "q")
+          language2[i] += epenteza2;
+      }
+      //Redukcija vokala.
+      for (var i = 0; i < language1.length; i++) {
+        var jaka = false;
+        if (language1[i].length > 8) {
+          language1[i] = language1[i].replace(/y/g, "i");
+          language1[i] = language1[i].replace(/w/g, "u");
+          language1[i] = language1[i].replace(/v/g, "u");
+          jaka = true;
+        }
+        for (var j = 0; j < language1[i].length; j++)
+          if (
+            (vowels.search(language1[i].charAt(j)) !== -1 &&
+              language1[i].charAt(j - 1) !== "q" &&
+              (!jaka
+                ? language1[i].charAt(j) === language1[i].charAt(j - 2)
+                : vowels.search(language1[i].charAt(j - 2)) !== -1) &&
+              (!jaka
+                ? language1[i].charAt(j) === language1[i].charAt(j + 2)
+                : vowels.search(language1[i].charAt(j + 2)) !== -1)) ||
+            (jaka &&
+              vowels.search(language1[i].charAt(j)) !== -1 &&
+              language1[i].charAt(j - 1) !== "q" &&
+              (vowels.search(language1[i].charAt(j - 1)) !== -1 ||
+                vowels.search(language1[i].charAt(j + 1)) !== -1)) ||
+            (jaka && language1[i].charAt(j) === language1[i].charAt(j - 1))
+          ) {
+            language1[i] = language1[i].slice(0, j) + language1[i].slice(j + 1);
+            j--;
+          }
+        if (
+          consonants.search(language1[i].charAt(language1[i].length - 1)) !==
+            -1 &&
+          consonants.search(language1[i].charAt(language1[i].length - 2)) !== -1
+        )
+          language1[i] += epenteza1;
+        if (
+          consonants.search(language1[i].charAt(0)) !== -1 &&
+          consonants.search(language1[i].charAt(1)) !== -1
+        )
+          language1[i] = epenteza1 + language1[i];
+      }
+      for (var i = 0; i < language2.length; i++) {
+        var jaka = false;
+        if (language2[i].length > 8) {
+          language2[i] = language2[i].replace(/y/g, "i");
+          language2[i] = language2[i].replace(/w/g, "u");
+          language2[i] = language2[i].replace(/v/g, "u");
+          jaka = true;
+        }
+        for (var j = 0; j < language2[i].length; j++)
+          if (
+            (vowels.search(language2[i].charAt(j)) !== -1 &&
+              language2[i].charAt(j - 1) !== "q" &&
+              (!jaka
+                ? language2[i].charAt(j) === language2[i].charAt(j - 2)
+                : vowels.search(language2[i].charAt(j - 2)) !== -1) &&
+              (!jaka
+                ? language2[i].charAt(j) === language2[i].charAt(j + 2)
+                : vowels.search(language2[i].charAt(j + 2)) !== -1)) ||
+            (jaka &&
+              vowels.search(language2[i].charAt(j)) !== -1 &&
+              language2[i].charAt(j - 1) !== "q" &&
+              (vowels.search(language2[i].charAt(j - 1)) !== -1 ||
+                vowels.search(language2[i].charAt(j + 1)) !== -1)) ||
+            (jaka && language2[i].charAt(j) === language2[i].charAt(j - 1))
+          ) {
+            language2[i] = language2[i].slice(0, j) + language2[i].slice(j + 1);
+            j--;
+          }
+        if (
+          consonants.search(language2[i].charAt(language2[i].length - 1)) !==
+            -1 &&
+          consonants.search(language2[i].charAt(language2[i].length - 2)) !== -1
+        )
+          language2[i] += epenteza2;
+        if (
+          consonants.search(language2[i].charAt(0)) !== -1 &&
+          consonants.search(language2[i].charAt(1)) !== -1
+        )
+          language2[i] = epenteza2 + language2[i];
+      }
+      for (var i = 0; i < language1.length; i++) {
+        for (var j = 0; j < vowels.length; j++)
+          language1[i] = language1[i].replace(
+            RegExp("ii" + vowels.charAt(j), "g"),
+            "iy" + vowels.charAt(j)
+          );
+        for (var j = 0; j < vowels.length; j++)
+          language1[i] = language1[i].replace(
+            RegExp(vowels.charAt(j) + "ii", "g"),
+            vowels.charAt(j) + "yi"
+          );
+        for (var j = 0; j < vowels.length; j++)
+          language1[i] = language1[i].replace(
+            RegExp("uu" + vowels.charAt(j), "g"),
+            "uw" + vowels.charAt(j)
+          );
+        for (var j = 0; j < vowels.length; j++)
+          language1[i] = language1[i].replace(
+            RegExp(vowels.charAt(j) + "uu", "g"),
+            vowels.charAt(j) + "wu"
+          );
+        language1[i] = language1[i].replace(/yy/g, "iy");
+        language1[i] = language1[i].replace(/ww/g, "uw");
+      }
+      for (var i = 0; i < language2.length; i++) {
+        for (var j = 0; j < vowels.length; j++)
+          language2[i] = language2[i].replace(
+            RegExp("ii" + vowels.charAt(j), "g"),
+            "iy" + vowels.charAt(j)
+          );
+        for (var j = 0; j < vowels.length; j++)
+          language2[i] = language2[i].replace(
+            RegExp(vowels.charAt(j) + "ii", "g"),
+            vowels.charAt(j) + "yi"
+          );
+        for (var j = 0; j < vowels.length; j++)
+          language2[i] = language2[i].replace(
+            RegExp("uu" + vowels.charAt(j), "g"),
+            "uw" + vowels.charAt(j)
+          );
+        for (var j = 0; j < vowels.length; j++)
+          language2[i] = language2[i].replace(
+            RegExp(vowels.charAt(j) + "uu", "g"),
+            vowels.charAt(j) + "wu"
+          );
+        language2[i] = language2[i].replace(/yy/g, "yi");
+        language2[i] = language2[i].replace(/ww/g, "wu");
+      }
+      var pozadina = document.getElementById("sky");
+      var uvod = document.createElement("div");
+      uvod.setAttribute("class", "introduction");
+      uvod.appendChild(document.createTextNode("Introduction:"));
+      for (var i = 0; i < 2; i++)
+        uvod.appendChild(document.createElement("br"));
+      uvod.appendChild(
+        document.createTextNode(
+          "One phoneme in one language corresponds to other phoneme in a related language. " +
+            "For instance, the English 't' in the beginning of a word corresponds to German 'z'. " +
+            "For example: two-zwei, ten-zehn, tooth-Zahn, tongue-Zunge, twig-Zweig, toe-Zeh, too-zu, tame-zahm... " +
+            "This game randomly generates words as if they were in two related languages."
+        )
+      );
+      pozadina.appendChild(uvod);
+      var tipka = document.createElement("div");
+      tipka.setAttribute("class", "proceed");
+      tipka.appendChild(document.createTextNode("PROCEED >>"));
+      tipka.setAttribute("id", "krajUvoda");
+      pozadina.appendChild(tipka);
+      $(document).ready(function () {
+        setTimeout(function () {
+          $(".introduction").fadeIn(3000, function () {
+            $(".proceed").show();
+          });
+        }, 1500);
+      });
+      $(".proceed").click(function () {
+        $(".introduction").fadeOut(1000);
+        $(".proceed").fadeOut(1000, sazetak);
+      });
+      function sazetak() {
+        pozadina.removeChild(uvod);
+        pozadina.removeChild(tipka);
+        var sp = document.createElement("span");
+        sp.innerHTML =
+          '<div class="introduction">' +
+          "SUMMARY<hr\/>" +
+          "The game has three parts.<br\/> In the Part #1, " +
+          "you are supposed to find which words from the simulated languages are cognates.<br\/>" +
+          "In the Part #2, you are supposed to find which words belong to which language.<br\/>" +
+          "In the Part #3, you are supposed to find which set of sound changes belongs to which language." +
+          "<\/div>" +
+          '<div class="proceed">PROCEED >><\/div>';
+        pozadina.appendChild(sp);
+        $(".introduction").fadeIn(2000, function () {
+          $(".proceed").show();
+        });
+        $(".proceed").click(function () {
+          $(".introduction").fadeOut(1000);
+          $(".proceed").fadeOut(1000, uvodUPrviDio);
+        });
+      }
 
-            document.onmousemove = moveElement;
-            document.onmouseup = destroy;
+      function uvodUPrviDio() {
+        $(".introduction").remove();
+        $(".proceed").remove();
+        uvod = document.createElement("div");
+        uvod.setAttribute("class", "introduction");
+        uvod.appendChild(document.createTextNode("Part 1:"));
+        for (var i = 0; i < 2; i++)
+          uvod.appendChild(document.createElement("br"));
+        uvod.appendChild(
+          document.createTextNode(
+            "Here are two randomly generated related languages. " +
+              "Choose the word in the second language that shares the same root as " +
+              "the specified word in the first one."
+          )
+        );
+        pozadina.appendChild(uvod);
+        tipka = document.createElement("div");
+        tipka.setAttribute("class", "proceed");
+        tipka.appendChild(document.createTextNode("PROCEED >>"));
+        tipka.setAttribute("id", "pokreniPrviDio");
+        pozadina.appendChild(tipka);
+        setTimeout(function () {
+          $(".introduction").fadeIn(2000, function () {
+            $(".proceed").show();
+          });
+        }, 500);
+        $(".proceed").click(function () {
+          $(".introduction").fadeOut(1000);
+          $(".proceed").fadeOut(1000, primjerPrvogDijela);
+        });
+      }
 
-            // Problem 1
-            // Ovaj kod koji sam zakomentirao je bio da se moze mijenjati odgovor 'on the fly' i u redu je sve do zadnjeg koraka s linijama, a ja zbilja nemam vremena to debugirati tako da sad stoji Reset button, a ti ako imas vremena igraj se s tim :)
+      function primjerPrvogDijela() {
+        pozadina.removeChild(uvod);
+        pozadina.removeChild(tipka);
+        var pitanje = document.createElement("div");
+        pitanje.setAttribute("class", "task");
+        pitanje.appendChild(document.createTextNode("EXAMPLE"));
+        pitanje.appendChild(document.createElement("hr"));
+        pitanje.appendChild(
+          document.createTextNode("Choose the correct cognate to")
+        );
+        for (var i = 0; i < 2; i++)
+          pitanje.appendChild(document.createElement("br"));
+        pitanje.appendChild(document.createTextNode("'twig':"));
+        pozadina.appendChild(pitanje);
+        $(pitanje).fadeIn(1000);
+        var odgovorA = document.createElement("div");
+        odgovorA.setAttribute("class", "answer answerA");
+        odgovorA.appendChild(document.createTextNode("sonne"));
+        pozadina.appendChild(odgovorA);
+        $(odgovorA).append(
+          '<div class="desniTrokut"></div><div class="lijeviTrokut"></div>'
+        );
+        setTimeout(function () {
+          $(odgovorA).show();
+        }, 1000);
+        var odgovorB = document.createElement("div");
+        odgovorB.setAttribute("class", "answer answerB");
+        odgovorB.appendChild(document.createTextNode("bett"));
+        pozadina.appendChild(odgovorB);
+        $(odgovorB).append(
+          '<div class="desniTrokut"></div><div class="lijeviTrokut"></div>'
+        );
+        setTimeout(function () {
+          $(odgovorB).show();
+        }, 1000);
+        var odgovorC = document.createElement("div");
+        odgovorC.setAttribute("class", "answer answerC");
+        odgovorC.appendChild(document.createTextNode("zweig"));
+        pozadina.appendChild(odgovorC);
+        $(odgovorC).append(
+          '<div class="desniTrokut"></div><div class="lijeviTrokut"></div>'
+        );
+        setTimeout(function () {
+          $(odgovorC).show();
+        }, 1000);
+        var odgovorD = document.createElement("div");
+        odgovorD.setAttribute("class", "answer answerD");
+        odgovorD.appendChild(document.createTextNode("traum"));
+        pozadina.appendChild(odgovorD);
+        $(odgovorD).append(
+          '<div class="desniTrokut"></div><div class="lijeviTrokut"></div>'
+        );
+        setTimeout(function () {
+          $(odgovorD).show();
+        }, 1000);
+        if (navigator.appName == "Opera") {
+          var niz = document.getElementsByClassName("desniTrokut");
+          for (var i = 0; i < niz.length; i++) niz[i].style.top = "-50px";
+        }
+        $(".answer").click(function () {
+          krajPrvogPrimjera(this.textContent);
+        });
+      }
 
-            /*var connectLetters = document.getElementsByClassName('connectLetter'); // Sva slova
+      function krajPrvogPrimjera(odgovor) {
+        var zastor = document.createElement("div");
+        zastor.setAttribute("class", "zastor");
+        zastor.appendChild(
+          document.createTextNode("Click OK to remove this layer.")
+        );
+        var prozor = document.createElement("div");
+        prozor.setAttribute("class", "rjesenje");
+        prozor.setAttribute("id", "draggable-element"); // Boris
+        if (odgovor === "zweig")
+          $(prozor).append(
+            '<div style="background: green; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;">CORRECT!</div>'
+          );
+        else
+          $(prozor).append(
+            '<div style="background: red; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;">INCORRECT!</div>'
+          );
+        $(prozor).append(
+          '<div style="text-align:justify; margin-top:5px; margin-bottom:10px; color:#222222; width:290px; margin-left:5px; margin-right:5px;" align="justfy">' +
+            "The solution is 'zweig'. Namely, if you didn't guess, the languages in this example were English and German (in further tasks, they will be simulated languages). The specified word, 'twig', is in English. It starts with a 't'. The English 't' in the beginning of a word corresponds to German 'z'. Only one of the presented German words start with a 'z', it's 'zweig'. Note that 'traum', for example, can't be a cognate, because English 't' in the beginning of a word corresponds to German 'z', and not to a 't'. If both English and German word meaning the same start with a 't', it's probably a result of borrowing (like both languages borrowing the word from Latin). This game doesn't simulate borrowing." +
+            "</div>" +
+            '<center><div class="okButton">OK</div></center>'
+        );
+        prozor.setAttribute("draggable", "true");
+        zastor.appendChild(prozor);
+        pozadina.appendChild(zastor);
+        $(zastor).show();
+        var gotovo = false;
+        $(".okButton").click(function () {
+          if (!gotovo) {
+            pozadina.removeChild(zastor);
+            $(".task").fadeOut(1000);
+            $(".answer").fadeOut(1000);
+            setTimeout(prviDio, 1500);
+          }
+          gotovo = true;
+        });
+
+        // Boris
+        document.getElementById("draggable-element").onmousedown = function () {
+          dragInit(this);
+          return false;
+        };
+      }
+
+      var rjesenje = 0,
+        task = 0,
+        brojPitanja = 26,
+        koristeno = [];
+      function prviDio() {
+        $(".task").remove();
+        $(".answer").remove();
+        if (task < brojPitanja) {
+          task++;
+          var iskoristen = false;
+          do {
+            iskoristen = false;
+            rjesenje = Math.floor(Math.random() * original.length);
+            for (var i = 0; i < koristeno.length; i++)
+              if (original[rjesenje].charAt(0) == koristeno[i].charAt(0))
+                iskoristen = true;
+          } while (iskoristen);
+          koristeno.push(original[rjesenje]);
+          $(pozadina).append(
+            '<div class="task">TASK ' +
+              task +
+              "/" +
+              brojPitanja +
+              "<hr>Choose the correct cognate to:<br><br>'" +
+              language1[rjesenje] +
+              "'</div>"
+          );
+          $(".task").fadeIn(1000);
+          var slucajno = Math.floor(Math.random() * 4);
+          if (slucajno === 0)
+            $(pozadina).append(
+              '<div class="answer answerA">' +
+                language2[rjesenje] +
+                '<div class="desniTrokut"/><div class="lijeviTrokut"/></div>'
+            );
+          else
+            $(pozadina).append(
+              '<div class="answer answerA">' +
+                language2[Math.floor(Math.random() * original.length)] +
+                '<div class="desniTrokut"/><div class="lijeviTrokut"/></div>'
+            );
+          setTimeout(function () {
+            $(".answerA").show();
+          }, 1000);
+          if (slucajno === 1)
+            $(pozadina).append(
+              '<div class="answer answerB">' +
+                language2[rjesenje] +
+                '<div class="desniTrokut"/><div class="lijeviTrokut"/></div>'
+            );
+          else
+            $(pozadina).append(
+              '<div class="answer answerB">' +
+                language2[Math.floor(Math.random() * original.length)] +
+                '<div class="desniTrokut"/><div class="lijeviTrokut"/></div>'
+            );
+          setTimeout(function () {
+            $(".answerB").show();
+          }, 1000);
+          if (slucajno === 2)
+            $(pozadina).append(
+              '<div class="answer answerC">' +
+                language2[rjesenje] +
+                '<div class="desniTrokut"/><div class="lijeviTrokut"/></div>'
+            );
+          else
+            $(pozadina).append(
+              '<div class="answer answerC">' +
+                language2[Math.floor(Math.random() * original.length)] +
+                '<div class="desniTrokut"/><div class="lijeviTrokut"/></div>'
+            );
+          setTimeout(function () {
+            $(".answerC").show();
+          }, 1000);
+          if (slucajno === 3)
+            $(pozadina).append(
+              '<div class="answer answerD">' +
+                language2[rjesenje] +
+                '<div class="desniTrokut"/><div class="lijeviTrokut"/></div>'
+            );
+          else
+            $(pozadina).append(
+              '<div class="answer answerD">' +
+                language2[Math.floor(Math.random() * original.length)] +
+                '<div class="desniTrokut"/><div class="lijeviTrokut"/></div>'
+            );
+          setTimeout(function () {
+            $(".answerD").show();
+          }, 1000);
+          $(".answer").click(function () {
+            rjesenjePrvogDijela($(this).text());
+          });
+          if (navigator.appName == "Opera") {
+            var niz = document.getElementsByClassName("desniTrokut");
+            for (var i = 0; i < niz.length; i++) niz[i].style.top = "-50px";
+            setTimeout(function () {
+              niz = document.getElementsByClassName("answer");
+              for (var i = 0; i < niz.length; i++)
+                niz[i].style.display = "block";
+            }, 1000);
+          }
+        } else {
+          uvodUDrugiDio();
+        }
+      }
+
+      function rjesenjePrvogDijela(odgovor) {
+        var zastor = document.createElement("div");
+        zastor.setAttribute("class", "zastor");
+        zastor.appendChild(
+          document.createTextNode("Click OK to remove this layer.")
+        );
+        var prozor = document.createElement("div");
+        prozor.setAttribute("class", "rjesenje");
+        prozor.setAttribute("id", "draggable-element");
+        prozor.style.top = 200;
+        if (odgovor === language2[rjesenje]) {
+          $(prozor).append(
+            '<div style="background: green; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;">CORRECT!</div>'
+          );
+          bodovi++;
+        } else
+          $(prozor).append(
+            '<div style="background: red; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor: move;">INCORRECT!</div>'
+          );
+        $(prozor).append(
+          '<div style="text-align:justify; margin-top:5px; margin-bottom:10px; color:#222222; width:290px; margin-left:5px; margin-right:5px;" align="justfy">' +
+            "The solution is '" +
+            language2[rjesenje] +
+            "'. The root was *" +
+            original[rjesenje] +
+            "." +
+            "</div>" +
+            '<center><div class="okButton">OK</div></center>'
+        );
+        prozor.setAttribute("draggable", "true");
+        zastor.appendChild(prozor);
+        pozadina.appendChild(zastor);
+        $(zastor).show();
+        var gotovo = false;
+        $(".okButton").click(function () {
+          if (!gotovo) {
+            pozadina.removeChild(zastor);
+            $(".task").fadeOut(1000);
+            $(".answer").fadeOut(1000);
+            setTimeout(prviDio, 1500);
+          }
+          gotovo = true;
+        });
+        document.getElementById("draggable-element").onmousedown = function () {
+          dragInit(this);
+          return false;
+        };
+      }
+
+      function uvodUDrugiDio() {
+        $(pozadina).append(
+          '<div class="introduction">Part 2:<br><br>We hope you got familiar with the grammar of the two languages. Connect each word in the pairs to one of the two languages.</div>'
+        );
+        $(".introduction").fadeIn(2000);
+        $(pozadina).append('<div class="proceed">PROCEED >></div>');
+        setTimeout(function () {
+          $(".proceed").show();
+        }, 2000);
+        $(".proceed").click(function () {
+          $(".introduction").fadeOut(1000);
+          $(".proceed").fadeOut(1000);
+          setTimeout(primjerDrugogDijela, 1500);
+        });
+      }
+
+      var odgovor1 = ["two", "zehn", "twig", "traum"];
+      var odgovor2 = ["zwei", "ten", "zweig", "dream"];
+      var tablica = [[], [], []];
+
+      function primjerDrugogDijela() {
+        $(".introduction").remove();
+        $(".proceed").remove();
+        $(pozadina).append(
+          '<div class="task" style="font-size:23px">EXAMPLE<hr>Connect each of the words in the pairs to the correct language. Click on a row in the table to swap the words.</div>'
+        );
+        $(".task").fadeIn(1000);
+        $(pozadina).append(
+          '<div class="rijecUDrugomDijelu" style="top:200px;left:110px;cursor:not-allowed;">English</div>'
+        );
+        $(pozadina).append(
+          '<div class="rijecUDrugomDijelu" style="top:200px;left:263px;cursor:not-allowed;">German</div>'
+        );
+        for (var j = 0; j < odgovor1.length; j++)
+          for (var i = 1; i < 3; i++) {
+            tablica[i][j] = document.createElement("div");
+            tablica[i][j].setAttribute("class", "rijecUDrugomDijelu");
+            if (i === 1)
+              tablica[i][j].appendChild(document.createTextNode(odgovor1[j]));
+            else if (i === 2)
+              tablica[i][j].appendChild(document.createTextNode(odgovor2[j]));
+            tablica[i][j].style.top = 228 + 27 * j;
+            tablica[i][j].style.left = -153 + 110 + 153 * i; //U zadacima ce prvi biti na 20px.
+            tablica[i][j].redak = j;
+            tablica[i][j].onclick = function () {
+              var tmp = tablica[1][this.redak].style.left;
+              $(tablica[1][this.redak]).animate(
+                { left: tablica[2][this.redak].style.left },
+                500
+              );
+              $(tablica[2][this.redak]).animate({ left: tmp }, 500);
+              tmp = odgovor1[this.redak];
+              odgovor1[this.redak] = odgovor2[this.redak];
+              odgovor2[this.redak] = tmp;
+            };
+            pozadina.appendChild(tablica[i][j]);
+          }
+        $(pozadina).append('<div class="submit">SUBMIT</div>');
+        setTimeout(function () {
+          $(".rijecUDrugomDijelu").show();
+          $(".submit").show();
+        }, 1000);
+        $(".submit").click(krajDrugogPrimjera);
+      }
+
+      function krajDrugogPrimjera() {
+        var zastor = document.createElement("div");
+        zastor.setAttribute("class", "zastor");
+        zastor.appendChild(
+          document.createTextNode("Click OK to remove this layer.")
+        );
+        var prozor = document.createElement("div");
+        prozor.setAttribute("class", "rjesenje");
+        prozor.setAttribute("id", "draggable-element");
+        var score = 0;
+        if (odgovor1[0] === "two") score++;
+        if (odgovor1[1] === "ten") score++;
+        if (odgovor1[2] === "twig") score++;
+        if (odgovor1[3] === "dream") score++;
+        if (score === 4)
+          $(prozor).append(
+            '<div style="background: green; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor: move;">CORRECT!</div>'
+          );
+        else
+          $(prozor).append(
+            '<div style="background: red; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;">INCORRECT!</div>'
+          );
+        $(prozor).append(
+          '<div style="text-align:justify; margin-top:5px; margin-bottom:10px; color:#222222; width:290px; margin-left:5px; margin-right:5px;" align="justfy">' +
+            "You scored " +
+            score +
+            "/4. The words 'ten', 'two' and 'twig' belong to English while the words 'zweig', 'zwei' and 'zehn' belong to German, because there is a regular sound correspondence between English 't' and German 'z' in the beginning of a word. The word 'traum' belongs to German while the word 'dream' belongs to English, because English 'd' corresponds to German 't' ('day'-'tag','daughter'-'tochter'...). If 'traum' was an English word, the German cognate would have to start with a 'z'." +
+            "</div>" +
+            '<center><div class="okButton">OK</div></center>'
+        );
+        prozor.setAttribute("draggable", "true");
+        zastor.appendChild(prozor);
+        pozadina.appendChild(zastor);
+        $(zastor).show();
+        var gotovo = false;
+        $(".okButton").click(function () {
+          if (!gotovo) {
+            pozadina.removeChild(zastor);
+            $(".task").fadeOut(1000);
+            $(".submit").fadeOut(1000);
+            $(".rijecUDrugomDijelu").fadeOut(1000);
+            setTimeout(drugiDio, 1500);
+          }
+          gotovo = true;
+        });
+        document.getElementById("draggable-element").onmousedown = function () {
+          dragInit(this);
+          return false;
+        };
+      }
+      var rijeci = [];
+      rijeci[0] = 0;
+      for (var i = 0; i < language1.length; i++)
+        if (
+          brojPrimjenjenihPromjena[i] * Math.sqrt(original[i].length) >
+          brojPrimjenjenihPromjena[rijeci[0]] *
+            Math.sqrt(original[rijeci[0]].length)
+        )
+          rijeci[0] = i;
+      for (var i = 1; i < 8; i++)
+        do {
+          rijeci[i] = Math.floor(Math.random() * original.length);
+          var jesmoLiJeVecOdabrali = 0;
+          for (var j = 0; j < i; j++)
+            if (rijeci[i] == rijeci[j]) jesmoLiJeVecOdabrali++;
+        } while (
+          language1[rijeci[i]] == language2[rijeci[i]] ||
+          jesmoLiJeVecOdabrali
+        );
+      function drugiDio() {
+        odgovor1[0] = language1[rijeci[0]];
+        odgovor2[0] = language2[rijeci[0]];
+        for (var i = 1; i < 8; i++)
+          if (Math.random() < 0.5) {
+            odgovor1[i] = language1[rijeci[i]];
+            odgovor2[i] = language2[rijeci[i]];
+          } else {
+            odgovor1[i] = language2[rijeci[i]];
+            odgovor2[i] = language1[rijeci[i]];
+          }
+        $(".task").remove();
+        $(".submit").remove();
+        $(".rijecUDrugomDijelu").remove();
+        $(pozadina).append(
+          '<div class="task">TASK<hr>Connect each of the words in the pairs to the correct language. The first row words are examples.</div>'
+        );
+        $(".task").fadeIn(1000);
+        $(pozadina).append(
+          '<div class="rijecUDrugomDijelu" style="top:200px;left:20px;cursor:not-allowed;">The Roots</div>'
+        );
+        $(pozadina).append(
+          '<div class="rijecUDrugomDijelu" style="top:200px;left:173px;cursor:not-allowed;">Language A</div>'
+        );
+        $(pozadina).append(
+          '<div class="rijecUDrugomDijelu" style="top:200px;left:326px;cursor:not-allowed">Language B</div>'
+        );
+        for (var j = 0; j < odgovor1.length; j++)
+          for (var i = 0; i < 3; i++) {
+            tablica[i][j] = document.createElement("div");
+            tablica[i][j].setAttribute("class", "rijecUDrugomDijelu");
+            if (i === 1)
+              tablica[i][j].appendChild(document.createTextNode(odgovor1[j]));
+            else if (i === 2)
+              tablica[i][j].appendChild(document.createTextNode(odgovor2[j]));
+            else
+              tablica[i][j].appendChild(
+                document.createTextNode("*" + original[rijeci[j]])
+              );
+            tablica[i][j].style.top = 228 + 27 * j;
+            tablica[i][j].style.left = 20 + 153 * i;
+            if (j) tablica[i][j].redak = j;
+            else tablica[i][j].style.cursor = "not-allowed";
+            tablica[i][j].onclick = function () {
+              var tmp = tablica[1][this.redak].style.left;
+              $(tablica[1][this.redak]).animate(
+                { left: tablica[2][this.redak].style.left },
+                500
+              );
+              $(tablica[2][this.redak]).animate({ left: tmp }, 500);
+              tmp = odgovor1[this.redak];
+              odgovor1[this.redak] = odgovor2[this.redak];
+              odgovor2[this.redak] = tmp;
+            };
+            pozadina.appendChild(tablica[i][j]);
+          }
+        $(pozadina).append('<div class="submit">SUBMIT</div>');
+        setTimeout(function () {
+          $(".rijecUDrugomDijelu").show();
+          $(".submit").show();
+        }, 1000);
+        $(".submit").click(rjesenjeDrugogDijela);
+      }
+      function rjesenjeDrugogDijela() {
+        var zastor = document.createElement("div");
+        zastor.setAttribute("class", "zastor");
+        zastor.appendChild(
+          document.createTextNode("Click OK to remove this layer.")
+        );
+        var prozor = document.createElement("div");
+        prozor.setAttribute("class", "rjesenje");
+        prozor.style.top = 150;
+        prozor.setAttribute("id", "draggable-element");
+        var score = 0;
+        for (var i = 1; i < 8; i++)
+          if (odgovor1[i] === language1[rijeci[i]]) score++;
+        bodovi += score * 2;
+        if (score === 7)
+          $(prozor).append(
+            '<div style="background: green; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;">CORRECT!</div>'
+          );
+        else
+          $(prozor).append(
+            '<div style="background: red; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;">INCORRECT!</div>'
+          );
+        var languageA = "";
+        for (var i = 0; i < 8; i++)
+          languageA +=
+            '"' +
+            language1[rijeci[i]] +
+            '"' +
+            (i < 6 ? ", " : i === 6 ? " and " : "");
+        var languageB = "";
+        for (var i = 0; i < 8; i++)
+          languageB +=
+            '"' +
+            language2[rijeci[i]] +
+            '"' +
+            (i < 6 ? ", " : i === 6 ? " and " : "");
+
+        $(prozor).append(
+          '<div style="text-align:justify; margin-top:5px; margin-bottom:10px; color:#222222; width:290px; margin-left:5px; margin-right:5px;" align="justfy">' +
+            "You scored " +
+            score +
+            "/7. That score is counted double in the final score. The words that belong to Language A are: " +
+            languageA +
+            ". The words that belong to Language B are: " +
+            languageB +
+            "." +
+            "</div>" +
+            '<center><div class="okButton">OK</div></center>'
+        );
+        prozor.setAttribute("draggable", "true");
+        zastor.appendChild(prozor);
+        pozadina.appendChild(zastor);
+        $(zastor).show();
+        var gotovo = false;
+        $(".okButton").click(function () {
+          if (!gotovo) {
+            pozadina.removeChild(zastor);
+            $(".task").fadeOut(1000);
+            $(".submit").fadeOut(1000);
+            $(".rijecUDrugomDijelu").fadeOut(1000);
+            setTimeout(uvodUTreciDio, 1500);
+          }
+          gotovo = true;
+        });
+        document.getElementById("draggable-element").onmousedown = function () {
+          dragInit(this);
+          return false;
+        };
+      }
+      function uvodUTreciDio() {
+        $(".task").remove();
+        $(".submit").remove();
+        $(".rijecUDrugomDijelu").remove();
+        $("l2").hide();
+        $("p2").hide();
+        $(pozadina).append(
+          '<div class="introduction">Part 3:<br><br>Here are three formally written descriptions of phonologies of the simulated languages, in a format that would be used by an actual linguist. Can you recognize which one belongs to which language?</div>'
+        );
+        $(".introduction").fadeIn(2000);
+        $(pozadina).append('<div class="proceed">PROCEED >></div>');
+        setTimeout(function () {
+          $(".proceed").show();
+        }, 2000);
+        $(".proceed").click(function () {
+          $(".introduction").fadeOut(1000);
+          $(".proceed").fadeOut(1000);
+          setTimeout(primjerTrecegDijela, 1500);
+        });
+      }
+      var selectedLanguage = "none",
+        odgovor3 = [0, 0, 0, 0];
+      function primjerTrecegDijela() {
+        $(".introduction").remove();
+        $(".proceed").remove();
+        $("#l2").hide();
+        $("#p2").hide();
+        $(pozadina).append(
+          '<div class="task">EXAMPLE<hr/>Connect the formal descriptions of the sound changes to the language they belong to:</div>'
+        );
+        $(pozadina).append(
+          '<div class="fonoloskiOpis" id="lp1" style="top:200px">0[t]>z</div>'
+        );
+        $(pozadina).append(
+          '<div class="nazivJezika" id="ln1" style="top:200px">English</div>'
+        );
+        $(pozadina).append(
+          '<div class="fonoloskiOpis" id="lp3" style="top:370px">V[b]V>v</div>'
+        );
+        $(pozadina).append(
+          '<div class="nazivJezika" id="ln3" style="top:370px;">German</div>'
+        );
+        $(pozadina).append('<div class="submit">SUBMIT!</div>');
+        setTimeout(function () {
+          $("#connect").show();
+        }, 1500);
+        $(".task").fadeIn(1500);
+        setTimeout(function () {
+          $(".fonoloskiOpis").show();
+        }, 1500);
+        setTimeout(function () {
+          $(".nazivJezika").show();
+        }, 1500);
+        setTimeout(function () {
+          $(".submit").show();
+        }, 1500);
+        $(".nazivJezika").click(function () {
+          selectLanguage(this.getAttribute("id").charAt(2));
+        });
+        $(".fonoloskiOpis").click(function () {
+          selectPhonology(this.getAttribute("id").charAt(2));
+        });
+        $(".submit").click(krajTrecegPrimjera);
+      }
+      function krajTrecegPrimjera() {
+        var zastor = document.createElement("div");
+        zastor.setAttribute("class", "zastor");
+        zastor.appendChild(
+          document.createTextNode("Click OK to remove this layer.")
+        );
+        var prozor = document.createElement("div");
+        prozor.setAttribute("class", "rjesenje");
+        prozor.setAttribute("id", "draggable-element");
+        if (odgovor3[1] * 1 === 3 && odgovor3[3] * 1 === 1)
+          $(prozor).append(
+            '<div style="background: green; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;">CORRECT!</div>'
+          );
+        else
+          $(prozor).append(
+            '<div style="background: red; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;">INCORRECT!</div>'
+          );
+        $(prozor).append(
+          '<div style="text-align:justify; margin-top:5px; margin-bottom:10px; color:#222222; width:290px; margin-left:5px; margin-right:5px;" align="justfy">' +
+            "The change '0[t]>z' belongs to German, because, in German, 't' in the beginning of a word changes into 'z'. The change 'V[b]V>v' belongs to English, because, in English, 'b' between two vowels turns to a 'v' (compare, for instance, English 'have' and German 'haben' or English 'give' and German 'geben')." +
+            "</div>" +
+            '<center><div class="okButton">OK</div></center>'
+        );
+        prozor.setAttribute("draggable", "true");
+        zastor.appendChild(prozor);
+        pozadina.appendChild(zastor);
+        $(zastor).show();
+        var gotovo = false;
+        $(".okButton").click(function () {
+          if (!gotovo) {
+            pozadina.removeChild(zastor);
+            $(".task").fadeOut(1000);
+            $(".fonoloskiOpis").fadeOut(1000);
+            $(".nazivJezika").fadeOut(1000);
+            $(".submit").fadeOut(1000);
+            $("#connect").fadeOut(1000);
+            setTimeout(treciDio, 1500);
+          }
+          gotovo = true;
+        });
+
+        document.getElementById("draggable-element").onmousedown = function () {
+          dragInit(this);
+          return false;
+        };
+      }
+      var prvi = Math.floor(Math.random() * 3);
+      var drugi;
+      do {
+        drugi = Math.floor(Math.random() * 3);
+      } while (drugi === prvi);
+      var treci;
+      do {
+        treci = Math.floor(Math.random() * 3);
+      } while (treci === drugi || treci === prvi);
+      function treciDio() {
+        $(".task").remove();
+        $(".fonoloskiOpis").remove();
+        $(".nazivJezika").remove();
+        $(".submit").remove();
+        for (var i = 1; i < 4; i++)
+          for (var j = 1; j < 4; j++) $("#line" + i + j).hide();
+        $("#l2").show();
+        $("#p2").show();
+        for (var i = 0; i < 4; i++) odgovor3[i] = 0;
+        selectedLanguage = "none";
+        $(pozadina).append(
+          '<div class="task">TASK<hr/>Connect the formal descriptions of the sound changes to the language they belong to:</div>'
+        );
+        $(pozadina).append(
+          '<div class="fonoloskiOpis" id="lp1" style="top:200px">' +
+            fonologija[prvi] +
+            "</div>"
+        );
+        $(pozadina).append(
+          '<div class="nazivJezika" id="ln1" style="top:200px">Proto-Language<br>(the roots)</div>'
+        );
+        $(pozadina).append(
+          '<div class="fonoloskiOpis" id="lp2" style="top:285px">' +
+            fonologija[drugi] +
+            "</div>"
+        );
+        $(pozadina).append(
+          '<div class="nazivJezika" id="ln2" style="top:285px;">Language A</div>'
+        );
+        $(pozadina).append(
+          '<div class="fonoloskiOpis" id="lp3" style="top:370px">' +
+            fonologija[treci] +
+            "</div>"
+        );
+        $(pozadina).append(
+          '<div class="nazivJezika" id="ln3" style="top:370px;">Language B</div>'
+        );
+        $(pozadina).append('<div class="submit">SUBMIT!</div>');
+        setTimeout(function () {
+          $("#connect").show();
+        }, 1500);
+        $(".task").fadeIn(1500);
+        setTimeout(function () {
+          $(".fonoloskiOpis").show();
+        }, 1500);
+        setTimeout(function () {
+          $(".nazivJezika").show();
+        }, 1500);
+        setTimeout(function () {
+          $(".submit").show();
+        }, 1500);
+        $(".nazivJezika").click(function () {
+          selectLanguage(this.getAttribute("id").charAt(2));
+        });
+        $(".fonoloskiOpis").click(function () {
+          selectPhonology(this.getAttribute("id").charAt(2));
+        });
+        $(".submit").click(krajTrecegDijela);
+      }
+      function krajTrecegDijela() {
+        var zastor = document.createElement("div");
+        zastor.setAttribute("class", "zastor");
+        zastor.appendChild(
+          document.createTextNode("Click OK to remove this layer.")
+        );
+        var prozor = document.createElement("div");
+        prozor.setAttribute("class", "rjesenje");
+        prozor.setAttribute("id", "draggable-element");
+        prozor.style.top = 200;
+        if (
+          document.getElementById("lp" + odgovor3[1]).textContent ===
+            fonologija[0] &&
+          document.getElementById("lp" + odgovor3[2]).textContent ===
+            fonologija[1]
+        ) {
+          $(prozor).append(
+            '<div style="background: green; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;">CORRECT!</div>'
+          );
+          bodovi += 15;
+        } else
+          $(prozor).append(
+            '<div style="background: red; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;">INCORRECT!</div>'
+          );
+        $(prozor).append(
+          '<div id="solution" style="text-align:justify; margin-top:5px; margin-bottom:10px; color:#222222; width:290px; margin-left:5px; margin-right:5px;" align="justfy">' +
+            "This puzzle is worth 15 points. The solution is:<br/>" +
+            "</div>" +
+            '<center><div class="okButton">OK</div></center>'
+        );
+        prozor.setAttribute("draggable", "true");
+        zastor.appendChild(prozor);
+        pozadina.appendChild(zastor);
+        $(zastor).show();
+        var gotovo = false;
+        $(".okButton").click(function () {
+          if (!gotovo) {
+            pozadina.removeChild(zastor);
+            $(".task").fadeOut(1000);
+            $(".fonoloskiOpis").fadeOut(1000);
+            $(".nazivJezika").fadeOut(1000);
+            $(".submit").fadeOut(1000);
+            $("#connect").fadeOut(1000);
+            setTimeout(kraj, 1500);
+          }
+          gotovo = true;
+        });
+        document.getElementById("draggable-element").onmousedown = function () {
+          dragInit(this);
+          return false;
+        };
+        var solution = document.getElementById("solution");
+        solution.appendChild(document.createTextNode("Proto-language: "));
+        if (prvi === 0) solution.appendChild(document.createTextNode("1)"));
+        else if (drugi === 0)
+          solution.appendChild(document.createTextNode("2)"));
+        else solution.appendChild(document.createTextNode("3)"));
+        solution.appendChild(document.createElement("br"));
+        solution.appendChild(document.createTextNode("Language A: "));
+        if (prvi === 1) solution.appendChild(document.createTextNode("1)"));
+        else if (drugi === 1)
+          solution.appendChild(document.createTextNode("2)"));
+        else solution.appendChild(document.createTextNode("3)"));
+        solution.appendChild(document.createElement("br"));
+        solution.appendChild(document.createTextNode("Language B: "));
+        if (prvi === 2) solution.appendChild(document.createTextNode("1)"));
+        else if (drugi === 2)
+          solution.appendChild(document.createTextNode("2)"));
+        else solution.appendChild(document.createTextNode("3)"));
+        solution.appendChild(document.createElement("br"));
+      }
+      function kraj() {
+        $(pozadina).append(
+          '<div class="introduction">THE END!<br><br>Hope you enjoyed it!<br>You scored ' +
+            bodovi +
+            "/" +
+            (brojPitanja + 29) +
+            " points.<br><br>Author: Teo Samar\u017eija<br>Thanks to Boris Muminovi\u0107 for his help with the graphic interface (draggable popups and Part 3).<br><br>Thanks to Daniel Ross for his help with the algorithm.</div>"
+        );
+        $(".introduction").fadeIn(2000);
+        $(pozadina).append('<div class="proceed">EXIT</div>');
+        setTimeout(function () {
+          $(".proceed").show();
+        }, 2000);
+        $(".proceed").click(function () {
+          history.back();
+          window.close();
+        });
+      }
+      function selectLanguage(broj) {
+        if (selectedLanguage !== "none") {
+          document.getElementById("ln" + selectedLanguage).style.background =
+            "#7777FF";
+          document
+            .getElementById("l" + selectedLanguage)
+            .setAttribute("fill", "#7777FF");
+        }
+        selectedLanguage = broj;
+        document.getElementById("ln" + selectedLanguage).style.background =
+          "#FFAAFF";
+        document
+          .getElementById("l" + selectedLanguage)
+          .setAttribute("fill", "#FFAAFF");
+        for (var i = 1; i < 4; i++)
+          document.getElementById("line" + selectedLanguage + i).style.display =
+            "none";
+        odgovor3[broj] = 0;
+      }
+      function selectPhonology(broj) {
+        if (
+          selectedLanguage === "none" ||
+          odgovor3[1] === broj ||
+          odgovor3[2] === broj ||
+          odgovor3[3] === broj
+        )
+          return;
+        document.getElementById("ln" + selectedLanguage).style.background =
+          "#7777FF";
+        document
+          .getElementById("l" + selectedLanguage)
+          .setAttribute("fill", "#7777FF");
+        $("#line" + selectedLanguage + broj).show();
+        odgovor3[selectedLanguage] = broj;
+        selectedLanguage = "none";
+      }
+      // Boris
+      // Draggable
+
+      var selected = null;
+      var x_pos = 0;
+      var y_pos = 0;
+      var x_elem = 0;
+      var y_elem = 0;
+
+      function dragInit(elem) {
+        selected = elem;
+        x_elem = x_pos - selected.offsetLeft;
+        y_elem = y_pos - selected.offsetTop;
+      }
+
+      function moveElement(e) {
+        x_pos = document.all ? window.event.clientX : e.pageX;
+        y_pos = document.all ? window.event.clientY : e.pageY;
+        if (selected !== null) {
+          selected.style.left = x_pos - x_elem + "px";
+          selected.style.top = y_pos - y_elem + "px";
+        }
+      }
+
+      function destroy() {
+        selected = null;
+      }
+
+      document.onmousemove = moveElement;
+      document.onmouseup = destroy;
+
+      // Problem 1
+      // Ovaj kod koji sam zakomentirao je bio da se moze mijenjati odgovor 'on the fly' i u redu je sve do zadnjeg koraka s linijama, a ja zbilja nemam vremena to debugirati tako da sad stoji Reset button, a ti ako imas vremena igraj se s tim :)
+
+      /*var connectLetters = document.getElementsByClassName('connectLetter'); // Sva slova
              var connectNumbers = document.getElementsByClassName('connectNumber'); // Svi brojevi
              var connectReset = document.getElementById('reset'); // Reset button
              var connectStarted = false; // Ovo treba da bi se prvo slovo moglo odabrati, prije nego krene logika
@@ -1736,6 +2365,6 @@
              connectArray = [];
              connectAnswers = [];
              };*/
-        </script>
-    </body>
+    </script>
+  </body>
 </html>
