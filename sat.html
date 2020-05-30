@@ -1,104 +1,260 @@
 <html>
-<head>
-<title>Analog Clock in JavaScript</title>
-<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-</head>
-<body>
-    <svg id="crtanje" viewBox="0 0 300 500" style="overflow:visible; position:absolute; max-width:300px; max-height:500px; width:95%; height:95%;">
-    <defs>
+  <head>
+    <title>Analog Clock in JavaScript</title>
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+      name="viewport"
+    />
+  </head>
+  <body>
+    <svg
+      id="crtanje"
+      viewBox="0 0 300 500"
+      style="
+        overflow: visible;
+        position: absolute;
+        max-width: 300px;
+        max-height: 500px;
+        width: 95%;
+        height: 95%;
+      "
+    >
+      <defs>
         <radialGradient id="radijalni1">
-            <stop offset="0%" stop-color="white"/>
-            <stop offset="100%" stop-color="#FFEE77"/>
+          <stop offset="0%" stop-color="white" />
+          <stop offset="100%" stop-color="#FFEE77" />
         </radialGradient>
         <radialGradient id="radijalni2">
-            <stop offset="0%" stop-color="white"/>
-            <stop offset="100%" stop-color="silver"/>
+          <stop offset="0%" stop-color="white" />
+          <stop offset="100%" stop-color="silver" />
         </radialGradient>
         <linearGradient id="linearni" x1="0%" x2="100%" y1="0%" y2="0%">
-            <stop offset="0%" stop-color="#662200"/>
-            <stop offset="50%" stop-color="brown"/>
-            <stop offset="100%" stop-color="#662200"/>
+          <stop offset="0%" stop-color="#662200" />
+          <stop offset="50%" stop-color="brown" />
+          <stop offset="100%" stop-color="#662200" />
         </linearGradient>
-    </defs>
-    <rect id="pozadina" x=-5 y=-5 width=310 height=510 />
-    <polygon id="drzak" points="140,150 160,150 160,450 140,450" fill="url(#linearni)"/>
-    <circle id="klatno" cx=150 cy=450 r=30 fill="url(#radijalni2)"/>
-    <circle cx=150 cy=150 r=150 fill="url(#radijalni1)"/>
-    <text x=120 y=175 font-size="10px" font-family="Lucida Console" fill="#662200">Analog Clock</text>
-    <text x=110 y=190 font-size="10px" font-family="Lucida Console" fill="#662200">Made in JavaScript</text>
-    <text x=105 y=205 font-size="10px" font-family="Lucida Console" fill="#662200">Author: Teo Samarzija</text>
-    <text x=135 y=35 font-size="36px" font-family="Times New Roman" fill="#662200">12</text>
-    <text x=140 y=290 font-size="36px" font-family="Times New Roman" fill="#662200">6</text>
-    <text x=275 y=160 font-size="36px" font-family="Times New Roman" fill="#662200">3</text>
-    <text x=10 y=160 font-size="36px" font-family="Times New Roman" fill="#662200">9</text>
-    <text x=212 y=52.5 font-size="36px" font-family="Times New Roman" fill="#662200">1</text>
-    <text x=249.5 y=92.5 font-size="36px" font-family="Times New Roman" fill="#662200">2</text>
-    <text x=252.5 y=217.5 font-size="36px" font-family="Times New Roman" fill="#662200">4</text>
-    <text x=210 y=267.5 font-size="36px" font-family="Times New Roman" fill="#662200">5</text>
-    <text x=77.5 y=270 font-size="36px" font-family="Times New Roman" fill="#662200">7</text>
-    <text x=27.5 y=217.5 font-size="36px" font-family="Times New Roman" fill="#662200">8</text>
-    <text x=30 y=92.5 font-size="36px" font-family="Times New Roman" fill="#662200">10</text>
-    <text x=75 y=52.5 font-size="36px" font-family="Times New Roman" fill="#662200">11</text>
-    <line id="sekunde" x1=150 y1=40 x2=150 y2=150 stroke="red"/>
-    <polygon id="minute" points="150,150 147.5,100 150,50 152.5,100" fill="brown"/>
-    <polygon id="sati" points="150,150 145,112.5 150,75 155,112.5" fill="brown"/>
-</svg>
-<script type="text/javascript">
-var svgNS="http://www.w3.org/2000/svg";
-var crtanje=document.getElementById("crtanje");
-var rotacijaKlatna=0;
-var smijerKlatna=true;
-var changed=0;
-window.onresize=function()
-{
-    document.getElementById("crtanje").style.left=document.body.clientWidth/2-Math.min(document.body.clientWidth*0.95,300)/2+"px";
-    document.getElementById("crtanje").style.top=document.body.clientHeight/2-Math.min(document.body.clientHeight*0.95,500)/2+"px";
-}
-onresize();
-function updateTime()
-{
-    var sat=new Date();
-    var sekunde=document.getElementById("sekunde");
-    var minute=document.getElementById("minute");
-    var sati=document.getElementById("sati");
-    var klatno=document.getElementById("klatno");
-    var drzak=document.getElementById("drzak");
-    var kut1=Math.PI/30*sat.getSeconds();
-    sekunde.setAttribute("x1",150+Math.sin(kut1)*110);
-    sekunde.setAttribute("y1",150-Math.cos(kut1)*110);
-    var rotacijaMinute=Math.round(360/60*sat.getMinutes());
-    var rotacijaSata=Math.round(30*(sat.getHours()%12)+0.5*sat.getMinutes());
-    minute.setAttribute("transform","rotate("+rotacijaMinute+",150,150)");
-    sati.setAttribute("transform","rotate("+rotacijaSata+",150,150)");
-    var height=300-Math.cos(rotacijaKlatna/(180/Math.PI))*300;
-    var speed=Math.sqrt((Math.abs(7-Math.abs(height)))/600)*12;
-    if (smijerKlatna)
-        rotacijaKlatna+=speed;
-    else
-        rotacijaKlatna-=speed;
-    if ((rotacijaKlatna<-12 || rotacijaKlatna>12) && !changed) {
-        smijerKlatna=!smijerKlatna;
-        changed=5;
-    }
-    else if (changed)
-        changed--;
-    if (Math.abs(rotacijaKlatna)>11 && changed==1)
-        rotacijaKlatna*=19/20;
-    klatno.setAttribute("transform","rotate("+Math.round(rotacijaKlatna*10)/10+",150,175)");
-    drzak.setAttribute("transform","rotate("+Math.round(rotacijaKlatna*10)/10+",150,175)");
-}
-for (var i=0; i<60; i++)
-{
-    var line=document.createElementNS(svgNS,"line");
-    line.setAttribute("x1",150+Math.sin(i*Math.PI/30)*150);
-    line.setAttribute("y1",150-Math.cos(i*Math.PI/30)*150);
-    line.setAttribute("x2",150+Math.sin(i*Math.PI/30)*145);
-    line.setAttribute("y2",150-Math.cos(i*Math.PI/30)*145);
-    line.setAttribute("stroke","#662200");
-    if (!(i%5)) line.setAttribute("stroke-width",3);
-    crtanje.appendChild(line);
-}
-setInterval(updateTime,100);
-</script>
-</body>
+      </defs>
+      <rect id="pozadina" x="-5" y="-5" width="310" height="510" />
+      <polygon
+        id="drzak"
+        points="140,150 160,150 160,450 140,450"
+        fill="url(#linearni)"
+      />
+      <circle id="klatno" cx="150" cy="450" r="30" fill="url(#radijalni2)" />
+      <circle cx="150" cy="150" r="150" fill="url(#radijalni1)" />
+      <text
+        x="120"
+        y="175"
+        font-size="10px"
+        font-family="Lucida Console"
+        fill="#662200"
+      >
+        Analog Clock
+      </text>
+      <text
+        x="110"
+        y="190"
+        font-size="10px"
+        font-family="Lucida Console"
+        fill="#662200"
+      >
+        Made in JavaScript
+      </text>
+      <text
+        x="105"
+        y="205"
+        font-size="10px"
+        font-family="Lucida Console"
+        fill="#662200"
+      >
+        Author: Teo Samarzija
+      </text>
+      <text
+        x="135"
+        y="35"
+        font-size="36px"
+        font-family="Times New Roman"
+        fill="#662200"
+      >
+        12
+      </text>
+      <text
+        x="140"
+        y="290"
+        font-size="36px"
+        font-family="Times New Roman"
+        fill="#662200"
+      >
+        6
+      </text>
+      <text
+        x="275"
+        y="160"
+        font-size="36px"
+        font-family="Times New Roman"
+        fill="#662200"
+      >
+        3
+      </text>
+      <text
+        x="10"
+        y="160"
+        font-size="36px"
+        font-family="Times New Roman"
+        fill="#662200"
+      >
+        9
+      </text>
+      <text
+        x="212"
+        y="52.5"
+        font-size="36px"
+        font-family="Times New Roman"
+        fill="#662200"
+      >
+        1
+      </text>
+      <text
+        x="249.5"
+        y="92.5"
+        font-size="36px"
+        font-family="Times New Roman"
+        fill="#662200"
+      >
+        2
+      </text>
+      <text
+        x="252.5"
+        y="217.5"
+        font-size="36px"
+        font-family="Times New Roman"
+        fill="#662200"
+      >
+        4
+      </text>
+      <text
+        x="210"
+        y="267.5"
+        font-size="36px"
+        font-family="Times New Roman"
+        fill="#662200"
+      >
+        5
+      </text>
+      <text
+        x="77.5"
+        y="270"
+        font-size="36px"
+        font-family="Times New Roman"
+        fill="#662200"
+      >
+        7
+      </text>
+      <text
+        x="27.5"
+        y="217.5"
+        font-size="36px"
+        font-family="Times New Roman"
+        fill="#662200"
+      >
+        8
+      </text>
+      <text
+        x="30"
+        y="92.5"
+        font-size="36px"
+        font-family="Times New Roman"
+        fill="#662200"
+      >
+        10
+      </text>
+      <text
+        x="75"
+        y="52.5"
+        font-size="36px"
+        font-family="Times New Roman"
+        fill="#662200"
+      >
+        11
+      </text>
+      <line id="sekunde" x1="150" y1="40" x2="150" y2="150" stroke="red" />
+      <polygon
+        id="minute"
+        points="150,150 147.5,100 150,50 152.5,100"
+        fill="brown"
+      />
+      <polygon
+        id="sati"
+        points="150,150 145,112.5 150,75 155,112.5"
+        fill="brown"
+      />
+    </svg>
+    <script type="text/javascript">
+      var svgNS = "http://www.w3.org/2000/svg";
+      var crtanje = document.getElementById("crtanje");
+      var rotacijaKlatna = 0;
+      var smijerKlatna = true;
+      var changed = 0;
+      window.onresize = function () {
+        document.getElementById("crtanje").style.left =
+          document.body.clientWidth / 2 -
+          Math.min(document.body.clientWidth * 0.95, 300) / 2 +
+          "px";
+        document.getElementById("crtanje").style.top =
+          document.body.clientHeight / 2 -
+          Math.min(document.body.clientHeight * 0.95, 500) / 2 +
+          "px";
+      };
+      onresize();
+      function updateTime() {
+        var sat = new Date();
+        var sekunde = document.getElementById("sekunde");
+        var minute = document.getElementById("minute");
+        var sati = document.getElementById("sati");
+        var klatno = document.getElementById("klatno");
+        var drzak = document.getElementById("drzak");
+        var kut1 = (Math.PI / 30) * sat.getSeconds();
+        sekunde.setAttribute("x1", 150 + Math.sin(kut1) * 110);
+        sekunde.setAttribute("y1", 150 - Math.cos(kut1) * 110);
+        var rotacijaMinute = Math.round((360 / 60) * sat.getMinutes());
+        var rotacijaSata = Math.round(
+          30 * (sat.getHours() % 12) + 0.5 * sat.getMinutes()
+        );
+        minute.setAttribute(
+          "transform",
+          "rotate(" + rotacijaMinute + ",150,150)"
+        );
+        sati.setAttribute("transform", "rotate(" + rotacijaSata + ",150,150)");
+        var height = 300 - Math.cos(rotacijaKlatna / (180 / Math.PI)) * 300;
+        var speed = Math.sqrt(Math.abs(7 - Math.abs(height)) / 600) * 12;
+        if (smijerKlatna) rotacijaKlatna += speed;
+        else rotacijaKlatna -= speed;
+        if ((rotacijaKlatna < -12 || rotacijaKlatna > 12) && !changed) {
+          smijerKlatna = !smijerKlatna;
+          changed = 5;
+        } else if (changed) changed--;
+        if (Math.abs(rotacijaKlatna) > 11 && changed == 1)
+          rotacijaKlatna *= 19 / 20;
+        klatno.setAttribute(
+          "transform",
+          "rotate(" + Math.round(rotacijaKlatna * 10) / 10 + ",150,175)"
+        );
+        drzak.setAttribute(
+          "transform",
+          "rotate(" + Math.round(rotacijaKlatna * 10) / 10 + ",150,175)"
+        );
+      }
+      for (var i = 0; i < 60; i++) {
+        var line = document.createElementNS(svgNS, "line");
+        line.setAttribute("x1", 150 + Math.sin((i * Math.PI) / 30) * 150);
+        line.setAttribute("y1", 150 - Math.cos((i * Math.PI) / 30) * 150);
+        line.setAttribute("x2", 150 + Math.sin((i * Math.PI) / 30) * 145);
+        line.setAttribute("y2", 150 - Math.cos((i * Math.PI) / 30) * 145);
+        line.setAttribute("stroke", "#662200");
+        if (!(i % 5)) line.setAttribute("stroke-width", 3);
+        crtanje.appendChild(line);
+      }
+      setInterval(updateTime, 100);
+    </script>
+  </body>
 </html>
