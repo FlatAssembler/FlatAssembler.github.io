@@ -223,35 +223,36 @@ CSS - https://www.w3schools.com/css/default.asp
         brojacAnimacijskePetlje = 0,
         kolikoJePutaDuhPromijenioSmjer = 0;
       var hasPacmanChangedDirection = false; //Je li za vrijeme izvrsavanja animacijske petlje promijenjen smjer kretanja PacMan-a.
-      var pocetnoStanjeLabirinta = new Array(19);
-      /*
-                     W - zid
-                     B - velika tockica (koja, kada ju PacMan pojede, ucini da duhovi poplave).
-                     P - mala tockica (donosi bodove, te, ako ih PacMan sve pojede, prelazi na iduci level).
-                     C - PacMan (gdje se nalazi na pocetku nivoa)
-                     1 - crveni duh
-                     2 - ruzicasti duh
-                     3 - narancasti duh
-                     */
-      pocetnoStanjeLabirinta[0] = "               ";
-      pocetnoStanjeLabirinta[1] = " WWWWWWWWWWWWW ";
-      pocetnoStanjeLabirinta[2] = " WBPPPPWPPPPBW ";
-      pocetnoStanjeLabirinta[3] = " WPWWWPWPWWWPW ";
-      pocetnoStanjeLabirinta[4] = " WPW WPWPW WPW ";
-      pocetnoStanjeLabirinta[5] = " WPWWWPWPWWWPW ";
-      pocetnoStanjeLabirinta[6] = " WPPPPP PPPPPW ";
-      pocetnoStanjeLabirinta[7] = "WWWWPWW WWPWWWW";
-      pocetnoStanjeLabirinta[8] = "    PW123WP    ";
-      pocetnoStanjeLabirinta[9] = "WWWWPWWWWWPWWWW";
-      pocetnoStanjeLabirinta[10] = "   WPP C PPW   ";
-      pocetnoStanjeLabirinta[11] = " WWWPWWWWWPWWW ";
-      pocetnoStanjeLabirinta[12] = " WPPPPPPPPPPPW ";
-      pocetnoStanjeLabirinta[13] = " WPWWWWPWWWWPW ";
-      pocetnoStanjeLabirinta[14] = " WPW  WPW  WPW ";
-      pocetnoStanjeLabirinta[15] = " WPWWWWPWWWWPW ";
-      pocetnoStanjeLabirinta[16] = " WPPPPPBPPPPPW ";
-      pocetnoStanjeLabirinta[17] = " WWWWWWWWWWWWW ";
-      pocetnoStanjeLabirinta[18] = "               ";
+      var pocetnoStanjeLabirinta = [
+        /*
+            W - zid
+            B - velika tockica (koja, kada ju PacMan pojede, ucini da duhovi poplave).
+            P - mala tockica (donosi bodove, te, ako ih PacMan sve pojede, prelazi na iduci level).
+            C - PacMan (gdje se nalazi na pocetku nivoa)
+            1 - crveni duh
+            2 - ruzicasti duh
+            3 - narancasti duh
+         */
+        "               ",
+        " WWWWWWWWWWWWW ",
+        " WBPPPPWPPPPBW ",
+        " WPWWWPWPWWWPW ",
+        " WPW WPWPW WPW ",
+        " WPWWWPWPWWWPW ",
+        " WPPPPP PPPPPW ",
+        "WWWWPWW WWPWWWW",
+        "    PW123WP    ",
+        "WWWWPWWWWWPWWWW",
+        "   WPP C PPW   ",
+        " WWWPWWWWWPWWW ",
+        " WPPPPPPPPPPPW ",
+        " WPWWWWPWWWWPW ",
+        " WPW  WPW  WPW ",
+        " WPWWWWPWWWWPW ",
+        " WPPPPPBPPPPPW ",
+        " WWWWWWWWWWWWW ",
+        "               ",
+      ];
       var smjer = {
         //Ovako se u JavaScriptu radi ono sto se u C-u radi naredbom "enum".
         gore: 0,
