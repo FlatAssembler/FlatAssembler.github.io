@@ -226,7 +226,9 @@ function crossTwoPolynoms(polynom1, polynom2) {
   }
   let polynom = [];
   for (let i = 0; i < polynom1.length; i++) {
-    if (Math.random() < 1 / 2) polynom.push(polynom1[i]);
+    if (Math.random() < 1 / 3) polynom.push(polynom1[i]);
+    else if (Math.random() < 1 / 2)
+      polynom.push((polynom1[i] + polynom2[i]) / 2);
     else polynom.push(polynom2[i]);
     polynom[i] += -1 / 20 + (2 * Math.random()) / 20;
   }
@@ -257,7 +259,24 @@ function curveFitting() {
   const numberOfCurves = 12;
   for (let i = 0; i < iterations; i++) {
     if (polynoms.length == 0) {
-      for (let i = 0; i < numberOfCurves * numberOfCurves; i++)
+      if (grade == 7) {
+        polynoms.push([
+          -6.025,
+          7.356,
+          2.352,
+          -0.717,
+          -8.871,
+          8.255,
+          -3.354,
+          1.006,
+        ]); //An exceptionally good one I found.
+        polynoms.push([-3.607, 4.47, 2.519, -3.48, -3.394, 5.413, -2.918, 1]); //Another one such.
+      }
+      for (
+        let i = 0;
+        i < numberOfCurves * numberOfCurves - (grade == 7 ? 2 : 0);
+        i++
+      )
         polynoms.push(getRandomPolynom(grade, boundaries));
     } else {
       for (let i = 0; i < numberOfCurves; i++)
