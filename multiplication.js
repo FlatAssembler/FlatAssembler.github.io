@@ -211,11 +211,11 @@ function calculateErrorOfTheApproximation(polynom) {
   let error = 0;
   for (let i = 0; i < n; i++)
     error += Math.pow(
-      evaluatePolynomAt(polynom, i / n) - frequencies[i] / (n - 1),
+      evaluatePolynomAt(polynom, (i + 1 / 2) / n) - frequencies[i] / n,
       2
     );
   error += 3 * Math.pow(evaluatePolynomAt(polynom, 1), 2); //The most important points count for three times more than other points.
-  error += 2 * Math.pow(evaluatePolynomAt(polynom, 0) - 1, 2);
+  error += 3 * Math.pow(evaluatePolynomAt(polynom, 0) - 1, 2);
   return error;
 }
 function crossTwoPolynoms(polynom1, polynom2) {
@@ -239,8 +239,8 @@ function convertPolynomToString(polynom) {
     if (polynom[i] >= 0 && i > 0) result += "+";
     result += Math.round(polynom[i] * 1000) / 1000;
     if (i != polynom.length - 1 && i != polynom.length - 2)
-      result += "*x^" + (polynom.length - i - 1);
-    else if (i == polynom.length - 2) result += "*x";
+      result += "x<sup>" + (polynom.length - i - 1) + "</sup>";
+    else if (i == polynom.length - 2) result += "x";
   }
   return result;
 }
@@ -342,13 +342,15 @@ function curveFitting() {
         "M " +
         (30 + x * graphWidth) +
         " " +
-        (graph.clientHeight - 20 - y * graphHeight);
+        (graph.clientHeight - 20 - y * graphHeight) +
+        " ";
     else
       path +=
         "L " +
         (30 + x * graphWidth) +
         " " +
-        (graph.clientHeight - 20 - y * graphHeight);
+        (graph.clientHeight - 20 - y * graphHeight) +
+        " ";
   }
   path +=
     "L " +
@@ -359,4 +361,16 @@ function curveFitting() {
     (graph.clientHeight - 20);
   graph.innerHTML +=
     '<path d="' + path + '" fill="blue" stroke="black" stroke-width="2"/>';
+  path = "";
+  for (let i = 0; i < n; i++) {
+    if (i == 0) path += "M ";
+    else path += "L ";
+    path +=
+      +(30 + ((i + 1 / 2) / n) * graphWidth) +
+      " " +
+      (graph.clientHeight - 20 - (frequencies[i] / n) * graphHeight) +
+      " ";
+  }
+  graph.innerHTML +=
+    '<path d="' + path + '" fill="none" stroke="red" stroke-width="2"/>';
 }
