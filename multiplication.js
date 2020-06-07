@@ -1,11 +1,14 @@
 "use strict";
 window.onload = function () {
   document.getElementById("calculate").onclick = calculate;
+  document.getElementById("genetic").onclick = curveFitting;
 };
+let frequencies = [],
+  n = 0;
 function calculate() {
-  const n = parseInt(document.getElementById("input").value);
+  n = parseInt(document.getElementById("input").value);
   if (n < 2 || isNaN(n)) {
-    alert("Multiplication table needs to have at least two rows and collumns.");
+    alert("Multiplication table needs to have at least two rows and columns.");
     return;
   }
   const graph = document.getElementById("graph");
@@ -23,7 +26,7 @@ function calculate() {
   variance /= numbersInTable.size;
   let deviation = Math.sqrt(variance);
   document.getElementById("deviation").innerHTML = deviation;
-  let frequencies = [];
+  frequencies = [];
   let tableRow = [];
   for (let i = 0; i < n + 1; i++) {
     frequencies[i] = 0;
@@ -102,6 +105,11 @@ function calculate() {
   mu3 /= numbersInTable.size;
   let asymmetry = mu3 / Math.pow(deviation, 3);
   document.getElementById("asymmetry").innerHTML = asymmetry;
+  let mu4 = 0;
+  for (let number of numbersInTable) mu4 += Math.pow(number - expectation, 4);
+  mu4 /= numbersInTable.size;
+  let kurtosis = mu4 / Math.pow(deviation, 4);
+  document.getElementById("kurtosis").innerHTML = kurtosis;
   const table = document.getElementById("table");
   table.innerHTML = "<tr><th>Range</th><th>Numbers</th><th>Frequency</th></tr>";
   for (let i = 0; i < n; i++)
@@ -185,4 +193,170 @@ function calculate() {
             />
         `;
   }
+}
+let polynoms = [];
+function getRandomPolynom(grade, boundaries) {
+  let polynom = [];
+  for (let i = 0; i < grade + 1; i++)
+    polynom.push(Math.random() * boundaries * 2 - boundaries);
+  return polynom;
+}
+function evaluatePolynomAt(polynom, x) {
+  let y = 0;
+  for (let i = 0; i < polynom.length; i++)
+    y += polynom[i] * Math.pow(x, polynom.length - i - 1);
+  return y;
+}
+function calculateErrorOfTheApproximation(polynom) {
+  let error = 0;
+  for (let i = 0; i < n; i++)
+    error += Math.pow(
+      evaluatePolynomAt(polynom, i / n) - frequencies[i] / (n - 1),
+      2
+    );
+  error += 3 * Math.pow(evaluatePolynomAt(polynom, 1), 2); //The most important points count for three times more than other points.
+  error += 2 * Math.pow(evaluatePolynomAt(polynom, 0) - 1, 2);
+  return error;
+}
+function crossTwoPolynoms(polynom1, polynom2) {
+  if (polynom1.length !== polynom2.length) {
+    let error = "Polynomials to be crossed aren't of the same grade!";
+    alert(error);
+    throw error;
+  }
+  let polynom = [];
+  for (let i = 0; i < polynom1.length; i++) {
+    if (Math.random() < 1 / 2) polynom.push(polynom1[i]);
+    else polynom.push(polynom2[i]);
+    polynom[i] += -1 / 20 + (2 * Math.random()) / 20;
+  }
+  return polynom;
+}
+function convertPolynomToString(polynom) {
+  let result = "";
+  for (let i = 0; i < polynom.length; i++) {
+    if (Math.abs(polynom[i]) < 1 / 1000) continue;
+    if (polynom[i] >= 0 && i > 0) result += "+";
+    result += Math.round(polynom[i] * 1000) / 1000;
+    if (i != polynom.length - 1 && i != polynom.length - 2)
+      result += "*x^" + (polynom.length - i - 1);
+    else if (i == polynom.length - 2) result += "*x";
+  }
+  return result;
+}
+function curveFitting() {
+  calculate();
+  const iterations = parseInt(document.getElementById("iterations").value);
+  if (isNaN(iterations) || iterations < 1) {
+    let error = "We need at least 1 iteration!";
+    alert(error);
+    throw error;
+  }
+  const boundaries = 3;
+  const grade = 7;
+  const numberOfCurves = 12;
+  for (let i = 0; i < iterations; i++) {
+    if (polynoms.length == 0) {
+      for (let i = 0; i < numberOfCurves * numberOfCurves; i++)
+        polynoms.push(getRandomPolynom(grade, boundaries));
+    } else {
+      for (let i = 0; i < numberOfCurves; i++)
+        for (let j = 0; j < numberOfCurves; j++)
+          if (i != j) polynoms.push(crossTwoPolynoms(polynoms[i], polynoms[j]));
+    }
+    polynoms.sort(
+      (polynom1, polynom2) =>
+        calculateErrorOfTheApproximation(polynom1) -
+        calculateErrorOfTheApproximation(polynom2)
+    );
+    polynoms.splice(numberOfCurves);
+  }
+  const table = document.getElementById("curves");
+  table.innerHTML = "<tr><th>Fit</th><th>Curve</th><th>Error</th></tr>";
+  for (let i = 0; i < polynoms.length; i++)
+    table.innerHTML +=
+      "<tr><td>#" +
+      (i + 1) +
+      "</td><td>" +
+      convertPolynomToString(polynoms[i]) +
+      "</td><td>" +
+      calculateErrorOfTheApproximation(polynoms[i]) +
+      "</td></tr>";
+  const graph = document.getElementById("curve");
+  graph.innerHTML = `
+    <line x1=30
+          x2=30
+          y1=10
+          y2=${graph.clientHeight - 20}
+          stroke="black"
+          stroke-width=2
+    />
+    <line x1=30
+          x2=${graph.clientWidth - 20}
+          y1=${graph.clientHeight - 20}
+          y2=${graph.clientHeight - 20}
+          stroke="black"
+          stroke-width=2
+    />
+    <text x=0 y=20>1</text>
+    <text x=0 y=${graph.clientHeight / 2}>0.5</text>
+    <text x=0 y=${graph.clientHeight - 30}>0</text>
+    <line x1=25
+          x2=30
+          y1=15
+          y2=10
+          stroke-width=2
+          stroke="black"/>
+    <line x1=30
+          x2=35
+          y1=10
+          y2=15 
+          stroke-width=2
+          stroke="black"/>
+    <line x1=${graph.clientWidth - 25}
+          x2=${graph.clientWidth - 20}
+          y1=${graph.clientHeight - 25}
+          y2=${graph.clientHeight - 20}
+          stroke-width=2
+          stroke="black"/>
+    <line x1=${graph.clientWidth - 25}
+          x2=${graph.clientWidth - 20}
+          y1=${graph.clientHeight - 15}
+          y2=${graph.clientHeight - 20}
+          stroke-width=2
+          stroke="black"/>
+    <text x=40 y=${graph.clientHeight - 5}>0</text>
+    <text x=${graph.clientWidth - 40} y=${graph.clientHeight - 5}>
+		1
+	</text>
+	`;
+  const graphWidth = graph.clientWidth - 40;
+  const graphHeight = graph.clientHeight - 30;
+  let path = "";
+  for (let x = 0; x <= 1; x += 1 / 100) {
+    let y = evaluatePolynomAt(polynoms[0], x);
+    if (y < 0) y = 0;
+    if (y > 1) y = 1;
+    if (x == 0)
+      path +=
+        "M " +
+        (30 + x * graphWidth) +
+        " " +
+        (graph.clientHeight - 20 - y * graphHeight);
+    else
+      path +=
+        "L " +
+        (30 + x * graphWidth) +
+        " " +
+        (graph.clientHeight - 20 - y * graphHeight);
+  }
+  path +=
+    "L " +
+    (30 + graphWidth * (1 - 1 / 100)) +
+    " " +
+    (graph.clientHeight - 20) +
+    " L 30 " +
+    (graph.clientHeight - 20);
+  graph.innerHTML +=
+    '<path d="' + path + '" fill="blue" stroke="black" stroke-width="2"/>';
 }
