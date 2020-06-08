@@ -216,7 +216,7 @@ function calculateErrorOfTheApproximation(polynom) {
     );
   error += 3 * Math.pow(evaluatePolynomAt(polynom, 1), 4); //The most important points count for three times more than other points.
   error += 3 * Math.pow(evaluatePolynomAt(polynom, 0) - 1, 4);
-  return error;
+  return Math.sqrt(error);
 }
 function crossTwoPolynoms(polynom1, polynom2) {
   if (polynom1.length !== polynom2.length) {
