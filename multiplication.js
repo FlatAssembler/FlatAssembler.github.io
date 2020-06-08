@@ -238,8 +238,11 @@ function convertPolynomToString(polynom) {
   let result = "";
   for (let i = 0; i < polynom.length; i++) {
     if (Math.abs(polynom[i]) < 1 / 1000) continue;
-    if (polynom[i] >= 0 && i > 0) result += "+";
-    result += Math.round(polynom[i] * 1000) / 1000;
+    if (polynom[i] >= 0 && i > 0 && result != "")
+      result += " + " + Math.round(polynom[i] * 1000) / 1000;
+    else if (polynom[i] < -1 / 1000 && i > 0 && result != "")
+      result += " - " + Math.abs(Math.round(polynom[i] * 1000) / 1000);
+    else result += Math.round(polynom[i] * 1000) / 1000;
     if (i != polynom.length - 1 && i != polynom.length - 2)
       result += "x<sup>" + (polynom.length - i - 1) + "</sup>";
     else if (i == polynom.length - 2) result += "x";
@@ -255,26 +258,67 @@ function curveFitting() {
     throw error;
   }
   const boundaries = 3;
-  const grade = 7;
+  const grade = 11;
   const numberOfCurves = 12;
   for (let i = 0; i < iterations; i++) {
     if (polynoms.length == 0) {
-      if (grade == 7) {
+      if (grade >= 7) {
         polynoms.push([
           -6.025,
-          7.356,
-          2.352,
+          +7.356,
+          +2.352,
           -0.717,
           -8.871,
-          8.255,
+          +8.255,
           -3.354,
-          1.006,
+          +1.006,
         ]); //An exceptionally good one I found.
-        polynoms.push([-3.607, 4.47, 2.519, -3.48, -3.394, 5.413, -2.918, 1]); //Another one such.
       }
+      if (grade >= 11) {
+        polynoms.push([
+          -1.896,
+          -1.169,
+          +1.235,
+          +2.761,
+          +1.445,
+          -0.671,
+          -0.364,
+          -2.578,
+          -1.739,
+          +4.905,
+          -2.935,
+          +1.003,
+        ]); //Add an example of a different grade, to ensure variability.
+        polynoms.push([
+          +0.129,
+          -2.8,
+          +0.845,
+          +1.818,
+          -0.053,
+          +2.198,
+          -0.575,
+          -1.334,
+          -3.925,
+          +5.666,
+          -2.969,
+          +1,
+        ]); //A completely different one of the grade 11, but fitting the curve about as well.
+      }
+      for (let polynom of polynoms) {
+        while (polynom.length < grade + 1) polynom.unshift(0);
+      }
+      const numberOfExamples = polynoms.length;
+      const howManyTimesToCrossTheExamples = 7;
+      for (let i = 0; i < numberOfExamples; i++)
+        for (let j = 0; j < numberOfExamples; j++)
+          if (i !== j)
+            for (let k = 0; k < howManyTimesToCrossTheExamples; k++)
+              polynoms.push(crossTwoPolynoms(polynoms[i], polynoms[j]));
       for (
         let i = 0;
-        i < numberOfCurves * numberOfCurves - (grade == 7 ? 2 : 0);
+        i <
+        numberOfCurves * numberOfCurves -
+          howManyTimesToCrossTheExamples * numberOfExamples * numberOfExamples;
         i++
       )
         polynoms.push(getRandomPolynom(grade, boundaries));
