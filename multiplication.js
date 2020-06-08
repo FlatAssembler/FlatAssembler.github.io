@@ -8,8 +8,10 @@ let frequencies = [],
 function calculate() {
   n = parseInt(document.getElementById("input").value);
   if (n < 2 || isNaN(n)) {
-    alert("Multiplication table needs to have at least two rows and columns.");
-    return;
+    let error =
+      "Multiplication table needs to have at least two rows and columns.";
+    alert(error);
+    throw error;
   }
   const graph = document.getElementById("graph");
   graph.innerHTML = "";

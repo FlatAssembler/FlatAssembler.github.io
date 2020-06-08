@@ -212,13 +212,10 @@ function onButtonClick() {
   );
   document.getElementById("output").innerText = output;
   let tree = document.getElementById("tree");
-  const svgNS = tree.namespaceURI;
   while (
-    document.getElementById("tree").childNodes.length //Clear the diagram ("innerHTML" won't work in Internet Explorer 11 because, to it, SVG is XML and not HTML).
+    tree.childNodes.length //Clear the diagram ("innerHTML" won't work in Internet Explorer 11 because, to it, SVG is XML and not HTML).
   )
-    document
-      .getElementById("tree")
-      .removeChild(document.getElementById("tree").firstChild);
+    tree.removeChild(tree.firstChild);
   maxX = maxY = minX = 0;
   draw(
     rootNode,
