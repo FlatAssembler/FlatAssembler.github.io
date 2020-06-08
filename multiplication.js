@@ -212,10 +212,10 @@ function calculateErrorOfTheApproximation(polynom) {
   for (let i = 0; i < n; i++)
     error += Math.pow(
       evaluatePolynomAt(polynom, (i + 1 / 2) / n) - frequencies[i] / n,
-      2
+      4
     );
-  error += 3 * Math.pow(evaluatePolynomAt(polynom, 1), 2); //The most important points count for three times more than other points.
-  error += 3 * Math.pow(evaluatePolynomAt(polynom, 0) - 1, 2);
+  error += 3 * Math.pow(evaluatePolynomAt(polynom, 1), 4); //The most important points count for three times more than other points.
+  error += 3 * Math.pow(evaluatePolynomAt(polynom, 0) - 1, 4);
   return error;
 }
 function crossTwoPolynoms(polynom1, polynom2) {
@@ -273,6 +273,16 @@ function curveFitting() {
           -3.354,
           +1.006,
         ]); //An exceptionally good one I found.
+        polynoms.push([
+          -3.607,
+          +4.47,
+          +2.519,
+          -3.48,
+          -3.394,
+          +5.413,
+          -2.918,
+          +1,
+        ]); //Another one such.
       }
       if (grade >= 11) {
         polynoms.push([
