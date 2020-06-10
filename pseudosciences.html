@@ -127,6 +127,9 @@
       polyline {
         display: none;
       }
+      tspan {
+        font-size: 0.62em;
+      }
     </style>
   </head>
   <body>
@@ -501,9 +504,18 @@
               fill="#00FF00"
               id="zeleni"
             ></polygon>
-            <text x="10" y="30" id="textA">a*a</text>
-            <text x="110" y="125" id="textB">b*b</text>
-            <text x="90" y="100" id="textC" style="display: none;">c*c</text>
+            <text x="10" y="30" id="textA">
+              a
+              <tspan dx="-5" dy="-5">2</tspan>
+            </text>
+            <text x="110" y="125" id="textB">
+              b
+              <tspan dx="-5" dy="-5">2</tspan>
+            </text>
+            <text x="90" y="100" id="textC" style="display: none;">
+              c
+              <tspan dx="-5" dy="-5">2</tspan>
+            </text>
             <polyline
               stroke="#007777"
               stroke-width="3px"
