@@ -1249,11 +1249,11 @@ function updateGlobalBufferAndViews(buf) {
 }
 
 var STATIC_BASE = 1024,
-    STACK_BASE = 5264464,
+    STACK_BASE = 5264512,
     STACKTOP = STACK_BASE,
-    STACK_MAX = 21584,
-    DYNAMIC_BASE = 5264464,
-    DYNAMICTOP_PTR = 21424;
+    STACK_MAX = 21632,
+    DYNAMIC_BASE = 5264512,
+    DYNAMICTOP_PTR = 21472;
 
 
 
@@ -1698,13 +1698,17 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  
+  1024: function() {return parseInt( prompt("Enter the number of rows/columns in the multiplication table:") );}
 };
 
+function _emscripten_asm_const_iii(code, sigPtr, argbuf) {
+  var args = readAsmConstArgs(sigPtr, argbuf);
+  return ASM_CONSTS[code].apply(null, args);
+}
 
 
 
-// STATICTOP = STATIC_BASE + 20560;
+// STATICTOP = STATIC_BASE + 20608;
 /* global initializers */  __ATINIT__.push({ func: function() { ___wasm_call_ctors() } });
 
 
@@ -4177,7 +4181,7 @@ var ASM_CONSTS = {
     }
 
   function _emscripten_get_sbrk_ptr() {
-      return 21424;
+      return 21472;
     }
 
   function _emscripten_memcpy_big(dest, src, num) {
@@ -4672,6 +4676,18 @@ var ASM_CONSTS = {
     }function _strftime_l(s, maxsize, format, tm) {
       return _strftime(s, maxsize, format, tm); // no locale support yet
     }
+
+  
+  var __readAsmConstArgsArray=[];function readAsmConstArgs(sigPtr, buf) {
+      __readAsmConstArgsArray.length = 0;
+      var ch;
+      buf >>= 2; // Align buf up front to index Int32Array (HEAP32)
+      while (ch = HEAPU8[sigPtr++]) {
+        __readAsmConstArgsArray.push(ch < 105 ? HEAPF64[++buf >> 1] : HEAP32[buf]);
+        ++buf;
+      }
+      return __readAsmConstArgsArray;
+    }
 var FSNode = /** @constructor */ function(parent, name, mode, rdev) {
     if (!parent) {
       parent = this;  // root node sets parent to itself
@@ -4748,7 +4764,7 @@ function intArrayToString(array) {
 
 
 var asmGlobalArg = {};
-var asmLibraryArg = { "__cxa_allocate_exception": ___cxa_allocate_exception, "__cxa_atexit": ___cxa_atexit, "__cxa_throw": ___cxa_throw, "__map_file": ___map_file, "__sys_munmap": ___sys_munmap, "abort": _abort, "emscripten_get_sbrk_ptr": _emscripten_get_sbrk_ptr, "emscripten_memcpy_big": _emscripten_memcpy_big, "emscripten_resize_heap": _emscripten_resize_heap, "environ_get": _environ_get, "environ_sizes_get": _environ_sizes_get, "fd_close": _fd_close, "fd_read": _fd_read, "fd_seek": _fd_seek, "fd_write": _fd_write, "memory": wasmMemory, "setTempRet0": _setTempRet0, "strftime_l": _strftime_l, "table": wasmTable };
+var asmLibraryArg = { "__cxa_allocate_exception": ___cxa_allocate_exception, "__cxa_atexit": ___cxa_atexit, "__cxa_throw": ___cxa_throw, "__map_file": ___map_file, "__sys_munmap": ___sys_munmap, "abort": _abort, "emscripten_asm_const_iii": _emscripten_asm_const_iii, "emscripten_get_sbrk_ptr": _emscripten_get_sbrk_ptr, "emscripten_memcpy_big": _emscripten_memcpy_big, "emscripten_resize_heap": _emscripten_resize_heap, "environ_get": _environ_get, "environ_sizes_get": _environ_sizes_get, "fd_close": _fd_close, "fd_read": _fd_read, "fd_seek": _fd_seek, "fd_write": _fd_write, "memory": wasmMemory, "setTempRet0": _setTempRet0, "strftime_l": _strftime_l, "table": wasmTable };
 var asm = createWasm();
 /** @type {function(...*):?} */
 var ___wasm_call_ctors = Module["___wasm_call_ctors"] = function() {
