@@ -1698,7 +1698,7 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  1024: function() {return parseInt( prompt("Enter the number of rows/columns in the multiplication table:") );}
+  1024: function() {return parseInt(prompt( "Enter the number of rows/columns in the multiplication table:"));}
 };
 
 function _emscripten_asm_const_iii(code, sigPtr, argbuf) {

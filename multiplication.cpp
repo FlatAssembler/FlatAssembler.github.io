@@ -1,16 +1,25 @@
 #include <iostream>
 #include <set>
 #include <vector>
+
+#ifdef __EMSCRIPTEN__
 #include <emscripten.h>
+#endif
 
 using namespace std;
 
 int main() {
+#ifdef __EMSCRIPTEN__
   int n = EM_ASM_INT({
-    return parseInt(
-    prompt("Enter the number of rows/columns in the multiplication table:")
-    );
+    return parseInt(prompt(
+        "Enter the number of rows/columns in the multiplication table:"));
   });
+#else
+  int n;
+  cout << "Enter the number of rows/columns in the multiplication table:"
+       << endl;
+  cin >> n;
+#endif
   cout << "Calculating the distribution of numbers in " << n << "x" << n
        << " multiplication table..." << endl;
   set<int> numbersOccuringInTable;

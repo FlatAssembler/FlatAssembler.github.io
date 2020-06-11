@@ -55,37 +55,46 @@ if ('onhashchange' in window) {
 <span id="L1" class="LineNr"> 1 </span><span class="PreProc">#include </span><span class="Constant">&lt;iostream&gt;</span>
 <span id="L2" class="LineNr"> 2 </span><span class="PreProc">#include </span><span class="Constant">&lt;set&gt;</span>
 <span id="L3" class="LineNr"> 3 </span><span class="PreProc">#include </span><span class="Constant">&lt;vector&gt;</span>
-<span id="L4" class="LineNr"> 4 </span><span class="PreProc">#include </span><span class="Constant">&lt;emscripten.h&gt;</span>
-<span id="L5" class="LineNr"> 5 </span>
-<span id="L6" class="LineNr"> 6 </span><span class="Statement">using</span> <span class="Type">namespace</span> std;
-<span id="L7" class="LineNr"> 7 </span>
-<span id="L8" class="LineNr"> 8 </span><span class="Type">int</span> main() {
-<span id="L9" class="LineNr"> 9 </span>  <span class="Type">int</span> n = EM_ASM_INT({
-<span id="L10" class="LineNr">10 </span>    <span class="Statement">return</span> parseInt(
-<span id="L11" class="LineNr">11 </span>    prompt(<span class="Constant">&quot;Enter the number of rows/columns in the multiplication table:&quot;</span>)
-<span id="L12" class="LineNr">12 </span>    );
-<span id="L13" class="LineNr">13 </span>  });
-<span id="L14" class="LineNr">14 </span>  cout &lt;&lt; <span class="Constant">&quot;Calculating the distribution of numbers in &quot;</span> &lt;&lt; n &lt;&lt; <span class="Constant">&quot;x&quot;</span> &lt;&lt; n
-<span id="L15" class="LineNr">15 </span>       &lt;&lt; <span class="Constant">&quot; multiplication table...&quot;</span> &lt;&lt; endl;
-<span id="L16" class="LineNr">16 </span>  set&lt;<span class="Type">int</span>&gt; numbersOccuringInTable;
-<span id="L17" class="LineNr">17 </span>  <span class="Statement">for</span> (<span class="Type">int</span> i = <span class="Constant">1</span>; i &lt;= n; i++)
-<span id="L18" class="LineNr">18 </span>    <span class="Statement">for</span> (<span class="Type">int</span> j = <span class="Constant">1</span>; j &lt;= n; j++)
-<span id="L19" class="LineNr">19 </span>      numbersOccuringInTable.insert(i * j);
-<span id="L20" class="LineNr">20 </span>  vector&lt;<span class="Type">int</span>&gt; frequency(n + <span class="Constant">1</span>);
-<span id="L21" class="LineNr">21 </span>  <span class="Statement">for</span> (set&lt;<span class="Type">int</span>&gt;::iterator i = numbersOccuringInTable.begin();
-<span id="L22" class="LineNr">22 </span>       i != numbersOccuringInTable.end(); i++)
-<span id="L23" class="LineNr">23 </span>    frequency[(*i) / n]++;
-<span id="L24" class="LineNr">24 </span>  <span class="Type">int</span> intervalsOfGrowth = <span class="Constant">0</span>;
-<span id="L25" class="LineNr">25 </span>  <span class="Statement">for</span> (<span class="Type">int</span> i = <span class="Constant">1</span>; i &lt; n + <span class="Constant">1</span>; i++)
-<span id="L26" class="LineNr">26 </span>    <span class="Statement">if</span> (frequency[i] &gt; frequency[i - <span class="Constant">1</span>]) {
-<span id="L27" class="LineNr">27 </span>      cout &lt;&lt; <span class="Constant">&quot;Between &quot;</span> &lt;&lt; (i - <span class="Constant">1</span>) * n &lt;&lt; <span class="Constant">&quot; and &quot;</span> &lt;&lt; i * n - <span class="Constant">1</span> &lt;&lt; <span class="Constant">&quot; there are &quot;</span>
-<span id="L28" class="LineNr">28 </span>           &lt;&lt; frequency[i - <span class="Constant">1</span>] &lt;&lt; <span class="Constant">&quot; numbers.&quot;</span> &lt;&lt; endl;
-<span id="L29" class="LineNr">29 </span>      cout &lt;&lt; <span class="Constant">&quot;Between &quot;</span> &lt;&lt; i * n &lt;&lt; <span class="Constant">&quot; and &quot;</span> &lt;&lt; (i + <span class="Constant">1</span>) * n - <span class="Constant">1</span> &lt;&lt; <span class="Constant">&quot; there are &quot;</span>
-<span id="L30" class="LineNr">30 </span>           &lt;&lt; frequency[i] &lt;&lt; <span class="Constant">&quot; numbers.&quot;</span> &lt;&lt; endl;
-<span id="L31" class="LineNr">31 </span>      intervalsOfGrowth++;
-<span id="L32" class="LineNr">32 </span>    }
-<span id="L33" class="LineNr">33 </span>  cout &lt;&lt; <span class="Constant">&quot;There are &quot;</span> &lt;&lt; intervalsOfGrowth &lt;&lt; <span class="Constant">&quot; intervals of growth.&quot;</span> &lt;&lt; endl;
-<span id="L34" class="LineNr">34 </span>}
+<span id="L4" class="LineNr"> 4 </span>
+<span id="L5" class="LineNr"> 5 </span><span class="PreProc">#ifdef __EMSCRIPTEN__</span>
+<span id="L6" class="LineNr"> 6 </span><span class="PreProc">#include </span><span class="Constant">&lt;emscripten.h&gt;</span>
+<span id="L7" class="LineNr"> 7 </span><span class="PreProc">#endif</span>
+<span id="L8" class="LineNr"> 8 </span>
+<span id="L9" class="LineNr"> 9 </span><span class="Statement">using</span> <span class="Type">namespace</span> std;
+<span id="L10" class="LineNr">10 </span>
+<span id="L11" class="LineNr">11 </span><span class="Type">int</span> main() {
+<span id="L12" class="LineNr">12 </span><span class="PreProc">#ifdef __EMSCRIPTEN__</span>
+<span id="L13" class="LineNr">13 </span>  <span class="Type">int</span> n = EM_ASM_INT({
+<span id="L14" class="LineNr">14 </span>    <span class="Statement">return</span> parseInt(prompt(
+<span id="L15" class="LineNr">15 </span>        <span class="Constant">&quot;Enter the number of rows/columns in the multiplication table:&quot;</span>));
+<span id="L16" class="LineNr">16 </span>  });
+<span id="L17" class="LineNr">17 </span><span class="PreProc">#else</span>
+<span id="L18" class="LineNr">18 </span>  <span class="Type">int</span> n;
+<span id="L19" class="LineNr">19 </span>  cout &lt;&lt; <span class="Constant">&quot;Enter the number of rows/columns in the multiplication table:&quot;</span>
+<span id="L20" class="LineNr">20 </span>       &lt;&lt; endl;
+<span id="L21" class="LineNr">21 </span>  cin &gt;&gt; n;
+<span id="L22" class="LineNr">22 </span><span class="PreProc">#endif</span>
+<span id="L23" class="LineNr">23 </span>  cout &lt;&lt; <span class="Constant">&quot;Calculating the distribution of numbers in &quot;</span> &lt;&lt; n &lt;&lt; <span class="Constant">&quot;x&quot;</span> &lt;&lt; n
+<span id="L24" class="LineNr">24 </span>       &lt;&lt; <span class="Constant">&quot; multiplication table...&quot;</span> &lt;&lt; endl;
+<span id="L25" class="LineNr">25 </span>  set&lt;<span class="Type">int</span>&gt; numbersOccuringInTable;
+<span id="L26" class="LineNr">26 </span>  <span class="Statement">for</span> (<span class="Type">int</span> i = <span class="Constant">1</span>; i &lt;= n; i++)
+<span id="L27" class="LineNr">27 </span>    <span class="Statement">for</span> (<span class="Type">int</span> j = <span class="Constant">1</span>; j &lt;= n; j++)
+<span id="L28" class="LineNr">28 </span>      numbersOccuringInTable.insert(i * j);
+<span id="L29" class="LineNr">29 </span>  vector&lt;<span class="Type">int</span>&gt; frequency(n + <span class="Constant">1</span>);
+<span id="L30" class="LineNr">30 </span>  <span class="Statement">for</span> (set&lt;<span class="Type">int</span>&gt;::iterator i = numbersOccuringInTable.begin();
+<span id="L31" class="LineNr">31 </span>       i != numbersOccuringInTable.end(); i++)
+<span id="L32" class="LineNr">32 </span>    frequency[(*i) / n]++;
+<span id="L33" class="LineNr">33 </span>  <span class="Type">int</span> intervalsOfGrowth = <span class="Constant">0</span>;
+<span id="L34" class="LineNr">34 </span>  <span class="Statement">for</span> (<span class="Type">int</span> i = <span class="Constant">1</span>; i &lt; n + <span class="Constant">1</span>; i++)
+<span id="L35" class="LineNr">35 </span>    <span class="Statement">if</span> (frequency[i] &gt; frequency[i - <span class="Constant">1</span>]) {
+<span id="L36" class="LineNr">36 </span>      cout &lt;&lt; <span class="Constant">&quot;Between &quot;</span> &lt;&lt; (i - <span class="Constant">1</span>) * n &lt;&lt; <span class="Constant">&quot; and &quot;</span> &lt;&lt; i * n - <span class="Constant">1</span> &lt;&lt; <span class="Constant">&quot; there are &quot;</span>
+<span id="L37" class="LineNr">37 </span>           &lt;&lt; frequency[i - <span class="Constant">1</span>] &lt;&lt; <span class="Constant">&quot; numbers.&quot;</span> &lt;&lt; endl;
+<span id="L38" class="LineNr">38 </span>      cout &lt;&lt; <span class="Constant">&quot;Between &quot;</span> &lt;&lt; i * n &lt;&lt; <span class="Constant">&quot; and &quot;</span> &lt;&lt; (i + <span class="Constant">1</span>) * n - <span class="Constant">1</span> &lt;&lt; <span class="Constant">&quot; there are &quot;</span>
+<span id="L39" class="LineNr">39 </span>           &lt;&lt; frequency[i] &lt;&lt; <span class="Constant">&quot; numbers.&quot;</span> &lt;&lt; endl;
+<span id="L40" class="LineNr">40 </span>      intervalsOfGrowth++;
+<span id="L41" class="LineNr">41 </span>    }
+<span id="L42" class="LineNr">42 </span>  cout &lt;&lt; <span class="Constant">&quot;There are &quot;</span> &lt;&lt; intervalsOfGrowth &lt;&lt; <span class="Constant">&quot; intervals of growth.&quot;</span> &lt;&lt; endl;
+<span id="L43" class="LineNr">43 </span>}
 </pre>
 </body>
 </html>
