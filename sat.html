@@ -189,6 +189,29 @@
         fill="brown"
       />
     </svg>
+    <center
+      id="update"
+      style="
+        position: absolute;
+        max-width: 300px;
+        width: 95%;
+        font-family: Arial;
+        padding-bottom: 15px;
+      "
+    >
+      UPDATE on 18/06/2020: I've implemented a simple analog clock in my own
+      programming language, it's runnable on Linux (both 32-bit and 64-bit). You
+      can download the source code <a href="Duktape.zip">here</a>, and, if you
+      are willing to accept the risk of infecting your computer with some virus
+      on my computer (rather than compiling that program from source), you can
+      download the executable
+      <a
+        href="https://github.com/FlatAssembler/ArithmeticExpressionCompiler/raw/master/ArithmeticExpressionCompiler.zip"
+        >here</a
+      >
+      (the executable is called
+      <span style="font-family: monospace;">analogClock.elf</span>).
+    </center>
     <script type="text/javascript">
       var svgNS = "http://www.w3.org/2000/svg";
       var crtanje = document.getElementById("crtanje");
@@ -201,8 +224,24 @@
           Math.min(document.body.clientWidth * 0.95, 300) / 2 +
           "px";
         document.getElementById("crtanje").style.top =
-          document.body.clientHeight / 2 -
-          Math.min(document.body.clientHeight * 0.95, 500) / 2 +
+          Math.max(
+            8,
+            document.body.clientHeight / 2 -
+              Math.min(document.body.clientHeight * 0.95, 500) / 2 -
+              document.getElementById("update").clientHeight / 2
+          ) + "px";
+        document.getElementById("update").style.left =
+          document.body.clientWidth / 2 -
+          Math.min(document.body.clientWidth * 0.95, 300) / 2 +
+          "px";
+        document.getElementById("update").style.top =
+          Math.max(
+            8,
+            document.body.clientHeight / 2 -
+              Math.min(document.body.clientHeight * 0.95, 500) / 2 -
+              document.getElementById("update").clientHeight / 2
+          ) +
+          Math.min(0.95 * document.body.clientHeight + 10, 500 + 10) +
           "px";
       };
       onresize();
