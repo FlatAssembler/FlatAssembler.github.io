@@ -1,0 +1,234 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>dragonCurve.aec - Syntax Highlighted in NodeJS</title>
+    <style type="text/css">
+    pre {
+       font-size: 13px;
+    }
+    .LineNumber {
+       color: #772200;
+       font-weight: normal;
+    }
+    .Type {
+       color: #775500;
+       font-weight: bold;
+    }
+    .Keyword {
+        color: #770000;
+        font-weight: bold;
+    }
+    .Comment {
+        color: #004444;
+        font-weight: bold;
+    }
+    .Parenthesis {
+        color: #333322;
+        font-weight: bold;
+    }
+    .Operator {
+        color: #770077;
+        font-weight: bold;
+    }
+    .Constant {
+        color: #006600;
+        font-weight: bold;
+    }
+    .String {
+        color: #003377;
+    }
+    </style>
+</head>
+<body>
+<pre>   <span class="LineNumber">1</span> <span class="Comment">/*
+   <span class="LineNumber">2</span>  * This will be my attempt to build a graphical application with AEC,
+   <span class="LineNumber">3</span>  * specifically, one that will draw a discrete mathematical curve using SVG.
+   <span class="LineNumber">4</span>  * A few years ago, I've made a similar program in JavaScript
+   <span class="LineNumber">5</span>  * ( https://flatassembler.github.io/fraktal.html ). I've never before
+   <span class="LineNumber">6</span>  * attempted to write a program that will draw the Dragon Curve in AEC,
+   <span class="LineNumber">7</span>  * because there is no obvious way to do it using console graphics (and my
+   <span class="LineNumber">8</span>  * old AEC compiler, targeting x86, was basically limited to console
+   <span class="LineNumber">9</span>  * graphics). Also, to do that, I'll need to do a bit of string manipulation,
+  <span class="LineNumber">10</span>  * and the old version of AEC didn't support string manipulation at all (The
+  <span class="LineNumber">11</span>  * only data types available were Decimal32 and Decimal32Array, and there
+  <span class="LineNumber">12</span>  * were no functions. It's because I wanted the code my compiler generates
+  <span class="LineNumber">13</span>  * not to favor one operating system over another, and x86 OS-es do those
+  <span class="LineNumber">14</span>  * things very differently). This version of AEC is about at good at string
+  <span class="LineNumber">15</span>  * manipulation as C is without a standard library. JavaScript has many
+  <span class="LineNumber">16</span>  * useful string manipulation functions, however, since they are actually
+  <span class="LineNumber">17</span>  * methods of the "String" class, there is no standardized way to call them
+  <span class="LineNumber">18</span>  * from a WebAssembly program, even though it's running on JavaScript
+  <span class="LineNumber">19</span>  * Virtual Machine. That's because WebAssembly standard tries to be agnostic
+  <span class="LineNumber">20</span>  * about other programming languages running on the same virtual machine,
+  <span class="LineNumber">21</span>  * which may be a good thing (Why make it necessary for a JavaScript program
+  <span class="LineNumber">22</span>  * to be running on the same virtual machine for any program that's compiled
+  <span class="LineNumber">23</span>  * to WebAssembly to make sense?).
+  <span class="LineNumber">24</span>  */</span>
+  <span class="LineNumber">25</span> 
+  <span class="LineNumber">26</span> <span class="Comment">//Let's import some JavaScript functions...
+  <span class="LineNumber">27</span> </span><span class="Keyword">Function</span> drawLine<span class="Parenthesis">(</span><span class="Type">Integer32</span> x1<span class="Operator">,</span>
+  <span class="LineNumber">28</span>                   <span class="Type">Integer32</span> y1<span class="Operator">,</span>
+  <span class="LineNumber">29</span>                   <span class="Type">Integer32</span> x2<span class="Operator">,</span>
+  <span class="LineNumber">30</span>                   <span class="Type">Integer32</span> y2<span class="Operator">,</span>
+  <span class="LineNumber">31</span>                   <span class="Type">CharacterPointer</span> color<span class="Operator">,</span>
+  <span class="LineNumber">32</span>                   <span class="Type">Integer32</span> lineWidth<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Is</span> <span class="Keyword">External</span><span class="Keyword">;</span>
+  <span class="LineNumber">33</span> <span class="Keyword">Function</span> applyTurtleTransformation<span class="Parenthesis">(</span><span class="Type">CharacterPointer</span> svgDirective<span class="Parenthesis">)</span>
+  <span class="LineNumber">34</span>     <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Is</span> <span class="Keyword">External</span><span class="Keyword">;</span> <span class="Comment">//We won't use the turtle for actual
+  <span class="LineNumber">35</span> </span>                                       <span class="Comment">//drawing, but we will move it and
+  <span class="LineNumber">36</span> </span>                                       <span class="Comment">//rotate it.
+  <span class="LineNumber">37</span> </span>
+  <span class="LineNumber">38</span> <span class="Type">Integer32</span> directionX<span class="Parenthesis">[</span><span class="Constant">4</span><span class="Parenthesis">]</span>    <span class="Operator">:</span><span class="Operator">=</span> <span class="Parenthesis">{</span> <span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">1</span><span class="Operator">,</span> <span class="Constant">0</span><span class="Operator">,</span> <span class="Operator">-</span><span class="Constant">1</span><span class="Parenthesis">}</span><span class="Operator">,</span>
+  <span class="LineNumber">39</span>           directionY<span class="Parenthesis">[</span><span class="Constant">4</span><span class="Parenthesis">]</span>    <span class="Operator">:</span><span class="Operator">=</span> <span class="Parenthesis">{</span><span class="Operator">-</span><span class="Constant">1</span><span class="Operator">,</span> <span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">1</span><span class="Operator">,</span>  <span class="Constant">0</span><span class="Parenthesis">}</span><span class="Operator">,</span>
+  <span class="LineNumber">40</span>           currentX         <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">10</span><span class="Operator">,</span>
+  <span class="LineNumber">41</span>           currentY         <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">250</span> <span class="Operator">+</span> <span class="Constant">490</span> <span class="Operator">-</span> <span class="Constant">410</span><span class="Operator">,</span> <span class="Comment">//When set on 250, the turtle
+  <span class="LineNumber">42</span> </span>                                               <span class="Comment">//reaches 410 and then turns
+  <span class="LineNumber">43</span> </span>                                               <span class="Comment">//back (I know this by
+  <span class="LineNumber">44</span> </span>                                               <span class="Comment">//experimenting).
+  <span class="LineNumber">45</span> </span>          currentDirection <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Operator">,</span>
+  <span class="LineNumber">46</span>           lineLength       <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">5</span><span class="Operator">,</span>
+  <span class="LineNumber">47</span>           lineWidth        <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">2</span><span class="Operator">,</span>
+  <span class="LineNumber">48</span>           currentStep      <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">49</span> 
+  <span class="LineNumber">50</span> <span class="Type">Character</span> path<span class="Parenthesis">[</span><span class="Constant">16384</span><span class="Parenthesis">]</span><span class="Operator">,</span> reversedPath<span class="Parenthesis">[</span><span class="Constant">16384</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
+  <span class="LineNumber">51</span> 
+  <span class="LineNumber">52</span> <span class="Comment">//Again, we need to implement string manipulation functions. Like I've said,
+  <span class="LineNumber">53</span> </span><span class="Comment">//even though this program will be running on JavaScript Virtual Machine, it
+  <span class="LineNumber">54</span> </span><span class="Comment">//can't call the methods of the JavaScript "String" class.
+  <span class="LineNumber">55</span> </span><span class="Keyword">Function</span> strlen<span class="Parenthesis">(</span><span class="Type">CharacterPointer</span> str<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span>
+  <span class="LineNumber">56</span>     <span class="Comment">//We can't implement this recursively, like we did in earlier AEC
+  <span class="LineNumber">57</span> </span>    <span class="Comment">//programs, because we will be dealing with large strings which will
+  <span class="LineNumber">58</span> </span>    <span class="Comment">//cause stack overflow.
+  <span class="LineNumber">59</span> </span>    <span class="Type">Integer32</span> length <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">60</span>     <span class="Keyword">While</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>str <span class="Operator">+</span> length<span class="Parenthesis">)</span> <span class="Keyword">Loop</span>
+  <span class="LineNumber">61</span>         length <span class="Operator">:</span><span class="Operator">=</span> length <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">62</span>     <span class="Keyword">EndWhile</span>
+  <span class="LineNumber">63</span>     <span class="Keyword">Return</span> length<span class="Keyword">;</span>
+  <span class="LineNumber">64</span> <span class="Keyword">EndFunction</span>
+  <span class="LineNumber">65</span> 
+  <span class="LineNumber">66</span> <span class="Keyword">Function</span> strcpy<span class="Parenthesis">(</span><span class="Type">CharacterPointer</span> dest<span class="Operator">,</span>
+  <span class="LineNumber">67</span>                 <span class="Type">CharacterPointer</span> src<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
+  <span class="LineNumber">68</span>     <span class="Keyword">While</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>src<span class="Parenthesis">)</span> <span class="Keyword">Loop</span>
+  <span class="LineNumber">69</span>         <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>dest<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>src<span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">70</span>         dest          <span class="Operator">:</span><span class="Operator">=</span>     dest <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">71</span>         src           <span class="Operator">:</span><span class="Operator">=</span>      src <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">72</span>     <span class="Keyword">EndWhile</span>
+  <span class="LineNumber">73</span>     <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>dest<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">74</span> <span class="Keyword">EndFunction</span>
+  <span class="LineNumber">75</span> 
+  <span class="LineNumber">76</span> <span class="Keyword">Function</span> reverseString<span class="Parenthesis">(</span><span class="Type">CharacterPointer</span> string<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
+  <span class="LineNumber">77</span>     <span class="Type">CharacterPointer</span> pointerToLastCharacter <span class="Operator">:</span><span class="Operator">=</span> string <span class="Operator">+</span> strlen<span class="Parenthesis">(</span>string<span class="Parenthesis">)</span> <span class="Operator">-</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">78</span>     <span class="Keyword">While</span> pointerToLastCharacter <span class="Operator">-</span> string <span class="Operator">&gt;</span> <span class="Constant">0</span> <span class="Keyword">Loop</span>
+  <span class="LineNumber">79</span>         <span class="Type">Character</span> tmp                   <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string<span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">80</span>         <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string<span class="Parenthesis">)</span>                 <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>pointerToLastCharacter<span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">81</span>         <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>pointerToLastCharacter<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span> tmp<span class="Keyword">;</span>
+  <span class="LineNumber">82</span>         string                          <span class="Operator">:</span><span class="Operator">=</span> string <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">83</span>         pointerToLastCharacter          <span class="Operator">:</span><span class="Operator">=</span> pointerToLastCharacter <span class="Operator">-</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">84</span>     <span class="Keyword">EndWhile</span>
+  <span class="LineNumber">85</span> <span class="Keyword">EndFunction</span>
+  <span class="LineNumber">86</span> 
+  <span class="LineNumber">87</span> <span class="Keyword">Function</span> strcat<span class="Parenthesis">(</span><span class="Type">CharacterPointer</span> dest<span class="Operator">,</span>
+  <span class="LineNumber">88</span>                 <span class="Type">CharacterPointer</span> src<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
+  <span class="LineNumber">89</span>     strcpy<span class="Parenthesis">(</span>dest <span class="Operator">+</span> strlen<span class="Parenthesis">(</span>dest<span class="Parenthesis">)</span><span class="Operator">,</span> src<span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">90</span> <span class="Keyword">EndFunction</span>
+  <span class="LineNumber">91</span> 
+  <span class="LineNumber">92</span> <span class="Keyword">Function</span> convertIntegerToString<span class="Parenthesis">(</span><span class="Type">CharacterPointer</span> string<span class="Operator">,</span>
+  <span class="LineNumber">93</span>                                 <span class="Type">Integer32</span> number<span class="Parenthesis">)</span>
+  <span class="LineNumber">94</span>     <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span> <span class="Comment">//Returns the length of the string.
+  <span class="LineNumber">95</span> </span>    <span class="Type">Integer32</span> isNumberNegative <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">96</span>     <span class="Keyword">If</span> number <span class="Operator">&lt;</span> <span class="Constant">0</span> <span class="Keyword">Then</span>
+  <span class="LineNumber">97</span>         number           <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">-</span>number<span class="Keyword">;</span>
+  <span class="LineNumber">98</span>         isNumberNegative <span class="Operator">:</span><span class="Operator">=</span>       <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">99</span>     <span class="Keyword">EndIf</span>
+ <span class="LineNumber">100</span>     <span class="Type">Integer32</span> i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">101</span>     <span class="Keyword">While</span> number <span class="Operator">&gt;</span> <span class="Constant">9</span> <span class="Keyword">Loop</span>
+ <span class="LineNumber">102</span>         <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'0'</span> <span class="Operator">+</span> <span class="Operator">mod</span><span class="Parenthesis">(</span>number<span class="Operator">,</span> <span class="Constant">10</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">103</span>         number              <span class="Operator">:</span><span class="Operator">=</span>           number <span class="Operator">/</span> <span class="Constant">10</span><span class="Keyword">;</span>
+ <span class="LineNumber">104</span>         i                   <span class="Operator">:</span><span class="Operator">=</span>                 i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">105</span>     <span class="Keyword">EndWhile</span>
+ <span class="LineNumber">106</span>     <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'0'</span> <span class="Operator">+</span> number<span class="Keyword">;</span>
+ <span class="LineNumber">107</span>     i                   <span class="Operator">:</span><span class="Operator">=</span>        i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">108</span>     <span class="Keyword">If</span> isNumberNegative <span class="Keyword">Then</span>
+ <span class="LineNumber">109</span>         <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span>   <span class="String">'-'</span><span class="Keyword">;</span>
+ <span class="LineNumber">110</span>         i                   <span class="Operator">:</span><span class="Operator">=</span> i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">111</span>     <span class="Keyword">EndIf</span>
+ <span class="LineNumber">112</span>     <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">113</span>     reverseString<span class="Parenthesis">(</span>string<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">114</span>     <span class="Keyword">Return</span> i<span class="Keyword">;</span>
+ <span class="LineNumber">115</span> <span class="Keyword">EndFunction</span>
+ <span class="LineNumber">116</span> 
+ <span class="LineNumber">117</span> <span class="Comment">//This is the function that's supposed to be called by JavaScript as soon
+ <span class="LineNumber">118</span> </span><span class="Comment">//as it is ready.
+ <span class="LineNumber">119</span> </span><span class="Keyword">Function</span> init<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
+ <span class="LineNumber">120</span>     <span class="Type">CharacterPointer</span> path         <span class="Operator">:</span><span class="Operator">=</span>         <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>path<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">121</span>     <span class="Type">CharacterPointer</span> reversedPath <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>reversedPath<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">122</span>     strcpy<span class="Parenthesis">(</span>path<span class="Operator">,</span> <span class="String">"R"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">123</span>     <span class="Type">Integer32</span> counter <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">124</span>     <span class="Keyword">While</span> strlen<span class="Parenthesis">(</span>path<span class="Parenthesis">)</span> <span class="Operator">&lt;</span> <span class="Constant">8192</span> <span class="Keyword">Loop</span>
+ <span class="LineNumber">125</span>         strcpy<span class="Parenthesis">(</span>reversedPath<span class="Operator">,</span> path<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">126</span>         <span class="Keyword">If</span> <span class="Operator">mod</span><span class="Parenthesis">(</span>counter<span class="Operator">,</span> <span class="Constant">4</span><span class="Parenthesis">)</span> <span class="Operator">=</span> <span class="Constant">0</span> <span class="Keyword">Then</span>
+ <span class="LineNumber">127</span>             reverseString<span class="Parenthesis">(</span>reversedPath<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">128</span>         <span class="Keyword">EndIf</span>
+ <span class="LineNumber">129</span>         strcat<span class="Parenthesis">(</span>path<span class="Operator">,</span> reversedPath<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">130</span>         strcat<span class="Parenthesis">(</span>path<span class="Operator">,</span> <span class="Operator">not</span><span class="Parenthesis">(</span><span class="Operator">mod</span><span class="Parenthesis">(</span>counter<span class="Operator">,</span> <span class="Constant">4</span><span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Operator">?</span>
+ <span class="LineNumber">131</span>                         <span class="String">"L"</span>
+ <span class="LineNumber">132</span>                      <span class="Operator">:</span>  <span class="String">"LLL"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">133</span>         counter <span class="Operator">:</span><span class="Operator">=</span> counter <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">134</span>     <span class="Keyword">EndWhile</span>
+ <span class="LineNumber">135</span> <span class="Keyword">EndFunction</span>
+ <span class="LineNumber">136</span> 
+ <span class="LineNumber">137</span> <span class="Comment">//This function is supposed to be periodically called by JavaScript:
+ <span class="LineNumber">138</span> </span><span class="Keyword">Function</span> step<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
+ <span class="LineNumber">139</span>     <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>path<span class="Parenthesis">[</span>currentStep<span class="Parenthesis">]</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Parenthesis">)</span> <span class="Operator">and</span> currentX <span class="Operator">&gt;</span> <span class="Constant">0</span> <span class="Operator">and</span> currentX <span class="Operator">&lt;</span> <span class="Constant">500</span>
+ <span class="LineNumber">140</span>        <span class="Operator">and</span> currentY <span class="Operator">&gt;</span> <span class="Constant">0</span> <span class="Operator">and</span> currentY <span class="Operator">&lt;</span> <span class="Constant">500</span> <span class="Keyword">Then</span>
+ <span class="LineNumber">141</span>         <span class="Type">Integer32</span> nextX <span class="Operator">:</span><span class="Operator">=</span> currentX <span class="Operator">+</span>
+ <span class="LineNumber">142</span>                            directionX<span class="Parenthesis">[</span>currentDirection<span class="Parenthesis">]</span> <span class="Operator">*</span> lineLength<span class="Operator">,</span>
+ <span class="LineNumber">143</span>                   nextY <span class="Operator">:</span><span class="Operator">=</span> currentY <span class="Operator">+</span>
+ <span class="LineNumber">144</span>                            directionY<span class="Parenthesis">[</span>currentDirection<span class="Parenthesis">]</span> <span class="Operator">*</span> lineLength<span class="Keyword">;</span>
+ <span class="LineNumber">145</span>         drawLine<span class="Parenthesis">(</span>currentX<span class="Operator">,</span> currentY<span class="Operator">,</span> nextX<span class="Operator">,</span> nextY<span class="Operator">,</span>
+ <span class="LineNumber">146</span>                  currentStep <span class="Operator">=</span> <span class="Constant">0</span><span class="Operator">?</span>
+ <span class="LineNumber">147</span>                     <span class="String">"lightYellow"</span>
+ <span class="LineNumber">148</span>                  <span class="Operator">:</span>path<span class="Parenthesis">[</span>currentStep<span class="Parenthesis">]</span> <span class="Operator">=</span> <span class="String">'R'</span><span class="Operator">?</span>
+ <span class="LineNumber">149</span>                     <span class="String">"red"</span>
+ <span class="LineNumber">150</span>                  <span class="Operator">:</span>path<span class="Parenthesis">[</span>currentStep<span class="Parenthesis">]</span> <span class="Operator">=</span> <span class="String">'L'</span><span class="Operator">?</span>
+ <span class="LineNumber">151</span>                     <span class="String">"lightBlue"</span>
+ <span class="LineNumber">152</span>                  <span class="Operator">:</span>  <span class="String">"lightYellow"</span><span class="Operator">,</span>
+ <span class="LineNumber">153</span>                  lineWidth<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">154</span>         currentX    <span class="Operator">:</span><span class="Operator">=</span> nextX<span class="Keyword">;</span>
+ <span class="LineNumber">155</span>         currentY    <span class="Operator">:</span><span class="Operator">=</span> nextY<span class="Keyword">;</span>
+ <span class="LineNumber">156</span>         <span class="Keyword">If</span> path<span class="Parenthesis">[</span>currentStep<span class="Parenthesis">]</span> <span class="Operator">=</span> <span class="String">'R'</span> <span class="Keyword">Then</span>
+ <span class="LineNumber">157</span>             currentDirection <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">mod</span><span class="Parenthesis">(</span>currentDirection <span class="Operator">+</span> <span class="Constant">1</span><span class="Operator">,</span> <span class="Constant">4</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">158</span>         <span class="Keyword">ElseIf</span> <span class="Operator">not</span><span class="Parenthesis">(</span>currentDirection <span class="Operator">=</span> <span class="Constant">0</span><span class="Parenthesis">)</span> <span class="Operator">and</span> path<span class="Parenthesis">[</span>currentStep<span class="Parenthesis">]</span> <span class="Operator">=</span> <span class="String">'L'</span> <span class="Keyword">Then</span>
+ <span class="LineNumber">159</span>             currentDirection <span class="Operator">:</span><span class="Operator">=</span> currentDirection <span class="Operator">-</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">160</span>         <span class="Keyword">ElseIf</span> path<span class="Parenthesis">[</span>currentStep<span class="Parenthesis">]</span> <span class="Operator">=</span> <span class="String">'L'</span> <span class="Keyword">Then</span>
+ <span class="LineNumber">161</span>             currentDirection <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">3</span><span class="Keyword">;</span>
+ <span class="LineNumber">162</span>         <span class="Keyword">EndIf</span>
+ <span class="LineNumber">163</span>         <span class="Type">Integer32</span> tmp<span class="Keyword">;</span> <span class="Comment">//I had no idea WebAssembly would behave that way,
+ <span class="LineNumber">164</span> </span>                       <span class="Comment">//that the assembler will complain about not storing
+ <span class="LineNumber">165</span> </span>                       <span class="Comment">//the result of a function. This is very different
+ <span class="LineNumber">166</span> </span>                       <span class="Comment">//from x86 assembly. So, I modified the compiler
+ <span class="LineNumber">167</span> </span>                       <span class="Comment">//to warn about that.
+ <span class="LineNumber">168</span> </span>        currentStep <span class="Operator">:</span><span class="Operator">=</span> currentStep <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">169</span>         <span class="Type">Character</span> turtleTranformation<span class="Parenthesis">[</span><span class="Constant">64</span><span class="Parenthesis">]</span>    <span class="Operator">:</span><span class="Operator">=</span> <span class="Parenthesis">{</span><span class="Constant">0</span><span class="Parenthesis">}</span><span class="Keyword">;</span>
+ <span class="LineNumber">170</span>         <span class="Type">CharacterPointer</span> turtleTranformation <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>
+ <span class="LineNumber">171</span>                                                     turtleTranformation<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">172</span>         strcat<span class="Parenthesis">(</span>turtleTranformation<span class="Operator">,</span> <span class="String">"translate("</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">173</span>         tmp <span class="Operator">:</span><span class="Operator">=</span> convertIntegerToString<span class="Parenthesis">(</span>turtleTranformation <span class="Operator">+</span>
+ <span class="LineNumber">174</span>                                          strlen<span class="Parenthesis">(</span>turtleTranformation<span class="Parenthesis">)</span><span class="Operator">,</span>
+ <span class="LineNumber">175</span>                                       currentX<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">176</span>         strcat<span class="Parenthesis">(</span>turtleTranformation<span class="Operator">,</span> <span class="String">" "</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">177</span>         tmp <span class="Operator">:</span><span class="Operator">=</span> convertIntegerToString<span class="Parenthesis">(</span>turtleTranformation <span class="Operator">+</span>
+ <span class="LineNumber">178</span>                                          strlen<span class="Parenthesis">(</span>turtleTranformation<span class="Parenthesis">)</span><span class="Operator">,</span>
+ <span class="LineNumber">179</span>                                       currentY<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">180</span>         strcat<span class="Parenthesis">(</span>turtleTranformation<span class="Operator">,</span> <span class="String">") rotate("</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">181</span>         tmp <span class="Operator">:</span><span class="Operator">=</span> convertIntegerToString<span class="Parenthesis">(</span>turtleTranformation <span class="Operator">+</span>
+ <span class="LineNumber">182</span>                                          strlen<span class="Parenthesis">(</span>turtleTranformation<span class="Parenthesis">)</span><span class="Operator">,</span>
+ <span class="LineNumber">183</span>                                       currentDirection <span class="Operator">*</span> <span class="Constant">90</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">184</span>         strcat<span class="Parenthesis">(</span>turtleTranformation<span class="Operator">,</span> <span class="String">")"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">185</span>         applyTurtleTransformation<span class="Parenthesis">(</span>turtleTranformation<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">186</span>     <span class="Keyword">EndIf</span>
+ <span class="LineNumber">187</span> <span class="Keyword">EndFunction</span>
+ <span class="LineNumber">188</span> 
+</pre>
+</body>
+</html>
