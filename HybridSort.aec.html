@@ -124,7 +124,7 @@
   <span class="LineNumber">81</span> </span><span class="Comment">//Ne možemo pozvati JavaScriptine matematičke funkcije, jer one su metode
   <span class="LineNumber">82</span> </span><span class="Comment">//singletona "Math", a ne postoji standardizirani način da se zovu
   <span class="LineNumber">83</span> </span><span class="Comment">//metode JavaScriptinih objekata iz WebAssemblyja.
-  <span class="LineNumber">84</span> </span><span class="Type">Decimal32</span> PRECISION <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">256</span><span class="Keyword">;</span> <span class="Comment">//Ovdje možemo balansirati između brzine i
+  <span class="LineNumber">84</span> </span><span class="Type">Decimal32</span> PRECISION <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">128</span><span class="Keyword">;</span> <span class="Comment">//Ovdje možemo balansirati između brzine i
   <span class="LineNumber">85</span> </span>                            <span class="Comment">//preciznosti. Ako smo previše precizni, bit
   <span class="LineNumber">86</span> </span>                            <span class="Comment">//ćemo spori. Ako smo previše neprecizni, lako
   <span class="LineNumber">87</span> </span>                            <span class="Comment">//se može dogoditi da precijenimo koliko se
@@ -360,7 +360,7 @@
  <span class="LineNumber">317</span>         donja_granica<span class="Parenthesis">)</span><span class="Parenthesis">)</span> <span class="Operator">-</span> prirodni_logaritam<span class="Parenthesis">(</span><span class="Constant">2</span><span class="Parenthesis">)</span><span class="Parenthesis">)</span>
  <span class="LineNumber">318</span>         <span class="Operator">*</span> <span class="Constant">0.9163</span> <span class="Operator">*</span> abs<span class="Parenthesis">(</span>polinom_pod_apsolutnom<span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">319</span>     <span class="Type">Decimal32</span> koliko_usporedbi_ocekujemo_od_QuickSorta <span class="Operator">:</span><span class="Operator">=</span>
- <span class="LineNumber">320</span>         prirodni_logaritam<span class="Parenthesis">(</span>Eulerov_broj_na_koju_potenciju<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">320</span>         Eulerov_broj_na_potenciju<span class="Parenthesis">(</span>Eulerov_broj_na_koju_potenciju<span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">321</span>     <span class="Type">Decimal32</span> koliko_usporedbi_ocekujemo_od_MergeSorta <span class="Operator">:</span><span class="Operator">=</span>
  <span class="LineNumber">322</span>         <span class="Parenthesis">(</span>gornja_granica <span class="Operator">-</span> donja_granica<span class="Parenthesis">)</span> <span class="Operator">*</span>
  <span class="LineNumber">323</span>         prirodni_logaritam<span class="Parenthesis">(</span>gornja_granica <span class="Operator">-</span> donja_granica<span class="Parenthesis">)</span>
@@ -522,24 +522,25 @@
  <span class="LineNumber">479</span>     pocni_mjerenje_vremena<span class="Parenthesis">(</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">480</span>     hybrid_sort<span class="Parenthesis">(</span><span class="Constant">0</span><span class="Operator">,</span> velicina_niza<span class="Operator">,</span> <span class="Constant">0</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">481</span>     zavrsi_mjerenje_vremena<span class="Parenthesis">(</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">482</span>     <span class="Comment">//Kad završi mjerenje vremena, obavijesti JavaScript o onome što si izmjerio.
- <span class="LineNumber">483</span> </span>    izvijesti_o_obrnuto_poredanim_nizovima<span class="Parenthesis">(</span>broj_obrnuto_poredanih_podniza<span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">484</span>     izvijesti_o_poredanim_nizovima<span class="Parenthesis">(</span>broj_vec_poredanih_podniza<span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">485</span>     izvijesti_o_pokretanju_QuickSorta<span class="Parenthesis">(</span>broj_pokretanja_QuickSorta<span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">486</span>     izvijesti_o_pokretanju_MergeSorta<span class="Parenthesis">(</span>broj_pokretanja_MergeSorta<span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">487</span>     izvijesti_o_pokretanju_SelectSorta<span class="Parenthesis">(</span>broj_pokretanja_SelectSorta<span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">488</span>     <span class="Comment">//Napravi neki osnovni sanity-check, je li niz uistinu poredan?
- <span class="LineNumber">489</span> </span>    <span class="Type">Integer32</span> i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">490</span>     <span class="Keyword">While</span> i <span class="Operator">&lt;</span> velicina_niza <span class="Operator">-</span> <span class="Constant">1</span> <span class="Keyword">Loop</span>
- <span class="LineNumber">491</span>         <span class="Keyword">If</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>originalni_niz <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">&gt;</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>originalni_niz <span class="Operator">+</span> i <span class="Operator">+</span> <span class="Constant">1</span><span class="Parenthesis">)</span> <span class="Keyword">Then</span>
- <span class="LineNumber">492</span>             printString<span class="Parenthesis">(</span><span class="String">"Niz nije poredan!"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">493</span>             <span class="Keyword">Return</span><span class="Keyword">;</span> <span class="Comment">//Nemoj to ispisati više puta, nego prekini program čim
- <span class="LineNumber">494</span> </span>                    <span class="Comment">//si uočio prvu nepodudarnost.
- <span class="LineNumber">495</span> </span>        <span class="Keyword">EndIf</span>
- <span class="LineNumber">496</span>         i <span class="Operator">:</span><span class="Operator">=</span> i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">497</span>     <span class="Keyword">EndWhile</span>
- <span class="LineNumber">498</span> <span class="Keyword">EndFunction</span>
- <span class="LineNumber">499</span> 
+ <span class="LineNumber">482</span>     <span class="Comment">//Kad završi mjerenje vremena,
+ <span class="LineNumber">483</span> </span>    <span class="Comment">//obavijesti JavaScript o onome što si izmjerio.
+ <span class="LineNumber">484</span> </span>    izvijesti_o_obrnuto_poredanim_nizovima<span class="Parenthesis">(</span>broj_obrnuto_poredanih_podniza<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">485</span>     izvijesti_o_poredanim_nizovima<span class="Parenthesis">(</span>broj_vec_poredanih_podniza<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">486</span>     izvijesti_o_pokretanju_QuickSorta<span class="Parenthesis">(</span>broj_pokretanja_QuickSorta<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">487</span>     izvijesti_o_pokretanju_MergeSorta<span class="Parenthesis">(</span>broj_pokretanja_MergeSorta<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">488</span>     izvijesti_o_pokretanju_SelectSorta<span class="Parenthesis">(</span>broj_pokretanja_SelectSorta<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">489</span>     <span class="Comment">//Napravi neki osnovni sanity-check, je li niz uistinu poredan?
+ <span class="LineNumber">490</span> </span>    <span class="Type">Integer32</span> i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">491</span>     <span class="Keyword">While</span> i <span class="Operator">&lt;</span> velicina_niza <span class="Operator">-</span> <span class="Constant">1</span> <span class="Keyword">Loop</span>
+ <span class="LineNumber">492</span>         <span class="Keyword">If</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>originalni_niz <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">&gt;</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>originalni_niz <span class="Operator">+</span> i <span class="Operator">+</span> <span class="Constant">1</span><span class="Parenthesis">)</span> <span class="Keyword">Then</span>
+ <span class="LineNumber">493</span>             printString<span class="Parenthesis">(</span><span class="String">"Niz nije poredan!"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">494</span>             <span class="Keyword">Return</span><span class="Keyword">;</span> <span class="Comment">//Nemoj to ispisati više puta, nego prekini program čim
+ <span class="LineNumber">495</span> </span>                    <span class="Comment">//si uočio prvu nepodudarnost.
+ <span class="LineNumber">496</span> </span>        <span class="Keyword">EndIf</span>
+ <span class="LineNumber">497</span>         i <span class="Operator">:</span><span class="Operator">=</span> i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">498</span>     <span class="Keyword">EndWhile</span>
+ <span class="LineNumber">499</span> <span class="Keyword">EndFunction</span>
+ <span class="LineNumber">500</span> 
 </pre>
 </body>
 </html>
