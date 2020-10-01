@@ -52,14 +52,14 @@
    <span class="LineNumber">9</span> <span class="Parenthesis">}</span>
   <span class="LineNumber">10</span> <span class="Keyword">EndStructure</span><span class="Keyword">;</span>
   <span class="LineNumber">11</span> <span class="Type">Integer32</span> a <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">12</span> InstantiateStructure Point points<span class="Parenthesis">[</span><span class="Constant">12</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
+  <span class="LineNumber">12</span> <span class="Type">InstantiateStructure</span> Point points<span class="Parenthesis">[</span><span class="Constant">12</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
   <span class="LineNumber">13</span> <span class="Type">Integer32</span> b <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
   <span class="LineNumber">14</span> <span class="Keyword">Structure</span> String <span class="Keyword">Consists</span> <span class="Keyword">Of</span> <span class="Parenthesis">{</span>
   <span class="LineNumber">15</span>   <span class="Type">Integer32</span> length<span class="Keyword">;</span>
-  <span class="LineNumber">16</span>   <span class="Type">Character</span> string<span class="Parenthesis">[</span><span class="Constant">256</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
+  <span class="LineNumber">16</span>   <span class="Type">Character</span> string<span class="Parenthesis">[</span><span class="Constant">16</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
   <span class="LineNumber">17</span> <span class="Parenthesis">}</span>
   <span class="LineNumber">18</span> <span class="Keyword">EndStructure</span><span class="Keyword">;</span>
-  <span class="LineNumber">19</span> InstantiateStructure String helloWorld<span class="Keyword">;</span>
+  <span class="LineNumber">19</span> <span class="Type">InstantiateStructure</span> String helloWorld<span class="Keyword">;</span>
   <span class="LineNumber">20</span> <span class="Type">Integer32</span> c <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">2</span><span class="Keyword">;</span>
   <span class="LineNumber">21</span> 
   <span class="LineNumber">22</span> <span class="Keyword">Function</span> foo<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
@@ -96,14 +96,14 @@
   <span class="LineNumber">53</span> 
   <span class="LineNumber">54</span> <span class="Keyword">Function</span> spam<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
   <span class="LineNumber">55</span>   <span class="Comment">// Should return 3.
-  <span class="LineNumber">56</span> </span>  InstantiateStructure Point localPoints<span class="Parenthesis">[</span><span class="Constant">3</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
+  <span class="LineNumber">56</span> </span>  <span class="Type">InstantiateStructure</span> Point localPoints<span class="Parenthesis">[</span><span class="Constant">3</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
   <span class="LineNumber">57</span>   <span class="Keyword">Return</span> localPoints<span class="Parenthesis">[</span>b<span class="Parenthesis">]</span>.dimensions<span class="Keyword">;</span>
   <span class="LineNumber">58</span> <span class="Parenthesis">}</span>
   <span class="LineNumber">59</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
   <span class="LineNumber">60</span> 
   <span class="LineNumber">61</span> <span class="Keyword">Function</span> eggs<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
   <span class="LineNumber">62</span>   <span class="Comment">// Should return 3.
-  <span class="LineNumber">63</span> </span>  InstantiateStructure Point localPoint<span class="Keyword">;</span>
+  <span class="LineNumber">63</span> </span>  <span class="Type">InstantiateStructure</span> Point localPoint<span class="Keyword">;</span>
   <span class="LineNumber">64</span>   <span class="Keyword">Return</span> localPoint.dimensions<span class="Keyword">;</span>
   <span class="LineNumber">65</span> <span class="Parenthesis">}</span>
   <span class="LineNumber">66</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
@@ -119,12 +119,35 @@
   <span class="LineNumber">76</span> 
   <span class="LineNumber">77</span> <span class="Keyword">Function</span> onion<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
   <span class="LineNumber">78</span>   <span class="Comment">// Should return 1, but for now returns a random number.
-  <span class="LineNumber">79</span> </span>  InstantiateStructure outerStructure
-  <span class="LineNumber">80</span>       nestedStructure<span class="Keyword">;</span>
-  <span class="LineNumber">81</span>   <span class="Keyword">Return</span> nestedStructure.structureWithInnerNumber.innerNuber<span class="Keyword">;</span>
-  <span class="LineNumber">82</span> <span class="Parenthesis">}</span>
-  <span class="LineNumber">83</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
-  <span class="LineNumber">84</span> 
+  <span class="LineNumber">79</span> </span>  <span class="Type">InstantiateStructure</span> outerStructure nestedStructure<span class="Keyword">;</span>
+  <span class="LineNumber">80</span>   <span class="Keyword">Return</span> nestedStructure.structureWithInnerNumber.innerNuber<span class="Keyword">;</span>
+  <span class="LineNumber">81</span> <span class="Parenthesis">}</span>
+  <span class="LineNumber">82</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
+  <span class="LineNumber">83</span> 
+  <span class="LineNumber">84</span> <span class="Keyword">Function</span> copyString<span class="Parenthesis">(</span>StringPointer destination<span class="Operator">,</span>
+  <span class="LineNumber">85</span>                     StringPointer source<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">86</span>   <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>destination<span class="Parenthesis">)</span>.length <span class="Operator">:</span> <span class="Operator">=</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>source<span class="Parenthesis">)</span>.length<span class="Keyword">;</span>
+  <span class="LineNumber">87</span>   <span class="Type">Integer32</span> i <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">88</span>   <span class="Keyword">While</span> i <span class="Operator">&lt;</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>source<span class="Parenthesis">)</span>.length <span class="Keyword">Loop</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">89</span>     <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>destination<span class="Parenthesis">)</span>.string<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">:</span> <span class="Operator">=</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>source<span class="Parenthesis">)</span>.string<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Keyword">;</span>
+  <span class="LineNumber">90</span>     i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">91</span>   <span class="Parenthesis">}</span>
+  <span class="LineNumber">92</span>   <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
+  <span class="LineNumber">93</span> <span class="Parenthesis">}</span>
+  <span class="LineNumber">94</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
+  <span class="LineNumber">95</span> 
+  <span class="LineNumber">96</span> <span class="Keyword">Function</span> pomegranate<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">97</span>   <span class="Comment">// Should return 12.
+  <span class="LineNumber">98</span> </span>  <span class="Type">CharacterPointer</span> hw <span class="Operator">:</span> <span class="Operator">=</span> <span class="String">"Hello world!"</span><span class="Keyword">;</span>
+  <span class="LineNumber">99</span>   strcpy<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>helloWorld.string<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Operator">,</span> hw<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">100</span>   helloWorld.length <span class="Operator">:</span> <span class="Operator">=</span> strlen<span class="Parenthesis">(</span>hw<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">101</span>   <span class="Type">InstantiateStructure</span> String localString<span class="Keyword">;</span>
+ <span class="LineNumber">102</span>   copyString<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>localString<span class="Parenthesis">)</span><span class="Operator">,</span> <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>helloWorld<span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">103</span>   <span class="Type">InstantiateStructure</span> String copyOfLocalString <span class="Operator">:</span> <span class="Operator">=</span> localString<span class="Keyword">;</span>
+ <span class="LineNumber">104</span>   <span class="Keyword">Return</span> copyOfLocalString.length<span class="Keyword">;</span>
+ <span class="LineNumber">105</span> <span class="Parenthesis">}</span>
+ <span class="LineNumber">106</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
+ <span class="LineNumber">107</span> 
 </pre>
 </body>
 </html>
