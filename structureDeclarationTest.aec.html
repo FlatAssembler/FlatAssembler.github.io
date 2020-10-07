@@ -190,6 +190,20 @@
  <span class="LineNumber">147</span> <span class="Parenthesis">}</span>
  <span class="LineNumber">148</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
  <span class="LineNumber">149</span> 
+ <span class="LineNumber">150</span> ListNodePointer globalStructurePointer<span class="Operator">,</span> globalStructurePointerArray<span class="Parenthesis">[</span><span class="Constant">2</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
+ <span class="LineNumber">151</span> 
+ <span class="LineNumber">152</span> <span class="Keyword">Function</span> arrow<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">153</span>   <span class="Comment">// Should return 2.
+ <span class="LineNumber">154</span> </span>  <span class="Type">InstantiateStructure</span> ListNode node<span class="Parenthesis">[</span><span class="Constant">2</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
+ <span class="LineNumber">155</span>   node<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span>.value <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">156</span>   node<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span>.next <span class="Operator">:</span> <span class="Operator">=</span> <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>node<span class="Parenthesis">[</span><span class="Constant">1</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">157</span>   node<span class="Parenthesis">[</span><span class="Constant">1</span><span class="Parenthesis">]</span>.value <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">2</span><span class="Keyword">;</span>
+ <span class="LineNumber">158</span>   ListNodePointer ptr <span class="Operator">:</span> <span class="Operator">=</span> <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>node<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Operator">,</span> localPointerArray<span class="Parenthesis">[</span><span class="Constant">2</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
+ <span class="LineNumber">159</span>   ptr <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">160</span>   <span class="Keyword">Return</span><span class="Parenthesis">(</span>ptr<span class="Operator">-</span><span class="Operator">&gt;</span>value<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">161</span> <span class="Parenthesis">}</span>
+ <span class="LineNumber">162</span> <span class="Keyword">EndFunction</span>
+ <span class="LineNumber">163</span> 
 </pre>
 </body>
 </html>
