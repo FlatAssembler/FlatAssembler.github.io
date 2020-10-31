@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PicoBlaze Simulator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style type="text/css">
+      body {
+        background-color: #fff7ff;
+        background-image: url("Background.gif");
+        background-repeat: no-repeat;
+      }
+      main {
+        width: 100%;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        position: absolute;
+      }
+      #lineNumbers {
+        width: 40px;
+        margin-right: 0;
+        font-family: Courier New, monospace;
+        display: inline-block;
+        text-align: right;
+        background: #aaaaaa;
+        height: 100vh;
+        max-height: 400px;
+        position: absolute;
+        overflow: hidden;
+      }
+      #assemblyCode {
+        margin-left: 0;
+        width: calc(100% - 45px - 5px);
+        padding-left: 5px;
+        font-family: Courier New, monospace;
+        text-align: left;
+        display: inline-block;
+        background: #eeeeee;
+        height: 100vh;
+        max-height: 400px;
+        position: absolute;
+        left: 40px;
+        overflow: scroll;
+        white-space: pre;
+      }
+      .comment {
+        color: #333333;
+        font-style: italic;
+      }
+      .mnemonic {
+        color: #000077;
+        font-weight: bold;
+      }
+      .register {
+        color: #773300;
+        font-weight: bold;
+      }
+      #buttons {
+        top: 400px;
+        position: absolute;
+        width: 100%;
+      }
+      .flag {
+        color: #007700;
+        font-weight: bold;
+      }
+      .label {
+        color: #770077;
+      }
+      .string {
+        color: #770000;
+      }
+      .number {
+        color: #007777;
+      }
+      .directive {
+        color: #770077;
+        font-weight: bold;
+      }
+      .parenthesis {
+        font-weight: bold;
+      }
+      #highlightButton {
+        position: absolute;
+        left: 0;
+        text-align: left;
+        margin-left: 0;
+        float: left;
+      }
+      #assembleButton {
+        position: absolute;
+        right: 5px;
+        text-align: right;
+        margin-right: 0;
+        float: right;
+      }
+      #divWithMachineCode {
+        position: absolute;
+        width: calc(100% - 5px);
+        background: white;
+        height: 100vh;
+        top: 450px;
+        overflow: scroll;
+        max-height: 400px;
+        margin-bottom: 10px;
+      }
+      #warningAboutJavaScript {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        font-weight: bold;
+        font-family: Arial;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      th {
+        font-family: Arial, Sans-Serif;
+      }
+      td {
+        font-family: Courier New, monospace;
+      }
+      td:nth-child(1) {
+        text-align: right;
+      }
+      table {
+        width: calc(100% - 10px);
+        margin: 5px;
+      }
+    </style>
+    <script type="text/javascript">
+      "use strict";
+      let areWeHighlighting = false;
+      const mnemonics = [
+        "ADD",
+        "ADDCY",
+        "ADDC",
+        "AND",
+        "CALL",
+        "COMPARE",
+        "COMP",
+        "DISABLE",
+        "INTERRUPT",
+        "ENABLE",
+        "FETCH",
+        "INPUT",
+        "IN",
+        "JUMP",
+        "LOAD",
+        "OR",
+        "OUTPUT",
+        "OUT",
+        "RETURN",
+        "RET",
+        "RETURNI",
+        "RETI",
+        "RL",
+        "RR",
+        "SL0",
+        "SL1",
+        "SLA",
+        "SLX",
+        "SR0",
+        "SR1",
+        "SRA",
+        "SRX",
+        "STORE",
+        "SUB",
+        "SUBCY",
+        "SUBC",
+        "TEST",
+        "XOR",
+      ];
+      const preprocessor = [
+        "ADDRESS",
+        "ORG",
+        "VHDL",
+        "EQU",
+        "NAMEREG",
+        "CONSTANT",
+      ];
+      function highlightToken(token) {
+        if (token[0] === ";") return `<span class="comment">${token}</span>`;
+        for (const mnemonic of mnemonics)
+          if (RegExp("^" + mnemonic + "$", "i").test(token))
+            return `<span class="mnemonic">${token}</span>`;
+        for (const directive of preprocessor)
+          if (RegExp("^" + directive + "$", "i").test(token))
+            return `<span class="directive">${token}</span>`;
+        if (/^s(\d|[a-f])$/i.test(token))
+          return `<span class="register">${token}</span>`;
+        if (/^N?[CZAB]$/i.test(token))
+          return `<span class="flag">${token}</span>`;
+        if (/:$/.test(token)) return `<span class="label">${token}</span>`;
+        if (token[0] === '"') return `<span class="string">${token}</span>`;
+        if (
+          (token[0] >= "0" && token[0] <= "9") ||
+          (token[0] >= "a" && token[0] <= "f") ||
+          (token[0] >= "A" && token[0] <= "F")
+        )
+          return `<span class="number">${token}</span>`;
+        return token;
+      }
+      function syntaxHighlihter(/*edit*/) {
+        //"edit" should contain the
+        //cursor position, but that
+        //seems not to work.
+        if (areWeHighlighting) return;
+        areWeHighlighting = true;
+        const assemblyCodeDiv = document.getElementById("assemblyCode");
+        const assemblyCode = assemblyCodeDiv.innerText
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/&/g, "&amp;");
+        //const start=edit.selectionStart,
+        //  end=edit.selectionEnd; //Cursor position.
+        let areWeInAString = false;
+        let areWeInAComment = false;
+        let currentToken = "";
+        let highlightedText = "";
+        for (let i = 0; i < assemblyCode.length; i++) {
+          if (assemblyCode[i] === ";" && !areWeInAString) {
+            highlightedText += highlightToken(currentToken);
+            currentToken = ";";
+            areWeInAComment = true;
+            continue;
+          }
+          if (areWeInAComment && assemblyCode[i] !== "\n") {
+            currentToken += assemblyCode[i];
+            continue;
+          }
+          if (assemblyCode[i] === "\n") {
+            areWeInAString = false;
+            areWeInAComment = false;
+            highlightedText += highlightToken(currentToken) + "<br/>";
+            currentToken = "";
+            continue;
+          }
+          if (assemblyCode[i] === ":" && !areWeInAString) {
+            highlightedText += highlightToken(currentToken + assemblyCode[i]);
+            currentToken = "";
+            continue;
+          }
+          if (
+            (assemblyCode[i] === " " ||
+              assemblyCode[i] === "," ||
+              assemblyCode[i] === "+" ||
+              assemblyCode[i] === "-" ||
+              assemblyCode[i] === "*" ||
+              assemblyCode[i] === "/") &&
+            !areWeInAString
+          ) {
+            highlightedText += highlightToken(currentToken) + assemblyCode[i];
+            currentToken = "";
+            continue;
+          }
+          if (assemblyCode[i] === '"' && !areWeInAString) {
+            highlightedText += highlightToken(currentToken);
+            currentToken = '"';
+            areWeInAString = true;
+            continue;
+          }
+          if (
+            (assemblyCode[i] === "(" ||
+              assemblyCode[i] === ")" ||
+              assemblyCode[i] === "[" ||
+              assemblyCode[i] === "]" ||
+              assemblyCode[i] === "{" ||
+              assemblyCode[i] === "}") &&
+            !areWeInAString
+          ) {
+            highlightedText +=
+              highlightToken(currentToken) +
+              '<span class="parenthesis">' +
+              assemblyCode[i] +
+              "</span>";
+            currentToken = "";
+            continue;
+          }
+          if (assemblyCode[i] !== '"') {
+            currentToken += assemblyCode[i];
+            continue;
+          }
+          if (assemblyCode[i] === '"' && areWeInAString) {
+            highlightedText += highlightToken(currentToken + '"');
+            currentToken = "";
+            areWeInAString = false;
+          }
+        }
+        highlightedText += highlightToken(currentToken);
+        assemblyCodeDiv.innerHTML = highlightedText;
+        //The following code is supposed to move the cursor to the correct
+        //position, but it doesn't work.
+        /*
+        const range=document.createRange();
+        range.setStart(assemblyCodeDiv,start);
+        range.setEnd(assemblyCodeDiv,end);
+        const selection=window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        */
+        setUpLineNumbers();
+        areWeHighlighting = false;
+      }
+      function setUpLineNumbers() {
+        const assemblyCode = document.getElementById("assemblyCode").innerText;
+        const numberOfLines = Math.max(
+          (assemblyCode.match(/\n/g) || []).length,
+          1
+        );
+        let lineNumbersHTML = "";
+        for (let i = 1; i <= numberOfLines; i++)
+          lineNumbersHTML += i + ".<br/>";
+        document.getElementById("lineNumbers").innerHTML = lineNumbersHTML;
+      }
+      function setupLayout() {
+        if (window.innerWidth < 500)
+          document.getElementsByTagName("main")[0].style.left = 8 + "px";
+        else
+          document.getElementsByTagName("main")[0].style.left =
+            window.innerWidth / 2 - 500 / 2 + "px";
+        if (window.innerHeight < 400) {
+          document.getElementById("buttons").style.top =
+            window.innerHeight + 4 + "px";
+          document.getElementById("divWithMachineCode").style.top =
+            window.innerHeight + 4 + 50 + "px";
+        } else {
+          document.getElementById("buttons").style.top = 400 + 4 + "px";
+          document.getElementById("divWithMachineCode").style.top = "450px";
+        }
+      }
+      let machineCode = [];
+      for (let i = 0; i < 4096; i++)
+        machineCode.push({ hex: "00000", line: 0 });
+      let PC = 0;
+      function formatAsAddress(n) {
+        let ret = n.toString(16);
+        while (ret.length < 3) ret = "0" + ret;
+        return ret;
+      }
+      function drawTable() {
+        let tableHTML = `
+        <table>
+           <tr>
+             <th colspan=\"4\">Machine Code</th>
+           </tr>
+           <tr>
+             <th>PC</th>
+             <th>Address</th>
+             <th>Directive</th>
+             <th>Line</th>
+           </tr>
+        `;
+        for (let i = 0; i < machineCode.length; i++)
+          tableHTML += `
+            <tr>
+              <td>${PC === i ? "-&gt;" : " "}</td>
+              <td>${formatAsAddress(i)}</td>
+              <td>${machineCode[i].hex}</td>
+              <td>${machineCode[i].line}</td>
+            </tr>
+          `;
+        tableHTML += "</table>";
+        document.getElementById("divWithMachineCode").innerHTML = tableHTML;
+      }
+    </script>
+    <script src="TreeNode.js"></script>
+    <script src="tokenizer.js"></script>
+    <script src="parser.js"></script>
+    <script src="preprocessor.js"></script>
+  </head>
+  <body>
+    <main>
+      <div id="lineNumbers">1.</div>
+      <div id="assemblyCode" contenteditable="true">;Insert assembly here.</div>
+      <div id="buttons">
+        <button id="highlightButton">Highlight Assembly</button>
+        <button id="assembleButton">Assemble</button>
+      </div>
+      <div id="divWithMachineCode">
+        <span id="warningAboutJavaScript"
+          >Your browser doesn't seem to support JavaScript!</span
+        >
+      </div>
+    </main>
+    <script type="text/javascript">
+      //For now, attempting to highlight code as the user is typing is worse
+      //than useless, because it moves the cursor to the beginning.
+      /*
+    document.getElementById("assemblyCode").
+             oninput=syntaxHighlihter;
+    */
+      document.getElementById("assemblyCode").oninput = setUpLineNumbers;
+      document.getElementById("assemblyCode").onscroll = () => {
+        document
+          .getElementById("lineNumbers")
+          .scrollTo(0, document.getElementById("assemblyCode").scrollTop);
+      };
+      document.getElementById("highlightButton").onclick = syntaxHighlihter;
+      document.getElementById("assembleButton").onclick = () => {
+        const assembly = document.getElementById("assemblyCode").innerText;
+        const tokenized = tokenize(assembly);
+        let resultOfTokenizing = "[";
+        for (let i = 0; i < tokenized.length; i++) {
+          const token = tokenized[i];
+          if (token.text == "\n") resultOfTokenizing += '"\\n"';
+          else resultOfTokenizing += '"' + token.text + '"';
+          if (i != tokenized.length - 1) resultOfTokenizing += ",";
+        }
+        resultOfTokenizing += "]";
+        console.log("Result of tokenizing: ", resultOfTokenizing);
+        const parsed = parse(tokenized);
+        console.log("Result of parsing: ", parsed.getLispExpression());
+        const context = makeCompilationContext(parsed);
+        console.log("Result of preprocessing: ", context);
+        alert("Assembler is not yet implemented, sorry about that!");
+      };
+      setupLayout();
+      window.onresize = setupLayout;
+      drawTable();
+    </script>
+  </body>
+</html>
