@@ -1,550 +1,935 @@
 <html>
-    <head>
-        <title>Libertarianism</title>
-        <style type="text/css">
-            header
-            {
-                height:200px;
-                line-height:200px;
-                text-align:center;
-                background:#FFAAAA;
-                color:darkblue;
-                font-weight:bold;
-                font-size:36px;
-                font-family:Lucida;
-            }
-            aside
-            {
-                width:25%;
-                background:#AAAAFF;
-                height:100%;
-                float:left;
-                color:#AA4400;
-                overflow:auto;
-            }
-            aside a
-            {
-                text-decoration:none;
-            }
-            section
-            {
-                width:25%;
-                background:#FFFFAA;
-                height:100%;
-                float:right;
-                color:purple;
-                text-align: center;
-                overflow:auto;
-            }
-            .main1
-            {
-                background: black;
-                color:darkgray;
-                width:50%;
-                height:100%;
-                overflow: auto;
-                font-family: Verdana;
-            }
-            .main1 a
-            {
-                color:lightgreen;
-            }
-            .main2
-            {
-                background: black;
-                color:lightgreen;
-                width:50%;
-                height:100%;
-                overflow: auto;
-            }
-            .main2 a
-            {
-                color:#00FFFF;
-            }
-            .main3
-            {
-                background: #EEEEEE;
-                color:#333333;
-                width:50%;
-                height:100%;
-                overflow: auto;
-                font-family: Arial;
-            }
-            .main3 a
-            {
-                color:#00AAAA;
-            }
-        .link1
-        {
-            text-decoration:none;
-            background: linear-gradient(to right,#111111,#333333);
-            height:30px;
-            width:100%;
-            color:#FF3300;
-            line-height:30px;
-            text-indent:10px;
-            font-family:Verdana;
-            text-indent:5px;
+  <head>
+    <title>Libertarianism</title>
+    <style type="text/css">
+      header {
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        background: #ffaaaa;
+        color: darkblue;
+        font-weight: bold;
+        font-size: 36px;
+        font-family: Lucida;
+      }
+      aside {
+        width: 25%;
+        background: #aaaaff;
+        height: 100%;
+        float: left;
+        color: #aa4400;
+        overflow: auto;
+      }
+      aside a {
+        text-decoration: none;
+      }
+      section {
+        width: 25%;
+        background: #ffffaa;
+        height: 100%;
+        float: right;
+        color: purple;
+        text-align: center;
+        overflow: auto;
+      }
+      .main1 {
+        background: black;
+        color: darkgray;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+        font-family: Verdana;
+      }
+      .main1 a {
+        color: lightgreen;
+      }
+      .main2 {
+        background: black;
+        color: lightgreen;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+      }
+      .main2 a {
+        color: #00ffff;
+      }
+      .main3 {
+        background: #eeeeee;
+        color: #333333;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+        font-family: Arial;
+      }
+      .main3 a {
+        color: #00aaaa;
+      }
+      .link1 {
+        text-decoration: none;
+        background: linear-gradient(to right, #111111, #333333);
+        height: 30px;
+        width: 100%;
+        color: #ff3300;
+        line-height: 30px;
+        text-indent: 10px;
+        font-family: Verdana;
+        text-indent: 5px;
+      }
+      .popup {
+        display: none;
+        background: black;
+        font-size: 14px;
+        line-height: 18px;
+        color: white;
+        opacity: 0.75;
+        position: absolute;
+        left: 25%;
+        border-width: 7px;
+        border-style: solid;
+        border-color: black;
+        max-width: 200px;
+        text-indent: 0px;
+      }
+      .popup::before {
+        content: " ";
+      }
+      .link1:hover {
+        background: darkGray;
+        color: black;
+      }
+      .link1:hover .popup {
+        display: block;
+      }
+      .link2 {
+        background: linear-gradient(to right, #333333, #111111);
+        color: #ff3300;
+      }
+      footer {
+        width: 100%;
+        height: 50px;
+        background: #aaffaa;
+        text-align: center;
+        color: #007777;
+        line-height: 50px;
+      }
+      .quotation {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        display: block;
+        font-family: Times;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        background: #ffffdd;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <img
+        src="gornjiLijevi.svg"
+        style="
+          position: absolute;
+          left: 8px;
+          width: 25%;
+          height: 200px;
+          top: 8px;
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+      />
+      <img
+        src="gornjiDesni.svg"
+        style="
+          position: absolute;
+          width: 25%;
+          height: 200px;
+          left: -webkit-calc(75% - 8px);
+          left: calc(75% - 8px);
+          top: 8px;
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+      />
+      <img
+        src="donjiLijevi.svg"
+        style="
+          position: absolute;
+          width: 25%;
+          height: 50px;
+          left: 8px;
+          top: calc(100% + 200px - 8px);
+          top: -webkit-calc(100% + 200px - 8px);
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+      />
+      <div
+        style="
+          position: absolute;
+          top: -webkit-calc(100% + 200px + 50px + 8px);
+          top: calc(100% + 200px + 50px + 8px);
+          width: 100%;
+          height: 50px;
+          font-size: 36px;
+          font-family: Arial;
+          text-align: center;
+          background: #333333;
+          color: #aaaaaa;
+          line-height: 50px;
+        "
+      >
+        Please enable JavaScript!
+      </div>
+    </noscript>
+    <header>
+      <svg
+        id="gornjiLijevi"
+        style="float: left; width: 25%; height: 200px; background: white"
+      ></svg>
+      Libertarianism
+      <svg
+        id="gornjiDesni"
+        style="float: right; width: 25%; height: 200px; background: white"
+      ></svg>
+      <script type="text/javascript">
+        var svgNS = "http://www.w3.org/2000/svg";
+        function nacrtajRubove() {
+          var crtanje = document.getElementById("gornjiLijevi");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          var visina = crtanje.clientHeight;
+          var sirina = crtanje.clientWidth;
+          if (!visina || !sirina) {
+            visina = crtanje.parentNode.clientHeight;
+            sirina = crtanje.parentNode.clientWidth / 4;
+          }
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (270 + i * 3) / 57.3;
+            var kut2 = (274 + i * 3) / 57.3;
+            var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+            var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+            var y1 = Math.round(visina + Math.sin(kut1) * visina);
+            var y2 = Math.round(visina + Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(" +
+                Math.round(255 - i * 2.83) +
+                ",170," +
+                Math.round(170 + i * 2.83) +
+                ")"
+            );
+            crtanje.appendChild(trokut);
+          }
+          crtanje = document.getElementById("gornjiDesni");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (i * 3) / 57.3;
+            var kut2 = (4 + i * 3) / 57.3;
+            var x1 = Math.round(Math.cos(kut1) * sirina);
+            var x2 = Math.round(Math.cos(kut2) * sirina);
+            var y1 = Math.round(visina - Math.sin(kut1) * visina);
+            var y2 = Math.round(visina - Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(255," + Math.round(255 - i * 2.83) + ",170)"
+            );
+            crtanje.appendChild(trokut);
+          }
         }
-        .popup
-        {
-            display:none;
-            background:black;
-            font-size:14px;
-            line-height: 18px;
-            color:white;
-            opacity:0.75;
-            position:absolute;
-            left:25%;
-            border-width: 7px;
-            border-style: solid;
-            border-color: black;
-            max-width: 200px;
-            text-indent: 0px;
+        nacrtajRubove();
+        window.addEventListener("resize", nacrtajRubove);
+      </script>
+    </header>
+    <aside>
+      <br />
+      <center><b>Here are my online publications:</b></center>
+      <br />
+      <b style="margin-left: 5px">HTML5 stuff:</b>
+      <a href="sat.html"
+        ><div class="link1">
+          <div class="popup">
+            A simple "grandfather clock" animation made in Javascript.
+          </div>
+          Analog Clock
+        </div></a
+      >
+      <a href="calculator.html"
+        ><div class="link2 link1">
+          <div class="popup">
+            A simple HTML5 online calculator. Can solve parentheses!
+          </div>
+          Calculator
+        </div></a
+      >
+      <a href="fraktal.html"
+        ><div class="link1">
+          <div class="popup">
+            A spiral fractal I've made by modifying the "Dragon Curve".
+          </div>
+          The Dragon Curve
+        </div></a
+      >
+      <a href="pacman.html"
+        ><div class="link2 link1">
+          <div class="popup">
+            A Pacman game playable on touch screens. Made in Javascript using
+            the SVG graphics.
+          </div>
+          PacMan
+        </div></a
+      >
+      <a href="etymologist.html">
+        <div class="link1">
+          <div class="popup">
+            A flashcard game in which the goal is to guess the etymologies of
+            the words in simulated languages.
+          </div>
+          Etymology Game
+        </div></a
+      >
+      <br /><b style="margin-left: 5px">Webpages on this website:</b>
+      <a href="index.html"
+        ><div class="link1">
+          <div class="popup">A webpage with a bunch of links.</div>
+          Homepage
+        </div></a
+      >
+      <a href="libertarianism.html"
+        ><div class="link2 link1">
+          <div class="popup">The webpage you are currently browsing.</div>
+          Libertarianism
+        </div></a
+      >
+      <a href="vegetarianism.html"
+        ><div class="link1">
+          <div class="popup">Why I don't eat meat.</div>
+          Vegetarianism
+        </div></a
+      >
+      <a href="Simulation.html"
+        ><div class="link2 link1">
+          <div class="popup">Could the universe be a giant computer?</div>
+          Digital Physics
+        </div></a
+      >
+      <a href="linguistics.html"
+        ><div class="link1">
+          <div class="popup">
+            Why I like languages.<br /><br />
+            See also:<br />
+            <u
+              style="color: #0077ff"
+              onclick="window.open('http://flatassembler.github.io/toponyms.html'); window.close();"
+              >Croatian Toponyms</u
+            ><br />
+            <u
+              style="color: #0077ff"
+              onclick="window.open('http://flatassembler.github.io/Indo-Austronesian.html'); window.close();"
+              >Indo-Austronesian</u
+            >
+          </div>
+          Linguistics
+        </div></a
+      >
+      <a href="informatics.html"
+        ><div class="link2 link1">
+          <div class="popup">Why I like computers.</div>
+          Informatics
+        </div></a
+      >
+      <a href="pseudosciences.html"
+        ><div class="link1">
+          <div class="popup">
+            My advice on how to recognize and deal with false sciences.
+          </div>
+          Pseudosciences
+        </div></a
+      >
+      <br /><b style="margin-left: 5px">On Internet forums and blogs:</b>
+      <a href="http://linguistforum.com/outside-of-the-box/croatian-toponyms/"
+        ><div class="link1">
+          <div class="popup">
+            The forum thread in which I explained my linguistic theories in
+            detail.
+          </div>
+          Croatian Toponyms
+        </div></a
+      >
+      <a href="https://atheistforums.org/thread-50241.html"
+        ><div class="link2 link1">
+          <div class="popup">My parody of the conspiracy theorists.</div>
+          Airplanes Don't Exist
+        </div></a
+      >
+    </aside>
+    <section>
+      <p style="margin-left: 5px; margin-right: 5px">
+        <br />There are statistics that show that governments (mainly socialism
+        and communism) have, in recent times, killed many more people than
+        murderers, or even wars, did. It's a phenomenon called
+        <a href="https://en.wikipedia.org/wiki/Democide">democide</a>.<br />
+        <br />Some famous people that call themselves libertarians are the
+        linguist Noam Chomsky and the Nobel-prize winning economist Milton
+        Friedman.<br />
+        <br />Somalia is often alleged to be evidence of the lack of a
+        government causing violence. However, in 2004, after being stateless for
+        more than a decade, its murder rate was less than half of the Africa's
+        average murder rate.<br />
+      </p>
+      <br />
+      <a id="loptica" href="#vrh" style="position: absolute">
+        <svg width="100" height="100">
+          <defs>
+            <radialgradient id="modrozelen">
+              <stop offset="0%" stop-color="#00FFFF" />
+              <stop offset="100%" stop-color="#0000FF" />
+            </radialgradient>
+            <radialgradient id="ljubicastoplav">
+              <stop offset="0%" stop-color="#FF00FF" />
+              <stop offset="100%" stop-color="#0000FF" />
+            </radialgradient>
+          </defs>
+          <circle cx="50" cy="50" r="50" fill="url(#modrozelen)" />
+          <polygon
+            points="50,25 25,50 38,50 38,75 62,75 62,50 75,50"
+            fill="url(#ljubicastoplav)"
+          />
+        </svg>
+      </a>
+      <script type="text/javascript">
+        var udaraca = 0;
+        var loptica = document.getElementById("loptica");
+        var pocetna = loptica.parentNode.clientHeight + 200 - 100;
+        loptica.style.top = pocetna;
+        loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+        var h = 0;
+        var gk = 1;
+        var v = 10;
+        window.setInterval(pomakniLopticu, 80);
+        window.addEventListener("resize", promijeniPocetnu);
+        function promijeniPocetnu() {
+          pocetna = loptica.parentNode.clientHeight + 210 - 100;
+          loptica.style.top = pocetna;
+          loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+          h = 0;
+          gk = 1;
+          v = 10;
         }
-        .popup::before
-        {
-            content:" ";
-        }
-        .link1:hover
-        {
-            background:darkGray;
-            color:black;
-        }
-        .link1:hover .popup
-        {
-            display:block;
-        }
-        .link2
-        {
-            background:linear-gradient(to right,#333333,#111111);
-            color:#FF3300;
-        }
-            footer
-            {
-                width:100%;
-                height:50px;
-                background: #AAFFAA;
-                text-align:center;
-                color:#007777;
-                line-height: 50px;
+        function pomakniLopticu() {
+          h += v;
+          v -= gk;
+          if (h < 0) {
+            v = -v * 0.75;
+            h = 0;
+            udaraca++;
+            if (udaraca > 20) {
+              udaraca = 0;
+              v = 10;
             }
-            .quotation
-            {
-                margin-top:5px;
-                margin-bottom:5px;
-                display:block;
-                font-family:Times;
-                padding-left:10px;
-                padding-right:10px;
-                padding-bottom:5px;
-                padding-top:5px;
-                background:#FFFFDD;
-                color:black;
+          }
+          loptica.style.top = pocetna - h;
+        }
+      </script>
+    </section>
+    <main class="main1" id="glavni" style="display: block">
+      <a name="vrh"></a>
+      <h2 style="text-align: center">About Libertarianism</h2>
+      <div
+        style="
+          text-align: justify;
+          margin-left: 10px;
+          margin-right: 10px;
+          margin-bottom: 100px;
+        "
+      >
+        The word "libertarianism" is defined as "a belief in human free will".
+        Now, the phrase "belief in" has two quite distinct meanings: one is the
+        belief that something exists, and the other one is the belief that
+        something is reliable.
+        <div
+          style="
+            background: gray;
+            float: right;
+            color: purple;
+            text-align: center;
+            margin-top: 5px;
+            margin-left: 10px;
+            margin-bottom: 5px;
+          "
+        >
+          <svg
+            width="200"
+            height="200"
+            style="
+              background: black;
+              background: radial-gradient(lightGray, black);
+              margin-top: 10px;
+              margin-bottom: 5px;
+              margin-left: 10px;
+              margin-right: 10px;
+            "
+            id="polarRose"
+          >
+            <defs>
+              <radialGradient id="zeleni">
+                <stop offset="0%" stop-color="darkGreen" />
+                <stop offset="100%" stop-color="lightGreen" />
+              </radialGradient>
+            </defs></svg
+          ><br /><i
+            >Green Polar Rose-<br />One of the symbols of<br />
+            libertarianism.</i
+          >
+        </div>
+        <script type="text/javascript">
+          var crtanje = document.getElementById("polarRose");
+          var put = document.createElementNS(svgNS, "path");
+          var x = 100,
+            y = 100;
+          var d = "M100 100 ";
+          for (var i = 0; i < 360; i++) {
+            var kut = ((2 * Math.PI) / 360) * i;
+            var r = 75 * Math.sin(3 * kut);
+            x = Math.sin(kut) * r + 100;
+            y = 100 - Math.cos(kut) * r;
+            d = d + "L" + Math.round(x) + " " + Math.round(y) + " ";
+          }
+          d += "Z";
+          put.setAttribute("d", d);
+          put.setAttribute("fill", "url(#zeleni)");
+          var animacija = document.createElementNS(svgNS, "animateTransform");
+          animacija.setAttribute("attributeName", "transform");
+          animacija.setAttribute("type", "rotate");
+          animacija.setAttribute("from", "360 100 100");
+          animacija.setAttribute("to", "0 100 100");
+          animacija.setAttribute("dur", "10s");
+          animacija.setAttribute("repeatCount", "indefinite");
+          put.appendChild(animacija);
+          crtanje.appendChild(put);
+        </script>
+        In politics, it's mainly used in the second sense. Its basic principle
+        (called non-agression-principle) is that initiation of force is always
+        immoral. The same applies to the things where other people believe that
+        it's justified, like the police.<br />
+        Libertarianism has a bad name. Its adherents are often said to be
+        selfish and greedy. But the same is true for many other political
+        opinions that aren't popular. That's because its arguments aren't
+        communicated in a good way (they're often accompanied by things such as
+        global warming denialism), or worse, they aren't being communicated at
+        all.
+        <p id="upozorenje" style="margin-top: 0px; margin-bottom: 0px">
+          <br /><font color="red">WARNING:</font> The following text contains
+          things that some people (especially in Croatia) might find insulting.
+          It was not intended that way, but I can see how it could. It's nothing
+          racist, nor against feminism, nor does it support communism, or
+          anything like that. If you are ready to read it,
+          <a href="javascript::upozorenje()" onclick="upozorenje()"
+            >click here</a
+          >.<br />
+          <script type="text/javascript">
+            function createBr() {
+              return document.createElement("br");
             }
-        </style>
-    </head>
-    <body>
-        <noscript>
-            <img src="gornjiLijevi.svg" style="position:absolute; left:8px; width:25%; height:200px; top:8px; -webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
-            <img src="gornjiDesni.svg" style="position:absolute; width:25%; height:200px; left:-webkit-calc(75% - 8px); left:calc(75% - 8px); top:8px;-webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
-            <img src="donjiLijevi.svg" style="position:absolute; width:25%; height:50px; left:8px; top:calc(100% + 200px - 8px); top:-webkit-calc(100% + 200px - 8px); -webkit-animation-name: animacija;-webkit-animation-duration: 2s;"/>
-            <div style="position:absolute; top:-webkit-calc(100% + 200px + 50px + 8px); top:calc(100% + 200px + 50px + 8px); width:100%; height:50px; font-size:36px; font-family:Arial; text-align:center; background:#333333; color:#AAAAAA; line-height:50px;">Please enable JavaScript!</div>
-        </noscript>
-        <header>
-            <svg id="gornjiLijevi" style="float:left; width:25%; height:200px; background:white;"></svg>
-            Libertarianism
-            <svg id="gornjiDesni" style="float:right; width:25%; height:200px; background:white;"></svg>
-            <script type="text/javascript">
-                var svgNS = "http://www.w3.org/2000/svg";
-                function nacrtajRubove() {
-                    var crtanje = document.getElementById("gornjiLijevi");
-                    while (crtanje.childNodes.length)
-                        crtanje.removeChild(crtanje.childNodes[0]);
-                    var visina = crtanje.clientHeight;
-                    var sirina = crtanje.clientWidth;
-                    if (!visina || !sirina)
-                    {
-                        visina=crtanje.parentNode.clientHeight;
-                        sirina=crtanje.parentNode.clientWidth/4;
-                    }
-                    for (var i = 0; i < 30; i++)
-                    {
-                        var kut1 = (270 + i * 3) / 57.3;
-                        var kut2 = (274 + i * 3) / 57.3;
-                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
-                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
-                        var y1 = Math.round(visina + Math.sin(kut1) * visina);
-                        var y2 = Math.round(visina + Math.sin(kut2) * visina);
-                        var trokut = document.createElementNS(svgNS, "polygon");
-                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina);
-                        trokut.setAttribute("fill", "rgb(" + Math.round(255 - i * 2.83) + ",170," + Math.round(170 + i * 2.83) + ")");
-                        crtanje.appendChild(trokut);
-                    }
-                    crtanje = document.getElementById("gornjiDesni");
-                    while (crtanje.childNodes.length)
-                        crtanje.removeChild(crtanje.childNodes[0]);
-                    for (var i = 0; i < 30; i++)
-                    {
-                        var kut1 = i * 3 / 57.3;
-                        var kut2 = (4 + i * 3) / 57.3;
-                        var x1 = Math.round(Math.cos(kut1) * sirina);
-                        var x2 = Math.round(Math.cos(kut2) * sirina);
-                        var y1 = Math.round(visina - Math.sin(kut1) * visina);
-                        var y2 = Math.round(visina - Math.sin(kut2) * visina);
-                        var trokut = document.createElementNS(svgNS, "polygon");
-                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina);
-                        trokut.setAttribute("fill", "rgb(255," + Math.round(255 - i * 2.83) + ",170)");
-                        crtanje.appendChild(trokut);
-                    }
-                }
-                nacrtajRubove();
-                window.addEventListener('resize', nacrtajRubove);
-            </script>
-        </header>
-        <aside>
-            <br/>
-            <center><b>Here are my online publications:</b></center>
-            <br/>
-            <b style="margin-left:5px">HTML5 stuff:</b>
-            <a href="sat.html"><div class="link1">
-                <div class="popup">A simple "grandfather clock" animation made in Javascript.</div>
-                Analog Clock
-            </div></a>
-            <a href="calculator.html"><div class="link2 link1">
-                <div class="popup">A simple HTML5 online calculator. Can solve parentheses!</div>
-                Calculator
-            </div></a>
-            <a href="fraktal.html"><div class="link1">
-                <div class="popup">A spiral fractal I've made by modifying the "Dragon Curve".</div>
-                The Dragon Curve
-            </div></a>
-            <a href="pacman.html"><div class="link2 link1">
-                <div class="popup">A Pacman game playable on touch screens. Made in Javascript using the SVG graphics.</div>
-                PacMan
-            </div></a>
-            <a href="etymologist.html">
-<div class="link1">
-<div class="popup">A flashcard game in which the goal is to guess the etymologies of the words in simulated languages.</div>
-Etymology Game
-</div></a>
-            <br><b style="margin-left:5px">Webpages on this website:</b>
-            <a href="index.html"><div class="link1">
-                <div class="popup">A webpage with a bunch of links.</div>
-                Homepage
-            </div></a>
-            <a href="libertarianism.html"><div class="link2 link1">
-                <div class="popup">The webpage you are currently browsing.</div>
-                Libertarianism
-            </div></a>
-            <a href="vegetarianism.html"><div class="link1">
-                <div class="popup">Why I don't eat meat.</div>
-                Vegetarianism
-            </div></a>
-            <a href="Simulation.html"><div class="link2 link1">
-                <div class="popup">Could the universe be a giant computer?</div>
-                Digital Physics
-            </div></a>
-            <a href="linguistics.html"><div class="link1">
-                <div class="popup">Why I like languages.<br><br>
-                    See also:<br>
-                    <u style="color:#0077FF" onclick="window.open('http://flatassembler.github.io/toponyms.html'); window.close();">Croatian Toponyms</u><br>
-                    <u style="color:#0077FF" onclick="window.open('http://flatassembler.github.io/Indo-Austronesian.html'); window.close();">Indo-Austronesian</u></div>
-                Linguistics
-            </div></a>
-            <a href="informatics.html"><div class="link2 link1">
-                <div class="popup">Why I like computers.</div>
-                Informatics
-            </div></a>
-            <a href="pseudosciences.html"><div class="link1">
-                <div class="popup">My advice on how to recognize and deal with false sciences.</div>
-                Pseudosciences
-            </div></a>
-            <br><b style="margin-left:5px">On Internet forums and blogs:</b>
-            <a href="http://linguistforum.com/outside-of-the-box/croatian-toponyms/"><div class="link1">
-                <div class="popup">The forum thread in which I explained my linguistic theories in detail.</div>
-                Croatian Toponyms
-            </div></a>
-            <a href="https://atheistforums.org/thread-50241.html"><div class="link2 link1">
-                <div class="popup">My parody of the conspiracy theorists.</div>
-                Airplanes Don't Exist
-            </div></a>
-        </aside>
-        <section>
-            <p style="margin-left:5px; margin-right:5px;"><br>There are statistics that show that governments (mainly socialism and communism) have, in recent times, killed many more people than murderers, or even wars, did. It's a phenomenon called <a href="https://en.wikipedia.org/wiki/Democide">democide</a>.<br>
-            <br>Some famous people that call themselves libertarians are the linguist Noam Chomsky and the Nobel-prize winning economist Milton Friedman.<br>
-            <br>Somalia is often alleged to be evidence of the lack of a government causing violence. However, in 2004, after being stateless for more than a decade, its murder rate was less than half of the Africa's average murder rate.<br>
-            </p><br>
-            <a id="loptica" href="#vrh" style="position: absolute;">
-                <svg width="100" height="100">
-                <defs>
-                <radialgradient id="modrozelen">
-                <stop offset="0%" stop-color="#00FFFF"/>
-                <stop offset="100%" stop-color="#0000FF"/>
-                </radialgradient>
-                <radialgradient id="ljubicastoplav">
-                <stop offset="0%" stop-color="#FF00FF"/>
-                <stop offset="100%" stop-color="#0000FF"/>
-                </radialgradient>
-                </defs>
-                <circle cx="50" cy="50" r="50" fill="url(#modrozelen)"/>
-                <polygon points="50,25 25,50 38,50 38,75 62,75 62,50 75,50" fill="url(#ljubicastoplav)"/>
-                </svg>
-            </a>
-            <script type="text/javascript">
-                var udaraca = 0;
-                var loptica = document.getElementById("loptica");
-                var pocetna = loptica.parentNode.clientHeight + 200 - 100;
-                loptica.style.top = pocetna;
-                loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
-                var h = 0;
-                var gk = 1;
-                var v = 10;
-                window.setInterval(pomakniLopticu, 80);
-                window.addEventListener("resize", promijeniPocetnu);
-                function promijeniPocetnu()
-                {
-                    pocetna = loptica.parentNode.clientHeight + 210 - 100;
-                    loptica.style.top = pocetna;
-                    loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
-                    h = 0;
-                    gk = 1;
-                    v = 10;
-                }
-                function pomakniLopticu()
-                {
-                    h += v;
-                    v -= gk;
-                    if (h < 0)
-                    {
-                        v = -v * 0.75;
-                        h = 0;
-                        udaraca++;
-                        if (udaraca > 20)
-                        {
-                            udaraca = 0;
-                            v = 10;
-                        }
-                    }
-                    loptica.style.top = pocetna - h;
-                }
-            </script>
-        </section>
-        <main class="main1" id="glavni" style="display:block">
-            <a name="vrh"></a>
-            <h2 style="text-align: center">About Libertarianism</h2>
-            <div style="text-align: justify; margin-left:10px; margin-right:10px; margin-bottom:100px;">
-                The word "libertarianism" is defined as "a belief in human free will". Now, the phrase "belief in" has two quite distinct meanings: one is the belief that something exists, and the other one is the belief that something is reliable.
-                <div style="background:gray; float:right; color:purple; text-align:center; margin-top:5px; margin-left:10px; margin-bottom:5px;"><svg width=200 height=200 style="background:black;background:radial-gradient(lightGray,black); margin-top:10px; margin-bottom:5px; margin-left:10px; margin-right:10px;" id="polarRose">
-                    <defs>
-                        <radialGradient id="zeleni">
-                            <stop offset="0%" stop-color="darkGreen"/>
-                            <stop offset="100%" stop-color="lightGreen"/>
-                        </radialGradient>
-                    </defs>
-                </svg><br><i>Green Polar Rose-<br>One of the symbols of<br> libertarianism.</i></div>
-                <script type="text/javascript">
-                    var crtanje=document.getElementById("polarRose");
-                    var put=document.createElementNS(svgNS,"path");
-                    var x=100,y=100;
-                    var d="M100 100 "
-                    for (var i=0; i<360; i++)
-                    {
-                        var kut=2*Math.PI/360*i;
-                        var r=75*Math.sin(3*kut);
-                        x=Math.sin(kut)*r+100;
-                        y=100-Math.cos(kut)*r;
-                        d=d+"L"+Math.round(x)+" "+Math.round(y)+" ";
-                    }
-                d+="Z";
-                put.setAttribute("d",d);
-                put.setAttribute("fill","url(#zeleni)");
-                var animacija=document.createElementNS(svgNS,"animateTransform");
-                animacija.setAttribute("attributeName","transform");
-                animacija.setAttribute("type","rotate");
-                animacija.setAttribute("from","360 100 100");
-                animacija.setAttribute("to","0 100 100");
-                animacija.setAttribute("dur","10s");
-                animacija.setAttribute("repeatCount","indefinite");
-                put.appendChild(animacija);
-                crtanje.appendChild(put);
-                    </script> In politics, it's mainly used in the second sense. Its basic principle (called non-agression-principle) is that initiation of force is always immoral. The same applies to the things where other people believe that it's justified, like the police.<br>
-                Libertarianism has a bad name. Its adherents are often said to be selfish and greedy. But the same is true for many other political opinions that aren't popular. That's because its arguments aren't communicated in a good way (they're often accompanied by things such as global warming denialism), or worse, they aren't being communicated at all.<p id="upozorenje" style="margin-top:0px;margin-bottom:0px;"><br><font color="red">WARNING:</font> The following text contains things that some people (especially in Croatia) might find insulting. It was not intended that way, but I can see how it could. It's nothing racist, nor against feminism, nor does it support communism, or anything like that. If you are ready to read it, <a href="javascript::upozorenje()" onclick="upozorenje()">click here</a>.<br>
-                <script type="text/javascript">
-                    function createBr()
-                    {
-                        return document.createElement("br");
-                    }
-                function createLink(url,text)
-                {
-                    var link=document.createElement("a");
-                    link.setAttribute("href",url);
-                    link.appendChild(document.createTextNode(text));
-                    return link;
-                }
-                function upozorenje()
-                {
-                    
-                    var upozorenje=document.getElementById("upozorenje");
-                    upozorenje.innerHTML="";
-                    upozorenje.appendChild(document.createTextNode("The first step towards understanding it is perhaps the realization that government isn't actively trying to protect us. This might seem absurd at first, but think of it this way. The police only comes after a psychopath has already murdered someone. And then they put him in a place not where he will rehabilitate, but to a place from which he will return with even more psychological problems, that made him murder in the first place. For all we know, they could just be making things worse. In fact, the history appears to support the notion that the government attempting to prevent crime actually causes it. In the middle ages, the knights were bossing everyone around, yet you couldn't safely walk the streets because of the criminals. Also, the US has the highest incarceration rate of all the countries in the world today (except possibly North Korea), almost 3% of its population is behind bars, yet it also has the most mass shootings per capita "));
-                    upozorenje.innerHTML+="(<a href=\"javascript:void(0)\" onclick=\"if (document.getElementById('details').style.display=='none') document.getElementById('details').style.display='inline'; else document.getElementById('details').style.display='none';\">show/hide the details</a>).<br\/><span id=\"details\" style=\"display:none\">A common counter-argument is that there is evidence of at least some tribal societies being violent way before the rulers in todays' sense existed, and that that's evidence that giving people too much freedom would lead to violence. But there aren't many reasons to think that would actually happen. First, people back then had religions that commanded them to murder the infidels (<i>id est</i>, the people of other tribes) or do human sacrifices. Today, we don't have that. If we did, the government wouldn't be able to stop that violence. It isn't able to stop even the Islamic terrorists, yet alone transform the entire society of religious lunatics into reasonable and peaceful people. Second, today we have capitalism. If you have at least some money, it's usually much cheaper to buy something you need than to kill for that. It also usually makes it much cheaper to hire someone to work for you than to have slaves.<br\/><\/span>";
-                    upozorenje.appendChild(document.createTextNode("Most of the murders don't happen because someone specifically wants to murder someone else, but because of the alcohol and drugs. It's not clear how the laws are supposed to help there: we know very well that prohibition doesn't work. And those who kill once are unlikely to do it again. The "));
-                    upozorenje.appendChild(createLink("https://en.wikipedia.org/wiki/Recidivism#Recidivism_rates","recidivism"));
-                    upozorenje.appendChild(document.createTextNode(" for violent crimes is extremely low. Out of every 100 murderers, only one or two of them are serial killers. And laws appear to mainly affect those that murder unintentionally. The percentage of murders "));
-                    upozorenje.appendChild(createLink("https://en.wikipedia.org/wiki/Murder#Murder_rates_by_country","solved"));
-                    upozorenje.appendChild(document.createTextNode(" today is only around 60%. Instead of increasing with the apllication of scientific methods in forensics, it has actually decreased, possibly because the scientifically valid methods have decreased the number of incorrectly solved cases. If someone murders intentionally, he can probably get away with it."));
-                    upozorenje.appendChild(createBr());
-                    upozorenje.appendChild(document.createTextNode("The main objections people have against libertarianism is that we appear to be bombarded with examples of big powers being involved in wars helping, socialist policies working and capitalism failing due to a lack of government intervention. But that evidence comes from a highly distorted perspective: we never see what would have happened if government didn't intervene at all. The Occam's razor obviously supports the idea that the government intervention, that is, the initiation of force, isn't necessary. Do you have the knowledge needed to evaluate the claims of, for instance, the Great Depression of 1930s having been caused by capitalism and of the Roosevelt's socialist policies helping? Nobody does, which is why the experts (contrary to what we are told in school) "));
-                    upozorenje.appendChild(createLink("https://en.wikipedia.org/wiki/Great_Depression#Causes","disagree"));
-                    upozorenje.appendChild(document.createTextNode(". The same goes for other supposed evidence of socialist policies working. Many international media reported when Croatia passed a law forcing the banks to forgive the debts of the poor citizens in 2015. What happened next to those banks? Many of them went bankrupt, and many poor people lost all their savings. The possibility that it's caused by that socialist policy is rarely mentioned, let alone discussed. So, of course, the historiographs wouldn't write that. And that's how this distorted perspective on economic history is created. Look, when the government increases the taxes to support more generous social programs, it might have good intentions. But nobody spends someone elses money as carefully as he does his own. More social programs almost always means higher taxes, and higher taxes almost always means less money spent carefully and more money spent carelessly."));
-                    upozorenje.appendChild(createBr());
-                    upozorenje.appendChild(document.createTextNode("Capitalism is often used to explain away the inequality. The reality is, the government generally increases inequality, because the laws often stop the rich people from buying things and thereby giving some of their money to poor. Furthermore, the countries that are more "));
-                    upozorenje.appendChild(createLink("https://en.wikipedia.org/wiki/Index_of_Economic_Freedom","capitalistic"));
-                    upozorenje.appendChild(document.createTextNode(", in fact, tend to have less inequality. It's actually quite a bit ironic that the starving children in Africa and Latin America are used as evidence against capitalism, when most of the countries there are socialist dictatorships. Planned economies can't work because one who is planning it never has enough information to make it efficient. Do you know what is all needed to produce the medications for children not to die from preventable diseases? No, and so don't the people who attempt to plan the economies. I'd wager that none of those people, no matter how educated they are, even know what it all takes to make a single "));
-                    upozorenje.appendChild(createLink("https://en.wikisource.org/wiki/I,_Pencil","pencil"));
-                    upozorenje.appendChild(document.createTextNode("."));
-                    upozorenje.appendChild(createBr());
-                    upozorenje.appendChild(document.createTextNode("It's often stated that capitalism makes people greedy. But, the truth is, there will always be greedy people, no matter which economic system we have. We need to find a way to deal with that. In capitalism, at least some greedy people end up benefiting the society by governing big corporations that produce things that make people happier. In socialism, people are not greedy for money, but for political power. When some of them succeed, they end up hurting the society with bad policies. Socialism probably makes people even more greedy than capitalism does because it gives them a sense of entitlement, that they are worthy of some goods no matter what they achieve."));
-                    upozorenje.appendChild(createBr());
-                    upozorenje.appendChild(document.createTextNode("It's often stated that the involvement of the United States in wars brings people freedom and capitalism. Well, the United States intervened in the Croatian War of Independence (NATO bombings of Belgrade), yet Croatia is today one of the least economically free countries in Europe (I am not implying the world would be a better place if some miracle had happened so that Slobodan Milo\u0161evi\u0107 had won the war). So much about it! Looking a bit furhter back in history, at the beginning of the World War 2, the UK and the USA were giving money to the Chetnik party, which turned out to be cooperating with the Fascists. Chances are, they just made the World War 2 even worse, at least on the territory of the modern-day Croatia. The point is, if a super-power gets involved in a war, you can't expect it to have the information it needs to bring peace to people. And if it brings force without being guided (or, perhaps even more probably, being misguided), it is going to make things worse. It's as simple as that. And even if that superpower happens to have the right information (which is unlikely), there is no reason to think it will use it the right way: the decisions are, more often than not, made by politicians with no military experience "));
-                    upozorenje.innerHTML+="(<a href=\"javascript:void(0)\" onclick=\"if (document.getElementById('Croatia').style.display=='none') document.getElementById('Croatia').style.display='inline'; else document.getElementById('Croatia').style.display='none';\">show/hide details</a>).<span id=\"Croatia\" style=\"display:none\"><br/>To understand why I am so certain superpowers can't have the information they need to bring peace to people, try to put yourself in my shoes for a moment. Croatian media are full of stories of there being an imminent danger of the Bosnian Muslims or the Serbian nationalists attacking us, and that we need to invest more in the military. Are those stories credible? Look, I am Croatian, and I have no bright idea. I could think of some arguments why those stories might not be credible. First, they are sensationalist, so they are easily sold to the media. Second, there is a political incentive to make people believe those things, to justify the high taxes that make our country bankrupt, and to justify taking money from the fonds of the European Union (that could probably be spent way better). And even if those stories are true, if there indeed are people who will conquer Croatia, how to actually decrease the number of victims? Will the attempt to fight decrease the number of victims? Or, maybe, just maybe, will it actually increase it? There is, as far as I know, little doubt that the Branimir Glava\u0161'es policies during the Battle of Osijek, forcing his suspected political opponents to drink sulfuric acid, actually increased the number of victims, so much so that, two decades later, he ended up in jail because of them. And Croatian government not only has a track record of abusing the weapons to kill suspected political opponents, it also has a track record of killing its citizens by giving them a false sense of security and neglecting them. What happened during the Vukovar Massacre is basically that \u0416\u0435\u0459\u043A\u043E \u0420\u0430\u0436\u043D\u0430\u0442\u043E\u0432\u0438\u045B organized an illegal army that killed hundreds or perhaps even thousands of people of various nationalities just because they lived in the city of Vukovar (and therefore they all supposedly supported the Croatian Independence movement, as if that itself were a crime), and the Croatian government could have easily stopped it... except that the Croatian president Franjo Tu\u0111man didn't take the situation seriously and he refused to send weapons to Mile Dedakovi\u0107 (Croatian general whose army was supposed to protect Vukovar). <a href=\"https://www.24sata.hr/news/mile-dedakovic-trazio-pomoc-ali-tumana-nisu-htjeli-buditi-243737\">Here<\/a> is a news report about it from two decades after Vukovar Massacre (when Croatians were finally allowed to speak freely about it). And I guess every government has such a horrible track record. Sure, you can make an argument that not all governments have an equally bad history, that Varivode Massacre (committed by the Croatian government) is not the same as the Bosnian Genocide (committed by the Serbian government), because the number of innocent people killed in Bosnian Genocide is by orders of magnitude greater. You may also argue that NATO bombings of Belgrade weren't the same as Bosnian Genocide, because the intention was different (though I am quite sure that's not a valid argument). But which government that has existed for more than a few decades doesn't have dark history? Then, why would governments deserve to have weapons? So, if I, as somebody who lives in Croatia, don't know those things, how could some American politician know?</span>";
-                    upozorenje.appendChild(createBr());
-                    upozorenje.appendChild(document.createTextNode("The most ironic thing about the war is that the government's efforts to prevent war are one of the biggest threats to human race today. Governments often try to prevent the war by investing in the military, that is, that if we have strong enough weapons, nobody will dare to attack us. But the problem is, how do they know that weapons won't be fired accidentally? Today, a few countries have enough nuclear weapons to kill all the humans on this planet. Not surprisingly, quite a few times, that "));
-                    upozorenje.appendChild(createLink("https://en.wikipedia.org/wiki/List_of_nuclear_close_calls","almost"));
-                    upozorenje.appendChild(document.createTextNode(" happened. It seems like the military powers are attempting to protect us from a hypothetical danger by putting us into a real (and even greater) danger."));
-                    upozorenje.appendChild(document.createElement("br"));
-                    upozorenje.appendChild(document.createTextNode("One of the best quotes I've read about politics is that normal people, when considering a policy, ask whether it does good, and politicians are more likely to ask a different question, namely, whether it feels good. It probably feels good to punish the evil-doers with prisons and jails. But does it do good? It's hard to see how it could. I can see how people can think death penalty or gun control actually do good, but, let's face it, the evidence doesn't support that either. It feels good to legislate laws against abortion. But does it do good? Well, there are probably a few women who might change their minds because of those laws. But the vast majority of women who would otherwise do abortion legally would end up doing abortion illegally, risking their own life by that. It feels good to legislate minimum wage laws, thinking you are increasing the pleasure of the exploited. However, does it do good? Sure, a few workers, who had a wage slightly lower than the new minimum wage, will get a pay raise. But those that actually had very low wages, significantly lower than the new minimum wage, will end up losing their jobs because of the minimum wage, and so too will many people who would otherwise get an entry-level job lose that opportunity."))
-                }
-                </script>
-                <br></p>I hope the way I communicated the libertarian ideas made you think. I realize that they are hard to accomplish, because many people like the false sense of security and justice the laws give them. But the first step towards achieving some political goal is to speak out about it.<br>It's difficult to convince people to value freedom. It's much easier to convince them that giving up liberty somehow makes a society better. It's instinctual to think that taking away peoples' freedom and controlling what they do somehow makes them more economically efficient. That's why we had the things such as slavery, fascism and communism. Even when you do convince people to value freedom, there is often a state holding them back. For instance, the government was one who was putting the liberators of the slaves into prisons.<br/><br/><i>What happened to me so that I became a libertarian? Well, I realized that the government-backed-up pseudosciences destroyed my childhood and teenage years. After my parents got bitterly divorced, somebody from the social security (and I am quite sure I know exactly who, but I won't name them here) made up a story that my father was a rapist and that I was a witness. Since they were in the government, many people believed them back then, including my mother. Both my parents lost their jobs and gave all the money I was supposed to start my life with to lawyers. That story was well-known, and nobody wanted to be a friend with me. I was lonely (thankfully, I am an only child, so I didn't have to share this little money my parents were able to spend on me with my siblings), and I became a part of a group of vandals and alcoholics. Additionally, my mother ended up in jail (primarily because of bad advices given to her by her lawyer, who was probably actually protecting the social security instead of her) for a year. Government might steal money from my fellow citizens and give it to me in compensation, but it cannot give me my childhood and teenage years back. Even today, I sometimes get asked whether there is some truth to that story about my father. Uncomfortable, I answer that there isn't, but that that story, because the government got involved, had very real and devastating consequences. I am no longer an alcoholic and a vandal, and I am relatively respected among the people who know me. But to prevent other people from getting into such situations, I want to send a message: "Don't ascribe superpowers to the people in your government." That means don't believe ridiculous conspiracy theories, but also don't believe that the government can do miracles to protect us.</i>
-                <br/><br/><b>UPDATE</b> on 14/07/2019: I've made a thread about libertarianism on a Latin forum, to see what people educated in history and social sciences think about it. You can see it <a href="https://www.textkit.com/greek-latin-forum/viewtopic.php?f=28&p=205532#p205532">here</a>. In case that website ever goes down, here is that short essay in Latin I posted there:
-                <div lang="la" class="quotation">
-                    Quid cogitatis de anarchismo? Ego anarchista sum, ego cogito melius esse, si imperia et leges non essent. Ego non video, quomodo possint bonae leges existere? Quomodo possint leges imperiaque societatem protegere? Consideretis: Nemo, qui non insanus est, vult aliquem occidere. Et militia venit solummodo postquam insanus homo occidat aliquem. Et tunc militia sinit eum insanum hominem in carcerem. Carcer non est (et probabiliter non potest esse) locus ubi is insanus homo sanus futurus est, carcer locus est ubi is plus insanus factus erit. Ergo, is insanus homo, qui suae insanitatis causa aliquem occidit, insanior revertetur in societatem.<br/>
-Securitas, quae nobis data a militia est, falsa est. In saeculis historiae, etsi custodes et equites omnes spectabant et custodiebant, non poteras, viis in urbibus iens, securus a latronibus esse.<br/>
-Et de rebus oeconomicis... Linguae videntur esse sine imperiis posse. Si linguae sine imperiis possunt esse, cur oeconomia non possit?<br/>
-Et de rebus bellorum... Paene omnia bella horum temporum pugnae sunt, ut omnia bella cessent. Sed bella numquam bella inhibere succedent. Et tela solummodo raris temporibus veniunt ubi debentur, arma bonorum hominum saepe veniunt in malas manus.<br/>
-Civitates amant falsam securitatem, quod leges et imperia dant eis. Difficile pugnare contra ei est. Multi homines censent libertatem civitates oeconomice parum strenuas facere, et quod libertas, quodam modo, facit homines res, quae non rationales sunt, facere. Id est cur habebamus Fascismum, Communismum et servos. Sed possumus sperare numerum eorum hominum, qui libertatem non amant, minorem in futuro esse.
-                </div>
-                <br/><br/>
-                UPDATE on 22/09/2019: I've just posted a YouTube <a href="https://youtu.be/ES5hAc2fLWU">video</a> about pseudoscience in American politics. If you can't open it, you can perhaps try to open a low-quality MP4 <a href="At_AOC-minified.mp4">file</a> hosted on this server (it can be opened on almost any platform using VLC Media Player). Failing to do even that, you can probably download the MP3 <a href="At_AOC.mp3">audio</a>.<br/><br/>
-                UPDATE on 20/10/2019: I've just posted a YouTube <a href="https://youtu.be/XxizDnTKBXI">video</a> about libertarian philosophy in Latin. If you can't open it, try <a href="DeAnarchismo-minified.mp4">this</a> and, if that also fails, download just the audio <a href="DeAnarchismo.mp3">here</a>. I've also opened a Reddit <a href="https://www.reddit.com/r/latin/comments/e7v50t/a_video_about_anarchism_in_latin/">thread</a> to discuss that video.<br/>
-            <br/>UPDATE on 08/02/2020: I've posted a YouTube <a href="https://youtu.be/bM4IPsx_AEc">video</a> explaining why I think that, if you support free trade and free movement, you can't also support immigration restriction. If you can't open it, try to <a href="Immigration.mp4">download</a> the MP4 file.<br/>
-        <br/>UPDATE on 23/02/2020: I've translated the lyrics a song called <a href="https://youtu.be/GP7rMdxX1gg">E Moj Plavi</a> (<a href="EMojPlavi.mp4">MP4</a>) into English, which seems to express some libertarian ideas. (<i>UPDATE: I received a message from somebody claiming to be &#x0110;or&#x0111;e Bala&#x0161;evi&#x0107; about how my translation is offensive and asking me to delete all copies of it as soon as possible, or else he is going to make a lawsuit against me. While I find it just as believable it wasn't real &#x0110;or&#x0111;e Bala&#x0161;evi&#x0107;, but somebody who tries to shut him up, the risk of getting into such lawsuits is rather high.</i>)<br/>
-        <br/>UPDATE on 03/10/2020: I've translated a song against nuclear weapons into Croatian. You can see it on YouTube <a href="https://youtu.be/sakosp-5SsI">here</a>. If you have trouble opening it, try downloading this <a href="sun_is_burning_minified.mp4">MP4</a> and opening it in VLC media player (or something like that).</div>
-        </main>
-        <footer>
-            <div style="width: 25%; float: right; text-align:left; bottom:30px;">
-                Choose the style: 
-                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main1')">[1]</a>
-                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main2')">[2]</a>
-                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main3')">[3]</a>
-            </div>
-            Uploaded by Teo Samarzija on 20/10/2017
-            <svg id="donjiLijevi" style="float:left; width:25%; height:100%; background: white;"></svg>
-            <script type="text/javascript">
-            if (navigator.appName=="Microsoft Internet Explorer")
-            {
-            	var niz=document.getElementsByTagName("div");
-            	for (var i=0; i<niz.length; i++)
-            	{
-            		if (niz[i].className.indexOf("link1")==-1)
-            			continue;
-            		niz[i].onmouseenter=
-            			function()
-            				{this.children[0].style.display="inline";};
-            		niz[i].onmouseleave=
-            			function()
-            				{this.children[0].style.display="none";};
-        	    }
-        	    document.getElementById("glavni").removeAttribute("style");
+            function createLink(url, text) {
+              var link = document.createElement("a");
+              link.setAttribute("href", url);
+              link.appendChild(document.createTextNode(text));
+              return link;
             }
-            else if (navigator.appName=="Opera") {
-            	document.getElementById("glavni").style.color="black";
-            	document.getElementById("glavni").style.backgroundColor="white";
-            	var gornjiDesni=document.getElementById("gornjiDesni");
-            	gornjiDesni.parentNode.removeChild(gornjiDesni);
+            function upozorenje() {
+              var upozorenje = document.getElementById("upozorenje");
+              upozorenje.innerHTML = "";
+              upozorenje.appendChild(
+                document.createTextNode(
+                  "The first step towards understanding it is perhaps the realization that government isn't actively trying to protect us. This might seem absurd at first, but think of it this way. The police only comes after a psychopath has already murdered someone. And then they put him in a place not where he will rehabilitate, but to a place from which he will return with even more psychological problems, that made him murder in the first place. For all we know, they could just be making things worse. In fact, the history appears to support the notion that the government attempting to prevent crime actually causes it. In the middle ages, the knights were bossing everyone around, yet you couldn't safely walk the streets because of the criminals. Also, the US has the highest incarceration rate of all the countries in the world today (except possibly North Korea), almost 3% of its population is behind bars, yet it also has the most mass shootings per capita "
+                )
+              );
+              upozorenje.innerHTML +=
+                "(<a href=\"javascript:void(0)\" onclick=\"if (document.getElementById('details').style.display=='none') document.getElementById('details').style.display='inline'; else document.getElementById('details').style.display='none';\">show/hide the details</a>).<br\/><span id=\"details\" style=\"display:none\">A common counter-argument is that there is evidence of at least some tribal societies being violent way before the rulers in todays' sense existed, and that that's evidence that giving people too much freedom would lead to violence. But there aren't many reasons to think that would actually happen. First, people back then had religions that commanded them to murder the infidels (<i>id est</i>, the people of other tribes) or do human sacrifices. Today, we don't have that. If we did, the government wouldn't be able to stop that violence. It isn't able to stop even the Islamic terrorists, yet alone transform the entire society of religious lunatics into reasonable and peaceful people. Second, today we have capitalism. If you have at least some money, it's usually much cheaper to buy something you need than to kill for that. It also usually makes it much cheaper to hire someone to work for you than to have slaves.<br\/><\/span>";
+              upozorenje.appendChild(
+                document.createTextNode(
+                  "Most of the murders don't happen because someone specifically wants to murder someone else, but because of the alcohol and drugs. It's not clear how the laws are supposed to help there: we know very well that prohibition doesn't work. And those who kill once are unlikely to do it again. The "
+                )
+              );
+              upozorenje.appendChild(
+                createLink(
+                  "https://en.wikipedia.org/wiki/Recidivism#Recidivism_rates",
+                  "recidivism"
+                )
+              );
+              upozorenje.appendChild(
+                document.createTextNode(
+                  " for violent crimes is extremely low. Out of every 100 murderers, only one or two of them are serial killers. And laws appear to mainly affect those that murder unintentionally. The percentage of murders "
+                )
+              );
+              upozorenje.appendChild(
+                createLink(
+                  "https://en.wikipedia.org/wiki/Murder#Murder_rates_by_country",
+                  "solved"
+                )
+              );
+              upozorenje.appendChild(
+                document.createTextNode(
+                  " today is only around 60%. Instead of increasing with the apllication of scientific methods in forensics, it has actually decreased, possibly because the scientifically valid methods have decreased the number of incorrectly solved cases. If someone murders intentionally, he can probably get away with it."
+                )
+              );
+              upozorenje.appendChild(createBr());
+              upozorenje.appendChild(
+                document.createTextNode(
+                  "The main objections people have against libertarianism is that we appear to be bombarded with examples of big powers being involved in wars helping, socialist policies working and capitalism failing due to a lack of government intervention. But that evidence comes from a highly distorted perspective: we never see what would have happened if government didn't intervene at all. The Occam's razor obviously supports the idea that the government intervention, that is, the initiation of force, isn't necessary. Do you have the knowledge needed to evaluate the claims of, for instance, the Great Depression of 1930s having been caused by capitalism and of the Roosevelt's socialist policies helping? Nobody does, which is why the experts (contrary to what we are told in school) "
+                )
+              );
+              upozorenje.appendChild(
+                createLink(
+                  "https://en.wikipedia.org/wiki/Great_Depression#Causes",
+                  "disagree"
+                )
+              );
+              upozorenje.appendChild(
+                document.createTextNode(
+                  ". The same goes for other supposed evidence of socialist policies working. Many international media reported when Croatia passed a law forcing the banks to forgive the debts of the poor citizens in 2015. What happened next to those banks? Many of them went bankrupt, and many poor people lost all their savings. The possibility that it's caused by that socialist policy is rarely mentioned, let alone discussed. So, of course, the historiographs wouldn't write that. And that's how this distorted perspective on economic history is created. Look, when the government increases the taxes to support more generous social programs, it might have good intentions. But nobody spends someone elses money as carefully as he does his own. More social programs almost always means higher taxes, and higher taxes almost always means less money spent carefully and more money spent carelessly."
+                )
+              );
+              upozorenje.appendChild(createBr());
+              upozorenje.appendChild(
+                document.createTextNode(
+                  "Capitalism is often used to explain away the inequality. The reality is, the government generally increases inequality, because the laws often stop the rich people from buying things and thereby giving some of their money to poor. Furthermore, the countries that are more "
+                )
+              );
+              upozorenje.appendChild(
+                createLink(
+                  "https://en.wikipedia.org/wiki/Index_of_Economic_Freedom",
+                  "capitalistic"
+                )
+              );
+              upozorenje.appendChild(
+                document.createTextNode(
+                  ", in fact, tend to have less inequality. It's actually quite a bit ironic that the starving children in Africa and Latin America are used as evidence against capitalism, when most of the countries there are socialist dictatorships. Planned economies can't work because one who is planning it never has enough information to make it efficient. Do you know what is all needed to produce the medications for children not to die from preventable diseases? No, and so don't the people who attempt to plan the economies. I'd wager that none of those people, no matter how educated they are, even know what it all takes to make a single "
+                )
+              );
+              upozorenje.appendChild(
+                createLink("https://en.wikisource.org/wiki/I,_Pencil", "pencil")
+              );
+              upozorenje.appendChild(document.createTextNode("."));
+              upozorenje.appendChild(createBr());
+              upozorenje.appendChild(
+                document.createTextNode(
+                  "It's often stated that capitalism makes people greedy. But, the truth is, there will always be greedy people, no matter which economic system we have. We need to find a way to deal with that. In capitalism, at least some greedy people end up benefiting the society by governing big corporations that produce things that make people happier. In socialism, people are not greedy for money, but for political power. When some of them succeed, they end up hurting the society with bad policies. Socialism probably makes people even more greedy than capitalism does because it gives them a sense of entitlement, that they are worthy of some goods no matter what they achieve."
+                )
+              );
+              upozorenje.appendChild(createBr());
+              upozorenje.appendChild(
+                document.createTextNode(
+                  "It's often stated that the involvement of the United States in wars brings people freedom and capitalism. Well, the United States intervened in the Croatian War of Independence (NATO bombings of Belgrade), yet Croatia is today one of the least economically free countries in Europe (I am not implying the world would be a better place if some miracle had happened so that Slobodan Milo\u0161evi\u0107 had won the war). So much about it! Looking a bit furhter back in history, at the beginning of the World War 2, the UK and the USA were giving money to the Chetnik party, which turned out to be cooperating with the Fascists. Chances are, they just made the World War 2 even worse, at least on the territory of the modern-day Croatia. The point is, if a super-power gets involved in a war, you can't expect it to have the information it needs to bring peace to people. And if it brings force without being guided (or, perhaps even more probably, being misguided), it is going to make things worse. It's as simple as that. And even if that superpower happens to have the right information (which is unlikely), there is no reason to think it will use it the right way: the decisions are, more often than not, made by politicians with no military experience "
+                )
+              );
+              upozorenje.innerHTML +=
+                "(<a href=\"javascript:void(0)\" onclick=\"if (document.getElementById('Croatia').style.display=='none') document.getElementById('Croatia').style.display='inline'; else document.getElementById('Croatia').style.display='none';\">show/hide details</a>).<span id=\"Croatia\" style=\"display:none\"><br/>To understand why I am so certain superpowers can't have the information they need to bring peace to people, try to put yourself in my shoes for a moment. Croatian media are full of stories of there being an imminent danger of the Bosnian Muslims or the Serbian nationalists attacking us, and that we need to invest more in the military. Are those stories credible? Look, I am Croatian, and I have no bright idea. I could think of some arguments why those stories might not be credible. First, they are sensationalist, so they are easily sold to the media. Second, there is a political incentive to make people believe those things, to justify the high taxes that make our country bankrupt, and to justify taking money from the fonds of the European Union (that could probably be spent way better). And even if those stories are true, if there indeed are people who will conquer Croatia, how to actually decrease the number of victims? Will the attempt to fight decrease the number of victims? Or, maybe, just maybe, will it actually increase it? There is, as far as I know, little doubt that the Branimir Glava\u0161'es policies during the Battle of Osijek, forcing his suspected political opponents to drink sulfuric acid, actually increased the number of victims, so much so that, two decades later, he ended up in jail because of them. And Croatian government not only has a track record of abusing the weapons to kill suspected political opponents, it also has a track record of killing its citizens by giving them a false sense of security and neglecting them. What happened during the Vukovar Massacre is basically that \u0416\u0435\u0459\u043A\u043E \u0420\u0430\u0436\u043D\u0430\u0442\u043E\u0432\u0438\u045B organized an illegal army that killed hundreds or perhaps even thousands of people of various nationalities just because they lived in the city of Vukovar (and therefore they all supposedly supported the Croatian Independence movement, as if that itself were a crime), and the Croatian government could have easily stopped it (or at least evacuated the city)... except that the Croatian president Franjo Tu\u0111man didn't take the situation seriously and he refused to send weapons to Mile Dedakovi\u0107 (Croatian general whose army was supposed to protect Vukovar). <a href=\"https://www.24sata.hr/news/mile-dedakovic-trazio-pomoc-ali-tumana-nisu-htjeli-buditi-243737\">Here<\/a> is a news report about it from two decades after Vukovar Massacre (when Croatians were finally allowed to speak freely about it). The vast majority of Croatians do not believe having guns somehow keeps them safe. Yet, paradoxically, most Croatians seem to believe it is justified for the government to have guns. I fail to understand why. Just as things can go wrong when civilians have guns, things can and do go vastly more wrong when the government has guns. Quite a few military leaders from the 1990s are now in jail because of war crimes. Some have, like Slobodan Praljak, escaped justice by suicide (much like Hitler did). How far is the alternative reality in which somebody like those guys ended up being the president of Croatia and Croatian government killed just as many people as the Serbian government did? I am afraid it is not very far away. And I guess every government has such a horrible track record. Sure, you can make an argument that not all governments have an equally bad history, that Varivode Massacre (committed by the Croatian government) is not the same as the Bosnian Genocide (committed by the Serbian government), because the number of innocent people killed in Bosnian Genocide is by orders of magnitude greater. You may also argue that NATO bombings of Belgrade weren't the same as Bosnian Genocide, because the intention was different (though I am quite sure that's not a valid argument). But which government that has existed for more than a few decades doesn't have dark history? Then, why would governments deserve to have weapons? So, if I, as somebody who lives in Croatia, don't know those things, how could some American politician know?</span>";
+              upozorenje.appendChild(createBr());
+              upozorenje.appendChild(
+                document.createTextNode(
+                  "The most ironic thing about the war is that the government's efforts to prevent war are one of the biggest threats to human race today. Governments often try to prevent the war by investing in the military, that is, that if we have strong enough weapons, nobody will dare to attack us. But the problem is, how do they know that weapons won't be fired accidentally? Today, a few countries have enough nuclear weapons to kill all the humans on this planet. Not surprisingly, quite a few times, that "
+                )
+              );
+              upozorenje.appendChild(
+                createLink(
+                  "https://en.wikipedia.org/wiki/List_of_nuclear_close_calls",
+                  "almost"
+                )
+              );
+              upozorenje.appendChild(
+                document.createTextNode(
+                  " happened. It seems like the military powers are attempting to protect us from a hypothetical danger by putting us into a real (and even greater) danger."
+                )
+              );
+              upozorenje.appendChild(document.createElement("br"));
+              upozorenje.appendChild(
+                document.createTextNode(
+                  "One of the best quotes I've read about politics is that normal people, when considering a policy, ask whether it does good, and politicians are more likely to ask a different question, namely, whether it feels good. It probably feels good to punish the evil-doers with prisons and jails. But does it do good? It's hard to see how it could. I can see how people can think death penalty or gun control actually do good, but, let's face it, the evidence doesn't support that either. It feels good to legislate laws against abortion. But does it do good? Well, there are probably a few women who might change their minds because of those laws. But the vast majority of women who would otherwise do abortion legally would end up doing abortion illegally, risking their own life by that. It feels good to legislate minimum wage laws, thinking you are increasing the pleasure of the exploited. However, does it do good? Sure, a few workers, who had a wage slightly lower than the new minimum wage, will get a pay raise. But those that actually had very low wages, significantly lower than the new minimum wage, will end up losing their jobs because of the minimum wage, and so too will many people who would otherwise get an entry-level job lose that opportunity."
+                )
+              );
             }
-            else if (((navigator.userAgent.indexOf("Safari")+1 || navigator.userAgent.indexOf("WebKit")+1)
-                      && navigator.userAgent.indexOf("Mobile")+1
-                      && (!(navigator.userAgent.indexOf("Chrome")+1) ||
-                          (navigator.userAgent.indexOf("Version")+1 && navigator.userAgent.indexOf("Chrome")+1))
-                      || (navigator.userAgent.indexOf("Mobile")+1 && navigator.userAgent.indexOf("Gecko")+1
-                          && !(navigator.userAgent.indexOf("like Gecko")+1))
-                      && !(navigator.userAgent.indexOf("Dolfin")+1)) && !(navigator.userAgent.indexOf("iPad")+1) && !(navigator.userAgent.indexOf("iPhone")+1))
-                         document.getElementById("glavni").style.fontSize="36px";
-                         else if (navigator.userAgent.indexOf("Mobi")+1)
-                         {
-                             document.head.innerHTML+="<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=0\">";
-                             var niz=document.getElementsByTagName("svg");
-                             for (var i=0; i<niz.length; i++)
-                             if (niz[i].id!="polarRose") niz[i].style.display="none";
-                             document.getElementsByTagName("aside")[0].style.display="none";
-                             document.getElementsByTagName("aside")[0].style.float="none";
-                             document.getElementsByTagName("aside")[0].style.width="100%";
-                             document.getElementsByTagName("aside")[0].style.height="auto";
-                             niz=document.getElementsByClassName("popup");
-                             for (var i=0; i<niz.length; i++) {
-                                 niz[i].style.width="50%"
-                                 niz[i].style.left="45%";
-                                 niz[i].style.maxWidth="none";
-                             }
-                             document.getElementsByTagName("section")[0].style.height="auto";
-                             document.getElementsByTagName("section")[0].style.float="none";
-                             document.getElementsByTagName("section")[0].style.width="100%";
-                             document.getElementsByTagName("header")[0].style.height="auto";
-                             document.getElementsByTagName("header")[0].style.lineHeight="normal";
-                             document.getElementsByTagName("main")[0].style.width="100%";
-                             document.getElementsByTagName("footer")[0].children[0].style.display="inline";
-                             document.getElementsByTagName("footer")[0].children[0].style.float="none";
-                             document.getElementsByTagName("footer")[0].children[0].innerHTML+="<br/><br/>";
-                             document.getElementsByTagName("footer")[0].style.height="auto";
-                             document.getElementsByTagName("footer")[0].style.lineHeight="normal";
-                             document.getElementsByTagName("header")[0].outerHTML+="<button id=\"showNavigation\" style=\"width:100%;line-height:36px;height:41px;\">Show navigation<\/button>";
-                             document.getElementById("showNavigation").onclick=
-                             function()
-                             {
-                                 if (document.getElementsByTagName("aside")[0].style.display=="none")
-                                 {
-                                     this.innerHTML="Hide navigation";
-                                     document.getElementsByTagName("aside")[0].style.display="block";
-                                 }
-                                 else
-                                 {
-                                     this.innerHTML="Show navigation";
-                                     document.getElementsByTagName("aside")[0].style.display="none";
-                                 }
-                             }
-                             //window.setTimeout(function(){document.body.removeChild(document.body.children[document.body.children.length-1]);},1000);
-                         }
-                function footerScript() {
-                    var crtanje = document.getElementById("donjiLijevi");
-                    while (crtanje.childNodes.length)
-                        crtanje.removeChild(crtanje.childNodes[0]);
-                    var visina = crtanje.clientHeight;
-                    var sirina = crtanje.clientWidth;
-                    if (!visina || !sirina)
-                    {
-                        visina=crtanje.parentNode.clientHeight;
-                        sirina=crtanje.parentNode.clientWidth/4;
-                    }
-                    for (var i = 0; i < 30; i++)
-                    {
-                        var kut1 = (270 + i * 3) / 57.3;
-                        var kut2 = (274 + i * 3) / 57.3;
-                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
-                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
-                        var y1 = -Math.round(Math.sin(kut1) * visina);
-                        var y2 = -Math.round(Math.sin(kut2) * visina);
-                        var trokut = document.createElementNS(svgNS, "polygon");
-                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0");
-                        trokut.setAttribute("fill", "rgb(170," + Math.round(255 - i * 2.83) + "," + Math.min(Math.round(170 + i * 4), 255) + ")");
-                        crtanje.appendChild(trokut);
-                    }
-                }
-                footerScript();
-                window.addEventListener('resize', footerScript);
-            </script>
-        </footer>
-    </body>
+          </script>
+          <br />
+        </p>
+        I hope the way I communicated the libertarian ideas made you think. I
+        realize that they are hard to accomplish, because many people like the
+        false sense of security and justice the laws give them. But the first
+        step towards achieving some political goal is to speak out about it.<br />It's
+        difficult to convince people to value freedom. It's much easier to
+        convince them that giving up liberty somehow makes a society better.
+        It's instinctual to think that taking away peoples' freedom and
+        controlling what they do somehow makes them more economically efficient.
+        That's why we had the things such as slavery, fascism and communism.
+        Even when you do convince people to value freedom, there is often a
+        state holding them back. For instance, the government was one who was
+        putting the liberators of the slaves into prisons.<br /><br /><i
+          >What happened to me so that I became a libertarian? Well, I realized
+          that the government-backed-up pseudosciences destroyed my childhood
+          and teenage years. After my parents got bitterly divorced, somebody
+          from the social security (and I am quite sure I know exactly who, but
+          I won't name them here) made up a story that my father was a rapist
+          and that I was a witness. Since they were in the government, many
+          people believed them back then, including my mother. Both my parents
+          lost their jobs and gave all the money I was supposed to start my life
+          with to lawyers. That story was well-known, and nobody wanted to be a
+          friend with me. I was lonely (thankfully, I am an only child, so I
+          didn't have to share this little money my parents were able to spend
+          on me with my siblings), and I became a part of a group of vandals and
+          alcoholics. Additionally, my mother ended up in jail (primarily
+          because of bad advices given to her by her lawyer, who was probably
+          actually protecting the social security instead of her) for a year.
+          Government might steal money from my fellow citizens and give it to me
+          in compensation, but it cannot give me my childhood and teenage years
+          back. Even today, I sometimes get asked whether there is some truth to
+          that story about my father. Uncomfortable, I answer that there isn't,
+          but that that story, because the government got involved, had very
+          real and devastating consequences. I am no longer an alcoholic and a
+          vandal, and I am relatively respected among the people who know me.
+          But to prevent other people from getting into such situations, I want
+          to send a message: "Don't ascribe superpowers to the people in your
+          government." That means don't believe ridiculous conspiracy theories,
+          but also don't believe that the government can do miracles to protect
+          us.</i
+        >
+        <br /><br /><b>UPDATE</b> on 14/07/2019: I've made a thread about
+        libertarianism on a Latin forum, to see what people educated in history
+        and social sciences think about it. You can see it
+        <a
+          href="https://www.textkit.com/greek-latin-forum/viewtopic.php?f=28&p=205532#p205532"
+          >here</a
+        >. In case that website ever goes down, here is that short essay in
+        Latin I posted there:
+        <div lang="la" class="quotation">
+          Quid cogitatis de anarchismo? Ego anarchista sum, ego cogito melius
+          esse, si imperia et leges non essent. Ego non video, quomodo possint
+          bonae leges existere? Quomodo possint leges imperiaque societatem
+          protegere? Consideretis: Nemo, qui non insanus est, vult aliquem
+          occidere. Et militia venit solummodo postquam insanus homo occidat
+          aliquem. Et tunc militia sinit eum insanum hominem in carcerem. Carcer
+          non est (et probabiliter non potest esse) locus ubi is insanus homo
+          sanus futurus est, carcer locus est ubi is plus insanus factus erit.
+          Ergo, is insanus homo, qui suae insanitatis causa aliquem occidit,
+          insanior revertetur in societatem.<br />
+          Securitas, quae nobis data a militia est, falsa est. In saeculis
+          historiae, etsi custodes et equites omnes spectabant et custodiebant,
+          non poteras, viis in urbibus iens, securus a latronibus esse.<br />
+          Et de rebus oeconomicis... Linguae videntur esse sine imperiis posse.
+          Si linguae sine imperiis possunt esse, cur oeconomia non possit?<br />
+          Et de rebus bellorum... Paene omnia bella horum temporum pugnae sunt,
+          ut omnia bella cessent. Sed bella numquam bella inhibere succedent. Et
+          tela solummodo raris temporibus veniunt ubi debentur, arma bonorum
+          hominum saepe veniunt in malas manus.<br />
+          Civitates amant falsam securitatem, quod leges et imperia dant eis.
+          Difficile pugnare contra ei est. Multi homines censent libertatem
+          civitates oeconomice parum strenuas facere, et quod libertas, quodam
+          modo, facit homines res, quae non rationales sunt, facere. Id est cur
+          habebamus Fascismum, Communismum et servos. Sed possumus sperare
+          numerum eorum hominum, qui libertatem non amant, minorem in futuro
+          esse.
+        </div>
+        <br /><br />
+        UPDATE on 22/09/2019: I've just posted a YouTube
+        <a href="https://youtu.be/ES5hAc2fLWU">video</a> about pseudoscience in
+        American politics. If you can't open it, you can perhaps try to open a
+        low-quality MP4 <a href="At_AOC-minified.mp4">file</a> hosted on this
+        server (it can be opened on almost any platform using VLC Media Player).
+        Failing to do even that, you can probably download the MP3
+        <a href="At_AOC.mp3">audio</a>.<br /><br />
+        UPDATE on 20/10/2019: I've just posted a YouTube
+        <a href="https://youtu.be/XxizDnTKBXI">video</a> about libertarian
+        philosophy in Latin. If you can't open it, try
+        <a href="DeAnarchismo-minified.mp4">this</a> and, if that also fails,
+        download just the audio <a href="DeAnarchismo.mp3">here</a>. I've also
+        opened a Reddit
+        <a
+          href="https://www.reddit.com/r/latin/comments/e7v50t/a_video_about_anarchism_in_latin/"
+          >thread</a
+        >
+        to discuss that video.<br />
+        <br />UPDATE on 08/02/2020: I've posted a YouTube
+        <a href="https://youtu.be/bM4IPsx_AEc">video</a> explaining why I think
+        that, if you support free trade and free movement, you can't also
+        support immigration restriction. If you can't open it, try to
+        <a href="Immigration.mp4">download</a> the MP4 file.<br />
+        <br />UPDATE on 23/02/2020: I've translated the lyrics a song called
+        <a href="https://youtu.be/GP7rMdxX1gg">E Moj Plavi</a> (<a
+          href="EMojPlavi.mp4"
+          >MP4</a
+        >) into English, which seems to express some libertarian ideas. (<i
+          >UPDATE: I received a message from somebody claiming to be
+          &#x0110;or&#x0111;e Bala&#x0161;evi&#x0107; about how my translation
+          is offensive and asking me to delete all copies of it as soon as
+          possible, or else he is going to make a lawsuit against me. While I
+          find it just as believable it wasn't real &#x0110;or&#x0111;e
+          Bala&#x0161;evi&#x0107;, but somebody who tries to shut him up, the
+          risk of getting into such lawsuits is rather high.</i
+        >)<br />
+        <br />UPDATE on 03/10/2020: I've translated a song against nuclear
+        weapons into Croatian. You can see it on YouTube
+        <a href="https://youtu.be/sakosp-5SsI">here</a>. If you have trouble
+        opening it, try downloading this
+        <a href="sun_is_burning_minified.mp4">MP4</a> and opening it in VLC
+        media player (or something like that).
+      </div>
+    </main>
+    <footer>
+      <div style="width: 25%; float: right; text-align: left; bottom: 30px">
+        Choose the style:
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main1')"
+          >[1]</a
+        >
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main2')"
+          >[2]</a
+        >
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main3')"
+          >[3]</a
+        >
+      </div>
+      Uploaded by Teo Samarzija on 20/10/2017
+      <svg
+        id="donjiLijevi"
+        style="float: left; width: 25%; height: 100%; background: white"
+      ></svg>
+      <script type="text/javascript">
+        if (navigator.appName == "Microsoft Internet Explorer") {
+          var niz = document.getElementsByTagName("div");
+          for (var i = 0; i < niz.length; i++) {
+            if (niz[i].className.indexOf("link1") == -1) continue;
+            niz[i].onmouseenter = function () {
+              this.children[0].style.display = "inline";
+            };
+            niz[i].onmouseleave = function () {
+              this.children[0].style.display = "none";
+            };
+          }
+          document.getElementById("glavni").removeAttribute("style");
+        } else if (navigator.appName == "Opera") {
+          document.getElementById("glavni").style.color = "black";
+          document.getElementById("glavni").style.backgroundColor = "white";
+          var gornjiDesni = document.getElementById("gornjiDesni");
+          gornjiDesni.parentNode.removeChild(gornjiDesni);
+        } else if (
+          (((navigator.userAgent.indexOf("Safari") + 1 ||
+            navigator.userAgent.indexOf("WebKit") + 1) &&
+            navigator.userAgent.indexOf("Mobile") + 1 &&
+            (!(navigator.userAgent.indexOf("Chrome") + 1) ||
+              (navigator.userAgent.indexOf("Version") + 1 &&
+                navigator.userAgent.indexOf("Chrome") + 1))) ||
+            (navigator.userAgent.indexOf("Mobile") + 1 &&
+              navigator.userAgent.indexOf("Gecko") + 1 &&
+              !(navigator.userAgent.indexOf("like Gecko") + 1) &&
+              !(navigator.userAgent.indexOf("Dolfin") + 1))) &&
+          !(navigator.userAgent.indexOf("iPad") + 1) &&
+          !(navigator.userAgent.indexOf("iPhone") + 1)
+        )
+          document.getElementById("glavni").style.fontSize = "36px";
+        else if (navigator.userAgent.indexOf("Mobi") + 1) {
+          document.head.innerHTML +=
+            '<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">';
+          var niz = document.getElementsByTagName("svg");
+          for (var i = 0; i < niz.length; i++)
+            if (niz[i].id != "polarRose") niz[i].style.display = "none";
+          document.getElementsByTagName("aside")[0].style.display = "none";
+          document.getElementsByTagName("aside")[0].style.float = "none";
+          document.getElementsByTagName("aside")[0].style.width = "100%";
+          document.getElementsByTagName("aside")[0].style.height = "auto";
+          niz = document.getElementsByClassName("popup");
+          for (var i = 0; i < niz.length; i++) {
+            niz[i].style.width = "50%";
+            niz[i].style.left = "45%";
+            niz[i].style.maxWidth = "none";
+          }
+          document.getElementsByTagName("section")[0].style.height = "auto";
+          document.getElementsByTagName("section")[0].style.float = "none";
+          document.getElementsByTagName("section")[0].style.width = "100%";
+          document.getElementsByTagName("header")[0].style.height = "auto";
+          document.getElementsByTagName("header")[0].style.lineHeight =
+            "normal";
+          document.getElementsByTagName("main")[0].style.width = "100%";
+          document.getElementsByTagName("footer")[0].children[0].style.display =
+            "inline";
+          document.getElementsByTagName("footer")[0].children[0].style.float =
+            "none";
+          document.getElementsByTagName("footer")[0].children[0].innerHTML +=
+            "<br/><br/>";
+          document.getElementsByTagName("footer")[0].style.height = "auto";
+          document.getElementsByTagName("footer")[0].style.lineHeight =
+            "normal";
+          document.getElementsByTagName("header")[0].outerHTML +=
+            '<button id="showNavigation" style="width:100%;line-height:36px;height:41px;">Show navigation<\/button>';
+          document.getElementById("showNavigation").onclick = function () {
+            if (
+              document.getElementsByTagName("aside")[0].style.display == "none"
+            ) {
+              this.innerHTML = "Hide navigation";
+              document.getElementsByTagName("aside")[0].style.display = "block";
+            } else {
+              this.innerHTML = "Show navigation";
+              document.getElementsByTagName("aside")[0].style.display = "none";
+            }
+          };
+          //window.setTimeout(function(){document.body.removeChild(document.body.children[document.body.children.length-1]);},1000);
+        }
+        function footerScript() {
+          var crtanje = document.getElementById("donjiLijevi");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          var visina = crtanje.clientHeight;
+          var sirina = crtanje.clientWidth;
+          if (!visina || !sirina) {
+            visina = crtanje.parentNode.clientHeight;
+            sirina = crtanje.parentNode.clientWidth / 4;
+          }
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (270 + i * 3) / 57.3;
+            var kut2 = (274 + i * 3) / 57.3;
+            var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+            var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+            var y1 = -Math.round(Math.sin(kut1) * visina);
+            var y2 = -Math.round(Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0"
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(170," +
+                Math.round(255 - i * 2.83) +
+                "," +
+                Math.min(Math.round(170 + i * 4), 255) +
+                ")"
+            );
+            crtanje.appendChild(trokut);
+          }
+        }
+        footerScript();
+        window.addEventListener("resize", footerScript);
+      </script>
+    </footer>
+  </body>
 </html>
