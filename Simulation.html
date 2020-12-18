@@ -1,499 +1,925 @@
-<html>
-    <head>
-        <title>Digital Physics</title>
-        <style type="text/css">
-            header
-            {
-                height:200px;
-                line-height:200px;
-                text-align:center;
-                background:#FFAAAA;
-                color:darkblue;
-                font-weight:bold;
-                font-size:36px;
-                font-family:Lucida;
-            }
-            aside
-            {
-                width:25%;
-                background:#AAAAFF;
-                height:100%;
-                float:left;
-                color:#AA4400;
-                overflow:auto;
-            }
-            aside a
-            {
-                text-decoration:none;
-            }
-            section
-            {
-                width:25%;
-                background:#FFFFAA;
-                height:100%;
-                float:right;
-                color:purple;
-                text-align: center;
-                overflow:auto;
-            }
-            .main1
-            {
-                background: black;
-                color:darkgray;
-                width:50%;
-                height:100%;
-                overflow: auto;
-                font-family: Verdana;
-            }
-            .main1 a
-            {
-                color:lightgreen;
-            }
-            .main2
-            {
-                background: black;
-                color:lightgreen;
-                width:50%;
-                height:100%;
-                overflow: auto;
-            }
-            .main2 a
-            {
-                color:#00FFFF;
-            }
-            .main3
-            {
-                background: #EEEEEE;
-                color:#333333;
-                width:50%;
-                height:100%;
-                overflow: auto;
-                font-family: Arial;
-            }
-            .main3 a
-            {
-                color:#00AAAA;
-            }
-        .link1
-        {
-            text-decoration:none;
-            background: linear-gradient(to right,#111111,#333333);
-            height:30px;
-            width:100%;
-            color:#FF3300;
-            line-height:30px;
-            text-indent:10px;
-            font-family:Verdana;
-            text-indent:5px;
+<html lang="en">
+  <head>
+    <title>Digital Physics</title>
+    <style type="text/css">
+      header {
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        background: #ffaaaa;
+        color: darkblue;
+        font-weight: bold;
+        font-size: 36px;
+        font-family: Lucida;
+      }
+      aside {
+        width: 25%;
+        background: #aaaaff;
+        height: 100%;
+        float: left;
+        color: #aa4400;
+        overflow: auto;
+      }
+      aside a {
+        text-decoration: none;
+      }
+      section {
+        width: 25%;
+        background: #ffffaa;
+        height: 100%;
+        float: right;
+        color: purple;
+        text-align: center;
+        overflow: auto;
+      }
+      .main1 {
+        background: black;
+        color: darkgray;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+        font-family: Verdana;
+      }
+      .main1 a {
+        color: lightgreen;
+      }
+      .main2 {
+        background: black;
+        color: lightgreen;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+      }
+      .main2 a {
+        color: #00ffff;
+      }
+      .main3 {
+        background: #eeeeee;
+        color: #333333;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+        font-family: Arial;
+      }
+      .main3 a {
+        color: #00aaaa;
+      }
+      .link1 {
+        text-decoration: none;
+        background: linear-gradient(to right, #111111, #333333);
+        height: 30px;
+        width: 100%;
+        color: #ff3300;
+        line-height: 30px;
+        text-indent: 10px;
+        font-family: Verdana;
+        text-indent: 5px;
+      }
+      .popup {
+        display: none;
+        background: black;
+        font-size: 14px;
+        line-height: 18px;
+        color: white;
+        opacity: 0.75;
+        position: absolute;
+        left: 25%;
+        border-width: 7px;
+        border-style: solid;
+        border-color: black;
+        max-width: 200px;
+        text-indent: 0px;
+      }
+      .popup::before {
+        content: " ";
+      }
+      .link1:hover {
+        background: darkGray;
+        color: black;
+      }
+      .link1:hover .popup {
+        display: block;
+      }
+      .link2 {
+        background: linear-gradient(to right, #333333, #111111);
+        color: #ff3300;
+      }
+      footer {
+        width: 100%;
+        height: 50px;
+        background: #aaffaa;
+        text-align: center;
+        color: #007777;
+        line-height: 50px;
+      }
+      .quotation {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        display: block;
+        font-family: Times;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        background: #ffffdd;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <img
+        src="gornjiLijevi.svg"
+        style="
+          position: absolute;
+          left: 8px;
+          width: 25%;
+          height: 200px;
+          top: 8px;
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+      />
+      <img
+        src="gornjiDesni.svg"
+        style="
+          position: absolute;
+          width: 25%;
+          height: 200px;
+          left: -webkit-calc(75% - 8px);
+          left: calc(75% - 8px);
+          top: 8px;
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+      />
+      <img
+        src="donjiLijevi.svg"
+        style="
+          position: absolute;
+          width: 25%;
+          height: 50px;
+          left: 8px;
+          top: calc(100% + 200px - 8px);
+          top: -webkit-calc(100% + 200px - 8px);
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+      />
+      <div
+        style="
+          position: absolute;
+          top: -webkit-calc(100% + 200px + 50px + 8px);
+          top: calc(100% + 200px + 50px + 8px);
+          width: 100%;
+          height: 50px;
+          font-size: 36px;
+          font-family: Arial;
+          text-align: center;
+          background: #333333;
+          color: #aaaaaa;
+          line-height: 50px;
+        "
+      >
+        Please enable JavaScript!
+      </div>
+    </noscript>
+    <header>
+      <svg
+        id="gornjiLijevi"
+        style="float: left; width: 25%; height: 200px; background: white"
+      ></svg>
+      Digital Physics
+      <svg
+        id="gornjiDesni"
+        style="float: right; width: 25%; height: 200px; background: white"
+      ></svg>
+      <script type="text/javascript">
+        var svgNS = "http://www.w3.org/2000/svg";
+        function nacrtajRubove() {
+          var crtanje = document.getElementById("gornjiLijevi");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          var visina = crtanje.clientHeight;
+          var sirina = crtanje.clientWidth;
+          if (!visina || !sirina) {
+            visina = crtanje.parentNode.clientHeight;
+            sirina = crtanje.parentNode.clientWidth / 4;
+          }
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (270 + i * 3) / 57.3;
+            var kut2 = (274 + i * 3) / 57.3;
+            var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+            var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+            var y1 = Math.round(visina + Math.sin(kut1) * visina);
+            var y2 = Math.round(visina + Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(" +
+                Math.round(255 - i * 2.83) +
+                ",170," +
+                Math.round(170 + i * 2.83) +
+                ")"
+            );
+            crtanje.appendChild(trokut);
+          }
+          crtanje = document.getElementById("gornjiDesni");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (i * 3) / 57.3;
+            var kut2 = (4 + i * 3) / 57.3;
+            var x1 = Math.round(Math.cos(kut1) * sirina);
+            var x2 = Math.round(Math.cos(kut2) * sirina);
+            var y1 = Math.round(visina - Math.sin(kut1) * visina);
+            var y2 = Math.round(visina - Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(255," + Math.round(255 - i * 2.83) + ",170)"
+            );
+            crtanje.appendChild(trokut);
+          }
         }
-        .popup
-        {
-            display:none;
-            background:black;
-            font-size:14px;
-            line-height: 18px;
-            color:white;
-            opacity:0.75;
-            position:absolute;
-            left:25%;
-            border-width: 7px;
-            border-style: solid;
-            border-color: black;
-            max-width: 200px;
-            text-indent: 0px;
+        nacrtajRubove();
+        window.addEventListener("resize", nacrtajRubove);
+      </script>
+    </header>
+    <aside>
+      <br />
+      <center><b>Here are my online publications:</b></center>
+      <br />
+      <b style="margin-left: 5px">HTML5 stuff:</b>
+      <a href="sat.html"
+        ><div class="link1">
+          <div class="popup">
+            A simple "grandfather clock" animation made in Javascript.
+          </div>
+          Analog Clock
+        </div></a
+      >
+      <a href="calculator.html"
+        ><div class="link2 link1">
+          <div class="popup">
+            A simple HTML5 online calculator. Can solve parentheses!
+          </div>
+          Calculator
+        </div></a
+      >
+      <a href="fraktal.html"
+        ><div class="link1">
+          <div class="popup">
+            A spiral fractal I've made by modifying the "Dragon Curve".
+          </div>
+          The Dragon Curve
+        </div></a
+      >
+      <a href="pacman.html"
+        ><div class="link2 link1">
+          <div class="popup">
+            A Pacman game playable on touch screens. Made in Javascript using
+            the SVG graphics.
+          </div>
+          PacMan
+        </div></a
+      >
+      <a href="etymologist.html">
+        <div class="link1">
+          <div class="popup">
+            A flashcard game in which the goal is to guess the etymologies of
+            the words in simulated languages.
+          </div>
+          Etymology Game
+        </div></a
+      >
+      <br /><b style="margin-left: 5px">Webpages on this website:</b>
+      <a href="index.html"
+        ><div class="link1">
+          <div class="popup">A webpage with a bunch of links.</div>
+          Homepage
+        </div></a
+      >
+      <a href="libertarianism.html"
+        ><div class="link2 link1">
+          <div class="popup">What do I think about politics?</div>
+          Libertarianism
+        </div></a
+      >
+      <a href="vegetarianism.html"
+        ><div class="link1">
+          <div class="popup">Why I don't eat meat.</div>
+          Vegetarianism
+        </div></a
+      >
+      <a href="Simulation.html"
+        ><div class="link2 link1">
+          <div class="popup">The webpage you are currently browsing.</div>
+          Digital Physics
+        </div></a
+      >
+      <a href="linguistics.html"
+        ><div class="link1">
+          <div class="popup">
+            Why I like languages.<br /><br />
+            See also:<br />
+            <u
+              style="color: #0077ff"
+              onclick="window.open('http://flatassembler.github.io/toponyms.html'); window.close();"
+              >Croatian Toponyms</u
+            ><br />
+            <u
+              style="color: #0077ff"
+              onclick="window.open('http://flatassembler.github.io/Indo-Austronesian.html'); window.close();"
+              >Indo-Austronesian</u
+            >
+          </div>
+          Linguistics
+        </div></a
+      >
+      <a href="informatics.html"
+        ><div class="link2 link1">
+          <div class="popup">Why I like computers.</div>
+          Informatics
+        </div></a
+      >
+      <a href="pseudosciences.html"
+        ><div class="link1">
+          <div class="popup">
+            My advice on how to recognize and deal with false sciences.
+          </div>
+          Pseudosciences
+        </div></a
+      >
+      <br /><b style="margin-left: 5px">On Internet forums and blogs:</b>
+      <a href="http://linguistforum.com/outside-of-the-box/croatian-toponyms/"
+        ><div class="link1">
+          <div class="popup">
+            The forum thread in which I explained my linguistic theories in
+            detail.
+          </div>
+          Croatian Toponyms
+        </div></a
+      >
+      <a href="https://atheistforums.org/thread-50241.html"
+        ><div class="link2 link1">
+          <div class="popup">My parody of the conspiracy theorists.</div>
+          Airplanes Don't Exist
+        </div></a
+      >
+    </aside>
+    <section>
+      <p style="margin-left: 5px; margin-right: 5px">
+        <br />The earliest proponent of digital physics is said to be
+        <a href="https://en.wikipedia.org/wiki/Konrad_Zuse">Konrad Zuse</a>, one
+        of the greatest computer scientists of the first half of the 20th
+        century.<br /><br />Its most vocal proponent today is without a doubt
+        the British theoretical physicist called
+        <a href="https://en.wikipedia.org/wiki/Stephen_Wolfram"
+          >Stephen Wolfram</a
+        >. Another honorable mention is perhaps the Dutch Nobel-prize-winning
+        physicist called
+        <a
+          href="https://en.wikipedia.org/wiki/Gerard_%27t_Hooft#Fundamental_aspects_of_quantum_mechanics"
+          >Gerard 't Hooft</a
+        >.<br />
+      </p>
+      <br />
+      <a id="loptica" href="#vrh" style="position: absolute">
+        <svg width="100" height="100">
+          <defs>
+            <radialgradient id="modrozelen">
+              <stop offset="0%" stop-color="#00FFFF" />
+              <stop offset="100%" stop-color="#0000FF" />
+            </radialgradient>
+            <radialgradient id="ljubicastoplav">
+              <stop offset="0%" stop-color="#FF00FF" />
+              <stop offset="100%" stop-color="#0000FF" />
+            </radialgradient>
+          </defs>
+          <circle cx="50" cy="50" r="50" fill="url(#modrozelen)" />
+          <polygon
+            points="50,25 25,50 38,50 38,75 62,75 62,50 75,50"
+            fill="url(#ljubicastoplav)"
+          />
+        </svg>
+      </a>
+      <script type="text/javascript">
+        var udaraca = 0;
+        var loptica = document.getElementById("loptica");
+        var pocetna = loptica.parentNode.clientHeight + 200 - 100;
+        loptica.style.top = pocetna;
+        loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+        var h = 0;
+        var gk = 1;
+        var v = 10;
+        window.setInterval(pomakniLopticu, 80);
+        window.addEventListener("resize", promijeniPocetnu);
+        function promijeniPocetnu() {
+          pocetna = loptica.parentNode.clientHeight + 210 - 100;
+          loptica.style.top = pocetna;
+          loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+          h = 0;
+          gk = 1;
+          v = 10;
         }
-        .popup::before
-        {
-            content:" ";
-        }
-        .link1:hover
-        {
-            background:darkGray;
-            color:black;
-        }
-        .link1:hover .popup
-        {
-            display:block;
-        }
-        .link2
-        {
-            background:linear-gradient(to right,#333333,#111111);
-            color:#FF3300;
-        }
-            footer
-            {
-                width:100%;
-                height:50px;
-                background: #AAFFAA;
-                text-align:center;
-                color:#007777;
-                line-height: 50px;
+        function pomakniLopticu() {
+          h += v;
+          v -= gk;
+          if (h < 0) {
+            v = -v * 0.75;
+            h = 0;
+            udaraca++;
+            if (udaraca > 20) {
+              udaraca = 0;
+              v = 10;
             }
-            .quotation
-            {
-                margin-top:5px;
-                margin-bottom:5px;
-                display:block;
-                font-family:Times;
-                padding-left:10px;
-                padding-right:10px;
-                padding-bottom:5px;
-                padding-top:5px;
-                background:#FFFFDD;
-                color:black;
+          }
+          loptica.style.top = pocetna - h;
+        }
+      </script>
+    </section>
+    <main class="main1" id="glavni" style="display: block">
+      <a name="vrh"></a>
+      <h2 style="text-align: center">About Digital Physics</h2>
+      <div
+        style="
+          text-align: justify;
+          margin-left: 10px;
+          margin-right: 10px;
+          margin-bottom: 100px;
+        "
+      >
+        Digital physics is a metaphysical statement that the fundamental laws of
+        nature are such that they are able to be simulated by a computer. The
+        science is still far from discovering the fundamental laws of nature, so
+        such statements still belong to metaphysics (<a
+          href="javascript::showDetails()"
+          onClick="showDetails()"
+          >show/hide details</a
+        >).
+        <p id="detalji" style="margin-top: 0px; margin-bottom: 0px" hidden>
+          It's sometimes stated that digital physics is being proven wrong, or
+          at least made unlikely, by the modern discoveries in the field of
+          quantum physics. Namely, the recently discovered laws of physics often
+          describe the world in terms of probabilities. Sometimes those
+          probabilities behave in a way different from what we are used to
+          outside of the world of atoms, electrons and photons. Single electron
+          particles, for example, when set to go through a board with
+          <a href="https://en.wikipedia.org/wiki/Double-slit_experiment"
+            >two slits</a
+          >, hit the florescent wall behind it generating the same probability
+          distribution as wave interferences do. And the direction of their spin
+          appears to be
+          <a href="https://en.wikipedia.org/wiki/Bell%27s_theorem#Overview"
+            >affected</a
+          >
+          by the previously measured spin of an electron that's in the same
+          plane but can be very far away. But here is a thing: if you make
+          enough assumptions about those particles, you can actually explain
+          away their behaviour using the laws of physics we are familiar with
+          from everyday life. There have been some attempts to do so, the most
+          notable being the
+          <a href="https://en.wikipedia.org/wiki/De_Broglie–Bohm_theory"
+            >pilot-wave theory</a
+          >. They aren't accepted not because they give incorrect predictions,
+          but because they supposedly aren't the simplest explanation. So, the
+          exact laws that govern the way subatomic particles move are not
+          metaphysically meaningful. Now, somebody might argue that metaphysics
+          (a discipline where philosophy and physics meet) has a horrible track
+          record, and I'd mostly agree with that, but I think you can say that
+          digital physics is some sort of rejection of metaphysics, so that the
+          bad track record of metaphysics does not make it less probable.
+        </p>
+        <br id="prijelom" />
+        <script type="text/javascript">
+          details = true;
+          function showDetails() {
+            details = !details;
+            if (details) {
+              document
+                .getElementById("detalji")
+                .setAttribute("hidden", "hidden");
+              document.getElementById("prijelom").removeAttribute("hidden");
+            } else {
+              document
+                .getElementById("prijelom")
+                .setAttribute("hidden", "hidden");
+              document.getElementById("detalji").removeAttribute("hidden");
             }
-        </style>
-    </head>
-    <body>
-        <noscript>
-            <img src="gornjiLijevi.svg" style="position:absolute; left:8px; width:25%; height:200px; top:8px; -webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
-            <img src="gornjiDesni.svg" style="position:absolute; width:25%; height:200px; left:-webkit-calc(75% - 8px); left:calc(75% - 8px); top:8px;-webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
-            <img src="donjiLijevi.svg" style="position:absolute; width:25%; height:50px; left:8px; top:calc(100% + 200px - 8px); top:-webkit-calc(100% + 200px - 8px); -webkit-animation-name: animacija;-webkit-animation-duration: 2s;"/>
-            <div style="position:absolute; top:-webkit-calc(100% + 200px + 50px + 8px); top:calc(100% + 200px + 50px + 8px); width:100%; height:50px; font-size:36px; font-family:Arial; text-align:center; background:#333333; color:#AAAAAA; line-height:50px;">Please enable JavaScript!</div>
-        </noscript>
-        <header>
-            <svg id="gornjiLijevi" style="float:left; width:25%; height:200px; background:white;"></svg>
-            Digital Physics
-            <svg id="gornjiDesni" style="float:right; width:25%; height:200px; background:white;"></svg>
-            <script type="text/javascript">
-                var svgNS = "http://www.w3.org/2000/svg";
-                function nacrtajRubove() {
-                    var crtanje = document.getElementById("gornjiLijevi");
-                    while (crtanje.childNodes.length)
-                        crtanje.removeChild(crtanje.childNodes[0]);
-                    var visina = crtanje.clientHeight;
-                    var sirina = crtanje.clientWidth;
-                    if (!visina || !sirina)
-                    {
-                        visina=crtanje.parentNode.clientHeight;
-                        sirina=crtanje.parentNode.clientWidth/4;
-                    }
-                    for (var i = 0; i < 30; i++)
-                    {
-                        var kut1 = (270 + i * 3) / 57.3;
-                        var kut2 = (274 + i * 3) / 57.3;
-                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
-                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
-                        var y1 = Math.round(visina + Math.sin(kut1) * visina);
-                        var y2 = Math.round(visina + Math.sin(kut2) * visina);
-                        var trokut = document.createElementNS(svgNS, "polygon");
-                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina);
-                        trokut.setAttribute("fill", "rgb(" + Math.round(255 - i * 2.83) + ",170," + Math.round(170 + i * 2.83) + ")");
-                        crtanje.appendChild(trokut);
-                    }
-                    crtanje = document.getElementById("gornjiDesni");
-                    while (crtanje.childNodes.length)
-                        crtanje.removeChild(crtanje.childNodes[0]);
-                    for (var i = 0; i < 30; i++)
-                    {
-                        var kut1 = i * 3 / 57.3;
-                        var kut2 = (4 + i * 3) / 57.3;
-                        var x1 = Math.round(Math.cos(kut1) * sirina);
-                        var x2 = Math.round(Math.cos(kut2) * sirina);
-                        var y1 = Math.round(visina - Math.sin(kut1) * visina);
-                        var y2 = Math.round(visina - Math.sin(kut2) * visina);
-                        var trokut = document.createElementNS(svgNS, "polygon");
-                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina);
-                        trokut.setAttribute("fill", "rgb(255," + Math.round(255 - i * 2.83) + ",170)");
-                        crtanje.appendChild(trokut);
-                    }
-                }
-                nacrtajRubove();
-                window.addEventListener('resize', nacrtajRubove);
-            </script>
-        </header>
-        <aside>
-            <br/>
-            <center><b>Here are my online publications:</b></center>
-            <br/>
-            <b style="margin-left:5px">HTML5 stuff:</b>
-            <a href="sat.html"><div class="link1">
-                <div class="popup">A simple "grandfather clock" animation made in Javascript.</div>
-                Analog Clock
-            </div></a>
-            <a href="calculator.html"><div class="link2 link1">
-                <div class="popup">A simple HTML5 online calculator. Can solve parentheses!</div>
-                Calculator
-            </div></a>
-            <a href="fraktal.html"><div class="link1">
-                <div class="popup">A spiral fractal I've made by modifying the "Dragon Curve".</div>
-                The Dragon Curve
-            </div></a>
-            <a href="pacman.html"><div class="link2 link1">
-                <div class="popup">A Pacman game playable on touch screens. Made in Javascript using the SVG graphics.</div>
-                PacMan
-            </div></a>
-            <a href="etymologist.html">
-<div class="link1">
-<div class="popup">A flashcard game in which the goal is to guess the etymologies of the words in simulated languages.</div>
-Etymology Game
-</div></a>
-            <br><b style="margin-left:5px">Webpages on this website:</b>
-            <a href="index.html"><div class="link1">
-                <div class="popup">A webpage with a bunch of links.</div>
-                Homepage
-            </div></a>
-            <a href="libertarianism.html"><div class="link2 link1">
-                <div class="popup">What do I think about politics?</div>
-                Libertarianism
-            </div></a>
-            <a href="vegetarianism.html"><div class="link1">
-                <div class="popup">Why I don't eat meat.</div>
-                Vegetarianism
-            </div></a>
-            <a href="Simulation.html"><div class="link2 link1">
-                <div class="popup">The webpage you are currently browsing.</div>
-                Digital Physics
-            </div></a>
-            <a href="linguistics.html"><div class="link1">
-                <div class="popup">Why I like languages.<br><br>
-                    See also:<br>
-                    <u style="color:#0077FF" onclick="window.open('http://flatassembler.github.io/toponyms.html'); window.close();">Croatian Toponyms</u><br>
-                    <u style="color:#0077FF" onclick="window.open('http://flatassembler.github.io/Indo-Austronesian.html'); window.close();">Indo-Austronesian</u></div>
-                Linguistics
-            </div></a>
-            <a href="informatics.html"><div class="link2 link1">
-                <div class="popup">Why I like computers.</div>
-                Informatics
-            </div></a>
-            <a href="pseudosciences.html"><div class="link1">
-                <div class="popup">My advice on how to recognize and deal with false sciences.</div>
-                Pseudosciences
-            </div></a>
-            <br><b style="margin-left:5px">On Internet forums and blogs:</b>
-            <a href="http://linguistforum.com/outside-of-the-box/croatian-toponyms/"><div class="link1">
-                <div class="popup">The forum thread in which I explained my linguistic theories in detail.</div>
-                Croatian Toponyms
-            </div></a>
-            <a href="https://atheistforums.org/thread-50241.html"><div class="link2 link1">
-                <div class="popup">My parody of the conspiracy theorists.</div>
-                Airplanes Don't Exist
-            </div></a>
-        </aside>
-        <section>
-            <p style="margin-left:5px; margin-right:5px;">
-            <br>The earliest proponent of digital physics is said to be <a href="https://en.wikipedia.org/wiki/Konrad_Zuse">Konrad Zuse</a>, one of the greatest computer scientists of the first half of the 20th century.<br><br>Its most vocal proponent today is without a doubt the British theoretical physicist called <a href="https://en.wikipedia.org/wiki/Stephen_Wolfram">Stephen Wolfram</a>. Another honorable mention is perhaps the Dutch Nobel-prize-winning physicist called <a href="https://en.wikipedia.org/wiki/Gerard_%27t_Hooft#Fundamental_aspects_of_quantum_mechanics">Gerard 't Hooft</a>.<br>
-            </p><br>
-            <a id="loptica" href="#vrh" style="position: absolute;">
-                <svg width="100" height="100">
-                <defs>
-                <radialgradient id="modrozelen">
-                <stop offset="0%" stop-color="#00FFFF"/>
-                <stop offset="100%" stop-color="#0000FF"/>
-                </radialgradient>
-                <radialgradient id="ljubicastoplav">
-                <stop offset="0%" stop-color="#FF00FF"/>
-                <stop offset="100%" stop-color="#0000FF"/>
-                </radialgradient>
-                </defs>
-                <circle cx="50" cy="50" r="50" fill="url(#modrozelen)"/>
-                <polygon points="50,25 25,50 38,50 38,75 62,75 62,50 75,50" fill="url(#ljubicastoplav)"/>
-                </svg>
-            </a>
-            <script type="text/javascript">
-                var udaraca = 0;
-                var loptica = document.getElementById("loptica");
-                var pocetna = loptica.parentNode.clientHeight + 200 - 100;
-                loptica.style.top = pocetna;
-                loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
-                var h = 0;
-                var gk = 1;
-                var v = 10;
-                window.setInterval(pomakniLopticu, 80);
-                window.addEventListener("resize", promijeniPocetnu);
-                function promijeniPocetnu()
-                {
-                    pocetna = loptica.parentNode.clientHeight + 210 - 100;
-                    loptica.style.top = pocetna;
-                    loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
-                    h = 0;
-                    gk = 1;
-                    v = 10;
-                }
-                function pomakniLopticu()
-                {
-                    h += v;
-                    v -= gk;
-                    if (h < 0)
-                    {
-                        v = -v * 0.75;
-                        h = 0;
-                        udaraca++;
-                        if (udaraca > 20)
-                        {
-                            udaraca = 0;
-                            v = 10;
-                        }
-                    }
-                    loptica.style.top = pocetna - h;
-                }
-            </script>
-        </section>
-        <main class="main1" id="glavni" style="display:block">
-            <a name="vrh"></a>
-            <h2 style="text-align: center">About Digital Physics</h2>
-            <div style="text-align: justify; margin-left:10px; margin-right:10px; margin-bottom:100px;">Digital physics is a metaphysical statement that the fundemental laws of nature are such that they are able to be simulated by a computer. The science is still far from discovering the fundemental laws of nature, so such statements still belong to metaphysics (<a href="javascript::showDetails()" onClick="showDetails()">show/hide details</a>).
-                <p id="detalji" style="margin-top:0px; margin-bottom:0px" hidden>It's sometimes stated that digital physics is being disproven, or at least made unlikely, by the modern discoveries in the field of quantum physics. Namely, the recently discovered laws of physics often describe the world in terms of probabilities. Sometimes those probabilities behave in a way different from what we are used to outside of the world of atoms, electrons and photons. Single electron particles, for example, when set to go through a board with <a href="https://en.wikipedia.org/wiki/Double-slit_experiment">two slits</a>, hit the flourescent wall behind it generating the same probability distribution as wave interferences do. And the direction of their spin appears to be <a href="https://en.wikipedia.org/wiki/Bell%27s_theorem#Overview">affected</a> by the previously measured spin of an electron that's in the same plane but can be very far away. But here is a thing: if you make enough assumptions about those particles, you can actually explain away their behaviour using the laws of physics we are familiar with from everyday life. There have been some attempts to do so, the most notable being the <a href="https://en.wikipedia.org/wiki/De_Broglie–Bohm_theory">pilot-wave theory</a>. They aren't accepted not because they give incorrect predictions, but because they supposedly aren't the simplest explanation. So, the exact laws that govern the way subatomic particles move are not metaphysically meaningful.</p><br id="prijelom">
-                <script type="text/javascript">
-                    details=true;
-                    function showDetails()
-                    {
-                        details=!details;
-                        if (details) {
-                            document.getElementById("detalji").setAttribute("hidden","hidden");
-                            document.getElementById("prijelom").removeAttribute("hidden");
-                        }
-                        else {
-                            document.getElementById("prijelom").setAttribute("hidden","hidden");
-                            document.getElementById("detalji").removeAttribute("hidden");
-                        }
-                    }
-                </script>
-                Digital physics is not widely accepted, and the main reason for that is probably that it's not being communicated in a good way. Digital physics is often described, even by its proponents, as the theory that the world could be a computer simulation. That's quite a bit misleading. Digital physics doesn't suppose it's likely that our universe is simulated by some giant computer in some alien civilization, it simply supposes that the fundamental laws of nature are such that they could, in principle, be simulated by an enough-powerful computer. A perhaps better summary would be that the universe itself is a giant computer (not a "computer simulation").<br>So, here are some of its implications:<br>1. The material world doesn't exist. Every being in the world is made only of information that's manageable by a computer, that is, ideas.<br>2. There are no miracles. Every event that happens in the world has to be explicable using those fundamental and computable natural laws.<br>3. God doesn't, and can't, exist. The same goes for the afterlife.<br>4. Free will is entirely explicable using the <a href="https://en.wikipedia.org/wiki/Computational_complexity_theory">computational complexity</a>. Every system with enough computational complexity can be said to have free will.<br>5. Space and time themselves are made of pixels, small pieces of information. Each pixel is connected to a relatively small number of other pixels by an <a href="https://en.wikipedia.org/wiki/Adjacency_list">adjacency list</a>. A change (movement) in one of these pixels can be caused only by the state of the pixels it's connected to. If you know the state of the pixels it's connected to, you can calculate its state.<br>I realize that most of the implications I've listed seem absurd to most of the people today. But it's actually very easy to argue for them. Space and time being made of pixels appears to efficiently solve the Zeno's paradox of the Achiles and Tortoise. <div style="background:gray; float:right; color:purple; text-align:center; margin-top:5px; margin-left:10px; margin-bottom:5px"><img width=200 height=200 style="margin-top:10px; margin-left:10px; margin-right:10px; margin-bottom:5px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Zeno_Achilles_Paradox.png/600px-Zeno_Achilles_Paradox.png"/><br><i>Zeno's paradox</i></div>It goes like this: <i>Consider a race of fast Achilles and a slow turtle. At the beginning of the race, the turtle is placed ahead of Achilles by 100m. Both of them start to run. Achilles reaches the place where the turtle used to be at the beginning of the race, however, the turtle has already moved a little. Achilles then runs to the place when the turtle was when he was 100m ahead of his start, however, the turtle has moved a bit more. And by the time Achilles reaches the place where the turtle is, the turtle will have moved even farther away. Therefore, Achilles can never overtake the turtle, only the distance between them decreases, but it never reaches zero. Now, obviously, Achilles will eventually overtake the Turtle.</i> It seems like the only sensible solution is that we assume that space and time are made of pixels, that the space is made of small cubes and that no particle can occupy only a part of such a cube, and that time is also not continuous. Then, the distance between Achilles and the turtle can't be between zero and the length of a pixel, but it goes immediately to zero when it comes the time when it should be smaller than a pixel, as it happens in computer games.<br>For most of the people today, the idea that the material world doesn't exist seems absurd. But, to paraphrase George Berkeley, we can only perceive ideas. When we say we see the Moon, we don't mean we perceive the Moon itself, we perceive only its appearance. And appearance is an idea. And the ideas can't be caused by material things, they share no properties of material things. Ideas can only be caused by other ideas. Therefore, the Moon can't be made only of material things, it has to be made of ideas. So, even if matter does exist, we have no way of perceiving it. It can't have an effect on anything we perceive, and it's therefore not a part of this world in any meaningful way.<br>Many people would say there is enough evidence of miracles supposedly happened in history, like the resurrection of the Christ. I think that they say that because they haven't tried to imagine the situation the New Testament describes. Imagine that someone you love is murdered. While you grieve, there comes some stranger and claims he is that person who rose from the dead. Would you believe him? Of course not! Then why do people think the apostles were right to do so? We appear to be bombarded with the examples of miracles happening everywhere. However, we almost never have enough knowledge to evaluate those examples. And when we do, we end up with a conclusion that maybe it wasn't a miracle after all. People in ancient times used to believe that everything was a miracle: earthquakes meant spirits were displeased and a flash from sky meant God was angry. Today, we laugh at those superstitions. Yet, many people use that same type of reasoning today.<br>The simple truth is, if there was a good all-powerful God, there would be no evil in the world. But there obviously is. And, no, free will is not the only cause of it. How could free will be responsible for the earthquakes and the children being born ill?<br>Many people find the idea that there is no afterlife frightening. Well, I find the idea of there being one way more frightening. Think of it this way: you were dead for eternity before you were born. It's not that you suffered because of that, you just simply weren't there. And I find it comforting to think that everyone who claims there is something to be afraid of after you die is just sucking that out of his little finger.<br>Atheism has a bad name, because some of the well-known atheists, like Karl Marx, just replaced God with another dogma, like communism. Socialism and communism don't logically follow from atheism in any way.<br>I hope I've communicated the ideas of digital physics in an understandable and thought-provoking way. I understand that, if you this is the first time you were exposed to the ideas of digital physics, you probably aren't convinced. In fact, you likely consider me crazy. It's OK, I just hope I've made you think so that you might change your mind.
-                <br/><br/>UPDATE on 03/06/2018: There are many examples of how physical phenomena, which are almost impossible to calculate by hand, can be simulated by a computer program of just a few lines of code. One of them I've made is the analog clock linked to the left (the pendular movement is extremely hard to calculate, yet it can be easily simulated by a computer). The other one might be the electric field <a href="electricity.html">simulator</a> I've made today. So, why couldn't the whole universe be just like that?
-                <br/><br/>UPDATE on 29/07/2019: It's a common misconception that people educated in history and social sciences tend to believe in creationism, or at least strongly believe in God. That's just not true. I've opened a <a href="https://www.textkit.com/greek-latin-forum/viewtopic.php?f=12&t=69342">thread</a> about religion on a Latin language forum, and what's obvious is that people there don't like talking about religion. In case that website goes down, here is the short essay I've written, feel free to copy from me:
-                <span class="quotation" lang="la">Quid homines in hac agora censent, num Deus realis sit? Ego censeo Deum non realem esse. Si Deus realis sit, quomodo possibile est ut tot differentes religiones in terra sint? Cur Deus permittat his religionibus exsistere, et ut tot homines audiant solummodo fabulas de Deis, quae non sunt veritas? Cur omnipotens et benevolens Deus permittat tot innocentibus hominibus in Tartarum ire falsae religionis causa?<br/>
-                    Et Biblia dicit multas res, quas nunc scimus non veras esse. Jesus dixit eclipses lunae et solis signum Dei fuisse ("Sol convertetur in tenebras, et luna in sanguinem, antequam veniat dies Domini magnus et manifestus."). Nunc scimus, et multi philosophi eo tempore etiam sciebant, id non ita esse. Jesus praedicavit pauperes pauperiores futuros esse, et quod dives divitiores futuri sint ("Omni enim habenti dabitur, et abundabit, ei autem qui non habet, et quod videtur habere, auferetur ab eo."). Et hodie paene nemo est ita pauper, quomodo paene omnes homines eo tempore erant. Eo tempore paene omnes homines nudi erant, quia non poterant togas emere. Et Jesus etiam dixit bellum solutionem fuisse ("Nolite arbitrari quia pacem venerim mittere in terram, non veni pacem mittere, sed gladium."). Si Jesus in vicesimo saeculo esset, is cum socialistibus concordet. Jesu non fuit sapientia divina.<br/>
-                Et de theologia, ego diligo quod Richard Dawkins scripsit: <i>"Theologia numquam dixit aliquid, quod neque perspicuum fuisset (facile visu), neque falsum fuisset. Quando theologia dixit aliquid, quod alicui utile (quod aliquem adiuvat) est? Vera scientia curas morborum sciscit, theologia loquitur peccata morbos facere."</i>.</span>
-                <br/>UPDATE on 02/09/2019: I received a response on the thread on the Latin forum, here is the response, and here is what I responded back:
-                <span class="quotation" lang="la">
-                    <span class="quotation" style="background: #cccc00">
-                        <span class="quotation" style="background: #aaaa00">
-                                Quid homines in hac agora censent, num Deus realis sit? Ego censeo Deum non realem esse. Si Deus realis sit... 
-                        </span>
-                        Salve, amice!<br/>
+          }
+        </script>
+        Digital physics is not widely accepted, and the main reason for that is
+        probably that it's not being communicated in a good way. Digital physics
+        is often described, even by its proponents, as the theory that the world
+        could be a computer simulation. That's quite a bit misleading. Digital
+        physics doesn't suppose it's likely that our universe is simulated by
+        some giant computer in some alien civilization, it simply supposes that
+        the fundamental laws of nature are such that they could, in principle,
+        be simulated by an enough-powerful computer. A perhaps better summary
+        would be that the universe itself is a giant computer (not a "computer
+        simulation").<br />So, here are some of its implications:
+        <ol>
+          <li>
+            The material world doesn't exist. Every being in the world is made
+            only of information that's manageable by a computer, that is, ideas.
+          </li>
+          <li>
+            There are no miracles. Every event that happens in the world has to
+            be explicable using those fundamental and computable natural laws.
+          </li>
+          <li>
+            God doesn't, and can't, exist. The same goes for the afterlife.
+          </li>
+          <li>
+            Free will is entirely explicable using the
+            <a
+              href="https://en.wikipedia.org/wiki/Computational_complexity_theory"
+              >computational complexity</a
+            >. Every system with enough computational complexity can be said to
+            have free will.
+          </li>
+          <li>
+            Space and time themselves are made of pixels, small pieces of
+            information. Each pixel is connected to a relatively small number of
+            other pixels by an
+            <a href="https://en.wikipedia.org/wiki/Adjacency_list"
+              >adjacency list</a
+            >. A change (movement) in one of these pixels can be caused only by
+            the state of the pixels it's connected to. If you know the state of
+            the pixels it's connected to, you can calculate its state.
+          </li>
+        </ol>
+        I realize that most of the implications I've listed seem absurd to most
+        of the people today. But it's actually very easy to argue for them.
+        Space and time being made of pixels appears to efficiently solve the
+        Zeno's paradox of the Achiles and Tortoise.
+        <div
+          style="
+            background: gray;
+            float: right;
+            color: purple;
+            text-align: center;
+            margin-top: 5px;
+            margin-left: 10px;
+            margin-bottom: 5px;
+          "
+        >
+          <img
+            width="200"
+            height="200"
+            style="
+              margin-top: 10px;
+              margin-left: 10px;
+              margin-right: 10px;
+              margin-bottom: 5px;
+            "
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Zeno_Achilles_Paradox.png/600px-Zeno_Achilles_Paradox.png"
+          /><br /><i>Zeno's paradox</i>
+        </div>
+        It goes like this:
+        <i
+          >Consider a race of fast Achilles and a slow turtle. At the beginning
+          of the race, the turtle is placed ahead of Achilles by 100m. Both of
+          them start to run. Achilles reaches the place where the turtle used to
+          be at the beginning of the race, however, the turtle has already moved
+          a little. Achilles then runs to the place when the turtle was when he
+          was 100m ahead of his start, however, the turtle has moved a bit more.
+          And by the time Achilles reaches the place where the turtle is, the
+          turtle will have moved even farther away. Therefore, Achilles can
+          never overtake the turtle, only the distance between them decreases,
+          but it never reaches zero. Now, obviously, Achilles will eventually
+          overtake the Turtle.</i
+        >
+        It seems like the only sensible solution is that we assume that space
+        and time are made of pixels, that the space is made of small cubes and
+        that no particle can occupy only a part of such a cube, and that time is
+        also not continuous. Then, the distance between Achilles and the turtle
+        can't be between zero and the length of a pixel, but it goes immediately
+        to zero when it comes the time when it should be smaller than a pixel,
+        as it happens in computer games.<br />For most of the people today, the
+        idea that the material world doesn't exist seems absurd. But, to
+        paraphrase George Berkeley, we can only perceive ideas. When we say we
+        see the Moon, we don't mean we perceive the Moon itself, we perceive
+        only its appearance. And appearance is an idea. And the ideas can't be
+        caused by material things, they share no properties of material things.
+        Ideas can only be caused by other ideas. Therefore, the Moon can't be
+        made only of material things, it has to be made of ideas. So, even if
+        matter does exist, we have no way of perceiving it. It can't have an
+        effect on anything we perceive, and it's therefore not a part of this
+        world in any meaningful way.<br />Many people would say there is enough
+        evidence of miracles supposedly happened in history, like the
+        resurrection of the Christ. I think that they say that because they
+        haven't tried to imagine the situation the New Testament describes.
+        Imagine that someone you love is murdered. While you grieve, there comes
+        some stranger and claims he is that person who rose from the dead. Would
+        you believe him? Of course not! Then why do people think the apostles
+        were right to do so? And that is assuming the events described by the
+        New Testament actually happened. Why assume that? New Testament makes
+        some very specific historic statements, which turn out to be false. For
+        example, the Massacre of Innocents described in the Gospel of Matthew
+        2:16. No serious historian argues it really happened. Not to mention
+        obvious nonsense such as the "<i
+          >mountain so high all the kingdoms on Earth are visible from it</i
+        >" from Luke 4:5 and Matthew 4:8 (implying the Earth is flat) and
+        obvious contradictions between the Gospels (<i
+          >Who discovered the empty tomb? Did angel Gabriel reveal himself to
+          Joseph or to Mary?</i
+        >...). So, even if we disregard the basic principle of history (that our
+        understanding of history has to be in line with science), there still
+        remains a strong case against the Bible being a reliable source. I don't
+        have all the time in the world to look into other supposed holy books,
+        but I suspect them to be similar in that regard.<br />We appear to be
+        bombarded with the examples of miracles happening everywhere. However,
+        we almost never have enough knowledge to evaluate those examples. And
+        when we do, we end up with a conclusion that maybe it wasn't a miracle
+        after all. People in ancient times used to believe that everything was a
+        miracle: earthquakes meant spirits were displeased and a flash from sky
+        meant God was angry. Today, we laugh at those superstitions. Yet, many
+        people use that same type of reasoning today.<br />The simple truth is,
+        if there was a good all-powerful God, there would be no evil in the
+        world. But there obviously is. And, no, free will is not the only cause
+        of it. How could free will be responsible for the earthquakes and the
+        children being born ill? Furthermore, thanks to modern science, we know
+        evil in the world long predates free will: animals capable of feeling
+        pain existed for hundreds of millions of years before humans. Many
+        religious people, starting perhaps with the philosopher Gottfried
+        Leibniz, say we are living in the best of all possible worlds, and all
+        the evil is an illusion. But if that were true, engineering (improving
+        the world by applying science) would be impossible, and it clearly is
+        not.<br />Many people find the idea that there is no afterlife
+        frightening. Well, I find the idea of there being one way more
+        frightening. Think of it this way: you were dead for eternity before you
+        were born. It's not that you suffered because of that, you just simply
+        weren't there. And I find it comforting to think that everyone who
+        claims there is something to be afraid of after you die is just sucking
+        that out of his little finger. Afterlife, as is commonly imagined,
+        appears to contradict the basics of quantum mechanics. Namely, most
+        people imagine souls as something that can see but can in no way be
+        detected. But quantum mechanics teaches us there is no such thing as a
+        passive observer. Not to mention the philosophical problems with
+        afterlife, namely, what makes you <i>you</i>. In what sense is a soul,
+        which does not have any of your memories (which are demonstrably stored
+        in your brain), <i>you</i>? What good is it if I am reunited with my
+        dead grandmother in heaven if I will not be able to recognize her, nor
+        will she be able to recognize me?<br />Atheism has a bad name, because
+        some of the well-known atheists, like Karl Marx, just replaced God with
+        another dogma, like communism. Socialism and communism don't logically
+        follow from atheism in any way.<br />I hope I've communicated the ideas
+        of digital physics in an understandable and thought-provoking way. I
+        understand that, if you this is the first time you were exposed to the
+        ideas of digital physics, you probably aren't convinced. In fact, you
+        likely consider me crazy. It's OK, I just hope I've made you think so
+        that you might change your mind. <br /><br />UPDATE on 03/06/2018: There
+        are many examples of how physical phenomena, which are almost impossible
+        to calculate by hand, can be simulated by a computer program of just a
+        few lines of code. One of them I've made is the analog clock linked to
+        the left (the pendular movement is extremely hard to calculate, yet it
+        can be easily simulated by a computer). The other one might be the
+        electric field <a href="electricity.html">simulator</a> I've made today.
+        So, why couldn't the whole universe be just like that?
+        <br /><br />UPDATE on 29/07/2019: It's a common misconception that
+        people educated in history and social sciences tend to believe in
+        creationism, or at least strongly believe in God. That's just not true.
+        I've opened a
+        <a
+          href="https://www.textkit.com/greek-latin-forum/viewtopic.php?f=12&t=69342"
+          >thread</a
+        >
+        about religion on a Latin language forum, and what's obvious is that
+        people there don't like talking about religion. In case that website
+        goes down, here is the short essay I've written, feel free to copy from
+        me:
+        <span class="quotation" lang="la"
+          >Quid homines in hac agora censent, num Deus realis sit? Ego censeo
+          Deum non realem esse. Si Deus realis sit, quomodo possibile est ut tot
+          differentes religiones in terra sint? Cur Deus permittat his
+          religionibus exsistere, et ut tot homines audiant solummodo fabulas de
+          Deis, quae non sunt veritas? Cur omnipotens et benevolens Deus
+          permittat tot innocentibus hominibus in Tartarum ire falsae religionis
+          causa?<br />
+          Et Biblia dicit multas res, quas nunc scimus non veras esse. Jesus
+          dixit eclipses lunae et solis signum Dei fuisse ("Sol convertetur in
+          tenebras, et luna in sanguinem, antequam veniat dies Domini magnus et
+          manifestus."). Nunc scimus, et multi philosophi eo tempore etiam
+          sciebant, id non ita esse. Jesus praedicavit pauperes pauperiores
+          futuros esse, et quod dives divitiores futuri sint ("Omni enim habenti
+          dabitur, et abundabit, ei autem qui non habet, et quod videtur habere,
+          auferetur ab eo."). Et hodie paene nemo est ita pauper, quomodo paene
+          omnes homines eo tempore erant. Eo tempore paene omnes homines nudi
+          erant, quia non poterant togas emere. Et Jesus etiam dixit bellum
+          solutionem fuisse ("Nolite arbitrari quia pacem venerim mittere in
+          terram, non veni pacem mittere, sed gladium."). Si Jesus in vicesimo
+          saeculo esset, is cum socialistibus concordet. Jesu non fuit sapientia
+          divina.<br />
+          Et de theologia, ego diligo quod Richard Dawkins scripsit:
+          <i
+            >"Theologia numquam dixit aliquid, quod neque perspicuum fuisset
+            (facile visu), neque falsum fuisset. Quando theologia dixit aliquid,
+            quod alicui utile (quod aliquem adiuvat) est? Vera scientia curas
+            morborum sciscit, theologia loquitur peccata morbos facere."</i
+          >.</span
+        >
+        <br />UPDATE on 02/09/2019: I received a response on the thread on the
+        Latin forum, here is the response, and here is what I responded back:
+        <span class="quotation" lang="la">
+          <span class="quotation" style="background: #cccc00">
+            <span class="quotation" style="background: #aaaa00">
+              Quid homines in hac agora censent, num Deus realis sit? Ego censeo
+              Deum non realem esse. Si Deus realis sit...
+            </span>
+            Salve, amice!<br />
 
-Puto primum quaestionem esse, quid significat "esse"? Quaero quoque, quid significat "real"? Nonne facile est dicere deum non esse, si haec verba significant opiniones quae hodie mundum dominant?
-<br/>
-Qualis res (realis) est?
-<br/>
-Quid facimus cuando dicamus de rebus realibus et de rebus qui non reales sint? Quid agimus?
-<br/>
-Vale
-<br/>
-Adamus, qui nondum saepe latine loquor, quare errat. 
-                    </span>
-                    Quid est tibi? Nonne cogitas hoc, quod scripsisti, posse etiam de draconibus et unicornibus dici, non solummodo de Deo?
-<br/>
-Difficile dictu est quid realitas sit. Sed si aliquid absurdum sit, possumus scire id non realis esse. Omnipotens et benevolens Deus, qui terraemotos permittat, absurdus est. Benevolens (non malus) Deus, qui faciat homines in Tartarum ire falsae religionis causa, absurdus est. Et omnipotentia (verbum de aliquo qui omnia possit) ipsa absurda est. Potestne omnipotens Deus petram ita gravis (non levis) facere, ut eam is ipse non movere possit?
-                </span>
-                <br/>UPDATE on 15/10/2019: I've just published a YouTube video explaining more reasons to reject the concept of God. You can see it <a href="https://youtu.be/vtPkRUp7ZIM">here</a>.
- In case your browser has trouble playing that, you can download a low-quality MP4 video <a href="DeAtheismo-minified.mp4">here</a>. If that also fails, you can download a MP3 audio <a href="DeAtheismo.mp3">here</a>.<br/><br/>
-				UPDATE on 24/09/2020: I've published a YouTube video with English comments to my earlier video (which was in Latin). You can see it <a href="https://youtu.be/AZOo5lgi6lI">here</a>. In case you can't open it, try downloading the minified <a href="atheism-in-english-minified.mp4">MP4 video</a> and opening it in VLC or something similar. If you have trouble understanding English spoken with a Croatian accent, you can download the <a href="atheism-in-english.txt">transcript</a>.
-            </div>
-        </main>
-        <footer>
-            <div style="width: 25%; float: right; text-align:left; bottom:30px;">
-                Choose the style: 
-                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main1')">[1]</a>
-                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main2')">[2]</a>
-                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main3')">[3]</a>
-            </div>
-            Uploaded by Teo Samarzija on 20/10/2017
-            <svg id="donjiLijevi" style="float:left; width:25%; height:100%; background: white;"></svg>
-            <script type="text/javascript">
-            if (navigator.appName=="Microsoft Internet Explorer")
-            {
-            	var niz=document.getElementsByTagName("div");
-            	for (var i=0; i<niz.length; i++)
-            	{
-            		if (niz[i].className.indexOf("link1")==-1)
-            			continue;
-            		niz[i].onmouseenter=
-            			function()
-            				{this.children[0].style.display="inline";};
-            		niz[i].onmouseleave=
-            			function()
-            				{this.children[0].style.display="none";};
-        	    }
-        	    document.getElementById("glavni").removeAttribute("style");
+            Puto primum quaestionem esse, quid significat "esse"? Quaero quoque,
+            quid significat "real"? Nonne facile est dicere deum non esse, si
+            haec verba significant opiniones quae hodie mundum dominant?
+            <br />
+            Qualis res (realis) est?
+            <br />
+            Quid facimus cuando dicamus de rebus realibus et de rebus qui non
+            reales sint? Quid agimus?
+            <br />
+            Vale
+            <br />
+            Adamus, qui nondum saepe latine loquor, quare errat.
+          </span>
+          Quid est tibi? Nonne cogitas hoc, quod scripsisti, posse etiam de
+          draconibus et unicornibus dici, non solummodo de Deo?
+          <br />
+          Difficile dictu est quid realitas sit. Sed si aliquid absurdum sit,
+          possumus scire id non realis esse. Omnipotens et benevolens Deus, qui
+          terraemotos permittat, absurdus est. Benevolens (non malus) Deus, qui
+          faciat homines in Tartarum ire falsae religionis causa, absurdus est.
+          Et omnipotentia (verbum de aliquo qui omnia possit) ipsa absurda est.
+          Potestne omnipotens Deus petram ita gravis (non levis) facere, ut eam
+          is ipse non movere possit?
+        </span>
+        <br />UPDATE on 15/10/2019: I've just published a YouTube video
+        explaining more reasons to reject the concept of God. You can see it
+        <a href="https://youtu.be/vtPkRUp7ZIM">here</a>. In case your browser
+        has trouble playing that, you can download a low-quality MP4 video
+        <a href="DeAtheismo-minified.mp4">here</a>. If that also fails, you can
+        download a MP3 audio <a href="DeAtheismo.mp3">here</a>.<br /><br />
+        UPDATE on 24/09/2020: I've published a YouTube video with English
+        comments to my earlier video (which was in Latin). You can see it
+        <a href="https://youtu.be/AZOo5lgi6lI">here</a>. In case you can't open
+        it, try downloading the minified
+        <a href="atheism-in-english-minified.mp4">MP4 video</a> and opening it
+        in VLC or something similar. If you have trouble understanding English
+        spoken with a Croatian accent, you can download the
+        <a href="atheism-in-english.txt">transcript</a>.
+      </div>
+    </main>
+    <footer>
+      <div style="width: 25%; float: right; text-align: left; bottom: 30px">
+        Choose the style:
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main1')"
+          >[1]</a
+        >
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main2')"
+          >[2]</a
+        >
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main3')"
+          >[3]</a
+        >
+      </div>
+      Uploaded by Teo Samarzija on 20/10/2017
+      <svg
+        id="donjiLijevi"
+        style="float: left; width: 25%; height: 100%; background: white"
+      ></svg>
+      <script type="text/javascript">
+        if (navigator.appName == "Microsoft Internet Explorer") {
+          var niz = document.getElementsByTagName("div");
+          for (var i = 0; i < niz.length; i++) {
+            if (niz[i].className.indexOf("link1") == -1) continue;
+            niz[i].onmouseenter = function () {
+              this.children[0].style.display = "inline";
+            };
+            niz[i].onmouseleave = function () {
+              this.children[0].style.display = "none";
+            };
+          }
+          document.getElementById("glavni").removeAttribute("style");
+        } else if (navigator.appName == "Opera") {
+          document.getElementById("glavni").style.color = "black";
+          document.getElementById("glavni").style.backgroundColor = "white";
+          var gornjiDesni = document.getElementById("gornjiDesni");
+          gornjiDesni.parentNode.removeChild(gornjiDesni);
+        } else if (
+          (((navigator.userAgent.indexOf("Safari") + 1 ||
+            navigator.userAgent.indexOf("WebKit") + 1) &&
+            navigator.userAgent.indexOf("Mobile") + 1 &&
+            (!(navigator.userAgent.indexOf("Chrome") + 1) ||
+              (navigator.userAgent.indexOf("Version") + 1 &&
+                navigator.userAgent.indexOf("Chrome") + 1))) ||
+            (navigator.userAgent.indexOf("Mobile") + 1 &&
+              navigator.userAgent.indexOf("Gecko") + 1 &&
+              !(navigator.userAgent.indexOf("like Gecko") + 1) &&
+              !(navigator.userAgent.indexOf("Dolfin") + 1))) &&
+          !(navigator.userAgent.indexOf("iPad") + 1) &&
+          !(navigator.userAgent.indexOf("iPhone") + 1)
+        )
+          document.getElementById("glavni").style.fontSize = "36px";
+        else if (navigator.userAgent.indexOf("Mobi") + 1) {
+          document.head.innerHTML +=
+            '<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">';
+          var niz = document.getElementsByTagName("svg");
+          for (var i = 0; i < niz.length; i++) niz[i].style.display = "none";
+          document.getElementsByTagName("aside")[0].style.display = "none";
+          document.getElementsByTagName("aside")[0].style.float = "none";
+          document.getElementsByTagName("aside")[0].style.width = "100%";
+          document.getElementsByTagName("aside")[0].style.height = "auto";
+          niz = document.getElementsByClassName("popup");
+          for (var i = 0; i < niz.length; i++) {
+            niz[i].style.width = "50%";
+            niz[i].style.left = "45%";
+            niz[i].style.maxWidth = "none";
+          }
+          document.getElementsByTagName("section")[0].style.height = "auto";
+          document.getElementsByTagName("section")[0].style.float = "none";
+          document.getElementsByTagName("section")[0].style.width = "100%";
+          document.getElementsByTagName("header")[0].style.height = "auto";
+          document.getElementsByTagName("header")[0].style.lineHeight =
+            "normal";
+          document.getElementsByTagName("main")[0].style.width = "100%";
+          document.getElementsByTagName("footer")[0].children[0].style.display =
+            "inline";
+          document.getElementsByTagName("footer")[0].children[0].style.float =
+            "none";
+          document.getElementsByTagName("footer")[0].children[0].innerHTML +=
+            "<br/><br/>";
+          document.getElementsByTagName("footer")[0].style.height = "auto";
+          document.getElementsByTagName("footer")[0].style.lineHeight =
+            "normal";
+          document.getElementsByTagName("header")[0].outerHTML +=
+            '<button id="showNavigation" style="width:100%;line-height:36px;height:41px;">Show navigation<\/button>';
+          document.getElementById("showNavigation").onclick = function () {
+            if (
+              document.getElementsByTagName("aside")[0].style.display == "none"
+            ) {
+              this.innerHTML = "Hide navigation";
+              document.getElementsByTagName("aside")[0].style.display = "block";
+            } else {
+              this.innerHTML = "Show navigation";
+              document.getElementsByTagName("aside")[0].style.display = "none";
             }
-            else if (navigator.appName=="Opera") {
-            	document.getElementById("glavni").style.color="black";
-            	document.getElementById("glavni").style.backgroundColor="white";
-            	var gornjiDesni=document.getElementById("gornjiDesni");
-            	gornjiDesni.parentNode.removeChild(gornjiDesni);
-            }
-            else if (((navigator.userAgent.indexOf("Safari")+1 || navigator.userAgent.indexOf("WebKit")+1)
-                      && navigator.userAgent.indexOf("Mobile")+1
-                      && (!(navigator.userAgent.indexOf("Chrome")+1) ||
-                          (navigator.userAgent.indexOf("Version")+1 && navigator.userAgent.indexOf("Chrome")+1))
-                      || (navigator.userAgent.indexOf("Mobile")+1 && navigator.userAgent.indexOf("Gecko")+1
-                          && !(navigator.userAgent.indexOf("like Gecko")+1))
-                      && !(navigator.userAgent.indexOf("Dolfin")+1)) && !(navigator.userAgent.indexOf("iPad")+1) && !(navigator.userAgent.indexOf("iPhone")+1))
-                         document.getElementById("glavni").style.fontSize="36px";
-                         else if (navigator.userAgent.indexOf("Mobi")+1)
-                         {
-                             document.head.innerHTML+="<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=0\">";
-                             var niz=document.getElementsByTagName("svg");
-                             for (var i=0; i<niz.length; i++)
-                             niz[i].style.display="none";
-                             document.getElementsByTagName("aside")[0].style.display="none";
-                             document.getElementsByTagName("aside")[0].style.float="none";
-                             document.getElementsByTagName("aside")[0].style.width="100%";
-                             document.getElementsByTagName("aside")[0].style.height="auto";
-                             niz=document.getElementsByClassName("popup");
-                             for (var i=0; i<niz.length; i++) {
-                                 niz[i].style.width="50%"
-                                 niz[i].style.left="45%";
-                                 niz[i].style.maxWidth="none";
-                             }
-                             document.getElementsByTagName("section")[0].style.height="auto";
-                             document.getElementsByTagName("section")[0].style.float="none";
-                             document.getElementsByTagName("section")[0].style.width="100%";
-                             document.getElementsByTagName("header")[0].style.height="auto";
-                             document.getElementsByTagName("header")[0].style.lineHeight="normal";
-                             document.getElementsByTagName("main")[0].style.width="100%";
-                             document.getElementsByTagName("footer")[0].children[0].style.display="inline";
-                             document.getElementsByTagName("footer")[0].children[0].style.float="none";
-                             document.getElementsByTagName("footer")[0].children[0].innerHTML+="<br/><br/>";
-                             document.getElementsByTagName("footer")[0].style.height="auto";
-                             document.getElementsByTagName("footer")[0].style.lineHeight="normal";
-                             document.getElementsByTagName("header")[0].outerHTML+="<button id=\"showNavigation\" style=\"width:100%;line-height:36px;height:41px;\">Show navigation<\/button>";
-                             document.getElementById("showNavigation").onclick=
-                             function()
-                             {
-                                 if (document.getElementsByTagName("aside")[0].style.display=="none")
-                                 {
-                                     this.innerHTML="Hide navigation";
-                                     document.getElementsByTagName("aside")[0].style.display="block";
-                                 }
-                                 else
-                                 {
-                                     this.innerHTML="Show navigation";
-                                     document.getElementsByTagName("aside")[0].style.display="none";
-                                 }
-                             }
-                             //window.setTimeout(function(){document.body.removeChild(document.body.children[document.body.children.length-1]);},1000);
-                         }
-                function footerScript() {
-                    var crtanje = document.getElementById("donjiLijevi");
-                    while (crtanje.childNodes.length)
-                        crtanje.removeChild(crtanje.childNodes[0]);
-                    var visina = crtanje.clientHeight;
-                    var sirina = crtanje.clientWidth;
-                    if (!visina || !sirina)
-                    {
-                        visina=crtanje.parentNode.clientHeight;
-                        sirina=crtanje.parentNode.clientWidth/4;
-                    }
-                    for (var i = 0; i < 30; i++)
-                    {
-                        var kut1 = (270 + i * 3) / 57.3;
-                        var kut2 = (274 + i * 3) / 57.3;
-                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
-                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
-                        var y1 = -Math.round(Math.sin(kut1) * visina);
-                        var y2 = -Math.round(Math.sin(kut2) * visina);
-                        var trokut = document.createElementNS(svgNS, "polygon");
-                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0");
-                        trokut.setAttribute("fill", "rgb(170," + Math.round(255 - i * 2.83) + "," + Math.min(Math.round(170 + i * 4), 255) + ")");
-                        crtanje.appendChild(trokut);
-                    }
-                }
-                footerScript();
-                window.addEventListener('resize', footerScript);
-            </script>
-        </footer>
-    </body>
+          };
+          //window.setTimeout(function(){document.body.removeChild(document.body.children[document.body.children.length-1]);},1000);
+        }
+        function footerScript() {
+          var crtanje = document.getElementById("donjiLijevi");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          var visina = crtanje.clientHeight;
+          var sirina = crtanje.clientWidth;
+          if (!visina || !sirina) {
+            visina = crtanje.parentNode.clientHeight;
+            sirina = crtanje.parentNode.clientWidth / 4;
+          }
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (270 + i * 3) / 57.3;
+            var kut2 = (274 + i * 3) / 57.3;
+            var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+            var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+            var y1 = -Math.round(Math.sin(kut1) * visina);
+            var y2 = -Math.round(Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0"
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(170," +
+                Math.round(255 - i * 2.83) +
+                "," +
+                Math.min(Math.round(170 + i * 4), 255) +
+                ")"
+            );
+            crtanje.appendChild(trokut);
+          }
+        }
+        footerScript();
+        window.addEventListener("resize", footerScript);
+      </script>
+    </footer>
+  </body>
 </html>
