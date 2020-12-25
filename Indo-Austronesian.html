@@ -1,516 +1,719 @@
-<html>
-    <head>
-        <title>Indo-Austronesian</title>
-        <style type="text/css">
-            header
-            {
-                height:200px;
-                line-height:200px;
-                text-align:center;
-                background:#FFAAAA;
-                color:darkblue;
-                font-weight:bold;
-                font-size:36px;
-                font-family:Lucida;
+<html lang="en">
+  <head>
+    <title>Indo-Austronesian</title>
+    <style type="text/css">
+      header {
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        background: #ffaaaa;
+        color: darkblue;
+        font-weight: bold;
+        font-size: 36px;
+        font-family: Lucida;
+      }
+      aside {
+        width: 25%;
+        background: #aaaaff;
+        height: 100%;
+        float: left;
+        color: #aa4400;
+        overflow: auto;
+      }
+      aside a {
+        text-decoration: none;
+      }
+      section {
+        width: 25%;
+        background: #ffffaa;
+        height: 100%;
+        float: right;
+        color: purple;
+        text-align: center;
+        overflow: auto;
+      }
+      .main1 {
+        background: black;
+        color: darkgray;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+        font-family: Verdana;
+      }
+      .main1 a {
+        color: lightgreen;
+      }
+      .main2 {
+        background: black;
+        color: lightgreen;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+      }
+      .main2 a {
+        color: #00ffff;
+      }
+      .main3 {
+        background: #eeeeee;
+        color: #333333;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+        font-family: Arial;
+      }
+      .main3 a {
+        color: #00aaaa;
+      }
+      .link1 {
+        text-decoration: none;
+        background: linear-gradient(to right, #111111, #333333);
+        height: 30px;
+        width: 100%;
+        color: #ff3300;
+        line-height: 30px;
+        text-indent: 10px;
+        font-family: Verdana;
+        text-indent: 5px;
+      }
+      .popup {
+        display: none;
+        background: black;
+        font-size: 14px;
+        line-height: 18px;
+        color: white;
+        opacity: 0.75;
+        position: absolute;
+        left: 25%;
+        border-width: 7px;
+        border-style: solid;
+        border-color: black;
+        max-width: 200px;
+        text-indent: 0px;
+      }
+      .popup::before {
+        content: " ";
+      }
+      .link1:hover {
+        background: darkGray;
+        color: black;
+      }
+      .link1:hover .popup {
+        display: block;
+      }
+      .link2 {
+        background: linear-gradient(to right, #333333, #111111);
+        color: #ff3300;
+      }
+      footer {
+        width: 100%;
+        height: 50px;
+        background: #aaffaa;
+        text-align: center;
+        color: #007777;
+        line-height: 50px;
+      }
+      pre {
+        color: lightGreen;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <img
+        src="gornjiLijevi.svg"
+        style="
+          position: absolute;
+          left: 8px;
+          width: 25%;
+          height: 200px;
+          top: 8px;
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+      />
+      <img
+        src="gornjiDesni.svg"
+        style="
+          position: absolute;
+          width: 25%;
+          height: 200px;
+          left: -webkit-calc(75% - 8px);
+          left: calc(75% - 8px);
+          top: 8px;
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+      />
+      <img
+        src="donjiLijevi.svg"
+        style="
+          position: absolute;
+          width: 25%;
+          height: 50px;
+          left: 8px;
+          top: calc(100% + 200px - 8px);
+          top: -webkit-calc(100% + 200px - 8px);
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+      />
+      <div
+        style="
+          position: absolute;
+          top: -webkit-calc(100% + 200px + 50px + 8px);
+          top: calc(100% + 200px + 50px + 8px);
+          width: 100%;
+          height: 50px;
+          font-size: 36px;
+          font-family: Arial;
+          text-align: center;
+          background: #333333;
+          color: #aaaaaa;
+          line-height: 50px;
+        "
+      >
+        Please enable JavaScript!
+      </div>
+    </noscript>
+    <header>
+      <svg
+        id="gornjiLijevi"
+        style="float: left; width: 25%; height: 200px; background: white"
+      ></svg>
+      Indo-Austronesian
+      <svg
+        id="gornjiDesni"
+        style="float: right; width: 25%; height: 200px; background: white"
+      ></svg>
+      <script type="text/javascript">
+        var svgNS = "http://www.w3.org/2000/svg";
+        function nacrtajRubove() {
+          var crtanje = document.getElementById("gornjiLijevi");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          var visina = crtanje.clientHeight;
+          var sirina = crtanje.clientWidth;
+          if (!visina || !sirina) {
+            visina = crtanje.parentNode.clientHeight;
+            sirina = crtanje.parentNode.clientWidth / 4;
+          }
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (270 + i * 3) / 57.3;
+            var kut2 = (274 + i * 3) / 57.3;
+            var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+            var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+            var y1 = Math.round(visina + Math.sin(kut1) * visina);
+            var y2 = Math.round(visina + Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(" +
+                Math.round(255 - i * 2.83) +
+                ",170," +
+                Math.round(170 + i * 2.83) +
+                ")"
+            );
+            crtanje.appendChild(trokut);
+          }
+          crtanje = document.getElementById("gornjiDesni");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (i * 3) / 57.3;
+            var kut2 = (4 + i * 3) / 57.3;
+            var x1 = Math.round(Math.cos(kut1) * sirina);
+            var x2 = Math.round(Math.cos(kut2) * sirina);
+            var y1 = Math.round(visina - Math.sin(kut1) * visina);
+            var y2 = Math.round(visina - Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(255," + Math.round(255 - i * 2.83) + ",170)"
+            );
+            crtanje.appendChild(trokut);
+          }
+        }
+        nacrtajRubove();
+        window.addEventListener("resize", nacrtajRubove);
+      </script>
+    </header>
+    <aside>
+      <br />
+      <center><b>Here are my online publications:</b></center>
+      <br />
+      <b style="margin-left: 5px">HTML5 stuff:</b>
+      <a href="sat.html"
+        ><div class="link1">
+          <div class="popup">
+            A simple "grandfather clock" animation made in Javascript.
+          </div>
+          Analog Clock
+        </div></a
+      >
+      <a href="calculator.html"
+        ><div class="link2 link1">
+          <div class="popup">
+            A simple HTML5 online calculator. Can solve parentheses!
+          </div>
+          Calculator
+        </div></a
+      >
+      <a href="fraktal.html"
+        ><div class="link1">
+          <div class="popup">
+            A spiral fractal I've made by modifying the "Dragon Curve".
+          </div>
+          The Dragon Curve
+        </div></a
+      >
+      <a href="pacman.html"
+        ><div class="link2 link1">
+          <div class="popup">
+            A Pacman game playable on touch screens. Made in Javascript using
+            the SVG graphics.
+          </div>
+          PacMan
+        </div></a
+      >
+      <a href="etymologist.html">
+        <div class="link1">
+          <div class="popup">
+            A flashcard game in which the goal is to guess the etymologies of
+            the words in simulated languages.
+          </div>
+          Etymology Game
+        </div></a
+      >
+      <br /><b style="margin-left: 5px">Webpages on this website:</b>
+      <a href="index.html"
+        ><div class="link1">
+          <div class="popup">A webpage with a bunch of links.</div>
+          Homepage
+        </div></a
+      >
+      <a href="libertarianism.html"
+        ><div class="link2 link1">
+          <div class="popup">What do I think about politics?</div>
+          Libertarianism
+        </div></a
+      >
+      <a href="vegetarianism.html"
+        ><div class="link1">
+          <div class="popup">Why I don't eat meat.</div>
+          Vegetarianism
+        </div></a
+      >
+      <a href="Simulation.html"
+        ><div class="link2 link1">
+          <div class="popup">Could the universe be a giant computer?</div>
+          Digital Physics
+        </div></a
+      >
+      <a href="linguistics.html"
+        ><div class="link1">
+          <div class="popup">Why I like languages.</div>
+          Linguistics
+        </div></a
+      >
+      <a href="informatics.html"
+        ><div class="link2 link1">
+          <div class="popup">Why I like computers.</div>
+          Informatics
+        </div></a
+      >
+      <a href="pseudosciences.html"
+        ><div class="link1">
+          <div class="popup">
+            My advice on how to recognize and deal with false sciences.
+          </div>
+          Pseudosciences
+        </div></a
+      >
+      <br /><b style="margin-left: 5px">On Internet forums and blogs:</b>
+      <a href="http://linguistforum.com/outside-of-the-box/croatian-toponyms/"
+        ><div class="link1">
+          <div class="popup">
+            The forum thread in which I explained my linguistic theories in
+            detail.
+          </div>
+          Croatian Toponyms
+        </div></a
+      >
+      <a href="https://atheistforums.org/thread-50241.html"
+        ><div class="link2 link1">
+          <div class="popup">My parody of the conspiracy theorists.</div>
+          Airplanes Don't Exist
+        </div></a
+      >
+    </aside>
+    <section>
+      <p style="margin-left: 5px; margin-right: 5px">
+        <br />The proposals that the Indo-European language family might share a
+        common ancestor with some other language family started to originate in
+        the late 19th century. The most popular one today is the Indo-Uralic
+        hypothesis. None of them are accepted by the mainstream linguistics.<br />
+      </p>
+      <br />
+      <a id="loptica" href="#vrh" style="position: absolute">
+        <svg width="100" height="100">
+          <defs>
+            <radialgradient id="modrozelen">
+              <stop offset="0%" stop-color="#00FFFF" />
+              <stop offset="100%" stop-color="#0000FF" />
+            </radialgradient>
+            <radialgradient id="ljubicastoplav">
+              <stop offset="0%" stop-color="#FF00FF" />
+              <stop offset="100%" stop-color="#0000FF" />
+            </radialgradient>
+          </defs>
+          <circle cx="50" cy="50" r="50" fill="url(#modrozelen)" />
+          <polygon
+            points="50,25 25,50 38,50 38,75 62,75 62,50 75,50"
+            fill="url(#ljubicastoplav)"
+          />
+        </svg>
+      </a>
+      <script type="text/javascript">
+        var udaraca = 0;
+        var loptica = document.getElementById("loptica");
+        var pocetna = loptica.parentNode.clientHeight + 200 - 100;
+        loptica.style.top = pocetna;
+        loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+        var h = 0;
+        var gk = 1;
+        var v = 15;
+        window.setInterval(pomakniLopticu, 80);
+        window.addEventListener("resize", promijeniPocetnu);
+        function promijeniPocetnu() {
+          pocetna = loptica.parentNode.clientHeight + 210 - 100;
+          loptica.style.top = pocetna;
+          loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+          h = 0;
+          gk = 1;
+          v = 15;
+        }
+        function pomakniLopticu() {
+          h += v;
+          v -= gk;
+          if (h < 0) {
+            v = -v * 0.75;
+            h = 0;
+            udaraca++;
+            if (udaraca > 20) {
+              udaraca = 0;
+              v = 15;
             }
-            aside
-            {
-                width:25%;
-                background:#AAAAFF;
-                height:100%;
-                float:left;
-                color:#AA4400;
-                overflow:auto;
-            }
-            aside a
-            {
-                text-decoration:none;
-            }
-            section
-            {
-                width:25%;
-                background:#FFFFAA;
-                height:100%;
-                float:right;
-                color:purple;
+          }
+          loptica.style.top = pocetna - h;
+        }
+      </script>
+    </section>
+    <main class="main1" id="glavni" style="display: block">
+      <a name="vrh"></a>
+      <h2 style="text-align: center">The Indo-Austronesian Hypothesis</h2>
+      <div
+        style="
+          margin-left: 10px;
+          margin-right: 10px;
+          margin-bottom: 100px;
+          text-align: justify;
+        "
+      >
+        I've decided to make a web-page in which I put the information about my
+        proposal that Indo-European and Austronesian language families share a
+        common ancestor. I realize my arguments are on borders with
+        pseudoscience, but, let's face it, all the great scientific ideas start
+        that way, especially in linguistics. Maybe some expert will read this
+        and pursue my ideas.
+        <p id="attention">
+          <font color="red">ATTENTION:</font> Some of the opinions stated in the
+          following text are contrary to the mainstream science. I will not
+          advise you to read it if you don't have a substantial background in
+          linguistics. I am not a conspiracy theorist who wants to bombard
+          people with controversial statements they don't know how to evaluate,
+          and I am not denying it is possible my work is to historical
+          linguistics what
+          <a href="https://en.wikipedia.org/wiki/New_chronology_(Fomenko)"
+            >Anatoly Fomenko</a
+          >'s work is to history. If you are ready to read it,
+          <a href="javascript::reading()" onclick="reading()">click here.</a>
+        </p>
+        <p
+          id="interpretation"
+          hidden="hidden"
+          style="margin-top: 0px; margin-bottom: 0px"
+        >
+          Here are the words from the Swadesh list which I consider to be
+          potential cognates between Proto-Indo-European and
+          Proto-Austronesian:<br />
+          *treys (three)-*telu (three)<br />
+          <span
+            onmouseenter="this.children[1].style.display='block';this.children[1].style.top=this.getBoundingClientRect().top-45;"
+            onmouseleave="this.children[1].style.display='none'"
+          >
+            <span>*ronk</span>
+            <span
+              style="
+                display: none;
+                position: fixed;
+                background: black;
+                color: #eeeeee;
+                width: 120px;
                 text-align: center;
-                overflow:auto;
-            }
-            .main1
-            {
-                background: black;
-                color:darkgray;
-                width:50%;
-                height:100%;
-                overflow: auto;
+                font-size: 12px;
                 font-family: Verdana;
-            }
-            .main1 a
-            {
-                color:lightgreen;
-            }
-            .main2
-            {
+                opacity: 0.9;
+              "
+              >Compare Lithuanian "ranka" (hand).</span
+            >
+          </span>
+          (hand)-*lima (hand/five)<br />
+          *ser (to flow)-*qalur (to flow)<br />
+          *skend (skin)-*qanic (skin)<br />
+          *stemb<sup>h</sup> (to walk)-*qaqay (foot)<br />
+          *smew (smoke)-*qabu (ash)<br />
+          <span
+            onmouseenter="this.children[1].style.display='block';this.children[1].style.top=this.getBoundingClientRect().top-45;"
+            onmouseleave="this.children[1].style.display='none'"
+          >
+            <span>*serw</span>
+            <span
+              style="
+                display: none;
+                position: fixed;
                 background: black;
-                color:lightgreen;
-                width:50%;
-                height:100%;
-                overflow: auto;
+                color: #eeeeee;
+                width: 120px;
+                text-align: center;
+                font-size: 12px;
+                font-family: Verdana;
+                opacity: 0.9;
+              "
+              >Compare Latin "servus" (watchman).</span
+            >
+          </span>
+          (to watch)-*qalayaw (day)<br />
+          *sal (salt)-*qasira (salt) <br />
+          *b<sup>h</sup>as (to talk)-*baqbaq (mouth)<br />
+          *b<sup>h</sup>ewg<sup>h</sup> (bow)-*busur (bow)<br />
+          <span
+            onmouseenter="this.children[1].style.display='block';this.children[1].style.top=this.getBoundingClientRect().top-60;"
+            onmouseleave="this.children[1].style.display='none'"
+          >
+            <span>*b<sup>h</sup>er</span>
+            <span
+              style="
+                display: none;
+                position: fixed;
+                background: black;
+                color: #eeeeee;
+                width: 120px;
+                text-align: center;
+                font-size: 12px;
+                font-family: Verdana;
+                opacity: 0.9;
+              "
+              >Compare also Albanian "bije" and Latin "filia" (daughter).</span
+            >
+          </span>
+          (to give birth)-*bay (woman)<br />
+          *dwoh<sub>1</sub> (two)-*dusa (two)<br />
+          *dyews (sky)-*daya (upwards/height/sky)<br />
+          *danu (river)-*danaw (lake)<br />
+          *dng<sup>jh</sup>uh<sub>2</sub> (tongue)-*dilaq (tongue)<br />
+          *delh<sub>1</sub> (wide)-*dempad (wide)<br />
+          *eg<sup>j</sup>oh<sub>2</sub> (I)-*aku (I)<br />
+          *men (to think)-*nemnen (to think)<br />
+          *h<sub>1</sub>nomn (name) could perhaps be a cognate to
+          Proto-Polynesian *hingoa (also meaning "name", but that root isn't
+          attested outside of Polynesian) <br />
+          The regular sound correspondences are somewhat hard to establish. Ones
+          that appear obvious are s:q, r:l, b<sup>h</sup>:b and d:d.<br />
+          People might think that there are not any actual correspondences and
+          that what I find are just coincidences. But think of it this way: I
+          have found a simple sound law (that PIE *s corresponds to PAN *q), and
+          there are seven examples of that on the Swadesh list. What’s the
+          probability of that if those languages are not actually related? We
+          are mostly dealing with 2-consonantal roots here. Let's be generous
+          and say I allowed myself the semantic drift of 3 words. Both
+          proto-languages have about 20 consonants. So, if the word in PIE has
+          an *s, the probability that I find a word in PAN in which PIE *s
+          corresponds to PAN *q is 1-(1-(1-(1/20))^3)^2=26%. Swadesh list has
+          100 words, so we can expect that 100/20=5 words where the first
+          consonant in PAN is *q, and 5 words where the second consonant is *q,
+          so that there are 10 words where PIE *s can potentially correspond to
+          PAN *q. The probability that the rule coincidentally works in 7/10
+          words is 1-((1-0.26^(7-1))^10)=0.31%. The probability of finding such
+          a pattern in two truly unrelated languages is 1-(1-0.0031)^20=6%.
+          That's pretty low.
+        </p>
+        <script type="text/javascript">
+          function reading() {
+            document
+              .getElementById("attention")
+              .setAttribute("hidden", "hidden");
+            document.getElementById("interpretation").removeAttribute("hidden");
+          }
+        </script>
+        That would be it! If you want to discuss my theory, go to the "Croatian
+        Toponyms" forum thread I've linked to on the left. I'd like to have some
+        educated supporters (though I realize that's unlikely). Remember, it's
+        easy to criticize science, most scientific theories are wrong. What's
+        hard is to contribute to some scientific theory so that it bears more
+        explanatory power or to make a new one with more explanatory power than
+        the existing ones.
+      </div>
+    </main>
+    <footer>
+      <div style="width: 25%; float: right; text-align: left; bottom: 30px">
+        Choose the style:
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main1')"
+          >[1]</a
+        >
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main2')"
+          >[2]</a
+        >
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main3')"
+          >[3]</a
+        >
+      </div>
+      Uploaded by Teo Samarzija on 06/11/2017
+      <svg
+        id="donjiLijevi"
+        style="float: left; width: 25%; height: 100%; background: white"
+      ></svg>
+      <script type="text/javascript">
+        if (navigator.appName == "Microsoft Internet Explorer") {
+          var niz = document.getElementsByTagName("div");
+          for (var i = 0; i < niz.length; i++) {
+            if (niz[i].className.indexOf("link1") == -1) continue;
+            niz[i].onmouseenter = function () {
+              this.children[0].style.display = "inline";
+            };
+            niz[i].onmouseleave = function () {
+              this.children[0].style.display = "none";
+            };
+          }
+          document.getElementById("glavni").removeAttribute("style");
+        } else if (navigator.appName == "Opera") {
+          document.getElementById("glavni").style.color = "black";
+          document.getElementById("glavni").style.backgroundColor = "white";
+          var gornjiDesni = document.getElementById("gornjiDesni");
+          gornjiDesni.parentNode.removeChild(gornjiDesni);
+        } else if (
+          (((navigator.userAgent.indexOf("Safari") + 1 ||
+            navigator.userAgent.indexOf("WebKit") + 1) &&
+            navigator.userAgent.indexOf("Mobile") + 1 &&
+            (!(navigator.userAgent.indexOf("Chrome") + 1) ||
+              (navigator.userAgent.indexOf("Version") + 1 &&
+                navigator.userAgent.indexOf("Chrome") + 1))) ||
+            (navigator.userAgent.indexOf("Mobile") + 1 &&
+              navigator.userAgent.indexOf("Gecko") + 1 &&
+              !(navigator.userAgent.indexOf("like Gecko") + 1) &&
+              !(navigator.userAgent.indexOf("Dolfin") + 1))) &&
+          !(navigator.userAgent.indexOf("iPad") + 1) &&
+          !(navigator.userAgent.indexOf("iPhone") + 1)
+        )
+          document.getElementById("glavni").style.fontSize = "36px";
+        else if (navigator.userAgent.indexOf("Mobi") + 1) {
+          document.head.innerHTML +=
+            '<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">';
+          var niz = document.getElementsByTagName("svg");
+          for (var i = 0; i < niz.length; i++) niz[i].style.display = "none";
+          document.getElementsByTagName("aside")[0].style.display = "none";
+          document.getElementsByTagName("aside")[0].style.float = "none";
+          document.getElementsByTagName("aside")[0].style.width = "100%";
+          document.getElementsByTagName("aside")[0].style.height = "auto";
+          niz = document.getElementsByClassName("popup");
+          for (var i = 0; i < niz.length; i++) {
+            niz[i].style.width = "50%";
+            niz[i].style.left = "45%";
+            niz[i].style.maxWidth = "none";
+          }
+          document.getElementsByTagName("section")[0].style.height = "auto";
+          document.getElementsByTagName("section")[0].style.float = "none";
+          document.getElementsByTagName("section")[0].style.width = "100%";
+          document.getElementsByTagName("header")[0].style.height = "auto";
+          document.getElementsByTagName("header")[0].style.lineHeight =
+            "normal";
+          document.getElementsByTagName("main")[0].style.width = "100%";
+          document.getElementsByTagName("footer")[0].children[0].style.display =
+            "inline";
+          document.getElementsByTagName("footer")[0].children[0].style.float =
+            "none";
+          document.getElementsByTagName("footer")[0].children[0].innerHTML +=
+            "<br/><br/>";
+          document.getElementsByTagName("footer")[0].style.height = "auto";
+          document.getElementsByTagName("footer")[0].style.lineHeight =
+            "normal";
+          document.getElementsByTagName("header")[0].outerHTML +=
+            '<button id="showNavigation" style="width:100%;line-height:36px;height:41px;">Show navigation<\/button>';
+          document.getElementById("showNavigation").onclick = function () {
+            if (
+              document.getElementsByTagName("aside")[0].style.display == "none"
+            ) {
+              this.innerHTML = "Hide navigation";
+              document.getElementsByTagName("aside")[0].style.display = "block";
+            } else {
+              this.innerHTML = "Show navigation";
+              document.getElementsByTagName("aside")[0].style.display = "none";
             }
-            .main2 a
-            {
-                color:#00FFFF;
-            }
-            .main3
-            {
-                background: #EEEEEE;
-                color:#333333;
-                width:50%;
-                height:100%;
-                overflow: auto;
-                font-family: Arial;
-            }
-            .main3 a
-            {
-                color:#00AAAA;
-            }
-        .link1
-        {
-            text-decoration:none;
-            background: linear-gradient(to right,#111111,#333333);
-            height:30px;
-            width:100%;
-            color:#FF3300;
-            line-height:30px;
-            text-indent:10px;
-            font-family:Verdana;
-            text-indent:5px;
+          };
+          //window.setTimeout(function(){document.body.removeChild(document.body.children[document.body.children.length-1]);},1000);
         }
-        .popup
-        {
-            display:none;
-            background:black;
-            font-size:14px;
-            line-height: 18px;
-            color:white;
-            opacity:0.75;
-            position:absolute;
-            left:25%;
-            border-width: 7px;
-            border-style: solid;
-            border-color: black;
-            max-width: 200px;
-            text-indent: 0px;
+        function footerScript() {
+          var crtanje = document.getElementById("donjiLijevi");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          var visina = crtanje.clientHeight;
+          var sirina = crtanje.clientWidth;
+          if (!visina || !sirina) {
+            visina = crtanje.parentNode.clientHeight;
+            sirina = crtanje.parentNode.clientWidth / 4;
+          }
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (270 + i * 3) / 57.3;
+            var kut2 = (274 + i * 3) / 57.3;
+            var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+            var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+            var y1 = -Math.round(Math.sin(kut1) * visina);
+            var y2 = -Math.round(Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0"
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(170," +
+                Math.round(255 - i * 2.83) +
+                "," +
+                Math.min(Math.round(170 + i * 4), 255) +
+                ")"
+            );
+            crtanje.appendChild(trokut);
+          }
         }
-        .popup::before
-        {
-            content:" ";
-        }
-        .link1:hover
-        {
-            background:darkGray;
-            color:black;
-        }
-        .link1:hover .popup
-        {
-            display:block;
-        }
-        .link2
-        {
-            background:linear-gradient(to right,#333333,#111111);
-            color:#FF3300;
-        }
-            footer
-            {
-                width:100%;
-                height:50px;
-                background: #AAFFAA;
-                text-align:center;
-                color:#007777;
-                line-height: 50px;
-            }
-            pre
-            {
-                color:lightGreen;
-            }
-        </style>
-    </head>
-    <body>
-        <noscript>
-            <img src="gornjiLijevi.svg" style="position:absolute; left:8px; width:25%; height:200px; top:8px; -webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
-            <img src="gornjiDesni.svg" style="position:absolute; width:25%; height:200px; left:-webkit-calc(75% - 8px); left:calc(75% - 8px); top:8px;-webkit-animation-name: animacija; -webkit-animation-duration: 2s;"/>
-            <img src="donjiLijevi.svg" style="position:absolute; width:25%; height:50px; left:8px; top:calc(100% + 200px - 8px); top:-webkit-calc(100% + 200px - 8px); -webkit-animation-name: animacija;-webkit-animation-duration: 2s;"/>
-            <div style="position:absolute; top:-webkit-calc(100% + 200px + 50px + 8px); top:calc(100% + 200px + 50px + 8px); width:100%; height:50px; font-size:36px; font-family:Arial; text-align:center; background:#333333; color:#AAAAAA; line-height:50px;">Please enable JavaScript!</div>
-        </noscript>
-        <header>
-            <svg id="gornjiLijevi" style="float:left; width:25%; height:200px; background:white;"></svg>
-            Indo-Austronesian
-            <svg id="gornjiDesni" style="float:right; width:25%; height:200px; background:white;"></svg>
-            <script type="text/javascript">
-                var svgNS = "http://www.w3.org/2000/svg";
-                function nacrtajRubove() {
-                    var crtanje = document.getElementById("gornjiLijevi");
-                    while (crtanje.childNodes.length)
-                        crtanje.removeChild(crtanje.childNodes[0]);
-                    var visina = crtanje.clientHeight;
-                    var sirina = crtanje.clientWidth;
-                    if (!visina || !sirina)
-                    {
-                        visina=crtanje.parentNode.clientHeight;
-                        sirina=crtanje.parentNode.clientWidth/4;
-                    }
-                    for (var i = 0; i < 30; i++)
-                    {
-                        var kut1 = (270 + i * 3) / 57.3;
-                        var kut2 = (274 + i * 3) / 57.3;
-                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
-                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
-                        var y1 = Math.round(visina + Math.sin(kut1) * visina);
-                        var y2 = Math.round(visina + Math.sin(kut2) * visina);
-                        var trokut = document.createElementNS(svgNS, "polygon");
-                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina);
-                        trokut.setAttribute("fill", "rgb(" + Math.round(255 - i * 2.83) + ",170," + Math.round(170 + i * 2.83) + ")");
-                        crtanje.appendChild(trokut);
-                    }
-                    crtanje = document.getElementById("gornjiDesni");
-                    while (crtanje.childNodes.length)
-                        crtanje.removeChild(crtanje.childNodes[0]);
-                    for (var i = 0; i < 30; i++)
-                    {
-                        var kut1 = i * 3 / 57.3;
-                        var kut2 = (4 + i * 3) / 57.3;
-                        var x1 = Math.round(Math.cos(kut1) * sirina);
-                        var x2 = Math.round(Math.cos(kut2) * sirina);
-                        var y1 = Math.round(visina - Math.sin(kut1) * visina);
-                        var y2 = Math.round(visina - Math.sin(kut2) * visina);
-                        var trokut = document.createElementNS(svgNS, "polygon");
-                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina);
-                        trokut.setAttribute("fill", "rgb(255," + Math.round(255 - i * 2.83) + ",170)");
-                        crtanje.appendChild(trokut);
-                    }
-                }
-                nacrtajRubove();
-                window.addEventListener('resize', nacrtajRubove);
-            </script>
-        </header>
-        <aside>
-            <br/>
-            <center><b>Here are my online publications:</b></center>
-            <br/>
-            <b style="margin-left:5px">HTML5 stuff:</b>
-            <a href="sat.html"><div class="link1">
-                <div class="popup">A simple "grandfather clock" animation made in Javascript.</div>
-                Analog Clock
-            </div></a>
-            <a href="calculator.html"><div class="link2 link1">
-                <div class="popup">A simple HTML5 online calculator. Can solve parentheses!</div>
-                Calculator
-            </div></a>
-            <a href="fraktal.html"><div class="link1">
-                <div class="popup">A spiral fractal I've made by modifying the "Dragon Curve".</div>
-                The Dragon Curve
-            </div></a>
-            <a href="pacman.html"><div class="link2 link1">
-                <div class="popup">A Pacman game playable on touch screens. Made in Javascript using the SVG graphics.</div>
-                PacMan
-            </div></a>
-            <a href="etymologist.html">
-<div class="link1">
-<div class="popup">A flashcard game in which the goal is to guess the etymologies of the words in simulated languages.</div>
-Etymology Game
-</div></a>
-            <br><b style="margin-left:5px">Webpages on this website:</b>
-            <a href="index.html"><div class="link1">
-                <div class="popup">A webpage with a bunch of links.</div>
-                Homepage
-            </div></a>
-            <a href="libertarianism.html"><div class="link2 link1">
-                <div class="popup">What do I think about politics?</div>
-                Libertarianism
-            </div></a>
-            <a href="vegetarianism.html"><div class="link1">
-                <div class="popup">Why I don't eat meat.</div>
-                Vegetarianism
-            </div></a>
-            <a href="Simulation.html"><div class="link2 link1">
-                <div class="popup">Could the universe be a giant computer?</div>
-                Digital Physics
-            </div></a>
-            <a href="linguistics.html"><div class="link1">
-                <div class="popup">Why I like languages.</div>
-                Linguistics
-            </div></a>
-            <a href="informatics.html"><div class="link2 link1">
-                <div class="popup">Why I like computers.</div>
-                Informatics
-            </div></a>
-            <a href="pseudosciences.html"><div class="link1">
-                <div class="popup">My advice on how to recognize and deal with false sciences.</div>
-                Pseudosciences
-            </div></a>
-            <br><b style="margin-left:5px">On Internet forums and blogs:</b>
-            <a href="http://linguistforum.com/outside-of-the-box/croatian-toponyms/"><div class="link1">
-                <div class="popup">The forum thread in which I explained my linguistic theories in detail.</div>
-                Croatian Toponyms
-            </div></a>
-            <a href="https://atheistforums.org/thread-50241.html"><div class="link2 link1">
-                <div class="popup">My parody of the conspiracy theorists.</div>
-                Airplanes Don't Exist
-            </div></a>
-        </aside>
-        <section>
-            <p style="margin-left:5px; margin-right:5px;">
-            <br/>The proposals that the Indo-European language family might share a common ancestor with some other language family started to originate in the late 19th century. The most popular one today is the Indo-Uralic hypothesis. None of them are accepted by the mainstream linguistics.<br>
-            </p><br>
-            <a id="loptica" href="#vrh" style="position: absolute;">
-                <svg width="100" height="100">
-                <defs>
-                <radialgradient id="modrozelen">
-                <stop offset="0%" stop-color="#00FFFF"/>
-                <stop offset="100%" stop-color="#0000FF"/>
-                </radialgradient>
-                <radialgradient id="ljubicastoplav">
-                <stop offset="0%" stop-color="#FF00FF"/>
-                <stop offset="100%" stop-color="#0000FF"/>
-                </radialgradient>
-                </defs>
-                <circle cx="50" cy="50" r="50" fill="url(#modrozelen)"/>
-                <polygon points="50,25 25,50 38,50 38,75 62,75 62,50 75,50" fill="url(#ljubicastoplav)"/>
-                </svg>
-            </a>
-            <script type="text/javascript">
-                var udaraca = 0;
-                var loptica = document.getElementById("loptica");
-                var pocetna = loptica.parentNode.clientHeight + 200 - 100;
-                loptica.style.top = pocetna;
-                loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
-                var h = 0;
-                var gk = 1;
-                var v = 15;
-                window.setInterval(pomakniLopticu, 80);
-                window.addEventListener("resize", promijeniPocetnu);
-                function promijeniPocetnu()
-                {
-                    pocetna = loptica.parentNode.clientHeight + 210 - 100;
-                    loptica.style.top = pocetna;
-                    loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
-                    h = 0;
-                    gk = 1;
-                    v = 15;
-                }
-                function pomakniLopticu()
-                {
-                    h += v;
-                    v -= gk;
-                    if (h < 0)
-                    {
-                        v = -v * 0.75;
-                        h = 0;
-                        udaraca++;
-                        if (udaraca > 20)
-                        {
-                            udaraca = 0;
-                            v = 15;
-                        }
-                    }
-                    loptica.style.top = pocetna - h;
-                }
-            </script>
-        </section>
-        <main class="main1" id="glavni" style="display:block;">
-            <a name="vrh"></a>
-            <h2 style="text-align: center">The Indo-Austronesian Hypothesis</h2>
-            <div style="margin-left:10px; margin-right:10px; margin-bottom:100px; text-align:justify;">I've decided to make a web-page in which I put the information about my proposal that Indo-European and Austronesian language families share a common ancestor. I realize my arguments are on borders with pseudoscience, but, let's face it, all the great scientific ideas start that way, especially in linguistics. Maybe some expert will read this and pursue my ideas.
-                <p id="attention"><font color="red">ATTENTION:</font> Some of the opinions stated in the following text are contrary to the mainstream science. I will not advise you to read it if you don't have a substantial background in linguistics. I am not a conspiracy theorist who wants to bombard people with controversial statements they don't know how to evaluate. If you are ready to read it, <a href="javascript::reading()" onclick="reading()">click here.</a></p>
-                <p id="interpretation" hidden="hidden" style="margin-top:0px; margin-bottom:0px">
-                Here are the words from the Swadesh
-                list which I consider to be potential cognates between Proto-Indo-European and
-                Proto-Austronesian:<br/>
-                *treys (three)-*telu (three)<br/>
-                <span onmouseenter="this.children[1].style.display='block';this.children[1].style.top=this.getBoundingClientRect().top-45;" onmouseleave="this.children[1].style.display='none'">
-                    <span>*ronk</span>
-                    <span style="display:none;position:fixed;background:black;color:#EEEEEE;width:120px;text-align:center;font-size:12px;font-family:Verdana;opacity:0.9;">Compare Lithuanian "ranka" (hand).</span>
-                </span>
-                (hand)-*lima (hand/five)<br/>
-                *ser (to flow)-*qalur (to flow)<br/>
-                *skend
-                (skin)-*qanic (skin)<br/>
-                *stemb<sup>h</sup> (to walk)-*qaqay
-                (foot)<br/>
-                *smew (smoke)-*qabu (ash)<br/>
-                <span onmouseenter="this.children[1].style.display='block';this.children[1].style.top=this.getBoundingClientRect().top-45;"
-                    onmouseleave="this.children[1].style.display='none'">
-                    <span>*serw</span>
-                    <span style="display:none;position:fixed;background:black;color:#EEEEEE;width:120px;text-align:center;font-size:12px;font-family:Verdana;opacity:0.9;">Compare Latin "servus" (watchman).</span>
-                </span>
-                (to watch)-*qalayaw
-                (day)<br/>
-                *sal (salt)-*qasira (salt) <br/>
-                *b<sup>h</sup>as (to talk)-*baqbaq (mouth)<br/>
-                *b<sup>h</sup>ewg<sup>h</sup>
-                (bow)-*busur (bow)<br/>
-                <span onmouseenter="this.children[1].style.display='block';this.children[1].style.top=this.getBoundingClientRect().top-60;"
-                    onmouseleave="this.children[1].style.display='none'">
-                    <span>*b<sup>h</sup>er</span>
-                    <span style="display:none;position:fixed;background:black;color:#EEEEEE;width:120px;text-align:center;font-size:12px;font-family:Verdana;opacity:0.9;">Compare also Albanian "bije" and Latin "filia" (daughter).</span>
-                </span>
-                (to give birth)-*bay
-                (woman)<br/>
-                *dwoh<sub>1</sub> (two)-*dusa (two)<br/>
-                *dyews
-                (sky)-*daya (upwards/height/sky)<br/>
-                *danu (river)-*danaw
-                (lake)<br/>
-                *dng<sup>jh</sup>uh<sub>2</sub> (tongue)-*dilaq (tongue)<br/>
-                *delh<sub>1</sub> (wide)-*dempad (wide)<br/>
-                *eg<sup>j</sup>oh<sub>2</sub> (I)-*aku (I)<br/>
-                *men (to
-                think)-*nemnen (to think)<br/>
-                *h<sub>1</sub>nomn (name) could perhaps be a cognate to Proto-Polynesian *hingoa (also meaning "name", but that root isn't attested outside of Polynesian) <br/>
-                The regular sound correspondences are
-                somewhat hard to establish. Ones that appear obvious are s:q, r:l,
-                b<sup>h</sup>:b and d:d.<br/>
-                People might think that there are not
-                any actual correspondences and that what I find are just
-                coincidences. But think of it this way: I have found a simple sound
-                law (that PIE *s corresponds to PAN *q), and there are seven examples
-                of that on the Swadesh list. What’s the probability of that if
-                those languages are not actually related? We are mostly dealing with
-                2-consonantal roots here. Let's be generous and say I allowed myself
-                the semantic drift of 3 words. Both proto-languages have about 20
-                consonants. So, if the word in PIE has an *s, the probability that I
-                find a word in PAN in which PIE *s corresponds to PAN *q is
-                1-(1-(1-(1/20))^3)^2=26%. Swadesh list has 100 words, so we can
-                expect that 100/20=5 words where the first consonant in PAN is *q,
-                and 5 words where the second consonant is *q, so that there are 10
-                words where PIE *s can potentially correspond to PAN *q. The
-                probability that the rule coincidentally works in 7/10 words is
-                1-((1-0.26^(7-1))^10)=0.31%. The probability of finding such a pattern in
-                two truly unrelated languages is 1-(1-0.0031)^20=6%. That's pretty
-                low.
-                </p>
-                <script type="text/javascript">
-                    function reading()
-                    {
-                        document.getElementById("attention").setAttribute("hidden","hidden");
-                        document.getElementById("interpretation").removeAttribute("hidden");
-                    }
-                </script>
-                That would be it! If you want to discuss my theory, go to the "Croatian Toponyms" forum thread I've linked to on the left. I'd like to have some educated supporters (though I realize that's unlikely). Remember, it's easy to criticize science, most scientific theories are wrong. What's hard is to contribute to some scientific theory so that it bears more explanatory power or to make a new one with more explanatory power than the existing ones.</div>
-                
-        </main>
-        <footer>
-            <div style="width: 25%; float: right; text-align:left; bottom:30px;">
-                Choose the style: 
-                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main1')">[1]</a>
-                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main2')">[2]</a>
-                <a href="#" style="color:red;" onclick="document.getElementById('glavni').setAttribute('class', 'main3')">[3]</a>
-            </div>
-            Uploaded by Teo Samarzija on 06/11/2017
-            <svg id="donjiLijevi" style="float:left; width:25%; height:100%; background: white;"></svg>
-            <script type="text/javascript">
-            if (navigator.appName=="Microsoft Internet Explorer")
-            {
-            	var niz=document.getElementsByTagName("div");
-            	for (var i=0; i<niz.length; i++)
-            	{
-            		if (niz[i].className.indexOf("link1")==-1)
-            			continue;
-            		niz[i].onmouseenter=
-            			function()
-            				{this.children[0].style.display="inline";};
-            		niz[i].onmouseleave=
-            			function()
-            				{this.children[0].style.display="none";};
-        	    }
-        	    document.getElementById("glavni").removeAttribute("style");
-            }
-            else if (navigator.appName=="Opera") {
-            	document.getElementById("glavni").style.color="black";
-            	document.getElementById("glavni").style.backgroundColor="white";
-            	var gornjiDesni=document.getElementById("gornjiDesni");
-            	gornjiDesni.parentNode.removeChild(gornjiDesni);
-            }
-            else if (((navigator.userAgent.indexOf("Safari")+1 || navigator.userAgent.indexOf("WebKit")+1)
-                      && navigator.userAgent.indexOf("Mobile")+1
-                      && (!(navigator.userAgent.indexOf("Chrome")+1) ||
-                          (navigator.userAgent.indexOf("Version")+1 && navigator.userAgent.indexOf("Chrome")+1))
-                      || (navigator.userAgent.indexOf("Mobile")+1 && navigator.userAgent.indexOf("Gecko")+1
-                          && !(navigator.userAgent.indexOf("like Gecko")+1))
-                      && !(navigator.userAgent.indexOf("Dolfin")+1)) && !(navigator.userAgent.indexOf("iPad")+1) && !(navigator.userAgent.indexOf("iPhone")+1))
-                         document.getElementById("glavni").style.fontSize="36px";
-                         else if (navigator.userAgent.indexOf("Mobi")+1)
-                         {
-                             document.head.innerHTML+="<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=0\">";
-                             var niz=document.getElementsByTagName("svg");
-                             for (var i=0; i<niz.length; i++)
-                             niz[i].style.display="none";
-                             document.getElementsByTagName("aside")[0].style.display="none";
-                             document.getElementsByTagName("aside")[0].style.float="none";
-                             document.getElementsByTagName("aside")[0].style.width="100%";
-                             document.getElementsByTagName("aside")[0].style.height="auto";
-                             niz=document.getElementsByClassName("popup");
-                             for (var i=0; i<niz.length; i++) {
-                                 niz[i].style.width="50%"
-                                 niz[i].style.left="45%";
-                                 niz[i].style.maxWidth="none";
-                             }
-                             document.getElementsByTagName("section")[0].style.height="auto";
-                             document.getElementsByTagName("section")[0].style.float="none";
-                             document.getElementsByTagName("section")[0].style.width="100%";
-                             document.getElementsByTagName("header")[0].style.height="auto";
-                             document.getElementsByTagName("header")[0].style.lineHeight="normal";
-                             document.getElementsByTagName("main")[0].style.width="100%";
-                             document.getElementsByTagName("footer")[0].children[0].style.display="inline";
-                             document.getElementsByTagName("footer")[0].children[0].style.float="none";
-                             document.getElementsByTagName("footer")[0].children[0].innerHTML+="<br/><br/>";
-                             document.getElementsByTagName("footer")[0].style.height="auto";
-                             document.getElementsByTagName("footer")[0].style.lineHeight="normal";
-                             document.getElementsByTagName("header")[0].outerHTML+="<button id=\"showNavigation\" style=\"width:100%;line-height:36px;height:41px;\">Show navigation<\/button>";
-                             document.getElementById("showNavigation").onclick=
-                             function()
-                             {
-                                 if (document.getElementsByTagName("aside")[0].style.display=="none")
-                                 {
-                                     this.innerHTML="Hide navigation";
-                                     document.getElementsByTagName("aside")[0].style.display="block";
-                                 }
-                                 else
-                                 {
-                                     this.innerHTML="Show navigation";
-                                     document.getElementsByTagName("aside")[0].style.display="none";
-                                 }
-                             }
-                             //window.setTimeout(function(){document.body.removeChild(document.body.children[document.body.children.length-1]);},1000);
-                         }
-            function footerScript() {
-                    var crtanje = document.getElementById("donjiLijevi");
-                    while (crtanje.childNodes.length)
-                        crtanje.removeChild(crtanje.childNodes[0]);
-                    var visina = crtanje.clientHeight;
-                    var sirina = crtanje.clientWidth;
-                    if (!visina || !sirina)
-                    {
-                        visina=crtanje.parentNode.clientHeight;
-                        sirina=crtanje.parentNode.clientWidth/4;
-                    }
-                    for (var i = 0; i < 30; i++)
-                    {
-                        var kut1 = (270 + i * 3) / 57.3;
-                        var kut2 = (274 + i * 3) / 57.3;
-                        var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
-                        var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
-                        var y1 = -Math.round(Math.sin(kut1) * visina);
-                        var y2 = -Math.round(Math.sin(kut2) * visina);
-                        var trokut = document.createElementNS(svgNS, "polygon");
-                        trokut.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0");
-                        trokut.setAttribute("fill", "rgb(170," + Math.round(255 - i * 2.83) + "," + Math.min(Math.round(170 + i * 4), 255) + ")");
-                        crtanje.appendChild(trokut);
-                    }
-                }
-                footerScript();
-                window.addEventListener('resize', footerScript);
-            </script>
-        </footer>
-    </body>
+        footerScript();
+        window.addEventListener("resize", footerScript);
+      </script>
+    </footer>
+  </body>
 </html>
