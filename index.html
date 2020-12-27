@@ -227,11 +227,12 @@
         style="float: right; width: 25%; height: 200px; /*background:white;*/"
       ></svg>
       <div
-        style="background: #ffaaaa; float: right; width: 50%; height: 200px"
+        style="background: #ffaaaa; float: right; width: 50%; height: 100%"
         id="naslov"
       >
         <div
           style="position: relative; top: 50%; transform: translate(0, -50%)"
+          id="titleContainer"
         >
           FlatAssembler's Homepage
         </div>
@@ -702,6 +703,8 @@
             };
           }
           document.getElementById("glavni").removeAttribute("style");
+          document.getElementById("glavni").style.backgroundColor = "white";
+          document.getElementById("glavni").style.color = "black";
         } else if (navigator.appName == "Opera") {
           document.body.setAttribute("style", "");
           document.getElementById("glavni").style.backgroundColor = "white";
@@ -742,6 +745,8 @@
           document.getElementsByTagName("section")[0].style.float = "none";
           document.getElementsByTagName("section")[0].style.width = "100%";
           document.getElementsByTagName("header")[0].style.height = "auto";
+          document.getElementById("naslov").style.height = "auto";
+          document.getElementById("titleContainer").style.transform = "";
           document.getElementsByTagName("header")[0].style.lineHeight =
             "normal";
           document.getElementsByTagName("main")[0].style.width = "100%";
