@@ -765,11 +765,11 @@ suglasnici += suglasnici.toUpperCase();
   <span class="Identifier">}</span>
 <span class="Identifier">}</span>
 console.log(<span class="Constant">&quot;Apsolutne frekvencije pojedinih parova:&quot;</span>);
-<span class="Statement">for</span> (<span class="Statement">const</span> parSuglasnika of mapa.keys()) <span class="Identifier">{</span>
+<span class="Statement">for</span> (<span class="Statement">const</span> parSuglasnika <span class="Identifier">of</span> mapa.keys()) <span class="Identifier">{</span>
   console.log(parSuglasnika + <span class="Constant">&quot; &quot;</span> + mapa.get(parSuglasnika));
 <span class="Identifier">}</span>
 <span class="Statement">let</span> entropija = 0;
-<span class="Statement">for</span> (<span class="Statement">const</span> apsolutnaFrekvencija of mapa.values())
+<span class="Statement">for</span> (<span class="Statement">const</span> apsolutnaFrekvencija <span class="Identifier">of</span> mapa.values())
   <span class="Statement">if</span> (apsolutnaFrekvencija)
     entropija -= apsolutnaFrekvencija / brojac *
                  Math.log2(apsolutnaFrekvencija / brojac);
