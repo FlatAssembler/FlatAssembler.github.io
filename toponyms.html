@@ -147,6 +147,7 @@
                 margin-left: 0em;
                 color:lightGreen;
 		background-color:#222222;
+        overflow: scroll;
             }
             .quotation
             {
@@ -170,6 +171,10 @@
             #CProgram{color: #ffffff;}
             #huffman_code{color: #ffffff;}
             .Comment { color: #87ceeb; }
+            #markov .Statement { color: #f0e68c; font-weight: bold; }
+            #markov .Comment { color: #87ceeb; }
+            #markov .Constant { color: #ffa0a0; }
+            #markov .Identifier { color: #98fb98; }
         </style>
     </head>
     <body>
@@ -569,7 +574,7 @@ Etymology Game
                 <a href="https://commons.wikimedia.org/wiki/File:Pannonia_SPQR.png" target="_blank">Pannonia</a> &lt; *pen
                 (marshland)<br/>
                 <a class="map">Papuk</a> (originally a hydronym spelled &quot;Papugh&quot;)
-                &lt; *b<sup>h</sup>og<sup>j</sup> (to flow), the Illyrian name might have been *Pippuhos (that which flows and flows), borrowed into Old Croatian directly from Illyrian, compare the Proto-Indo-European *k<sup>w</sup>el (to turn)>*k<sup>w</sup>ek<sup>w</sup>los (wheel) for morphology.<br/>
+                &lt; *b<sup>h</sup>og<sup>j</sup> (to flow), the Illyrian name might have been *Pi&beta;&beta;uhos (that which flows and flows), borrowed into Old Croatian directly from Illyrian, compare the Proto-Indo-European *k<sup>w</sup>el (to turn)&gt;*k<sup>w</sup>ek<sup>w</sup>los (wheel) for morphology.<br/>
                 Parentium (<a class="map">Poreč</a>) &lt;
                 *por-h<sub>1</sub>ey-nt-y-om ("around that which flows", river bank)<br/>
                 Permodios (<a class="map">Premuda</a>) &lt; The supperlative form of Proto-Indo-European preposition *per (in front of), so that it means "the first island in the archipelago".<br/>
@@ -730,7 +735,50 @@ The most serious objection I get to this argument is that I am underestimating t
         <span class="Statement">if</span> (alphabet[i]&gt;alphabet[max]) max=i;
     printf(<span class="Constant">&quot;</span><span class="Special">%c</span><span class="Constant"> </span><span class="Special">%f%%</span><span class="Special">\n</span><span class="Constant">&quot;</span>,max+<span class="Constant">'A'</span>,<span class="Constant">100.</span>*alphabet[max]/sum1);
 }
-</span>The program will take some 10 seconds to execute on a modern computer. If you put a long English text in the file <i>text.txt</i>, it prints that the probability of choosing the same consonant two times in a row equals 1/11, and that the most common consonant in English is <i>t</i> (presumably because of the meaningless words that need to be there because of the English syntax, such as <i>the</i>, <i>it</i>, <i>that</i>, <i>than</i>...). Yet, if you eliminate the syntax of the language, by putting a spell-checker word-list instead of a text in the file <i>text.txt</i>, it prints that the probability of choosing the same consonant two times in a row is 1/13, and that the most common consonant in that word list is <i>r</i> (presumably because of the extremely common English prefix <i>re-</i> and the even more common English suffix <i>-er</i>). I hope you see why I think that, if you eliminate both the morphology and syntax, the letter frequency will become quite uniform. And the same goes for Croatian: the probability of choosing the same consonant two times in a row in a Croatian text is 1/13, and the probability of choosing the same consonant in a Croatian word-list is 1/14 (in both cases, the most common consonant is <i>n</i>, presumably because of the common Croatian prefixes). For German, the respective probabilities are 1/12 in a text and 1/15 in a word-list, and the most common consonant is again <i>n</i> in both cases. It's indeed hard to measure the effects of phonology, but you can see why I think that we are not very far off if we assume the probability will be around 1/20. However, even if it is closer to 1/15, it would not matter much, since the p-value of this pattern with <i>*karr~kurr</i> would then be 18/10'000, still very significant.<br/></span></span>
+</span>The program will take some 10 seconds to execute on a modern computer. If you put a long English text in the file <i>text.txt</i>, it prints that the probability of choosing the same consonant two times in a row equals 1/11, and that the most common consonant in English is <i>t</i> (presumably because of the meaningless words that need to be there because of the English syntax, such as <i>the</i>, <i>it</i>, <i>that</i>, <i>than</i>...). Yet, if you eliminate the syntax of the language, by putting a spell-checker word-list instead of a text in the file <i>text.txt</i>, it prints that the probability of choosing the same consonant two times in a row is 1/13, and that the most common consonant in that word list is <i>r</i> (presumably because of the extremely common English prefix <i>re-</i> and the even more common English suffix <i>-er</i>). I hope you see why I think that, if you eliminate both the morphology and syntax, the letter frequency will become quite uniform. And the same goes for Croatian: the probability of choosing the same consonant two times in a row in a Croatian text is 1/13, and the probability of choosing the same consonant in a Croatian word-list is 1/14 (in both cases, the most common consonant is <i>n</i>, presumably because of the common Croatian prefixes). For German, the respective probabilities are 1/12 in a text and 1/15 in a word-list, and the most common consonant is again <i>n</i> in both cases. It's indeed hard to measure the effects of phonology, but you can see why I think that we are not very far off if we assume the probability will be around 1/20. However, even if it is closer to 1/15, it would not matter much, since the p-value of this pattern with <i>*karr~kurr</i> would then be 18/10'000, still very significant.<br/>
+Another objection I think I am likely to get is that I am ignoring the fact that previous consonants in a word affect the likelihood of what will be the next consonant in that word, that human languages are Markov Chain with respect to this. While that plays some role, I think it is unlikely to play a crucial role. Here is a JavaScript (NodeJS) program I used to measure that effect:
+<span class="code" id="markov">
+<span class="Constant">&quot;use strict&quot;</span>; <span class="Comment">// To znači, otprilike, &quot;Ponašaj se po standardu i ne pokušavaj</span>
+              <span class="Comment">// biti kompatibilan sa starijim verzijama NodeJS-a.&quot;. Nekad zna</span>
+              <span class="Comment">// riješiti naizgled neobjašnjive probleme u programiranju.</span>
+<span class="Identifier">let</span> suglasnici =
+    <span class="Constant">&quot;bcčćdđfghjklmnpqrsštvwxyzž&quot;</span>; <span class="Comment">// NodeJS podržava ne-ASCII (hrvatske...)</span>
+                                  <span class="Comment">// znakove u stringovima.</span>
+suglasnici += suglasnici.toUpperCase();
+<span class="Statement">const</span> datotecniSustav = require(<span class="Constant">&quot;fs&quot;</span>);
+<span class="Statement">const</span> tekst =
+    datotecniSustav.readFileSync(<span class="Constant">&quot;main.dic&quot;</span>, <span class="Identifier">{</span>encoding : <span class="Constant">'utf-8'</span>, flag : <span class="Constant">'r'</span><span class="Identifier">}</span>);
+<span class="Identifier">let</span> mapa = <span class="Statement">new</span> Map();
+<span class="Statement">for</span> (<span class="Statement">const</span> prvi of suglasnici)
+  <span class="Statement">for</span> (<span class="Statement">const</span> drugi of suglasnici)
+    mapa.set((prvi + drugi).toLowerCase(), 0);
+<span class="Identifier">let</span> prethodni, sadasnji, brojac = 0;
+<span class="Statement">for</span> (<span class="Statement">const</span> znak of tekst) <span class="Identifier">{</span>
+  <span class="Statement">if</span> (suglasnici.indexOf(znak) !== -1) <span class="Identifier">{</span>
+    prethodni = sadasnji;
+    sadasnji = znak.toLowerCase();
+    <span class="Statement">if</span> (prethodni !== <span class="Statement">undefined</span>) <span class="Identifier">{</span>
+      brojac++;
+      mapa.set(prethodni + sadasnji, mapa.get(prethodni + sadasnji) + 1);
+    <span class="Identifier">}</span>
+  <span class="Identifier">}</span>
+<span class="Identifier">}</span>
+console.log(<span class="Constant">&quot;Apsolutne frekvencije pojedinih parova:&quot;</span>);
+<span class="Statement">for</span> (<span class="Statement">const</span> parSuglasnika of mapa.keys()) <span class="Identifier">{</span>
+  console.log(parSuglasnika + <span class="Constant">&quot; &quot;</span> + mapa.get(parSuglasnika));
+<span class="Identifier">}</span>
+<span class="Identifier">let</span> entropija = 0;
+<span class="Statement">for</span> (<span class="Statement">const</span> apsolutnaFrekvencija of mapa.values())
+  <span class="Statement">if</span> (apsolutnaFrekvencija)
+    entropija -= apsolutnaFrekvencija / brojac *
+                 Math.log2(apsolutnaFrekvencija / brojac);
+console.log(<span class="Constant">&quot;Entropija parova suglasnika: &quot;</span> + entropija);
+console.log(<span class="Constant">&quot;Vjerojatnost prosječnog para suglasnika: &quot;</span> + (1 / 2 ** entropija));
+console.log(<span class="Constant">&quot;Inverzna vjerojatnost prosječnog para suglasnika: &quot;</span> +
+            2 ** entropija);
+</span>
+That program printed 229, which is greater than 15<sup>2</sup>. And, of course, that program does not deal with common prefixes and suffixes in Croatian, so I'd expect that the actual inverse probability of a particular pair of two consonants appearing by chance is significantly higher than 229.
+<br/></span></span>
                 <script type="text/javascript">
                     if (navigator.appName=="Microsoft Internet Explorer")
                     {
@@ -945,7 +993,7 @@ The most serious objection I get to this argument is that I am underestimating t
                     var graphBottomOffset=document.getElementById("graph").offsetTop+document.getElementById("graph").offsetHeight;
                     var glavniWidth=document.getElementById("glavni").clientWidth;
                     for (var i=0; i<niz.length; i++) {
-                        if (niz[i].id=="CProgram" || niz[i].id=="huffman_code") continue;
+                        if (niz[i].id=="CProgram" || niz[i].id=="huffman_code" || niz[i].id=="markov") continue;
                         if (niz[i].offsetTop>graphBottomOffset)
                             niz[i].style.width="auto";
                         else
