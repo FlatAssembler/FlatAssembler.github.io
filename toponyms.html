@@ -742,7 +742,7 @@ Another objection I think I am likely to get is that I am ignoring the fact that
 <span class="code" id="markov"><span class="Constant">&quot;use strict&quot;</span>; <span class="Comment">// To znači, otprilike, &quot;Ponašaj se po standardu i ne pokušavaj</span>
               <span class="Comment">// biti kompatibilan sa starijim verzijama NodeJS-a.&quot;. Nekad zna</span>
               <span class="Comment">// riješiti naizgled neobjašnjive probleme u programiranju.</span>
-<span class="Identifier">let</span> suglasnici =
+<span class="Statement">let</span> suglasnici =
     <span class="Constant">&quot;bcčćdđfghjklmnpqrsštvwxyzž&quot;</span>; <span class="Comment">// NodeJS podržava ne-ASCII (hrvatske...)</span>
                                   <span class="Comment">// znakove u stringovima.</span>
 suglasnici += suglasnici.toUpperCase();
@@ -765,11 +765,11 @@ suglasnici += suglasnici.toUpperCase();
   <span class="Identifier">}</span>
 <span class="Identifier">}</span>
 console.log(<span class="Constant">&quot;Apsolutne frekvencije pojedinih parova:&quot;</span>);
-<span class="Statement">for</span> (<span class="Statement">const</span> parSuglasnika <span class="Identifier">of</span> mapa.keys()) <span class="Identifier">{</span>
+<span class="Statement">for</span> (<span class="Statement">const</span> parSuglasnika <span class="Statement">of</span> mapa.keys()) <span class="Identifier">{</span>
   console.log(parSuglasnika + <span class="Constant">&quot; &quot;</span> + mapa.get(parSuglasnika));
 <span class="Identifier">}</span>
 <span class="Statement">let</span> entropija = 0;
-<span class="Statement">for</span> (<span class="Statement">const</span> apsolutnaFrekvencija <span class="Identifier">of</span> mapa.values())
+<span class="Statement">for</span> (<span class="Statement">const</span> apsolutnaFrekvencija <span class="Statement">of</span> mapa.values())
   <span class="Statement">if</span> (apsolutnaFrekvencija)
     entropija -= apsolutnaFrekvencija / brojac *
                  Math.log2(apsolutnaFrekvencija / brojac);
