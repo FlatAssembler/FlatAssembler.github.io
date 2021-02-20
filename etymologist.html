@@ -420,7 +420,7 @@
         <polygon id="p3" points="50,170 50,180 45,175" fill="#77FFFF"></polygon>
       </svg>
     </div>
-    <div style="max-width: 500px;">
+    <div style="max-width: 500px">
       The graphic interface has been made and tested using Safari 6.2.8. If you
       have cross-browser compatibility issues, try the
       <a href="etymology.html">text-based</a> version (it works even in Internet
@@ -492,7 +492,9 @@
             );
             while (
               znak === "w" ||
-              znak === "y" //w+suglasnik i y+suglasnik se na pocetku rijeci ne mogu izgovoriti
+              znak === "y" || //suglasnik+y i suglasnik+w na kraju rijeci tesko se izgovaraju...
+              znak === "j" ||
+              ret.charAt(ret.length - 1) == znak //...kao i dugi suglasnici na kraju rijeci.
             )
               znak = consonants.charAt(
                 Math.floor(Math.random() * consonants.length)
@@ -511,7 +513,10 @@
             while (
               znak === "w" ||
               znak === "y" ||
-              znak === ret.charAt(0) //Dugi suglasnik ne moze biti na pocetku rijeci.
+              znak === "j" ||
+              znak === ret.charAt(0) || //Dugi suglasnik ne moze biti na pocetku rijeci.
+              znak === "l" ||
+              znak === "r" //Malo lakse za izgovoriti, ali svejedno tesko.
             )
               znak = consonants.charAt(
                 Math.floor(Math.random() * consonants.length)

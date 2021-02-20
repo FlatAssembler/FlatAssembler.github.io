@@ -32,7 +32,9 @@ and open the template in the editor.
             );
             while (
               znak === "w" ||
-              znak === "y" //w+suglasnik i y+suglasnik se na pocetku rijeci ne mogu izgovoriti
+              znak === "y" || //suglasnik+y i suglasnik+w na kraju rijeci tesko se izgovaraju...
+              znak === "j" ||
+              ret.charAt(ret.length - 1) == znak //...kao i dugi suglasnici na kraju rijeci.
             )
               znak = consonants.charAt(
                 Math.floor(Math.random() * consonants.length)
@@ -51,7 +53,10 @@ and open the template in the editor.
             while (
               znak === "w" ||
               znak === "y" ||
-              znak === ret.charAt(0) //Dugi suglasnik ne moze biti na pocetku rijeci.
+              znak === "j" ||
+              znak === ret.charAt(0) || //Dugi suglasnik ne moze biti na pocetku rijeci.
+              znak === "l" ||
+              znak === "r" //Malo lakse za izgovoriti, ali svejedno tesko.
             )
               znak = consonants.charAt(
                 Math.floor(Math.random() * consonants.length)
