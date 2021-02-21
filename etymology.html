@@ -56,7 +56,11 @@ and open the template in the editor.
               znak === "j" ||
               znak === ret.charAt(0) || //Dugi suglasnik ne moze biti na pocetku rijeci.
               znak === "l" ||
-              znak === "r" //Malo lakse za izgovoriti, ali svejedno tesko.
+              znak === "r" ||
+              znak === "n" ||
+              (znak === "m" &&
+                ret.substr(0, 1) !== "b" &&
+                ret.substr(0, 1) !== "p") //Malo lakse za izgovoriti, ali svejedno tesko.
             )
               znak = consonants.charAt(
                 Math.floor(Math.random() * consonants.length)
