@@ -54,6 +54,10 @@ and open the template in the editor.
               znak === "w" ||
               znak === "y" ||
               znak === "j" ||
+              znak === "f" ||
+              ((znak === "v" || znak === "h") &&
+                ret.substr(0, 1) !== "l" &&
+                ret.substr(0, 1) !== "r") ||
               znak === ret.charAt(0) || //Dugi suglasnik ne moze biti na pocetku rijeci.
               znak === "l" ||
               znak === "r" ||
