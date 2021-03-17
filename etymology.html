@@ -17,6 +17,13 @@ and open the template in the editor.
     text-based version.
     <div id="tekst"></div>
     <script type="text/javascript">
+      if (typeof Array.prototype.indexOf !== "function") {
+        Array.prototype.indexOf = function (searchedFor) {
+          for (var i = 0; i < this.length; i++)
+            if (this[i] == searchedFor) return i;
+          return -1;
+        };
+      }
       var tekst = document.getElementById("tekst");
       var vowels = "aeiou";
       var consonants = "bcdfghjklmnpqrstvwxyz";
