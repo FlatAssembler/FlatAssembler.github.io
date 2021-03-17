@@ -481,6 +481,90 @@
       var bodovi = 0;
       var vowels = "aeiou";
       var consonants = "bcdfghjklmnpqrstvwxyz";
+      var allowed_beginning_consonant_clusters = [
+        "sq",
+        "st",
+        "ts",
+        "sk",
+        "ks",
+        "zd",
+        "dz",
+        "th",
+        "tr",
+        "dr",
+        "bl",
+        "fl",
+        "sw",
+        "sv",
+        "sn",
+        "sm",
+        "hw",
+        "br",
+        "pr",
+        "tw",
+        "dw",
+        "wr",
+        "vr",
+        "kr",
+        "pl",
+        "fr",
+        "gr",
+        "xr",
+        "xt",
+        "sl",
+        "sr",
+        "tn",
+        "pt",
+        "pn",
+        "pm",
+        "pl",
+        "ky",
+        "ty",
+        "gn",
+        "bh",
+        "ph",
+        "dh",
+        "zl",
+        "zr",
+        "tk",
+        "kt",
+        "sp",
+        "zb",
+        "kl",
+        "ps",
+        "tf",
+        "by",
+        "kn",
+        "py",
+        "zw",
+        "zv",
+        "pw",
+        "gy",
+        "dv",
+        "dw",
+        "pf",
+        "hy",
+        "ml",
+        "xp",
+        "gw",
+        "gv",
+        "xw",
+        "sf",
+        "tl",
+        "mn",
+        "dn",
+        "dm",
+        "bh",
+        "dh",
+        "gh"
+      ];
+      var allowed_ending_consonant_clusters = [];
+      for (var i = 0; i < allowed_beginning_consonant_clusters.length; i++)
+        if (allowed_beginning_consonant_clusters[i].substr(1, 1) !== "q")
+          allowed_ending_consonant_clusters.push(
+            allowed_beginning_consonant_clusters[i].substr(1, 1) +
+              allowed_beginning_consonant_clusters[i].substr(0, 1)
+          );
 
       function syllable() {
         var ret = vowels.charAt(Math.floor(Math.random() * vowels.length));
@@ -496,7 +580,13 @@
               znak === "w" ||
               znak === "y" || //suglasnik+y i suglasnik+w na kraju rijeci tesko se izgovaraju...
               znak === "j" ||
-              ret.charAt(ret.length - 1) == znak //...kao i dugi suglasnici na kraju rijeci.
+              ret.charAt(ret.length - 1) == znak || //...kao i dugi suglasnici na kraju rijeci.
+              (znak === "p" && ret.charAt(ret.length - 1) === "b") ||
+              (znak === "t" && ret.charAt(ret.length - 1) === "d") ||
+              (znak === "b" && ret.charAt(ret.length - 1) === "p") ||
+              (znak === "d" && ret.charAt(ret.length - 1) === "t") ||
+              (znak === "s" && ret.charAt(ret.length - 1) === "z") ||
+              (znak === "z" && ret.charAt(ret.length - 1) === "s")
             )
               znak = consonants.charAt(
                 Math.floor(Math.random() * consonants.length)
@@ -525,7 +615,13 @@
               znak === "r" ||
               (znak === "m" &&
                 ret.substr(0, 1) !== "b" &&
-                ret.substr(0, 1) !== "p") //Malo lakse za izgovoriti, ali svejedno tesko.
+                ret.substr(0, 1) !== "p") || //Malo lakse za izgovoriti, ali svejedno tesko.
+              (znak === "p" && ret.substr(0, 1) === "b") ||
+              (znak === "t" && ret.substr(0, 1) === "d") ||
+              (znak === "b" && ret.substr(0, 1) === "p") ||
+              (znak === "d" && ret.substr(0, 1) === "t") ||
+              (znak === "s" && ret.substr(0, 1) === "z") ||
+              (znak === "z" && ret.substr(0, 1) === "s")
             )
               znak = consonants.charAt(
                 Math.floor(Math.random() * consonants.length)
@@ -719,7 +815,7 @@
       promjene[11] = [
         "y",
         "y",
-        "y",
+        "s",
         "j",
         "j",
         "a",
@@ -1120,6 +1216,30 @@
               ", ";
         }
       }
+      var allowed_beginning_consonant_clusters_in_first_language = [];
+      for (var i = 0; i < allowed_beginning_consonant_clusters.length; i++)
+        if (Math.random() < 0.5)
+          allowed_beginning_consonant_clusters_in_first_language.push(
+            allowed_beginning_consonant_clusters[i]
+          );
+      var allowed_ending_consonant_clusters_in_first_language = [];
+      for (var i = 0; i < allowed_ending_consonant_clusters.length; i++)
+        if (Math.random() < 0.5)
+          allowed_ending_consonant_clusters_in_first_language.push(
+            allowed_ending_consonant_clusters[i]
+          );
+      var allowed_beginning_consonant_clusters_in_second_language = [];
+      for (var i = 0; i < allowed_beginning_consonant_clusters.length; i++)
+        if (Math.random() < 0.5)
+          allowed_beginning_consonant_clusters_in_second_language.push(
+            allowed_beginning_consonant_clusters[i]
+          );
+      var allowed_ending_consonant_clusters_in_second_language = [];
+      for (var i = 0; i < allowed_ending_consonant_clusters.length; i++)
+        if (Math.random() < 0.5)
+          allowed_ending_consonant_clusters_in_second_language.push(
+            allowed_ending_consonant_clusters[i]
+          );
       var jesmoLiOdabraliEpentetskiVokal = false;
       var epenteza1;
       for (var i = 0; i < vowels.length; i++) {
@@ -1160,7 +1280,27 @@
       fonologija[2] += "CCC>C" + epenteza2 + "CC";
       //Jednostavna fonotaktika: ne dopusti tri suglasnika za redom i ne dopusti q+suglasnik.
       for (var i = 0; i < language1.length; i++) {
-        for (var j = 0; j < language1[i].length; j++)
+        if (language1[i].charAt(language1[i].length - 1) == "q")
+          language1[i] += epenteza1;
+        if (
+          consonants.search(language1[i].charAt(0)) !== -1 &&
+          consonants.search(language1[i].charAt(1)) !== -1 &&
+          allowed_beginning_consonant_clusters_in_first_language.indexOf(
+            language1[i].substr(0, 2)
+          ) === -1
+        )
+          language1[i] = epenteza1 + language1[i];
+        if (
+          consonants.search(language1[i].charAt(language1[i].length - 1)) !==
+            -1 &&
+          consonants.search(language1[i].charAt(language1[i].length - 2)) !==
+            -1 &&
+          allowed_ending_consonant_clusters_in_first_language.indexOf(
+            language1[i].substr(language1[i].length - 2, 2)
+          ) === -1
+        )
+          language1[i] += epenteza1;
+        for (var j = 1; j < language1[i].length - 1; j++)
           if (
             (consonants.search(language1[i].charAt(j - 1)) !== -1 &&
               consonants.search(language1[i].charAt(j)) !== -1 &&
@@ -1170,11 +1310,29 @@
           )
             language1[i] =
               language1[i].slice(0, j) + epenteza1 + language1[i].slice(j);
-        if (language1[i].charAt(language1[i].length - 1) === "q")
-          language1[i] += epenteza1;
       }
       for (var i = 0; i < language2.length; i++) {
-        for (var j = 0; j < language2[i].length; j++)
+        if (language2[i].charAt(language2[i].length - 1) == "q")
+          language2[i] += epenteza2;
+        if (
+          consonants.search(language2[i].charAt(0)) !== -1 &&
+          consonants.search(language2[i].charAt(1)) !== -1 &&
+          allowed_beginning_consonant_clusters_in_second_language.indexOf(
+            language2[i].substr(0, 2)
+          ) === -1
+        )
+          language2[i] = epenteza2 + language2[i];
+        if (
+          consonants.search(language2[i].charAt(language2[i].length - 1)) !==
+            -1 &&
+          consonants.search(language2[i].charAt(language2[i].length - 2)) !==
+            -1 &&
+          allowed_ending_consonant_clusters_in_second_language.indexOf(
+            language2[i].substr(language2[i].length - 2, 2)
+          ) === -1
+        )
+          language2[i] += epenteza2;
+        for (var j = 1; j < language2[i].length - 1; j++)
           if (
             (consonants.search(language2[i].charAt(j - 1)) !== -1 &&
               consonants.search(language2[i].charAt(j)) !== -1 &&
@@ -1184,8 +1342,6 @@
           )
             language2[i] =
               language2[i].slice(0, j) + epenteza2 + language2[i].slice(j);
-        if (language2[i].charAt(language2[i].length - 1) === "q")
-          language2[i] += epenteza2;
       }
       //Redukcija vokala.
       for (var i = 0; i < language1.length; i++) {
@@ -1219,12 +1375,19 @@
         if (
           consonants.search(language1[i].charAt(language1[i].length - 1)) !==
             -1 &&
-          consonants.search(language1[i].charAt(language1[i].length - 2)) !== -1
+          consonants.search(language1[i].charAt(language1[i].length - 2)) !==
+            -1 &&
+          allowed_ending_consonant_clusters_in_first_language.indexOf(
+            language1[i].substr(language1[i].length - 2, 2)
+          ) === -1
         )
           language1[i] += epenteza1;
         if (
           consonants.search(language1[i].charAt(0)) !== -1 &&
-          consonants.search(language1[i].charAt(1)) !== -1
+          consonants.search(language1[i].charAt(1)) !== -1 &&
+          allowed_beginning_consonant_clusters_in_first_language.indexOf(
+            language1[i].substr(0, 2)
+          ) === -1
         )
           language1[i] = epenteza1 + language1[i];
       }
@@ -1259,12 +1422,19 @@
         if (
           consonants.search(language2[i].charAt(language2[i].length - 1)) !==
             -1 &&
-          consonants.search(language2[i].charAt(language2[i].length - 2)) !== -1
+          consonants.search(language2[i].charAt(language2[i].length - 2)) !==
+            -1 &&
+          allowed_ending_consonant_clusters_in_second_language.indexOf(
+            language2[i].substr(language2[i].length - 2, 2)
+          ) === -1
         )
           language2[i] += epenteza2;
         if (
           consonants.search(language2[i].charAt(0)) !== -1 &&
-          consonants.search(language2[i].charAt(1)) !== -1
+          consonants.search(language2[i].charAt(1)) !== -1 &&
+          allowed_beginning_consonant_clusters_in_second_language.indexOf(
+            language2[i].substr(0, 2)
+          ) === -1
         )
           language2[i] = epenteza2 + language2[i];
       }
@@ -2279,19 +2449,19 @@
              var answerChosen = false; // Odgovor odabran
              var connectArray = []; // Array u koji se spremaju linije
              var connectAnswers = []; // Array u koji se spremaju odgovori
-             
+
              for (var i = 0; i < connectLetters.length; i++) { // Za svako od slova (jer getElementsByClassName vraca HTML collection)
              var letter = connectLetters[i]; // letter je svaki element u loopu
-             
+
              letter.onclick = function () { // OnClick funkcija
              var answerId = this.getAttribute('id'); // Varijabla za spremanje id-a kliknutog slova
-             
+
              if (letterChosen && numberChosen) { // Odgovor samo ako su i slovo i broj odabrani
              answerChosen = true;
              } else {
              answerChosen = false;
              }
-             
+
              if (this.getAttribute('class') !== 'connectLetter clickedLetter' && !letterChosen || !connectStarted || this.getAttribute('class') !== 'connectLetter clickedLetter' && answerChosen) { // Checkovi kad se moze kliknuti na slovo
              this.classList.add('clickedLetter'); // Highlight klasa
              letterChosen = true;
@@ -2309,12 +2479,12 @@
              console.log(connectAnswers);
              }
              }
-             
+
              for (var i = 0; i < connectNumbers.length; i++) { // Isto kao za slova, samo su brojevi
              var number = connectNumbers[i];
              number.onclick = function () {
              var answerId = this.getAttribute('id');
-             
+
              if (this.getAttribute('class') !== 'connectNumber clickedNumber' && letterChosen && !numberChosen && connectStarted) {
              this.classList.add('clickedNumber');
              numberChosen = true;
@@ -2326,13 +2496,13 @@
              //     return item !== answerId;
              // });
              }
-             
+
              if (letterChosen && numberChosen) {
              answerChosen = true;
              } else {
              answerChosen = false;
              }
-             
+
              setTimeout(function () { // SetTimeout se izvrsava sa 100 milisekundi delayem
              if (answerChosen) {
              var connectAnswer = connectArray.join(''); // Spajamo slovo i broj koji su pushani u array, ako smo kliknuli na A i na 1, array izgleda ['a', '1'] pa ga spojimo u a1 da mozemo prikazati tu liniju
@@ -2355,10 +2525,10 @@
              }
              console.log(connectAnswers);
              }, 100);
-             
+
              }
              }
-             
+
              connectReset.onclick = function () { // Reset button OnClick
              for (var i = 0; i < connectAnswers.length; i++) { // Ista stvar kao i gore, prolazimo kroz array odgovora i uklanjamo linije
              var answer = connectAnswers[i];

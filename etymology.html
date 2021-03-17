@@ -20,6 +20,90 @@ and open the template in the editor.
       var tekst = document.getElementById("tekst");
       var vowels = "aeiou";
       var consonants = "bcdfghjklmnpqrstvwxyz";
+      var allowed_beginning_consonant_clusters = [
+        "sq",
+        "st",
+        "ts",
+        "sk",
+        "ks",
+        "zd",
+        "dz",
+        "th",
+        "tr",
+        "dr",
+        "bl",
+        "fl",
+        "sw",
+        "sv",
+        "sn",
+        "sm",
+        "hw",
+        "br",
+        "pr",
+        "tw",
+        "dw",
+        "wr",
+        "vr",
+        "kr",
+        "pl",
+        "fr",
+        "gr",
+        "xr",
+        "xt",
+        "sl",
+        "sr",
+        "tn",
+        "pt",
+        "pn",
+        "pm",
+        "pl",
+        "ky",
+        "ty",
+        "gn",
+        "bh",
+        "ph",
+        "dh",
+        "zl",
+        "zr",
+        "tk",
+        "kt",
+        "sp",
+        "zb",
+        "kl",
+        "ps",
+        "tf",
+        "by",
+        "kn",
+        "py",
+        "zw",
+        "zv",
+        "pw",
+        "gy",
+        "dv",
+        "dw",
+        "pf",
+        "hy",
+        "ml",
+        "xp",
+        "gw",
+        "gv",
+        "xw",
+        "sf",
+        "tl",
+        "mn",
+        "dn",
+        "dm",
+        "bh",
+        "dh",
+        "gh"
+      ];
+      var allowed_ending_consonant_clusters = [];
+      for (var i = 0; i < allowed_beginning_consonant_clusters.length; i++)
+        if (allowed_beginning_consonant_clusters[i].substr(1, 1) !== "q")
+          allowed_ending_consonant_clusters.push(
+            allowed_beginning_consonant_clusters[i].substr(1, 1) +
+              allowed_beginning_consonant_clusters[i].substr(0, 1)
+          );
       function syllable() {
         var ret = vowels.charAt(Math.floor(Math.random() * vowels.length));
         if (Math.random() < 0.5) {
@@ -34,7 +118,13 @@ and open the template in the editor.
               znak === "w" ||
               znak === "y" || //suglasnik+y i suglasnik+w na kraju rijeci tesko se izgovaraju...
               znak === "j" ||
-              ret.charAt(ret.length - 1) == znak //...kao i dugi suglasnici na kraju rijeci.
+              ret.charAt(ret.length - 1) == znak || //...kao i dugi suglasnici na kraju rijeci.
+              (znak === "p" && ret.charAt(ret.length - 1) === "b") ||
+              (znak === "t" && ret.charAt(ret.length - 1) === "d") ||
+              (znak === "b" && ret.charAt(ret.length - 1) === "p") ||
+              (znak === "d" && ret.charAt(ret.length - 1) === "t") ||
+              (znak === "s" && ret.charAt(ret.length - 1) === "z") ||
+              (znak === "z" && ret.charAt(ret.length - 1) === "s")
             )
               znak = consonants.charAt(
                 Math.floor(Math.random() * consonants.length)
@@ -64,7 +154,13 @@ and open the template in the editor.
               znak === "n" ||
               (znak === "m" &&
                 ret.substr(0, 1) !== "b" &&
-                ret.substr(0, 1) !== "p") //Malo lakse za izgovoriti, ali svejedno tesko.
+                ret.substr(0, 1) !== "p") || //Malo lakse za izgovoriti, ali svejedno tesko.
+              (znak === "p" && ret.substr(0, 1) === "b") ||
+              (znak === "t" && ret.substr(0, 1) === "d") ||
+              (znak === "b" && ret.substr(0, 1) === "p") ||
+              (znak === "d" && ret.substr(0, 1) === "t") ||
+              (znak === "s" && ret.substr(0, 1) === "z") ||
+              (znak === "z" && ret.substr(0, 1) === "s")
             )
               znak = consonants.charAt(
                 Math.floor(Math.random() * consonants.length)
@@ -258,7 +354,7 @@ and open the template in the editor.
       promjene[11] = [
         "y",
         "y",
-        "y",
+        "s",
         "j",
         "j",
         "a",
@@ -656,6 +752,30 @@ and open the template in the editor.
               ", ";
         }
       }
+      var allowed_beginning_consonant_clusters_in_first_language = [];
+      for (var i = 0; i < allowed_beginning_consonant_clusters.length; i++)
+        if (Math.random() < 0.5)
+          allowed_beginning_consonant_clusters_in_first_language.push(
+            allowed_beginning_consonant_clusters[i]
+          );
+      var allowed_ending_consonant_clusters_in_first_language = [];
+      for (var i = 0; i < allowed_ending_consonant_clusters.length; i++)
+        if (Math.random() < 0.5)
+          allowed_ending_consonant_clusters_in_first_language.push(
+            allowed_ending_consonant_clusters[i]
+          );
+      var allowed_beginning_consonant_clusters_in_second_language = [];
+      for (var i = 0; i < allowed_beginning_consonant_clusters.length; i++)
+        if (Math.random() < 0.5)
+          allowed_beginning_consonant_clusters_in_second_language.push(
+            allowed_beginning_consonant_clusters[i]
+          );
+      var allowed_ending_consonant_clusters_in_second_language = [];
+      for (var i = 0; i < allowed_ending_consonant_clusters.length; i++)
+        if (Math.random() < 0.5)
+          allowed_ending_consonant_clusters_in_second_language.push(
+            allowed_ending_consonant_clusters[i]
+          );
       var jesmoLiOdabraliEpentetskiVokal = false;
       var epenteza1;
       for (var i = 0; i < vowels.length; i++) {
@@ -696,7 +816,27 @@ and open the template in the editor.
       fonologija[2] += "CCC>C" + epenteza2 + "CC";
       //Jednostavna fonotaktika: ne dopusti tri suglasnika za redom i ne dopusti q+suglasnik.
       for (var i = 0; i < language1.length; i++) {
-        for (var j = 0; j < language1[i].length; j++)
+        if (language1[i].charAt(language1[i].length - 1) == "q")
+          language1[i] += epenteza1;
+        if (
+          consonants.search(language1[i].charAt(0)) !== -1 &&
+          consonants.search(language1[i].charAt(1)) !== -1 &&
+          allowed_beginning_consonant_clusters_in_first_language.indexOf(
+            language1[i].substr(0, 2)
+          ) === -1
+        )
+          language1[i] = epenteza1 + language1[i];
+        if (
+          consonants.search(language1[i].charAt(language1[i].length - 1)) !==
+            -1 &&
+          consonants.search(language1[i].charAt(language1[i].length - 2)) !==
+            -1 &&
+          allowed_ending_consonant_clusters_in_first_language.indexOf(
+            language1[i].substr(language1[i].length - 2, 2)
+          ) === -1
+        )
+          language1[i] += epenteza1;
+        for (var j = 1; j < language1[i].length - 1; j++)
           if (
             (consonants.search(language1[i].charAt(j - 1)) !== -1 &&
               consonants.search(language1[i].charAt(j)) !== -1 &&
@@ -706,11 +846,29 @@ and open the template in the editor.
           )
             language1[i] =
               language1[i].slice(0, j) + epenteza1 + language1[i].slice(j);
-        if (language1[i].charAt(language1[i].length - 1) == "q")
-          language1[i] += epenteza1;
       }
       for (var i = 0; i < language2.length; i++) {
-        for (var j = 0; j < language2[i].length; j++)
+        if (language2[i].charAt(language2[i].length - 1) == "q")
+          language2[i] += epenteza2;
+        if (
+          consonants.search(language2[i].charAt(0)) !== -1 &&
+          consonants.search(language2[i].charAt(1)) !== -1 &&
+          allowed_beginning_consonant_clusters_in_second_language.indexOf(
+            language2[i].substr(0, 2)
+          ) === -1
+        )
+          language2[i] = epenteza2 + language2[i];
+        if (
+          consonants.search(language2[i].charAt(language2[i].length - 1)) !==
+            -1 &&
+          consonants.search(language2[i].charAt(language2[i].length - 2)) !==
+            -1 &&
+          allowed_ending_consonant_clusters_in_second_language.indexOf(
+            language2[i].substr(language2[i].length - 2, 2)
+          ) === -1
+        )
+          language2[i] += epenteza2;
+        for (var j = 1; j < language2[i].length - 1; j++)
           if (
             (consonants.search(language2[i].charAt(j - 1)) !== -1 &&
               consonants.search(language2[i].charAt(j)) !== -1 &&
@@ -720,8 +878,6 @@ and open the template in the editor.
           )
             language2[i] =
               language2[i].slice(0, j) + epenteza2 + language2[i].slice(j);
-        if (language2[i].charAt(language2[i].length - 1) == "q")
-          language2[i] += epenteza2;
       }
       //Redukcija vokala.
       for (var i = 0; i < language1.length; i++) {
@@ -755,12 +911,19 @@ and open the template in the editor.
         if (
           consonants.search(language1[i].charAt(language1[i].length - 1)) !==
             -1 &&
-          consonants.search(language1[i].charAt(language1[i].length - 2)) !== -1
+          consonants.search(language1[i].charAt(language1[i].length - 2)) !==
+            -1 &&
+          allowed_ending_consonant_clusters_in_first_language.indexOf(
+            language1[i].substr(language1[i].length - 2, 2)
+          ) === -1
         )
           language1[i] += epenteza1;
         if (
           consonants.search(language1[i].charAt(0)) !== -1 &&
-          consonants.search(language1[i].charAt(1)) !== -1
+          consonants.search(language1[i].charAt(1)) !== -1 &&
+          allowed_beginning_consonant_clusters_in_first_language.indexOf(
+            language1[i].substr(0, 2)
+          ) === -1
         )
           language1[i] = epenteza1 + language1[i];
       }
@@ -795,12 +958,19 @@ and open the template in the editor.
         if (
           consonants.search(language2[i].charAt(language2[i].length - 1)) !==
             -1 &&
-          consonants.search(language2[i].charAt(language2[i].length - 2)) !== -1
+          consonants.search(language2[i].charAt(language2[i].length - 2)) !==
+            -1 &&
+          allowed_ending_consonant_clusters_in_second_language.indexOf(
+            language2[i].substr(language2[i].length - 2, 2)
+          ) === -1
         )
           language2[i] += epenteza2;
         if (
           consonants.search(language2[i].charAt(0)) !== -1 &&
-          consonants.search(language2[i].charAt(1)) !== -1
+          consonants.search(language2[i].charAt(1)) !== -1 &&
+          allowed_beginning_consonant_clusters_in_second_language.indexOf(
+            language2[i].substr(0, 2)
+          ) === -1
         )
           language2[i] = epenteza2 + language2[i];
       }
