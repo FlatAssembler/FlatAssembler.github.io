@@ -183,6 +183,11 @@
             #markov .Comment { color: #87ceeb; }
             #markov .Constant { color: #ffa0a0; }
             #markov .Identifier { color: #98fb98; }
+	    #huffman_in_JavaScript {color: #ffffff; }
+	    #huffman_in_JavaScript .Statement { color: #f0e68c; font-weight: bold; }
+            #huffman_in_JavaScript .Comment { color: #87ceeb; }
+            #huffman_in_JavaScript .Constant { color: #ffa0a0; }
+            #huffman_in_JavaScript .Identifier { color: #98fb98; }
         </style>
     </head>
     <body>
@@ -808,7 +813,28 @@ console.log(<span class="Constant">&quot;Vjerojatnost prosječnog para suglasnik
 console.log(<span class="Constant">&quot;Inverzna vjerojatnost prosječnog para suglasnika: &quot;</span> +
             2 ** entropija);
 </span>
-That program printed 229, which is greater than 15<sup>2</sup>. And, of course, that program does not deal with common prefixes and suffixes in Croatian, so I'd expect that the actual inverse probability of a particular pair of two consonants appearing by chance is significantly higher than 229.
+That program printed 229, which is greater than 15<sup>2</sup>. And, of course, that program does not deal with common prefixes and suffixes in Croatian, so I'd expect that the actual inverse probability of a particular pair of two consonants appearing by chance is significantly higher than 229. A good question would be how the result could possible be grater than 15<sup>2</sup>, when the entropy of a consonant in Croatian is measured to be log<sub>2</sub>(14). Is it possible that the phonotactics somehow increases the entropy of human languages, rather than increases them? I will be honest, I do not know the answer. Another weird thing I have noticed is that <a href="#huffman_in_javascript">the following program in JavaScript</a> measures entropy to be significantly higher (for example, claiming that the entropy of consonants in an English consonants being log<sub>2</sub>(14) rather than log<sub>2</sub>(11)) than <a href="#huffman_code">the program in C</a> which I thought would output the same result:
+<span class="code" id="huffman_in_javascript"><span class="Comment">/* Ne znam zašto ovaj program u JavaScriptu tvrdi da je entropija tekstova</span>
+<span class="Comment"> * znatno veća nego što to tvrdi onaj program pisan u C-u. */</span>
+<span class="Statement">function</span> jeLiSlovo(znak) <span class="Identifier">{</span> <span class="Statement">return</span> znak.toUpperCase() !== znak.toLowerCase(); <span class="Identifier">}</span>
+
+<span class="Statement">const</span> datotecni_sustav = require(<span class="Constant">&quot;fs&quot;</span>);
+<span class="Statement">const</span> tekst = datotecni_sustav.readFileSync(<span class="Constant">&quot;text.txt&quot;</span>, <span class="Identifier">{</span>encoding : <span class="Constant">&quot;utf-8&quot;</span><span class="Identifier">}</span>);
+<span class="Statement">let</span> mapa = <span class="Statement">new</span> Map();
+<span class="Statement">const</span> samoglasnici = <span class="Constant">&quot;aeiou&quot;</span>;
+<span class="Statement">for</span> (<span class="Statement">const</span> znak <span class="Statement">of</span> tekst)
+  <span class="Statement">if</span> (jeLiSlovo(znak) &amp;&amp; samoglasnici.indexOf(znak.toLowerCase()) === -1)
+    mapa.set(znak.toLowerCase(), (mapa.get(znak.toLowerCase()) | 0) + 1);
+<span class="Statement">let</span> zbroj = 0;
+<span class="Statement">for</span> (<span class="Statement">const</span> apsolutna_frekvencija <span class="Statement">of</span> mapa.values())
+  zbroj += apsolutna_frekvencija;
+<span class="Statement">let</span> entropija = 0;
+<span class="Statement">for</span> (<span class="Statement">const</span> apsolutna_frekvencija <span class="Statement">of</span> mapa.values())
+  entropija -= Math.log2(apsolutna_frekvencija / zbroj) *
+               (apsolutna_frekvencija / zbroj);
+console.log(2 ** entropija);
+</span>
+I do not know if linguistics today can explain what is going on here. But, like I have said, while there are unknowns, I see no reason to think this pattern of a pair of two consonants repeating again and again at the beginning of the names of rivers will be expected, or even remotely likely.
 <br/></span></span>
                 <script type="text/javascript">
                     if (navigator.appName=="Microsoft Internet Explorer")
@@ -1062,7 +1088,7 @@ That program printed 229, which is greater than 15<sup>2</sup>. And, of course, 
                     var graphBottomOffset=document.getElementById("graph").offsetTop+document.getElementById("graph").offsetHeight;
                     var glavniWidth=document.getElementById("glavni").clientWidth;
                     for (var i=0; i<niz.length; i++) {
-                        if (niz[i].id=="CProgram" || niz[i].id=="huffman_code" || niz[i].id=="markov") continue;
+                        if (niz[i].id=="CProgram" || niz[i].id=="huffman_code" || niz[i].id=="markov" || niz[i].id=="huffman_in_javascript") continue;
                         if (niz[i].offsetTop>graphBottomOffset)
                             niz[i].style.width="auto";
                         else
