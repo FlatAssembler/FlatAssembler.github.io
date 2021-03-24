@@ -161,7 +161,7 @@ CSS - https://www.w3schools.com/css/default.asp
           x="175"
           y="385"
           fill="white"
-          style="font-size: 18px; font-family: 'Lucida Console';"
+          style="font-size: 18px; font-family: 'Lucida Console'"
           id="score"
         >
           Score: 0
@@ -218,7 +218,7 @@ CSS - https://www.w3schools.com/css/default.asp
       var howManyDotsAreThere = 0; /*Broj tocaka u svakom nivou, PacMan ih mora pojesti sve da prijede na iduci nivo.*/
       var howManyDotsHasPacmanEaten = 0;
       var level = 0;
-      var XML_namespace_of_SVG = "http://www.w3.org/2000/svg"; //Ovo je potrebno jer SVG ne koristi HTML DOM, nego XML DOM s drugim namespaceom.
+      var XML_namespace_of_SVG = document.getElementById("zaslon").namespaceURI; //Ovo je potrebno jer SVG ne koristi HTML DOM, nego XML DOM s drugim namespaceom.
       var brojacGlavnePetlje = 0,
         brojacAnimacijskePetlje = 0,
         kolikoJePutaDuhPromijenioSmjer = 0;
@@ -251,7 +251,7 @@ CSS - https://www.w3schools.com/css/default.asp
         " WPWWWWPWWWWPW ",
         " WPPPPPBPPPPPW ",
         " WWWWWWWWWWWWW ",
-        "               ",
+        "               "
       ];
       var smjer = {
         //Ovako se u JavaScriptu radi ono sto se u C-u radi naredbom "enum".
@@ -259,14 +259,14 @@ CSS - https://www.w3schools.com/css/default.asp
         desno: 1,
         dolje: 2,
         lijevo: 3,
-        stop: 4,
+        stop: 4
       };
       var xKomponentaSmjeraPacmana = [0, 1, 0, -1, 0];
       var yKomponentaSmjeraPacmana = [-1, 0, 1, 0, 0];
       var duhovi = {
         crveni: 0,
         ruzicasti: 1,
-        narancasti: 2,
+        narancasti: 2
       };
       var smjerDuha = [smjer.desno, smjer.gore, smjer.lijevo],
         smjerPacmana = smjer.desno;
@@ -355,27 +355,46 @@ CSS - https://www.w3schools.com/css/default.asp
       }
       function drawGhost(x, y, color, id, transparent) {
         //Duhovi su geometrijski likovi omedeni crtama (dno) i kubicnom Bezierovom krivuljom (vrh).
+        var svg = document.createElementNS(XML_namespace_of_SVG, "svg");
+        svg.setAttribute("x", x - 8);
+        svg.setAttribute("y", y - 16);
         var path = document.createElementNS(XML_namespace_of_SVG, "path");
         path.setAttribute("fill", color);
-        var d = "M " + (x - 8) + " " + (y + 8);
+        var d = "M " + 0 + " " + (16 + 8);
         d +=
           "C " +
-          (x - 5) +
+          3 +
           " " +
-          (y - 16) +
+          0 +
           " " +
-          (x + 5) +
+          (8 + 5) +
           " " +
-          (y - 16) +
+          0 +
           " " +
-          (x + 8) +
+          (8 + 8) +
           " " +
-          (y + 8);
+          (16 + 8);
         d += " l -4 -3 l -4 3 l -4 -3 Z";
         path.setAttribute("d", d);
-        path.setAttribute("id", id);
-        if (transparent) path.setAttribute("fill-opacity", 0.5); //Siluete (bijeli duhovi).
-        zaslon.appendChild(path);
+        svg.setAttribute("id", id);
+        if (transparent) svg.setAttribute("fill-opacity", 0.5); //Siluete (bijeli duhovi).
+        svg.appendChild(path);
+        var left_eye = document.createElementNS(XML_namespace_of_SVG, "circle");
+        left_eye.setAttribute("cx", 5);
+        left_eye.setAttribute("cy", 15);
+        left_eye.setAttribute("r", 2);
+        left_eye.setAttribute("fill", "black");
+        svg.appendChild(left_eye);
+        var right_eye = document.createElementNS(
+          XML_namespace_of_SVG,
+          "circle"
+        );
+        right_eye.setAttribute("cx", 11);
+        right_eye.setAttribute("cy", 15);
+        right_eye.setAttribute("r", 2);
+        right_eye.setAttribute("fill", "black");
+        svg.appendChild(right_eye);
+        zaslon.appendChild(svg);
       }
       function drawGhosts() {
         for (var i = 0; i < 3; i++) {
@@ -509,7 +528,8 @@ CSS - https://www.w3schools.com/css/default.asp
           //PacMan se crta svaki put kada se ude u 'mainLoop'.
           zaslon.removeChild(pacman);
           zaslon.removeChild(zaslon.getElementById("usta"));
-          zaslon.removeChild(zaslon.getElementById("TouchScreenInterface"));
+          if (zaslon.getElementById("TouchScreenInterface"))
+            zaslon.removeChild(zaslon.getElementById("TouchScreenInterface"));
         }
         if (
           pocetnoStanjeLabirinta[
