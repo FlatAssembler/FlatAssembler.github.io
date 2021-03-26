@@ -188,6 +188,12 @@
             #huffman_in_JavaScript .Comment { color: #87ceeb; }
             #huffman_in_JavaScript .Constant { color: #ffa0a0; }
             #huffman_in_JavaScript .Identifier { color: #98fb98; }
+	    #entropy_in_octave {color: white;}
+	    #entropy_in_octave .Statement { color: #f0e68c; font-weight: bold; }
+	    #entropy_in_octave .Special { color: #ffdead; }
+	    #entropy_in_octave .Comment { color: #87ceeb; }
+	    #entropy_in_octave .Constant { color: #ffa0a0; }
+	    #entropy_in_octave .Identifier { color: #98fb98; }
         </style>
     </head>
     <body>
@@ -773,7 +779,7 @@ The most serious objection I get to this argument is that I am underestimating t
     printf(<span class="Constant">&quot;</span><span class="Special">%c</span><span class="Constant"> </span><span class="Special">%f%%</span><span class="Special">\n</span><span class="Constant">&quot;</span>,max+<span class="Constant">'A'</span>,<span class="Constant">100.</span>*alphabet[max]/sum1);
 }
 </span>The program will take some 10 seconds to execute on a modern computer. If you put a long English text in the file <i>text.txt</i>, it prints that the probability of choosing the same consonant two times in a row equals 1/11, and that the most common consonant in English is <i>t</i> (presumably because of the meaningless words that need to be there because of the English syntax, such as <i>the</i>, <i>it</i>, <i>that</i>, <i>than</i>...). Yet, if you eliminate the syntax of the language, by putting a spell-checker word-list instead of a text in the file <i>text.txt</i>, it prints that the probability of choosing the same consonant two times in a row is 1/13, and that the most common consonant in that word list is <i>r</i> (presumably because of the extremely common English prefix <i>re-</i> and the even more common English suffix <i>-er</i>). I hope you see why I think that, if you eliminate both the morphology and syntax, the letter frequency will become quite uniform. And the same goes for Croatian: the probability of choosing the same consonant two times in a row in a Croatian text is 1/13, and the probability of choosing the same consonant in a Croatian word-list is 1/14 (in both cases, the most common consonant is <i>n</i>, presumably because of the common Croatian prefixes). For German, the respective probabilities are 1/12 in a text and 1/15 in a word-list, and the most common consonant is again <i>n</i> in both cases. It's indeed hard to measure the effects of phonology, but you can see why I think that we are not very far off if we assume the probability will be around 1/20. However, even if it is closer to 1/15, it would not matter much, since the p-value of this pattern with <i>*karr~kurr</i> would then be 18/10'000, still very significant.<br/>
-Another objection I think I am likely to get is that I am ignoring the fact that previous consonants in a word affect the likelihood of what will be the next consonant in that word, that human languages are Markov Chain with respect to this. While that plays some role, I think it is unlikely to play a crucial role. Here is a JavaScript (NodeJS) program I used to measure that effect:
+Another objection I think I am likely to get is that I am ignoring the fact that previous consonants in a word affect the likelihood of what will be the next consonant in that word, that human languages are Markov Chain with respect to this. While that plays some role, I think it is unlikely to play a crucial role. Here is a JavaScript (<a href="https://nodejs.org/">NodeJS</a>) program I used to measure that effect:
 <span class="code" id="markov"><span class="Constant">&quot;use strict&quot;</span>; <span class="Comment">// To znači, otprilike, &quot;Ponašaj se po standardu i ne pokušavaj</span>
               <span class="Comment">// biti kompatibilan sa starijim verzijama NodeJS-a.&quot;. Nekad zna</span>
               <span class="Comment">// riješiti naizgled neobjašnjive probleme u programiranju.</span>
@@ -834,7 +840,84 @@ That program printed 229, which is greater than 15<sup>2</sup>. And, of course, 
                (apsolutna_frekvencija / zbroj);
 console.log(2 ** entropija);
 </span>
-I do not know if linguistics today can explain what is going on here. But, like I have said, while there are unknowns, I see no reason to think this pattern of a pair of two consonants repeating again and again at the beginning of the names of rivers will be expected, or even remotely likely.
+I do not know if linguistics today can explain what is going on here. But, like I have said, while there are unknowns, I see no reason to think this pattern of a pair of two consonants repeating again and again at the beginning of the names of rivers will be expected, or even remotely likely. Anyway, in case you want to study the issue further, I have made an <a href="https://www.gnu.org/software/octave/index">Octave</a> program that measures the relationships between the results that my algorithm for estimating entropy gives with the results that the Shannon's algorithm gives:
+<span class="code" id="entropy_in_octave"><span class="Comment">% Ovo je Octaveski program koji uspoređuje rezultate koje daje moj algoritam</span>
+<span class="Comment">% procjenjivanja entropije s rezultatima koje daje Shannonov algoritam.</span>
+<span class="Comment">% Trebao bi se moći izvrtjeti i u MatLabu, ali nisam uspio instalirati MatLab</span>
+<span class="Comment">% na svoje računalo da to provjerim.</span>
+suglasnici = <span class="Constant">'bcdfghjklmnpqrstvwxyz'</span><span class="Special">;</span>
+testni_stringovi=cell(<span class="Constant">100</span> <span class="Statement">-</span> length(suglasnici) <span class="Statement">+</span> <span class="Constant">1</span>, <span class="Constant">1</span>)<span class="Special">;</span>
+<span class="Statement">for</span> koliko_cemo_staviti_b_ova = <span class="Constant">100</span> <span class="Statement">-</span> length(suglasnici) <span class="Statement">+</span> <span class="Constant">1</span> : <span class="Statement">-</span><span class="Constant">1</span> : <span class="Constant">1</span>
+  <span class="Statement">for</span> i = <span class="Constant">1</span> : koliko_cemo_staviti_b_ova
+    testni_stringovi{koliko_cemo_staviti_b_ova} = <span class="Identifier">[</span>
+      testni_stringovi{koliko_cemo_staviti_b_ova} <span class="Constant">'b'</span>
+    <span class="Identifier">]</span><span class="Special">;</span>
+  <span class="Statement">end</span>
+  <span class="Statement">for</span> i = <span class="Constant">1</span> : <span class="Constant">100</span> <span class="Statement">-</span> koliko_cemo_staviti_b_ova
+    testni_stringovi{koliko_cemo_staviti_b_ova} = <span class="Identifier">[</span>
+      testni_stringovi{koliko_cemo_staviti_b_ova}
+      suglasnici(
+        int32(
+          <span class="Statement">floor</span>(
+            (i <span class="Statement">-</span> <span class="Constant">1</span>) <span class="Statement">/</span>
+            (<span class="Constant">100</span> <span class="Statement">-</span> koliko_cemo_staviti_b_ova) <span class="Statement">*</span>
+            (length(suglasnici) <span class="Statement">-</span> <span class="Constant">1</span>)
+            ) <span class="Statement">+</span> strfind(suglasnici, <span class="Constant">'c'</span>)
+          )
+        )
+    <span class="Identifier">]</span><span class="Special">;</span>
+  <span class="Statement">end</span>
+<span class="Statement">end</span>
+<span class="Statement">function</span> ret = shannonova_entropija(str, suglasnici)
+  apsolutne_frekvencije = <span class="Identifier">[]</span><span class="Special">;</span>
+  <span class="Statement">for</span> i = <span class="Constant">1</span> : length(suglasnici)
+    apsolutne_frekvencije = <span class="Identifier">[</span>apsolutne_frekvencije <span class="Constant">0</span><span class="Identifier">]</span><span class="Special">;</span>
+  <span class="Statement">end</span>
+  <span class="Statement">for</span> i = <span class="Constant">1</span> : length(str)
+    znak = str(i)<span class="Special">;</span>
+    apsolutne_frekvencije(
+      strfind(suglasnici, znak)
+    ) = apsolutne_frekvencije(
+      strfind(suglasnici, znak)) <span class="Statement">+</span> <span class="Constant">1</span><span class="Special">;</span>
+  <span class="Statement">end</span>
+  relativne_frekvencije = apsolutne_frekvencije <span class="Statement">/</span> length(str)<span class="Special">;</span>
+  ret = <span class="Constant">0</span><span class="Special">;</span>
+  <span class="Statement">for</span> relativna_frekvencija = relativne_frekvencije
+    <span class="Statement">if</span> relativna_frekvencija <span class="Statement">&gt;</span> <span class="Constant">0</span>
+      ret = ret <span class="Statement">-</span> log2(relativna_frekvencija) <span class="Statement">*</span> relativna_frekvencija<span class="Special">;</span>
+    <span class="Statement">end</span>
+  <span class="Statement">end</span>
+<span class="Statement">end</span>
+<span class="Statement">function</span> ret = samarzijina_entropija(str, suglasnici)
+  broj_pokusaja = <span class="Constant">10000</span><span class="Special">;</span>
+  broj_pogodaka = <span class="Constant">0</span><span class="Special">;</span>
+  <span class="Statement">for</span> i = <span class="Constant">1</span> : broj_pokusaja
+    prvi = int32(<span class="Statement">floor</span>(<span class="Statement">rand</span>() <span class="Statement">*</span> length(str) <span class="Statement">+</span> <span class="Constant">1</span>))<span class="Special">;</span>
+    drugi = int32(<span class="Statement">floor</span>(<span class="Statement">rand</span>() <span class="Statement">*</span> length(str) <span class="Statement">+</span> <span class="Constant">1</span>))<span class="Special">;</span>
+    <span class="Statement">if</span> str(prvi) <span class="Statement">==</span> str(drugi) <span class="Statement">&amp;&amp;</span> prvi <span class="Statement">~</span>= drugi
+      broj_pogodaka = broj_pogodaka <span class="Statement">+</span> <span class="Constant">1</span><span class="Special">;</span>
+    <span class="Statement">end</span>
+  <span class="Statement">end</span>
+  omjer_pogodaka = broj_pogodaka <span class="Statement">/</span> broj_pokusaja<span class="Special">;</span>
+  ret = <span class="Statement">-</span>log2(omjer_pogodaka)<span class="Special">;</span>
+<span class="Statement">end</span>
+samarzijine_entropije = <span class="Identifier">[]</span><span class="Special">;</span>
+shannonove_entropije = <span class="Identifier">[]</span><span class="Special">;</span>
+<span class="Statement">for</span> i = <span class="Constant">1</span> : length(testni_stringovi)
+  str = testni_stringovi{i}<span class="Special">;</span>
+  samarzijine_entropije = <span class="Identifier">[</span>samarzijine_entropije
+  samarzijina_entropija(str, suglasnici)<span class="Identifier">]</span><span class="Special">;</span>
+  shannonove_entropije = <span class="Identifier">[</span>shannonove_entropije
+  shannonova_entropija(str, suglasnici)<span class="Identifier">]</span><span class="Special">;</span>
+<span class="Statement">end</span>
+plot(shannonove_entropije, samarzijine_entropije)<span class="Special">;</span>
+xlabel(<span class="Constant">'Shannonova entropija'</span>)<span class="Special">;</span>
+ylabel(<span class="Constant">'Samarzijina entropija'</span>)<span class="Special">;</span>
+title(<span class="Constant">'Usporedba Shannonove i Samarzijine entropije generiranih stringova'</span>)<span class="Special">;</span>
+</span>
+This is what that program outputs:<br/>
+<img src="entropy_comparison.png" style="width:100%;margin-top:5px;margin-bottom:5px">
+I do not know exactly how to interpret those results. And, like I have said, I doubt they are significant. Nevertheless, I would like to hear your thoughts about that.
 <br/></span></span>
                 <script type="text/javascript">
                     if (navigator.appName=="Microsoft Internet Explorer")
@@ -1088,7 +1171,7 @@ I do not know if linguistics today can explain what is going on here. But, like 
                     var graphBottomOffset=document.getElementById("graph").offsetTop+document.getElementById("graph").offsetHeight;
                     var glavniWidth=document.getElementById("glavni").clientWidth;
                     for (var i=0; i<niz.length; i++) {
-                        if (niz[i].id=="CProgram" || niz[i].id=="huffman_code" || niz[i].id=="markov" || niz[i].id=="huffman_in_javascript") continue;
+                        if (niz[i].id=="CProgram" || niz[i].id=="huffman_code" || niz[i].id=="markov" || niz[i].id=="huffman_in_javascript" || niz[i].id=="entropy_in_octave") continue;
                         if (niz[i].offsetTop>graphBottomOffset)
                             niz[i].style.width="auto";
                         else
