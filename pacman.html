@@ -321,7 +321,7 @@ CSS - https://www.w3schools.com/css/default.asp
             krug.setAttribute("id", id);
             zaslon.appendChild(krug);
         }
-        function drawGhost(x, y, color, id, transparent) {
+        function drawGhost(x, y, color, id, transparent, smjer_zjenice_oka) {
             //Duhovi su geometrijski likovi omedeni crtama (dno) i kubicnom Bezierovom krivuljom (vrh).
             var svg = document.createElementNS(XML_namespace_of_SVG, "g");
             svg.setAttribute("x", x - 8);
@@ -366,6 +366,24 @@ CSS - https://www.w3schools.com/css/default.asp
             right_eye.setAttribute("r", 2);
             right_eye.setAttribute("fill", "black");
             svg.appendChild(right_eye);
+            var left_pupil = document.createElementNS(
+                    XML_namespace_of_SVG,
+                    "circle"
+                    );
+            left_pupil.setAttribute("cx", x - 8 + 5 + xKomponentaSmjeraPacmana[smjer_zjenice_oka]);
+            left_pupil.setAttribute("cy", y - 16 + 15 + yKomponentaSmjeraPacmana[smjer_zjenice_oka]);
+            left_pupil.setAttribute("r", 1);
+            left_pupil.setAttribute("fill", "gray");
+            svg.appendChild(left_pupil);
+            var right_pupil = document.createElementNS(
+                    XML_namespace_of_SVG,
+                    "circle"
+                    );
+            right_pupil.setAttribute("cx", x - 8 + 11 + xKomponentaSmjeraPacmana[smjer_zjenice_oka]);
+            right_pupil.setAttribute("cy", y - 16 + 15 + yKomponentaSmjeraPacmana[smjer_zjenice_oka]);
+            right_pupil.setAttribute("r", 1);
+            right_pupil.setAttribute("fill", "gray");
+            svg.appendChild(right_pupil);
             zaslon.appendChild(svg);
         }
         function drawGhosts() {
@@ -379,7 +397,8 @@ CSS - https://www.w3schools.com/css/default.asp
                             yKoordinataSiluete[i] * 20 + 10,
                             "white",
                             "bijeli" + (i + 1),
-                            true
+                            true,
+                            smjerKretanjaSiluete[i]
                             );
                     document
                             .getElementById("bijeli" + (i + 1))
@@ -391,7 +410,9 @@ CSS - https://www.w3schools.com/css/default.asp
                             brojacGlavnePetlje - kadaJePacmanPojeoVelikuTocku > 30
                             ? bojaDuha[i]
                             : "blue",
-                            "duh" + (i + 1)
+                            "duh" + (i + 1),
+                            false,
+                            smjerDuha[i]
                             );
                     document
                             .getElementById("duh" + (i + 1))
