@@ -194,6 +194,13 @@
 	    #entropy_in_octave .Comment { color: #87ceeb; }
 	    #entropy_in_octave .Constant { color: #ffa0a0; }
 	    #entropy_in_octave .Identifier { color: #98fb98; }
+	    #entropy_in_matlab {color: white;}
+	    #entropy_in_matlab .Statement { color: #f0e68c; font-weight: bold; }
+	    #entropy_in_matlab .Special { color: #ffdead; }
+	    #entropy_in_matlab .Comment { color: #87ceeb; }
+	    #entropy_in_matlab .Constant { color: #ffa0a0; }
+	    #entropy_in_matlab .Identifier { color: #98fb98; }
+
         </style>
     </head>
     <body>
@@ -997,7 +1004,75 @@ I do not know exactly how to interpret those results. And, like I have said, I d
                     <i>The Roman Thermae<br> in Issa (<a class="map">Vis</a>)<br> were getting the water<br> from a mineral spring<br> that doesn't exist<br> any more.<br>However, it's possible<br> that Issa was<br> named after it,<br> from the Indo-European<br>root *yos (spring).</i><br>
                 </div>
                 That would be it! If you want to discuss my theory, go to the "Croatian Toponyms" forum thread I've linked to on the left. I'd like to have some sane opposition there, because I think my interpretation may be right. Ideas are correct or incorrect independent of their creators. The fact that I am not a linguist specializing in those things doesn't mean my ideas are wrong. I've used the methods that are well-accepted in linguistics (apart from applying statistics to the toponyms, which is for some reason very rarely done), I've just come to the conclusions that are different from the mainstream ones.</div>
-                <div style="margin-left:10px; margin-right:10px; margin-bottom:100px; margin-top:10px; float:left; text-align:justify;">UPDATE on 09/07/2018: You can download my Illyrian-Croatian dictionary <a href="rjecnik.docx">here</a> (it's a .DOCX file!).</div>
+            <div style="margin-left:10px; margin-right:10px; margin-top:10px; float:left; text-align:justify;">UPDATE on 09/07/2018: You can download my Illyrian-Croatian dictionary <a href="rjecnik.docx">here</a> (it's a .DOCX file!).</div>
+	    <div style="margin-left:10px; margin-right:10px; margin-bottom:100px; margin-top:10px; float: left; text-align: justify; width:-webkit-calc(100% - 2 * 10px); width:calc(100% - 2 * 10px);">UPDATE on 11/04/2021: I managed to install MatLab on my computer. So, here is that Octave program related to entropies modified so that it can be run in MatLab:
+	    <pre id="entropy_in_matlab" class="code"><span class="Comment">% Ovo je MatLabski program koji uspoređuje rezultate koje daje moj algoritam</span>
+<span class="Comment">% procjenjivanja entropije s rezultatima koje daje Shannonov algoritam.</span>
+suglasnici = <span class="Constant">'bcdfghjklmnpqrstvwxyz'</span><span class="Special">;</span>
+testni_stringovi=cell(<span class="Constant">100</span> <span class="Statement">-</span> length(suglasnici) <span class="Statement">+</span> <span class="Constant">1</span>, <span class="Constant">1</span>)<span class="Special">;</span>
+<span class="Statement">for</span> koliko_cemo_staviti_b_ova = <span class="Constant">100</span> <span class="Statement">-</span> length(suglasnici) <span class="Statement">+</span> <span class="Constant">1</span> : <span class="Statement">-</span><span class="Constant">1</span> : <span class="Constant">1</span>
+  <span class="Statement">for</span> i = <span class="Constant">1</span> : koliko_cemo_staviti_b_ova
+    testni_stringovi{koliko_cemo_staviti_b_ova} = <span class="Identifier">[</span>
+      testni_stringovi{koliko_cemo_staviti_b_ova} <span class="Constant">'b'</span>
+    <span class="Identifier">]</span><span class="Special">;</span>
+  <span class="Statement">end</span>
+  <span class="Statement">for</span> i = <span class="Constant">1</span> : <span class="Constant">100</span> <span class="Statement">-</span> koliko_cemo_staviti_b_ova
+    testni_stringovi{koliko_cemo_staviti_b_ova} = <span class="Identifier">[</span>
+        testni_stringovi{koliko_cemo_staviti_b_ova} suglasnici(int32(<span class="Statement">floor</span>((i <span class="Statement">-</span> <span class="Constant">1</span>) <span class="Statement">/</span> (<span class="Constant">100</span> <span class="Statement">-</span> koliko_cemo_staviti_b_ova) <span class="Statement">*</span> (length(suglasnici) <span class="Statement">-</span> <span class="Constant">1</span>))) <span class="Statement">+</span> strfind(suglasnici, <span class="Constant">'c'</span>))
+        <span class="Identifier">]</span><span class="Special">;</span>
+  <span class="Statement">end</span>
+<span class="Statement">end</span>
+samarzijine_entropije = <span class="Identifier">[]</span><span class="Special">;</span>
+shannonove_entropije = <span class="Identifier">[]</span><span class="Special">;</span>
+<span class="Statement">for</span> i = <span class="Constant">1</span> : length(testni_stringovi)
+  str = testni_stringovi{i}<span class="Special">;</span>
+  samarzijine_entropije = <span class="Identifier">[</span>samarzijine_entropije samarzijina_entropija(str)<span class="Identifier">]</span><span class="Special">;</span>
+  shannonove_entropije = <span class="Identifier">[</span>shannonove_entropije shannonova_entropija(str, suglasnici)<span class="Identifier">]</span><span class="Special">;</span>
+<span class="Statement">end</span>
+sgtitle(<span class="Constant">'Usporedba Shannonove i Samarzijine entropije generiranih stringova'</span>)<span class="Special">;</span>
+subplot(<span class="Constant">1</span>,<span class="Constant">2</span>,<span class="Constant">1</span>)<span class="Special">;</span>
+plot(shannonove_entropije, samarzijine_entropije)<span class="Special">;</span>
+xlabel(<span class="Constant">'Shannonova entropija'</span>)<span class="Special">;</span>
+ylabel(<span class="Constant">'Samarzijina entropija'</span>)<span class="Special">;</span>
+subplot(<span class="Constant">1</span>,<span class="Constant">2</span>,<span class="Constant">2</span>)<span class="Special">;</span>
+plot(shannonove_entropije)<span class="Special">;</span>
+hold on<span class="Special">;</span>
+plot(samarzijine_entropije)<span class="Special">;</span>
+xlabel(<span class="Constant">'Broj b-ova u stringu'</span>)<span class="Special">;</span>
+ylabel(<span class="Constant">'Entropija (bit/simbol)'</span>)<span class="Special">;</span>
+legend(<span class="Constant">'Shannonova entropija'</span>, <span class="Constant">'Samarzijina entropija'</span>)<span class="Special">;</span>
+<span class="Identifier">function</span> ret = shannonova_entropija(str, suglasnici)
+  apsolutne_frekvencije = <span class="Identifier">[]</span><span class="Special">;</span>
+  <span class="Statement">for</span> i = <span class="Constant">1</span> : length(suglasnici)
+    apsolutne_frekvencije = <span class="Identifier">[</span>apsolutne_frekvencije <span class="Constant">0</span><span class="Identifier">]</span><span class="Special">;</span>
+  <span class="Statement">end</span>
+  <span class="Statement">for</span> i = <span class="Constant">1</span> : length(str)
+    znak = str(i)<span class="Special">;</span>
+    apsolutne_frekvencije(strfind(suglasnici, znak)) = apsolutne_frekvencije(strfind(suglasnici, znak)) <span class="Statement">+</span> <span class="Constant">1</span><span class="Special">;</span>
+  <span class="Statement">end</span>
+  relativne_frekvencije = apsolutne_frekvencije <span class="Statement">/</span> length(str)<span class="Special">;</span>
+  ret = <span class="Constant">0</span><span class="Special">;</span>
+  <span class="Statement">for</span> relativna_frekvencija = relativne_frekvencije
+    <span class="Statement">if</span> relativna_frekvencija <span class="Statement">&gt;</span> <span class="Constant">0</span>
+      ret = ret <span class="Statement">-</span> log2(relativna_frekvencija) <span class="Statement">*</span> relativna_frekvencija<span class="Special">;</span>
+    <span class="Statement">end</span>
+  <span class="Statement">end</span>
+<span class="Statement">end</span>
+<span class="Identifier">function</span> ret = samarzijina_entropija(str)
+  broj_pokusaja = <span class="Constant">10000</span><span class="Special">;</span>
+  broj_pogodaka = <span class="Constant">0</span><span class="Special">;</span>
+  <span class="Statement">for</span> i = <span class="Constant">1</span> : broj_pokusaja
+    prvi = int32(<span class="Statement">floor</span>(<span class="Statement">rand</span>() <span class="Statement">*</span> length(str) <span class="Statement">+</span> <span class="Constant">1</span>))<span class="Special">;</span>
+    drugi = int32(<span class="Statement">floor</span>(<span class="Statement">rand</span>() <span class="Statement">*</span> length(str) <span class="Statement">+</span> <span class="Constant">1</span>))<span class="Special">;</span>
+    <span class="Statement">if</span> str(prvi) <span class="Statement">==</span> str(drugi)
+      broj_pogodaka = broj_pogodaka <span class="Statement">+</span> <span class="Constant">1</span><span class="Special">;</span>
+    <span class="Statement">end</span>
+  <span class="Statement">end</span>
+  omjer_pogodaka = broj_pogodaka <span class="Statement">/</span> broj_pokusaja<span class="Special">;</span>
+  ret = <span class="Statement">-</span>log2(omjer_pogodaka)<span class="Special">;</span>
+<span class="Statement">end</span></pre>
+	    Here is what it outputs:<br/>
+	    <img src="entropy_matlab.bmp" style="width:100%;margin-top:5px;margin-bottom:5px" alt="The output of the MatLab program above."></div>
         </main>
         <footer>
         <div
@@ -1174,7 +1249,7 @@ I do not know exactly how to interpret those results. And, like I have said, I d
                     var graphBottomOffset=document.getElementById("graph").offsetTop+document.getElementById("graph").offsetHeight;
                     var glavniWidth=document.getElementById("glavni").clientWidth;
                     for (var i=0; i<niz.length; i++) {
-                        if (niz[i].id=="CProgram" || niz[i].id=="huffman_code" || niz[i].id=="markov" || niz[i].id=="huffman_in_javascript" || niz[i].id=="entropy_in_octave") continue;
+                        if (niz[i].id=="CProgram" || niz[i].id=="huffman_code" || niz[i].id=="markov" || niz[i].id=="huffman_in_javascript" || niz[i].id=="entropy_in_octave" || niz[i].id=="entropy_in_matlab") continue;
                         if (niz[i].offsetTop>graphBottomOffset)
                             niz[i].style.width="auto";
                         else
