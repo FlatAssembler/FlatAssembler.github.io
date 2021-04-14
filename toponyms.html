@@ -850,7 +850,7 @@ That program printed 229, which is greater than 15<sup>2</sup>. And, of course, 
                (apsolutna_frekvencija / zbroj);
 console.log(2 ** entropija);
 </span>
-I do not know if linguistics today can explain what is going on here. But, like I have said, while there are unknowns, I see no reason to think this pattern of a pair of two consonants repeating again and again at the beginning of the names of rivers will be expected, or even remotely likely. Anyway, in case you want to study the issue further, I have made an <a href="https://www.gnu.org/software/octave/index">Octave</a> program that measures the relationships between the results that my algorithm for estimating entropy gives with the results that the Shannon's algorithm gives:
+I do not know if linguistics today can explain what is going on here. But, like I have said, while there are unknowns, I see no reason to think this pattern of a pair of two consonants repeating again and again at the beginning of the names of rivers will be expected, or even remotely likely. Anyway, in case you want to study the issue further, I have made an <a href="https://www.gnu.org/software/octave/index">Octave</a> program that measures the relationships between the results that my algorithm for estimating entropy gives with the results that the Shannon's algorithm gives (<b>WARNING</b>: The program outputs incorrect results if run in Octave and it causes a syntax error in MatLab, see <a href="#correction">this correction</a> for more details):
 <span class="code" id="entropy_in_octave"><span class="Comment">% Ovo je Octaveski program koji uspoređuje rezultate koje daje moj algoritam</span>
 <span class="Comment">% procjenjivanja entropije s rezultatima koje daje Shannonov algoritam.</span>
 <span class="Comment">% Trebao bi se moći izvrtjeti i u MatLabu, ali nisam uspio instalirati MatLab</span>
@@ -1005,7 +1005,7 @@ I do not know exactly how to interpret those results. And, like I have said, I d
                 </div>
                 That would be it! If you want to discuss my theory, go to the "Croatian Toponyms" forum thread I've linked to on the left. I'd like to have some sane opposition there, because I think my interpretation may be right. Ideas are correct or incorrect independent of their creators. The fact that I am not a linguist specializing in those things doesn't mean my ideas are wrong. I've used the methods that are well-accepted in linguistics (apart from applying statistics to the toponyms, which is for some reason very rarely done), I've just come to the conclusions that are different from the mainstream ones.</div>
             <div style="margin-left:10px; margin-right:10px; margin-top:10px; float:left; text-align:justify;">UPDATE on 09/07/2018: You can download my Illyrian-Croatian dictionary <a href="rjecnik.docx">here</a> (it's a .DOCX file!).</div>
-	    <div style="margin-left:10px; margin-right:10px; margin-bottom:100px; margin-top:10px; float: left; text-align: justify; width:-webkit-calc(100% - 2 * 10px); width:calc(100% - 2 * 10px);">UPDATE on 11/04/2021: I managed to install MatLab on my computer. So, here is that Octave program related to entropies modified so that it can be run in MatLab:
+	    <div style="margin-left:10px; margin-right:10px; margin-top:10px; float: left; text-align: justify; width:-webkit-calc(100% - 2 * 10px); width:calc(100% - 2 * 10px);">UPDATE on 11/04/2021: I managed to install MatLab on my computer. So, here is that Octave program related to entropies modified so that it can be run in MatLab:
 	    <pre id="entropy_in_matlab" class="code"><span class="Comment">% Ovo je MatLabski program koji uspoređuje rezultate koje daje moj algoritam</span>
 <span class="Comment">% procjenjivanja entropije s rezultatima koje daje Shannonov algoritam.</span>
 suglasnici = <span class="Constant">'bcdfghjklmnpqrstvwxyz'</span><span class="Special">;</span>
@@ -1073,6 +1073,7 @@ legend(<span class="Constant">'Shannonova entropija'</span>, <span class="Consta
 <span class="Statement">end</span></pre>
 	    Here is what it outputs:<br/>
 	    <img src="entropy_matlab.jpg" style="width:100%;margin-top:5px;margin-bottom:5px" alt="The output of the MatLab program above."></div>
+	    <div id="correction" style="margin-left:10px; margin-right:10px; margin-bottom:100px; margin-top:10px; float: left; text-align: justify; width:-webkit-calc(100% - 2 * 10px); width:calc(100% - 2 * 10px);">UPDATE on 14/04/2021: I have found out why the Octave program and the MatLab program give different results. Namely, there was a syntax error in my program. MatLab refused to parse it, but Octave was apparently doing automatic semicolon insertion (like JavaScript engines are doing). That resulted in incorrect test strings in <code>testni_stringovi</code>. This is what the test strings look like in <a href="matlab.csv">MatLab when exported to a CSV file</a>, and this is what they look like when <a href="octave.csv">exported from Octave</a>.</div>
         </main>
         <footer>
         <div
