@@ -583,7 +583,78 @@
         cases, it is useful to be able to make academic arguments that your
         program will work correctly in unexpected situations. In most other
         cases, though, knowledge that is gained at the university is not useful.
-        At least, that is my perception.
+        If you will like to read more about what I think about the way
+        programming is taught at the university, click
+        <a
+          href="javascript:void(0)"
+          onclick="document.getElementById('universities').style.display='inline'"
+          >here</a
+        >.
+        <span id="universities" style="display: none"
+          ><br />I also think that, in at least some cases, programming as it is
+          taught at the university may be counter-productive. In our Operating
+          Systems classes, we were taught a lot about system calls in Linux and
+          Windows. But using those is a big no-no in real-world programs. At the
+          university, we are also encouraged to mess with the algorithms. For
+          example, to try to find out which sorting algorithm would do better.
+          Doing that in the real world is a hopeless waste of time, because,
+          even if you think of a
+          <a
+            href="https://flatassembler.github.io/AEC_specification.html#AdvancedArray"
+            >600-lines-long sorting algorithm</a
+          >
+          (as I have, for the programming language I have made), you are
+          unlikely to do better than the algorithm that is built into the
+          standard library of the language you are using. Now, I understand that
+          computer science professors will generally say teaching sorting
+          algorithms is not there to make students write good sorting
+          algorithms, but that it trains the <i>algorithmic thinking</i> which
+          is necessary for programming. The problem with that is that many
+          students will indeed think that they are qualified to write efficient
+          sorting algorithms. As well, it is not obvious what
+          <i>algorithmic thinking</i> is supposed to be, that studying
+          algorithms the way it is done at the university actually improves it,
+          and that it helps significantly with real-world programming, which are
+          hidden premises behind that statement. Universities also make students
+          spend a lot of time studying software engineering practices such as
+          object-oriented programming and functional programming. While there is
+          evidence functional programming leads to slightly fewer time-consuming
+          bugs in software, its benefits are without a doubt significantly
+          exagerated. I believe that, at least once, attempting to apply
+          functional programming led me into the wrong direction, when the logic
+          of my program was correct, but
+          <a
+            href="https://stackoverflow.com/questions/63951270/using-default-copy-constructor-corrupts-a-tree-in-c"
+            >I misunderstood how the copy-constructor in C++ works</a
+          >. I spent a lot of time modifying the methods of the
+          <a
+            href="https://github.com/FlatAssembler/AECforWebAssembly/blob/master/TreeNode.cpp"
+            ><code>TreeNode</code> class</a
+          >
+          in the compiler for my programming language to be <code>const</code>,
+          expecting the error to show up (which it did not). And the evidence
+          for object-oriented programming helping at all is very thin. At least
+          two bugs in the compiler for my programming language came from me
+          attempting to do object-oriented programming in a language which I
+          thought I understood, but I did not understand it properly, that is
+          C++ (which we were taught at the university). For example, when I
+          thought
+          <a
+            href="https://github.com/FlatAssembler/AECforWebAssembly/blob/f866feaca6dd3e287f42aee5fd43525862bf3229/TreeNode.cpp#L189"
+            >invoking a constructor inside another constructor</a
+          >
+          does something other than what it actually does, and
+          <a
+            href="https://github.com/FlatAssembler/AECforWebAssembly/blob/f866feaca6dd3e287f42aee5fd43525862bf3229/TreeNode.cpp#L386"
+            >when I did not understand what a <i>virtual destructor</i> means</a
+          >
+          (and somebody on Discord explained it to me). To sum up, while there
+          are cases when programming something requires knowledge of computer
+          science, most real-world programming jobs are not like that. And you
+          will learn about as much real-world programming by hanging out on
+          Internet forums as by studying computer science at the university. At
+          least, that is my perception.</span
+        >
         <br />
         OK, now we can continue...<br />
         So, why am I interested in informatics? Becuase it works! I see that if
