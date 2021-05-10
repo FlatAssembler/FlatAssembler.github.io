@@ -303,14 +303,14 @@
         var xKoordinataVrhaDrska =
           150 - 300 * Math.sin(rotacijaKlatna / (180 / Math.PI));
         var putanja = document.getElementById("putanja");
-        for (var i = 0; i < putanja.children.length; i++) {
-          if (putanja.children[i].getAttribute("y") * 1 > 300) {
-            putanja.removeChild(putanja.children[i]);
+        for (var i = 0; i < putanja.childNodes.length; i++) {
+          if (putanja.childNodes[i].getAttribute("y") * 1 > 300) {
+            putanja.removeChild(putanja.childNodes[i]);
             i--;
           } else {
-            putanja.children[i].setAttribute(
+            putanja.childNodes[i].setAttribute(
               "y",
-              putanja.children[i].getAttribute("y") * 1 + 6
+              putanja.childNodes[i].getAttribute("y") * 1 + 6
             );
           }
         }
