@@ -220,11 +220,19 @@
       ZIP-archive is called
       <span style="font-family: monospace">analogClockForWindows.exe</span>, and
       the executable for FreeDOS is called
-      <span style="font-family: monospace">analogClockForDOS.exe</span>.
+      <span style="font-family: monospace">analogClockForDOS.exe</span>.<br />
+      UPDATE on 10/05/2021: Here is the trajectory of the simulated pendulum.
+      Note that the angle the pendulum here oscilates at is 24<sup>o</sup>,
+      which means that the sinusoid is not a good approximation.
+      <svg
+        id="putanja"
+        style="width: 100%; height: 300px; overflow: hidden; background: black"
+        viewbox="0 0 300 300"
+      ></svg>
     </center>
     <script type="text/javascript">
-      var svgNS = "http://www.w3.org/2000/svg";
       var crtanje = document.getElementById("crtanje");
+      var svgNS = crtanje.namespaceURI;
       var rotacijaKlatna = 0;
       var smijerKlatna = true;
       var changed = 0;
@@ -292,6 +300,27 @@
           "transform",
           "rotate(" + Math.round(rotacijaKlatna * 10) / 10 + ",150,175)"
         );
+        var xKoordinataVrhaDrska =
+          150 - 300 * Math.sin(rotacijaKlatna / (180 / Math.PI));
+        var putanja = document.getElementById("putanja");
+        for (var i = 0; i < putanja.children.length; i++) {
+          if (putanja.children[i].getAttribute("y") * 1 > 300) {
+            putanja.removeChild(putanja.children[i]);
+            i--;
+          } else {
+            putanja.children[i].setAttribute(
+              "y",
+              putanja.children[i].getAttribute("y") * 1 + 6
+            );
+          }
+        }
+        var oznaka = document.createElementNS(svgNS, "rect");
+        oznaka.setAttribute("x", xKoordinataVrhaDrska - 3);
+        oznaka.setAttribute("y", 0);
+        oznaka.setAttribute("width", 6);
+        oznaka.setAttribute("height", 6);
+        oznaka.setAttribute("fill", "#ccffee");
+        putanja.appendChild(oznaka);
       }
       for (var i = 0; i < 60; i++) {
         var line = document.createElementNS(svgNS, "line");
