@@ -1,0 +1,97 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>hello_world_from_wasi/hello_world_from_wasi.aec - Syntax Highlighted in NodeJS</title>
+    <style type="text/css">
+    pre {
+       font-size: 13px;
+    }
+    .LineNumber {
+       color: #772200;
+       font-weight: normal;
+    }
+    .Type {
+       color: #775500;
+       font-weight: bold;
+    }
+    .Keyword {
+        color: #770000;
+        font-weight: bold;
+    }
+    .Comment {
+        color: #004444;
+        font-weight: bold;
+    }
+    .Parenthesis {
+        color: #333322;
+        font-weight: bold;
+    }
+    .Operator {
+        color: #770077;
+        font-weight: bold;
+    }
+    .Constant {
+        color: #006600;
+        font-weight: bold;
+    }
+    .String {
+        color: #003377;
+    }
+    </style>
+</head>
+<body>
+<pre>   <span class="LineNumber">1</span> <span class="Comment">// Loosely based on:
+   <span class="LineNumber">2</span> </span><span class="Comment">// https://github.com/bytecodealliance/wasmtime/blob/main/docs/WASI-tutorial.md#web-assembly-text-example
+   <span class="LineNumber">3</span> </span>#target WASI <span class="Comment">// This has to be the first directive in an AEC program targeting
+   <span class="LineNumber">4</span> </span>             <span class="Comment">// WASI, because declaring anything in WebAssembly is not possible
+   <span class="LineNumber">5</span> </span>             <span class="Comment">// until we know whether we are targeting WASI or a browser.
+   <span class="LineNumber">6</span> </span>
+   <span class="LineNumber">7</span> <span class="Keyword">Structure</span> IOV <span class="Keyword">Consists</span> <span class="Keyword">Of</span> <span class="Parenthesis">{</span> <span class="Comment">// The curly braces here are ignored by the
+   <span class="LineNumber">8</span> </span>                            <span class="Comment">// tokenizer, they are just here for ClangFormat
+   <span class="LineNumber">9</span> </span>                            <span class="Comment">// and text editors optimized for C-like languages.
+  <span class="LineNumber">10</span> </span>  <span class="Type">CharacterPointer</span> iov_base<span class="Keyword">;</span>
+  <span class="LineNumber">11</span>   <span class="Type">Integer32</span> iov_len<span class="Keyword">;</span>
+  <span class="LineNumber">12</span> <span class="Parenthesis">}</span>
+  <span class="LineNumber">13</span> <span class="Keyword">EndStructure</span><span class="Keyword">;</span>
+  <span class="LineNumber">14</span> 
+  <span class="LineNumber">15</span> <span class="Keyword">Function</span>
+  <span class="LineNumber">16</span> fd_write<span class="Parenthesis">(</span><span class="Type">Integer32</span> file_descriptor<span class="Operator">,</span> IOVPointer iovs<span class="Operator">,</span> <span class="Type">Integer32</span> iovs_len<span class="Operator">,</span>
+  <span class="LineNumber">17</span>          <span class="Type">Integer32Pointer</span> nwritten<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Is</span> <span class="Keyword">External</span><span class="Keyword">;</span>
+  <span class="LineNumber">18</span> 
+  <span class="LineNumber">19</span> <span class="Keyword">Function</span> strlen<span class="Parenthesis">(</span><span class="Type">CharacterPointer</span> str<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">20</span>   <span class="Type">Integer32</span> size <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">21</span>   <span class="Keyword">While</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>str <span class="Operator">+</span> size<span class="Parenthesis">)</span> <span class="Keyword">Loop</span> <span class="Parenthesis">{</span> size <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span> <span class="Parenthesis">}</span>
+  <span class="LineNumber">22</span>   <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
+  <span class="LineNumber">23</span>   <span class="Keyword">Return</span> size<span class="Keyword">;</span>
+  <span class="LineNumber">24</span> <span class="Parenthesis">}</span>
+  <span class="LineNumber">25</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
+  <span class="LineNumber">26</span> 
+  <span class="LineNumber">27</span> <span class="Type">Integer32</span> stdout <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">28</span> 
+  <span class="LineNumber">29</span> <span class="Keyword">Function</span> printString<span class="Parenthesis">(</span><span class="Type">CharacterPointer</span> string<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">30</span>   <span class="Type">InstantiateStructure</span> IOV iov<span class="Keyword">;</span>
+  <span class="LineNumber">31</span>   iov.iov_base <span class="Operator">:</span> <span class="Operator">=</span> string<span class="Keyword">;</span>
+  <span class="LineNumber">32</span>   iov.iov_len <span class="Operator">:</span> <span class="Operator">=</span> strlen<span class="Parenthesis">(</span>string<span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">33</span>   <span class="Type">Integer32</span> tmp <span class="Operator">:</span> <span class="Operator">=</span> fd_write<span class="Parenthesis">(</span>stdout<span class="Operator">,</span> <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>iov<span class="Parenthesis">)</span><span class="Operator">,</span>
+  <span class="LineNumber">34</span>                              <span class="Constant">1</span> <span class="Comment">/*Because we are printing only 1 string.*/</span><span class="Operator">,</span>
+  <span class="LineNumber">35</span>                              <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>tmp<span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">36</span> <span class="Parenthesis">}</span>
+  <span class="LineNumber">37</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
+  <span class="LineNumber">38</span> 
+  <span class="LineNumber">39</span> <span class="Keyword">Function</span> main<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">40</span>   printString<span class="Parenthesis">(</span>
+  <span class="LineNumber">41</span>       <span class="String">"Hello world, I am writing this from from WASI!<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span> <span class="Comment">// You need to put
+  <span class="LineNumber">42</span> </span>                                                           <span class="Comment">// '\n' in the
+  <span class="LineNumber">43</span> </span>                                                           <span class="Comment">// string, or else
+  <span class="LineNumber">44</span> </span>                                                           <span class="Comment">// nothing will be
+  <span class="LineNumber">45</span> </span>                                                           <span class="Comment">// printed!
+  <span class="LineNumber">46</span> </span><span class="Parenthesis">}</span>
+  <span class="LineNumber">47</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
+  <span class="LineNumber">48</span> 
+  <span class="LineNumber">49</span> <span class="Keyword">asm</span><span class="Parenthesis">(</span><span class="String">"(export <b>\<i>"</i></b>_start<b>\<i>"</i></b> (func $main))"</span><span class="Parenthesis">)</span><span class="Keyword">;</span> <span class="Comment">// https://developer.mozilla.org/en-US/docs/WebAssembly/Understanding_the_text_format#calling_the_function
+  <span class="LineNumber">50</span> </span><span class="Comment">// We could have also renamed "main" to "_start", but thank God I tried this so
+  <span class="LineNumber">51</span> </span><span class="Comment">// that I found a bug related to inline assembly in global scope in my compiler.</span>
+</pre>
+</body>
+</html>
