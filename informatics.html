@@ -574,8 +574,8 @@
         and when I used
         <a
           href="https://github.com/FlatAssembler/AECforWebAssembly/blob/9653c623bdd713f164482fee1ff7cdd5d0972d80/TreeNode.cpp#L99"
-          >LCS algorithm in my AEC-to-WebAssembly compiler to provide
-          corrections for misspelled variable names</a
+          >LCS algorithm from Dynamic Programming in my AEC-to-WebAssembly
+          compiler to provide corrections for misspelled variable names</a
         >), yet alone electrical engineering (I think my knowledge of electrical
         engineering never helped me with my projects) or mathematics (I think
         the only time my knowledge of advanced mathematics helped me is when
@@ -585,10 +585,58 @@
         >). When you program in the real world, you will probably spend most of
         your time with things such as getting your web-app to work in Internet
         Explorer, or something equivalent to that in parts of programming not
-        related to web-apps. You will gain next-to-no experience with that at
-        the university, as the programming tools used at the university are
-        different from the programming tools used in real life. JavaScript, for
-        example, is taught very little at the university, and it is the most
+        related to web-apps (The thing that bothers me with making the compiler
+        for my programming language right now is that, after I added the
+        suggestions for misspelled variable names,
+        <a href="https://github.com/FlatAssembler/AECforWebAssembly/issues/5"
+          >the compiler crashes if it is compiled with Visual Studio or CLANG
+          with some options on Windows, but apparently not if it is compiled
+          using any other C++ compiler</a
+        >. What you will spend most of your time dealing with when programming
+        are those annoying little things about programming tools that have
+        little or nothing to do with the problem you are trying to solve. While
+        stuff in programming languages such as portability, compiler warnings
+        and exceptions are good things, you need to understand that, quite
+        often, they are illusory and lulling programmers into false sense of
+        security. A program that compiles and works in one C++ compiler can very
+        well not even compile in another one, yet alone work. And it is also
+        like that with Java. Java is supposed to be a
+        compile-once-run-everywhere language, but a lot better description is
+        compile-once-debug-everywhere. In theory, if you are triggering
+        undefined behaviour, the C++ compilers should give you a warning. In
+        reality, often enough for that to be a problem, none of them will end up
+        warning you,
+        <a
+          href="https://github.com/FlatAssembler/AECforWebAssembly/blob/9653c623bdd713f164482fee1ff7cdd5d0972d80/compiler.cpp#L946"
+          >as has happened in my case</a
+        >. In theory, if your program is misusing the C++ standard library, the
+        C++ standard library should throw an exception, and that is what
+        exceptions in programming languages are for. In reality, unless you know
+        how the C++ standard library works in the smallest details, what will
+        sooner or later happen is that your program will appear to work except
+        for
+        <a
+          href="https://github.com/FlatAssembler/AECforWebAssembly/releases/tag/v1.2.1"
+          >sometimes unpredictably having segmentation faults under one
+          compiler</a
+        >, on an operating system under which the debugging tools you know how
+        to use are not working. And there are reasons why C++ compilers and
+        standard library are so permissive. The first reason is that there is a
+        bunch of bad code already present in C++ projects, and compilers which
+        complain about them will be perceived as faulty. I know how annoyed I
+        feel when I try to build from source an older open-source C++ project
+        with a modern C++ compiler and get tons of error messages, while using
+        an older C++ compiler works. There is, unfortunately, an incentive not
+        to fix ages-old bugs in programming languages and programming tools. The
+        second reason is that C++ compilers and standard libraries need to make
+        trade-offs between catching errors and being fast enough for correct
+        programs that need high performance and fast compilation times. These
+        are problems with computers that have nothing to do with computer
+        science, yet alone mathematics or engineering, but which programmers
+        need to deal with every day.). You will gain next-to-no experience with
+        that at the university, as the programming tools used at the university
+        are different from the programming tools used in real life. JavaScript,
+        for example, is taught very little at the university, and it is the most
         popular programming language these days, and will likely remain so in
         the future. Not because it is a good language, in fact, it is widely
         agreed to be an exceptionally poorly designed language, full of quirks
