@@ -170,7 +170,7 @@ CSS - https://www.w3schools.com/css/default.asp
         </text>
       </svg>
       <br />
-      <div id="bodovi">Highscore: <i>0</i> by <i>anonymous </i>.</div>
+      <div id="bodovi">Highscore: <i>0</i> by <i>anonymous</i>.</div>
       <div id="instructions">
         The game does NOT respond to keyboard buttons. On smartphones, the
         Pacman is supposed to follow your finger, to go in the direction where
@@ -190,7 +190,9 @@ CSS - https://www.w3schools.com/css/default.asp
         you need to go to where
         <a href="https://svg-pacman.sourceforge.io"
           >SVG PacMan is hosted on SourceForge</a
-        >, because GitHub Pages support no server-side scripting.
+        >, because GitHub Pages support no server-side scripting. Warning:
+        visiting it will insert a cookie into your browser, because SourceForge
+        apparently forces the use of cookies instead of HTTP sessions.
         <noscript>
           <br />Of course, nothing of this can work without JavaScript enabled
           in your browser.
@@ -264,7 +266,7 @@ CSS - https://www.w3schools.com/css/default.asp
         " WPWWWWPWWWWPW ",
         " WPPPPPBPPPPPW ",
         " WWWWWWWWWWWWW ",
-        "               "
+        "               ",
       ];
       var smjer = {
         //Ovako se u JavaScriptu radi ono sto se u C-u radi naredbom "enum".
@@ -272,14 +274,14 @@ CSS - https://www.w3schools.com/css/default.asp
         desno: 1,
         dolje: 2,
         lijevo: 3,
-        stop: 4
+        stop: 4,
       };
       var xKomponentaSmjeraPacmana = [0, 1, 0, -1, 0];
       var yKomponentaSmjeraPacmana = [-1, 0, 1, 0, 0];
       var duhovi = {
         crveni: 0,
         ruzicasti: 1,
-        narancasti: 2
+        narancasti: 2,
       };
       var smjerDuha = [smjer.desno, smjer.gore, smjer.lijevo],
         smjerPacmana = smjer.desno;
