@@ -1,0 +1,72 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>leftHandSideConditionalTest.aec - Syntax Highlighted in NodeJS</title>
+    <style type="text/css">
+    pre {
+       font-size: 13px;
+    }
+    .LineNumber {
+       color: #772200;
+       font-weight: normal;
+    }
+    .Type {
+       color: #775500;
+       font-weight: bold;
+    }
+    .Keyword {
+        color: #770000;
+        font-weight: bold;
+    }
+    .Comment {
+        color: #004444;
+        font-weight: bold;
+    }
+    .Parenthesis {
+        color: #333322;
+        font-weight: bold;
+    }
+    .Operator {
+        color: #770077;
+        font-weight: bold;
+    }
+    .Constant {
+        color: #006600;
+        font-weight: bold;
+    }
+    .String {
+        color: #003377;
+    }
+    </style>
+</head>
+<body>
+<pre>   <span class="LineNumber">1</span> <span class="Comment">/*
+   <span class="LineNumber">2</span>  * I have decided to add the left-hand-side ternary conditional operator in
+   <span class="LineNumber">3</span>  * assignments, which exists in C++, to my programming language. Sometimes,
+   <span class="LineNumber">4</span>  * it can make the code shorter, and it looks very cool. 
+   <span class="LineNumber">5</span>  */</span>
+   <span class="LineNumber">6</span> 
+   <span class="LineNumber">7</span> #target WASI <span class="Comment">//Will make the JavaScript tester slightly shorter.
+   <span class="LineNumber">8</span> </span>
+   <span class="LineNumber">9</span> <span class="Keyword">Function</span> gcd<span class="Parenthesis">(</span><span class="Type">Integer32</span> a<span class="Operator">,</span> <span class="Type">Integer32</span> b<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span>
+  <span class="LineNumber">10</span> 	<span class="Keyword">While</span> b <span class="Operator">&gt;</span> <span class="Constant">0</span> <span class="Keyword">Loop</span>
+  <span class="LineNumber">11</span> 		<span class="Parenthesis">(</span><span class="Parenthesis">(</span>a <span class="Operator">&gt;</span> b<span class="Parenthesis">)</span> <span class="Operator">?</span> a <span class="Operator">:</span> b<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="Parenthesis">(</span><span class="Parenthesis">(</span>a <span class="Operator">&gt;</span> b<span class="Parenthesis">)</span> <span class="Operator">?</span> <span class="Parenthesis">(</span>a <span class="Operator">-</span> b<span class="Parenthesis">)</span> <span class="Operator">:</span> <span class="Parenthesis">(</span>b <span class="Operator">-</span> a<span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">12</span> 		<span class="Comment">/*
+  <span class="LineNumber">13</span> 		 * The compiler should transform the line above to:
+  <span class="LineNumber">14</span> 		 *	```
+  <span class="LineNumber">15</span> 		 *	If a > b Then
+  <span class="LineNumber">16</span> 		 *		a := ((a > b) ? (a - b) : (b - a));
+  <span class="LineNumber">17</span> 		 *		// a := a - b;
+  <span class="LineNumber">18</span> 		 *	Else
+  <span class="LineNumber">19</span> 		 *		b := ((a > b) ? (a - b) : (b - a));
+  <span class="LineNumber">20</span> 		 *		// b := b - a;
+  <span class="LineNumber">21</span> 		 *	EndIf
+  <span class="LineNumber">22</span> 		 *	```	
+  <span class="LineNumber">23</span> 		 */</span>
+  <span class="LineNumber">24</span> 	<span class="Keyword">EndWhile</span>
+  <span class="LineNumber">25</span> 	<span class="Keyword">Return</span> a<span class="Keyword">;</span>
+  <span class="LineNumber">26</span> <span class="Keyword">EndFunction</span>
+</pre>
+</body>
+</html>
