@@ -1,0 +1,949 @@
+<html lang="en">
+  <head>
+    <title>Political Blindness</title>
+    <style type="text/css">
+      header {
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        background: #ffaaaa;
+        color: darkblue;
+        font-weight: bold;
+        font-size: 36px;
+        font-family: Lucida;
+      }
+      aside {
+        width: 25%;
+        background: #aaaaff;
+        height: 100%;
+        float: left;
+        color: #aa4400;
+        overflow: auto;
+      }
+      aside a {
+        text-decoration: none;
+      }
+      section {
+        width: 25%;
+        background: #ffffaa;
+        height: 100%;
+        float: right;
+        color: purple;
+        text-align: center;
+        overflow: auto;
+      }
+      .main1 {
+        background: black;
+        color: darkgray;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+        font-family: Verdana;
+      }
+      .main1 a {
+        color: lightgreen;
+      }
+      .main2 {
+        background: black;
+        color: lightgreen;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+      }
+      .main2 a {
+        color: #00ffff;
+      }
+      .main3 {
+        background: #eeeeee;
+        color: #333333;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+        font-family: Arial;
+      }
+      .main3 a {
+        color: #00aaaa;
+      }
+      .link1 {
+        text-decoration: none;
+        background: linear-gradient(to right, #111111, #333333);
+        height: 30px;
+        width: 100%;
+        color: #ff3300;
+        line-height: 30px;
+        text-indent: 10px;
+        font-family: Verdana;
+        text-indent: 5px;
+      }
+      .popup {
+        display: none;
+        background: black;
+        font-size: 14px;
+        line-height: 18px;
+        color: white;
+        opacity: 0.75;
+        position: absolute;
+        left: 25%;
+        border-width: 7px;
+        border-style: solid;
+        border-color: black;
+        max-width: 200px;
+        text-indent: 0px;
+      }
+      .popup::before {
+        content: " ";
+      }
+      .link1:hover {
+        background: darkGray;
+        color: black;
+      }
+      .link1:hover .popup {
+        display: block;
+      }
+      .link2 {
+        background: linear-gradient(to right, #333333, #111111);
+        color: #ff3300;
+      }
+      footer {
+        width: 100%;
+        height: 50px;
+        background: #aaffaa;
+        text-align: center;
+        color: #007777;
+        line-height: 50px;
+      }
+      .quotation {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        display: block;
+        font-family: Times;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        background: #ffffdd;
+        color: black;
+      }
+      .quotation table,
+      .quotation tr,
+      .quotation th,
+      .quotation td {
+        border-collapse: collapse;
+        border-style: solid;
+        border-color: black;
+      }
+      .quotation td {
+        text-align: justify;
+        padding: 3px;
+      }
+      .quotation a {
+        color: #00aaaa;
+      }
+      ol ol {
+        list-style-type: lower-alpha;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <img
+        src="gornjiLijevi.svg"
+        style="
+          position: absolute;
+          left: 8px;
+          width: 25%;
+          height: 200px;
+          top: 8px;
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+        alt=""
+      />
+      <img
+        src="gornjiDesni.svg"
+        style="
+          position: absolute;
+          width: 25%;
+          height: 200px;
+          left: -webkit-calc(75% - 8px);
+          left: calc(75% - 8px);
+          top: 8px;
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+        alt=""
+      />
+      <img
+        src="donjiLijevi.svg"
+        style="
+          position: absolute;
+          width: 25%;
+          height: 50px;
+          left: 8px;
+          top: calc(100% + 200px - 8px);
+          top: -webkit-calc(100% + 200px - 8px);
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+        alt=""
+      />
+      <div
+        style="
+          position: absolute;
+          top: -webkit-calc(100% + 200px + 50px + 8px);
+          top: calc(100% + 200px + 50px + 8px);
+          width: 100%;
+          height: 50px;
+          font-size: 36px;
+          font-family: Arial;
+          text-align: center;
+          background: #333333;
+          color: #aaaaaa;
+          line-height: 50px;
+        "
+      >
+        Please enable JavaScript!
+      </div>
+    </noscript>
+    <header>
+      <svg
+        id="gornjiLijevi"
+        style="float: left; width: 25%; height: 200px; background: white"
+      ></svg>
+      Political Blindness
+      <svg
+        id="gornjiDesni"
+        style="float: right; width: 25%; height: 200px; background: white"
+      ></svg>
+      <script type="text/javascript">
+        var svgNS = "http://www.w3.org/2000/svg";
+        function nacrtajRubove() {
+          var crtanje = document.getElementById("gornjiLijevi");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          var visina = crtanje.clientHeight;
+          var sirina = crtanje.clientWidth;
+          if (!visina || !sirina) {
+            visina = crtanje.parentNode.clientHeight;
+            sirina = crtanje.parentNode.clientWidth / 4;
+          }
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (270 + i * 3) / 57.3;
+            var kut2 = (274 + i * 3) / 57.3;
+            var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+            var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+            var y1 = Math.round(visina + Math.sin(kut1) * visina);
+            var y2 = Math.round(visina + Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(" +
+                Math.round(255 - i * 2.83) +
+                ",170," +
+                Math.round(170 + i * 2.83) +
+                ")"
+            );
+            crtanje.appendChild(trokut);
+          }
+          crtanje = document.getElementById("gornjiDesni");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (i * 3) / 57.3;
+            var kut2 = (4 + i * 3) / 57.3;
+            var x1 = Math.round(Math.cos(kut1) * sirina);
+            var x2 = Math.round(Math.cos(kut2) * sirina);
+            var y1 = Math.round(visina - Math.sin(kut1) * visina);
+            var y2 = Math.round(visina - Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(255," + Math.round(255 - i * 2.83) + ",170)"
+            );
+            crtanje.appendChild(trokut);
+          }
+        }
+        nacrtajRubove();
+        window.addEventListener("resize", nacrtajRubove);
+      </script>
+    </header>
+    <aside>
+      <br />
+      <center><b>Here are my online publications:</b></center>
+      <br />
+      <b style="margin-left: 5px">HTML5 stuff:</b>
+      <a href="sat.html"
+        ><div class="link1">
+          <div class="popup">
+            A simple "grandfather clock" animation made in Javascript.
+          </div>
+          Analog Clock
+        </div></a
+      >
+      <a href="calculator.html"
+        ><div class="link2 link1">
+          <div class="popup">
+            A simple HTML5 online calculator. Can solve parentheses!
+          </div>
+          Calculator
+        </div></a
+      >
+      <a href="fraktal.html"
+        ><div class="link1">
+          <div class="popup">
+            A spiral fractal I've made by modifying the "Dragon Curve".
+          </div>
+          The Dragon Curve
+        </div></a
+      >
+      <a href="pacman.html"
+        ><div class="link2 link1">
+          <div class="popup">
+            A Pacman game playable on touch screens. Made in Javascript using
+            the SVG graphics.
+          </div>
+          PacMan
+        </div></a
+      >
+      <a href="etymologist.html">
+        <div class="link1">
+          <div class="popup">
+            A flashcard game in which the goal is to guess the etymologies of
+            the words in simulated languages.
+          </div>
+          Etymology Game
+        </div></a
+      >
+      <br /><b style="margin-left: 5px">Webpages on this website:</b>
+      <a href="index.html"
+        ><div class="link1">
+          <div class="popup">A webpage with a bunch of links.</div>
+          Homepage
+        </div></a
+      >
+      <a href="libertarianism.html"
+        ><div class="link2 link1">
+          <div class="popup">What I think about politics</div>
+          Libertarianism
+        </div></a
+      >
+      <a href="vegetarianism.html"
+        ><div class="link1">
+          <div class="popup">Why I don't eat meat.</div>
+          Vegetarianism
+        </div></a
+      >
+      <a href="Simulation.html"
+        ><div class="link2 link1">
+          <div class="popup">Could the universe be a giant computer?</div>
+          Digital Physics
+        </div></a
+      >
+      <a href="linguistics.html"
+        ><div class="link1">
+          <div class="popup">
+            Why I like languages.<br /><br />
+            See also:<br />
+            <u
+              style="color: #0077ff"
+              onclick="window.open('http://flatassembler.github.io/toponyms.html'); window.close();"
+              >Croatian Toponyms</u
+            ><br />
+            <u
+              style="color: #0077ff"
+              onclick="window.open('http://flatassembler.github.io/Indo-Austronesian.html'); window.close();"
+              >Indo-Austronesian</u
+            >
+          </div>
+          Linguistics
+        </div></a
+      >
+      <a href="informatics.html"
+        ><div class="link2 link1">
+          <div class="popup">Why I like computers.</div>
+          Informatics
+        </div></a
+      >
+      <a href="pseudosciences.html"
+        ><div class="link1">
+          <div class="popup">
+            My advice on how to recognize and deal with false sciences.
+          </div>
+          Pseudosciences
+        </div></a
+      >
+      <br /><b style="margin-left: 5px">On Internet forums and blogs:</b>
+      <a href="http://linguistforum.com/outside-of-the-box/croatian-toponyms/"
+        ><div class="link1">
+          <div class="popup">
+            The forum thread in which I explained my linguistic theories in
+            detail.
+          </div>
+          Croatian Toponyms
+        </div></a
+      >
+      <a href="https://atheistforums.org/thread-50241.html"
+        ><div class="link2 link1">
+          <div class="popup">My parody of the conspiracy theorists.</div>
+          Airplanes Don't Exist
+        </div></a
+      >
+    </aside>
+    <section>
+      <p style="margin-left: 5px; margin-right: 5px">
+        <br />
+        Mark Twain, a US writer, once said: &quot;<i
+          >If you do not read the news, you are uninformed. If you do read them,
+          then you are misinformed.</i
+        >&quot; Many social scientists said something like: &quot;<i
+          >I wish people were informing themselves by studying actual social
+          sciences, rather than just the political trumpet.</i
+        >&quot;
+        <br />
+      </p>
+      <br />
+      <a id="loptica" href="#vrh" style="position: absolute">
+        <svg width="100" height="100">
+          <defs>
+            <radialgradient id="modrozelen">
+              <stop offset="0%" stop-color="#00FFFF" />
+              <stop offset="100%" stop-color="#0000FF" />
+            </radialgradient>
+            <radialgradient id="ljubicastoplav">
+              <stop offset="0%" stop-color="#FF00FF" />
+              <stop offset="100%" stop-color="#0000FF" />
+            </radialgradient>
+          </defs>
+          <circle cx="50" cy="50" r="50" fill="url(#modrozelen)" />
+          <polygon
+            points="50,25 25,50 38,50 38,75 62,75 62,50 75,50"
+            fill="url(#ljubicastoplav)"
+          />
+        </svg>
+      </a>
+      <script type="text/javascript">
+        var udaraca = 0;
+        var loptica = document.getElementById("loptica");
+        var pocetna = loptica.parentNode.clientHeight + 200 - 100;
+        loptica.style.top = pocetna;
+        loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+        var h = 0;
+        var gk = 1;
+        var v = 10;
+        window.setInterval(pomakniLopticu, 80);
+        window.addEventListener("resize", promijeniPocetnu);
+        function promijeniPocetnu() {
+          pocetna = loptica.parentNode.clientHeight + 210 - 100;
+          loptica.style.top = pocetna;
+          loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+          h = 0;
+          gk = 1;
+          v = 10;
+        }
+        function pomakniLopticu() {
+          h += v;
+          v -= gk;
+          if (h < 0) {
+            v = -v * 0.75;
+            h = 0;
+            udaraca++;
+            if (udaraca > 20) {
+              udaraca = 0;
+              v = 10;
+            }
+          }
+          loptica.style.top = pocetna - h;
+        }
+      </script>
+    </section>
+    <main class="main1" id="glavni" style="display: block">
+      <a name="vrh"></a>
+      <h2 style="text-align: center">How Politics Makes People Blind</h2>
+      <div
+        style="
+          text-align: justify;
+          margin-left: 10px;
+          margin-right: 10px;
+          margin-bottom: 100px;
+        "
+      >
+        Politics is hard to discuss. That is partly because politics makes
+        people live in the world of alternative facts. That is, politics blinds
+        us to reality.<br />
+        To understand what I am saying, imagine yourself talking to a Neo-Nazi.
+        Neo-Nazis believe (just like Nazis did) that a significant percentage of
+        deaths were caused by genetic defects and that eugenics would make the
+        society so much healthier that it is worth the lack of freedom eugenics
+        means. Neo-Nazis do not necessarily (though they probably do) have
+        different values than we do, they live in a world of alternative, and
+        empirically wrong, facts. In reality, only around 3% of deaths are
+        caused by known hereditary genetic defects. Cancer is mostly caused by
+        genetic modification you get <i>after</i> you were born in
+        <i>some</i> of your cells (mostly not those related to reproduction),
+        and those genetic modifications are caused by radiation, chemicals
+        created by burning tobacco, chemicals created by a mixture of heme iron
+        and omega-6-acids in presence of the enzymes existing in your colon, and
+        so on. That is, not by things eugenics could save us from. Other cancers
+        appear to be caused by malformed protein around your DNA turning off
+        genes for reproduction control, and this seems to be (although that is
+        not proven beyond reasonable doubt) somehow associated with high blood
+        sugar. Again, it is not clear how eugenics would help. Furthermore,
+        there is an obvious fact that Neo-Nazis are loudly denying, and that is
+        that governments that actually tried to do eugenics were not following
+        the science when doing that, and were actually counter-productive:
+        killing people of different ethnicities, with no evidence of genetic
+        disease, arguably makes our gene pool less fit.<br />
+        Or imagine yourself talking to a vegan extremist who thinks meat is
+        responsible for a significant percentage of deaths. They may have the
+        same values that you do, but they live in a world of alternative facts.
+        It is relatively easy to estimate how many deaths are caused by meat.
+        There are essentially two ways meat kills us: saturated fat causing
+        heart disease, and heme iron (present only in red meat) mixed with
+        omega-6-acids in presence of enzymes present in colon producing
+        cancer-causing substances. It is widely agreed upon that around 17% of
+        lethal heart disease is caused by saturated fat (but notice saturated
+        fat is not found solely in animal products), and maybe around 7% of
+        cancers are caused by heme iron. Since both cancer and heart disease are
+        responsible for around 11% of deaths each, probably less than 3% of
+        deaths are caused by meat. Furthermore, it is hard to imagine government
+        telling people what to eat actually following the science. Vegan
+        extremists, much like you, presumably value both freedom and public
+        health. But they are misled into thinking giving up freedom to eat what
+        we want will lead to huge public health benefits.<br />
+        Anti-vegetarians are similarly mostly living in an alternative reality
+        in which most meat comes from pasture-raised animals, that it
+        contributes significantly to the amount of food we have, and that giving
+        it up will probably lead to famine. That is also laughably wrong, but at
+        least anti-vegetarians do not tend to be political, or at least not as
+        authoritarian.<br /><br />
+        However, I think that even people who are holding normal political
+        positions are just as misinformed, not by alternative media, but by
+        mainstream media. Here are some examples of commonly-held (by most
+        people) beliefs related to politics, which I am quite sure are not based
+        on good evidence:
+        <ol>
+          <li>
+            <b
+              >Prisons deter violent crime. Existence of prisons is giving up a
+              bit of freedom for a lot of safety.</b
+            ><br />Let's rephrase that a bit: &quot;<i
+              >Countries with higher incarceration rate tend to be lower in
+              crime.</i
+            >&quot;<br />Sorry, but the real-world data seems to be strongly
+            against this belief. Country with the highest incarceration rate is
+            the USA, and it is also a country relatively high in violent crime.
+            It probably has higher homicide rate than Somalia, which is, in
+            minds of many, a synonym for a high-crime country. The reasons this
+            myth is not true, even though it may be instinctual to believe that,
+            are actually easy to guess:
+            <ol>
+              <li>
+                Some mentally ill people are not deterred from violent crime by
+                the existence of prisons, but are actually provoked by it.
+              </li>
+              <li>
+                Violent criminals are abused in prison by other prisoners, and
+                leave the prison even more dangerous (with more psychological
+                problems) than when they entered it.
+              </li>
+              <li>
+                Putting petty-criminals into prisons produces the unintended
+                <i>learn from the best</i> effect.
+              </li>
+            </ol>
+            I seriously doubt it has to do with other factors: the USA has
+            relatively high GDP per capita, which seems to be the best predictor
+            of lack of violent crime.<br />
+            It is weird to me that almost everybody, left-wing or right-wing,
+            who is not an anarchist, believes that.
+          </li>
+          <li>
+            <b
+              >Shutting down all non-essential business during a pandemic makes
+              people stay home.</b
+            ><br />
+            Sorry, but the real-world data does not quite support that idea.
+            Deaths from traffic accidents increased in 2020 compared to 2019,
+            rather than decreasing. Data from mobile phones tells a similar
+            story. A pandemic is not just a germ, it is also a mass hysteria,
+            and seemingly-nonsensible (in minds of the many) policies such as
+            shutting down most business fuel that hysteria. You can perhaps
+            claim lockdowns worked because people spent less time indoors, that
+            those statistics are somehow misleading (that people were speeding
+            while driving, offsetting the effect of there being fewer people on
+            the road, that data from mobile phones is being misinterpreted...),
+            but I see no reason to think those more-complicated explanations are
+            true.
+          </li>
+          <li>
+            <b
+              >Non-pharmaceutical interventions during a pandemic, such as
+              lockdowns and mandatory mask wearing, are effective at leading to
+              fewer people dying from the pandemic.</b
+            ><br />
+            While there are indeed exceptions, such as Australia having strong
+            lockdowns and low deaths from COVID-19, or Florida having little
+            non-pharmaceutical interventions and having high number of people
+            dying from COVID-19 compared to other US states, non-pharmaceutical
+            interventions are generally associated with higher deaths from
+            COVID-19, rather than lower. Peru had one of the strictest (if not
+            the strictest) lockdowns in the world, yet it also had the highest
+            number of deaths from COVID-19 in the world. This is especially
+            visible in Europe. Scandianvian countries such as Sweden generally
+            responded to pandemic by ignoring it, and they had the lowest excess
+            mortality in 2020: Sweden had excess mortality of 1.5%, and other
+            Scandinavian countries mostly had negative excess mortality. On the
+            other hand, other European countries had significantly higher excess
+            mortality (Croatia had 17% excess mortality, significantly higher
+            than the US, which has 11% excess mortality), in spite of trying all
+            kinds of non-pharmaceutical interventions.<br />
+            People who are not anarchists generally respond by saying something
+            along the lines of &quot;<i
+              >Well, this is like saying statin causes high cholesterol because
+              people who took statins had high cholesterol. Countries that used
+              lockdowns had higher rates of COVID-19 to begin with. You need to
+              adjust for other factors.</i
+            >&quot;. The problem with that response is that adjusting for other
+            factors, if anything, makes it look more like non-pharmaceutical
+            interventions are counter-productive, rather than less:
+            <ol>
+              <li>
+                <b
+                  >You need to adjust for life-expectancy, as COVID-19 almost
+                  exclusively kills the elderly, so countries with more elderly
+                  people will naturally have higher mortality from COVID-19.</b
+                >
+                Once again, just eye-balling the data makes it obvious this is
+                not true: Scandinavian countries have significantly higher life
+                expectancy than Eastern European countries (that were hit by the
+                pandemic the most).
+              </li>
+              <li>
+                <b
+                  >You need to adjust for the distance from the equator,
+                  countries closer to the equator will naturally have lower
+                  COVID-19 deaths because of the sun killing the virus.</b
+                >
+                Once again, just eye-balling the data makes it obvious this is
+                not the case: Scandinavian countries, which had the lowest
+                excess mortality, are the most distant from the equator of all
+                Europe. Peru is also close to the equator.
+              </li>
+            </ol>
+            Some ways non-pharmaceutical interventions can end up being
+            counter-productive include:
+            <ol>
+              <li>
+                Lockdowns fueling the hysteria (people buying unreasonable
+                amounts of everyday products leading to shortages and more
+                crowded stores) and the protests.
+              </li>
+              <li>
+                Consider what dr. Anthony Fauci said at the beginning of the
+                pandemic, before changing his stance (arguably for political,
+                rather than scientific, reasons):
+                <i
+                  >Masks, while they do provide some protection, they do not
+                  provide the protection people think they provide. And
+                  considering that people who are not trained to wear masks tend
+                  to often touch their masks if wearing them, and thus
+                  contaminating them, masks may even be counter-productive</i
+                >. And, indeed, with the exception of Italy (where it may very
+                well be a coincidence), mask mandates were not followed by an
+                obvious slowing-down of the pandemic.
+              </li>
+            </ol>
+            It is amazing to me almost everybody agrees non-pharmaceutical
+            interventions lead to fewer deaths, and that the disagreement seems
+            to be only about whether it is worth the economic damages.
+          </li>
+          <li>
+            <b
+              >Forced vaccinations against COVID-19 protect the
+              immuno-compromised for whom vaccines do not work, because
+              vaccinated are a lot less likely to spread COVID-19.</b
+            ><br />
+            Sorry, the data seems to be strongly against this. Countries with
+            higher vaccination rate mostly have more COVID-19 cases, rather than
+            less (Chile, Israel...). While vaccines do indeed decrease the
+            spread of COVID-19 by around 45%, and provide some small protection
+            (maybe 13%, if the Israeli data is anything to judge by) against
+            infection, those protections are more than offset by the changes in
+            behavior. Most people vaccinated against COVID-19 do not realize
+            they are only slightly less likely to spread COVID-19, and are
+            behaving as if they cannot spread it.
+          </li>
+          <li>
+            <b
+              >Vaccine hesitancy will likely lead to emergence of
+              vaccine-resistant variants of COVID-19, evolving in unvaccinated.
+              That justifies forced vaccination against COVID-19.</b
+            ><br />
+            Sorry, that is just nonsense, for two reasons:
+            <ol>
+              <li>
+                Viruses that have the ability to shut down the immune system
+                before it has a chance to act (as to be resistant to
+                vaccination) are incredibly rare. As far as I know, there are
+                only three of them: HIV, SIV (a virus closely related to HIV
+                existing in monkeys) and Marek's Disease (a cancer-causing virus
+                in chicken, distantly related to the chickenpox virus).
+              </li>
+              <li>
+                Even if there is a simple mutation to COVID-19 which would
+                enable it to shut down the immune system before it has a chance
+                to act (which is, again, incredibly unlikely), everybody being
+                vaccinated would select <i>for</i> the strains with that
+                mutation, rather than <i>against</i> strains with that mutation.
+                Which is what happened with the Marek's Disease in chicken: it
+                has evolved the ability to shut down the immune system and thus
+                be vaccine-resistant in the last 50 years, pressured into doing
+                so by almost all chickens being vaccinated against it.
+              </li>
+            </ol>
+            And I think media saying stuff like that is responsible for the
+            current suicide pandemic. Claiming without evidence that COVID-19 is
+            likely to evolve to be resistant to vaccination (when, in reality,
+            that is a very unlikely nightmare scenario) is irresponsible.
+          </li>
+          <li>
+            <b
+              >Agriculture subsidies help the farmers and make food less
+              expensive.</b
+            ><br />
+            Sorry, but nearly all economists agree they, in the long run, make
+            food more expensive by increasing the price of arable land, as well
+            as making agricultural machinery more expensive.
+          </li>
+          <li>
+            <b
+              >It is possible for the government to control the language, by
+              making it more pure or adding new pronouns.</b
+            ><br />
+            If you really believe that, I have a challenge for you: Make a
+            computer model implementing how you think languages evolve, and then
+            test it against real-world historical data. You may be surprised how
+            poorly it performs. I have done that, testing the algorithm in
+            <a href="etymologist.html">Etymology Game</a>, and I was surprised
+            by how poorly it performs. And, even before that, I was not arrogant
+            enough to think I have an idea for a linguistic policy that ought to
+            be implemented. If you cannot predict how a language will behave,
+            you obviously cannot usefully control it either.
+          </li>
+        </ol>
+        I think this was enough examples to see how mainstream political
+        ideologies are at odds with the empirical data quite a lot of times,
+        perhaps just as much as Neo-Nazism is. Quite often, they are also
+        incoherent, and not just at odds with empirical data. I think most
+        people believe that:
+        <ol>
+          <li>
+            This is not closely related to politics, but it wonderfully
+            illustrates my point:
+            <ol>
+              <li>
+                <b
+                  >The omega-3-acid ALA, found in many plants, is not effective
+                  at preventing heart attacks, only DHA (found in fish and
+                  algae) is, because human body is not good at using ALA.</b
+                >
+              </li>
+              <li>
+                <b
+                  >Milk from grass-fed cows protects from heart disease because
+                  of all the omega-3-acids in it</b
+                >
+                (the vast majority of them, of course, being ALA).
+              </li>
+            </ol>
+            While you can plausibly claim one of those, you cannot claim both.
+            In fact, based on the evidence that I have seen, I would say
+            omega-3-acids have no effect whatsoever on heart disease, so both of
+            those claims are false.
+          </li>
+          <li>
+            <ol>
+              <li>
+                <b
+                  >Masks can significantly slow down the spread of the COVID-19
+                  pandemic because it is mostly spread by asymptomatic
+                  people.</b
+                >
+              </li>
+              <li>
+                <b
+                  >Vaccines significantly slow down the spread of the COVID-19
+                  pandemic because people who have no symptoms (vaccinated
+                  people) are unlikely to emit enough droplets to infect
+                  somebody.</b
+                >
+              </li>
+            </ol>
+            While you can plausibly make one of those claims, it should be
+            obvious you cannot claim both. Based on the evidence that I have
+            seen, I would say vaccines are more effective than masks, but that
+            even they can lull people into false sense of security and thus
+            increase the spread.
+          </li>
+        </ol>
+        That is why you should not listen only to the mainstream media, but try
+        to get a deeper insight into political issues. If you listen only to the
+        mainstream media, you will be duped into believing false and sometimes
+        even incoherent things. I hope I am helping you with getting a deeper
+        insight into political issues.
+      </div>
+    </main>
+    <footer>
+      <div style="width: 25%; float: right; text-align: left; bottom: 30px">
+        Choose the style:
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main1')"
+          >[1]</a
+        >
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main2')"
+          >[2]</a
+        >
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main3')"
+          >[3]</a
+        >
+      </div>
+      Uploaded by Teo Samarzija on 13/09/2021
+      <svg
+        id="donjiLijevi"
+        style="float: left; width: 25%; height: 100%; background: white"
+      ></svg>
+      <script type="text/javascript">
+        if (navigator.appName == "Microsoft Internet Explorer") {
+          var niz = document.getElementsByTagName("div");
+          for (var i = 0; i < niz.length; i++) {
+            if (niz[i].className.indexOf("link1") == -1) continue;
+            niz[i].onmouseenter = function () {
+              this.children[0].style.display = "inline";
+            };
+            niz[i].onmouseleave = function () {
+              this.children[0].style.display = "none";
+            };
+          }
+          document.getElementById("glavni").removeAttribute("style");
+        } else if (navigator.appName == "Opera") {
+          document.getElementById("glavni").style.color = "black";
+          document.getElementById("glavni").style.backgroundColor = "white";
+          var gornjiDesni = document.getElementById("gornjiDesni");
+          gornjiDesni.parentNode.removeChild(gornjiDesni);
+        } else if (
+          (((navigator.userAgent.indexOf("Safari") + 1 ||
+            navigator.userAgent.indexOf("WebKit") + 1) &&
+            navigator.userAgent.indexOf("Mobile") + 1 &&
+            (!(navigator.userAgent.indexOf("Chrome") + 1) ||
+              (navigator.userAgent.indexOf("Version") + 1 &&
+                navigator.userAgent.indexOf("Chrome") + 1))) ||
+            (navigator.userAgent.indexOf("Mobile") + 1 &&
+              navigator.userAgent.indexOf("Gecko") + 1 &&
+              !(navigator.userAgent.indexOf("like Gecko") + 1) &&
+              !(navigator.userAgent.indexOf("Dolfin") + 1))) &&
+          !(navigator.userAgent.indexOf("iPad") + 1) &&
+          !(navigator.userAgent.indexOf("iPhone") + 1)
+        )
+          document.getElementById("glavni").style.fontSize = "36px";
+        else if (navigator.userAgent.indexOf("Mobi") + 1) {
+          document.head.innerHTML +=
+            '<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">';
+          var niz = document.getElementsByTagName("svg");
+          for (var i = 0; i < niz.length; i++)
+            if (niz[i].id != "polarRose") niz[i].style.display = "none";
+          document.getElementsByTagName("aside")[0].style.display = "none";
+          document.getElementsByTagName("aside")[0].style.float = "none";
+          document.getElementsByTagName("aside")[0].style.width = "100%";
+          document.getElementsByTagName("aside")[0].style.height = "auto";
+          niz = document.getElementsByClassName("popup");
+          for (var i = 0; i < niz.length; i++) {
+            niz[i].style.width = "50%";
+            niz[i].style.left = "45%";
+            niz[i].style.maxWidth = "none";
+          }
+          document.getElementsByTagName("section")[0].style.height = "auto";
+          document.getElementsByTagName("section")[0].style.float = "none";
+          document.getElementsByTagName("section")[0].style.width = "100%";
+          document.getElementsByTagName("header")[0].style.height = "auto";
+          document.getElementsByTagName("header")[0].style.lineHeight =
+            "normal";
+          document.getElementsByTagName("main")[0].style.width = "100%";
+          document.getElementsByTagName("footer")[0].children[0].style.display =
+            "inline";
+          document.getElementsByTagName("footer")[0].children[0].style.float =
+            "none";
+          document.getElementsByTagName("footer")[0].children[0].innerHTML +=
+            "<br/><br/>";
+          document.getElementsByTagName("footer")[0].style.height = "auto";
+          document.getElementsByTagName("footer")[0].style.lineHeight =
+            "normal";
+          document.getElementsByTagName("header")[0].outerHTML +=
+            '<button id="showNavigation" style="width:100%;line-height:36px;height:41px;">Show navigation<\/button>';
+          document.getElementById("showNavigation").onclick = function () {
+            if (
+              document.getElementsByTagName("aside")[0].style.display == "none"
+            ) {
+              this.innerHTML = "Hide navigation";
+              document.getElementsByTagName("aside")[0].style.display = "block";
+            } else {
+              this.innerHTML = "Show navigation";
+              document.getElementsByTagName("aside")[0].style.display = "none";
+            }
+          };
+          //window.setTimeout(function(){document.body.removeChild(document.body.children[document.body.children.length-1]);},1000);
+        }
+        function footerScript() {
+          var crtanje = document.getElementById("donjiLijevi");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          var visina = crtanje.clientHeight;
+          var sirina = crtanje.clientWidth;
+          if (!visina || !sirina) {
+            visina = crtanje.parentNode.clientHeight;
+            sirina = crtanje.parentNode.clientWidth / 4;
+          }
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (270 + i * 3) / 57.3;
+            var kut2 = (274 + i * 3) / 57.3;
+            var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+            var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+            var y1 = -Math.round(Math.sin(kut1) * visina);
+            var y2 = -Math.round(Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0"
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(170," +
+                Math.round(255 - i * 2.83) +
+                "," +
+                Math.min(Math.round(170 + i * 4), 255) +
+                ")"
+            );
+            crtanje.appendChild(trokut);
+          }
+        }
+        footerScript();
+        window.addEventListener("resize", footerScript);
+      </script>
+    </footer>
+  </body>
+</html>
