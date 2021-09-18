@@ -47,30 +47,44 @@
    <span class="LineNumber">4</span> 
    <span class="LineNumber">5</span> #target WASI <span class="Comment">// Will make the JavaScript tester shorter.
    <span class="LineNumber">6</span> </span>
-   <span class="LineNumber">7</span> <span class="Keyword">Function</span> strlen<span class="Parenthesis">(</span><span class="Type">CharacterPointer</span> str<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span>
-   <span class="LineNumber">8</span>   <span class="Type">Integer32</span> i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-   <span class="LineNumber">9</span>   <span class="Keyword">While</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>str <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Keyword">Loop</span>
-  <span class="LineNumber">10</span>     i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">11</span>   <span class="Keyword">EndWhile</span>
-  <span class="LineNumber">12</span>   <span class="Keyword">Return</span> i<span class="Keyword">;</span>
-  <span class="LineNumber">13</span> <span class="Keyword">EndFunction</span>
-  <span class="LineNumber">14</span> 
-  <span class="LineNumber">15</span> <span class="Type">CharacterPointer</span> first <span class="Operator">:</span><span class="Operator">=</span> <span class="String">R"(</span>
-  <span class="LineNumber">16</span> <span class="String">"Hello world!"</span>
-  <span class="LineNumber">17</span> <span class="String">)"</span><span class="Operator">,</span>
-  <span class="LineNumber">18</span>                  second <span class="Operator">:</span><span class="Operator">=</span> <span class="String">R"ab(</span>
-  <span class="LineNumber">19</span> <span class="String">"Hello world!"</span>
-  <span class="LineNumber">20</span> <span class="String">)ab"</span><span class="Operator">,</span>
-  <span class="LineNumber">21</span>                  third <span class="Operator">:</span><span class="Operator">=</span> <span class="String">R"a(</span>
-  <span class="LineNumber">22</span> <span class="String">"Hello world!"</span>
-  <span class="LineNumber">23</span> <span class="String">)a"</span><span class="Keyword">;</span>
-  <span class="LineNumber">24</span> 
-  <span class="LineNumber">25</span> <span class="Comment">//Should return 1
-  <span class="LineNumber">26</span> </span><span class="Keyword">Function</span> multiLineStringTest<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span>
-  <span class="LineNumber">27</span>   <span class="Keyword">Return</span> strlen<span class="Parenthesis">(</span>first<span class="Parenthesis">)</span><span class="Operator">=</span>strlen<span class="Parenthesis">(</span>second<span class="Parenthesis">)</span> <span class="Operator">and</span> strlen<span class="Parenthesis">(</span>second<span class="Parenthesis">)</span><span class="Operator">=</span>strlen<span class="Parenthesis">(</span>third<span class="Parenthesis">)</span> 
-  <span class="LineNumber">28</span>          <span class="Operator">and</span> strlen<span class="Parenthesis">(</span>third<span class="Parenthesis">)</span><span class="Operator">=</span>strlen<span class="Parenthesis">(</span><span class="String">"<b>\<i>"</i></b>Hello world!<b>\<i>"</i></b>"</span><span class="Parenthesis">)</span><span class="Operator">+</span><span class="Constant">2</span><span class="Keyword">;</span>
-  <span class="LineNumber">29</span> <span class="Keyword">EndFunction</span>
-  <span class="LineNumber">30</span> 
+   <span class="LineNumber">7</span> <span class="Keyword">Function</span> strlen<span class="Parenthesis">(</span><span class="Type">CharacterPointer</span> str<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Is</span> <span class="Keyword">Declared</span><span class="Keyword">;</span>
+   <span class="LineNumber">8</span> 
+   <span class="LineNumber">9</span> <span class="Comment">// Let's insert the assembly code produced by EMSCRIPTEN as multiline string.
+  <span class="LineNumber">10</span> </span><span class="Keyword">asm</span><span class="Parenthesis">(</span><span class="String">R"abc(</span>
+  <span class="LineNumber">11</span> <span class="String">  (func $strlen (param i32) (result i32)</span>
+  <span class="LineNumber">12</span> <span class="String">    (local i32 i32)</span>
+  <span class="LineNumber">13</span> <span class="String">    i32.const 0</span>
+  <span class="LineNumber">14</span> <span class="String">    local.set 1</span>
+  <span class="LineNumber">15</span> <span class="String">    loop</span>
+  <span class="LineNumber">16</span> <span class="String">      local.get 1</span>
+  <span class="LineNumber">17</span> <span class="String">      local.tee 2</span>
+  <span class="LineNumber">18</span> <span class="String">      i32.const 1</span>
+  <span class="LineNumber">19</span> <span class="String">      i32.add</span>
+  <span class="LineNumber">20</span> <span class="String">      local.set 1</span>
+  <span class="LineNumber">21</span> <span class="String">      local.get 0</span>
+  <span class="LineNumber">22</span> <span class="String">      local.get 2</span>
+  <span class="LineNumber">23</span> <span class="String">      i32.add</span>
+  <span class="LineNumber">24</span> <span class="String">      i32.load8_u</span>
+  <span class="LineNumber">25</span> <span class="String">      br_if 0</span>
+  <span class="LineNumber">26</span> <span class="String">    end</span>
+  <span class="LineNumber">27</span> <span class="String">    local.get 2)</span>
+  <span class="LineNumber">28</span> <span class="String">)abc"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">29</span> 
+  <span class="LineNumber">30</span> <span class="Type">CharacterPointer</span> first <span class="Operator">:</span><span class="Operator">=</span> <span class="String">R"(</span>
+  <span class="LineNumber">31</span> <span class="String">"Hello world!"</span>
+  <span class="LineNumber">32</span> <span class="String">)"</span><span class="Operator">,</span>
+  <span class="LineNumber">33</span>                  second <span class="Operator">:</span><span class="Operator">=</span> <span class="String">R"ab(</span>
+  <span class="LineNumber">34</span> <span class="String">"Hello world!"</span>
+  <span class="LineNumber">35</span> <span class="String">)ab"</span><span class="Operator">,</span>
+  <span class="LineNumber">36</span>                  third <span class="Operator">:</span><span class="Operator">=</span> <span class="String">R"a(</span>
+  <span class="LineNumber">37</span> <span class="String">"Hello world!"</span>
+  <span class="LineNumber">38</span> <span class="String">)a"</span><span class="Keyword">;</span>
+  <span class="LineNumber">39</span> 
+  <span class="LineNumber">40</span> <span class="Comment">//Should return 1
+  <span class="LineNumber">41</span> </span><span class="Keyword">Function</span> multiLineStringTest<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span>
+  <span class="LineNumber">42</span>   <span class="Keyword">Return</span> strlen<span class="Parenthesis">(</span>first<span class="Parenthesis">)</span><span class="Operator">=</span>strlen<span class="Parenthesis">(</span>second<span class="Parenthesis">)</span> <span class="Operator">and</span> strlen<span class="Parenthesis">(</span>second<span class="Parenthesis">)</span><span class="Operator">=</span>strlen<span class="Parenthesis">(</span>third<span class="Parenthesis">)</span> 
+  <span class="LineNumber">43</span>          <span class="Operator">and</span> strlen<span class="Parenthesis">(</span>third<span class="Parenthesis">)</span><span class="Operator">=</span>strlen<span class="Parenthesis">(</span><span class="String">"<b>\<i>"</i></b>Hello world!<b>\<i>"</i></b>"</span><span class="Parenthesis">)</span><span class="Operator">+</span><span class="Constant">2</span><span class="Keyword">;</span>
+  <span class="LineNumber">44</span> <span class="Keyword">EndFunction</span>
 </pre>
 </body>
 </html>
