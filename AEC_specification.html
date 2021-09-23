@@ -1288,19 +1288,19 @@ node analogClock
         <a href="multiLineStringTest.aec.html">Multi-line String Test</a>:
         <pre>
 CharacterPointer first := R"(
-"Hello world!"
+\"Hello world!"\
 )",
                  second := R"ab(
-"Hello world!"
+\"Hello world!"\
 )ab",
                  third := R"a(
-"Hello world!"
+\"Hello world!"\
 )a";
 
 //Should return 1
 Function multiLineStringTest() Which Returns Integer32 Does
-  Return strlen(first)=strlen(second) and strlen(second)=strlen(third) 
-         and strlen(third)=strlen("\"Hello world!\"")+2;
+  Return strlen(first) = strlen(second) and strlen(second) = strlen(third)
+         and strlen(third) = strlen("\\\"Hello world!\"\\") + 2;
 EndFunction</pre
         >
         The support for multi-line strings will probably never be added to the
@@ -1329,6 +1329,12 @@ EndFunction</pre
         AEC-to-WebAssembly compiler, written in C++, more legible. Parser tests
         and large chunks of assembly code are written as multi-line strings
         there, and I think rightly so.<br />
+        <b>UPDATE</b> on 23/09/2021: Until the version
+        <span class="inline_code">v2.1.2</span> (not released as of the time of
+        writing this, but it can be built from source), there was a bug in the
+        tokenizer preventing multi-line strings consisting exclusively of the
+        <span class="inline_code">\</span> characters from being tokenized
+        correctly.<br />
         <br /><b id="Variables">Variable declarations</b><br />
         In the version of AEC targeting x86, there are no variable declarations
         in the language itself, the compiler simply assumes any token that
@@ -1875,7 +1881,7 @@ Function gcd(Integer32 a, Integer32 b) Which Returns Integer32 Does
 		 *		b := ((a > b) ? (a - b) : (b - a));
 		 *		// b := b - a;
 		 *	EndIf
-		 *	```	
+		 *	```
 		 */
 	EndWhile
 	Return a;
@@ -2684,6 +2690,7 @@ EndFunction
             return (
               '<span class="String">' +
               token
+                .replace(/\\\\/g, "<b>\\<i>\\</i></b>")
                 .replace(/\\n/g, "<b>\\<i>n</i></b>")
                 .replace(/\\t/g, "<b>\\<i>t</i></b>")
                 .replace(/\\\"/g, '<b>\\<i>"</i></b>') +
@@ -2842,7 +2849,9 @@ EndFunction
             }
             if (
               areWeInAString &&
-              currentToken.charAt(currentToken.length - 1) != "\\" &&
+              (currentToken.charAt(currentToken.length - 1) != "\\" ||
+                (currentToken.charAt(currentToken.length - 2) == "\\" &&
+                  currentToken.charAt(currentToken.length - 3) != "\\")) &&
               sourceCode.substr(i, howTheStringStarted.length) ==
                 howTheStringStarted
             ) {
