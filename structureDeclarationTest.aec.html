@@ -47,7 +47,7 @@
    <span class="LineNumber">4</span>  */</span>
    <span class="LineNumber">5</span> 
    <span class="LineNumber">6</span> <span class="Keyword">Structure</span> Point <span class="Keyword">Consists</span> <span class="Keyword">Of</span> <span class="Parenthesis">{</span>
-   <span class="LineNumber">7</span>   <span class="Type">Integer32</span> dimensions <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">3</span><span class="Keyword">;</span>
+   <span class="LineNumber">7</span>   <span class="Type">Integer16</span> dimensions <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">3</span><span class="Keyword">;</span>
    <span class="LineNumber">8</span>   <span class="Type">Decimal32</span> x<span class="Operator">,</span> y<span class="Operator">,</span> z<span class="Keyword">;</span>
    <span class="LineNumber">9</span> <span class="Parenthesis">}</span>
   <span class="LineNumber">10</span> <span class="Keyword">EndStructure</span><span class="Keyword">;</span>
@@ -62,7 +62,7 @@
   <span class="LineNumber">19</span> <span class="Type">InstantiateStructure</span> String helloWorld<span class="Keyword">;</span>
   <span class="LineNumber">20</span> <span class="Type">Integer32</span> c <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">2</span><span class="Keyword">;</span>
   <span class="LineNumber">21</span> 
-  <span class="LineNumber">22</span> <span class="Keyword">Function</span> foo<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">22</span> <span class="Keyword">Function</span> foo<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer16</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
   <span class="LineNumber">23</span>   <span class="Comment">// Should return 3.
   <span class="LineNumber">24</span> </span>  <span class="Keyword">Return</span> points<span class="Parenthesis">[</span>c<span class="Parenthesis">]</span>.dimensions<span class="Keyword">;</span>
   <span class="LineNumber">25</span> <span class="Parenthesis">}</span>
@@ -115,7 +115,7 @@
   <span class="LineNumber">72</span>   <span class="Type">Integer32</span> outerNumber <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">2</span><span class="Keyword">;</span>
   <span class="LineNumber">73</span>   innerStructure structureWithInnerNumber<span class="Keyword">;</span>
   <span class="LineNumber">74</span>   innerStructure arrayOfInnerStructures<span class="Parenthesis">[</span><span class="Constant">2</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
-  <span class="LineNumber">75</span>   innerStructurePointer structurePointer<span class="Keyword">;</span>
+  <span class="LineNumber">75</span>   <span class="Type">innerStructurePointer</span> <span class="Type">structurePointer</span><span class="Keyword">;</span>
   <span class="LineNumber">76</span> <span class="Parenthesis">}</span>
   <span class="LineNumber">77</span> <span class="Keyword">EndStructure</span><span class="Keyword">;</span>
   <span class="LineNumber">78</span> 
@@ -136,8 +136,8 @@
   <span class="LineNumber">93</span> <span class="Parenthesis">}</span>
   <span class="LineNumber">94</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
   <span class="LineNumber">95</span> 
-  <span class="LineNumber">96</span> <span class="Keyword">Function</span> copyString<span class="Parenthesis">(</span>StringPointer destination<span class="Operator">,</span>
-  <span class="LineNumber">97</span>                     StringPointer source<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">96</span> <span class="Keyword">Function</span> copyString<span class="Parenthesis">(</span><span class="Type">StringPointer</span> destination<span class="Operator">,</span>
+  <span class="LineNumber">97</span>                     <span class="Type">StringPointer</span> source<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
   <span class="LineNumber">98</span>   <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>destination<span class="Parenthesis">)</span>.length <span class="Operator">:</span> <span class="Operator">=</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>source<span class="Parenthesis">)</span>.length<span class="Keyword">;</span>
   <span class="LineNumber">99</span>   <span class="Type">Integer32</span> i <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
  <span class="LineNumber">100</span>   <span class="Keyword">While</span> i <span class="Operator">&lt;</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>source<span class="Parenthesis">)</span>.length <span class="Keyword">Loop</span> <span class="Parenthesis">{</span>
@@ -161,7 +161,7 @@
  <span class="LineNumber">118</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
  <span class="LineNumber">119</span> 
  <span class="LineNumber">120</span> <span class="Keyword">Structure</span> ListNode <span class="Keyword">Consists</span> <span class="Keyword">Of</span> <span class="Parenthesis">{</span>
- <span class="LineNumber">121</span>   ListNodePointer next<span class="Keyword">;</span>
+ <span class="LineNumber">121</span>   <span class="Type">ListNodePointer</span> next<span class="Keyword">;</span>
  <span class="LineNumber">122</span>   <span class="Type">Integer32</span> value<span class="Keyword">;</span>
  <span class="LineNumber">123</span> <span class="Parenthesis">}</span>
  <span class="LineNumber">124</span> <span class="Keyword">EndStructure</span><span class="Keyword">;</span>
@@ -178,7 +178,7 @@
  <span class="LineNumber">135</span>   list<span class="Parenthesis">[</span><span class="Constant">1</span><span class="Parenthesis">]</span>.next <span class="Operator">:</span> <span class="Operator">=</span> <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>list<span class="Parenthesis">[</span><span class="Constant">2</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">136</span>   list<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span> <span class="Operator">:</span> <span class="Operator">=</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>list<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span>.next<span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">137</span>   <span class="Type">CharacterPointer</span> pointer <span class="Operator">:</span> <span class="Operator">=</span> <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>list<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">138</span>   <span class="Keyword">Return</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>ListNodePointer<span class="Parenthesis">(</span>pointer<span class="Parenthesis">)</span><span class="Parenthesis">)</span>.value<span class="Keyword">;</span>
+ <span class="LineNumber">138</span>   <span class="Keyword">Return</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span><span class="Type">ListNodePointer</span><span class="Parenthesis">(</span>pointer<span class="Parenthesis">)</span><span class="Parenthesis">)</span>.value<span class="Keyword">;</span>
  <span class="LineNumber">139</span> <span class="Parenthesis">}</span>
  <span class="LineNumber">140</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
  <span class="LineNumber">141</span> 
@@ -186,11 +186,11 @@
  <span class="LineNumber">143</span>   <span class="Comment">// Should return 1.
  <span class="LineNumber">144</span> </span>  <span class="Keyword">Return</span><span class="Parenthesis">(</span><span class="Operator">SizeOf</span><span class="Parenthesis">(</span>outerStructure<span class="Parenthesis">)</span> <span class="Operator">=</span> <span class="Operator">SizeOf</span><span class="Parenthesis">(</span><span class="Type">Integer32</span><span class="Parenthesis">)</span> <span class="Operator">+</span>
  <span class="LineNumber">145</span>                                   <span class="Constant">3</span> <span class="Operator">*</span> <span class="Operator">SizeOf</span><span class="Parenthesis">(</span>innerStructure<span class="Parenthesis">)</span> <span class="Operator">+</span>
- <span class="LineNumber">146</span>                                   <span class="Operator">SizeOf</span><span class="Parenthesis">(</span>innerStructurePointer<span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">146</span>                                   <span class="Operator">SizeOf</span><span class="Parenthesis">(</span><span class="Type">innerStructurePointer</span><span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">147</span> <span class="Parenthesis">}</span>
  <span class="LineNumber">148</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
  <span class="LineNumber">149</span> 
- <span class="LineNumber">150</span> ListNodePointer globalStructurePointer<span class="Operator">,</span> globalStructurePointerArray<span class="Parenthesis">[</span><span class="Constant">2</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
+ <span class="LineNumber">150</span> <span class="Type">ListNodePointer</span> <span class="Type">globalStructurePointer</span><span class="Operator">,</span> globalStructurePointerArray<span class="Parenthesis">[</span><span class="Constant">2</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
  <span class="LineNumber">151</span> 
  <span class="LineNumber">152</span> <span class="Keyword">Function</span> arrow<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
  <span class="LineNumber">153</span>   <span class="Comment">// Should return 2.
@@ -198,7 +198,7 @@
  <span class="LineNumber">155</span>   node<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span>.value <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
  <span class="LineNumber">156</span>   node<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span>.next <span class="Operator">:</span> <span class="Operator">=</span> <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>node<span class="Parenthesis">[</span><span class="Constant">1</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">157</span>   node<span class="Parenthesis">[</span><span class="Constant">1</span><span class="Parenthesis">]</span>.value <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">2</span><span class="Keyword">;</span>
- <span class="LineNumber">158</span>   ListNodePointer ptr <span class="Operator">:</span> <span class="Operator">=</span> <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>node<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Operator">,</span> localPointerArray<span class="Parenthesis">[</span><span class="Constant">2</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
+ <span class="LineNumber">158</span>   <span class="Type">ListNodePointer</span> ptr <span class="Operator">:</span> <span class="Operator">=</span> <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>node<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Operator">,</span> localPointerArray<span class="Parenthesis">[</span><span class="Constant">2</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
  <span class="LineNumber">159</span>   ptr <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
  <span class="LineNumber">160</span>   <span class="Keyword">Return</span><span class="Parenthesis">(</span>ptr<span class="Operator">-</span><span class="Operator">&gt;</span>value<span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">161</span> <span class="Parenthesis">}</span>
