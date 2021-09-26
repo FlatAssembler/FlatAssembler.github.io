@@ -1,33 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Huffman Encoding in JavaScript</title>
-        <script src="huffman.js"></script>
-        <style>
-            table,th,td {
-                border:1px black solid;
-            }
-        </style>
-    </head>
-    <body>
-        Enter the string here:<br/>
-        <input type="text" id="input" value="TEO SAMARZIJA"/>
-        <button onclick="onButtonClick()">Encode!</button><br/>
-        Specify the base:
-        <input type="radio" id="binary" name="base" value="binary" checked>
-        <label for="binary">binary</label>
-        <input type="radio" id="ternary" name="base" value="ternary">
-        <label for="ternary">ternary</label><br/>
-        The Huffman encoded string is: <span id="output" style="font-family:monospace"></span><br/>
-        <span id="diagramSpan" style="display:block; width:100%; height:50%; overflow:scroll">
-            <svg id="tree">
-            </svg>
-        </span><br/>
-        <table id="table"></table><br/>
-        The average length of a symbol in the Huffman code is <span id="avgLength">0</span> bits.<br/>
-        The average length of a symbol in the equal-length code is <span id="bitsInEqualCode">0</span> bits.<br/>
-        The entropy of the input string is <span id="entropy">0</span> bits.<br/>
-        <br/>
-        If you are interested in this, perhaps you might want to read the <a href="huffman.pdf">paper</a> I've written in Croatian about it.
-    </body>
+  <head>
+    <title>Huffman Encoding in JavaScript</title>
+    <script src="huffman.js"></script>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px black solid;
+      }
+    </style>
+  </head>
+  <body>
+    Enter the string here:<br />
+    <input type="text" id="input" value="TEO SAMARZIJA" />
+    <button onclick="onButtonClick()">Encode!</button><br />
+    Specify the base:
+    <input type="radio" id="binary" name="base" value="binary" checked />
+    <label for="binary">binary</label>
+    <input type="radio" id="ternary" name="base" value="ternary" />
+    <label for="ternary">ternary</label><br />
+    The Huffman encoded string is:
+    <span id="output" style="font-family: monospace"></span><br />
+    <span
+      id="diagramSpan"
+      style="display: block; width: 100%; height: 50%; overflow: scroll"
+    >
+      <svg id="tree"></svg> </span
+    ><br />
+    <table id="table"></table>
+    <br />
+    The average length of a symbol in the Huffman code is
+    <span id="avgLength">0</span> bits.<br />
+    The average length of a symbol in the equal-length code is
+    <span id="bitsInEqualCode">0</span> bits.<br />
+    The entropy of the input string is <span id="entropy">0</span> bits.<br />
+    The collision entropy of the input string is
+    <span id="collision_entropy">0</span> bits.<br />
+    <br />
+    If you are interested in this, perhaps you might want to read the
+    <a href="huffman.pdf">paper</a> I've written in Croatian about it.
+  </body>
 </html>

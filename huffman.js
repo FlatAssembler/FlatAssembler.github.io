@@ -21,7 +21,7 @@ function onButtonClick() {
       letters[inputString[i]] = {
         frequency: 0,
         hasBeenUsed: false,
-        childrenNodes: [],
+        childrenNodes: []
       };
     }
     letters[inputString[i]].frequency++;
@@ -204,6 +204,14 @@ function onButtonClick() {
     (ternary ? Math.log2(3) : 1) * bitsInEqualCode;
   console.log("The entropy of the input string is: " + entropy + " bits.");
   document.getElementById("entropy").innerHTML = entropy;
+  let howManyCollisions = 0;
+  for (let i = 0; i < inputString.length; i++)
+    for (let j = 0; j < inputString.length; j++)
+      if (inputString[i] == inputString[j]) howManyCollisions++;
+  let collision_entropy =
+    -Math.log(howManyCollisions / (inputString.length * inputString.length)) /
+    (ternary ? Math.log(3) : Math.log(2));
+  document.getElementById("collision_entropy").innerHTML = collision_entropy;
   console.log(
     "The efficiency of the Huffman code is: " + entropy / averageSymbolLength
   );
