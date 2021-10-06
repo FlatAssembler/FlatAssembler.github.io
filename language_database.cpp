@@ -222,7 +222,7 @@ SELECT language1.language_name AS
             language1.language_name=languages.parent_language and
             language1.language_family<>languages.language_family;
 
-UPDATE names_of_numbers SET comment='It is amazing to me that the Proto-Sino-Tibetan word for the number 8 was "ktiriuk", when, in nearly all modern Sino-Tibetan languages, the word for number eight starts with either "p" or "b".' WHERE language_name='Proto-Sino-Tibetan' and value=8;
+UPDATE names_of_numbers SET comment='It is amazing to me that the Proto-Sino-Tibetan word for the number 8 was "triat", when, in nearly all modern Sino-Tibetan languages, the word for number eight starts with either "p" or "b".' WHERE language_name='Proto-Sino-Tibetan' and value=8;
 UPDATE names_of_numbers SET comment='The Etruscan word for the number 8, "kezp", is usually considered to be compound from "ki" (three) and "zep" (hand), to mean "three plus the number of fingers on one hand".' WHERE language_name='Etruscan' and value=8;
 UPDATE names_of_numbers SET comment='Some amazing sound changes visible here...' WHERE language_name='Armenian' and value=2;
 UPDATE names_of_numbers, languages SET comment='Innovation in the Anatolian branch...' WHERE value=4 and word like 'm%' and languages.language_name=names_of_numbers.language_name and languages.language_family='Indo-European';
@@ -245,6 +245,20 @@ SELECT 100.*COUNT(DISTINCT names_of_numbers.language_name)/variables.value
 	WHERE variables.variable_name='Number of Indo-European languages' and numbers1.language_name=names_of_numbers.language_name
 		 and names_of_numbers.language_name=languages.language_name and languages.language_family='Indo-European' and
 		 substr(numbers1.word,1,1)=substr(names_of_numbers.word,1,1) and numbers1.value=2 and names_of_numbers.value=10;
+
+SELECT 100. * COUNT (DISTINCT names_of_numbers.language_name) / (SELECT value FROM variables WHERE variable_name = 'Number of languages')
+	AS "Percentage of languages in which the words for three and eight start with the same letter (as in Etruscan, where 'eight' means 'three plus hand')."
+	FROM (names_of_numbers as numbers1), names_of_numbers
+	WHERE numbers1.language_name=names_of_numbers.language_name and
+		substr(numbers1.word,1,1)=substr(names_of_numbers.word,1,1) and
+		numbers1.value=3 and names_of_numbers.value=8;
+
+SELECT 100. * COUNT (DISTINCT names_of_numbers.language_name) / (SELECT value FROM variables WHERE variable_name = 'Number of languages')
+	AS "Percentage of languages in which the words for two and eight start with the same letter (the opposite of Etruscan, so that 'eight' is 'two to ten')."
+	FROM (names_of_numbers as numbers1), names_of_numbers
+	WHERE numbers1.language_name=names_of_numbers.language_name and
+		substr(numbers1.word,1,1)=substr(names_of_numbers.word,1,1) and
+		numbers1.value=2 and names_of_numbers.value=8;
 
 SELECT 100.*COUNT(DISTINCT names_of_numbers.language_name)/variables.value
 	AS "Percentage of languages in which the words for 6 and 7 start with the same letter."
