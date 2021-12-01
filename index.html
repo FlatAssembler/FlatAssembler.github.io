@@ -651,6 +651,59 @@
         banned from 000webhost for hate speech. I don't think anything I posted
         there objectively qualifies as hate speech (yet alone my whole site), so
         I'll host it somewhere else.
+        <br />
+        <br />
+        UPDATE on 01/12/2021: I am suffering from mental health issues (a
+        psychotic disorder), which is why I have not been active neither on this
+        blog nor on the forums for quite some time (my hands have usually been
+        shaking too much for me to type longer sentences on a computer, and I
+        could not concentrate on doing that either). If you are going to
+        <a href="javascript:void(0)" onclick="sendMail('Teo')">contact me</a>,
+        please try not to disturb me.
+        <script>
+          //Copied from: https://flatassembler.github.io/compiler
+          //I have written that many years ago...
+          function sendMail(whom) {
+            var sifrirano;
+            if (whom == "Tomasz")
+              sifrirano = [
+                6, 2, 36, 28, 1, 42, 17, 21, 23, 50, 54, 9, 21, 17, 19, 35, 17,
+                22, 8, 16, 60, 0, 6, 75, 28, 53, 17
+              ];
+            else if (whom == "Teo")
+              sifrirano = [
+                27, 0, 36, 75, 1, 49, 8, 21, 23, 8, 57, 15, 21, 37, 21, 61, 29,
+                4, 9, 92, 51, 10, 25
+              ];
+            var tmp = sifrirano[0];
+            sifrirano[0] = sifrirano[2];
+            sifrirano[2] = tmp;
+            tmp = sifrirano[17];
+            sifrirano[17] = sifrirano[16];
+            sifrirano[16] = tmp;
+            var hash2;
+            if (whom == "Teo") hash2 = 554;
+            else if (whom == "Tomasz") hash2 = 603;
+            var kljuc = prompt(
+              "Spambot protection problem: What is the name of the fictional character who had a spell casted on him so that he couldn't grow up, and he had to fight against the pirates? His nickname is 'Pan'.",
+              "His name without 'Pan'."
+            );
+            var desifrirano = [];
+            for (var i = 0; i < sifrirano.length; i++)
+              desifrirano.push(
+                sifrirano[i] ^ kljuc.charCodeAt(i % kljuc.length)
+              );
+            var hash1 = 0;
+            for (var i = 0; i < desifrirano.length; i++)
+              hash1 = (hash1 * 128 + desifrirano[i]) % 907;
+            if (hash1 == hash2) {
+              var email = "";
+              for (var i = 0; i < desifrirano.length; i++)
+                email += String.fromCharCode(desifrirano[i]);
+              window.location.assign("mailto:" + email);
+            } else alert("Unfortunately, you didn't give the expected answer.");
+          }
+        </script>
       </div>
     </main>
     <footer>
