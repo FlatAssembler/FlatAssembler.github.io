@@ -1104,10 +1104,11 @@ CSS - https://www.w3schools.com/css/default.asp
       function animationLoop() {
         brojacAnimacijskePetlje++;
         if (brojacAnimacijskePetlje >= 6) {
-             mainLoop();
-             return;
+            mainLoop();
+            return;
         }
-        if (brojacGlavnePetlje < 2) return; //Ne pokusavaj animirati PacMana i duhove ako jos nisu nacrtani.
+        if (brojacGlavnePetlje < 2)
+            return; //Ne pokusavaj animirati PacMana i duhove ako jos nisu nacrtani.
         if (brojacAnimacijskePetlje >= 5)
             mainLoop();
         for (var i = 0; i < 3; i++) {
