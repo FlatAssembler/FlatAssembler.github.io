@@ -83,7 +83,7 @@ table {
 }
 table,
 td,
-tr {
+tr,th {
   border-style: solid;
   border-collapse: collapse;
   border-width: 1px;
