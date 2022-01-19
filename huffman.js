@@ -30,7 +30,7 @@ function onButtonClick() {
     numberOfDistinctLetters = 0;
   for (let i in letters) {
     letters[i].probability = letters[i].frequency / inputString.length;
-    entropy -= letters[i].probability * Math.log2(letters[i].probability);
+    entropy -= letters[i].probability * (ternary ? Math.log(letters[i].probability)/Math.log(3) : Math.log2(letters[i].probability));
     numberOfDistinctLetters++;
   }
   let bitsInEqualCode = Math.ceil(
