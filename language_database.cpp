@@ -94,7 +94,7 @@ Albanian Indo-European Proto-Indo-European nji dy tre kater pese giaxte xtate te
 Hittite Indo-European Proto-Indo-European as dan tereies mayewes NULL NULL xipta NULL NULL NULL
 Lycian Indo-European Proto-Indo-European sinta tuwa trei teteri NULL NULL NULL aitata nuntata NULL
 Luwian Indo-European Proto-Indo-European in an tarris mawa NULL NULL xaptami NULL NULL NULL
-Armenian Indo-European Proto-Indo-European mi ekow erek txork hing vec eotun owt inun tasun
+Armenian Indo-European Proto-Indo-European mi erkow erek txork hing vec eotun owt inun tasun
 Gaulish Indo-European Proto-Indo-European oino do tri petor pempe suekos sekstam okstu nau decam
 Gothic Indo-European Proto-Indo-European ains twai threis fidwor fimf saihs sibun ahtau niun taihun
 English Indo-European Proto-Indo-European uan txu thri for faiv siks sevun eit nain ten
