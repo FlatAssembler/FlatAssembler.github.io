@@ -1,0 +1,111 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>birthday_paradox.aec - Syntax Highlighted in NodeJS</title>
+    <style type="text/css">
+    pre {
+       font-size: 13px;
+    }
+    .LineNumber {
+       color: #772200;
+       font-weight: normal;
+    }
+    .Type {
+       color: #775500;
+       font-weight: bold;
+    }
+    .Keyword {
+        color: #770000;
+        font-weight: bold;
+    }
+    .Comment {
+        color: #004444;
+        font-weight: bold;
+    }
+    .Parenthesis {
+        color: #333322;
+        font-weight: bold;
+    }
+    .Operator {
+        color: #770077;
+        font-weight: bold;
+    }
+    .Constant {
+        color: #006600;
+        font-weight: bold;
+    }
+    .String {
+        color: #003377;
+    }
+    </style>
+</head>
+<body>
+<pre>   <span class="LineNumber">1</span> #target WASI <span class="Comment">// Neka compiler ne ispisuje kod potreban za uvođenje stvari
+   <span class="LineNumber">2</span> </span>             <span class="Comment">// iz JavaScripta, kad i tako ništa ne uvozimo iz njega.
+   <span class="LineNumber">3</span> </span>
+   <span class="LineNumber">4</span> <span class="Keyword">Function</span> nasumican_broj<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer16</span> <span class="Keyword">Is</span> <span class="Keyword">Declared</span><span class="Keyword">;</span>
+   <span class="LineNumber">5</span> 
+   <span class="LineNumber">6</span> <span class="Type">Integer16</span> koliko_ljudi_ima_rodendan_na_taj_dan<span class="Parenthesis">[</span><span class="Constant">1_000</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
+   <span class="LineNumber">7</span> <span class="Comment">// Recimo da nikome neće trebati izračun za "godinu" s više od tisuću dana.
+   <span class="LineNumber">8</span> </span>
+   <span class="LineNumber">9</span> <span class="Keyword">Function</span> numericki_izracun_rodendanskog_paradoksa<span class="Parenthesis">(</span>
+  <span class="LineNumber">10</span> 			<span class="Type">Integer16</span> koliko_godina_ima_dana       <span class="Operator">,</span>
+  <span class="LineNumber">11</span> 			<span class="Type">Integer16</span> koliko_ima_ljudi             <span class="Operator">,</span>
+  <span class="LineNumber">12</span> 			<span class="Type">Integer16</span> iznad_koliko_kolizija_brojimo<span class="Operator">,</span>
+  <span class="LineNumber">13</span> 		<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Decimal32</span> <span class="Keyword">Does</span>
+  <span class="LineNumber">14</span> 	<span class="Type">Integer32</span> koliko_smo_puta_izvrtili_simulaciju  <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">100_000</span><span class="Operator">,</span>
+  <span class="LineNumber">15</span> 		koliko_smo_puta_dobili_toliko_kolizija <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span>      <span class="Operator">,</span>
+  <span class="LineNumber">16</span> 		vanjski_brojac                         <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span>      <span class="Keyword">;</span>
+  <span class="LineNumber">17</span> 	<span class="Keyword">While</span> vanjski_brojac <span class="Operator">&lt;</span> koliko_smo_puta_izvrtili_simulaciju <span class="Keyword">Loop</span>
+  <span class="LineNumber">18</span> 		<span class="Type">Integer16</span> unutarnji_brojac <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">19</span> 		<span class="Keyword">While</span> unutarnji_brojac <span class="Operator">&lt;</span> koliko_godina_ima_dana <span class="Keyword">Loop</span>
+  <span class="LineNumber">20</span> 			koliko_ljudi_ima_rodendan_na_taj_dan<span class="Parenthesis">[</span>
+  <span class="LineNumber">21</span> 					unutarnji_brojac
+  <span class="LineNumber">22</span> 				<span class="Parenthesis">]</span>        <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">23</span> 			unutarnji_brojac <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">24</span> 		<span class="Keyword">EndWhile</span>
+  <span class="LineNumber">25</span> 		unutarnji_brojac <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">26</span> 		<span class="Keyword">While</span> unutarnji_brojac <span class="Operator">&lt;</span> koliko_ima_ljudi <span class="Keyword">Loop</span>
+  <span class="LineNumber">27</span> 			koliko_ljudi_ima_rodendan_na_taj_dan<span class="Parenthesis">[</span>
+  <span class="LineNumber">28</span> 					<span class="Operator">mod</span><span class="Parenthesis">(</span>
+  <span class="LineNumber">29</span> 						nasumican_broj<span class="Parenthesis">(</span><span class="Parenthesis">)</span><span class="Operator">,</span>
+  <span class="LineNumber">30</span> 						koliko_godina_ima_dana
+  <span class="LineNumber">31</span> 					<span class="Parenthesis">)</span>
+  <span class="LineNumber">32</span> 				<span class="Parenthesis">]</span>        <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">33</span> 			unutarnji_brojac <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">34</span> 		<span class="Keyword">EndWhile</span>
+  <span class="LineNumber">35</span> 		<span class="Type">Integer16</span> jesmo_li_nasli_potreban_broj_kolizija <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">36</span> 		unutarnji_brojac <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">37</span> 		<span class="Keyword">While</span> unutarnji_brojac <span class="Operator">&lt;</span> koliko_godina_ima_dana <span class="Keyword">Loop</span>
+  <span class="LineNumber">38</span> 			<span class="Keyword">If</span>
+  <span class="LineNumber">39</span> 				koliko_ljudi_ima_rodendan_na_taj_dan<span class="Parenthesis">[</span>
+  <span class="LineNumber">40</span> 					unutarnji_brojac
+  <span class="LineNumber">41</span> 				<span class="Parenthesis">]</span> <span class="Operator">&gt;</span> iznad_koliko_kolizija_brojimo <span class="Operator">or</span>
+  <span class="LineNumber">42</span> 				koliko_ljudi_ima_rodendan_na_taj_dan<span class="Parenthesis">[</span>
+  <span class="LineNumber">43</span> 					unutarnji_brojac
+  <span class="LineNumber">44</span> 				<span class="Parenthesis">]</span> <span class="Operator">=</span> iznad_koliko_kolizija_brojimo
+  <span class="LineNumber">45</span> 			<span class="Keyword">Then</span>
+  <span class="LineNumber">46</span> 				jesmo_li_nasli_potreban_broj_kolizija <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">47</span> 			<span class="Keyword">EndIf</span>
+  <span class="LineNumber">48</span> 			unutarnji_brojac <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">49</span> 		<span class="Keyword">EndWhile</span>
+  <span class="LineNumber">50</span> 		<span class="Keyword">If</span> jesmo_li_nasli_potreban_broj_kolizija <span class="Keyword">Then</span>
+  <span class="LineNumber">51</span> 			koliko_smo_puta_dobili_toliko_kolizija <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">52</span> 		<span class="Keyword">EndIf</span>
+  <span class="LineNumber">53</span> 		vanjski_brojac <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">54</span> 	<span class="Keyword">EndWhile</span>
+  <span class="LineNumber">55</span> 	<span class="Keyword">Return</span> <span class="Type">Decimal32</span><span class="Parenthesis">(</span>
+  <span class="LineNumber">56</span> 			koliko_smo_puta_dobili_toliko_kolizija
+  <span class="LineNumber">57</span> 		<span class="Parenthesis">)</span> <span class="Operator">/</span> koliko_smo_puta_izvrtili_simulaciju<span class="Keyword">;</span>
+  <span class="LineNumber">58</span> <span class="Keyword">EndFunction</span>
+  <span class="LineNumber">59</span> 
+  <span class="LineNumber">60</span> <span class="Type">Integer32</span> nasumican_broj <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">9_907</span><span class="Keyword">;</span>
+  <span class="LineNumber">61</span> <span class="Keyword">Function</span> nasumican_broj<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer16</span> <span class="Keyword">Does</span>
+  <span class="LineNumber">62</span> 	<span class="Keyword">Return</span> nasumican_broj <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">mod</span><span class="Parenthesis">(</span>nasumican_broj <span class="Operator">*</span> <span class="Constant">48_271</span><span class="Operator">,</span> <span class="Constant">2_147_483_647</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">63</span> 	<span class="Comment">// http://cplusplus.com/reference/random/minstd_rand/
+  <span class="LineNumber">64</span> </span><span class="Keyword">EndFunction</span>
+  <span class="LineNumber">65</span> 
+</pre>
+</body>
+</html>
