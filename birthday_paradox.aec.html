@@ -78,75 +78,67 @@
   <span class="LineNumber">35</span> 		<span class="Keyword">EndWhile</span>
   <span class="LineNumber">36</span> 		unutarnji_brojac <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
   <span class="LineNumber">37</span> 		<span class="Keyword">While</span> unutarnji_brojac <span class="Operator">&lt;</span> koliko_ima_ljudi <span class="Keyword">Loop</span>
-  <span class="LineNumber">38</span> 			<span class="Comment">/***
-  <span class="LineNumber">39</span> 			Ovo ce triggerati bug u compileru, jer će nasumican_broj
-  <span class="LineNumber">40</span> 			u assemblerskom kodu biti pozvan dva puta, a ne samo
-  <span class="LineNumber">41</span> 			jednom. To ima veze s time kako moj compiler "+="
-  <span class="LineNumber">42</span> 			prevodi na asemblerski jezik (pretvori ga na razini AST-a
-  <span class="LineNumber">43</span> 			u ":="), i čini mi se da nema jednostavnog rješenja.
-  <span class="LineNumber">44</span> 
-  <span class="LineNumber">45</span> 			koliko_ljudi_ima_rodendan_na_taj_dan[
-  <span class="LineNumber">46</span> 						mod(
-  <span class="LineNumber">47</span> 							nasumican_broj()      ,
-  <span class="LineNumber">48</span> 							koliko_godina_ima_dana,
-  <span class="LineNumber">49</span> 						)
-  <span class="LineNumber">50</span> 					] += 1;
-  <span class="LineNumber">51</span> 			****/</span>
-  <span class="LineNumber">52</span> 			<span class="Type">Integer16</span> nasumican_dan <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">mod</span><span class="Parenthesis">(</span>
-  <span class="LineNumber">53</span> 							nasumican_broj<span class="Parenthesis">(</span><span class="Parenthesis">)</span>      <span class="Operator">,</span>
-  <span class="LineNumber">54</span> 							koliko_godina_ima_dana<span class="Operator">,</span>
-  <span class="LineNumber">55</span> 						<span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">56</span> 			koliko_ljudi_ima_rodendan_na_taj_dan<span class="Parenthesis">[</span>
-  <span class="LineNumber">57</span> 						nasumican_dan
-  <span class="LineNumber">58</span> 					<span class="Parenthesis">]</span> <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">59</span> 			dani_za_debuggiranje<span class="Parenthesis">[</span>
-  <span class="LineNumber">60</span> 					unutarnji_brojac
-  <span class="LineNumber">61</span> 				<span class="Parenthesis">]</span>         <span class="Operator">:</span><span class="Operator">=</span> nasumican_dan<span class="Keyword">;</span>
-  <span class="LineNumber">62</span> 			unutarnji_brojac  <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">63</span> 		<span class="Keyword">EndWhile</span>
-  <span class="LineNumber">64</span> 		<span class="Type">Integer16</span> jesmo_li_nasli_potreban_broj_kolizija <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">65</span> 		unutarnji_brojac <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">66</span> 		<span class="Keyword">While</span> unutarnji_brojac <span class="Operator">&lt;</span> koliko_godina_ima_dana <span class="Keyword">Loop</span>
-  <span class="LineNumber">67</span> 			<span class="Keyword">If</span>
-  <span class="LineNumber">68</span> 				koliko_ljudi_ima_rodendan_na_taj_dan<span class="Parenthesis">[</span>
-  <span class="LineNumber">69</span> 					unutarnji_brojac
-  <span class="LineNumber">70</span> 				<span class="Parenthesis">]</span> <span class="Operator">&gt;</span> iznad_koliko_kolizija_brojimo <span class="Operator">or</span>
-  <span class="LineNumber">71</span> 				koliko_ljudi_ima_rodendan_na_taj_dan<span class="Parenthesis">[</span>
-  <span class="LineNumber">72</span> 					unutarnji_brojac
-  <span class="LineNumber">73</span> 				<span class="Parenthesis">]</span> <span class="Operator">=</span> iznad_koliko_kolizija_brojimo
-  <span class="LineNumber">74</span> 			<span class="Keyword">Then</span>
-  <span class="LineNumber">75</span> 				jesmo_li_nasli_potreban_broj_kolizija <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>	
-  <span class="LineNumber">76</span> 			<span class="Keyword">EndIf</span>
-  <span class="LineNumber">77</span> 			unutarnji_brojac <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">78</span> 		<span class="Keyword">EndWhile</span>
-  <span class="LineNumber">79</span> 		<span class="Keyword">If</span> jesmo_li_nasli_potreban_broj_kolizija <span class="Keyword">Then</span>
-  <span class="LineNumber">80</span> 			koliko_smo_puta_dobili_toliko_kolizija <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">81</span> 		<span class="Keyword">ElseIf</span> koliko_ima_ljudi <span class="Operator">&gt;</span> koliko_godina_ima_dana <span class="Keyword">Then</span>
-  <span class="LineNumber">82</span> 			printString<span class="Parenthesis">(</span><span class="String">"---"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">83</span> 			printString<span class="Parenthesis">(</span><span class="String">"Brojevi za debuggiranje:"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">38</span> 			koliko_ljudi_ima_rodendan_na_taj_dan<span class="Parenthesis">[</span>
+  <span class="LineNumber">39</span> 						<span class="Operator">mod</span><span class="Parenthesis">(</span>
+  <span class="LineNumber">40</span> 							nasumican_broj<span class="Parenthesis">(</span><span class="Parenthesis">)</span>      <span class="Operator">,</span>
+  <span class="LineNumber">41</span> 							koliko_godina_ima_dana<span class="Operator">,</span>
+  <span class="LineNumber">42</span> 						<span class="Parenthesis">)</span>
+  <span class="LineNumber">43</span> 					<span class="Parenthesis">]</span> <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span> <span class="Comment">// AECforWebAssembly stariji
+  <span class="LineNumber">44</span> </span>						<span class="Comment">// od v2.3.0 na ovu su
+  <span class="LineNumber">45</span> </span>						<span class="Comment">// naredbu ispisivali krivi
+  <span class="LineNumber">46</span> </span>						<span class="Comment">// asemblerski kod.
+  <span class="LineNumber">47</span> </span>			<span class="Type">Integer16</span> nasumican_dan <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">mod</span><span class="Parenthesis">(</span>
+  <span class="LineNumber">48</span> 							nasumican_broj        <span class="Operator">,</span>
+  <span class="LineNumber">49</span> 							koliko_godina_ima_dana<span class="Operator">,</span>
+  <span class="LineNumber">50</span> 						<span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">51</span> 			dani_za_debuggiranje<span class="Parenthesis">[</span>
+  <span class="LineNumber">52</span> 					unutarnji_brojac
+  <span class="LineNumber">53</span> 				<span class="Parenthesis">]</span>         <span class="Operator">:</span><span class="Operator">=</span> nasumican_dan<span class="Keyword">;</span>
+  <span class="LineNumber">54</span> 			unutarnji_brojac  <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">55</span> 		<span class="Keyword">EndWhile</span>
+  <span class="LineNumber">56</span> 		<span class="Type">Integer16</span> jesmo_li_nasli_potreban_broj_kolizija <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">57</span> 		unutarnji_brojac <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">58</span> 		<span class="Keyword">While</span> unutarnji_brojac <span class="Operator">&lt;</span> koliko_godina_ima_dana <span class="Keyword">Loop</span>
+  <span class="LineNumber">59</span> 			<span class="Keyword">If</span>
+  <span class="LineNumber">60</span> 				koliko_ljudi_ima_rodendan_na_taj_dan<span class="Parenthesis">[</span>
+  <span class="LineNumber">61</span> 					unutarnji_brojac
+  <span class="LineNumber">62</span> 				<span class="Parenthesis">]</span> <span class="Operator">&gt;</span> iznad_koliko_kolizija_brojimo <span class="Operator">or</span>
+  <span class="LineNumber">63</span> 				koliko_ljudi_ima_rodendan_na_taj_dan<span class="Parenthesis">[</span>
+  <span class="LineNumber">64</span> 					unutarnji_brojac
+  <span class="LineNumber">65</span> 				<span class="Parenthesis">]</span> <span class="Operator">=</span> iznad_koliko_kolizija_brojimo
+  <span class="LineNumber">66</span> 			<span class="Keyword">Then</span>
+  <span class="LineNumber">67</span> 				jesmo_li_nasli_potreban_broj_kolizija <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>	
+  <span class="LineNumber">68</span> 			<span class="Keyword">EndIf</span>
+  <span class="LineNumber">69</span> 			unutarnji_brojac <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">70</span> 		<span class="Keyword">EndWhile</span>
+  <span class="LineNumber">71</span> 		<span class="Keyword">If</span> jesmo_li_nasli_potreban_broj_kolizija <span class="Keyword">Then</span>
+  <span class="LineNumber">72</span> 			koliko_smo_puta_dobili_toliko_kolizija <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">73</span> 		<span class="Keyword">ElseIf</span> koliko_ima_ljudi <span class="Operator">&gt;</span> koliko_godina_ima_dana <span class="Keyword">Then</span>
+  <span class="LineNumber">74</span> 			printString<span class="Parenthesis">(</span><span class="String">"---"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">75</span> 			printString<span class="Parenthesis">(</span><span class="String">"Brojevi za debuggiranje:"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">76</span> 			unutarnji_brojac <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">77</span> 			<span class="Keyword">While</span> unutarnji_brojac <span class="Operator">&lt;</span> koliko_ima_ljudi <span class="Keyword">Loop</span>
+  <span class="LineNumber">78</span> 				printInt<span class="Parenthesis">(</span>dani_za_debuggiranje<span class="Parenthesis">[</span>
+  <span class="LineNumber">79</span> 						unutarnji_brojac
+  <span class="LineNumber">80</span> 					<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">81</span> 				unutarnji_brojac <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">82</span> 			<span class="Keyword">EndWhile</span>
+  <span class="LineNumber">83</span> 			printString<span class="Parenthesis">(</span><span class="String">"Koliko ljudi ima rodendan na taj dan:"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
   <span class="LineNumber">84</span> 			unutarnji_brojac <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">85</span> 			<span class="Keyword">While</span> unutarnji_brojac <span class="Operator">&lt;</span> koliko_ima_ljudi <span class="Keyword">Loop</span>
-  <span class="LineNumber">86</span> 				printInt<span class="Parenthesis">(</span>dani_za_debuggiranje<span class="Parenthesis">[</span>
+  <span class="LineNumber">85</span> 			<span class="Keyword">While</span> unutarnji_brojac <span class="Operator">&lt;</span> koliko_godina_ima_dana <span class="Keyword">Loop</span>
+  <span class="LineNumber">86</span> 				printInt<span class="Parenthesis">(</span>koliko_ljudi_ima_rodendan_na_taj_dan<span class="Parenthesis">[</span>
   <span class="LineNumber">87</span> 						unutarnji_brojac
   <span class="LineNumber">88</span> 					<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
   <span class="LineNumber">89</span> 				unutarnji_brojac <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
   <span class="LineNumber">90</span> 			<span class="Keyword">EndWhile</span>
-  <span class="LineNumber">91</span> 			printString<span class="Parenthesis">(</span><span class="String">"Koliko ljudi ima rodendan na taj dan:"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">92</span> 			unutarnji_brojac <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">93</span> 			<span class="Keyword">While</span> unutarnji_brojac <span class="Operator">&lt;</span> koliko_godina_ima_dana <span class="Keyword">Loop</span>
-  <span class="LineNumber">94</span> 				printInt<span class="Parenthesis">(</span>koliko_ljudi_ima_rodendan_na_taj_dan<span class="Parenthesis">[</span>
-  <span class="LineNumber">95</span> 						unutarnji_brojac
-  <span class="LineNumber">96</span> 					<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">97</span> 				unutarnji_brojac <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">98</span> 			<span class="Keyword">EndWhile</span>
-  <span class="LineNumber">99</span> 			printString<span class="Parenthesis">(</span><span class="String">"---"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">100</span> 		<span class="Keyword">EndIf</span>
- <span class="LineNumber">101</span> 		vanjski_brojac <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">102</span> 	<span class="Keyword">EndWhile</span>
- <span class="LineNumber">103</span> 	<span class="Keyword">Return</span> <span class="Type">Decimal32</span><span class="Parenthesis">(</span>
- <span class="LineNumber">104</span> 			koliko_smo_puta_dobili_toliko_kolizija
- <span class="LineNumber">105</span> 		<span class="Parenthesis">)</span> <span class="Operator">/</span> koliko_smo_puta_izvrtili_simulaciju<span class="Keyword">;</span>
- <span class="LineNumber">106</span> <span class="Keyword">EndFunction</span>
+  <span class="LineNumber">91</span> 			printString<span class="Parenthesis">(</span><span class="String">"---"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">92</span> 		<span class="Keyword">EndIf</span>
+  <span class="LineNumber">93</span> 		vanjski_brojac <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">94</span> 	<span class="Keyword">EndWhile</span>
+  <span class="LineNumber">95</span> 	<span class="Keyword">Return</span> <span class="Type">Decimal32</span><span class="Parenthesis">(</span>
+  <span class="LineNumber">96</span> 			koliko_smo_puta_dobili_toliko_kolizija
+  <span class="LineNumber">97</span> 		<span class="Parenthesis">)</span> <span class="Operator">/</span> koliko_smo_puta_izvrtili_simulaciju<span class="Keyword">;</span>
+  <span class="LineNumber">98</span> <span class="Keyword">EndFunction</span>
 </pre>
 </body>
 </html>
