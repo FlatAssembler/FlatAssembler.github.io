@@ -867,7 +867,175 @@ UPDATE on 06/01/2022: A lot of the responses I get on the Internet forums when I
   <tr><td>Croatian</td><td>log<sub>2</sub>(13)</td><td>n</td><td>log<sub>2</sub>(14)</td><td>n</td><td>0.107</td></tr>
   <tr><td>Italian</td><td>log<sub>2</sub>(12.5)</td><td>n</td><td>log<sub>2</sub>(15)</td><td>r</td><td>0.263</td></tr>
   <tr><td>French</td><td>log<sub>2</sub>(10)</td><td>s</td><td>log<sub>2</sub>(11)</td><td>s</td><td>0.138</td></tr>
-</table></div>
+</table><br/>
+UPDATE on 21/03/2022: I have written a NodeJS program that does all the calculations described here automatically, with no need to copy results from one program into another:
+<span class="code" id="conclusion_in_NodeJS"><span class="Constant">&quot;use strict&quot;</span>;
+<span class="Identifier">let</span> suglasnici = <span class="Constant">&quot;bcčćdđfghjklmnpqrsštvwxyzž&quot;</span>; <span class="Comment">// NodeJS podržava ne-ASCII (hrvatske...)</span>
+<span class="Comment">// znakove u stringovima.</span>
+suglasnici += suglasnici.toUpperCase();
+<span class="Statement">const</span> datotecniSustav = require(<span class="Constant">&quot;fs&quot;</span>);
+<span class="Statement">const</span> dugacakTekst = datotecniSustav.readFileSync(<span class="Constant">&quot;tekst.txt&quot;</span>, <span class="Identifier">{</span>
+  encoding: <span class="Constant">&quot;utf-8&quot;</span>,
+  flag: <span class="Constant">&quot;r&quot;</span>
+<span class="Identifier">}</span>);
+<span class="Identifier">let</span> mapaSaSuglasnicima = <span class="Statement">new</span> Map();
+<span class="Statement">for</span> (<span class="Statement">const</span> znak of dugacakTekst)
+  <span class="Statement">if</span> (suglasnici.indexOf(znak.toLowerCase()) !== -1)
+    mapaSaSuglasnicima.set(
+      znak.toLowerCase(),
+      (mapaSaSuglasnicima.get(znak.toLowerCase()) | 0) + 1
+    );
+<span class="Identifier">let</span> zbroj = 0;
+<span class="Statement">for</span> (<span class="Statement">const</span> apsolutna_frekvencija of mapaSaSuglasnicima.values())
+  zbroj += apsolutna_frekvencija;
+<span class="Identifier">let</span> kolizijskaEntropijaSuglasnikaUDugackomTekstu = 0;
+<span class="Statement">for</span> (<span class="Statement">const</span> apsolutna_frekvencija of mapaSaSuglasnicima.values())
+  kolizijskaEntropijaSuglasnikaUDugackomTekstu +=
+    (apsolutna_frekvencija / zbroj) ** 2;
+kolizijskaEntropijaSuglasnikaUDugackomTekstu = -Math.log2(
+  kolizijskaEntropijaSuglasnikaUDugackomTekstu
+);
+<span class="Statement">const</span> rjecnik = datotecniSustav.readFileSync(<span class="Constant">&quot;croatian.wl&quot;</span>, <span class="Identifier">{</span>
+  encoding: <span class="Constant">&quot;utf-8&quot;</span>,
+  flag: <span class="Constant">&quot;r&quot;</span>
+<span class="Identifier">}</span>);
+mapaSaSuglasnicima = <span class="Statement">new</span> Map();
+<span class="Statement">for</span> (<span class="Statement">const</span> znak of rjecnik)
+  <span class="Statement">if</span> (suglasnici.indexOf(znak.toLowerCase()) !== -1)
+    mapaSaSuglasnicima.set(
+      znak.toLowerCase(),
+      (mapaSaSuglasnicima.get(znak.toLowerCase()) | 0) + 1
+    );
+zbroj = 0;
+<span class="Statement">for</span> (<span class="Statement">const</span> apsolutna_frekvencija of mapaSaSuglasnicima.values())
+  zbroj += apsolutna_frekvencija;
+<span class="Identifier">let</span> kolizijskaEntropijaSuglasnikaURjecniku = 0;
+<span class="Statement">for</span> (<span class="Statement">const</span> apsolutna_frekvencija of mapaSaSuglasnicima.values())
+  kolizijskaEntropijaSuglasnikaURjecniku +=
+    (apsolutna_frekvencija / zbroj) ** 2;
+kolizijskaEntropijaSuglasnikaURjecniku = -Math.log2(
+  kolizijskaEntropijaSuglasnikaURjecniku
+);
+<span class="Identifier">let</span> mapaSParovimaSuglasnika = <span class="Statement">new</span> Map();
+<span class="Statement">for</span> (<span class="Statement">const</span> prvi of suglasnici)
+  <span class="Statement">for</span> (<span class="Statement">const</span> drugi of suglasnici)
+    mapaSParovimaSuglasnika.set((prvi + drugi).toLowerCase(), 0);
+<span class="Identifier">let</span> prethodni,
+  sadasnji,
+  brojac = 0;
+<span class="Statement">for</span> (<span class="Statement">const</span> znak of rjecnik) <span class="Identifier">{</span>
+  <span class="Statement">if</span> (suglasnici.indexOf(znak) !== -1) <span class="Identifier">{</span>
+    prethodni = sadasnji;
+    sadasnji = znak.toLowerCase();
+    <span class="Statement">if</span> (prethodni !== <span class="Statement">undefined</span>) <span class="Identifier">{</span>
+      brojac++;
+      mapaSParovimaSuglasnika.set(
+        prethodni + sadasnji,
+        mapaSParovimaSuglasnika.get(prethodni + sadasnji) + 1
+      );
+    <span class="Identifier">}</span>
+  <span class="Identifier">}</span>
+<span class="Identifier">}</span>
+<span class="Identifier">let</span> shannonovaEntropijaParovaSuglasnika = 0,
+  kolizijskaEntropijaParovaSuglasnika = 0;
+<span class="Statement">for</span> (<span class="Statement">const</span> apsolutnaFrekvencija of mapaSParovimaSuglasnika.values())
+  <span class="Statement">if</span> (apsolutnaFrekvencija) <span class="Identifier">{</span>
+    shannonovaEntropijaParovaSuglasnika -=
+      (apsolutnaFrekvencija / brojac) *
+      Math.log2(apsolutnaFrekvencija / brojac);
+    kolizijskaEntropijaParovaSuglasnika += (apsolutnaFrekvencija / brojac) ** 2;
+  <span class="Identifier">}</span>
+kolizijskaEntropijaParovaSuglasnika = -Math.log2(
+  kolizijskaEntropijaParovaSuglasnika
+);
+console.log(
+  <span class="Constant">&quot;Kolizijska entropija suglasnika u dugačkom tekstu: &quot;</span> +
+    kolizijskaEntropijaSuglasnikaUDugackomTekstu +
+    <span class="Constant">&quot;=log2(&quot;</span> +
+    2 ** kolizijskaEntropijaSuglasnikaUDugackomTekstu +
+    <span class="Constant">&quot;)&quot;</span>
+);
+console.log(
+  <span class="Constant">&quot;Kolizijska entropija suglasnika u rječniku: &quot;</span> +
+    kolizijskaEntropijaSuglasnikaURjecniku +
+    <span class="Constant">&quot;=log2(&quot;</span> +
+    2 ** kolizijskaEntropijaSuglasnikaURjecniku +
+    <span class="Constant">&quot;)&quot;</span>
+);
+console.log(
+  <span class="Constant">&quot;Kolizijska entropija sintakse: &quot;</span> +
+    (kolizijskaEntropijaSuglasnikaURjecniku -
+      kolizijskaEntropijaSuglasnikaUDugackomTekstu)
+);
+console.log(
+  <span class="Constant">&quot;Shannonova entropija parova suglasnika u rječniku: &quot;</span> +
+    shannonovaEntropijaParovaSuglasnika
+);
+console.log(
+  <span class="Constant">&quot;Kolizijska entropija parova suglasnika u rječniku: &quot;</span> +
+    kolizijskaEntropijaParovaSuglasnika
+);
+console.log(
+  <span class="Constant">&quot;Kolizijska entropija fonotaktike: &quot;</span> +
+    (2 * kolizijskaEntropijaSuglasnikaURjecniku -
+      kolizijskaEntropijaParovaSuglasnika)
+);
+<span class="Identifier">let</span> iznad_koliko_kolizija_brojimo = 7, <span class="Comment">// Toliko, koliko ja znam, rijeka u Hrvatskoj počinje na k-r: Karašica (2 puta, jedna se ulijeva u Dravu, a druga u Dunav), Krka, Korana, Krbavica, Krapina i Kravarščica.</span>
+  koliko_ima_rijeka_u_Hrvatskoj = 100, <span class="Comment">// Ako netko ima ideju kako to točnije procijeniti, neka mi se slobodno javi.</span>
+  koliko_smo_puta_dobili_toliko_kolizija = 0,
+  koliko_smo_puta_izvrtili_simulaciju = 1_000_000;
+<span class="Statement">for</span> (<span class="Identifier">let</span> brojac = 0; brojac &lt; koliko_smo_puta_izvrtili_simulaciju; brojac++) <span class="Identifier">{</span>
+  <span class="Identifier">let</span> koliko_rijeka_pocinje_na_taj_par_suglasnika = <span class="Identifier">[]</span>;
+  <span class="Statement">for</span> (
+    <span class="Identifier">let</span> brojac = 0;
+    brojac &lt;
+    2 **
+      (kolizijskaEntropijaParovaSuglasnika +
+        2 *
+          (kolizijskaEntropijaSuglasnikaURjecniku -
+            kolizijskaEntropijaSuglasnikaUDugackomTekstu));
+    brojac++
+  )
+    koliko_rijeka_pocinje_na_taj_par_suglasnika.push(0);
+  <span class="Statement">for</span> (<span class="Identifier">let</span> brojac = 0; brojac &lt; koliko_ima_rijeka_u_Hrvatskoj; brojac++)
+    koliko_rijeka_pocinje_na_taj_par_suglasnika<span class="Identifier">[</span>
+      Math.floor(
+        Math.random() *
+          2 **
+            (kolizijskaEntropijaParovaSuglasnika +
+              2 *
+                (kolizijskaEntropijaSuglasnikaURjecniku -
+                  kolizijskaEntropijaSuglasnikaUDugackomTekstu))
+      )
+    <span class="Identifier">]</span> += 1;
+  <span class="Identifier">let</span> jesmo_li_nasli_potreban_broj_kolizija = <span class="Constant">false</span>;
+  <span class="Statement">for</span> (
+    <span class="Identifier">let</span> brojac = 0;
+    brojac &lt;
+    2 **
+      (kolizijskaEntropijaParovaSuglasnika +
+        2 *
+          (kolizijskaEntropijaSuglasnikaURjecniku -
+            kolizijskaEntropijaSuglasnikaUDugackomTekstu));
+    brojac++
+  )
+    <span class="Statement">if</span> (
+      koliko_rijeka_pocinje_na_taj_par_suglasnika<span class="Identifier">[</span>brojac<span class="Identifier">]</span> &gt;=
+      iznad_koliko_kolizija_brojimo
+    ) <span class="Identifier">{</span>
+      jesmo_li_nasli_potreban_broj_kolizija = <span class="Constant">true</span>;
+      <span class="Statement">break</span>;
+    <span class="Identifier">}</span>
+  <span class="Statement">if</span> (jesmo_li_nasli_potreban_broj_kolizija)
+    koliko_smo_puta_dobili_toliko_kolizija += 1;
+<span class="Identifier">}</span>
+console.log(
+  <span class="Constant">`Vjerojatnost da </span><span class="Special">${iznad_koliko_kolizija_brojimo}</span><span class="Constant"> od </span><span class="Special">${koliko_ima_rijeka_u_Hrvatskoj}</span><span class="Constant"> hidronima slučajno počinje na isti par suglasnika iznosi </span><span class="Special">${</span>
+<span class="Special">    (koliko_smo_puta_dobili_toliko_kolizija /</span>
+<span class="Special">      koliko_smo_puta_izvrtili_simulaciju) *</span>
+<span class="Special">    100</span>
+<span class="Special">  }</span><span class="Constant">%.`</span>
+);</span></div>
         </main>
         <footer>
         <div

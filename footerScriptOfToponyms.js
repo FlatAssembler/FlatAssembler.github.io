@@ -163,7 +163,8 @@ function setCodeToAppropriateWidth() {
       niz[i].id == "markov" ||
       niz[i].id == "huffman_in_javascript" ||
       niz[i].id == "entropy_in_octave" ||
-      niz[i].id == "entropy_in_matlab"
+      niz[i].id == "entropy_in_matlab" ||
+      niz[i].id == "conclusion_in_NodeJS"
     )
       continue;
     if (niz[i].offsetTop > graphBottomOffset) niz[i].style.width = "auto";
