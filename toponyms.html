@@ -327,7 +327,7 @@ Etymology Game
                 flow&quot;, perhaps of Pre-Indo-European origin. I consider this etymology to be one of the most certain ones, see the discussion about <a href="#birthday">Birthday Paradox</a> below to see why.<br/>
                 <a class="map">Krapina</a> &lt;
                 from a verb *karr~kurr meaning &quot;to flow&quot;, perhaps of
-		Pre-Indo-European origin. The Illyrian name may have been *Karpona, or, less likely, something like *Kurrippuppona (both would give <i>Krapina</i> in modern Croatian). I consider this etymology to be one of the most certain ones, see the discussion about <a href="#birthday">Birthday Paradox</a> below to see why.<br/>
+		Pre-Indo-European origin. The Illyrian name may have been *<i>Karpona</i>, or, less likely, something like *<i>Kurrippuppona</i> (both would give <i>Krapina</i> in modern Croatian, but the first one is easier to pronounce). I consider this etymology to be one of the most certain ones, see the discussion about <a href="#birthday">Birthday Paradox</a> below to see why.<br/>
 		<a class="map">Kravaršćica</a> &lt;
 		from a verb *karr~kurr meaning &quot;to flow&quot;, perhaps of
                 Pre-Indo-European origin. See the discussion about <a href="#birthday">Birthday Paradox</a> below to see why I think that. Though, I am not as sure about it as I am for <i>Krbava</i>, <i>Korana</i>, <i>Krka</i>, <i>Karašica</i> and <i>Krapina</i>, because there is indeed a plausible Croatian etymology for <i>Kravaršćica</i>, that is that it is named after the village <a class="map">Kravarsko</a>, and that the name of the village comes from Croatian word for cow, <i>krava</i>.<br/>
@@ -606,7 +606,7 @@ That program printed 229, which is greater than 15<sup>2</sup>. And, of course, 
                (apsolutna_frekvencija / zbroj);
 console.log(2 ** entropija);
 </span>
-I do not know if linguistics today can explain what is going on here. But, like I have said, while there are unknowns, <del>I see no reason to think this pattern of a pair of two consonants repeating again and again at the beginning of the names of rivers will be expected, or even remotely likely</del> (<i>UPDATE: While it is not expected, or even likely to happen, it is not extremely unlikely to happen. After a bit more research, I concluded the probability of that happening is around 5.9%, and you can see why <a href="#correction">in the correction</a> at the bottom of the page.</i>). Anyway, in case you want to study the issue further, I have made an <a href="https://www.gnu.org/software/octave/index">Octave</a> program that measures the relationships between the results that my algorithm for estimating entropy gives with the results that the Shannon's algorithm gives (<b>WARNING</b>: The program outputs incorrect results if run in Octave and it causes a syntax error in MatLab, see <a href="#correction">this correction</a> for more details):
+<del>I do not know if linguistics today can explain what is going on here.</del> (Actually, ti can, that is the difference between the Shannon's entropy and the collision entropy) But, like I have said, while there are unknowns, <del>I see no reason to think this pattern of a pair of two consonants repeating again and again at the beginning of the names of rivers will be expected, or even remotely likely</del> (<i>UPDATE: While it is not expected, or even likely to happen, it is not extremely unlikely to happen. After a bit more research, I concluded the probability of that happening is around 5.9%, and you can see why <a href="#correction">in the correction</a> at the bottom of the page.</i>). Anyway, in case you want to study the issue further, I have made an <a href="https://www.gnu.org/software/octave/index">Octave</a> program that measures the relationships between the results that my algorithm for estimating entropy gives with the results that the Shannon's algorithm gives (<b>WARNING</b>: The program outputs incorrect results if run in Octave and it causes a syntax error in MatLab, see <a href="#correction">this correction</a> for more details):
 <span class="code" id="entropy_in_octave"><span class="Comment">% Ovo je Octaveski program koji uspoređuje rezultate koje daje moj algoritam</span>
 <span class="Comment">% procjenjivanja entropije s rezultatima koje daje Shannonov algoritam.</span>
 <span class="Comment">% Trebao bi se moći izvrtjeti i u MatLabu, ali nisam uspio instalirati MatLab</span>
@@ -1035,7 +1035,7 @@ console.log(
 <span class="Special">      koliko_smo_puta_izvrtili_simulaciju) *</span>
 <span class="Special">    100</span>
 <span class="Special">  }</span><span class="Constant">%.`</span>
-);</span></div>
+);</span>This time, to calculate the collision entropy, instead of using the complicated algorithm that follows right from the definition (choose two symbols from the string randomly, check whether they are equal, and repeat that many times), I used a much simpler algorithm <a href="https://en.wikipedia.org/wiki/R%C3%A9nyi_entropy#Collision_entropy">described at Wikipedia</a>. I must admit my understanding of the issue has improved drastically.</div>
         </main>
         <footer>
         <div
