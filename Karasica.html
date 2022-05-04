@@ -3,9 +3,9 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=windows-1252"/>
 	<title></title>
-	<meta name="generator" content="LibreOffice 7.2.5.2 (Windows)"/>
-	<meta name="created" content="2021-09-24T12:25:00"/>
-	<meta name="changed" content="2022-02-24T17:02:30.591000000"/>
+	<meta name="generator" content="LibreOffice 7.2.6.2 (Windows)"/>
+	<meta name="created" content="2021-09-24T13:25:00"/>
+	<meta name="changed" content="2022-05-04T14:07:33.094000000"/>
 	<style type="text/css">
 		@page { size: 8.5in 11in; margin: 0.79in }
 		p { color: #000000; line-height: 115%; orphans: 2; widows: 2; margin-bottom: 0.1in; direction: ltr; background: transparent }
@@ -352,7 +352,12 @@ i '</span></font></font></font><font color="#000000"><font face="Times New Roman
 kao posebne simbole u tom slu&#269;aju), mogu posti&#263;i znatno
 kra&#263;i string nego &scaron;to to predvi&#273;a Shannonova
 entropija, pa je kolizijska entropija nerijetko bolja procjena koliko
-&#263;e sažeti string biti duga&#269;ak.</span></font></font></font></p>
+&#263;e sažeti string biti duga&#269;ak. </span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR">Kolizijska
+entropija se, kako sam doznao nakon &scaron;to sam napisao prvu
+verziju ovog teksta, može ra&#269;unati i kao negativni logaritam
+sume kvadrata relativnih frekvencija (a ne samo Monte Carlo metodom,
+da se mnogo puta nasumi&#269;no odaberu dva simbola iz stringa i
+broji koliko se puta desilo da budu jednaki).</span></font></font></font></p>
 <p lang="bs-BA" class="western" align="justify" style="line-height: 100%; margin-bottom: 0in">
 <br/>
 
@@ -662,22 +667,27 @@ fonologija može oduzimati entropije. Shannonova entropija parova
 suglasnika u spell-check rje&#269;niku hrvatskog jezika, kako sam
 pomo&#263;u tog programa izmjerio, iznosi log</span></font></font></font><font color="#000000"><sub><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA">2</span></font></font></sub></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA">(229)=7.839
 bita po simbolu. Napisao sam i program koji generira mnogo nasumi&#269;nih
-nizova znakova te ra&#269;una njihove Shannonove i kolizijske
-entropije, te sam na temelju podataka koje je on ispisao matemati&#269;ki
-sumnjivim metodama</span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR">
+nizova znakova </span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR">od
+21 razli&#269;itog znaka (suglasnika engleske abecede) i duga&#269;kih
+100 znakova</span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA">
+te ra&#269;una njihove Shannonove i kolizijske entropije, te sam na
+temelju podataka koje je on ispisao matemati&#269;ki sumnjivim
+metodama</span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR">
 (pretpostavio sam da krivulja koja prikazuje odnos Shannonove i
 kolizijske entropije ima isti oblik bez obzira na broj razli&#269;itih
 simbola u stringu, da s time samo mijenja veli&#269;inu) </span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA">procijenio
 da bi kolizijska entropija od ne&#269;ega, &#269;ija Shannonova
 entropija iznosi 7.839 bita po simbolu i &scaron;to ima 676
 razli&#269;itih simbola, iznosila 5.992 bita po simbolu.</span></font></font></font></p>
-<p class="western" align="justify" style="line-height: 100%; margin-bottom: 0in">
-<img src="Karasica_html_70153557e76d79e3.jpg" name="Image2" align="left" hspace="15" width="575" height="431">
+<p lang="hr-HR" class="western" align="justify" style="line-height: 100%; margin-bottom: 0in">
+<font size="2" style="font-size: 10pt">(<img src="Karasica_html_70153557e76d79e3.jpg" name="Image2" align="left" hspace="15" width="575" height="431">
   <br clear="left"/>
 </img>
-<br/>
-
-</p>
+Ovdje
+&bdquo;Samaržijina entropija&rdquo; zna&#269;i &bdquo;kolizijska
+entropija&rdquo;, jer tada jo&scaron; nisam znao kako se ona zove, pa
+sam je tako nazvao. Tek me je kasnije netko na internetskom forumu
+uputio da je netko prije do&scaron;ao na istu ideju.)</font></p>
 <p class="western" align="justify" style="line-height: 100%; margin-bottom: 0in">
 <font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA">Naime,
 hrvatski jezik ima 26*26=676 mogu&#263;ih parova suglasnika. Tih
@@ -727,7 +737,7 @@ programa vezanog za paradoks ro&#273;endana, 1/300. Ako pretpostavimo
 da morfologija oduzima 0 bita po paru suglasnika, a fonologija
 oduzima 1.623+1.572=3.195 bita po paru suglasnika, ta vjerojatnost
 iznosi 1/17. A mislim da bi se svatko složio da je prva pretpostavka
-daleko bliža realnosti.</span></font></font></font></p>
+daleko bliža realnosti</span></font></font></font><sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA"><a class="sdfootnoteanc" name="sdfootnote5anc" href="#sdfootnote5sym"><sup>5</sup></a></span></font></font></font></sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA">.</span></font></font></font></p>
 <p class="western" align="justify" style="line-height: 100%; margin-bottom: 0in">
 <font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA">Mislim
 da sam dokazao tvrdim podacima da je &bdquo;</span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA"><i>kar-&rdquo;</i></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA">
@@ -737,9 +747,9 @@ ili, manje vjerojatno, prefiks koji se iz nekog razloga &#269;esto
 dodavao hidronimima. Tvrdi podaci se za sada rijetko mogu koristiti u
 toponimiji (jer lingvistika jo&scaron; nije dovoljno razvijena za
 to), ali u ovom se slu&#269;aju mogu. Programi s kojima sam ove
-stvari mjerio i ra&#269;unao dostupni su na mojoj web-stranici</span></font></font></font><sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA"><a class="sdfootnoteanc" name="sdfootnote5anc" href="#sdfootnote5sym"><sup>5</sup></a></span></font></font></font></sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA">,
+stvari mjerio i ra&#269;unao dostupni su na mojoj web-stranici</span></font></font></font><sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA"><a class="sdfootnoteanc" name="sdfootnote6anc" href="#sdfootnote6sym"><sup>6</sup></a></span></font></font></font></sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA">,
 i detaljno su opisani u mom seminaru </span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA"><i>Fonolo&scaron;ka
-evolucija jezika</i></span></font></font></font><sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA"><i><a class="sdfootnoteanc" name="sdfootnote6anc" href="#sdfootnote6sym"><sup>6</sup></a></i></span></font></font></font></sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA">.</span></font></font></font></p>
+evolucija jezika</i></span></font></font></font><sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA"><i><a class="sdfootnoteanc" name="sdfootnote7anc" href="#sdfootnote7sym"><sup>7</sup></a></i></span></font></font></font></sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA">.</span></font></font></font></p>
 <p lang="bs-BA" class="western" align="justify" style="line-height: 100%; margin-bottom: 0in">
 <br/>
 
@@ -775,10 +785,10 @@ a ostala imena rijeka o kojima smo raspravljali dolaze od</span></span></font></
 kurr-</i></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA"><span style="font-style: normal">,
 osim vjerojatno imena </span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><i>Krapina</i></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><span style="font-style: normal">
 (Mislim da bi Okamova britva favorizirala hipotezu da se Krapina u
-antici zvala ne&scaron;to kao *</span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><i>Karpona</i></span></font></font></font><sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><i><a class="sdfootnoteanc" name="sdfootnote7anc" href="#sdfootnote7sym"><sup>7</sup></a></i></span></font></font></font></sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><span style="font-style: normal">
+antici zvala ne&scaron;to kao *</span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><i>Karpona</i></span></font></font></font><sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><i><a class="sdfootnoteanc" name="sdfootnote8anc" href="#sdfootnote8sym"><sup>8</sup></a></i></span></font></font></font></sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><span style="font-style: normal">
 i da '</span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><i>a</i></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><span style="font-style: normal">'
 dolazi od metateze likvida vi&scaron;e nego hipotezu da se zvala
-ne&scaron;to kao </span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><i>*Kurrippuppona</i></span></font></font></font><sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><i><a class="sdfootnoteanc" name="sdfootnote8anc" href="#sdfootnote8sym"><sup>8</sup></a></i></span></font></font></font></sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><i>
+ne&scaron;to kao </span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><i>*Kurrippuppona</i></span></font></font></font><sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><i><a class="sdfootnoteanc" name="sdfootnote9anc" href="#sdfootnote9sym"><sup>9</sup></a></i></span></font></font></font></sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><i>
 </i></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><span style="font-style: normal">i
 da '</span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><i>a</i></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><span style="font-style: normal">'
 dolazi od poluglasa, zato &scaron;to je </span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><i>*Karpona</i></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><span style="font-style: normal">
@@ -1038,53 +1048,54 @@ jezik.</span></span></span></font></font></font></p>
 <br/>
 
 </p>
-<p lang="hr-HR" class="western" align="justify" style="line-height: 100%; margin-bottom: 0in">
-<b><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="text-decoration: none">Brojanje
-do deset na ilirskom jeziku</span></span></font></font></font></b></p>
-<p lang="hr-HR" class="western" align="justify" style="font-weight: normal; line-height: 100%; margin-bottom: 0in">
-<font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="text-decoration: none">Evo
+<p lang="hr-HR" class="western" align="justify" style="font-style: normal; line-height: 100%; margin-bottom: 0in; text-decoration: none">
+<font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><b>Brojanje
+do deset na ilirskom jeziku</b></font></font></p>
+<p lang="hr-HR" class="western" align="justify" style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0in; text-decoration: none">
+<font face="Times New Roman, serif"><font size="2" style="font-size: 11pt">Evo
 kako bih ja rekonstruirao brojeve od jedan do deset na ilirskom
-jeziku:</span></span></font></font></font></p>
-<table width="100%" cellpadding="0" cellspacing="0">
-	<col width="85*"/>
+jeziku:</font></font></p>
+<table width="831" cellpadding="0" cellspacing="0">
+	<col width="277"/>
 
-	<col width="85*"/>
+	<col width="277"/>
 
-	<col width="85*"/>
+	<col width="277"/>
 
 	<tr valign="top">
-		<td width="33%" style="border: none; padding: 0in"><p lang="hr-HR" class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p lang="hr-HR" class="western" align="justify">
 			Indoeuropski</p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p lang="hr-HR" class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p lang="hr-HR" class="western" align="justify">
 			Ilirski</p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			 <span lang="hr-HR">Napomena</span></p>
 		</td>
 	</tr>
 	<tr valign="top">
-		<td width="33%" style="border: none; padding: 0in"><p lang="hr-HR" class="western" align="justify">
-			*h<sub>1</sub>oinos</p>
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
+			<span lang="hr-HR">*h</span><sub><span lang="hr-HR">1</span></sub><span lang="hr-HR">oinos</span></p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			*<span lang="hr-HR">inos</span></p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p lang="hr-HR" class="western" align="justify">
-			Pretpostavljam da je <i>*oi</i> prelazilo u dugo '<i>i</i><span style="font-style: normal">',
-			kao &scaron;to je *ew pre&scaron;lo u dugo '</span><i>u</i><span style="font-style: normal">'
-			u </span><i>*kuros </i><span style="font-style: normal">(prvi
-			samoglasnik u dvoglasniku se gubi, a drugi se produžava).</span></p>
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
+			<span lang="hr-HR">Pretpostavljam da je </span><span lang="hr-HR"><i>*oi</i></span><span lang="hr-HR">
+			prelazilo u dugo '</span><span lang="hr-HR"><i>i</i></span><span lang="hr-HR"><span style="font-style: normal">',
+			kao &scaron;to je *ew pre&scaron;lo u dugo '</span></span><span lang="hr-HR"><i>u</i></span><span lang="hr-HR"><span style="font-style: normal">'
+			u </span></span><span lang="hr-HR"><i>*kuros </i></span><span lang="hr-HR"><span style="font-style: normal">(prvi
+			samoglasnik u dvoglasniku se gubi, a drugi se produžava).</span></span></p>
 		</td>
 	</tr>
 	<tr valign="top">
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			*<span lang="hr-HR">dwoh</span><sub><span lang="hr-HR">1</span></sub></p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			*<span lang="hr-HR">do</span></p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			<i>*</i><span lang="hr-HR"><i>wo</i></span><span lang="hr-HR">
 			</span><span lang="hr-HR"><span style="font-style: normal">prelazi
 			u dugo </span></span><span lang="hr-HR"><i>'o',</i></span><span lang="hr-HR"><span style="font-style: normal">
@@ -1093,25 +1104,27 @@ jeziku:</span></span></font></font></font></p>
 		</td>
 	</tr>
 	<tr valign="top">
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			*<span lang="hr-HR">treis</span></p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			*<span lang="hr-HR">tris</span></p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p lang="hr-HR" class="western" align="justify">
-			<i>*ei</i> prelazi u dugo '<i>i</i>', iz istog razloga za&scaron;to
-			i <i>*oi</i> prelazi</p>
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
+			<span lang="hr-HR"><i>*ei</i></span><span lang="hr-HR"> prelazi u
+			dugo '</span><span lang="hr-HR"><i>i</i></span><span lang="hr-HR">',
+			iz istog razloga za&scaron;to i </span><span lang="hr-HR"><i>*oi</i></span><span lang="hr-HR">
+			prelazi</span></p>
 		</td>
 	</tr>
 	<tr valign="top">
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			*<span lang="hr-HR">k</span><sup><span lang="hr-HR">w</span></sup><span lang="hr-HR">etwores</span></p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
-			*<span lang="hr-HR">ket</span><span lang="hr-HR">t</span><span lang="hr-HR">ores</span></p>
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
+			*<span lang="hr-HR">kettores</span></p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			*<span lang="hr-HR">t se geminira jer dolazi nakon kratkog
 			suglasnika. Naime, kao &scaron;to sam napisao na ve&#263; vi&scaron;e
 			mjesta, mislim da je u ilirskom vrijedio zakon da svi slogovi
@@ -1124,100 +1137,104 @@ jeziku:</span></span></font></font></font></p>
 		</td>
 	</tr>
 	<tr valign="top">
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			*<span lang="hr-HR">penk</span><sup><span lang="hr-HR">w</span></sup><span lang="hr-HR">e</span></p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			*<span lang="hr-HR">penka</span></p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p lang="hr-HR" class="western" align="justify">
-			Pretpostavljam da je <i>-heh</i><span style="font-style: normal">
-			u potvr&#273;enoj rije&#269;i </span><i>penkaheh </i><span style="font-style: normal">bio
-			neki gramati&#269;ki nastavak. </span><span style="font-style: normal">Prijelaz
-			iz krajnjeg </span><i>*e</i><span style="font-style: normal"> u
-			</span><i>'a'</i><span style="font-style: normal"> je nejasan.</span></p>
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
+			<span lang="hr-HR">Pretpostavljam da je </span><span lang="hr-HR"><i>-heh</i></span><span lang="hr-HR"><span style="font-style: normal">
+			u potvr&#273;enoj rije&#269;i </span></span><span lang="hr-HR"><i>penkaheh
+			</i></span><span lang="hr-HR"><span style="font-style: normal">bio
+			neki gramati&#269;ki nastavak. Prijelaz iz krajnjeg </span></span><span lang="hr-HR"><i>*e</i></span><span lang="hr-HR"><span style="font-style: normal">
+			u </span></span><span lang="hr-HR"><i>'a'</i></span><span lang="hr-HR"><span style="font-style: normal">
+			je nejasan.</span></span></p>
 		</td>
 	</tr>
 	<tr valign="top">
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			*<span lang="hr-HR">swek</span><sup><span lang="hr-HR">j</span></sup><span lang="hr-HR">s</span></p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			*<span lang="hr-HR">seks</span></p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			<br/>
 
 			</p>
 		</td>
 	</tr>
 	<tr valign="top">
-		<td width="33%" style="border: none; padding: 0in"><p lang="hr-HR" class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p lang="hr-HR" class="western" align="justify">
 			*septm</p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			*<span lang="hr-HR">septim</span></p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p lang="hr-HR" class="western" align="justify">
-			Samoglasno *<i>m </i><span style="font-style: normal">prelazi u
-			</span><i>im</i><span style="font-style: normal">, kao &scaron;to
-			</span><i>*h</i><sub><i>1</i></sub><i>n</i><span style="font-style: normal">
-			(dolina) prelazi u </span><i>*in</i><span style="font-style: normal">
-			u </span><i>Incerum</i><span style="font-style: normal"> (srce
-			doline).</span></p>
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
+			<span lang="hr-HR">Samoglasno *</span><span lang="hr-HR"><i>m
+			</i></span><span lang="hr-HR"><span style="font-style: normal">prelazi
+			u </span></span><span lang="hr-HR"><i>im</i></span><span lang="hr-HR"><span style="font-style: normal">,
+			kao &scaron;to </span></span><span lang="hr-HR"><i>*h</i></span><sub><span lang="hr-HR"><i>1</i></span></sub><span lang="hr-HR"><i>n</i></span><span lang="hr-HR"><span style="font-style: normal">
+			(dolina) prelazi u </span></span><span lang="hr-HR"><i>*in</i></span><span lang="hr-HR"><span style="font-style: normal">
+			u </span></span><span lang="hr-HR"><i>Incerum</i></span><span lang="hr-HR"><span style="font-style: normal">
+			(srce doline).</span></span></p>
 		</td>
 	</tr>
 	<tr valign="top">
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			*<span lang="hr-HR">h</span><sub><span lang="hr-HR">3</span></sub><span lang="hr-HR">ek</span><sup><span lang="hr-HR">j</span></sup><span lang="hr-HR">tow</span></p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			*<span lang="hr-HR">oktu</span></p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			<br/>
 
 			</p>
 		</td>
 	</tr>
 	<tr valign="top">
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			*<span lang="hr-HR">h</span><sub><span lang="hr-HR">1</span></sub><span lang="hr-HR">newn</span></p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
-			*<span lang="hr-HR">enn</span><span lang="hr-HR">u</span><span lang="hr-HR">n</span></p>
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
+			*<span lang="hr-HR">ennun</span></p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p lang="hr-HR" class="western" align="justify">
-			Smatram da je po&#269;etno <i>h</i><span style="font-style: normal">
-			(laringeal) barem nekada prelazilo u '</span><i>e' </i><span style="font-style: normal">u
-			Ilirskom, te da odatle dolazi po&#269;etno</span><i> 'e'</i><span style="font-style: normal">
-			u hidronimima </span><i>Ervenica</i><span style="font-style: normal">
-			i </span><i>Ervenik</i><span style="font-style: normal"> (od
-			*</span><i>h</i><sub><i>3</i></sub><i>rews</i><span style="font-style: normal">,
-			te&#263;i, isti korijen kao latinski </span><i>ruere</i><span style="font-style: normal">).
-			</span><i>*</i><i>ew</i><span style="font-style: normal">,
-			naravno, prelazi u dugo 'u', kao i u </span><i>*kuros</i><span style="font-style: normal">
-			(sjever).</span></p>
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
+			<span lang="hr-HR">Smatram da je po&#269;etno </span><span lang="hr-HR"><i>h</i></span><span lang="hr-HR"><span style="font-style: normal">
+			(laringeal) barem nekada prelazilo u '</span></span><span lang="hr-HR"><i>e'
+			</i></span><span lang="hr-HR"><span style="font-style: normal">u
+			Ilirskom, te da odatle dolazi po&#269;etno</span></span><span lang="hr-HR"><i>
+			'e'</i></span><span lang="hr-HR"><span style="font-style: normal">
+			u hidronimima </span></span><span lang="hr-HR"><i>Ervenica</i></span><span lang="hr-HR"><span style="font-style: normal">
+			i </span></span><span lang="hr-HR"><i>Ervenik</i></span><span lang="hr-HR"><span style="font-style: normal">
+			(od *</span></span><span lang="hr-HR"><i>h</i></span><sub><span lang="hr-HR"><i>3</i></span></sub><span lang="hr-HR"><i>rews</i></span><span lang="hr-HR"><span style="font-style: normal">,
+			te&#263;i, isti korijen kao latinski </span></span><span lang="hr-HR"><i>ruere</i></span><span lang="hr-HR"><span style="font-style: normal">).
+			</span></span><span lang="hr-HR"><i>*ew</i></span><span lang="hr-HR"><span style="font-style: normal">,
+			naravno, prelazi u dugo 'u', kao i u </span></span><span lang="hr-HR"><i>*kuros</i></span><span lang="hr-HR"><span style="font-style: normal">
+			(sjever).</span></span></p>
 		</td>
 	</tr>
 	<tr valign="top">
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			*<span lang="hr-HR">dek</span><sup><span lang="hr-HR">j</span></sup><span lang="hr-HR">m</span></p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			*<span lang="hr-HR">dekkim</span></p>
 		</td>
-		<td width="33%" style="border: none; padding: 0in"><p class="western" align="justify">
+		<td width="277" style="border: none; padding: 0in"><p class="western" align="justify">
 			<br/>
 
 			</p>
 		</td>
 	</tr>
 </table>
-<p lang="hr-HR" class="western" align="justify" style="font-weight: normal; line-height: 100%; margin-bottom: 0in">
-<font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="text-decoration: none">Od
-tih rekonstrukcija, rekonstrukciju da je </span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><i><span style="text-decoration: none">*penka</span></i></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="text-decoration: none">
-bila rije&#269; za broj pet smatram najsigurnijom.</span></span></font></font></font></p>
+<p class="western" align="justify" style="line-height: 100%; margin-bottom: 0in">
+<font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">Od
+tih rekonstrukcija, rekonstrukciju da je </span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><i><span style="text-decoration: none"><span style="font-weight: normal">*penka</span></span></i></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">
+bila rije&#269; za broj pet smatram najsigurnijom.</span></span></span></span></font></font></font></p>
 <p lang="bs-BA" class="western" align="justify" style="font-style: normal; line-height: 100%; margin-bottom: 0in; text-decoration: none">
 <br/>
 
@@ -1240,7 +1257,7 @@ prostorima. Anti&#269;ki naziv za Varaždinske Toplice bio je &bdquo;</span></spa
 I je li mogu&#263;e da je anti&#269;ko ime otoka Visa, </span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA"><i><span style="text-decoration: none">Issa</span></i></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA"><span style="font-style: normal"><span style="text-decoration: none">,
 </span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA"><span style="font-style: normal"><span style="text-decoration: none">isprva</span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA"><span style="font-style: normal"><span style="text-decoration: none">
 ozna&#269;avao onaj izvor zapadno od rimskih termi na koji su se te
-velike terme napajale</span></span></span></font></font></font><sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA"><span style="font-style: normal"><span style="text-decoration: none"><a class="sdfootnoteanc" name="sdfootnote9anc" href="#sdfootnote9sym"><sup>9</sup></a></span></span></span></font></font></font></sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA"><span style="font-style: normal"><span style="text-decoration: none">?
+velike terme napajale</span></span></span></font></font></font><sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA"><span style="font-style: normal"><span style="text-decoration: none"><a class="sdfootnoteanc" name="sdfootnote10anc" href="#sdfootnote10sym"><sup>10</sup></a></span></span></span></font></font></font></sup><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA"><span style="font-style: normal"><span style="text-decoration: none">?
 Kolika je vjerojatnost da se taj uzorak dogodi slu&#269;ajno? Ako
 nije slu&#269;ajno, etimologija je jasna: to dolazi od indoeuropskog
 korijena </span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA"><i><span style="text-decoration: none">*yes</span></i></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="bs-BA"><span style="font-style: normal"><span style="text-decoration: none">
@@ -1307,7 +1324,9 @@ bila ilirska rije&#269; za jelena op&#263;eprihva&#263;ena je zato
 3. poglavlju Geografije, predložio da ime talijanskog gradi&#263;a
 Brindisi dolazi od ilirske rije&#269;i za jelena jer zaljev u kojem
 se on nalazi oblikom podsje&#263;a na glavu jelena, te zato &scaron;to
-je dana&scaron;nja latvijska rije&#269; za jelena </span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="lv-LV"><i><span style="text-decoration: none"><span style="font-weight: normal">briedis</span></span></i></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">.
+je dana&scaron;nja latvijska rije&#269; (jer je latvijski jedan od
+najarhai&#269;nijih dana&scaron;njih indoeuropskih jezika) za jelena
+</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="lv-LV"><i><span style="text-decoration: none"><span style="font-weight: normal">briedis</span></span></i></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">.
 Amijan i Jeronim oboje su spomenuli da je </span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><i><span style="text-decoration: none"><span style="font-weight: normal">sabaium</span></span></i></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="hr-HR"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">
 ilirska rije&#269; za pivo. &#268;etiri autora, svega dvije rije&#269;i.
 Upitno je trebamo li &#269;uvati male jezike i dijalekte: tro&scaron;kovi
@@ -1364,11 +1383,17 @@ trebamo dobro dokumentirati za budu&#263;e generacije.</span></span></span></spa
 </div>
 <div id="sdfootnote4"><p class="sdfootnote-western"><a class="sdfootnotesym" name="sdfootnote4sym" href="#sdfootnote4anc">4</a><font color="#000000"><font face="Courier New, monospace">https://flatassembler.github.io/huffman</font></font></p>
 </div>
-<div id="sdfootnote5"><p class="sdfootnote-western"><a class="sdfootnotesym" name="sdfootnote5sym" href="#sdfootnote5anc">5</a><font color="#000000"><font face="Courier New, monospace">https://flatassembler.github.io/toponyms</font></font></p>
+<div id="sdfootnote5"><p class="sdfootnote-western"><a class="sdfootnotesym" name="sdfootnote5sym" href="#sdfootnote5anc">5</a><span lang="hr-HR">Mislio
+	sam to dok ovaj tekst nisam poslao svom profesoru informatike, dr.
+	sc. Franji Jovi&#263;u. On mi je odgovorio da misli da na fleksiju
+	(morfologiju) ne odlazi mnogo entropije. U svakom slu&#269;aju,
+	p-vrijednost je mala, makar bila bliže 1/17 nego 1/300.</span></p>
 </div>
-<div id="sdfootnote6"><p class="sdfootnote-western"><a class="sdfootnotesym" name="sdfootnote6sym" href="#sdfootnote6anc">6</a><font color="#000000"><font face="Courier New, monospace">https://flatassembler.github.io/Fonoloska_evolucija_jezika.docx</font></font></p>
+<div id="sdfootnote6"><p class="sdfootnote-western"><a class="sdfootnotesym" name="sdfootnote6sym" href="#sdfootnote6anc">6</a><font color="#000000"><font face="Courier New, monospace">https://flatassembler.github.io/toponyms</font></font></p>
 </div>
-<div id="sdfootnote7"><p class="sdfootnote-western"><a class="sdfootnotesym" name="sdfootnote7sym" href="#sdfootnote7anc">7</a><font color="#000000">*</font><font color="#000000"><i>Karpona</i></font><font color="#000000">
+<div id="sdfootnote7"><p class="sdfootnote-western"><a class="sdfootnotesym" name="sdfootnote7sym" href="#sdfootnote7anc">7</a><font color="#000000"><font face="Courier New, monospace">https://flatassembler.github.io/Fonoloska_evolucija_jezika.docx</font></font></p>
+</div>
+<div id="sdfootnote8"><p class="sdfootnote-western"><a class="sdfootnotesym" name="sdfootnote8sym" href="#sdfootnote8anc">8</a><font color="#000000">*</font><font color="#000000"><i>Karpona</i></font><font color="#000000">
 	- &quot;ar&quot; sam rekonstruirao na temelju toga &scaron;to odatle
 	u hrvatskim toponimima obi&#269;no dolazi &quot;ra&quot;, po zakonu
 	metateze likvida, kao u &quot;</font><font color="#000000"><b>Ra</b></font><font color="#000000">&scaron;a&quot;
@@ -1380,7 +1405,7 @@ trebamo dobro dokumentirati za budu&#263;e generacije.</span></span></span></spa
 	&lsquo;o&rsquo; je pre</font><font color="#000000"><span lang="hr-HR">&scaron;lo
 	u jeri, pa iz jerija u 'i')</span></font><font color="#000000">.</font></p>
 </div>
-<div id="sdfootnote8"><p class="sdfootnote-western"><a class="sdfootnotesym" name="sdfootnote8sym" href="#sdfootnote8anc">8</a><font color="#000000">*</font><font color="#000000"><i>Kurrippuppona</i></font><font color="#000000">
+<div id="sdfootnote9"><p class="sdfootnote-western"><a class="sdfootnotesym" name="sdfootnote9sym" href="#sdfootnote9anc">9</a><font color="#000000">*</font><font color="#000000"><i>Kurrippuppona</i></font><font color="#000000">
 	- Prvi samoglasnik sam rekonstruirao kao 'u' (koje bi pre&scaron;lo
 	u jor) jer... &scaron;to drugo može biti? Da je 'i', 'k' bi pre&scaron;lo
 	u 'c'. Taj bi jor trebao ispasti po Havlikovom zakonu. Drugi
@@ -1390,7 +1415,7 @@ trebamo dobro dokumentirati za budu&#263;e generacije.</span></span></span></spa
 	samoglasnik, isto bi mogao biti i kratko 'u' i kratko 'i', nebitno.
 	Onaj nastavak &quot;-ona&quot;, vidi gore.</font></p>
 </div>
-<div id="sdfootnote9"><p class="sdfootnote-western"><a class="sdfootnotesym" name="sdfootnote9sym" href="#sdfootnote9anc">9</a><font color="#000000"><span lang="hr-HR">Raspravu
+<div id="sdfootnote10"><p class="sdfootnote-western"><a class="sdfootnotesym" name="sdfootnote10sym" href="#sdfootnote10anc">10</a><font color="#000000"><span lang="hr-HR">Raspravu
 	o tome na &scaron;to su se napajale isejske terme možete na&#263;i
 	na 28. stranici ove disertacije Branimira Gabri&#269;evi&#263;a:
 	</span></font><font color="#000000"><font face="Courier New, monospace"><span lang="hr-HR">https://core.ac.uk/download/pdf/33286142.pdf</span></font></font></p>
