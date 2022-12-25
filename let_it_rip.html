@@ -1,0 +1,733 @@
+<html lang="en">
+  <head>
+    <title>Let it Rip - the lessons from the COVID-19 pandemic</title>
+    <style type="text/css">
+      header {
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        background: #ffaaaa;
+        color: darkblue;
+        font-weight: bold;
+        font-size: 36px;
+        font-family: Lucida;
+      }
+      aside {
+        width: 25%;
+        background: #aaaaff;
+        height: 100%;
+        float: left;
+        color: #aa4400;
+        overflow: auto;
+      }
+      aside a {
+        text-decoration: none;
+      }
+      section {
+        width: 25%;
+        background: #ffffaa;
+        height: 100%;
+        float: right;
+        color: purple;
+        text-align: center;
+        overflow: auto;
+      }
+      .main1 {
+        background: black;
+        color: darkgray;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+        font-family: Verdana;
+      }
+      .main1 a {
+        color: lightgreen;
+      }
+      .main2 {
+        background: black;
+        color: lightgreen;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+      }
+      .main2 a {
+        color: #00ffff;
+      }
+      .main3 {
+        background: #eeeeee;
+        color: #333333;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+        font-family: Arial;
+      }
+      .main3 a {
+        color: #00aaaa;
+      }
+      .link1 {
+        text-decoration: none;
+        background: linear-gradient(to right, #111111, #333333);
+        height: 30px;
+        width: 100%;
+        color: #ff3300;
+        line-height: 30px;
+        text-indent: 10px;
+        font-family: Verdana;
+        text-indent: 5px;
+      }
+      .popup {
+        display: none;
+        background: black;
+        font-size: 14px;
+        line-height: 18px;
+        color: white;
+        opacity: 0.75;
+        position: absolute;
+        left: 25%;
+        border-width: 7px;
+        border-style: solid;
+        border-color: black;
+        max-width: 200px;
+        text-indent: 0px;
+      }
+      .popup::before {
+        content: " ";
+      }
+      .link1:hover {
+        background: darkGray;
+        color: black;
+      }
+      .link1:hover .popup {
+        display: block;
+      }
+      .link2 {
+        background: linear-gradient(to right, #333333, #111111);
+        color: #ff3300;
+      }
+      footer {
+        width: 100%;
+        height: 50px;
+        background: #aaffaa;
+        text-align: center;
+        color: #007777;
+        line-height: 50px;
+      }
+      .quotation {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        display: block;
+        font-family: Times;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        background: #ffffdd;
+        color: black;
+      }
+      .quotation table,
+      .quotation tr,
+      .quotation th,
+      .quotation td {
+        border-collapse: collapse;
+        border-style: solid;
+        border-color: black;
+      }
+      .quotation td {
+        text-align: justify;
+        padding: 3px;
+      }
+      .quotation a {
+        color: #00aaaa;
+      }
+      .quotation .quotation {
+        background-color: #ccccaa;
+      }
+      .quotation .quotation .quotation {
+        background-color: #ffffdd;
+      }
+      .quotation .quotation .quotation .quotation {
+        background-color: #ccccaa;
+      }
+      .quotation .quotation .quotation .quotation .quotation {
+        background-color: #ffffdd;
+      }
+      .quotation .quotation .quotation .quotation .quotation .quotation {
+        background-color: #ccccaa;
+      }
+      .quotation
+        .quotation
+        .quotation
+        .quotation
+        .quotation
+        .quotation
+        .quotation {
+        background-color: #ffffdd;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <img
+        src="gornjiLijevi.svg"
+        style="
+          position: absolute;
+          left: 8px;
+          width: 25%;
+          height: 200px;
+          top: 8px;
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+        alt=""
+      />
+      <img
+        src="gornjiDesni.svg"
+        style="
+          position: absolute;
+          width: 25%;
+          height: 200px;
+          left: -webkit-calc(75% - 8px);
+          left: calc(75% - 8px);
+          top: 8px;
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+        alt=""
+      />
+      <img
+        src="donjiLijevi.svg"
+        style="
+          position: absolute;
+          width: 25%;
+          height: 50px;
+          left: 8px;
+          top: calc(100% + 200px - 8px);
+          top: -webkit-calc(100% + 200px - 8px);
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+        alt=""
+      />
+      <div
+        style="
+          position: absolute;
+          top: -webkit-calc(100% + 200px + 50px + 8px);
+          top: calc(100% + 200px + 50px + 8px);
+          width: 100%;
+          height: 50px;
+          font-size: 36px;
+          font-family: Arial;
+          text-align: center;
+          background: #333333;
+          color: #aaaaaa;
+          line-height: 50px;
+        "
+      >
+        Please enable JavaScript!
+      </div>
+    </noscript>
+    <header>
+      <svg
+        id="gornjiLijevi"
+        style="float: left; width: 25%; height: 200px; background: white"
+      ></svg>
+      Let it Rip
+      <svg
+        id="gornjiDesni"
+        style="float: right; width: 25%; height: 200px; background: white"
+      ></svg>
+      <script type="text/javascript">
+        var svgNS = "http://www.w3.org/2000/svg";
+        function nacrtajRubove() {
+          var crtanje = document.getElementById("gornjiLijevi");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          var visina = crtanje.clientHeight;
+          var sirina = crtanje.clientWidth;
+          if (!visina || !sirina) {
+            visina = crtanje.parentNode.clientHeight;
+            sirina = crtanje.parentNode.clientWidth / 4;
+          }
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (270 + i * 3) / 57.3;
+            var kut2 = (274 + i * 3) / 57.3;
+            var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+            var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+            var y1 = Math.round(visina + Math.sin(kut1) * visina);
+            var y2 = Math.round(visina + Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(" +
+                Math.round(255 - i * 2.83) +
+                ",170," +
+                Math.round(170 + i * 2.83) +
+                ")"
+            );
+            crtanje.appendChild(trokut);
+          }
+          crtanje = document.getElementById("gornjiDesni");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (i * 3) / 57.3;
+            var kut2 = (4 + i * 3) / 57.3;
+            var x1 = Math.round(Math.cos(kut1) * sirina);
+            var x2 = Math.round(Math.cos(kut2) * sirina);
+            var y1 = Math.round(visina - Math.sin(kut1) * visina);
+            var y2 = Math.round(visina - Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(255," + Math.round(255 - i * 2.83) + ",170)"
+            );
+            crtanje.appendChild(trokut);
+          }
+        }
+        nacrtajRubove();
+        window.addEventListener("resize", nacrtajRubove);
+      </script>
+    </header>
+    <aside>
+      <br />
+      <center><b>Here are my online publications:</b></center>
+      <br />
+      <b style="margin-left: 5px">HTML5 stuff:</b>
+      <a href="sat.html"
+        ><div class="link1">
+          <div class="popup">
+            A simple "grandfather clock" animation made in Javascript.
+          </div>
+          Analog Clock
+        </div></a
+      >
+      <a href="calculator.html"
+        ><div class="link2 link1">
+          <div class="popup">
+            A simple HTML5 online calculator. Can solve parentheses!
+          </div>
+          Calculator
+        </div></a
+      >
+      <a href="fraktal.html"
+        ><div class="link1">
+          <div class="popup">
+            A spiral fractal I've made by modifying the "Dragon Curve".
+          </div>
+          The Dragon Curve
+        </div></a
+      >
+      <a href="pacman.html"
+        ><div class="link2 link1">
+          <div class="popup">
+            A Pacman game playable on touch screens. Made in Javascript using
+            the SVG graphics.
+          </div>
+          PacMan
+        </div></a
+      >
+      <a href="etymologist.html">
+        <div class="link1">
+          <div class="popup">
+            A flashcard game in which the goal is to guess the etymologies of
+            the words in simulated languages.
+          </div>
+          Etymology Game
+        </div></a
+      >
+      <br /><b style="margin-left: 5px">Webpages on this website:</b>
+      <a href="index.html"
+        ><div class="link1">
+          <div class="popup">A webpage with a bunch of links.</div>
+          Homepage
+        </div></a
+      >
+      <a href="libertarianism.html"
+        ><div class="link2 link1">
+          <div class="popup">What do I think about politics.</div>
+          Libertarianism
+        </div></a
+      >
+      <a href="vegetarianism.html"
+        ><div class="link1">
+          <div class="popup">Why I don't eat meat.</div>
+          Vegetarianism
+        </div></a
+      >
+      <a href="Simulation.html"
+        ><div class="link2 link1">
+          <div class="popup">Could the universe be a giant computer?</div>
+          Digital Physics
+        </div></a
+      >
+      <a href="linguistics.html"
+        ><div class="link1">
+          <div class="popup">
+            Why I like languages.<br /><br />
+            See also:<br />
+            <u
+              style="color: #0077ff"
+              onclick="window.open('http://flatassembler.github.io/toponyms.html'); window.close();"
+              >Croatian Toponyms</u
+            ><br />
+            <u
+              style="color: #0077ff"
+              onclick="window.open('http://flatassembler.github.io/Indo-Austronesian.html'); window.close();"
+              >Indo-Austronesian</u
+            >
+          </div>
+          Linguistics
+        </div></a
+      >
+      <a href="informatics.html"
+        ><div class="link2 link1">
+          <div class="popup">Why I like computers.</div>
+          Informatics
+        </div></a
+      >
+      <a href="pseudosciences.html"
+        ><div class="link1">
+          <div class="popup">
+            My advice on how to recognize and deal with false sciences.
+          </div>
+          Pseudosciences
+        </div></a
+      >
+      <br /><b style="margin-left: 5px">On Internet forums and blogs:</b>
+      <a href="http://linguistforum.com/outside-of-the-box/croatian-toponyms/"
+        ><div class="link1">
+          <div class="popup">
+            The forum thread in which I explained my linguistic theories in
+            detail.
+          </div>
+          Croatian Toponyms
+        </div></a
+      >
+      <a href="https://atheistforums.org/thread-50241.html"
+        ><div class="link2 link1">
+          <div class="popup">My parody of the conspiracy theorists.</div>
+          Airplanes Don't Exist
+        </div></a
+      >
+    </aside>
+    <section>
+      <p style="margin-left: 5px; margin-right: 5px">
+        <br />It's a common misconception that USA did exceptionally poorly
+        during the COVID-19 pandemic, due to the Trump administration being
+        hesitant to implement lockdowns and mask mandates. However, my home
+        country, Croatia, had 17% excess mortality in 2020, whereas USA had 11%.
+        Both of those, however, are huge excess mortalities compared to Sweden,
+        which had 2% excess mortality. Sweden had no lockdown or mask mandates.
+        That alone should probably be enough to prove beyond reasonable doubt
+        that those things have little or no effect.<br />
+      </p>
+      <br />
+      <a id="loptica" href="#vrh" style="position: absolute">
+        <svg width="100" height="100">
+          <defs>
+            <radialgradient id="modrozelen">
+              <stop offset="0%" stop-color="#00FFFF" />
+              <stop offset="100%" stop-color="#0000FF" />
+            </radialgradient>
+            <radialgradient id="ljubicastoplav">
+              <stop offset="0%" stop-color="#FF00FF" />
+              <stop offset="100%" stop-color="#0000FF" />
+            </radialgradient>
+          </defs>
+          <circle cx="50" cy="50" r="50" fill="url(#modrozelen)" />
+          <polygon
+            points="50,25 25,50 38,50 38,75 62,75 62,50 75,50"
+            fill="url(#ljubicastoplav)"
+          />
+        </svg>
+      </a>
+      <script type="text/javascript">
+        var udaraca = 0;
+        var loptica = document.getElementById("loptica");
+        var pocetna = loptica.parentNode.clientHeight + 200 - 100;
+        loptica.style.top = pocetna;
+        loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+        var h = 0;
+        var gk = 1;
+        var v = 10;
+        window.setInterval(pomakniLopticu, 80);
+        window.addEventListener("resize", promijeniPocetnu);
+        function promijeniPocetnu() {
+          pocetna = loptica.parentNode.clientHeight + 210 - 100;
+          loptica.style.top = pocetna;
+          loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+          h = 0;
+          gk = 1;
+          v = 10;
+        }
+        function pomakniLopticu() {
+          h += v;
+          v -= gk;
+          if (h < 0) {
+            v = -v * 0.75;
+            h = 0;
+            udaraca++;
+            if (udaraca > 20) {
+              udaraca = 0;
+              v = 10;
+            }
+          }
+          loptica.style.top = pocetna - h;
+        }
+      </script>
+    </section>
+    <main class="main1" id="glavni" style="display: block">
+      <a name="vrh"></a>
+      <h2 style="text-align: center">
+        Let it Rip - the lessons from the COVID-19 pandemic
+      </h2>
+      <div
+        style="
+          text-align: justify;
+          margin-left: 10px;
+          margin-right: 10px;
+          margin-bottom: 100px;
+        "
+      >
+        So, we are almost three years into the COVID-19 pandemic. And it is
+        absurd to think this will be the last pandemic in history. Especially
+        since we are massively using antibiotics in the egg industry, which
+        gives birth to superbacteria. Maybe there will be another pandemic even
+        within my lifetime. Here are the lessons I think rulers should have
+        learned from the COVID-19 pandemic:
+        <ol>
+          <li>
+            <b>Don't pretend that masks help significantly.</b> The Danish study
+            on the masks failed to find a statistically significant result. The
+            analysis of the raw data from it appears to suggest they provide
+            around 18% protection. The Bengali study found no statistically
+            significant result for cloth masks and the result for medical masks
+            was right on the margin of error (p-value was 5%, which is usually
+            considered a margin of error in science). Such protections are
+            easily offset by changes in behaviour. And even from the
+            epidemiological data, it is obvious masks have little or no effect.
+            Places with mask mandates do not tend to have fewer COVID-19 deaths
+            than places without mask mandates. And people who participated in
+            the Danish and Bengali studies were undoubtedly more conscientious
+            about masks than most people are. Most people are wearing dirty
+            masks often not covering their noses.
+          </li>
+          <li>
+            <b>Don't pretend immune people cannot spread the virus.</b> While
+            vaccines do indeed decrease the spread of COVID-19 by around 45% (as
+            <a
+              href="https://khub.net/documents/135939561/390853656/Impact+of+vaccination+on+household+transmission+of+SARS-COV-2+in+England.pdf/35bf4bb1-6ade-d3eb-a39e-9c9b25a8122a?t=1619601878136"
+              >this study</a
+            >
+            suggests), and provide some small protection (maybe 13%, if the
+            Israeli data, from the country which massively tests both the
+            vaccinated and the unvaccinated, is anything to judge by) against
+            infection, those protections are more than offset by the changes in
+            behavior. Countries with higher vaccination rate mostly have more
+            COVID-19 cases, rather than less (Chile, Israel...). And natural
+            immunity is almost certainly even worse than vaccine-induced
+            immunity.<br />
+            And this is a huge no-no, done by both people advocating mainstream
+            epidemiology and people advocating focused protection. People
+            advocating mainstream epidemiology often say vaccine passports
+            protect immuno-compromized people for whom vaccine won't work. Well,
+            if vaccines provide only around 45% protection against spreading,
+            vaccine passports may very well be counter-productive. Sunetra
+            Gupta, the main epidemiologist advocating focused protection,
+            suggested that only people who survived COVID-19 should be allowed
+            to work in nursing homes. Since natural immunity provides even less
+            than 45% protection against spreading, implementing that suggestion
+            would almost certainly do more harm than good.
+          </li>
+          <li>
+            <b>Don't make arrogant assumptions about soft sciences.</b> It's
+            absurd to say you can predict how people will behave in such extreme
+            situations such as a pandemic.<br />
+            Almost everybody thought shutting down most business will result in
+            fewer people dying in car accidents. As it turns out, deaths from
+            car accidents increased in 2020 compared to 2019.<br />
+            And I think proponents of focused protection are doing the same
+            mistake. What would actually happen if we tried to implement focused
+            protection? That is, if we separate families and order young people
+            to try and build herd immunity? Something tells me it won't go well
+            either.
+          </li>
+          <li>
+            <b>Don't spread too much propaganda about vaccines.</b> If you ask
+            any vaccine-hesitant person why they are hesitant to get vaccinated,
+            the most common response you will get is something along the lines
+            of &quot;<i>All that propaganda is smelly to me</i>&quot;. And
+            that's understandable. Government propaganda is often saying that,
+            unless everybody gets vaccinated soon, the virus will evolve to be
+            vaccine-resistant. That's very far from truth, as the resistance to
+            vaccines is a lot harder to evolve than, for example, resistance to
+            antibiotics. And saying things like that kills your credibility.
+          </li>
+          <li>
+            <b>Preserve the rule of law.</b> That means, don't pass blatantly
+            unconstitutional eviction moratoriums, and let the same laws that
+            apply to everybody else apply to the pharmaceutical companies
+            producing vaccines. Otherwise, you are setting a very dangerous
+            precedent. Unless, of course, that is what you want. Maybe you want
+            people to believe rule of law is worse than useless.
+          </li>
+        </ol>
+        I hope that now the &quot;let it rip&quot; strategy of dealing with
+        pandemics seems a lot more reasonable now than it seemed before reading
+        this.
+      </div>
+    </main>
+    <footer>
+      <div style="width: 25%; float: right; text-align: left; bottom: 30px">
+        Choose the style:
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main1')"
+          >[1]</a
+        >
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main2')"
+          >[2]</a
+        >
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main3')"
+          >[3]</a
+        >
+      </div>
+      Uploaded by Teo Samar&zcaron;ija on 25/12/2022
+      <svg
+        id="donjiLijevi"
+        style="float: left; width: 25%; height: 100%; background: white"
+      ></svg>
+      <script type="text/javascript">
+        if (navigator.appName == "Microsoft Internet Explorer") {
+          var niz = document.getElementsByTagName("div");
+          for (var i = 0; i < niz.length; i++) {
+            if (niz[i].className.indexOf("link1") == -1) continue;
+            niz[i].onmouseenter = function () {
+              this.children[0].style.display = "inline";
+            };
+            niz[i].onmouseleave = function () {
+              this.children[0].style.display = "none";
+            };
+          }
+          document.getElementById("glavni").removeAttribute("style");
+        } else if (navigator.appName == "Opera") {
+          document.getElementById("glavni").style.color = "black";
+          document.getElementById("glavni").style.backgroundColor = "white";
+          var gornjiDesni = document.getElementById("gornjiDesni");
+          gornjiDesni.parentNode.removeChild(gornjiDesni);
+        } else if (
+          (((navigator.userAgent.indexOf("Safari") + 1 ||
+            navigator.userAgent.indexOf("WebKit") + 1) &&
+            navigator.userAgent.indexOf("Mobile") + 1 &&
+            (!(navigator.userAgent.indexOf("Chrome") + 1) ||
+              (navigator.userAgent.indexOf("Version") + 1 &&
+                navigator.userAgent.indexOf("Chrome") + 1))) ||
+            (navigator.userAgent.indexOf("Mobile") + 1 &&
+              navigator.userAgent.indexOf("Gecko") + 1 &&
+              !(navigator.userAgent.indexOf("like Gecko") + 1) &&
+              !(navigator.userAgent.indexOf("Dolfin") + 1))) &&
+          !(navigator.userAgent.indexOf("iPad") + 1) &&
+          !(navigator.userAgent.indexOf("iPhone") + 1)
+        )
+          document.getElementById("glavni").style.fontSize = "36px";
+        else if (navigator.userAgent.indexOf("Mobi") + 1) {
+          document.head.innerHTML +=
+            '<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">';
+          var niz = document.getElementsByTagName("svg");
+          for (var i = 0; i < niz.length; i++)
+            if (niz[i].id != "polarRose") niz[i].style.display = "none";
+          document.getElementsByTagName("aside")[0].style.display = "none";
+          document.getElementsByTagName("aside")[0].style.float = "none";
+          document.getElementsByTagName("aside")[0].style.width = "100%";
+          document.getElementsByTagName("aside")[0].style.height = "auto";
+          niz = document.getElementsByClassName("popup");
+          for (var i = 0; i < niz.length; i++) {
+            niz[i].style.width = "50%";
+            niz[i].style.left = "45%";
+            niz[i].style.maxWidth = "none";
+          }
+          document.getElementsByTagName("section")[0].style.height = "auto";
+          document.getElementsByTagName("section")[0].style.float = "none";
+          document.getElementsByTagName("section")[0].style.width = "100%";
+          document.getElementsByTagName("header")[0].style.height = "auto";
+          document.getElementsByTagName("header")[0].style.lineHeight =
+            "normal";
+          document.getElementsByTagName("main")[0].style.width = "100%";
+          document.getElementsByTagName("footer")[0].children[0].style.display =
+            "inline";
+          document.getElementsByTagName("footer")[0].children[0].style.float =
+            "none";
+          document.getElementsByTagName("footer")[0].children[0].innerHTML +=
+            "<br/><br/>";
+          document.getElementsByTagName("footer")[0].style.height = "auto";
+          document.getElementsByTagName("footer")[0].style.lineHeight =
+            "normal";
+          document.getElementsByTagName("header")[0].outerHTML +=
+            '<button id="showNavigation" style="width:100%;line-height:36px;height:41px;">Show navigation<\/button>';
+          document.getElementById("showNavigation").onclick = function () {
+            if (
+              document.getElementsByTagName("aside")[0].style.display == "none"
+            ) {
+              this.innerHTML = "Hide navigation";
+              document.getElementsByTagName("aside")[0].style.display = "block";
+            } else {
+              this.innerHTML = "Show navigation";
+              document.getElementsByTagName("aside")[0].style.display = "none";
+            }
+          };
+          //window.setTimeout(function(){document.body.removeChild(document.body.children[document.body.children.length-1]);},1000);
+        }
+        function footerScript() {
+          var crtanje = document.getElementById("donjiLijevi");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          var visina = crtanje.clientHeight;
+          var sirina = crtanje.clientWidth;
+          if (!visina || !sirina) {
+            visina = crtanje.parentNode.clientHeight;
+            sirina = crtanje.parentNode.clientWidth / 4;
+          }
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (270 + i * 3) / 57.3;
+            var kut2 = (274 + i * 3) / 57.3;
+            var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+            var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+            var y1 = -Math.round(Math.sin(kut1) * visina);
+            var y2 = -Math.round(Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0"
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(170," +
+                Math.round(255 - i * 2.83) +
+                "," +
+                Math.min(Math.round(170 + i * 4), 255) +
+                ")"
+            );
+            crtanje.appendChild(trokut);
+          }
+        }
+        footerScript();
+        window.addEventListener("resize", footerScript);
+      </script>
+    </footer>
+  </body>
+</html>
