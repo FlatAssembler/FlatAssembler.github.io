@@ -229,12 +229,24 @@
     <header>
       <svg
         id="gornjiLijevi"
-        style="float: left; width: 25%; height: 200px; background: white"
+        style="
+          float: left;
+          width: 25%;
+          height: 200px;
+          background: white;
+          overflow: hidden;
+        "
       ></svg>
       Let it Rip
       <svg
         id="gornjiDesni"
-        style="float: right; width: 25%; height: 200px; background: white"
+        style="
+          float: right;
+          width: 25%;
+          height: 200px;
+          background: white;
+          overflow: hidden;
+        "
       ></svg>
       <script type="text/javascript">
         var svgNS = "http://www.w3.org/2000/svg";
@@ -242,12 +254,19 @@
           var crtanje = document.getElementById("gornjiLijevi");
           while (crtanje.childNodes.length)
             crtanje.removeChild(crtanje.childNodes[0]);
+
           var visina = crtanje.clientHeight;
           var sirina = crtanje.clientWidth;
           if (!visina || !sirina) {
             visina = crtanje.parentNode.clientHeight;
             sirina = crtanje.parentNode.clientWidth / 4;
           }
+          var krug = document.createElementNS(svgNS, "circle");
+          krug.setAttribute("fill", "#ff77ff");
+          krug.setAttribute("r", sirina / 4);
+          krug.setAttribute("cx", sirina);
+          krug.setAttribute("cy", visina);
+          crtanje.appendChild(krug);
           for (var i = 0; i < 30; i++) {
             var kut1 = (270 + i * 3) / 57.3;
             var kut2 = (274 + i * 3) / 57.3;
@@ -273,6 +292,12 @@
           crtanje = document.getElementById("gornjiDesni");
           while (crtanje.childNodes.length)
             crtanje.removeChild(crtanje.childNodes[0]);
+          krug = document.createElementNS(svgNS, "circle");
+          krug.setAttribute("fill", "#ffee00");
+          krug.setAttribute("r", sirina / 4);
+          krug.setAttribute("cx", 0);
+          krug.setAttribute("cy", visina);
+          crtanje.appendChild(krug);
           for (var i = 0; i < 30; i++) {
             var kut1 = (i * 3) / 57.3;
             var kut2 = (4 + i * 3) / 57.3;
@@ -777,7 +802,13 @@
       Uploaded by Teo Samar&zcaron;ija on 25/12/2022
       <svg
         id="donjiLijevi"
-        style="float: left; width: 25%; height: 100%; background: white"
+        style="
+          float: left;
+          width: 25%;
+          height: 100%;
+          background: white;
+          overflow: hidden;
+        "
       ></svg>
       <script type="text/javascript">
         if (navigator.appName == "Microsoft Internet Explorer") {
@@ -869,6 +900,13 @@
             visina = crtanje.parentNode.clientHeight;
             sirina = crtanje.parentNode.clientWidth / 4;
           }
+          krug = document.createElementNS(svgNS, "ellipse");
+          krug.setAttribute("fill", "#77ffff");
+          krug.setAttribute("rx", sirina);
+          krug.setAttribute("ry", visina);
+          krug.setAttribute("cx", sirina);
+          krug.setAttribute("cy", 0);
+          crtanje.appendChild(krug);
           for (var i = 0; i < 30; i++) {
             var kut1 = (270 + i * 3) / 57.3;
             var kut2 = (274 + i * 3) / 57.3;
