@@ -266,8 +266,9 @@
           krug.setAttribute("cy", visina);
           krug.setAttribute("r", sirina / 3);
           krug.setAttribute("fill", "#FF77FF");
-          if (!(navigator.userAgent.indexOf("Trident") + 1))
-            crtanje.appendChild(krug);
+          if ((navigator.userAgent.indexOf("Trident") + 1))
+            crtanje.style.overflow="hidden";
+          crtanje.appendChild(krug);
           for (var i = 0; i < 30; i++) {
             var kut1 = (270 + i * 3) / 57.3;
             var kut2 = (275 + i * 3) / 57.3;
@@ -298,8 +299,9 @@
           krug.setAttribute("cy", visina);
           krug.setAttribute("r", sirina / 3);
           krug.setAttribute("fill", "orange");
-          if (!(navigator.userAgent.indexOf("Trident") + 1))
-            crtanje.appendChild(krug);
+          if ((navigator.userAgent.indexOf("Trident") + 1))
+            crtanje.style.overflow="hidden";
+          crtanje.appendChild(krug);
           for (var i = 0; i < 30; i++) {
             var kut1 = (i * 3) / 57.3;
             var kut2 = (5 + i * 3) / 57.3;
@@ -961,8 +963,9 @@
           krug.setAttribute("cy", 0);
           krug.setAttribute("r", visina);
           krug.setAttribute("fill", "#00FFFF");
-          if (!(navigator.userAgent.indexOf("Trident") + 1))
-            crtanje.appendChild(krug);
+          if ((navigator.userAgent.indexOf("Trident") + 1))
+            crtanje.style.overflow="hidden";
+          crtanje.appendChild(krug);
           for (var i = 0; i < 30; i++) {
             var kut1 = (270 + i * 3) / 57.3;
             var kut2 = (276 + i * 3) / 57.3;
