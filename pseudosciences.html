@@ -123,6 +123,7 @@
       }
       pre {
         color: lightGreen;
+        background: black;
       }
       polyline {
         display: none;
@@ -1189,6 +1190,49 @@
             div shaped like a quarter of an ellipse (like I have made in the
             corners of the desktop version of this site, but I did that using
             SVG rather than CSS).
+          </li>
+          <li>
+            <a href="https://retrocomputing.stackexchange.com/q/26074/18606"
+              >What sequence of instructions is the equivalent to
+              <code>fcomip</code> on i486?</a
+            >
+            Do you perhaps happen to know, what would be the easiest way to
+            modify my AEC-to-x86 compiler (you can run the
+            <a href="https://flatassembler.github.io/compiler">core of it</a> in
+            browser) to be able to target i486? Right now, I think it targets
+            i486, except relying on the <code>fcomip</code> instruction which
+            exists only on i686 and newer. At first I thought I might replace
+            <code>fcomip</code> with something like:
+            <pre>
+fsubp
+fist dword [result]
+cmp dword [result],0</pre
+            >
+            But the problem with that is that I'd also need to replace every
+            <code>ja</code> with <code>jg</code> and every <code>jb</code> with
+            <code>jl</code>, which, given the way the compiler is structured, is
+            not a simple task (I'm afraid it's too error-prone). Do you have a
+            better idea? Is there a way to push FPU flags (ones affected by
+            <code>fcomp</code>) and pop them into CPU flags that would work on
+            both i486 and 64-bit x86 processors?
+          </li>
+          <li>
+            <a href="https://retrocomputing.stackexchange.com/q/15312/18606"
+              >Do all Intel Celeron processors support <code>FCOMIP</code>?</a
+            >
+            I am interested, did all Celeron processors support the
+            <code>FCOMIP</code> instruction? I've made a compiler for my
+            programming language and it uses <code>FCOMIP</code> for every
+            floating-point comparison. I've noticed that causes the programs
+            written in my programming language to crash when run on DosBox. So,
+            I am interested how far in the past would I be able to go and still
+            expect the programs my compiler outputs to work on an average
+            computer.<br />
+            (<i
+              >The moderators of the forum have closed that question as
+              off-topic, although it received way more upvotes than downvotes
+              and it also received a detailed answer.</i
+            >)
           </li>
           <li>
             <a
