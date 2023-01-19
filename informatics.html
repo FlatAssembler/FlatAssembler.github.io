@@ -686,7 +686,9 @@
         need to deal with every day. Oh, and understand that you will sometimes
         have to apply fixes which you have no idea how they work. You will get a
         lot further by being empirical than by being a rationalist and only
-        relying on things you understand. When writing a
+        relying on things you understand. This is especially true when writing
+        shell scripts, although it's also somewhat true in other types of
+        programming. When writing a
         <a
           href="https://flatassembler.github.io/AEC_specification.html#AEC_to_x86"
           >shell script to download, compile and run Analog Clock in AEC for
@@ -696,8 +698,11 @@
         linking in the math library, is put after the source files, and it
         outputs some confusing error message if it's put before the source
         files. A rationalist solution would be to try to implement the math
-        functions that Duktape invokes yourself. Instead, I did a bit of
-        Googling, and found a way nicer solution: put
+        functions that Duktape invokes yourself, like
+        <a href="https://flatassembler.github.io/AEC_specification.html#Builtin"
+          >I've implemented them in my programming language when writing Analog
+          Clock for WebAssembly</a
+        >. Instead, I did a bit of Googling, and found a way nicer solution: put
         <span class="inline_code">-lm</span> after the source files, and not
         before them. I do not understand how it works, but I can empirically say
         it does work. You can read the
@@ -729,29 +734,45 @@
         did not try it, as it seemed so ridiculous. However, I was empirical
         enough that I tried it, and it somehow magically worked. I still have no
         idea how it works. It has something to do with the difference between
-        how terminals work on Linux and how they work on Windows. Programming is
-        an empirical thing, but universities pretend it's a rationalist thing.).
-        You will gain next-to-no experience with that at the university, as the
-        programming tools used at the university are different from the
-        programming tools used in real life. JavaScript, for example, is taught
-        very little at the university, and it is the most popular programming
-        language these days, and will likely remain so in the future. Not
-        because it is a good language, in fact, it is widely agreed to be an
-        exceptionally poorly designed language, full of quirks which programmers
-        need to spend a lot of time learning to use it effectively. It is the
-        most popular programming language because of the technicallity that, in
-        order to make your application run in an Internet browser, for most of
-        the time the Internet has existed, there was no alternative. WebAssembly
-        will replace a part of JavaScript, but probably not most of it. At the
-        university, you will gain a lot of experience with programming languages
-        such as MatLab, which is almost never used for software development in
-        the real world, and is also very different from the languages used in
-        the real world. My perception is that the knowledge that is gained at
-        the university helps only when dealing with stuff such as nuclear
-        reactors or medical devices. In those cases, it is useful to be able to
-        make academic arguments that your program will work correctly in
-        unexpected situations. In most other cases, though, knowledge that is
-        gained at the university is not useful.<br />
+        how terminals work on Linux and how they work on Windows, but I don't
+        understand the details. And like I've said, the fact that you sometimes
+        stumble upon problems with truly mysterious fixes is true not only in
+        shell scripting, but also in other types of programming, such as CSS.
+        Look up the Internet Explorer 6 double-margin bug. Or how, when
+        programming my
+        <a href="PicoBlaze/PicoBlaze.html">PicoBlaze Simulator</a>, I ran into a
+        <a
+          href="https://stackoverflow.com/questions/64995585/tooltips-work-in-firefox-but-not-in-chrome"
+          >problem that the tooltips I made worked in Firefox but not in
+          Chrome</a
+        >. In both cases, the fix seems so ridiculous that it's not even worth
+        trying. For the Internet Explorer 6 double-margin bug, it was a
+        mysterious bug in Internet Explorer 6. For the Chrome issue I've run
+        into, the people on StackOverflow insist that Chrome is actually obeying
+        the standard, while Firefox isn't. If so, the standard goes wildly
+        against common sense here. Programming is an empirical thing, but
+        universities pretend it's a rationalist thing.). You will gain
+        next-to-no experience with that at the university, as the programming
+        tools used at the university are different from the programming tools
+        used in real life. JavaScript, for example, is taught very little at the
+        university, and it is the most popular programming language these days,
+        and will likely remain so in the future. Not because it is a good
+        language, in fact, it is widely agreed to be an exceptionally poorly
+        designed language, full of quirks which programmers need to spend a lot
+        of time learning to use it effectively. It is the most popular
+        programming language because of the technicallity that, in order to make
+        your application run in an Internet browser, for most of the time the
+        Internet has existed, there was no alternative. WebAssembly will replace
+        a part of JavaScript, but probably not most of it. At the university,
+        you will gain a lot of experience with programming languages such as
+        MatLab, which is almost never used for software development in the real
+        world, and is also very different from the languages used in the real
+        world. My perception is that the knowledge that is gained at the
+        university helps only when dealing with stuff such as nuclear reactors
+        or medical devices. In those cases, it is useful to be able to make
+        academic arguments that your program will work correctly in unexpected
+        situations. In most other cases, though, knowledge that is gained at the
+        university is not useful.<br />
         A common response given by professors on the university to this &quot;<i
           >Knowledge taught at the university is almost never useful.</i
         >&quot; argument is something along the lines of &quot;<i
