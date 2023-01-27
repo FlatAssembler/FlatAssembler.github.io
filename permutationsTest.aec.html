@@ -47,149 +47,164 @@
    <span class="LineNumber">4</span>  * bugs as possible by implementing the permutations algorithm.
    <span class="LineNumber">5</span>  */</span>
    <span class="LineNumber">6</span> 
-   <span class="LineNumber">7</span> <span class="Comment">//So, those are JavaScript functions which I am planning to call from AEC:
+   <span class="LineNumber">7</span> <span class="Comment">// So, those are JavaScript functions which I am planning to call from AEC:
    <span class="LineNumber">8</span> </span><span class="Keyword">Function</span> printInt<span class="Parenthesis">(</span><span class="Type">Integer32</span> int<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Is</span> <span class="Keyword">External</span><span class="Keyword">;</span>
    <span class="LineNumber">9</span> <span class="Keyword">Function</span> printString<span class="Parenthesis">(</span><span class="Type">CharacterPointer</span> ptr<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Is</span> <span class="Keyword">External</span><span class="Keyword">;</span>
   <span class="LineNumber">10</span> <span class="Keyword">Function</span> clearScreen<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Is</span> <span class="Keyword">External</span><span class="Keyword">;</span>
   <span class="LineNumber">11</span> 
-  <span class="LineNumber">12</span> <span class="Comment">//JavaScript equivalent of C "strlen" is the "length" property of a string
+  <span class="LineNumber">12</span> <span class="Comment">// JavaScript equivalent of C "strlen" is the "length" property of a string
   <span class="LineNumber">13</span> </span><span class="Comment">// and there is, as far as I know, no way to call it from outside of JS.
-  <span class="LineNumber">14</span> </span><span class="Comment">//Nevertheless, I think I can easily write it myself.
-  <span class="LineNumber">15</span> </span><span class="Keyword">Function</span> strlen<span class="Parenthesis">(</span><span class="Type">CharacterPointer</span> ptr<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span>
-  <span class="LineNumber">16</span>     <span class="Keyword">Return</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>ptr<span class="Parenthesis">)</span> <span class="Operator">=</span> <span class="Constant">0</span> <span class="Operator">?</span>
-  <span class="LineNumber">17</span>                                 <span class="Constant">0</span>
-  <span class="LineNumber">18</span>                             <span class="Operator">:</span>
-  <span class="LineNumber">19</span>                                 <span class="Constant">1</span> <span class="Operator">+</span> strlen<span class="Parenthesis">(</span>ptr <span class="Operator">+</span> <span class="Constant">1</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">20</span> <span class="Keyword">EndFunction</span>
+  <span class="LineNumber">14</span> </span><span class="Comment">// Nevertheless, I think I can easily write it myself.
+  <span class="LineNumber">15</span> </span><span class="Keyword">Function</span> strlen<span class="Parenthesis">(</span><span class="Type">CharacterPointer</span> ptr<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">16</span>   <span class="Keyword">Return</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>ptr<span class="Parenthesis">)</span> <span class="Operator">=</span> <span class="Constant">0</span> <span class="Operator">?</span> <span class="Constant">0</span> <span class="Operator">:</span> <span class="Constant">1</span> <span class="Operator">+</span> strlen<span class="Parenthesis">(</span>ptr <span class="Operator">+</span> <span class="Constant">1</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">17</span> <span class="Parenthesis">}</span>
+  <span class="LineNumber">18</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
+  <span class="LineNumber">19</span> 
+  <span class="LineNumber">20</span> <span class="Type">Integer32</span> originalNumberOfDigits<span class="Parenthesis">[</span><span class="Constant">10</span><span class="Parenthesis">]</span><span class="Operator">,</span> NDEBUG <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">1</span><span class="Operator">,</span> numberOfPermutations<span class="Keyword">;</span>
   <span class="LineNumber">21</span> 
-  <span class="LineNumber">22</span> <span class="Type">Integer32</span> originalNumberOfDigits<span class="Parenthesis">[</span><span class="Constant">10</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
-  <span class="LineNumber">23</span> <span class="Type">Integer32</span> NDEBUG <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">24</span> <span class="Type">Integer32</span> numberOfPermutations<span class="Keyword">;</span>
-  <span class="LineNumber">25</span> 
-  <span class="LineNumber">26</span> <span class="Keyword">Function</span> recursiveProcedure<span class="Parenthesis">(</span><span class="Type">CharacterPointer</span> currentAttempt<span class="Parenthesis">)</span>
-  <span class="LineNumber">27</span>     <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
-  <span class="LineNumber">28</span>     <span class="Type">Integer32</span> lengthOfTheCurrentAttempt <span class="Operator">:</span><span class="Operator">=</span> strlen<span class="Parenthesis">(</span>currentAttempt<span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">29</span>     <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>NDEBUG<span class="Parenthesis">)</span> <span class="Keyword">Then</span>
-  <span class="LineNumber">30</span>         printString<span class="Parenthesis">(</span>
-  <span class="LineNumber">31</span>             <span class="String">"DEBUG: \"recursiveProcedure\" has been invoked with the argument: \""</span>
-  <span class="LineNumber">32</span>             <span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">33</span>         printString<span class="Parenthesis">(</span>currentAttempt<span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">34</span>         printString<span class="Parenthesis">(</span><span class="String">"\". \"strlen\" says it has length of "</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">35</span>         printInt<span class="Parenthesis">(</span>lengthOfTheCurrentAttempt<span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">36</span>         printString<span class="Parenthesis">(</span><span class="String">".<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">37</span>     <span class="Keyword">EndIf</span>
-  <span class="LineNumber">38</span>     <span class="Type">Integer32</span> currentNumberOfDigits<span class="Parenthesis">[</span><span class="Constant">10</span><span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span>
-  <span class="LineNumber">39</span>         <span class="Parenthesis">{</span><span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">0</span><span class="Operator">,</span>
-  <span class="LineNumber">40</span>          <span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">0</span><span class="Parenthesis">}</span><span class="Keyword">;</span>
-  <span class="LineNumber">41</span>     <span class="Type">Integer32</span> i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">42</span>     <span class="Keyword">While</span> i<span class="Operator">&lt;</span>lengthOfTheCurrentAttempt <span class="Keyword">Loop</span>
-  <span class="LineNumber">43</span>         currentNumberOfDigits<span class="Parenthesis">[</span><span class="Operator">ValueAt</span><span class="Parenthesis">(</span>currentAttempt <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">-</span> <span class="String">'0'</span><span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span>
-  <span class="LineNumber">44</span>             currentNumberOfDigits<span class="Parenthesis">[</span><span class="Operator">ValueAt</span><span class="Parenthesis">(</span>currentAttempt <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">-</span> <span class="String">'0'</span><span class="Parenthesis">]</span> <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">45</span>         i <span class="Operator">:</span><span class="Operator">=</span> i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">46</span>     <span class="Keyword">EndWhile</span>
-  <span class="LineNumber">47</span>     <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>NDEBUG<span class="Parenthesis">)</span> <span class="Keyword">Then</span>
-  <span class="LineNumber">48</span>         i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">49</span>         <span class="Keyword">While</span> i <span class="Operator">&lt;</span> <span class="Constant">10</span> <span class="Keyword">Loop</span>
-  <span class="LineNumber">50</span>             printString<span class="Parenthesis">(</span><span class="String">"DEBUG: The current number has "</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">51</span>             printInt<span class="Parenthesis">(</span>currentNumberOfDigits<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">52</span>             printString<span class="Parenthesis">(</span><span class="String">" digits '"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">53</span>             printInt<span class="Parenthesis">(</span>i<span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">54</span>             printString<span class="Parenthesis">(</span><span class="String">"'.<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">55</span>             i <span class="Operator">:</span><span class="Operator">=</span> i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">56</span>         <span class="Keyword">EndWhile</span>
-  <span class="LineNumber">57</span>     <span class="Keyword">EndIf</span>
-  <span class="LineNumber">58</span>     i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">59</span>     <span class="Keyword">While</span> i <span class="Operator">&lt;</span> <span class="Constant">10</span> <span class="Keyword">Loop</span>
-  <span class="LineNumber">60</span>         <span class="Keyword">If</span> currentNumberOfDigits<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">&gt;</span> originalNumberOfDigits<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Keyword">Then</span>
-  <span class="LineNumber">61</span>             <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>NDEBUG<span class="Parenthesis">)</span> <span class="Keyword">Then</span>
-  <span class="LineNumber">62</span>                 printString<span class="Parenthesis">(</span><span class="String">"DEBUG: There are too many digits '"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">63</span>                 printInt<span class="Parenthesis">(</span>i<span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">64</span>                 printString<span class="Parenthesis">(</span><span class="String">"', ending \"recursiveProcedure\".<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">65</span>             <span class="Keyword">EndIf</span>
-  <span class="LineNumber">66</span>             <span class="Keyword">Return</span><span class="Keyword">;</span>
-  <span class="LineNumber">67</span>         <span class="Keyword">EndIf</span>
-  <span class="LineNumber">68</span>         i <span class="Operator">:</span><span class="Operator">=</span> i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">69</span>     <span class="Keyword">EndWhile</span>
-  <span class="LineNumber">70</span>     <span class="Type">Integer32</span> haveWeFoundAPermutation <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">71</span>     i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">72</span>     <span class="Keyword">While</span> i <span class="Operator">&lt;</span> <span class="Constant">10</span> <span class="Keyword">Loop</span>
-  <span class="LineNumber">73</span>         <span class="Keyword">If</span> currentNumberOfDigits<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">&lt;</span> originalNumberOfDigits<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Keyword">Then</span>
-  <span class="LineNumber">74</span>             haveWeFoundAPermutation <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">75</span>         <span class="Keyword">EndIf</span>
-  <span class="LineNumber">76</span>         i <span class="Operator">:</span><span class="Operator">=</span> i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">77</span>     <span class="Keyword">EndWhile</span>
-  <span class="LineNumber">78</span>     <span class="Keyword">If</span> haveWeFoundAPermutation <span class="Keyword">Then</span>
-  <span class="LineNumber">79</span>         printString<span class="Parenthesis">(</span><span class="String">"Permutation #"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">80</span>         numberOfPermutations<span class="Operator">:</span><span class="Operator">=</span>numberOfPermutations<span class="Operator">+</span><span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">81</span>         printInt<span class="Parenthesis">(</span>numberOfPermutations<span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">82</span>         printString<span class="Parenthesis">(</span><span class="String">": "</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">83</span>         printString<span class="Parenthesis">(</span>currentAttempt<span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">84</span>         printString<span class="Parenthesis">(</span><span class="String">"<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">85</span>         <span class="Keyword">Return</span><span class="Keyword">;</span>
-  <span class="LineNumber">86</span>     <span class="Keyword">EndIf</span>
-  <span class="LineNumber">87</span>     <span class="Type">Character</span> digitWeAreAdding <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'0'</span><span class="Keyword">;</span>
-  <span class="LineNumber">88</span>     <span class="Keyword">While</span> digitWeAreAdding <span class="Operator">&lt;</span> <span class="String">'9'</span> <span class="Operator">+</span> <span class="Constant">1</span> <span class="Keyword">Loop</span> <span class="Comment">//The less-than-or-equal operator
-  <span class="LineNumber">89</span> </span>                                          <span class="Comment">//">=" hasn't yet been implemented.
-  <span class="LineNumber">90</span> </span>        <span class="Type">Character</span> newAttempt<span class="Parenthesis">[</span><span class="Constant">12</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
-  <span class="LineNumber">91</span>         i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">92</span>         <span class="Keyword">While</span> i <span class="Operator">&lt;</span> <span class="Constant">12</span> <span class="Keyword">Loop</span>
-  <span class="LineNumber">93</span>             <span class="Keyword">If</span> i <span class="Operator">&lt;</span> lengthOfTheCurrentAttempt <span class="Keyword">Then</span>
-  <span class="LineNumber">94</span>                 newAttempt<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>currentAttempt <span class="Operator">+</span> i<span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">95</span>             <span class="Keyword">Else</span>
-  <span class="LineNumber">96</span>                 newAttempt<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">97</span>             <span class="Keyword">EndIf</span>
-  <span class="LineNumber">98</span>             i <span class="Operator">:</span><span class="Operator">=</span> i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">99</span>         <span class="Keyword">EndWhile</span>
- <span class="LineNumber">100</span>         newAttempt<span class="Parenthesis">[</span>lengthOfTheCurrentAttempt<span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span> digitWeAreAdding<span class="Keyword">;</span>
- <span class="LineNumber">101</span>         <span class="Keyword">If</span> currentNumberOfDigits<span class="Parenthesis">[</span>digitWeAreAdding <span class="Operator">-</span> <span class="String">'0'</span><span class="Parenthesis">]</span> <span class="Operator">&lt;</span> 
- <span class="LineNumber">102</span>             originalNumberOfDigits<span class="Parenthesis">[</span>digitWeAreAdding <span class="Operator">-</span> <span class="String">'0'</span><span class="Parenthesis">]</span> <span class="Keyword">Then</span> <span class="Comment">//To speed
- <span class="LineNumber">103</span> </span>                                                                <span class="Comment">//things up
- <span class="LineNumber">104</span> </span>                                                                <span class="Comment">//a bit.
- <span class="LineNumber">105</span> </span>            recursiveProcedure<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>newAttempt<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">106</span>         <span class="Keyword">EndIf</span>
- <span class="LineNumber">107</span>         digitWeAreAdding <span class="Operator">:</span><span class="Operator">=</span> digitWeAreAdding <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">108</span>     <span class="Keyword">EndWhile</span>
- <span class="LineNumber">109</span> <span class="Keyword">EndFunction</span>
- <span class="LineNumber">110</span> 
- <span class="LineNumber">111</span> <span class="Keyword">Function</span> printPermutationsOfDigits<span class="Parenthesis">(</span><span class="Type">Integer32</span> original<span class="Parenthesis">)</span>
- <span class="LineNumber">112</span>     <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
- <span class="LineNumber">113</span>     clearScreen<span class="Parenthesis">(</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">114</span>     <span class="Keyword">If</span> original <span class="Operator">&lt;</span> <span class="Constant">0</span> <span class="Keyword">Then</span>
- <span class="LineNumber">115</span>         original <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">-</span>original<span class="Keyword">;</span>
- <span class="LineNumber">116</span>     <span class="Keyword">EndIf</span>
- <span class="LineNumber">117</span>     printString<span class="Parenthesis">(</span><span class="String">"Printing all the permutations of digits of the number: "</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">118</span>     printInt<span class="Parenthesis">(</span>original<span class="Parenthesis">)</span><span class="Keyword">;</span> <span class="Comment">//Unfortunately, the JavaScript standard library
- <span class="LineNumber">119</span> </span>                        <span class="Comment">//doesn't have "printf".
- <span class="LineNumber">120</span> </span>    printString<span class="Parenthesis">(</span><span class="String">"<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">121</span>     <span class="Type">Integer32</span> i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">122</span>     <span class="Keyword">While</span> i <span class="Operator">&lt;</span> <span class="Constant">10</span> <span class="Keyword">Loop</span>
- <span class="LineNumber">123</span>         originalNumberOfDigits<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span>     <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">124</span>         i                         <span class="Operator">:</span><span class="Operator">=</span> i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">125</span>     <span class="Keyword">EndWhile</span>
- <span class="LineNumber">126</span>     <span class="Keyword">If</span> original <span class="Operator">=</span> <span class="Constant">0</span> <span class="Keyword">Then</span>
- <span class="LineNumber">127</span>         originalNumberOfDigits<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">128</span>     <span class="Keyword">EndIf</span>
- <span class="LineNumber">129</span>     <span class="Keyword">While</span> original <span class="Operator">&gt;</span> <span class="Constant">0</span> <span class="Keyword">Loop</span>
- <span class="LineNumber">130</span>         originalNumberOfDigits<span class="Parenthesis">[</span><span class="Operator">mod</span><span class="Parenthesis">(</span>original<span class="Operator">,</span> <span class="Constant">10</span><span class="Parenthesis">)</span><span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span>
- <span class="LineNumber">131</span>             originalNumberOfDigits<span class="Parenthesis">[</span><span class="Operator">mod</span><span class="Parenthesis">(</span>original<span class="Operator">,</span> <span class="Constant">10</span><span class="Parenthesis">)</span><span class="Parenthesis">]</span> <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">132</span>         original <span class="Operator">:</span><span class="Operator">=</span> original <span class="Operator">/</span> <span class="Constant">10</span><span class="Keyword">;</span>
- <span class="LineNumber">133</span>     <span class="Keyword">EndWhile</span>
- <span class="LineNumber">134</span>     <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>NDEBUG<span class="Parenthesis">)</span> <span class="Keyword">Then</span>
- <span class="LineNumber">135</span>         i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">136</span>         <span class="Keyword">While</span> i <span class="Operator">&lt;</span> <span class="Constant">10</span> <span class="Keyword">Loop</span>
- <span class="LineNumber">137</span>             printString<span class="Parenthesis">(</span><span class="String">"DEBUG: The original number has "</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">138</span>             printInt<span class="Parenthesis">(</span>originalNumberOfDigits<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">139</span>             printString<span class="Parenthesis">(</span><span class="String">" digits '"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">140</span>             printInt<span class="Parenthesis">(</span>i<span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">141</span>             printString<span class="Parenthesis">(</span><span class="String">"'.<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">142</span>             i <span class="Operator">:</span><span class="Operator">=</span> i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">143</span>         <span class="Keyword">EndWhile</span>
- <span class="LineNumber">144</span>     <span class="Keyword">EndIf</span>
- <span class="LineNumber">145</span>     numberOfPermutations <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">146</span>     recursiveProcedure<span class="Parenthesis">(</span><span class="String">""</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">147</span>     printString<span class="Parenthesis">(</span><span class="String">"The end!"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">148</span> <span class="Keyword">EndFunction</span>
- <span class="LineNumber">149</span> 
+  <span class="LineNumber">22</span> <span class="Keyword">Function</span>
+  <span class="LineNumber">23</span> recursiveProcedure<span class="Parenthesis">(</span><span class="Type">CharacterPointer</span> currentAttempt<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">24</span>   <span class="Type">Integer32</span> lengthOfTheCurrentAttempt <span class="Operator">:</span> <span class="Operator">=</span> strlen<span class="Parenthesis">(</span>currentAttempt<span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">25</span>   <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>NDEBUG<span class="Parenthesis">)</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">26</span>     printString<span class="Parenthesis">(</span>
+  <span class="LineNumber">27</span>         <span class="String">"DEBUG: <b>\<i>"</i></b>recursiveProcedure<b>\<i>"</i></b> has been invoked with the argument: <b>\<i>"</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">28</span>     printString<span class="Parenthesis">(</span>currentAttempt<span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">29</span>     printString<span class="Parenthesis">(</span><span class="String">"<b>\<i>"</i></b>. <b>\<i>"</i></b>strlen<b>\<i>"</i></b> says it has length of "</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">30</span>     printInt<span class="Parenthesis">(</span>lengthOfTheCurrentAttempt<span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">31</span>     printString<span class="Parenthesis">(</span><span class="String">".<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">32</span>   <span class="Parenthesis">}</span>
+  <span class="LineNumber">33</span>   <span class="Keyword">EndIf</span><span class="Keyword">;</span>
+  <span class="LineNumber">34</span>   <span class="Type">Integer32</span> currentNumberOfDigits<span class="Parenthesis">[</span><span class="Constant">10</span><span class="Parenthesis">]</span> <span class="Operator">:</span> <span class="Operator">=</span> <span class="Parenthesis">{</span><span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">0</span><span class="Parenthesis">}</span><span class="Keyword">;</span>
+  <span class="LineNumber">35</span>   <span class="Type">Integer32</span> i <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">36</span>   <span class="Keyword">While</span> i <span class="Operator">&lt;</span> lengthOfTheCurrentAttempt <span class="Keyword">Loop</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">37</span>     currentNumberOfDigits<span class="Parenthesis">[</span><span class="Operator">ValueAt</span><span class="Parenthesis">(</span>currentAttempt <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">-</span> <span class="String">'0'</span><span class="Parenthesis">]</span> <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">38</span>     i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">39</span>   <span class="Parenthesis">}</span>
+  <span class="LineNumber">40</span>   <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
+  <span class="LineNumber">41</span>   <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>NDEBUG<span class="Parenthesis">)</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">42</span>   i<span class="Operator">:</span>
+  <span class="LineNumber">43</span>     <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">44</span>     <span class="Keyword">While</span> i <span class="Operator">&lt;</span> <span class="Constant">10</span> <span class="Keyword">Loop</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">45</span>       printString<span class="Parenthesis">(</span><span class="String">"DEBUG: The current number has "</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">46</span>       printInt<span class="Parenthesis">(</span>currentNumberOfDigits<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">47</span>       printString<span class="Parenthesis">(</span><span class="String">" digits '"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">48</span>       printInt<span class="Parenthesis">(</span>i<span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">49</span>       printString<span class="Parenthesis">(</span><span class="String">"'.<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">50</span>       i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">51</span>     <span class="Parenthesis">}</span>
+  <span class="LineNumber">52</span>     <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
+  <span class="LineNumber">53</span>   <span class="Parenthesis">}</span>
+  <span class="LineNumber">54</span>   <span class="Keyword">EndIf</span><span class="Keyword">;</span>
+  <span class="LineNumber">55</span> i<span class="Operator">:</span>
+  <span class="LineNumber">56</span>   <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">57</span>   <span class="Keyword">While</span> i <span class="Operator">&lt;</span> <span class="Constant">10</span> <span class="Keyword">Loop</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">58</span>     <span class="Keyword">If</span> currentNumberOfDigits<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">&gt;</span> originalNumberOfDigits<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">59</span>       <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>NDEBUG<span class="Parenthesis">)</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">60</span>         printString<span class="Parenthesis">(</span><span class="String">"DEBUG: There are too many digits '"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">61</span>         printInt<span class="Parenthesis">(</span>i<span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">62</span>         printString<span class="Parenthesis">(</span><span class="String">"', ending <b>\<i>"</i></b>recursiveProcedure<b>\<i>"</i></b>.<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">63</span>       <span class="Parenthesis">}</span>
+  <span class="LineNumber">64</span>       <span class="Keyword">EndIf</span><span class="Keyword">;</span>
+  <span class="LineNumber">65</span>       <span class="Keyword">Return</span><span class="Keyword">;</span>
+  <span class="LineNumber">66</span>     <span class="Parenthesis">}</span>
+  <span class="LineNumber">67</span>     <span class="Keyword">EndIf</span><span class="Keyword">;</span>
+  <span class="LineNumber">68</span>     i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">69</span>   <span class="Parenthesis">}</span>
+  <span class="LineNumber">70</span>   <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
+  <span class="LineNumber">71</span>   <span class="Type">Integer32</span> haveWeFoundAPermutation <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">72</span> i<span class="Operator">:</span>
+  <span class="LineNumber">73</span>   <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">74</span>   <span class="Keyword">While</span> i <span class="Operator">&lt;</span> <span class="Constant">10</span> <span class="Keyword">Loop</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">75</span>     <span class="Keyword">If</span> currentNumberOfDigits<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">&lt;</span> originalNumberOfDigits<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">76</span>     haveWeFoundAPermutation<span class="Operator">:</span>
+  <span class="LineNumber">77</span>       <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">78</span>     <span class="Parenthesis">}</span>
+  <span class="LineNumber">79</span>     <span class="Keyword">EndIf</span><span class="Keyword">;</span>
+  <span class="LineNumber">80</span>     i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">81</span>   <span class="Parenthesis">}</span>
+  <span class="LineNumber">82</span>   <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
+  <span class="LineNumber">83</span>   <span class="Keyword">If</span> haveWeFoundAPermutation <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
+  <span class="LineNumber">84</span>     printString<span class="Parenthesis">(</span><span class="String">"Permutation #"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">85</span>     numberOfPermutations <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">86</span>     printInt<span class="Parenthesis">(</span>numberOfPermutations<span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">87</span>     printString<span class="Parenthesis">(</span><span class="String">": "</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">88</span>     printString<span class="Parenthesis">(</span>currentAttempt<span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">89</span>     printString<span class="Parenthesis">(</span><span class="String">"<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">90</span>     <span class="Keyword">Return</span><span class="Keyword">;</span>
+  <span class="LineNumber">91</span>   <span class="Parenthesis">}</span>
+  <span class="LineNumber">92</span>   <span class="Keyword">EndIf</span><span class="Keyword">;</span>
+  <span class="LineNumber">93</span>   <span class="Type">Character</span> digitWeAreAdding <span class="Operator">:</span> <span class="Operator">=</span> <span class="String">'0'</span><span class="Keyword">;</span>
+  <span class="LineNumber">94</span>   <span class="Keyword">While</span> digitWeAreAdding <span class="Operator">&lt;</span> <span class="String">'9'</span> <span class="Operator">+</span> <span class="Constant">1</span> <span class="Keyword">Loop</span> <span class="Parenthesis">{</span> <span class="Comment">// The less-than-or-equal operator
+  <span class="LineNumber">95</span> </span>                                          <span class="Comment">//">=" hasn't yet been implemented.
+  <span class="LineNumber">96</span> </span>    <span class="Type">Character</span> newAttempt<span class="Parenthesis">[</span><span class="Constant">12</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
+  <span class="LineNumber">97</span>   i<span class="Operator">:</span>
+  <span class="LineNumber">98</span>     <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">99</span>     <span class="Keyword">While</span> i <span class="Operator">&lt;</span> <span class="Constant">12</span> <span class="Keyword">Loop</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">100</span>       <span class="Keyword">If</span> i <span class="Operator">&lt;</span> lengthOfTheCurrentAttempt <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">101</span>         newAttempt<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">:</span> <span class="Operator">=</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>currentAttempt <span class="Operator">+</span> i<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">102</span>       <span class="Parenthesis">}</span>
+ <span class="LineNumber">103</span>       <span class="Keyword">Else</span> <span class="Parenthesis">{</span> newAttempt<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span> <span class="Parenthesis">}</span>
+ <span class="LineNumber">104</span>       <span class="Keyword">EndIf</span><span class="Keyword">;</span>
+ <span class="LineNumber">105</span>       i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">106</span>     <span class="Parenthesis">}</span>
+ <span class="LineNumber">107</span>     <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
+ <span class="LineNumber">108</span>     newAttempt<span class="Parenthesis">[</span>lengthOfTheCurrentAttempt<span class="Parenthesis">]</span> <span class="Operator">:</span> <span class="Operator">=</span> digitWeAreAdding<span class="Keyword">;</span>
+ <span class="LineNumber">109</span>     <span class="Keyword">If</span> currentNumberOfDigits<span class="Parenthesis">[</span>digitWeAreAdding <span class="Operator">-</span> <span class="String">'0'</span><span class="Parenthesis">]</span> <span class="Operator">&lt;</span>
+ <span class="LineNumber">110</span>         originalNumberOfDigits<span class="Parenthesis">[</span>digitWeAreAdding <span class="Operator">-</span> <span class="String">'0'</span><span class="Parenthesis">]</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span> <span class="Comment">// To speed
+ <span class="LineNumber">111</span> </span>                                                              <span class="Comment">// things up
+ <span class="LineNumber">112</span> </span>                                                              <span class="Comment">// a bit.
+ <span class="LineNumber">113</span> </span>      recursiveProcedure<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>newAttempt<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">114</span>     <span class="Parenthesis">}</span>
+ <span class="LineNumber">115</span>     <span class="Keyword">EndIf</span><span class="Keyword">;</span>
+ <span class="LineNumber">116</span>     digitWeAreAdding <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">117</span>   <span class="Parenthesis">}</span>
+ <span class="LineNumber">118</span>   <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
+ <span class="LineNumber">119</span> <span class="Parenthesis">}</span>
+ <span class="LineNumber">120</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
+ <span class="LineNumber">121</span> 
+ <span class="LineNumber">122</span> <span class="Keyword">Function</span>
+ <span class="LineNumber">123</span> printPermutationsOfDigits<span class="Parenthesis">(</span><span class="Type">Integer32</span> original<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">124</span>   clearScreen<span class="Parenthesis">(</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">125</span>   <span class="Keyword">If</span> original <span class="Operator">&lt;</span> <span class="Constant">0</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span> original <span class="Operator">*</span><span class="Operator">=</span> <span class="Operator">-</span><span class="Constant">1</span><span class="Keyword">;</span> <span class="Parenthesis">}</span>
+ <span class="LineNumber">126</span>   <span class="Keyword">EndIf</span><span class="Keyword">;</span>
+ <span class="LineNumber">127</span>   printString<span class="Parenthesis">(</span><span class="String">"Printing all the permutations of digits of the number: "</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">128</span>   printInt<span class="Parenthesis">(</span>original<span class="Parenthesis">)</span><span class="Keyword">;</span> <span class="Comment">// Unfortunately, the JavaScript standard library
+ <span class="LineNumber">129</span> </span>                      <span class="Comment">// doesn't have "printf".
+ <span class="LineNumber">130</span> </span>  printString<span class="Parenthesis">(</span><span class="String">"<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">131</span>   <span class="Type">Integer32</span> i <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">132</span>   <span class="Keyword">While</span> i <span class="Operator">&lt;</span> <span class="Constant">10</span> <span class="Keyword">Loop</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">133</span>     originalNumberOfDigits<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">134</span>     i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">135</span>   <span class="Parenthesis">}</span>
+ <span class="LineNumber">136</span>   <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
+ <span class="LineNumber">137</span>   <span class="Keyword">If</span> original <span class="Operator">=</span> <span class="Constant">0</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span> originalNumberOfDigits<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span> <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span> <span class="Parenthesis">}</span>
+ <span class="LineNumber">138</span>   <span class="Keyword">EndIf</span><span class="Keyword">;</span>
+ <span class="LineNumber">139</span>   <span class="Keyword">While</span> original <span class="Operator">&gt;</span> <span class="Constant">0</span> <span class="Keyword">Loop</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">140</span>     originalNumberOfDigits<span class="Parenthesis">[</span><span class="Operator">mod</span><span class="Parenthesis">(</span>original<span class="Operator">,</span> <span class="Constant">10</span><span class="Parenthesis">)</span><span class="Parenthesis">]</span> <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">141</span>     original <span class="Operator">/</span><span class="Operator">=</span> <span class="Constant">10</span><span class="Keyword">;</span>
+ <span class="LineNumber">142</span>   <span class="Parenthesis">}</span>
+ <span class="LineNumber">143</span>   <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
+ <span class="LineNumber">144</span>   <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>NDEBUG<span class="Parenthesis">)</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">145</span>   i<span class="Operator">:</span>
+ <span class="LineNumber">146</span>     <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">147</span>     <span class="Keyword">While</span> i <span class="Operator">&lt;</span> <span class="Constant">10</span> <span class="Keyword">Loop</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">148</span>       printString<span class="Parenthesis">(</span><span class="String">"DEBUG: The original number has "</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">149</span>       printInt<span class="Parenthesis">(</span>originalNumberOfDigits<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">150</span>       printString<span class="Parenthesis">(</span><span class="String">" digits '"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">151</span>       printInt<span class="Parenthesis">(</span>i<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">152</span>       printString<span class="Parenthesis">(</span><span class="String">"'.<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">153</span>       i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">154</span>     <span class="Parenthesis">}</span>
+ <span class="LineNumber">155</span>     <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
+ <span class="LineNumber">156</span>   <span class="Parenthesis">}</span>
+ <span class="LineNumber">157</span>   <span class="Keyword">EndIf</span><span class="Keyword">;</span>
+ <span class="LineNumber">158</span> numberOfPermutations<span class="Operator">:</span>
+ <span class="LineNumber">159</span>   <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">160</span>   recursiveProcedure<span class="Parenthesis">(</span><span class="String">""</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">161</span>   printString<span class="Parenthesis">(</span><span class="String">"The end!"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">162</span> <span class="Parenthesis">}</span>
+ <span class="LineNumber">163</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
+ <span class="LineNumber">164</span> 
 </pre>
 </body>
 </html>
