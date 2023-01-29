@@ -824,9 +824,18 @@
         Explorer 6). To use all the features, one needs to use
         <a href="https://nodejs.org/en/">NodeJS</a> or
         <a href="https://duktape.org/">Duktape</a> with it, to enable it to
-        access the file system. When I started studying at the university, many
-        professors were impressed by that. My Algorithms and Data Structures
-        professor Alfonso Baumgartner urged me to write a
+        access the file system. Thanks to
+        <a href="https://www.vogons.org/viewtopic.php?f=31&t=74881"
+          >the help I received from people on VOGONS forum</a
+        >, my AEC-to-x86 compiler outputs assembly code that runs on both i486
+        in 32-bit mode and on x86_64 processors in 64-bit mode, with no
+        modification (it uses <span class="inline_code">ebx</span> register for
+        indexing arrays, which is allowed (although not recommended) in 64-bit
+        mode, and it does not push and pop 32-bit values from the stack, it only
+        pushes and pops 16-bit ones, which is allowed in both 32-bit and 64-bit
+        mode, and so on..). When I started studying at the university, many
+        professors were impressed by my AEC-to-x86 compiler. My Algorithms and
+        Data Structures professor Alfonso Baumgartner urged me to write a
         <a
           href="https://github.com/FlatAssembler/ArithmeticExpressionCompiler/raw/master/seminar/PojednostavljeniSeminar.pdf"
         >
@@ -1460,7 +1469,11 @@ EndFunction</pre
         multi-line strings have many good uses: they arguably make the
         AEC-to-WebAssembly compiler, written in C++, more legible. Parser tests
         and large chunks of assembly code are written as multi-line strings
-        there, and I think rightly so.<br />
+        there, and I think rightly so. I have opened a
+        <a
+          href="https://www.reddit.com/r/ProgrammingLanguages/comments/10oe423/how_does_your_programming_language_implement/?utm_source=share&utm_medium=web2x&context=3"
+          >Reddit thread about that</a
+        >.<br />
         <b>UPDATE</b> on 23/09/2021: Until the version
         <span class="inline_code">v2.1.2</span> (not released as of the time of
         writing this, but it can be built from source), there was a bug in the
@@ -1993,7 +2006,12 @@ EndFunction</pre
           >Quora question</a
         >
         about that (apparently, it is to make recovery from parsing errors
-        easier).<br />
+        easier), and have created a
+        <a
+          href="https://www.reddit.com/r/ProgrammingLanguages/comments/10odou9/how_exactly_does_requiring_a_semicolon_after/?utm_source=share&utm_medium=web2x&context=3"
+          >Reddit thread</a
+        >
+        about that.<br />
         Simple branching can also be done using the
         <span class="inline_code">?:</span> operator. As it is
         right-associative, it can be used to concisely write
