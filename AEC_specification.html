@@ -1431,8 +1431,13 @@ emcc -o aec.js AECforWebAssembly.cpp -s NODERAWFS=1 -s ALLOW_MEMORY_GROWTH=1 -s 
         and Python 3.x). It's hard to tell which approach is better, both can
         produce hard-to-find bugs. The Pascal-like approach of using different
         operators for integer division and decimal division probably makes the
-        most sense, but it will also undeniably feel alien to most
-        programmers.<br />
+        most sense, but it will also undeniably feel alien to most programmers.
+        I have started a
+        <a
+          href="https://www.reddit.com/r/ProgrammingLanguages/comments/10rw892/is_in_your_programming_language_321_or_3215/?utm_source=share&utm_medium=web2x&context=3"
+          >Reddit thread</a
+        >
+        about that.<br />
         <b id="multiline_strings">UPDATE</b> on 17/09/2021: The
         AEC-to-WebAssembly compiler version
         <span class="inline_code">v2.1.0</span> (not released as of the time of
@@ -2088,6 +2093,15 @@ EndFunction</pre
           >how I implemented the ternary conditional operator in the
           AEC-to-WebAssembly compiler</a
         >.<br />
+        So, as far as I can see, you can run into at least two problems when
+        implementing the <span class="inline_code">?:</span> operator in your
+        language. PHP incorrectly parses it, my AEC-to-x86 compiler incorrectly
+        compiles it... I've asked a
+        <a
+          href="https://www.reddit.com/r/ProgrammingLanguages/comments/10rxexc/did_you_correctly_implement_the_operator_the/?utm_source=share&utm_medium=web2x&context=3"
+          >question on Reddit</a
+        >
+        to see if there are some more.<br />
         <b id="left_hand_side_conditional_operator">UPDATE</b> on 10/09/2021: I
         have decided to add the left-hand-side ternary conditional operator in
         assignments, which exists in C++, to my programming language (for now,
@@ -2495,7 +2509,12 @@ EndFunction;
         The assembly code that the AEC compiler produces for structure
         assignments is slower than one produced by C++ compilers, but, in my
         opinion, the assembly code by AEC behaves way more intuitively in cases
-        like this.<br />
+        like this. I've asked a
+        <a
+          href="https://www.reddit.com/r/ProgrammingLanguages/comments/10ry9nj/do_you_like_more_how_c_implements_structure/?utm_source=share&utm_medium=web2x&context=3"
+          >Reddit question</a
+        >
+        about that.<br />
         <b>UPDATE</b> on 28/08/2021: There <del>is</del> was a weird bug in my
         compiler causing internal compiler errors in case somebody tries to
         instantiate an array of nested structures inside a function. I have
@@ -2998,6 +3017,13 @@ EndFunction
           >lot of negative comments</a
         >
         about the way I structured my compiler.<br />
+        I once learned that a Serbian company called RT-RK, that also has an
+        office in Osijek, where I was living at the time, was searching for a
+        compiler developer. So I sent them via e-mail the AEC-to-WebAssembly
+        compiler on GitHub. They did not even invite me for an interview. They
+        responded me in an e-mail that they are searching for somebody who knows
+        in details how GCC or LLVM, preferably both, work internally, and that
+        my project does not show them that I know that.<br />
         <br />
         <b>UPDATE</b> on 05/01/2023: A question I often get asked on Internet
         forums is, if I have made my programming language, why haven't I also
