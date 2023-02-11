@@ -1803,7 +1803,12 @@ DataType name_of_the_array[size] := {first_element, second_element...};</pre
         <a href="https://clang.llvm.org/docs/ClangFormat.html">ClangFormat</a>
         mistakes <span class="inline_code">:</span> for the label-ending sign
         and puts a whitespace after it, the code does not lose its meaning. I am
-        not sure now whether that was a good choice.<br />
+        not sure now whether that was a good choice. I have created a
+        <a
+          href="https://www.reddit.com/r/ProgrammingLanguages/comments/10zoo7t/if_your_programming_language_has/?utm_source=share&utm_medium=web2x&context=3"
+          >Reddit thread</a
+        >
+        about it.<br />
         <br /><b id="Operators">Operators</b><br />
         AEC has the following operators:<br />
         <table>
@@ -2594,7 +2599,29 @@ Function zauzmi_memorijske_stranice(Integer32 broj_stranica) Which Returns
 EndFunction</pre
         >
         Remember that string tokens put next to each other are concatenated by
-        the tokenizer into one string token.<br />
+        the tokenizer into one string token. Or, in newer versions of the
+        AEC-to-WebAssembly compiler, you can use
+        <a href="#multiline_strings">multiline strings</a>, in fact, that's what
+        I recommend for inline assembly. When writing inline assembly in C or
+        C++, it has bothered me why I cannot write something like
+        <span class="inline_code"
+          >return asm("#Assembly language expression");</span
+        >, and instead I have to write
+        <span class="inline_code"
+          >asm("#Store an expression into 'variable'"); return variable;</span
+        >. Well, in the WebAssembly dialect of AEC, you can indeed write
+        something like (an excerpt from
+        <a href="analogClock.html">Analog Clock</a>):
+        <pre>
+Function sqrt(Decimal32 x) Which Returns Decimal32 Does {
+  If USE_WEBASSEMBLY_SQRT_INSTRUCTION Then {
+    Return asm_f32(
+        R"multiline((f32.sqrt
+	(local.get 0)
+))multiline");
+  }
+  EndIf;</pre
+        >
         <b>TODO</b>: Implement a GCC-and-CLANG-style inline assembly, where you
         can access variables from assembly by their names (rather than having to
         manually calculate their memory addresses).<br />
