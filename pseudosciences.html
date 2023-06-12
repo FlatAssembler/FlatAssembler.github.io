@@ -1571,6 +1571,26 @@ cmp dword [result],0</pre
             >, and it is still not obvious to me.
           </li>
           <li>
+            <a href="https://languagedesign.stackexchange.com/q/1469/330"
+              >What are some caveats to be careful about when implementing the
+              <code>?:</code> (ternary conditional) operator?</a
+            >
+            I ran into
+            <a href="AEC_specification#ternary_operator_bug">one of them</a>
+            when implementing my AEC-to-x86 compiler. And Rasus Lerdorf also ran
+            into
+            <a href="https://wiki.php.net/rfc/ternary_associativity"
+              >one of them</a
+            >
+            when writing the parser for PHP. I was interested if there were some
+            more. And an answer to that question made me discover (and therefore
+            fix)
+            <a
+              href="https://github.com/FlatAssembler/AECforWebAssembly/issues/19"
+              >two bugs in my AEC-to-WebAssembly compiler</a
+            >, one in the semantic analyzer and one in the core of the compiler.
+          </li>
+          <li>
             <a href="https://philosophy.stackexchange.com/q/99806/57731"
               >If calculating the p-value post-hoc is meaningless, why is it
               reasonable to believe the Grimm's Law (and other laws of
