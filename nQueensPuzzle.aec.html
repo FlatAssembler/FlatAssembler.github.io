@@ -60,25 +60,25 @@
   <span class="LineNumber">17</span>   <span class="Type">Integer32</span> row<span class="Operator">,</span> column<span class="Keyword">;</span>
   <span class="LineNumber">18</span> <span class="Keyword">EndStructure</span>
   <span class="LineNumber">19</span> 
-  <span class="LineNumber">20</span> <span class="Keyword">Function</span> areQueensInTheSameColumn<span class="Parenthesis">(</span>QueenPointer first<span class="Operator">,</span> QueenPointer second<span class="Parenthesis">)</span>
+  <span class="LineNumber">20</span> <span class="Keyword">Function</span> areQueensInTheSameColumn<span class="Parenthesis">(</span><span class="Type">QueenPointer</span> first<span class="Operator">,</span> <span class="Type">QueenPointer</span> second<span class="Parenthesis">)</span>
   <span class="LineNumber">21</span>   <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span>
   <span class="LineNumber">22</span>     <span class="Keyword">Return</span> first<span class="Operator">-</span><span class="Operator">&gt;</span>column <span class="Operator">=</span> second<span class="Operator">-</span><span class="Operator">&gt;</span>column<span class="Keyword">;</span>
   <span class="LineNumber">23</span> <span class="Keyword">EndFunction</span>
   <span class="LineNumber">24</span> 
-  <span class="LineNumber">25</span> <span class="Keyword">Function</span> areQueensInTheSameRow<span class="Parenthesis">(</span>QueenPointer first<span class="Operator">,</span> QueenPointer second<span class="Parenthesis">)</span>
+  <span class="LineNumber">25</span> <span class="Keyword">Function</span> areQueensInTheSameRow<span class="Parenthesis">(</span><span class="Type">QueenPointer</span> first<span class="Operator">,</span> <span class="Type">QueenPointer</span> second<span class="Parenthesis">)</span>
   <span class="LineNumber">26</span>   <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span>
   <span class="LineNumber">27</span>     <span class="Keyword">Return</span> first<span class="Operator">-</span><span class="Operator">&gt;</span>row <span class="Operator">=</span> second<span class="Operator">-</span><span class="Operator">&gt;</span>row<span class="Keyword">;</span>
   <span class="LineNumber">28</span> <span class="Keyword">EndFunction</span>
   <span class="LineNumber">29</span> 
-  <span class="LineNumber">30</span> <span class="Keyword">Function</span> areQueensOnTheSameDiagonal<span class="Parenthesis">(</span>QueenPointer first<span class="Operator">,</span>
-  <span class="LineNumber">31</span>                                     QueenPointer second<span class="Parenthesis">)</span>
+  <span class="LineNumber">30</span> <span class="Keyword">Function</span> areQueensOnTheSameDiagonal<span class="Parenthesis">(</span><span class="Type">QueenPointer</span> first<span class="Operator">,</span>
+  <span class="LineNumber">31</span>                                     <span class="Type">QueenPointer</span> second<span class="Parenthesis">)</span>
   <span class="LineNumber">32</span>   <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span>
   <span class="LineNumber">33</span>     <span class="Keyword">Return</span> first<span class="Operator">-</span><span class="Operator">&gt;</span>row <span class="Operator">+</span> first<span class="Operator">-</span><span class="Operator">&gt;</span>column <span class="Operator">=</span> second<span class="Operator">-</span><span class="Operator">&gt;</span>row <span class="Operator">+</span> second<span class="Operator">-</span><span class="Operator">&gt;</span>column <span class="Operator">or</span>
   <span class="LineNumber">34</span>            first<span class="Operator">-</span><span class="Operator">&gt;</span>row <span class="Operator">-</span> first<span class="Operator">-</span><span class="Operator">&gt;</span>column <span class="Operator">=</span> second<span class="Operator">-</span><span class="Operator">&gt;</span>row <span class="Operator">-</span> second<span class="Operator">-</span><span class="Operator">&gt;</span>column<span class="Keyword">;</span>
   <span class="LineNumber">35</span> <span class="Keyword">EndFunction</span>
   <span class="LineNumber">36</span> 
-  <span class="LineNumber">37</span> <span class="Keyword">Function</span> areQueensAttackingEachOther<span class="Parenthesis">(</span>QueenPointer first<span class="Operator">,</span>
-  <span class="LineNumber">38</span>                                      QueenPointer second<span class="Parenthesis">)</span>
+  <span class="LineNumber">37</span> <span class="Keyword">Function</span> areQueensAttackingEachOther<span class="Parenthesis">(</span><span class="Type">QueenPointer</span> first<span class="Operator">,</span>
+  <span class="LineNumber">38</span>                                      <span class="Type">QueenPointer</span> second<span class="Parenthesis">)</span>
   <span class="LineNumber">39</span>   <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span>
   <span class="LineNumber">40</span>     <span class="Keyword">Return</span> areQueensInTheSameRow<span class="Parenthesis">(</span>first<span class="Operator">,</span> second<span class="Parenthesis">)</span> <span class="Operator">or</span>
   <span class="LineNumber">41</span>            areQueensInTheSameColumn<span class="Parenthesis">(</span>first<span class="Operator">,</span> second<span class="Parenthesis">)</span> <span class="Operator">or</span>
@@ -91,8 +91,8 @@
   <span class="LineNumber">48</span>   Queen queens<span class="Parenthesis">[</span><span class="Constant">12</span><span class="Parenthesis">]</span><span class="Keyword">;</span> <span class="Comment">// There are too many solutions for over 12 queens.
   <span class="LineNumber">49</span> </span><span class="Keyword">EndStructure</span>
   <span class="LineNumber">50</span> 
-  <span class="LineNumber">51</span> <span class="Keyword">Function</span> chessBoardContainsThatQueen<span class="Parenthesis">(</span>ChessBoardPointer chessBoard<span class="Operator">,</span>
-  <span class="LineNumber">52</span>                                       QueenPointer queen<span class="Parenthesis">)</span>
+  <span class="LineNumber">51</span> <span class="Keyword">Function</span> chessBoardContainsThatQueen<span class="Parenthesis">(</span><span class="Type">ChessBoardPointer</span> chessBoard<span class="Operator">,</span>
+  <span class="LineNumber">52</span>                                       <span class="Type">QueenPointer</span> queen<span class="Parenthesis">)</span>
   <span class="LineNumber">53</span>                                       <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span>
   <span class="LineNumber">54</span>   <span class="Type">Integer32</span> i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
   <span class="LineNumber">55</span>   <span class="Keyword">While</span> i <span class="Operator">&lt;</span> chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>length <span class="Keyword">Loop</span>
@@ -107,7 +107,7 @@
   <span class="LineNumber">64</span> 
   <span class="LineNumber">65</span> <span class="Comment">// Now, let's forward-declare the functions we will write later.
   <span class="LineNumber">66</span> </span><span class="Comment">// Putting them here would make the code less legible.
-  <span class="LineNumber">67</span> </span><span class="Keyword">Function</span> recursiveFunction<span class="Parenthesis">(</span>ChessBoardPointer chessBoard<span class="Operator">,</span>
+  <span class="LineNumber">67</span> </span><span class="Keyword">Function</span> recursiveFunction<span class="Parenthesis">(</span><span class="Type">ChessBoardPointer</span> chessBoard<span class="Operator">,</span>
   <span class="LineNumber">68</span>                            <span class="Type">Integer32</span> n<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Is</span> <span class="Keyword">Declared</span><span class="Keyword">;</span>
   <span class="LineNumber">69</span> 
   <span class="LineNumber">70</span> <span class="Keyword">Function</span> convertIntegerToString<span class="Parenthesis">(</span><span class="Type">CharacterPointer</span> str<span class="Operator">,</span>
@@ -146,7 +146,7 @@
  <span class="LineNumber">103</span> 
  <span class="LineNumber">104</span> <span class="Comment">// I guess moving this code out of "recursiveFunction" makes the
  <span class="LineNumber">105</span> </span><span class="Comment">// code more legible.
- <span class="LineNumber">106</span> </span><span class="Keyword">Function</span> printAsASolution<span class="Parenthesis">(</span>ChessBoardPointer chessBoard<span class="Parenthesis">)</span>
+ <span class="LineNumber">106</span> </span><span class="Keyword">Function</span> printAsASolution<span class="Parenthesis">(</span><span class="Type">ChessBoardPointer</span> chessBoard<span class="Parenthesis">)</span>
  <span class="LineNumber">107</span>   <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
  <span class="LineNumber">108</span>     <span class="Type">Character</span> stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">64</span><span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="Parenthesis">{</span><span class="Constant">0</span><span class="Parenthesis">}</span><span class="Keyword">;</span>
  <span class="LineNumber">109</span>     <span class="Type">Character</span> stringToBeAdded<span class="Parenthesis">[</span><span class="Constant">8</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
@@ -226,7 +226,7 @@
  <span class="LineNumber">183</span> <span class="Keyword">EndFunction</span>
  <span class="LineNumber">184</span> 
  <span class="LineNumber">185</span> <span class="Comment">// Now, let's implement the brute-force algorithm.
- <span class="LineNumber">186</span> </span><span class="Keyword">Function</span> recursiveFunction<span class="Parenthesis">(</span>ChessBoardPointer chessBoard<span class="Operator">,</span>
+ <span class="LineNumber">186</span> </span><span class="Keyword">Function</span> recursiveFunction<span class="Parenthesis">(</span><span class="Type">ChessBoardPointer</span> chessBoard<span class="Operator">,</span>
  <span class="LineNumber">187</span>                            <span class="Type">Integer32</span> n<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span>
  <span class="LineNumber">188</span>   <span class="Comment">// First, do some sanity checks useful for debugging...
  <span class="LineNumber">189</span> </span>  <span class="Keyword">If</span> chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>length <span class="Operator">&gt;</span> n <span class="Keyword">Then</span>
