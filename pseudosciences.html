@@ -1688,6 +1688,63 @@ cmp dword [result],0</pre
             >, one in the semantic analyzer and one in the core of the compiler.
           </li>
           <li>
+            <a href="https://langdev.stackexchange.com/q/1912/330"
+              >Why do most programming languages use the same token for
+              <code>EndIf</code>, <code>EndWhile</code>,
+              <code>EndFunction</code> and <code>EndStructure</code>?</a
+            ><br />
+            In my programming language, <a href="AEC_specification">AEC</a>, I
+            am using keywords <code>EndIf</code> and <code>EndWhile</code> with
+            the same meaning as in SmallBasic, and I am also using
+            <code>EndFunction</code> (corresponding to <code>EndSub</code> in
+            SmallBasic) and <code>EndStructure</code> (for ending the
+            structures). But I have noticed very few languages use different
+            tokens for those things. Of the programming languages I know, only
+            SmallBasic, Ada and VHDL (with a syntax based on Ada) distinguish
+            those things. Most programming languages I know use
+            <code>}</code> for all of those things, and those that do not (such
+            as Pascal or MatLab or Lua) use <code>end</code> for all of those.
+            Why?<br />
+            An obvious answer is that using the same token for all those things
+            makes the programming language slightly easier to parse. But I think
+            that cannot be the main reason. Furthermore, I think that Lua is
+            even more difficult to parse because it uses <code>end</code> for
+            all those things, but doesn't use <code>begin</code> (like Pascal
+            does). When parsing Lua, you basically need to keep track of all
+            <code>do</code>-es and <code>then</code>-es at the same time.
+            Whereas, when parsing AEC, you can first deal with
+            <code>Then</code>-es and <code>EndIf</code>-es, and then, after you
+            have done that, deal with <code>Loop</code>-es and
+            <code>EndWhile</code>-es.<br />
+            The other obvious answer is that <code>}</code> is easier to type
+            than <code>EndIf</code>. But I am also not sure that's the case. I
+            am Croatian, and I don't even know where <code>}</code> is on the
+            Croatian keyboard. If I were forced to use the Croatian keyboard, it
+            would be much easier for me to type <code>EndIf</code> than to type
+            <code>}</code>.<br />
+            I think using different tokens for <code>EndIf</code> and
+            <code>EndWhile</code> makes the code significantly easier to read by
+            humans. But maybe I am biased, since SmallBasic was my first
+            programming language. What do you think?<br />
+            (<i
+              >Many people on that forum think that the C-like languages, which
+              are using <code>}</code> for all of that, are easier to read by
+              humans than AEC is, provided that the code is properly indented.
+              Namely, that my keywords look too much like variable names, which
+              may confuse some people. And that people don't like programming in
+              &quot;verbose&quot; languages such as AEC for the same reason
+              people don't like editing HTML or XML by hand. I don't have that
+              impression. I remember writing long functions in my
+              <a href="https://github.com/FlatAssembler/AECforWebAssembly"
+                >AEC-to-WebAssembly compiler</a
+              >
+              in C++ and the compiler telling me the curly braces are not
+              properly closed, so I tried to properly close them and got lost,
+              not knowing which <code>}</code> is supposed to close an
+              <code>if</code> and which one is supposed to close a loop.</i
+            >)
+          </li>
+          <li>
             <a href="https://philosophy.stackexchange.com/q/99806/57731"
               >If calculating the p-value post-hoc is meaningless, why is it
               reasonable to believe the Grimm's Law (and other laws of
