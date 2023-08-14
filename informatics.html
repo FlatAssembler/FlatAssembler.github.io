@@ -814,6 +814,53 @@
         but I nevertheless happened to know it), which gave me significantly
         worse results. And who knows how many other things in programming I
         needed, but I did not recognize I needed them?<br />
+        It is important to understand that while some technological advancements
+        turn out to be life-saving medical technology or some other tool that
+        obviously improves our quality of life, the vast majority of
+        technological advancements are not like that. Like Ayn Rand said, most
+        of the technological advancements are solving problems that
+        technologies, that we became dependent on, created. Ayn Rand was
+        referring to cars, but the same can be said for computers. In 1983, the
+        engineers at Altera invented field-programmable gate arrays (FPGAs),
+        that's intented to be useful as a CPU but whose architecture (whether it
+        is x86 or ARM...) can be changed programmatically. Of course, FPGAs were
+        nearly useless back then, as there was no high-level programming
+        language targetting them. Then the engineers working at the US
+        government invented VHDL, a programming language that can be used to
+        target FPGAs. But FPGAs were still relatively useless as, well, no
+        actual CPU can be synthesized to work on FPGAs. But then came the
+        engineers at Xilinx who wrote PicoBlaze. While it solved some problems,
+        it created new ones. To search for errors in programs written for
+        PicoBlaze, it is useful to be able to run your programs on the computer
+        you are developing that program on, which is only possible using an
+        emulator. Furthermore, the assembler for PicoBlaze that Xilinx produces
+        is, because of some technical details, difficult to run on various types
+        of computers. So, my Computer Architecture professor Ivan Aleksi pointed
+        out that problem to me and he suggested me to make
+        <a href="PicoBlaze/PicoBlaze.html"
+          >a web-based assembler and emulator for PicoBlaze</a
+        >. And, when I made it, I created new problems: that emulator is slow
+        and may even be incorrect in some cases (What happens to the flags when
+        the regbank changes?). And Xilinx'es creation of PicoBlaze also created
+        another problem: no compiler for a high-level language can actually
+        target PicoBlaze. And <b>that</b> is difficult to solve, as PicoBlaze is
+        a very difficult compilation target (you can trust me on that, as I made
+        a two compilers for my programming language, but I have no idea how I
+        would make one to target PicoBlaze). Aren't we trying to get out of a
+        hole by digging? On what planet does that make sense? If you don't like
+        completing such seemingly-pointless tasks, then don't be a programmer,
+        as that's what programming is mostly about. My father, when I told him I
+        think I should be a programmer who hasn't gone to a university, he told
+        me: &quot;<i
+          >You need to understand you will not be working on the abstract idea
+          of programming. You will not be programming Jesus and Mary in the air,
+          you will be programming actual devices which you need to understand
+          how they work. And the university will help you understand how they
+          work.</i
+        >&quot;. It seemed to me back then that it could be true, but it seems
+        to me more and more that that couldn't be further from the truth. It
+        seems to me now that most programmers are working on the abstract idea
+        of programming, rather than programming something in reality.<br />
         If you would like to read more about what I think about the way
         programming is taught at the university, click
         <a
@@ -822,7 +869,7 @@
           >here</a
         >.
         <span id="universities" style="display: none"
-          ><br />I also think that, in at least some cases, programming as it is
+          ><br />I think that, in at least some cases, programming as it is
           taught at the university may be counter-productive. In our Operating
           Systems classes, we were taught a lot about system calls in Linux and
           Windows. But using those is a big no-no in real-world programs. At the
@@ -892,9 +939,10 @@
           to understand that software engineers are, while not quite in the
           position of medieval physicians, not very far from it. The fact that
           you have a basic idea of how software works (and nobody fully
-          understands the software running on modern computers) in no way means
-          you know how to fix it. Any more than doctors at the beginning of the
-          COVID-19 pandemic knew how to treat COVID-19 patients: it was
+          understands the software running on modern computers, and only people
+          like Andrew Tanenbaum have a somewhat-complete picture) in no way
+          means you know how to fix it. Any more than doctors at the beginning
+          of the COVID-19 pandemic knew how to treat COVID-19 patients: it was
           evidence-free zone, in spite of all the knowledge we today have about
           human body and about virology. And suggesting technical problems would
           disappear if only we rigorously followed academic rules of programming
