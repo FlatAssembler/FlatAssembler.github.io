@@ -544,7 +544,7 @@
           >
           The barrier to entry to the world of programming is high, and it gets
           even higher as the time passes (and computers become more complicated,
-          and an average person is more able to build a website so more is
+          and an average person is more able to build a website, so more is
           expected from a programmer...).
           <br />
           I am sorry if I bursted your bubble, but a little slap of reality into
@@ -1274,6 +1274,53 @@ fibonacci n <span class="Statement">=</span> fibonacci (n<span class="Statement"
         programming languages, is filled with pseudosciences. Programmers are
         often quite dogmatic in defending their favorite programming
         languages.<br />
+        A question that I sometimes ask myself is why do we still use low-level
+        programming languages for some tasks? A few decades ago, you could say
+        that compilers were not advanced enough to target resource-constrained
+        computers, but today you cannot say that. C++ compilers today often
+        produce better code than an inexperienced assembly language programmer
+        would write. I think a lot better explanation is that, when you are
+        doing simple tasks on resource-constrained computers such as PicoBlaze,
+        the benefits of using a high-level language are questionable. For one
+        thing, you probably need to learn another high-level programming
+        language, since PicoBlaze is not at all well-suited for being targetted
+        with C. For one thing, C assumes it is easy to do floating-point
+        operations (operations with decimal numbers), whereas that's not at all
+        true for PicoBlaze (it may very well be impossible on PicoBlaze). So, to
+        program PicoBlaze in a high-level language, you will need to learn some
+        relatively-alien high-level programming language. And the compiler for
+        that language... hm... you cannot be certain it will be nearly as good
+        as mainstream C++ compilers are. Furthermore, I think that any real
+        high-level language makes the limits of the hardware far less
+        transparent. PicoBlaze guarantees you that each directive will run in
+        exactly two clock ticks, so its timing is completely predictable if you
+        use assembly. If you use a high-level language, that benefit is lost. So
+        is the insight that PicoBlaze can only have 16 bytes of local variables
+        at once. And so on. Overall, I think that assembly language programming
+        will always be a useful skill. Furthermore, you need to realize that, in
+        embedded systems (for which PicoBlaze is used), you are rarely using
+        some complicated algorithms. Quite often, a P-controller (which simply
+        multiplies the error by a constant) is enough to get a sane result. The
+        constant of the P-controller is not calculated on PicoBlaze, it is
+        calculated in programs such as Octave and MatLab, and only programmed
+        into PicoBlaze. Sometimes PI-regulator is necessary, but that also isn't
+        horribly difficult to implement in assembly. Sometimes some dynamic
+        programming is necessary, but the code for dynamic programming
+        algorithms is usually short and easy to implement in assembly (easier
+        than QuickSort at least), even though it is hard to understand how those
+        algorithms work (or even what exactly they are doing: for a long time, I
+        was mistaken that the LCS algorithm from dynamic programming is good for
+        providing suggestions for misspelled variable names). Programming for
+        embedded systems is a very different kind of programming than
+        programming <a href="pacman.html">my PacMan game</a> or programming
+        <a href="https://github.com/FlatAssembler/AECforWebAssembly.git"
+          >the compiler for my programming language</a
+        >
+        or
+        <a href="PicoBlaze/PicoBlaze.html"
+          >my PicoBlaze assembler and emulator</a
+        >, it takes completely different skills, and the benefits of using a
+        high-level language there are questionable.<br />
         While I have a lot of theoretical knowledge of programming, I don't have
         experience with writing long programs. The most complicated thing I've
         made is probably the PacMan game I've posted on this site. It's written
@@ -1287,8 +1334,8 @@ fibonacci n <span class="Statement">=</span> fibonacci (n<span class="Statement"
           code, excluding the testing parts written in JavaScript and the
           example programs written in my programming language. The most
           complicated program I have made in HTML5 is my
-          <a href="PicoBlaze/PicoBlaze.html">PicoBlaze Simulator</a>, having
-          3'500 lines of code.</i
+          <a href="PicoBlaze/PicoBlaze.html">PicoBlaze assembler and emulator</a
+          >, having 3'500 lines of code.</i
         >) I've come to an idea to make this website when I learned how much
         Javascript (a programming language used by Internet browsers) has
         changed since I last studied it. It's made making websites, web
