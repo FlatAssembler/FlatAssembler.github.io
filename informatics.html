@@ -1303,16 +1303,18 @@ fibonacci n <span class="Statement">=</span> fibonacci (n<span class="Statement"
         multiplies the error by a constant) is enough to get a sane result. The
         constant of the P-controller is not calculated on PicoBlaze, it is
         calculated in programs such as Octave and MatLab, and only programmed
-        into PicoBlaze. Sometimes PI-regulator is necessary, but that also isn't
-        horribly difficult to implement in assembly. Sometimes some dynamic
-        programming is necessary, but the code for dynamic programming
-        algorithms is usually short and easy to implement in assembly (easier
-        than QuickSort at least), even though it is hard to understand how those
-        algorithms work (or even what exactly they are doing: for a long time, I
-        was mistaken that the LCS algorithm from dynamic programming is good for
-        providing suggestions for misspelled variable names). Programming for
-        embedded systems is a very different kind of programming than
-        programming <a href="pacman.html">my PacMan game</a> or programming
+        into PicoBlaze. Sometimes PI-regulator (basically, that the sum of
+        previous errors affects the output in addition to the current error) is
+        necessary, but that also isn't horribly difficult to implement in
+        assembly. Sometimes some dynamic programming is necessary, but the code
+        for dynamic programming algorithms is usually short and easy to
+        implement in assembly (easier than QuickSort at least), even though it
+        is hard to understand how those algorithms work (or even what exactly
+        they are doing: for a long time, I was mistaken that the LCS algorithm
+        from dynamic programming is good for providing suggestions for
+        misspelled variable names). Programming for embedded systems is a very
+        different kind of programming than programming
+        <a href="pacman.html">my PacMan game</a> or programming
         <a href="https://github.com/FlatAssembler/AECforWebAssembly.git"
           >the compiler for my programming language</a
         >
