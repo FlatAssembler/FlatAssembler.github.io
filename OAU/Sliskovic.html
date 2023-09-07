@@ -10,6 +10,8 @@
   </script>
 <style type="text/css">
 img { max-width: 100%; margin-top: 5px; margin-bottom: 5px; margin-left: auto; margin-right: auto;}
+table,tr,td,th {border-style: solid; border-collapse: collapse;}
+td:nth-child(1) {text-align: center;}
 </style>
 </head>
 <body>
@@ -71,7 +73,7 @@ PI-član ima ovakvu prijenosnu funkciju:
 Mnogi su regulatori PI-regulatori, oni se koriste kad je točnost u stacionarnom stanju važna (što se ne može postići P-regulatorom).<br/>
 Dalje ne znam.
 </li>
-<li><b>Dinamički član s PID/PIDT<sub>1</sub>-vladanjem; opis u t, s i &omega;-području, primjer sustava s ovakvim vladanjem</b><br/>
+<li><b id="PID">Dinamički član s PID/PIDT<sub>1</sub>-vladanjem; opis u t, s i &omega;-području, primjer sustava s ovakvim vladanjem</b><br/>
 Idealni PID-član ima ovakvu prijenosnu funkciju:
 \[ G(s)=K\left(1+\frac{1}{T_Is}+T_Ds\right) \]
 Realni PID-član (pretpostavljam da je to ono što profesor misli pod PIDT<sub>1</sub>) ima ovakvu prijenosnu funkciju:
@@ -97,6 +99,59 @@ T<sub>t</sub> znači "<i>član s mrtvim vremenom</i>", kad je \( y(t)=x(t-T_t) \
 Njegov Bodeov dijagram izgleda ovako (preuzeto <a href="https://ocw.mit.edu/courses/16-30-feedback-control-systems-fall-2010/cb4fd48f2435b6d67fb6d3c3ecf9bc86_MIT16_30F10_rec11.pdf">od Emilija Frazzolija</a>, pokušao sam napraviti svoj, ali Octave mi javlja nekakvu poruku o pogrešci):<br/>
 <img src="Bode_deadtime.jpg"><br/>
 Takvo vladanje ima, recimo, transportna traka koja prenosi neki materijal. Takva su vladanja jako rijetka u električnim i elektroničkim sustavima, ali su česta u mehaničkim.
+</li>
+</ol>
+<h2>Analiza 2 (regulacijski krug i njegova svojstva/karakteristike)</h2>
+<ol>
+<li><b>Standardni tipovi regulatora (PID i iz njega izvedeni tipovi), opis u t, s i &omega;-području</b><br/>
+Za opis u t, s i &omega;-području, vidi <a href="#PID">pitanje 1.7</a>.<br/>
+Standardni tipovi regulatora su:
+<table>
+<tr><th>Tip regulatora</th><th>Prednosti</th><th>Nedostatci</th></tr>
+<tr><td>P-regulator</td><td><ul><li>Jednostavno podešavanje</li><li>Relativno brza reakcija na poremećaj i promjenu vodeće veličine.</td><td><ul><li>Veliko odstupanje u stacionarnom stanju.</li><li>Ne može stabilizirati neke sustave koje PD i PID mogu.</li></ul></td></tr>
+<tr><td>PD-regulator</td><td><ul><li>Brza reakcija na poremećaj i promjenu referentne veličine</li><li>Može stabilizirati neke sustave koje P, I i PI ne mogu (tako što izobličuje krivulju mjesta korijena prema lijevo).</li></ul></td><td><ul><li>Odstupanje u stacionarnom stanju</li><li>Ne može se egzaktno realizirati.</li></ul></td></tr>
+<tr><td>I-regulator</td><td><ul><li>Točnost u stacionarnom stanju</li></ul></td><td><ul><li>Spora reakcija na poremećaj i promjenu referentne veličine</li><li>Ne može stabilizirati neke sustave koje PD i PID mogu.</li></ul></td></tr>
+<tr><td>PI-regulator</td><td><ul><li>Točnost u stacionarnom stanju.</li><li>Relativno brza reakcija na poremećaj.</li><li>Relativno jednostavno podešavanje.</li></ul></td><td><ul><li>Ne može stabilizirati neke sustave koje PD i PID mogu.</li></ul></td></tr>
+<tr><td>PID-regulator</td><td><ul><li>Točnost u stacionarnom stanju</li><li>Brza reakcija na poremećaj</li><li>Može stabilizirati sustave koji P, I i PI ne mogu</li></ul></td><td><ul><li>Kompliciran za podesiti.</li><li>Ne može se egzaktno realizirati</li></ul></td></tr>
+</table>
+</li>
+<li><b>Regulacijski krug; struktura regulacijskog kruga i uloga pojedinih elemenata, osnovne veličine u regulacijskom krugu, vladanje regulacijskog kruga s obzirom na vodeću i poremećajnu veličinu, prijenosne funkcije regulacijskog kruga i karakteristični polinom</b><br/>
+Vidi ovu sliku:<br/>
+<img src="regulacijski_krug.jpg"><br/>
+Elementi regulacijskog kruga su:
+<ul>
+<li>Prefilter - služi za to da smanji nadvišenje pri skokovitim promjenama referentne veličine x<sub>r</sub>, obično nije potreban</li>
+<li>Regulator - implementira algoritam upravljanja procesom čiji je ulaz regulacijsko odstupanje &epsilon;</li>
+<li>Aktuator - pretvara izlaz regulatora (danas najčešće digitalni električni signal) u fizičku veličinu kojom se upravlja procesom</li>
+<li>Proces - ono čime želimo upravljati</li>
+<li>Mjerni član - mjeri izlaz iz procesa y, pretvara ga u oblik razumljiv regulatoru (danas najčešće digitalni električni signal)</li>
+</ul>
+Osnovni signali u regulacijskom krugu su:
+<ul>
+<li>x<sub>r</sub> - referentna veličina (koliko želimo da bude y)</li>
+<li>&epsilon; - regulacijsko odstupanje (ako nema prefiltra, onda vrijedi \( \epsilon = x_r - y \) )</li>
+<li>u - upravljačka veličina</li>
+<li>y - veličina kojom upravljamo</li>
+<li>z - šum (smetnja)</li>
+</ul>
+U idealnom slučaju, vladanje s obzirom na smetnju je \( \frac{Y(s)}{Z(s)}=0 \), a vladanje s obzirom na vodeću (referentnu) veličinu je \( \frac{Y(s)}{X_r(s)}=1 \). To, naravno, nije moguće postići. Ali, s obzirom na to da je smetnja najčešće visoke frekvencije, a vodeća veličina niske frekvencije, možemo napraviti da prijenosna funkcija ima što veću vrijednost za niske frekvencije, a što manju za visoke.<br/>
+Regulacijski krug ima prijenosnu funkciju otvorenog regulacijskog kruga \( G_O(s)=G_R(s)G_s(s) \), gdje je G<sub>R</sub> prijenosna funkcija regulatora, a G<sub>S</sub>(s) prijenosna funkcija procesa, te ima prijenosnu funkciju zatvorenog regulacijskog kruga G<sub>x</sub>(s). Ako je prijenosna funkcija mjernog člana jednaka jedinici (što u realnosti nikad nije, ali u idealnom slučaju jest), onda vrijedi formula:
+\[ G_x(s)=\frac{G_O(s)}{1+G_O(s)} \]
+Karakteristični polinom je nazivnik od G<sub>x</sub>.
+</li>
+<li><b>Negativna povratna veza - njezine dobre i loše strane, primjeri</b><br/>
+Negativna povratna veza znači da mjerimo izlaz iz sustava i da reagiramo na odstupanje njega od željene vrijednosti. Bez negativne povratne veze, možemo reagirati samo na smetnje koje smo unaprijed predvidjeli. S povratnom vezom možemo kompenzirati sve smetnje, i one koje nismo predvidjeli. To je glavna prednost povratne veze. Nedostatak povratne veze je što lošim odabirom regulatora možemo stabilan sustav učiniti nestabilnim (ako su svi polovi otvorenog regulacijskog kruga lijevo od imaginarne osi, ali neke grane krivulje mjesta korijena sijeku imaginarnu os).<br/>
+Primjer za negativnu povratnu vezu jest tempomat: on održava brzinu automobilna stalnom tako što smanjuje gas ako brzinomjer pokazuje preveliku brzinu, a pojačava gas ukoliko tempomat pokazuje premalu brzinu.
+</li>
+<li><b>Statičke karakteristike regulacijskog kruga (analiza točnosti regulacijskog kruga); primjer analize točnosti za različite tipove regulacijskog kruga</b><br/>
+Statičke karakteristike regulacijskog kruga jesu pojačanje regulacijskog kruga i odstupanje u stacionarnom stanju. Pojačanje regulacijskog kruga jest omjer izlaza i ulaza u stacionarnom stanju. Drugim riječima, to je limes prijelazne funkcije kako vrijeme teži prema beskonačno:
+\[ K=\lim_{t \to +\infty} h(t) \]
+Točnost u stacionarnom stanju ovisi o vrsti sustava i o vrsti pobude. Sustav P-tipa ima odstupanje u stacionarnom stanju već i za step-pobudu. Sustav I-tipa nema odstupanje za step-pobudu, ali ima za pobudu u obliku rampe. Sustav I<sub>2</sub> tipa nema odstupanje ni za step-pobudu ni za pobudu u obliku rampe, ali ima za paraboličnu pobudu.<br/>
+Odstupanje u stacionarnom stanju može se odrediti preko teorema o konačnoj vrijednosti Laplaceove transformacije:
+\[ \lim_{t \to +\infty} e(t) = \lim_{s \to 0} sE(s) \]
+uzimajući u obzir da je Laplaceova transformacija step-funkcije \( \frac{X_{u0}}{s} \), rampe \( \frac{X_{u1}}{s^2} \), a parabolične pobude \( \frac{X_{u2}}{s^3} \).<br/>
+Primjerice, za sustav s P-vladanjem za skokovitu (step) pobudu vrijedi:
+\[ \lim_{t \to +\infty}e(t)=\lim_{s \to 0}s \cdot E(s)=\lim_{s \to 0}s\cdot\frac{1}{1+G_O(s)}\cdot X_u(s)=\lim_{s \to 0}s\cdot\frac{1}{1+K_o}\cdot\frac{X_{u0}}{s}=\frac{1}{1+K_o}X_{u0} \]
 </li>
 </ol>
 Nastavit ću dalje...
