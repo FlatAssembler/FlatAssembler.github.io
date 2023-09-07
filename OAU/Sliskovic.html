@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Pitanja za usmeni ispit iz Osnova automatskog upravljanja kod profesora Sliškovića</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+<style type="text/css">
+img { max-width: 100%; }
+</style>
+</head>
+<body>
+<h1>Pitanja za usmeni ispit iz OAU-a kod profesora Sliškovića</h1>
+<h2>Analiza 1 (modeli procesa i osnovni oblici dinamičkog vladanja)</h2>
+<ol>
+<li><b>Modeliranje procesa (izgradnja modela kroz teorijsku analizu)</b><br/>
+Za modeliranje linearnih mehaničkih sustava, koristimo Newtonove zakone. Za modeliranje rotacijskih mehaničkih sustava, koristimo zakone inercije. Za modeliranje električnih sustava s koncentriranim parametrima, koristimo Kirchofove zakone. Za modeliranje električnih sustava s raspodjeljenim parametrima, koristimo Maxwellove jednadžbe.</li>
+<li><b>Linearnost/nelinearnost (dinamičkih) sustava; linearizacija, zašto i kako se provodi</b><br/>
+Linearni sustav znači da za njega vrijedi princip superpozicije, da odziv na kompleksnu pobudu bude jednak zbroju odziva na pobude od kojih je ta kompleksna pobuda sastavljena. Svaki je realni sustav više ili manje nelinearan. Linearizacija je aproksimacija nelinearnog sustava oko neke radne točke linearnim sustavom. Ona se provodi preko parcijalnih derivacija:
+\[ \frac{dy}{dt}=f[y(t),x(t)] \]
+
+\[ \frac{d \Delta y}{dt} = \frac{\partial f[y(t),x(t)]}{\partial x}|_0 * \Delta x(t)  + \frac{\partial f[y(t),x(t)]}{\partial y}|_0 * \Delta y(t) \]</li>
+<li><b>Opis sustava pomoću specijaliziranih signala (prijelazna i težinska funkcija, veza između njih, te njihova veza s prijenosnom funkcijom)</b><br/>
+Prijelazna funkcija, \( h(t) \), je odgovor na step pobudu, jediničnu stepenicu, \( S(t) \). Step-funkcija izgleda ovako:<br/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Dirac_distribution_CDF.svg/488px-Dirac_distribution_CDF.svg.png"><br/>
+Težinska funkcija, \( g(t) \), je odgovor na Dircovu delta funkciju, \( \delta(t) \). Diracova delta funkcija je derivacija step pobude po vremenu. Ona je jednaka nuli u svim točkama na realnoj osi osim u nuli, a u nuli je \( \infty \). Integral Diracove delta funkcije u svakom intervalu koji uključuje nulu jednak je jedinici.<br/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dirac_distribution_PDF.svg/488px-Dirac_distribution_PDF.svg.png"><br/>
+Za linearne sustave, težinska funkcija je derivacija prijelazne funkcije po vremenu:
+\[ g(t)=\frac{d h(t)}{dt} \]
+Izraz "<i>prijenosna funkcija</i>", \( G(s) \), ima dva značenja:
+<ol><li>Laplaceova transformacija težinske funkcije: \[ G(s)=ℒ\{g(t)\} \]</li>
+<li>Omjer izlaza i ulaza u Laplaceovoj domeni: \[ G(s)=\frac{Y(s)}{X(s)} \]</li></ol>
+U linearnim sustavima, te su dvije definicije iste.
+</li>
+<li><b>Dinamički član s PT<sub>2</sub> vladanjem; opis u <i>t</i>, <i>s</i> i <i>&omega;</i>-području (za svih pet slučajeva PT<sub>2</sub>-vladanja), primjer sustava s ovakvim vladanjem.</b><br/>
+PT<sub>2</sub> član ima ovakvu prijenosnu funkciju:
+\[ G(s)=K \frac{1}{\frac{s^2}{\omega_n^2} + \frac{2\zeta}{\omega_n}s + 1}\]
+O vrijednosti &zeta; ovisi gdje će se nalaziti polovi sustava i hoće li sustav biti stabilan. Ako je \( \zeta = 1 \), to znači da sustav ima dva realna pola lijevo od imaginarne osi oba na istom mjestu (dakle, jedan dvostruki realni pol). Tada njegova prijelazna funkcija izgleda ovako:<br/>
+<img src="PT2_zeta_1.jpg"><br/>
+Ako je \( \zeta > 1 \), to znači da sustav ima dva realna pola na različitim mjestima. I što je &zeta; veća, to je udaljenost između ta dva pola isto veća. Za \( \zeta = 5 \), prijelazna funkcija izgleda ovako:<br/>
+<img src="PT2_zeta_5.jpg"><br/>
+(Primijetite razliku u redu veličine na apscisi!)<br/>
+Ako je \( 0 < \zeta < 1 \), to znači da su polovi konjugirano kompleksni i u lijevoj poluravnini (lijevo od imaginarne osi), pod kutom u odnosu na negativni dio realne osi \( \alpha = arccos(\zeta) \). Za \( \zeta = \frac{\sqrt{2}}{2} \) (dakle, da su polovi pod kutem od \( \alpha = arccos ( \frac{\sqrt{2}}{2} ) = 45^{\circ} \) u odnosu na realnu os), prijelazna funkcija izgleda ovako:<br/>
+<img src="PT2_zeta_sqrt2_over_2.jpg"><br/>
+I što je &zeta; manji (a &alpha; veći), to su polovi bliže imaginarnoj osi, i time je sustav oscilatorniji. Primjerice, za \( \zeta = 0.1 \), prijelazna funkcija izgleda ovako:<br/>
+<img src="PT2_zeta_01.jpg"><br/>
+Kad je &zeta; jednak nuli (a &alpha; 90<sup>o</sup>), tada su polovi na imaginarnoj osi, i prijelazna funkcija je sinusoida amplitude 1 pomaknuta za 1 prema gore i frekvencije &omega;<sub>n</sub>:
+<img src="PT2_zeta_0.jpg"><br/>
+Kada je \( \zeta > 0 \), tada su polovi s desne strane imaginarne osi, i oscilacije rastu (teoretski) u beskonačno, što će uništiti sustav:<br/>
+<img src="PT2_zeta_negative.jpg"><br/>
+Bodeov dijagram (pretpostavljam da je to ono što profesor misli pod &omega;-domenom) PT<sub>2</sub>-člana izgleda ovako:<br/>
+<img src="PT2_Bode.jpg"><br/>
+Primjer sustava s PT<sub>2</sub> vladanjem je serijski RLC krug:<br/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/RLC_series_circuit_v1.svg/375px-RLC_series_circuit_v1.svg.png"><br/>
+Označimo s u<sub>2</sub> napon na kondenzatoru, a s u<sub>1</sub> napon na izvoru. Onda je diferencijalna jednadžba tog kruga:
+\[ LC\frac{d^2u_2}{dt^2}+RC\frac{du_2}{dt}+u_2=u_1 \]
+</li>
+<li><b>Dinamički član s IT<sub>1</sub>-vladanjem; opis u t, s i &omega;-području, primjer sustava s ovakvim vladanjem</b><br/>
+IT<sub>1</sub>-član ima prijenosnu funkciju:
+\[ G(s)=\frac{K}{T_Is(Ts+1)} \]
+Prijelazna funkcija izgleda ovako (ovo ispisuje Octave na <code>step(1/(s*(s+1)))</code>):<br/>
+<img src="prijelazna_IT1.jpg"><br/>
+Dalje ne znam.
+<li><b>Dinamički član s PI-vladanjem; opis u t, s i &omega;-području, primjer sustava s ovakvim vladanjem</b><br/>
+PI-član ima ovakvu prijenosnu funkciju:
+\[ G(s)=K\left( 1+\frac{1}{T_Is}\right) \]
+Mnogi su regulatori PI-regulatori, oni se koriste kad je točnost u stacionarnom stanju važna (što se ne može postići P-regulatorom).<br/>
+Dalje ne znam.
+</li>
+<li><b>Dinamički član s PID/PIDT<sub>1</sub>-vladanjem; opis u t, s i &omega;-području, primjer sustava s ovakvim vladanjem</b><br/>
+Idealni PID-član ima ovakvu prijenosnu funkciju:
+\[ G(s)=K\left(1+\frac{1}{T_Is}+T_Ds\right) \]
+Realni PID-član (pretpostavljam da je to ono što profesor misli pod PIDT<sub>1</sub>) ima ovakvu prijenosnu funkciju:
+\[ G(s)=K\left(1+\frac{1}{T_Is}+\frac{T_Ds}{1+T_Vs}\right), T_V \ll T_D \]
+Bode dijagram PID-člana je (ovo Octave ispisuje ako joj se zada <code>bode(1*(1+1/s+s))</code>): <br/>
+<img src="bode_PID.jpg"><br/>
+Joško Petrić (stranica 170) kaže da su taj špic prema dolje u amplitudnoj karakteristici i točka gdje je fazna karakteristika u nuli na frekvenciji \( \frac{1}{\sqrt{T_IT_D}} \).<br/>
+Kao da se sjećam da sam negdje vidio da je prijelazna funkcija idealnog PID-člana ovakva:<br/>
+<img src="prijelazna_idealni_PID.jpg"><br/>
+PID-član se često koristi kao regulator, jer se njime postiže brz odziv i točnost u stacionarnom stanju. Problem s PID-regulatorom je što ga je komplicirano postaviti.
+</li>
+<li><b>Dinamički članovi s faznim prethođenjem (LEAD) i faznim kašnjenjem (LAG); opis u t, s i &omega;-području, primjer sustava s ovakvim vladanjem</b><br/>
+Član s faznim prethođenjem ima prijenosnu funkciju:
+\[ G(s)=\frac{1+Ts}{1+\alpha Ts}, 0<\alpha<1 \]
+Korekcijski član s faznim prethođenjem služi za podizanje fazne karakteristike u određenom frekvencijskom području. Njegov Bodeov dijagram izgleda ovako (nacrtano u Octavi):<br/>
+<img src="Bode_LEAD.jpg"><br/>
+On na višim frekvencijama podiže amplitudnu karakteristiku za \( \frac{1}{\alpha} \), što je obično nepovoljno (jer se na visokim frekvencijama obično nalazi šum, a ne signal).<br/>
+Ako se dobro sjećam, član s faznim kašnjenjem ima istu tu prijenosnu funkcija, samo je &alpha; u nekom drugom intervalu, ali ne mogu sad to naći.
+</li>
+<li><b>Dinamički članovi s T<sub>t</sub> i T<sub>t</sub>T<sub>1</sub>-vladanjem (PT<sub>1</sub>T<sub>t</sub>); opis u t, s i &omega;-području, primjer sustava s ovakvim vladanjem</b><br/>
+T<sub>t</sub> znači "<i>član s mrtvim vremenom</i>", kad je \( y(t)=x(t-T_t) \). <i>t</i> dolazi od njemačkog <i>tot</i> (mrtav). Njegova prijenosna funkcija glasi:
+\[ G(s)=e^{-T_ts} \]
+Njegov Bodeov dijagram izgleda ovako (preuzeto <a href="https://ocw.mit.edu/courses/16-30-feedback-control-systems-fall-2010/cb4fd48f2435b6d67fb6d3c3ecf9bc86_MIT16_30F10_rec11.pdf">od Emilija Frazzolija</a>, pokušao sam napraviti svoj, ali Octave mi javlja nekakvu poruku o pogrešci):<br/>
+<img src="Bode_deadtime.jpg"><br/>
+Takvo vladanje ima, recimo, transportna traka koja prenosi neki materijal. Takva su vladanja jako rijetka u električnim i elektroničkim sustavima, ali su česta u mehaničkim.
+</li>
+</ol>
+Nastavit ću dalje...
+</body>
+</html>
