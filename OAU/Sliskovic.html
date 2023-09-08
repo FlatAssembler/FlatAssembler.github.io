@@ -11,7 +11,8 @@
 <style type="text/css">
 img { max-width: 100%; margin-top: 5px; margin-bottom: 5px; margin-left: auto; margin-right: auto;}
 table,tr,td,th {border-style: solid; border-collapse: collapse;}
-td:nth-child(1) {text-align: center;}
+table {margin-top: 5px; margin-bottom: 5px;}
+#tablica_s_regulatorima td:nth-child(1) {text-align: center;}
 </style>
 </head>
 <body>
@@ -106,7 +107,7 @@ Takvo vladanje ima, recimo, transportna traka koja prenosi neki materijal. Takva
 <li><b>Standardni tipovi regulatora (PID i iz njega izvedeni tipovi), opis u t, s i &omega;-području</b><br/>
 Za opis u t, s i &omega;-području, vidi <a href="#PID">pitanje 1.7</a>.<br/>
 Standardni tipovi regulatora su:
-<table>
+<table id="tablica_s_regulatorima">
 <tr><th>Tip regulatora</th><th>Prednosti</th><th>Nedostatci</th></tr>
 <tr><td>P-regulator</td><td><ul><li>Jednostavno podešavanje</li><li>Relativno brza reakcija na poremećaj i promjenu vodeće veličine.</td><td><ul><li>Veliko odstupanje u stacionarnom stanju.</li><li>Ne može stabilizirati neke sustave koje PD i PID mogu.</li></ul></td></tr>
 <tr><td>PD-regulator</td><td><ul><li>Brza reakcija na poremećaj i promjenu referentne veličine</li><li>Može stabilizirati neke sustave koje P, I i PI ne mogu (tako što izobličuje krivulju mjesta korijena prema lijevo).</li></ul></td><td><ul><li>Odstupanje u stacionarnom stanju</li><li>Ne može se egzaktno realizirati.</li></ul></td></tr>
@@ -152,6 +153,67 @@ Odstupanje u stacionarnom stanju može se odrediti preko teorema o konačnoj vri
 uzimajući u obzir da je Laplaceova transformacija step-funkcije \( \frac{X_{u0}}{s} \), rampe \( \frac{X_{u1}}{s^2} \), a parabolične pobude \( \frac{X_{u2}}{s^3} \).<br/>
 Primjerice, za sustav s P-vladanjem za skokovitu (step) pobudu vrijedi:
 \[ \lim_{t \to +\infty}e(t)=\lim_{s \to 0}s \cdot E(s)=\lim_{s \to 0}s\cdot\frac{1}{1+G_O(s)}\cdot X_u(s)=\lim_{s \to 0}s\cdot\frac{1}{1+K_o}\cdot\frac{X_{u0}}{s}=\frac{1}{1+K_o}X_{u0} \]
+Na usmenom ispitu sam rekao &quot;<i>Točnost u stacionarnom stanju ispitujemo tako da na sustav narimo step-pobudu i gledamo konvergira li odziv u jedinicu.</i>&quot;, pa mi to profesor nije priznao. Tako da nemojte to reći.
+</li>
+<li><b>Stabilnost regulacijskog kruga s begativnom povratnom vezom; definicija stabilnosti, uvjeti za nastupanje nestabilnosti, tipovi nestabilnosti, metode za analizu (ispitivanje) stabilnosti regulacijskog kruga</b><br/>
+Sustav je stabilan ako za svaku konačnu pobudu ima konačan odziv (bounded-input-bounded-output, BIBO). Linearni vremenski nepromjenjivi sustav je stabilan ako i samo ako njegova težinska funkcija (odziv na Diracov delta-impuls) konvergira u nulu:
+\[ \lim_{t \to +\infty}g(t)=0 \]
+Linearni vremenski nepromjenjiv sustav je stabilan ako i samo ako su svi njegovi polovi (korijeni nazivnika od G<sub>x</sub>(s) ) lijevo od imaginarne osi. Ako ima polova na imaginarnoj osi, onda je na granici stabilnosti, a, ako je barem jedan pol desno od imaginarne osi (da ima pozitivan realni dio), onda je nestabilan. Za ispitivanje stabilnosti regulacijskog kruga postoje analitičke (Routh-Hurwitz) i grafičke metode (Bode, Nyquist).
+</li>
+<li><b>Analitičke metode za ispitivanje stabilnosti regulacijskog kruga; što je objekt analize, što se dobije kao rezultat, osnovni i dodatni (nužni i dovoljni) uvjeti stabilnosti, algebarski kriteriji stabilnosti (praktični postupci), primjer (Hurwitz)</b><br/>
+Hurwitzov kriterij, ili njegov ekvivalent Routhov kriterij, analiziraju karakteristični polinom <b>zatvorenog</b> regulacijskog kruga. Kao rezultat dobije se broj polova desno od imaginarne osi (koji, da bi sustav bio stabilan, mora biti nula). To jest, dobijemo uvid u <b>apsolutnu</b> stabilnost (ne i relativnu). Nužan, ali ne i dovoljan, uvjet je da svi koeficijenti karakterističnog polinoma budu istog predznaka i različiti od nule. A dovoljan uvjet je da determinante sljedećih matrica budu pozitivne:
+<table><tr><td>a<sub>1</sub></td></tr></table>
+<table>
+<tr><td>a<sub>1</sub></td><td>a<sub>0</sub></td></tr>
+<tr><td>a<sub>3</sub></td><td>a<sub>2</sub></td></tr>
+</table>
+<table>
+<tr><td>a<sub>1</sub></td><td>a<sub>0</sub></td><td>0</td></tr>
+<tr><td>a<sub>3</sub></td><td>a<sub>2</sub></td><td>a<sub>1</sub></td></tr>
+<tr><td>a<sub>5</sub></td><td>a<sub>4</sub></td><td>a<sub>3</sub></td></tr>
+</table>
+I tako dalje. Dakle, na glavnoj dijagonali nalaze se a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, a<sub>4</sub>, a<sub>5</sub>, i tako dakle. A, kako idemo na lijevo, tako se indeks za svaku čeliju povećava. A, kako idemo na desno, tako se smanjuje.<br/>
+Implementirao sam Routhov kriterij (malo modificirani Hurwitzov kriterij) u svom programskom jeziku, možete ga isprobati u modernom internetskom pregledniku <a href="https://flatassembler.github.io/hurwitz.html">na mojoj web-stranici</a>.
+</li>
+<li><b>Grafo-analitičke metode za ispitivanje stabilnosti regulacijskog kruga; fizikalno objašnjenje uvjeta za nastupanje nestabilnosti i ruba stabilnosti, što je objekt analize u ovim metodama, relativna stabilnost i pokazatelji relativne stabilnosti, primjer</b><br/>
+Grafo-analitičke metode za ispitivanje stabilnosti regulacijskog kruga jesu Bodeov kriterij i Nyquistov kriterij. Oni analiziraju prijenosnu funkciju <b>otvorenog</b> regulacijskog kruga (a ne zatvorenog, kao Hurwitzov i Routhouv kriterij). Oba se temelje na činjenici da, na frekvenciji kad u procesu postoji kašnjenje od 180<sup>o</sup> (to se zove protufaza), da bi sustav bio stabilan, pojačanje mora biti manje od 1.<br/>
+Nyquistov dijagram je krivulja u kompleksnoj ravnini gdje svaka točka predstavlja pojačanje i fazu za određenu frekvenciju. Udaljenost točke od ishodišta predstavlja pojačanje za tu frekvenciju, a kut u odnosu na pozitivni dio realne osi predstavlja fazu za tu istu frekvenciju. I ako ta krivulja siječe negativni dio realne osi desno od točke (-1, 0), onda je sustav stabilan. Ako je siječe točno u točki (-1, 0), onda je na granici stabilnosti, a ako je siječe lijevo od te točke, onda je sustav nestabilan. Primjerice, ovaj Nyquistov dijagram:<br/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nyquist_plot.svg/330px-Nyquist_plot.svg.png"><br/>
+Taj sustav je stabilan, jer krivulja siječe negativni dio realne osi desno od (-1, 0).<br/>
+Bodeov kriterij stabilnosti kaže da, da bi sustav bio stabilan, &omega;<sub>c</sub> mora biti manje od &omega;<sub>&pi;</sub>. &omega;<sub>c</sub> je frekvencija na kojoj amplitudna karakteristika siječe 0dB, a &omega;<sub>&pi;</sub> je frekvencija u kojoj frekvencijska karakteristika siječe -180<sup>o</sup> (-&pi; rad). Primjerice, ovaj Bodeov dijagram:<br/>
+<img src="https://www.mathworks.com/help/control/ref/margin1.png"><br/>
+Predstavlja stabilan sustav.<br/>
+Grafo-analitičke metode ne daju samo uvid u apsolutnu stabilnost, nego i u relativnu stabilnost. Relativna stabilnost je koliko smo udaljeni od ruba stabilnosti. Pokazatelji relativne stabilnosti su amplitudno i fazno osiguranje. Amplitudno osiguranje je za koliko smijemo povećati pojačanje da bismo dostigli rub stabilnosti. Fazno osiguranje, &gamma;, iznos je faznog kašnjenja uz koje bismo dostigli rub stabilnosti.<br/>
+Amplitudno osiguranje može se očitati iz Nyquistovog dijagrama kao udaljenost točke gdje krivulja siječe negativni dio realne osi od točke (-1, 0). A fazno se može očitati kao kut između negativnog dijela realne osi i točke gdje krivulja siječe jediničnu kružnicu.<br/>
+Iz Bodeovog dijagrama amplitudno osiguranje može se očitati tako da pronađemo &omega;<sub>&pi;</sub> (frekvenciju gdje fazna karakteristika siječe -180<sup>o</sup>) i očitamo koliko je amplitudna karakteristika na toj frekvenciji udaljena od 0dB. A fazna se može očitati tako da nađemo &omega;<sub>c</sub> te očitamo koliko je fazna karakteristika na njoj udaljena od -180<sup>o</sup>.
+</li>
+<li>
+<b>Krivulja mjesta korijena (KMK) - što predstavlja, kako se crta, čemu služi, primjer</b><br/>
+Krivulja mjesta korijena predstavlja kako se polovi zatvorenog regulacijskog kruga mijenjaju kako se mijenja nešto (najčešće pojačanje P-regulatora) u otvorenom regulacijskom krugu.<br/>
+Postoji niz pravila o tome kako se crta:
+<ol>
+<li>Krivulja mjesta korijena simetrična je u odnosu na realnu os. To je zato što su korijeni polinoma s realnim koeficijentima ili realni ili se nalaze u konjugirano-kompleksnim parovima.</li>
+<li>Polovi i nule otvorenog regulacijskog kruga jednim se imenom zovu singularnosti. Točka na realnoj osi pripada krivulji mjesta korijena ako se desno od nje nalazi neparan broj singularnosti.</li>
+<li>Krivulja mjesta korijena ima onoliko grana koliko otvoreni regulacijski krug ima polova. Te grane počinju u polovima, a onoliko njih koliko ima nula završava u nulama. Preostale grane idu u beskonačnost prema asimptotama.</li>
+<li>Broj asimptota jednak je razlici broja polova i broja nula (a realni sustav uvijek ima barem toliko polova koliko ima nula).</li>
+<li>Asimptote se sijeku u točki na realnoj osi (&sigma;, 0), gdje je
+\[ \sigma=\frac{\sum polovi - \sum nule}{n-m} \]
+Gdje je <i>n</i> broj polova, a <i>m</i> broj nula. Za realne sustave, možemo zanemariti imaginarne dijelove i samo zbrajati i oduzimati realne dijelove, jer se u realnim sustavima kompleksne singularnosti nalaze u konjugirano kompleksnim parovima, pa će se imaginarni dijelovi poništiti.
+<li>Asimptote se nalaze pod kutevima u odnosu na realnu os:
+\[ \theta_i=\frac{180^\circ\pm k \cdot 360^\circ}{n-m}, k=0, 1 ... (n-m-1) \]</li>
+<li>Ako se krivulja mjesta korijena nalazi između dva pola na realnoj osi, tada grane iz ta dva pola idu jedna prema drugoj do točke grananja, a u toj točki grananja razilaze se pod kutem od 90<sup>o</sup>. Analogno, ako se krivulja mjesta korijena nalazi između dvije nule na realnoj osi, postoji točka sjedinjenja u koju grane ulaze po kutem od 90<sup>o</sup>. A te točke grananja i točke sjedinjenja realna su rješenja ove jednadžbe:
+\[ \sum\frac{1}{s-pol}=\sum\frac{1}{s-nula} \]</li>
+<li>Kutovi pod kojima grane krivulje mjesta korijena ulaze u nule ili izlaze iz polova dani su sljedećim formulama:
+\[ \theta_{izlazak}=\frac{\angle[G(s)(s-pol)^r]_{s=pol}+(2k+1)\cdot180^\circ}{r}, k=0, 1 ... (r-1) \]
+\[ \theta_{ulazak}=\frac{-\angle\left[\frac{G(s)}{(s-nula)^r}\right]_{s=nula}+(2k+1)\cdot180^\circ}{r}, k=0, 1 ... (r-1) \]
+Ovdje je <i>r</i> višestrukost singularnosti (pola ili nule).
+</li>
+<li>Sjecišta krivulje mjesta korijena s imaginarnom osi mogu se naći preko Hurwitzovog ili Routhovog kriterija.</li>
+<li>Grane krivulje mjesta korijena ne smiju se sijeći.</li>
+</ol>
+Evo primjer krivulje mjesta korijena:<br/>
+<img src="https://eng.libretexts.org/@api/deki/files/46681/%25E6%2588%25AA%25E5%25B1%258F2021-08-08_%25E4%25B8%258B%25E5%258D%25888.52.39.png?revision=1&size=bestfit&width=685&height=680"><br/>
+Pomoću krivulje mjesta korijena možemo sintetizirati regulatore. Osnovni princip sinteze regulatora pomoću krivulje mjesta korijena jest da se dodavanjem pola ona izoblići prema desno, a dodavanjem nule prema lijevo. Tako je možemo izobličavati dok ona ne prolazi kroz željeni par konjugirano kompleksnih polova.
 </li>
 </ol>
 Nastavit ću dalje...
