@@ -213,8 +213,44 @@ Ovdje je <i>r</i> višestrukost singularnosti (pola ili nule).
 </ol>
 Evo primjer krivulje mjesta korijena:<br/>
 <img src="https://eng.libretexts.org/@api/deki/files/46681/%25E6%2588%25AA%25E5%25B1%258F2021-08-08_%25E4%25B8%258B%25E5%258D%25888.52.39.png?revision=1&size=bestfit&width=685&height=680"><br/>
-Pomoću krivulje mjesta korijena možemo sintetizirati regulatore. Osnovni princip sinteze regulatora pomoću krivulje mjesta korijena jest da se dodavanjem pola ona izoblići prema desno, a dodavanjem nule prema lijevo. Tako je možemo izobličavati dok ona ne prolazi kroz željeni par konjugirano kompleksnih polova.
+<span id="cemu_sluzi_KMK">Pomoću krivulje mjesta korijena možemo sintetizirati regulatore. Osnovni princip sinteze regulatora pomoću krivulje mjesta korijena jest da se dodavanjem pola ona izoblići prema desno, a dodavanjem nule prema lijevo. Tako je možemo izobličavati dok ona ne prolazi kroz željeni par konjugirano kompleksnih polova.</span>
 </li>
+</ol>
+Sinteza (projektiranje regulacijskog algoritma):
+<ol>
+<li><b>Sinteza regulatora - pojam, osnovni okviri za sintezu i ograničenja koja treba uzeti u obzir, vrste regulacije, osnovna polazišta pri sintezi, podjela metoda i postupaka sinteze</b><br/>
+Regulacija je jedna od tri osnovnih vrsta upravljanja. Vrste upravljanja su:
+<ol>
+<li>Logičko upravljanje</li>
+<li>Sekvencijalno upravljanje</li>
+<li>Kontinuirano upravljanje ili <b>regulacija</b></li>
+</ol>
+Vrste regulacije su:
+<ol>
+<li>Čvrsta regulacija</li>
+<li>Slijedna regulacija</li>
+</ol>
+Dalje ne znam.
+</li>
+<li><b>Pokazatelji kakvoće regulacije - statički i dinamički pokazatelji, povezanost između dinamičkih pokazatelja kakvoće regulacije i karakterističnih veličina regulacijskog kruga, relacije f<sub>1</sub>-f<sub>9</sub></b><br/>
+Statički pokazatelj kakvoće regulacije jest odstupanje u stacionarnom stanju \( \epsilon_\infty \). Dinamički pokazatelji kakvoće regulacije su maksimalno nadvišenje &sigma;<sub>m</sub>, ulazno vrijeme t<sub>u</sub>, vrijeme podizanja t<sub>a</sub>, vrijeme prvog maksimuma t<sub>m</sub> i vrijeme ustaljivanja t<sub>&epsilon;</sub> (gdje je &epsilon; najčešće ili 2% ili 5%).<br/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Gueteforderungen_SollwertfolgeDynamik.png/330px-Gueteforderungen_SollwertfolgeDynamik.png"><br/>
+(&sigma;<sub>m</sub> ili PO, <i>percent overshoot</i>, jednak je \( 100\frac{\Delta h}{k_s} \) ).<br/>
+Za sustave drugog reda vrijedi relacija:<br/>
+<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3c81f3fdf5b2fcb9fc6feb84f1346929e07035d3"><br/>
+Dakle, što je &zeta; veći, to je &sigma;<sub>m</sub> manji. I to je relacija f<sub>1</sub>. Ona vrijedi egzaktno za sustave drugog reda, a vrijedi približno za sustave višeg reda s jednim dominantnim parom konjugirano-kompleksnih polova.<br/>
+Relacija f<sub>2</sub> povezuje umnožak &omega;<sub>n</sub>t<sub>a,50</sub> s &zeta;. Nadam se da profesor ne traži da tu kompliciranu formulu za tu funkciju znamo napamet. U biti, za &zeta;=0, umnožak &omega;<sub>n</sub>t<sub>a,50</sub> je nešto malo više od 1, a za &zeta;=1, taj umnožak je približno 3, i raste otprilike linearno.<br/>
+Relacija f<sub>3</sub> povezuje umnožak &omega;<sub>n</sub>t<sub>3%</sub> sa &zeta;-om. Približno vrijedi:
+\[ t_{3\%}\approx\frac{4.6}{\zeta\omega_n} \]
+Funkcija f<sub>4</sub> povezuje količnik \( \frac{\omega_b}{\omega_n} \) sa &zeta;-om, gdje je &omega;<sub>b</sub> širina pojasa, to jest, frekvencija na kojoj magnituda iznosi 70.7% magnitude na frekvenciji 0.<br/>
+Funkcija f<sub>5</sub> povezuje fazno kašnjenje na frekvenciji širine pojasa &phi;<sub>b</sub> sa &zeta;-om.<br/>
+Funkcija f<sub>6</sub> jednaka je umnošku f<sub>2</sub> i f<sub>4</sub>, i ona povezuje umnožak &omega;<sub>b</sub>t<sub>a,50</sub> sa &zeta;-om.
+Funkcija f<sub>7</sub> povezuje količnik \( \frac{\omega_c}{\omega_n} \) s &zeta;-om.<br/>
+Funkcija f<sub>8</sub> jednaka je umnošku funkcija f<sub>2</sub> i f<sub>7</sub>, i ona povezuje umnožak \( \omega_ct_{a,50} \) sa &zeta;-om. Približno vrijedi:
+\[ \omega_ct_{a,50}\approx 1.5 - \frac{\sigma_m}{250}, 0 < \zeta < 1 \]
+Funkcija f<sub>9</sub> povezuje &gamma; sa &zeta;.<br/>
+Vrijedi i približna relacija:
+\[ \gamma [^\circ] \approx 70 - \sigma_m [\%], 0.3 < \zeta < 0.8 \]
 </ol>
 Nastavit ću dalje...
 </body>
