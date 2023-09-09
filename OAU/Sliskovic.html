@@ -51,7 +51,7 @@ Ako je \( 0 < \zeta < 1 \), to znači da su polovi konjugirano kompleksni i u li
 <img src="PT2_zeta_sqrt2_over_2.jpg"><br/>
 I što je &zeta; manji (a &alpha; veći), to su polovi bliže imaginarnoj osi, i time je sustav oscilatorniji. Primjerice, za \( \zeta = 0.1 \), prijelazna funkcija izgleda ovako:<br/>
 <img src="PT2_zeta_01.jpg"><br/>
-Kad je &zeta; jednak nuli (a &alpha; 90<sup>o</sup>), tada su polovi na imaginarnoj osi, i prijelazna funkcija je sinusoida amplitude 1 pomaknuta za 1 prema gore i frekvencije &omega;<sub>n</sub>:
+Kad je &zeta; jednak nuli (a &alpha; 90<sup>o</sup>), tada su polovi na imaginarnoj osi, i prijelazna funkcija je sinusoida amplitude 1 pomaknuta za 1 prema gore i frekvencije &omega;<sub>n</sub>:<br/>
 <img src="PT2_zeta_0.jpg"><br/>
 Kada je \( \zeta > 0 \), tada su polovi s desne strane imaginarne osi, i oscilacije rastu (teoretski) u beskonačno, što će uništiti sustav:<br/>
 <img src="PT2_zeta_negative.jpg"><br/>
@@ -86,7 +86,7 @@ Kao da se sjećam da sam negdje vidio da je prijelazna funkcija idealnog PID-čl
 <img src="prijelazna_idealni_PID.jpg"><br/>
 PID-član se često koristi kao regulator, jer se njime postiže brz odziv i točnost u stacionarnom stanju. Problem s PID-regulatorom je što ga je komplicirano postaviti.
 </li>
-<li><b>Dinamički članovi s faznim prethođenjem (LEAD) i faznim kašnjenjem (LAG); opis u t, s i &omega;-području, primjer sustava s ovakvim vladanjem</b><br/>
+<li><b id="LEAD_LAG">Dinamički članovi s faznim prethođenjem (LEAD) i faznim kašnjenjem (LAG); opis u t, s i &omega;-području, primjer sustava s ovakvim vladanjem</b><br/>
 Član s faznim prethođenjem ima prijenosnu funkciju:
 \[ G(s)=\frac{1+Ts}{1+\alpha Ts}, 0<\alpha<1 \]
 Korekcijski član s faznim prethođenjem služi za podizanje fazne karakteristike u određenom frekvencijskom području. Njegov Bodeov dijagram izgleda ovako (nacrtano u Octavi):<br/>
@@ -227,8 +227,15 @@ Regulacija je jedna od tri osnovnih vrsta upravljanja. Vrste upravljanja su:
 </ol>
 Vrste regulacije su:
 <ol>
-<li>Čvrsta regulacija</li>
-<li>Slijedna regulacija</li>
+<li>Čvrsta regulacija (x<sub>r</sub> je konstanta)</li>
+<li>Slijedna regulacija (x<sub>r</sub> se mijenja s vremenom)</li>
+</ol>
+Prema Periću (početak 8. poglavlja), osnovni zahtjevi koji se postavljaju na regulatore (sustave upravljanja) jesu:
+<ol>
+<li>Regulacijski krug mora biti stabilan.</li>
+<li>Poremećajne veličine z(t) trebaju što manje utjecati na izlaz sustava y(t).</li>
+<li>Izlaz sustava y(t) treba što točnije i što brže slijediti vremenski promjenjivu referentnu veličinu x<sub>r</sub>(t).</li>
+<li>Regulacijski krug treba biti što manje osjetljiv na promjene parametara.</li>
 </ol>
 Dalje ne znam.
 </li>
@@ -251,6 +258,59 @@ Funkcija f<sub>8</sub> jednaka je umnošku funkcija f<sub>2</sub> i f<sub>7</sub
 Funkcija f<sub>9</sub> povezuje &gamma; sa &zeta;.<br/>
 Vrijedi i približna relacija:
 \[ \gamma [^\circ] \approx 70 - \sigma_m [\%], 0.3 < \zeta < 0.8 \]
+</li>
+<li><b>Grafo-analitičke metode za sintezu regulatora - osnovna svojstva ovih metoda, postupak projektiranja regulatora grafo-analitičkim metodama</b><br/>
+Pojma nemam. Pretpostavljam da se pod "<i>grafo-analitičke metode</i>" misli na sintezu regulatora pomoću Bodeovog dijagrama ili pomoću krivulje mjesta korijena.
+</li>
+<li><b>Sinteza u frekvencijskom području uz korištenje Bodeovog dijagrama - odabir pojačanja regulatora, dodavanje polova i nula regulatoru s ciljem postizanja željenog vladanja regulacijskog kruga (LEAD i LAG kompenzacija), primjer</b><br/>
+O LEAD-u i LAG-u, pogledajte <a href="#LEAD_LAG">pitanje 1.8</a>. Ostalo ne znam.
+</li>
+<li><b>Sinteza u s-području uz korištenje krivulje mjesta korijena - odabir pojačanja regulatora, utjecaj dodavanja polova i nula na oblik krivulje mjesta korijena, primjer</b><br/>
+O utjecaju dodavanja polova i nula na oblik krivulje mjesta korijena, vidi na <a href="#cemu_sluzi_KMK">kraj pitanja 2.8</a>. Pojačanje regulatora odabiremo tako da odaberemo točku <i>s</i> na krivulji mjesta korijena gdje želimo da bude pol, i zatim primijenimo formulu:
+\[ k=\frac{\prod |s-pol|}{\prod |s-nula|} \]
+Ukoliko sustav nema nulā, umjesto umnoška u nazivniku stavimo jedinicu.
+</li>
+<li><b>Analitičke metode za sintezu regulatora - osnovna svojstva ovih metoda, postupak projektiranja regulatora analitičkim metodama, zadavanje modelske funkcije i ograničenja u ovom smislu, standardni oblici karakterističnog polinoma</b><br/>
+Da bismo primijenili analitičke metode sinteze regulatora, moramo točno znati prijenosnu funkciju procesa, te trebamo imati veoma dobru predodžbu što želimo postići (modelska funkcija). Modelska funkcija je željeno vladanje zatvorenog regulacijskog kruga. Postoje ograničenja u pogledu polnog viška (razlika između broja polova i nula): polni višak modelske funkcije mora biti veći ili jednak polnom višku samog procesa, jer se regulator mora moći fizički realizirati (a regulatori s više nula nego polova ne mogu se realizirati). Postoje neki standardni oblici nazivnika modelske funkcije, recimo, često se koristi binomni oblik ili takozvani Butterworthov oblik.
+</li>
+<li><b>Sinteza metodom postavljanja polova (poleplacement)</b><br/>
+Vidi ovu sliku:<br/>
+<img src="poleplacement.jpg"><br/>
+Metodi postavljanja polova zadajemo polinome prijenosne funkcije procesa B(s) i A(s), gdje je A(s) monični polinom (koeficijent uz najveću potenciju je jednak jedinici), te željeni nazivnik zatvorenog regulacijskog kruga P(s). Metoda postavljanja polova kao rezultat daje polinome R(s), S(s) i T(s), gdje je \( \frac{T(s)}{R(s)} \) prijenosna funkcija prefiltra, a \( \frac{S(s)}{R(s)} \) prijenosna funkcija regulatora. R(s) je također moničan polinom. Trebamo riješiti diofantsku jednadžbu:
+\[ A(s)R(s) + B(s)S(s) = P(s) \]
+</li>
+<li>
+<b>Podešavanje regulatora prema tehničkom optimumu - kriteriji za određivanje parametara regulatora, primjer</b><br/>
+Tehnički optimum primjenjujemo kad se proces sastoji od kaskade PT<sub>1</sub> članova (\( \frac{K}{1+Ts} \)), gdje je jedan T daleko veći od zbroja ostalih. Označimo taj najveći T sa T<sub>1</sub>. Vrijedi aproksimacija:
+\[ \frac{K}{1+T_1s}\cdot\frac{1}{1+T_2s}\cdot\frac{1}{1+T_3s}\cdot ... \frac{1}{1+T_ns} \approx \frac{K}{1+T_1s}\cdot\frac{1}{1+T_\Sigma s}, T_\Sigma=T_2+T_3+ ... +T_n \]
+Tada koristimo PI-regulator, te nulom PI-regulatora poništavamo dominantni pol procesa (\( T_I=T_1 \)). Prijenosna funkcija zatvorenog regulacijskog kruga tada iznosi:
+\[ G_x(s)=\frac{K_O}{K_O+T_is+T_iT_\Sigma s^2} \]
+Tada odabiremo \( \zeta=\frac{\sqrt{2}}{2} \) te izračunamo K<sub>O</sub>. Tako dobijemo sustav s maksimalnim nadvišenjem od 4.3% (što je u većini slučajeva prihvatljivo), ulaznim vremenom 4.7T<sub>&Sigma;</sub> i vremenom ustaljivanja 8.4T<sub>&Sigma;</sub>.
+</li>
+<li>
+<b>Podešavanje regulatora prema simetričnom optimumu - kriteriji za određivanje parametara regulatora, primjer</b><br/>
+Simetrični optimum primjenjuje se ili kad proces ima integralno djelovanje ili kad ima PT<sub>1</sub> djelovanje kad je T daleko veće od 1. Primjenjujemo PI-regulator. Ciljamo da \( \omega_c=\frac{1}{\sqrt{T_IT_\Sigma}} \) (inverz geometrijske sredine T<sub>I</sub> i T<sub>&Sigma;</sub>), gdje je T<sub>&Sigma;</sub> zbroj svih vremenskih konstanti u procesu. Tako dobivamo brz sustav, ali s velikim nadvišenjem. Da bismo smanjili nadvišenje, ugrađujemo prefilter.
+</li>
+<li>
+<b>Empirijski postupci za podešavanje regulatora - polazišta za sintezu i svojstva ovih načina projektiranja regulatora, primjer (ZN-postupak, varijanta 1 i 2).</b><br/>
+Za empirijske postupke podešavanja regulatora ne moramo nužno znati prijenosnu funkciju procesa. Ziegler-Nichols zajednički je naziv za dvije metode podešavanja PID-regulatora. Obje pretpostavljaju da se proces može aproksimirati kao PT<sub>2</sub> sustav (što je istina za većinu industrijskih procesa).<br/>
+Prva metoda ide ovako (metoda ruba stabilnosti):
+<ol>
+<li>Postavimo derivacijsko djelovanje regulatora i integralno djelovanje regulatora na nulu.</li>
+<li>Postupno pojačavamo P-djelovanje dok u jednom trenutku ne dobijemo konstantne oscilacije. Zapišemo koliko je to pojačanje pri kojem se to događa.</li>
+<li>Izmjerimo vrijeme između dvije oscilacije.</li>
+<li>Uvrstimo to vrijeme i zapisano pojačanje u tablicu, i tako dobijemo na koliko trebamo postaviti T<sub>I</sub>, T<sub>D</sub> i K regulatora.</li>
+</ol>
+Prednost te metoda je što je jednostavna i precizna, a nedostatak je što ju je često opasno ili nemoguće provesti (dovesti sustav na rub stabilnosti).<br/>
+Druga metoda, poznata kao i metoda točke infleksije, je:
+<ol>
+<li>Narinemo na sustav step-pobudu i mjerimo odziv.</li>
+<li>Odredimo točku infleksije odziva na step-pobudu.</li>
+<li>Na temelju te točke infleksije odredimo vrijeme zadržavanja t<sub>z</sub> (vrijeme dok odziv ne dostigne 10% svoje konačne vrijednosti), vrijeme porasta t<sub>a</sub> i pojačanje sustava k<sub>s</sub>.</li>
+<li>Uvrstimo te vrijednosti u tablicu i tako dobijemo potrebno pojačanje K te vremenske konstante T<sub>D</sub> i T<sub>I</sub>.</li>
+</ol>
+Nedostatak te metode je što je neprecizna, jer je određivanje točke infleksije problematično.
+</li>
 </ol>
 Nastavit ću dalje...
 </body>
