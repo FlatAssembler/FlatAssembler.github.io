@@ -100,7 +100,9 @@ Primjer približne realizacije PID regulatora (a on se ne može egzaktno realizi
 Korekcijski član s faznim prethođenjem služi za podizanje fazne karakteristike u određenom frekvencijskom području. Njegov Bodeov dijagram izgleda ovako (nacrtano u Octavi):<br/>
 <img src="Bode_LEAD.jpg"><br/>
 On na višim frekvencijama podiže amplitudnu karakteristiku za \( \frac{1}{\alpha} \), što je obično nepovoljno (jer se na visokim frekvencijama obično nalazi šum, a ne signal).<br/>
-Ako se dobro sjećam, član s faznim kašnjenjem ima istu tu prijenosnu funkcija, samo je &alpha; u nekom drugom intervalu, ali ne mogu sad to naći.
+Ako se dobro sjećam, član s faznim kašnjenjem ima istu tu prijenosnu funkciju, samo je &alpha; u nekom drugom intervalu, ali ne mogu sad to naći.<br/>
+Članove s faznim prethođenjem i faznim kašnjenjem možemo realizirati ovako (pojma nemam što znači &omega;<sub>&zeta;</sub> i &omega;<sub>&kappa;</sub>):<br/>
+<img src="LEAD_LAG.jpg">
 </li>
 <li><b>Dinamički članovi s T<sub>t</sub> i T<sub>t</sub>T<sub>1</sub>-vladanjem (PT<sub>1</sub>T<sub>t</sub>); opis u t, s i &omega;-području, primjer sustava s ovakvim vladanjem</b><br/>
 T<sub>t</sub> znači "<i>član s mrtvim vremenom</i>", kad je \( y(t)=x(t-T_t) \). <i>t</i> dolazi od njemačkog <i>tot</i> (mrtav). Njegova prijenosna funkcija glasi:
