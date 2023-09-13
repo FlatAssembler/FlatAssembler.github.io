@@ -71,7 +71,8 @@ Prijelazna funkcija izgleda ovako (ovo ispisuje Octave na <code>step(1/(s*(s+1))
 Bodeov dijagram izgleda ovako (ovo ispisuje Octave na <code>bode(1/(s*(s+1)))</code>):<br/>
 <img src="Bode_IT1.jpg"><br/>
 U Periću na 108. stranici u tablici ima ovaj primjer sustava s IT<sub>1</sub> vladanjem:<br/>
-<img src="primjer_IT1.jpg">
+<img src="primjer_IT1.jpg"><br/>
+(UPDATE: Rekao mi je profesor na konzultacijama da je primjer sustava s IT<sub>1</sub> vladanjem spremnik bez rupe na dnu s ventilom, jer je sam spremnik bez rupe I-član, a ventil je PT<sub>1</sub>-član.)
 <li><b>Dinamički član s PI-vladanjem; opis u t, s i &omega;-području, primjer sustava s ovakvim vladanjem</b><br/>
 PI-član ima ovakvu prijenosnu funkciju:
 \[ G(s)=K\left( 1+\frac{1}{T_Is}\right) \]
@@ -101,9 +102,10 @@ Primjer približne realizacije PID regulatora (a on se ne može egzaktno realizi
 Korekcijski član s faznim prethođenjem služi za podizanje fazne karakteristike u određenom frekvencijskom području. Njegov Bodeov dijagram izgleda ovako (nacrtano u Octavi):<br/>
 <img src="Bode_LEAD.jpg"><br/>
 On na višim frekvencijama podiže amplitudnu karakteristiku za \( \frac{1}{\alpha} \), što je obično nepovoljno (jer se na visokim frekvencijama obično nalazi šum, a ne signal).<br/>
-Ako se dobro sjećam, član s faznim kašnjenjem ima istu tu prijenosnu funkciju, samo je &alpha; u nekom drugom intervalu, ali ne mogu sad to naći.<br/>
+Ako se dobro sjećam, član s faznim kašnjenjem ima istu tu prijenosnu funkciju, samo je &alpha; u nekom drugom intervalu, ali ne mogu sad to naći (UPDATE: Rekao mi je profesor na konzultacijama da je za LAG član &alpha; veća od 1.).<br/>
 Članove s faznim prethođenjem i faznim kašnjenjem možemo realizirati ovako (pojma nemam što znači &omega;<sub>&zeta;</sub> i &omega;<sub>&kappa;</sub>):<br/>
-<img src="LEAD_LAG.jpg">
+<img src="LEAD_LAG.jpg"><br/>
+(UPDATE: Rekao mi je profesor na konzultacijama da je LEAD isto što i PDT<sub>1</sub>.)
 </li>
 <li><b>Dinamički članovi s T<sub>t</sub> i T<sub>t</sub>T<sub>1</sub>-vladanjem (PT<sub>1</sub>T<sub>t</sub>); opis u t, s i &omega;-području, primjer sustava s ovakvim vladanjem</b><br/>
 T<sub>t</sub> znači "<i>član s mrtvim vremenom</i>", kad je \( y(t)=x(t-T_t) \). <i>t</i> dolazi od njemačkog <i>tot</i> (mrtav). Njegova prijenosna funkcija glasi:
@@ -169,7 +171,8 @@ Na usmenom ispitu sam rekao &quot;<i>Točnost u stacionarnom stanju ispitujemo t
 <li><b>Stabilnost regulacijskog kruga s begativnom povratnom vezom; definicija stabilnosti, uvjeti za nastupanje nestabilnosti, tipovi nestabilnosti, metode za analizu (ispitivanje) stabilnosti regulacijskog kruga</b><br/>
 Sustav je stabilan ako za svaku konačnu pobudu ima konačan odziv (bounded-input-bounded-output, BIBO). Linearni vremenski nepromjenjivi sustav je stabilan ako i samo ako njegova težinska funkcija (odziv na Diracov delta-impuls) konvergira u nulu:
 \[ \lim_{t \to +\infty}g(t)=0 \]
-Linearni vremenski nepromjenjiv sustav je stabilan ako i samo ako su svi njegovi polovi (korijeni nazivnika od G<sub>x</sub>(s) ) lijevo od imaginarne osi. Ako ima polova na imaginarnoj osi, onda je na granici stabilnosti, a, ako je barem jedan pol desno od imaginarne osi (da ima pozitivan realni dio), onda je nestabilan. Za ispitivanje stabilnosti regulacijskog kruga postoje analitičke (Routh-Hurwitz) i grafičke metode (Bode, Nyquist).
+Linearni vremenski nepromjenjiv sustav je stabilan ako i samo ako su svi njegovi polovi (korijeni nazivnika od G<sub>x</sub>(s) ) lijevo od imaginarne osi. Ako ima polova na imaginarnoj osi, onda je na granici stabilnosti, a, ako je barem jedan pol desno od imaginarne osi (da ima pozitivan realni dio), onda je nestabilan. Za ispitivanje stabilnosti regulacijskog kruga postoje analitičke (Routh-Hurwitz) i grafičke metode (Bode, Nyquist).<br/>
+(UPDATE: Rekao mi je profesor na konzultacijama da su vrste nestabilnosti oscilatorna i monotona, te da je oscilatorna ako je &zeta; između nula i jedan, a monotona ako je &zeta; veća od jedan.)
 </li>
 <li><b>Analitičke metode za ispitivanje stabilnosti regulacijskog kruga; što je objekt analize, što se dobije kao rezultat, osnovni i dodatni (nužni i dovoljni) uvjeti stabilnosti, algebarski kriteriji stabilnosti (praktični postupci), primjer (Hurwitz)</b><br/>
 Hurwitzov kriterij, ili njegov ekvivalent Routhov kriterij, analiziraju karakteristični polinom <b>zatvorenog</b> regulacijskog kruga. Kao rezultat dobije se broj polova desno od imaginarne osi (koji, da bi sustav bio stabilan, mora biti nula). To jest, dobijemo uvid u <b>apsolutnu</b> stabilnost (ne i relativnu). Nužan, ali ne i dovoljan, uvjet je da svi koeficijenti karakterističnog polinoma budu istog predznaka i različiti od nule. A dovoljan uvjet je da determinante sljedećih matrica budu pozitivne:
@@ -248,7 +251,8 @@ Prema Periću (početak 8. poglavlja), osnovni zahtjevi koji se postavljaju na r
 <li>Izlaz sustava y(t) treba što točnije i što brže slijediti vremenski promjenjivu referentnu veličinu x<sub>r</sub>(t).</li>
 <li>Regulacijski krug treba biti što manje osjetljiv na promjene parametara.</li>
 </ol>
-Dalje ne znam.
+Dalje ne znam.<br/>
+(UPDATE: Rekao mi je profesor na konzultacijama da su osnovna polazišta pri sintezi matematički model procesa i kakvoća regulacije kakvu treba postići.)
 </li>
 <li><b>Pokazatelji kakvoće regulacije - statički i dinamički pokazatelji, povezanost između dinamičkih pokazatelja kakvoće regulacije i karakterističnih veličina regulacijskog kruga, relacije f<sub>1</sub>-f<sub>9</sub></b><br/>
 Statički pokazatelj kakvoće regulacije jest odstupanje u stacionarnom stanju \( \epsilon_\infty \). Dinamički pokazatelji kakvoće regulacije su maksimalno nadvišenje &sigma;<sub>m</sub>, ulazno vrijeme t<sub>u</sub>, vrijeme podizanja t<sub>a</sub>, vrijeme prvog maksimuma t<sub>m</sub> i vrijeme ustaljivanja t<sub>&epsilon;</sub> (gdje je &epsilon; najčešće ili 2% ili 5%).<br/>
@@ -266,12 +270,32 @@ Funkcija f<sub>6</sub> jednaka je umnošku f<sub>2</sub> i f<sub>4</sub>, i ona 
 Funkcija f<sub>7</sub> povezuje količnik \( \frac{\omega_c}{\omega_n} \) s &zeta;-om.<br/>
 Funkcija f<sub>8</sub> jednaka je umnošku funkcija f<sub>2</sub> i f<sub>7</sub>, i ona povezuje umnožak \( \omega_ct_{a,50} \) sa &zeta;-om. Približno vrijedi:
 \[ \omega_ct_{a,50}\approx 1.5 - \frac{\sigma_m}{250}, 0 < \zeta < 1 \]
-Funkcija f<sub>9</sub> povezuje &gamma; sa &zeta;. Mada mi stvarno nije jasno kako &gamma; može ovisiti samo o &zeta;-i, a ne i o K-u. Po osnovnom zdravom razumu, &gamma; bi trebala biti manja što je K veći, zar ne? Pitat ću profesora o tome na konzultacijama.<br/>
+Funkcija f<sub>9</sub> povezuje &gamma; sa &zeta;. Mada mi stvarno nije jasno kako &gamma; može ovisiti samo o &zeta;-i, a ne i o K-u. Po osnovnom zdravom razumu, &gamma; bi trebala biti manja što je K veći, zar ne? Pitat ću profesora o tome na konzultacijama. (UPDATE: Rekao mi je profesor na konzultacijama da će mi poslati skriptu koja to objašnjava.)<br/>
 Vrijedi i približna relacija:
 \[ \gamma [^\circ] \approx 70 - \sigma_m [\%], 0.3 < \zeta < 0.8 \]
 </li>
 <li><b>Grafo-analitičke metode za sintezu regulatora - osnovna svojstva ovih metoda, postupak projektiranja regulatora grafo-analitičkim metodama</b><br/>
-Pojma nemam. Pretpostavljam da se pod "<i>grafo-analitičke metode</i>" misli na sintezu regulatora pomoću Bodeovog dijagrama ili pomoću krivulje mjesta korijena.
+Pojma nemam. Pretpostavljam da se pod "<i>grafo-analitičke metode</i>" misli na sintezu regulatora pomoću Bodeovog dijagrama ili pomoću krivulje mjesta korijena.<br/>
+UPDATE: Evo što mi je profesor rekao na konzultacijama...<br/>
+Grafo-analitičke metode su iterativne i provode u dosta koraka, pri čemu se modificiraju karakteristike kako bi se dovele u oblik koji jamči da će zatvoreni krug imati zadano vladanje.<br/>
+Među tim iteracijama mogu se prepoznati pet osnovnih koraka:
+<ol>
+<li>
+Nacrtati graf prema zadanom modelu procesa.
+</li>
+<li>
+Odrediti značajke regulacijskog kruga koje treba postići (iz zadanih pokazatelja kakvoće regulacije pomoću f<sub>1</sub>-f<sub>9</sub>).
+</li>
+<li>
+Usporedba s polaznom situacijom (prvi korak) i s onim što se treba dobiti (drugi korak).
+</li>
+<li>
+Problem pokušati riješiti P-regulatorom (najjednostavniji i najjeftiniji regulator).
+</li>
+<li>
+Ako se problem ne može riješiti P-regulatorom, tada se regulatoru dodaju dinamički članovi (polovi i(li) nule).
+</li>
+</ol>
 </li>
 <li><b>Sinteza u frekvencijskom području uz korištenje Bodeovog dijagrama - odabir pojačanja regulatora, dodavanje polova i nula regulatoru s ciljem postizanja željenog vladanja regulacijskog kruga (LEAD i LAG kompenzacija), primjer</b><br/>
 O LEAD-u i LAG-u, pogledajte <a href="#LEAD_LAG">pitanje 1.8</a>. Ostalo ne znam.
