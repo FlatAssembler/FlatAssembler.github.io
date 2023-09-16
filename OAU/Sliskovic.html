@@ -230,7 +230,7 @@ Evo primjer krivulje mjesta korijena:<br/>
 <span id="cemu_sluzi_KMK">Pomoću krivulje mjesta korijena možemo sintetizirati regulatore. Osnovni princip sinteze regulatora pomoću krivulje mjesta korijena jest da se dodavanjem pola ona izoblići prema desno, a dodavanjem nule prema lijevo. Tako je možemo izobličavati dok ona ne prolazi kroz željeni par konjugirano kompleksnih polova.</span>
 </li>
 </ol>
-Sinteza (projektiranje regulacijskog algoritma):
+<h2>Sinteza (projektiranje regulacijskog algoritma):</h2>
 <ol>
 <li><b>Sinteza regulatora - pojam, osnovni okviri za sintezu i ograničenja koja treba uzeti u obzir, vrste regulacije, osnovna polazišta pri sintezi, podjela metoda i postupaka sinteze</b><br/>
 Regulacija je jedna od tri osnovnih vrsta upravljanja. Vrste upravljanja su:
@@ -255,7 +255,9 @@ Dalje ne znam.<br/>
 (UPDATE: Rekao mi je profesor na konzultacijama da su osnovna polazišta pri sintezi matematički model procesa i kakvoća regulacije kakvu treba postići.)
 </li>
 <li><b>Pokazatelji kakvoće regulacije - statički i dinamički pokazatelji, povezanost između dinamičkih pokazatelja kakvoće regulacije i karakterističnih veličina regulacijskog kruga, relacije f<sub>1</sub>-f<sub>9</sub></b><br/>
-Statički pokazatelj kakvoće regulacije jest odstupanje u stacionarnom stanju \( \epsilon_\infty \). Dinamički pokazatelji kakvoće regulacije su maksimalno nadvišenje &sigma;<sub>m</sub>, ulazno vrijeme t<sub>u</sub>, vrijeme podizanja t<sub>a</sub>, vrijeme prvog maksimuma t<sub>m</sub> i vrijeme ustaljivanja t<sub>&epsilon;</sub> (gdje je &epsilon; najčešće ili 2% ili 5%).<br/>
+Statički pokazatelj kakvoće regulacije jest odstupanje u stacionarnom stanju \( \epsilon_\infty \).<br/>
+(UPDATE: U skripti koju mi je na e-mail poslao profesor Slišković piše da su statički pokazatelji kakvoće regulacije: položajna pogreška, brzinska pogreška i pogreška ubrzanja.)<br/>
+Dinamički pokazatelji kakvoće regulacije su maksimalno nadvišenje &sigma;<sub>m</sub>, ulazno vrijeme t<sub>u</sub>, vrijeme podizanja t<sub>a</sub>, vrijeme prvog maksimuma t<sub>m</sub> i vrijeme ustaljivanja t<sub>&epsilon;</sub> (gdje je &epsilon; najčešće ili 2% ili 5%).<br/>
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Gueteforderungen_SollwertfolgeDynamik.png/330px-Gueteforderungen_SollwertfolgeDynamik.png"><br/>
 (&sigma;<sub>m</sub> ili PO, <i>percent overshoot</i>, jednak je \( 100\frac{\Delta h}{k_s} \) ).<br/>
 Za sustave drugog reda vrijedi relacija:<br/>
@@ -320,11 +322,20 @@ Tehnički optimum primjenjujemo kad se proces sastoji od kaskade PT<sub>1</sub> 
 \[ \frac{K}{1+T_1s}\cdot\frac{1}{1+T_2s}\cdot\frac{1}{1+T_3s}\cdot ... \frac{1}{1+T_ns} \approx \frac{K}{1+T_1s}\cdot\frac{1}{1+T_\Sigma s}, T_\Sigma=T_2+T_3+ ... +T_n \]
 Tada koristimo PI-regulator, te nulom PI-regulatora poništavamo dominantni pol procesa (\( T_I=T_1 \)). Prijenosna funkcija zatvorenog regulacijskog kruga tada iznosi:
 \[ G_x(s)=\frac{K_O}{K_O+T_is+T_iT_\Sigma s^2} \]
-Tada odabiremo \( \zeta=\frac{\sqrt{2}}{2} \) te izračunamo K<sub>O</sub>. Tako dobijemo sustav s maksimalnim nadvišenjem od 4.3% (što je u većini slučajeva prihvatljivo), ulaznim vremenom 4.7T<sub>&Sigma;</sub> i vremenom ustaljivanja 8.4T<sub>&Sigma;</sub>.
+Tada odabiremo \( \zeta=\frac{\sqrt{2}}{2} \) te izračunamo K<sub>O</sub>. Tako dobijemo sustav s maksimalnim nadvišenjem od 4.3% (što je u većini slučajeva prihvatljivo), ulaznim vremenom 4.7T<sub>&Sigma;</sub> i vremenom ustaljivanja 8.4T<sub>&Sigma;</sub>.<br/>
+UPDATE: Evo što piše u skripti koju mi je profesor Slišković poslao...<br/>
+Tehnički optimum temelji se na dva zahtijeva u frekvencijskoj domeni:
+<ol>
+<li>&omega;<sub>b</sub> mora biti što veći, da se smanji t<sub>a,50</sub>.</li>
+<li>M<sub>r</sub> (rezonantno uzdizanje) ne smije postojati, jer rezonantno uzdizanje znači da postoji &sigma;<sub>m</sub>.</li>
+</ol>
+U praksi se dopušta maksimalno nadvišenje do 5%.
 </li>
 <li>
 <b>Podešavanje regulatora prema simetričnom optimumu - kriteriji za određivanje parametara regulatora, primjer</b><br/>
-Simetrični optimum primjenjuje se ili kad proces ima integralno djelovanje ili kad ima PT<sub>1</sub> djelovanje kad je T daleko veće od 1. Primjenjujemo PI-regulator. Ciljamo da \( \omega_c=\frac{1}{\sqrt{T_IT_\Sigma}} \) (inverz geometrijske sredine T<sub>I</sub> i T<sub>&Sigma;</sub>), gdje je T<sub>&Sigma;</sub> zbroj svih vremenskih konstanti u procesu. Tako dobivamo brz sustav, ali s velikim nadvišenjem. Da bismo smanjili nadvišenje, ugrađujemo prefilter.
+Simetrični optimum primjenjuje se ili kad proces ima integralno djelovanje ili kad ima PT<sub>1</sub> djelovanje kad je T daleko veće od 1. Primjenjujemo PI-regulator. Ciljamo da \( \omega_c=\frac{1}{\sqrt{T_IT_\Sigma}} \) (inverz geometrijske sredine T<sub>I</sub> i T<sub>&Sigma;</sub>), gdje je T<sub>&Sigma;</sub> zbroj svih vremenskih konstanti u procesu. Tako dobivamo brz sustav, ali s velikim nadvišenjem. Da bismo smanjili nadvišenje, ugrađujemo prefilter.<br/>
+UPDATE: Evo što piše u skripti koju mi je poslao profesor Slišković...<br/>
+Kad postoji astatizam (štogod to značilo) drugog reda, tada je čitava fazno-frekvencijska karakteristika ispod -180&deg;. A to znači da sustav nije stabilan. Zato mu se dodaju nule, da bi se napravio interval frekvencija za koji je &phi; veći od -180&deg;. I onda se cilja na to da se &omega;<sub>c</sub> bude točno frekvencija na kojoj je &phi; na vrhu, dakle, da &gamma; bude najveći mogući.
 </li>
 <li>
 <b>Empirijski postupci za podešavanje regulatora - polazišta za sintezu i svojstva ovih načina projektiranja regulatora, primjer (ZN-postupak, varijanta 1 i 2).</b><br/>
