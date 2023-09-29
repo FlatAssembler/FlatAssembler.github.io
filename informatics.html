@@ -650,12 +650,15 @@
         <a href="AEC_specification#Builtin"
           >implementing mathematical functions into my AEC-to-WebAssembly
           compiler</a
-        >). When you program in the real world, you will probably spend most of
-        your time with things such as getting your web-app to work in Internet
-        Explorer, or something equivalent to that in parts of programming not
-        related to web-apps (The thing that bothers me with making the compiler
-        for my programming language right now is that, after I added the
-        suggestions for misspelled variable names,
+        >. And note that, had I made that compiler <i>properly</i>, by
+        targetting WebAssembly via LLVM instead of targetting WebAssembly
+        directly, I would not have to do that.). When you program in the real
+        world, you will probably spend most of your time with things such as
+        getting your web-app to work in Internet Explorer, or something
+        equivalent to that in parts of programming not related to web-apps (The
+        thing that bothers me with making the compiler for my programming
+        language right now is that, after I added the suggestions for misspelled
+        variable names,
         <a href="https://github.com/FlatAssembler/AECforWebAssembly/issues/5"
           >the compiler crashes if it is compiled with Visual Studio or CLANG
           with some options on Windows, but apparently not if it is compiled
