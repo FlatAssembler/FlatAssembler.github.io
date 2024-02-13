@@ -161,6 +161,9 @@ footer {
   background: #ffffdd;
   color: black;
 }
+.quotation a {
+  color: #003333;
+}
 #markov {
   color: white;
 }
