@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>nQueensPuzzle.aec - Syntax Highlighted in NodeJS</title>
+    <title>nQueensPuzzle/nQueensPuzzle.aec - Syntax Highlighted in NodeJS</title>
     <style type="text/css">
     pre {
        font-size: 13px;
@@ -227,124 +227,125 @@
  <span class="LineNumber">184</span> <span class="Keyword">EndFunction</span>
  <span class="LineNumber">185</span> 
  <span class="LineNumber">186</span> <span class="Comment">// Now, let's implement the brute-force algorithm.
- <span class="LineNumber">187</span> </span><span class="Keyword">Function</span> validatePartialSolutionAndTryToExtend <span class="Comment">// A name suggested by a Reddit user called tobega: https://www.reddit.com/r/ProgrammingLanguages/comments/1ay30y8/comment/krwdde9/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
- <span class="LineNumber">188</span> </span>					       <span class="Parenthesis">(</span><span class="Type">PointerToChessBoard</span> chessBoard<span class="Operator">,</span>
- <span class="LineNumber">189</span>                                                <span class="Type">Integer32</span> n<span class="Parenthesis">)</span> 
- <span class="LineNumber">190</span> 					       <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span>
- <span class="LineNumber">191</span>   <span class="Comment">// First, do some sanity checks useful for debugging...
- <span class="LineNumber">192</span> </span>  <span class="Keyword">If</span> chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>length <span class="Operator">&gt;</span> n <span class="Keyword">Then</span>
- <span class="LineNumber">193</span>     printString<span class="Parenthesis">(</span><span class="String">"Bug: Chessboard length too large!"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">194</span>     <span class="Keyword">Return</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">195</span>   <span class="Keyword">EndIf</span>
- <span class="LineNumber">196</span>   <span class="Type">Integer32</span> i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Operator">,</span> j <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">197</span>   <span class="Keyword">While</span> i <span class="Operator">&lt;</span> chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>length <span class="Keyword">Loop</span>
- <span class="LineNumber">198</span>     <span class="Keyword">If</span> chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>queens<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span>.column <span class="Operator">&lt;</span> <span class="Constant">0</span> <span class="Operator">or</span>
- <span class="LineNumber">199</span>        chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>queens<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span>.row    <span class="Operator">&lt;</span> <span class="Constant">0</span> <span class="Operator">or</span>
- <span class="LineNumber">200</span>        chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>queens<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span>.column <span class="Operator">&gt;</span> n <span class="Operator">or</span>
- <span class="LineNumber">201</span>        chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>queens<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span>.row    <span class="Operator">&gt;</span> n <span class="Keyword">Then</span>
- <span class="LineNumber">202</span>       printString<span class="Parenthesis">(</span><span class="String">"Bug: Corrupt chessboard!"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">203</span>       <span class="Keyword">Return</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">204</span>     <span class="Keyword">EndIf</span>
- <span class="LineNumber">205</span>     i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">206</span>   <span class="Keyword">EndWhile</span>
- <span class="LineNumber">207</span>   <span class="Comment">// Check if there is a contradiction (queens attacking
- <span class="LineNumber">208</span> </span>  <span class="Comment">// each other) in what we have thus far...
- <span class="LineNumber">209</span> </span>  i <span class="Operator">:</span><span class="Operator">=</span> j <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">210</span>   <span class="Keyword">While</span> i <span class="Operator">&lt;</span> chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>length <span class="Keyword">Loop</span>
- <span class="LineNumber">211</span>     j <span class="Operator">:</span><span class="Operator">=</span> i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">212</span>     <span class="Keyword">While</span> j <span class="Operator">&lt;</span> chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>length <span class="Keyword">Loop</span>
- <span class="LineNumber">213</span>       <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>i <span class="Operator">=</span> j<span class="Parenthesis">)</span> <span class="Operator">and</span> areQueensAttackingEachOther<span class="Parenthesis">(</span>
- <span class="LineNumber">214</span>                           <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>queens<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Operator">,</span>
- <span class="LineNumber">215</span>                           <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>queens<span class="Parenthesis">[</span>j<span class="Parenthesis">]</span><span class="Parenthesis">)</span>
- <span class="LineNumber">216</span>                         <span class="Parenthesis">)</span> <span class="Keyword">Then</span>
- <span class="LineNumber">217</span>         <span class="Keyword">Return</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">218</span>       <span class="Keyword">EndIf</span>
- <span class="LineNumber">219</span>       j <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">220</span>     <span class="Keyword">EndWhile</span>
- <span class="LineNumber">221</span>     i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">222</span>   <span class="Keyword">EndWhile</span>
- <span class="LineNumber">223</span>   <span class="Comment">// Check if this is a solution...
- <span class="LineNumber">224</span> </span>  <span class="Keyword">If</span> chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>length <span class="Operator">=</span> n <span class="Keyword">Then</span>
- <span class="LineNumber">225</span>     printAsASolution<span class="Parenthesis">(</span>chessBoard<span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">226</span>     <span class="Keyword">Return</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">227</span>   <span class="Keyword">EndIf</span>
- <span class="LineNumber">228</span>   <span class="Comment">// If this is not a complete solution, but there are no contradictions
- <span class="LineNumber">229</span> </span>  <span class="Comment">// in it, branch the recursion into searching for complete solutions
- <span class="LineNumber">230</span> </span>  <span class="Comment">// based on this one.
- <span class="LineNumber">231</span> </span>  <span class="Type">Integer32</span> result <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">232</span>   i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">233</span>   <span class="Keyword">While</span> i<span class="Operator">&lt;</span>n <span class="Keyword">Loop</span>
- <span class="LineNumber">234</span>     <span class="Type">InstantiateStructure</span> ChessBoard newChessBoard <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>chessBoard<span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">235</span>     newChessBoard.length <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">236</span>     newChessBoard.queens<span class="Parenthesis">[</span>chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>length<span class="Parenthesis">]</span>.column <span class="Operator">:</span><span class="Operator">=</span> chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>length<span class="Keyword">;</span>
- <span class="LineNumber">237</span>     newChessBoard.queens<span class="Parenthesis">[</span>chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>length<span class="Parenthesis">]</span>.row <span class="Operator">:</span><span class="Operator">=</span> i<span class="Keyword">;</span>
- <span class="LineNumber">238</span>     result <span class="Operator">+</span><span class="Operator">=</span> validatePartialSolutionAndTryToExtend<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>newChessBoard<span class="Parenthesis">)</span><span class="Operator">,</span> n<span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">239</span>     i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">240</span>   <span class="Keyword">EndWhile</span>
- <span class="LineNumber">241</span>   <span class="Keyword">Return</span> result<span class="Keyword">;</span>
- <span class="LineNumber">242</span> <span class="Keyword">EndFunction</span>
- <span class="LineNumber">243</span> 
- <span class="LineNumber">244</span> <span class="Comment">// Now go the helper functions related to string manipulation,
- <span class="LineNumber">245</span> </span><span class="Comment">// copied from the Dragon Curve program. They are named the same
- <span class="LineNumber">246</span> </span><span class="Comment">// as the corresponding functions in the standard C library.
- <span class="LineNumber">247</span> </span><span class="Keyword">Function</span> strlen<span class="Parenthesis">(</span><span class="Type">PointerToCharacter</span> str<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span>
- <span class="LineNumber">248</span>      <span class="Type">Integer32</span> length <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">249</span>      <span class="Keyword">While</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>str <span class="Operator">+</span> length<span class="Parenthesis">)</span> <span class="Keyword">Loop</span>
- <span class="LineNumber">250</span>          length <span class="Operator">:</span><span class="Operator">=</span> length <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">251</span>      <span class="Keyword">EndWhile</span>
- <span class="LineNumber">252</span>      <span class="Keyword">Return</span> length<span class="Keyword">;</span>
- <span class="LineNumber">253</span> <span class="Keyword">EndFunction</span>
- <span class="LineNumber">254</span> 
- <span class="LineNumber">255</span> <span class="Keyword">Function</span> strcpy<span class="Parenthesis">(</span><span class="Type">PointerToCharacter</span> dest<span class="Operator">,</span>
- <span class="LineNumber">256</span>                 <span class="Type">PointerToCharacter</span> src<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
- <span class="LineNumber">257</span>     <span class="Keyword">While</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>src<span class="Parenthesis">)</span> <span class="Keyword">Loop</span>
- <span class="LineNumber">258</span>         <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>dest<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>src<span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">259</span>         dest          <span class="Operator">:</span><span class="Operator">=</span>     dest <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">260</span>         src           <span class="Operator">:</span><span class="Operator">=</span>      src <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">261</span>      <span class="Keyword">EndWhile</span>
- <span class="LineNumber">262</span>     <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>dest<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">263</span> <span class="Keyword">EndFunction</span>
- <span class="LineNumber">264</span> 
- <span class="LineNumber">265</span> <span class="Keyword">Function</span> strcat<span class="Parenthesis">(</span><span class="Type">PointerToCharacter</span> dest<span class="Operator">,</span>
- <span class="LineNumber">266</span>                 <span class="Type">PointerToCharacter</span> src<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
- <span class="LineNumber">267</span>     strcpy<span class="Parenthesis">(</span>dest <span class="Operator">+</span> strlen<span class="Parenthesis">(</span>dest<span class="Parenthesis">)</span><span class="Operator">,</span> src<span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">268</span> <span class="Keyword">EndFunction</span>
- <span class="LineNumber">269</span> 
- <span class="LineNumber">270</span> <span class="Keyword">Function</span> reverseString<span class="Parenthesis">(</span><span class="Type">PointerToCharacter</span> string<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
- <span class="LineNumber">271</span>     <span class="Type">PointerToCharacter</span> pointerToLastCharacter <span class="Operator">:</span><span class="Operator">=</span> string <span class="Operator">+</span> strlen<span class="Parenthesis">(</span>string<span class="Parenthesis">)</span> <span class="Operator">-</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">272</span>     <span class="Keyword">While</span> pointerToLastCharacter <span class="Operator">-</span> string <span class="Operator">&gt;</span> <span class="Constant">0</span> <span class="Keyword">Loop</span>
- <span class="LineNumber">273</span>         <span class="Type">Character</span> tmp                   <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string<span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">274</span>         <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string<span class="Parenthesis">)</span>                 <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>pointerToLastCharacter<span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">275</span>         <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>pointerToLastCharacter<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span> tmp<span class="Keyword">;</span>
- <span class="LineNumber">276</span>         string                          <span class="Operator">:</span><span class="Operator">=</span> string <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">277</span>         pointerToLastCharacter          <span class="Operator">:</span><span class="Operator">=</span> pointerToLastCharacter <span class="Operator">-</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">278</span>     <span class="Keyword">EndWhile</span>
- <span class="LineNumber">279</span> <span class="Keyword">EndFunction</span>
- <span class="LineNumber">280</span> 
- <span class="LineNumber">281</span> <span class="Keyword">Function</span> convertIntegerToString<span class="Parenthesis">(</span><span class="Type">PointerToCharacter</span> string<span class="Operator">,</span>
- <span class="LineNumber">282</span>                                 <span class="Type">Integer32</span> number<span class="Parenthesis">)</span>
- <span class="LineNumber">283</span>     <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
- <span class="LineNumber">284</span>     <span class="Type">Integer32</span> isNumberNegative <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">285</span>     <span class="Keyword">If</span> number <span class="Operator">&lt;</span> <span class="Constant">0</span> <span class="Keyword">Then</span>
- <span class="LineNumber">286</span>         number           <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">-</span>number<span class="Keyword">;</span>
- <span class="LineNumber">287</span>         isNumberNegative <span class="Operator">:</span><span class="Operator">=</span>       <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">288</span>     <span class="Keyword">EndIf</span>
- <span class="LineNumber">289</span>     <span class="Type">Integer32</span> i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">290</span>     <span class="Keyword">While</span> number <span class="Operator">&gt;</span> <span class="Constant">9</span> <span class="Keyword">Loop</span>
- <span class="LineNumber">291</span>         <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'0'</span> <span class="Operator">+</span> <span class="Operator">mod</span><span class="Parenthesis">(</span>number<span class="Operator">,</span> <span class="Constant">10</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">292</span>         number              <span class="Operator">:</span><span class="Operator">=</span>           number <span class="Operator">/</span> <span class="Constant">10</span><span class="Keyword">;</span>
- <span class="LineNumber">293</span>         i                   <span class="Operator">:</span><span class="Operator">=</span>                 i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">294</span>     <span class="Keyword">EndWhile</span>
- <span class="LineNumber">295</span>     <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'0'</span> <span class="Operator">+</span> number<span class="Keyword">;</span>
- <span class="LineNumber">296</span>     i                   <span class="Operator">:</span><span class="Operator">=</span>        i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">297</span>     <span class="Keyword">If</span> isNumberNegative <span class="Keyword">Then</span>
- <span class="LineNumber">298</span>         <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span>   <span class="String">'-'</span><span class="Keyword">;</span>
- <span class="LineNumber">299</span>         i                   <span class="Operator">:</span><span class="Operator">=</span> i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">300</span>     <span class="Keyword">EndIf</span>
- <span class="LineNumber">301</span>     <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">302</span>     reverseString<span class="Parenthesis">(</span>string<span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">303</span> <span class="Keyword">EndFunction</span>
- <span class="LineNumber">304</span> 
+ <span class="LineNumber">187</span> </span><span class="Keyword">Function</span> validatePartialSolutionAndTryToExtend <span class="Comment">// A name suggested by a Reddit user called tobega:
+ <span class="LineNumber">188</span> </span><span class="Comment">// https://www.reddit.com/r/ProgrammingLanguages/comments/1ay30y8/comment/krwdde9/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+ <span class="LineNumber">189</span> </span>                                               <span class="Parenthesis">(</span><span class="Type">PointerToChessBoard</span> chessBoard<span class="Operator">,</span>
+ <span class="LineNumber">190</span>                                                <span class="Type">Integer32</span> n<span class="Parenthesis">)</span> 
+ <span class="LineNumber">191</span> 					       <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span>
+ <span class="LineNumber">192</span>   <span class="Comment">// First, do some sanity checks useful for debugging...
+ <span class="LineNumber">193</span> </span>  <span class="Keyword">If</span> chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>length <span class="Operator">&gt;</span> n <span class="Keyword">Then</span>
+ <span class="LineNumber">194</span>     printString<span class="Parenthesis">(</span><span class="String">"Bug: Chessboard length too large!"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">195</span>     <span class="Keyword">Return</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">196</span>   <span class="Keyword">EndIf</span>
+ <span class="LineNumber">197</span>   <span class="Type">Integer32</span> i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Operator">,</span> j <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">198</span>   <span class="Keyword">While</span> i <span class="Operator">&lt;</span> chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>length <span class="Keyword">Loop</span>
+ <span class="LineNumber">199</span>     <span class="Keyword">If</span> chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>queens<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span>.column <span class="Operator">&lt;</span> <span class="Constant">0</span> <span class="Operator">or</span>
+ <span class="LineNumber">200</span>        chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>queens<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span>.row    <span class="Operator">&lt;</span> <span class="Constant">0</span> <span class="Operator">or</span>
+ <span class="LineNumber">201</span>        chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>queens<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span>.column <span class="Operator">&gt;</span> n <span class="Operator">or</span>
+ <span class="LineNumber">202</span>        chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>queens<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span>.row    <span class="Operator">&gt;</span> n <span class="Keyword">Then</span>
+ <span class="LineNumber">203</span>       printString<span class="Parenthesis">(</span><span class="String">"Bug: Corrupt chessboard!"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">204</span>       <span class="Keyword">Return</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">205</span>     <span class="Keyword">EndIf</span>
+ <span class="LineNumber">206</span>     i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">207</span>   <span class="Keyword">EndWhile</span>
+ <span class="LineNumber">208</span>   <span class="Comment">// Check if there is a contradiction (queens attacking
+ <span class="LineNumber">209</span> </span>  <span class="Comment">// each other) in what we have thus far...
+ <span class="LineNumber">210</span> </span>  i <span class="Operator">:</span><span class="Operator">=</span> j <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">211</span>   <span class="Keyword">While</span> i <span class="Operator">&lt;</span> chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>length <span class="Keyword">Loop</span>
+ <span class="LineNumber">212</span>     j <span class="Operator">:</span><span class="Operator">=</span> i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">213</span>     <span class="Keyword">While</span> j <span class="Operator">&lt;</span> chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>length <span class="Keyword">Loop</span>
+ <span class="LineNumber">214</span>       <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>i <span class="Operator">=</span> j<span class="Parenthesis">)</span> <span class="Operator">and</span> areQueensAttackingEachOther<span class="Parenthesis">(</span>
+ <span class="LineNumber">215</span>                           <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>queens<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Operator">,</span>
+ <span class="LineNumber">216</span>                           <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>queens<span class="Parenthesis">[</span>j<span class="Parenthesis">]</span><span class="Parenthesis">)</span>
+ <span class="LineNumber">217</span>                         <span class="Parenthesis">)</span> <span class="Keyword">Then</span>
+ <span class="LineNumber">218</span>         <span class="Keyword">Return</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">219</span>       <span class="Keyword">EndIf</span>
+ <span class="LineNumber">220</span>       j <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">221</span>     <span class="Keyword">EndWhile</span>
+ <span class="LineNumber">222</span>     i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">223</span>   <span class="Keyword">EndWhile</span>
+ <span class="LineNumber">224</span>   <span class="Comment">// Check if this is a solution...
+ <span class="LineNumber">225</span> </span>  <span class="Keyword">If</span> chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>length <span class="Operator">=</span> n <span class="Keyword">Then</span>
+ <span class="LineNumber">226</span>     printAsASolution<span class="Parenthesis">(</span>chessBoard<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">227</span>     <span class="Keyword">Return</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">228</span>   <span class="Keyword">EndIf</span>
+ <span class="LineNumber">229</span>   <span class="Comment">// If this is not a complete solution, but there are no contradictions
+ <span class="LineNumber">230</span> </span>  <span class="Comment">// in it, branch the recursion into searching for complete solutions
+ <span class="LineNumber">231</span> </span>  <span class="Comment">// based on this one.
+ <span class="LineNumber">232</span> </span>  <span class="Type">Integer32</span> result <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">233</span>   i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">234</span>   <span class="Keyword">While</span> i<span class="Operator">&lt;</span>n <span class="Keyword">Loop</span>
+ <span class="LineNumber">235</span>     <span class="Type">InstantiateStructure</span> ChessBoard newChessBoard <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>chessBoard<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">236</span>     newChessBoard.length <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">237</span>     newChessBoard.queens<span class="Parenthesis">[</span>chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>length<span class="Parenthesis">]</span>.column <span class="Operator">:</span><span class="Operator">=</span> chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>length<span class="Keyword">;</span>
+ <span class="LineNumber">238</span>     newChessBoard.queens<span class="Parenthesis">[</span>chessBoard<span class="Operator">-</span><span class="Operator">&gt;</span>length<span class="Parenthesis">]</span>.row <span class="Operator">:</span><span class="Operator">=</span> i<span class="Keyword">;</span>
+ <span class="LineNumber">239</span>     result <span class="Operator">+</span><span class="Operator">=</span> validatePartialSolutionAndTryToExtend<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>newChessBoard<span class="Parenthesis">)</span><span class="Operator">,</span> n<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">240</span>     i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">241</span>   <span class="Keyword">EndWhile</span>
+ <span class="LineNumber">242</span>   <span class="Keyword">Return</span> result<span class="Keyword">;</span>
+ <span class="LineNumber">243</span> <span class="Keyword">EndFunction</span>
+ <span class="LineNumber">244</span> 
+ <span class="LineNumber">245</span> <span class="Comment">// Now go the helper functions related to string manipulation,
+ <span class="LineNumber">246</span> </span><span class="Comment">// copied from the Dragon Curve program. They are named the same
+ <span class="LineNumber">247</span> </span><span class="Comment">// as the corresponding functions in the standard C library.
+ <span class="LineNumber">248</span> </span><span class="Keyword">Function</span> strlen<span class="Parenthesis">(</span><span class="Type">PointerToCharacter</span> str<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span>
+ <span class="LineNumber">249</span>      <span class="Type">Integer32</span> length <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">250</span>      <span class="Keyword">While</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>str <span class="Operator">+</span> length<span class="Parenthesis">)</span> <span class="Keyword">Loop</span>
+ <span class="LineNumber">251</span>          length <span class="Operator">:</span><span class="Operator">=</span> length <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">252</span>      <span class="Keyword">EndWhile</span>
+ <span class="LineNumber">253</span>      <span class="Keyword">Return</span> length<span class="Keyword">;</span>
+ <span class="LineNumber">254</span> <span class="Keyword">EndFunction</span>
+ <span class="LineNumber">255</span> 
+ <span class="LineNumber">256</span> <span class="Keyword">Function</span> strcpy<span class="Parenthesis">(</span><span class="Type">PointerToCharacter</span> dest<span class="Operator">,</span>
+ <span class="LineNumber">257</span>                 <span class="Type">PointerToCharacter</span> src<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
+ <span class="LineNumber">258</span>     <span class="Keyword">While</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>src<span class="Parenthesis">)</span> <span class="Keyword">Loop</span>
+ <span class="LineNumber">259</span>         <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>dest<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>src<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">260</span>         dest          <span class="Operator">:</span><span class="Operator">=</span>     dest <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">261</span>         src           <span class="Operator">:</span><span class="Operator">=</span>      src <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">262</span>      <span class="Keyword">EndWhile</span>
+ <span class="LineNumber">263</span>     <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>dest<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">264</span> <span class="Keyword">EndFunction</span>
+ <span class="LineNumber">265</span> 
+ <span class="LineNumber">266</span> <span class="Keyword">Function</span> strcat<span class="Parenthesis">(</span><span class="Type">PointerToCharacter</span> dest<span class="Operator">,</span>
+ <span class="LineNumber">267</span>                 <span class="Type">PointerToCharacter</span> src<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
+ <span class="LineNumber">268</span>     strcpy<span class="Parenthesis">(</span>dest <span class="Operator">+</span> strlen<span class="Parenthesis">(</span>dest<span class="Parenthesis">)</span><span class="Operator">,</span> src<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">269</span> <span class="Keyword">EndFunction</span>
+ <span class="LineNumber">270</span> 
+ <span class="LineNumber">271</span> <span class="Keyword">Function</span> reverseString<span class="Parenthesis">(</span><span class="Type">PointerToCharacter</span> string<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
+ <span class="LineNumber">272</span>     <span class="Type">PointerToCharacter</span> pointerToLastCharacter <span class="Operator">:</span><span class="Operator">=</span> string <span class="Operator">+</span> strlen<span class="Parenthesis">(</span>string<span class="Parenthesis">)</span> <span class="Operator">-</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">273</span>     <span class="Keyword">While</span> pointerToLastCharacter <span class="Operator">-</span> string <span class="Operator">&gt;</span> <span class="Constant">0</span> <span class="Keyword">Loop</span>
+ <span class="LineNumber">274</span>         <span class="Type">Character</span> tmp                   <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">275</span>         <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string<span class="Parenthesis">)</span>                 <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>pointerToLastCharacter<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">276</span>         <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>pointerToLastCharacter<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span> tmp<span class="Keyword">;</span>
+ <span class="LineNumber">277</span>         string                          <span class="Operator">:</span><span class="Operator">=</span> string <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">278</span>         pointerToLastCharacter          <span class="Operator">:</span><span class="Operator">=</span> pointerToLastCharacter <span class="Operator">-</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">279</span>     <span class="Keyword">EndWhile</span>
+ <span class="LineNumber">280</span> <span class="Keyword">EndFunction</span>
+ <span class="LineNumber">281</span> 
+ <span class="LineNumber">282</span> <span class="Keyword">Function</span> convertIntegerToString<span class="Parenthesis">(</span><span class="Type">PointerToCharacter</span> string<span class="Operator">,</span>
+ <span class="LineNumber">283</span>                                 <span class="Type">Integer32</span> number<span class="Parenthesis">)</span>
+ <span class="LineNumber">284</span>     <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
+ <span class="LineNumber">285</span>     <span class="Type">Integer32</span> isNumberNegative <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">286</span>     <span class="Keyword">If</span> number <span class="Operator">&lt;</span> <span class="Constant">0</span> <span class="Keyword">Then</span>
+ <span class="LineNumber">287</span>         number           <span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">-</span>number<span class="Keyword">;</span>
+ <span class="LineNumber">288</span>         isNumberNegative <span class="Operator">:</span><span class="Operator">=</span>       <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">289</span>     <span class="Keyword">EndIf</span>
+ <span class="LineNumber">290</span>     <span class="Type">Integer32</span> i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">291</span>     <span class="Keyword">While</span> number <span class="Operator">&gt;</span> <span class="Constant">9</span> <span class="Keyword">Loop</span>
+ <span class="LineNumber">292</span>         <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'0'</span> <span class="Operator">+</span> <span class="Operator">mod</span><span class="Parenthesis">(</span>number<span class="Operator">,</span> <span class="Constant">10</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">293</span>         number              <span class="Operator">:</span><span class="Operator">=</span>           number <span class="Operator">/</span> <span class="Constant">10</span><span class="Keyword">;</span>
+ <span class="LineNumber">294</span>         i                   <span class="Operator">:</span><span class="Operator">=</span>                 i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">295</span>     <span class="Keyword">EndWhile</span>
+ <span class="LineNumber">296</span>     <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'0'</span> <span class="Operator">+</span> number<span class="Keyword">;</span>
+ <span class="LineNumber">297</span>     i                   <span class="Operator">:</span><span class="Operator">=</span>        i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">298</span>     <span class="Keyword">If</span> isNumberNegative <span class="Keyword">Then</span>
+ <span class="LineNumber">299</span>         <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span>   <span class="String">'-'</span><span class="Keyword">;</span>
+ <span class="LineNumber">300</span>         i                   <span class="Operator">:</span><span class="Operator">=</span> i <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">301</span>     <span class="Keyword">EndIf</span>
+ <span class="LineNumber">302</span>     <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">303</span>     reverseString<span class="Parenthesis">(</span>string<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">304</span> <span class="Keyword">EndFunction</span>
+ <span class="LineNumber">305</span> 
 </pre>
 </body>
 </html>
