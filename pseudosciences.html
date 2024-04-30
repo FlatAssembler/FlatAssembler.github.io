@@ -1473,6 +1473,16 @@ cmp dword [result],0</pre
             >", "<i>oblivisci</i>", has no (semantically) passive forms.
           </li>
           <li>
+            <a href="https://latin.stackexchange.com/q/23528/8533"
+              >How would you say "<i>He says he used to remember that.</i>" in
+              Latin?</a
+            >
+            "<i>He says he remembers that.</i>" would be, if I am not mistaken,
+            "<i>Is dicit se illius meminisse.</i>". But how would you say "<i
+              >He says he used to remember that.</i
+            >"?
+          </li>
+          <li>
             <a href="https://latin.stackexchange.com/q/21491/8533"
               >How would you say "<i>She said goodbye too many times before.</i
               >" in Latin?</a
@@ -2007,6 +2017,21 @@ cmp dword [result],0</pre
             >)
           </li>
           <li>
+            <a href="https://langdev.stackexchange.com/q/3755/330"
+              >How do you correctly compile the chained comparison operators
+              like ones that exist in Python (<code>a &lt; b &lt; c</code>), if
+              <code>b</code> might have side-effects?</a
+            >
+            Simply rewriting <code>a &lt; b &lt; c</code> as
+            <code>(a &lt; b) and (b &lt; c)</code> causes the <code>b</code> to
+            be evaluated twice.<br />
+            <i
+              >(The answers there, while interesting, are not exactly useful to
+              me, because they assume my compiler is a lot more feature-rich
+              than it actually is.)</i
+            >
+          </li>
+          <li>
             <a href="https://langdev.stackexchange.com/q/1461/330"
               >Can something like a Donkey Sentence exist in a programming
               language?</a
@@ -2179,22 +2204,22 @@ cmp dword [result],0</pre
         to literally translate from English and then from Croatian, and, if you
         get different results, that probably means both translations are
         invalid. And sometimes Latin grammar explicitly prohibits a literal
-        translation (like of the &quot;<i>Heroes are never forgotten.</i
-        >&quot;). Some of my high-ranking questions were about words for which
-        it is relatively difficult to find Latin equivalents (like
-        &quot;<i>listen</i>&quot; or &quot;<i>land (verb)</i>&quot;). Another
-        method of asking good questions I've discovered is to look through
-        etymological dictionaries and look for apparent inconsistencies. You
-        know, like my question about the Armenian word for foot,
-        &quot;<i>otn</i>&quot;. My question about the Scythian word
-        &quot;<i>hezios</i>&quot; came to me similarly: multiple etymological
-        dictionaries claim it's possible that the name <i>Caucasus</i> comes
-        from it. I've also asked some questions about why etymologists consider
-        some words unrelated when, to somebody who knows basic historical
-        phonology, they look like they could be related (like German
-        &quot;<i>Tier</i>&quot; and Latin &quot;<i>fera</i>&quot;), though, for
-        some reason, such questions tend to be less well-received. Well, I mean,
-        my question about the supposed connection between German
+        translation (like of the &quot;<i>Heroes are never forgotten.</i>&quot;
+        or &quot;<i>He says he used to remember that.</i>&quot;). Some of my
+        high-ranking questions were about words for which it is relatively
+        difficult to find Latin equivalents (like &quot;<i>listen</i>&quot; or
+        &quot;<i>land (verb)</i>&quot;). Another method of asking good questions
+        I've discovered is to look through etymological dictionaries and look
+        for apparent inconsistencies. You know, like my question about the
+        Armenian word for foot, &quot;<i>otn</i>&quot;. My question about the
+        Scythian word &quot;<i>hezios</i>&quot; came to me similarly: multiple
+        etymological dictionaries claim it's possible that the name
+        <i>Caucasus</i> comes from it. I've also asked some questions about why
+        etymologists consider some words unrelated when, to somebody who knows
+        basic historical phonology, they look like they could be related (like
+        German &quot;<i>Tier</i>&quot; and Latin &quot;<i>fera</i>&quot;),
+        though, for some reason, such questions tend to be less well-received.
+        Well, I mean, my question about the supposed connection between German
         &quot;<i>Tier</i>&quot; and Latin &quot;<i>fera</i>&quot; got
         slightly-well-received on Reddit, and it didn't do nearly as well
         <a href="https://latin.stackexchange.com/q/19199/8533"
@@ -2227,12 +2252,14 @@ cmp dword [result],0</pre
         people on Academia StackExchange are far more likely to upvote a
         question than people on forums about linguistics or programming. And
         that question about quarter-ellipse in CSS was asked months after I
-        designed and programmed my website. And my question about special
-        relativity as well as my question about Descartes'es philosophy were
-        produced not following any particular method, they simply occurred to me
-        when studying back in high-school. My question about the implementation
-        of the ternary conditional operator <code>?:</code> also came to me
-        similarly.<br />
+        designed and programmed my website. The only one question which I got
+        when actually programming and which was well-received was my question
+        about how to correctly compile chained comparisons with respect to
+        potential side-effects. And my question about special relativity as well
+        as my question about Descartes'es philosophy were produced not following
+        any particular method, they simply occurred to me when studying back in
+        high-school. My question about the implementation of the ternary
+        conditional operator <code>?:</code> also came to me similarly.<br />
         An example of a forum thread that leads to nowhere is &quot;<a
           href="https://www.theflatearthsociety.org/forum/index.php?topic=89883.0"
           ><i>What do you think about gun control laws?</i></a
