@@ -154,38 +154,38 @@
  <span class="LineNumber">111</span>     <span class="Type">Character</span> tmp <span class="Operator">:</span> <span class="Operator">=</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string<span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">112</span>     <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string<span class="Parenthesis">)</span> <span class="Operator">:</span> <span class="Operator">=</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>pointerToLastCharacter<span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">113</span>     <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>pointerToLastCharacter<span class="Parenthesis">)</span> <span class="Operator">:</span> <span class="Operator">=</span> tmp<span class="Keyword">;</span>
- <span class="LineNumber">114</span>   string<span class="Operator">:</span>
- <span class="LineNumber">115</span>     <span class="Operator">=</span> string <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">116</span>   pointerToLastCharacter<span class="Operator">:</span>
- <span class="LineNumber">117</span>     <span class="Operator">=</span> pointerToLastCharacter <span class="Operator">-</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">118</span>   <span class="Parenthesis">}</span>
- <span class="LineNumber">119</span>   <span class="Keyword">EndWhile</span>
- <span class="LineNumber">120</span> <span class="Parenthesis">}</span>
- <span class="LineNumber">121</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
- <span class="LineNumber">122</span> 
- <span class="LineNumber">123</span> <span class="Keyword">Function</span> convertIntegerToString<span class="Parenthesis">(</span><span class="Type">PointerToCharacter</span> string<span class="Operator">,</span>
- <span class="LineNumber">124</span>                                 <span class="Type">Integer32</span> number<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
- <span class="LineNumber">125</span>   <span class="Type">Integer32</span> isNumberNegative <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">126</span>   <span class="Keyword">If</span> number <span class="Operator">&lt;</span> <span class="Constant">0</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
- <span class="LineNumber">127</span>   number<span class="Operator">:</span>
- <span class="LineNumber">128</span>     <span class="Operator">=</span> <span class="Operator">-</span>number<span class="Keyword">;</span>
- <span class="LineNumber">129</span>   isNumberNegative<span class="Operator">:</span>
- <span class="LineNumber">130</span>     <span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">131</span>   <span class="Parenthesis">}</span>
- <span class="LineNumber">132</span>   <span class="Keyword">EndIf</span> <span class="Type">Integer32</span> i <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">133</span>   <span class="Keyword">While</span> number <span class="Operator">&gt;</span><span class="Operator">=</span> <span class="Constant">10</span> <span class="Keyword">Loop</span> <span class="Parenthesis">{</span>
- <span class="LineNumber">134</span>     <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span> <span class="Operator">=</span> <span class="String">'0'</span> <span class="Operator">+</span> <span class="Operator">mod</span><span class="Parenthesis">(</span>number<span class="Operator">,</span> <span class="Constant">10</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">135</span>     number <span class="Operator">/</span><span class="Operator">=</span> <span class="Constant">10</span><span class="Keyword">;</span>
- <span class="LineNumber">136</span>     i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">137</span>   <span class="Parenthesis">}</span>
- <span class="LineNumber">138</span>   <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
- <span class="LineNumber">139</span>   <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span> <span class="Operator">=</span> <span class="String">'0'</span> <span class="Operator">+</span> number<span class="Keyword">;</span>
- <span class="LineNumber">140</span>   i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">141</span>   <span class="Keyword">If</span> isNumberNegative <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
- <span class="LineNumber">142</span>     <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span> <span class="Operator">=</span> <span class="String">'-'</span><span class="Keyword">;</span>
- <span class="LineNumber">143</span>     i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">144</span>   <span class="Parenthesis">}</span>
- <span class="LineNumber">145</span>   <span class="Keyword">EndIf</span> <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">114</span>     string <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">115</span>     pointerToLastCharacter <span class="Operator">-</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">116</span>   <span class="Parenthesis">}</span>
+ <span class="LineNumber">117</span>   <span class="Keyword">EndWhile</span>
+ <span class="LineNumber">118</span> <span class="Parenthesis">}</span>
+ <span class="LineNumber">119</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
+ <span class="LineNumber">120</span> 
+ <span class="LineNumber">121</span> <span class="Keyword">Function</span> convertIntegerToString<span class="Parenthesis">(</span><span class="Type">PointerToCharacter</span> string<span class="Operator">,</span>
+ <span class="LineNumber">122</span>                                 <span class="Type">Integer32</span> number<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">123</span>   <span class="Type">Integer32</span> isNumberNegative <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">124</span>   <span class="Keyword">If</span> number <span class="Operator">&lt;</span> <span class="Constant">0</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">125</span>   number<span class="Operator">:</span>
+ <span class="LineNumber">126</span>     <span class="Operator">=</span> <span class="Operator">-</span>number<span class="Keyword">;</span>
+ <span class="LineNumber">127</span>   isNumberNegative<span class="Operator">:</span>
+ <span class="LineNumber">128</span>     <span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">129</span>   <span class="Parenthesis">}</span>
+ <span class="LineNumber">130</span>   <span class="Keyword">EndIf</span><span class="Keyword">;</span>
+ <span class="LineNumber">131</span>   <span class="Type">Integer32</span> i <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">132</span>   <span class="Keyword">While</span> number <span class="Operator">&gt;</span><span class="Operator">=</span> <span class="Constant">10</span> <span class="Keyword">Loop</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">133</span>     <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span> <span class="Operator">=</span> <span class="String">'0'</span> <span class="Operator">+</span> <span class="Operator">mod</span><span class="Parenthesis">(</span>number<span class="Operator">,</span> <span class="Constant">10</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">134</span>     number <span class="Operator">/</span><span class="Operator">=</span> <span class="Constant">10</span><span class="Keyword">;</span>
+ <span class="LineNumber">135</span>     i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">136</span>   <span class="Parenthesis">}</span>
+ <span class="LineNumber">137</span>   <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
+ <span class="LineNumber">138</span>   <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span> <span class="Operator">=</span> <span class="String">'0'</span> <span class="Operator">+</span> number<span class="Keyword">;</span>
+ <span class="LineNumber">139</span>   i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">140</span>   <span class="Keyword">If</span> isNumberNegative <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">141</span>     <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span> <span class="Operator">=</span> <span class="String">'-'</span><span class="Keyword">;</span>
+ <span class="LineNumber">142</span>     i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">143</span>   <span class="Parenthesis">}</span>
+ <span class="LineNumber">144</span>   <span class="Keyword">EndIf</span><span class="Keyword">;</span>
+ <span class="LineNumber">145</span>   <span class="Operator">ValueAt</span><span class="Parenthesis">(</span>string <span class="Operator">+</span> i<span class="Parenthesis">)</span> <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
  <span class="LineNumber">146</span>   reverseString<span class="Parenthesis">(</span>string<span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">147</span> <span class="Parenthesis">}</span>
  <span class="LineNumber">148</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
