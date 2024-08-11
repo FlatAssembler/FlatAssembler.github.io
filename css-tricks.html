@@ -516,9 +516,9 @@
         So, while making my
         <a href="PicoBlaze/PicoBlaze.html">PicoBlaze assembler and emulator</a>,
         I've run into the following problem. I implemented some tooltips on
-        buttons with images. In Firefox, they work as expected, that is, they
-        appear right below the button when you hover over that button. However,
-        in Chrome, they appear far left of the button.<br />
+        buttons with images. In Firefox, they worked as expected, that is, they
+        appeared right below the button when you hover over that button.
+        However, in Chrome, they appeared far left of the button.<br />
         Here was the relevant CSS:
         <pre>
       <span class="Identifier">.</span><span class="Identifier">tooltip</span> <span class="Identifier">{</span>
@@ -559,15 +559,15 @@
         <img
           src="PicoBlaze_in_Firefox.jpg"
           alt="What it looks like in Firefox"
-          style="max-width: 100%; margin: 10px auto"
+          style="max-width: 100%; margin: 10px auto; max-height: 100%"
         /><br />
         However, in Chrome, it looked like this:<br />
         <img
           src="PicoBlaze_in_Chrome.jpg"
           alt="What it looked like in Chrome"
-          style="max-width: 100%; margin: 10px auto"
+          style="max-width: 100%; margin: 10px auto; max-height: 100%"
         /><br />
-        In Chrome, tooltips are moved to the left of the button.<br />
+        In Chrome, tooltips were moved to the left of the button.<br />
         Here is
         <a href="https://stackoverflow.com/a/64995638/8902065"
           >an ingenious solution given by the StackOverflow user called
@@ -586,9 +586,10 @@
         <span class="inline_code">&lt;abbr&gt;</span> tags so that tooltips are
         shown when one hovers over the
         <span class="inline_code">&lt;abbr&gt;</span> with a mouse. But did you
-        know title is supported on basically all HTML tags, rather than just
-        <span class="inline_code">&lt;abbr&gt;</span>? So, yeah, you can use
-        that to show tooltips.
+        know <span class="inline_code">title</span> is supported on basically
+        all HTML tags, rather than just
+        <span class="inline_code">&lt;abbr&gt;</span>? So, yeah, you can use the
+        <span class="inline_code">title</span> attribute to show tooltips.
         <h2>
           Firefox 52 ignores <span class="inline_code">margin-right</span> on
           the right-most element in flexbox
@@ -630,7 +631,9 @@
         <span class="inline_code">:last-child</span> pseudo-class) and style
         them as <span class="inline_code">white-space: pre</span>. Should be
         self-explanatory how it works. Unfortunately, you cannot control exactly
-        how big the margin would be, but I cannot think of a better solution.
+        how big the margin would be (you cannot get more precise than the width
+        of the space in the monospace font the browser is using), but I cannot
+        think of a better solution.
         <h2>
           A layout using HTML5 tags is not displayed properly in Internet
           Explorer 11
@@ -658,13 +661,22 @@
 <span class="Identifier">}</span>
 </pre>
         When you think about that, what Internet Explorer 11 is doing in that
-        case (some SVG elements goes out of bounds of the image) actually makes
+        case (some SVG element goes out of bounds of the image) actually makes
         more sense than what the standard-conforming browsers are doing, right?
         I mean, for most HTML elements, one doesn't hide overflowing content by
-        default, so why would it make sense to do that for SVG elements?
+        default, so why would it make sense to do that for SVG elements? But,
+        just like with the CSS Box Model (Internet Explorer 6, for example, used
+        a different box model than one specified by the standards, causing the
+        elements with padding and border to appear shrinked compared to what
+        they appear to other browsers), it's better to obey the standards than
+        to obey common sense.
         <h2>Conclusion</h2>
         While I've run into many CSS problems, those 4 ones were the only ones
-        that have taken a lot of my time to solve.
+        that have taken a lot of my time to solve. Overall, I'd say that CSS is
+        an excellent piece of engineering, especially considering the backwards
+        compatibility (the web-apps you make now are, unless you break the
+        standards by using now-undefined HTML elements, very unlikely to be
+        broken in the future).
       </div>
     </main>
     <footer>
