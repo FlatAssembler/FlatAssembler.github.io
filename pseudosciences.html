@@ -436,7 +436,7 @@
         loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
         var h = 0;
         var gk = 1;
-        var v = 15;
+        var v = 10;
         window.setInterval(pomakniLopticu, 80);
         window.addEventListener("resize", promijeniPocetnu);
         function promijeniPocetnu() {
@@ -445,7 +445,7 @@
           loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
           h = 0;
           gk = 1;
-          v = 15;
+          v = 10;
         }
         function pomakniLopticu() {
           h += v;
@@ -456,7 +456,7 @@
             udaraca++;
             if (udaraca > 20) {
               udaraca = 0;
-              v = 15;
+              v = 10;
             }
           }
           loptica.style.top = pocetna - h;
