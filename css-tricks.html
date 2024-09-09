@@ -694,7 +694,59 @@
         animations. Instead of giving up that idea, I spent hours impementing it
         using JavaScript and SVG. Not to mention one who is visiting my website
         on a mobile device won't see it. If you are struggling to implement
-        something in CSS, that's a probable sign that you are over-designing.
+        something in CSS, that's a probable sign that you are over-designing.<br /><br />
+        <b>UPDATE</b> on 09/09/2024: When doing a course in CSS at Algebra, I
+        noticed one more quirky thing about CSS. It is related to media queries.
+        Namely, media queries do not increase the specificity of the selectors
+        inside them. To illustrate why that can easily lead to bugs, suppose you
+        want to make a flexbox with four sections which will look like this on
+        large screens:<br />
+        <center>
+          <img
+            src="wide-screen.png"
+            style="max-width: 100%; margin: 10px auto; max-height: 100vh"
+            alt="What the flexbox is supposed to look like on wide screens"
+          />
+        </center>
+        <br />
+        But like this on small screens:<br />
+        <center>
+          <img
+            src="narrow-screens.png"
+            style="max-width: 100%; margin: 10px auto; max-height: 100vh"
+            alt="What the flexbox is supposed to look like on narrow screens"
+          />
+        </center>
+        <br />
+        One might attempt to do it like this:
+        <pre>
+<span class="Statement">section</span>:<span class="Identifier">nth-child(</span>1<span class="Identifier">)</span><span class="Special">,</span>
+<span class="Statement">section</span>:<span class="Identifier">nth-child(</span>4<span class="Identifier">)</span> <span class="Identifier">{</span>
+  <span class="Type">flex-basis</span>: <span class="Constant">100</span><span class="Constant">%</span>;
+<span class="Identifier">}</span>
+<span class="Statement">section</span>:<span class="Identifier">nth-child(</span>2<span class="Identifier">)</span><span class="Special">,</span>
+<span class="Statement">section</span>:<span class="Identifier">nth-child(</span>3<span class="Identifier">)</span> <span class="Identifier">{</span>
+  <span class="Type">flex-basis</span>: <span class="Constant">45</span><span class="Constant">%</span>;
+<span class="Identifier">}</span>
+<span class="PreProc">@media (</span><span class="Type">max-width</span><span class="PreProc">: </span><span class="Constant">480</span><span class="Constant">px</span><span class="PreProc">) </span><span class="Identifier">{</span>
+  <span class="Statement">section</span> <span class="Identifier">{</span>
+    <span class="Type">flex-basis</span>: <span class="Constant">100</span><span class="Constant">%</span>;
+  <span class="Identifier">}</span>
+<span class="Identifier">}</span>
+	</pre>
+        But, actually, that's wrong. The rules specified in the media query have
+        no effect. Why? Well, what is the specificity of the selector
+        <span class="inline_code">section:nth-child(2)</span>? The tag name
+        <span class="inline_code">section</span> has the specificity of 1, and
+        the pseudo-class <span class="inline_code">:nth-child(2)</span> has the
+        specificity of 10. So, the overall specificity of that selector is
+        10+1=11. And the specificity of the selector
+        <span class="inline_code">section</span> inside the media query is,
+        well, 1 (it's just a tag name). So the rule
+        <span class="inline_code">flex-basis: 45%</span> written outside the
+        media query overrides the rule
+        <span class="inline_code">flex-basis: 100%</span> specified inside the
+        media query.
       </div>
     </main>
     <footer>
