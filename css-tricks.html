@@ -512,7 +512,35 @@
       >
         So, I've been a webmaster ever since 2017. Here are some problems with
         CSS I've run into and how I solved them:
-        <h2>Tooltips work in Firefox but not in Chrome</h2>
+        <ul>
+          <li>
+            <a href="#tooltips">Tooltips work in Firefox but not in Chrome</a>
+          </li>
+          <li>
+            <a href="#flexbox">
+              Firefox 52 ignores
+              <span class="inline_code">margin-right</span> on the right-most
+              element in flexbox</a
+            >
+          </li>
+          <li>
+            <a href="#main_ie11">
+              A layout using HTML5 tags is not displayed properly in Internet
+              Explorer 11</a
+            >
+          </li>
+          <li>
+            <a href="#svg_ie11">
+              SVG elements are not displaying properly in Internet Explorer 11
+            </a>
+          </li>
+          <li>
+            <a href="#media_queries"
+              >Media Queries don't work because of specificity</a
+            >
+          </li>
+        </ul>
+        <h2 id="tooltips">Tooltips work in Firefox but not in Chrome</h2>
         So, while making my
         <a href="PicoBlaze/PicoBlaze.html">PicoBlaze assembler and emulator</a>,
         I've run into the following problem. I implemented some tooltips on
@@ -596,7 +624,7 @@
         all HTML tags, rather than just
         <span class="inline_code">&lt;abbr&gt;</span>? So, yeah, you can use the
         <span class="inline_code">title</span> attribute to show tooltips.
-        <h2>
+        <h2 id="flexbox">
           Firefox 52 ignores <span class="inline_code">margin-right</span> on
           the right-most element in flexbox
         </h2>
@@ -640,7 +668,7 @@
         how big the margin would be (you cannot get more precise than the width
         of the space in the monospace font the browser is using), but I cannot
         think of a better solution.
-        <h2>
+        <h2 id="main_ie11">
           A layout using HTML5 tags is not displayed properly in Internet
           Explorer 11
         </h2>
@@ -657,7 +685,7 @@
         Unknown elements are by default inline, but
         <span class="inline_code">&lt;main&gt;</span> should, of course, be a
         block element.
-        <h2>
+        <h2 id="svg_ie11">
           SVG elements are not displaying properly in Internet Explorer 11
         </h2>
         In my experience, what often works is adding this to your CSS:
@@ -695,12 +723,12 @@
         using JavaScript and SVG. Not to mention one who is visiting my website
         on a mobile device won't see it. If you are struggling to implement
         something in CSS, that's a probable sign that you are over-designing.<br /><br />
-        <b>UPDATE</b> on 09/09/2024: When doing a course in CSS at Algebra, I
-        noticed one more quirky thing about CSS. It is related to media queries.
-        Namely, media queries do not increase the specificity of the selectors
-        inside them. To illustrate why that can easily lead to bugs, suppose you
-        want to make a flexbox with four sections which will look like this on
-        large screens:<br />
+        <b id="media_queries">UPDATE</b> on 09/09/2024: When doing a course in
+        CSS at Algebra, I noticed one more quirky thing about CSS. It is related
+        to media queries. Namely, media queries do not increase the specificity
+        of the selectors inside them. To illustrate why that can easily lead to
+        bugs, suppose you want to make a flexbox with four sections which will
+        look like this on large screens:<br />
         <center>
           <img
             src="wide-screen.png"
@@ -746,7 +774,13 @@
         <span class="inline_code">flex-basis: 45%</span> written outside the
         media query overrides the rule
         <span class="inline_code">flex-basis: 100%</span> specified inside the
-        media query.
+        media query.<br />
+        The solution should be obvious once you realize what is going on: change
+        the selector inside the media query to
+        <span class="inline_code"
+          >section:nth-child(1), section:nth-child(2), section:nth-child(3),
+          section:nth-child(4)</span
+        >.
       </div>
     </main>
     <footer>
