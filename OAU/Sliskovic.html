@@ -17,11 +17,11 @@ table {margin-top: 5px; margin-bottom: 5px;}
 </head>
 <body>
 <h1>Pitanja za usmeni ispit iz <abbr title="Osnove automatskog upravljanja">OAU</abbr>-a kod profesora Sliškovića</h1>
-  Upozorenje: Ja sam iz ovoga dobio dvojku, tako da uzimajte sve ovo <i>cum grano salis</i>!
+  Upozorenje: Ja sam iz ovoga dobio dvojku, tako da uzimajte sve ovo <i lang="la">cum grano salis</i>!
 <h2>Analiza 1 (modeli procesa i osnovni oblici dinamičkog vladanja)</h2>
 <ol>
 <li><b>Modeliranje procesa (izgradnja modela kroz teorijsku analizu)</b><br/>
-Za modeliranje linearnih mehaničkih sustava, koristimo Newtonove zakone. Za modeliranje rotacijskih mehaničkih sustava, koristimo zakone inercije. Za modeliranje električnih sustava s koncentriranim parametrima, koristimo Kirchhoffove zakone. Za modeliranje električnih sustava s raspodjeljenim parametrima, koristimo Maxwellove jednadžbe.</li>
+Za modeliranje linearnih mehaničkih sustava, koristimo Newtonove zakone. Za modeliranje rotacijskih mehaničkih sustava, koristimo Eulerove zakone inercije. Za modeliranje električnih sustava s koncentriranim parametrima, koristimo Kirchhoffove zakone. Za modeliranje električnih sustava s raspodjeljenim parametrima, koristimo Maxwellove jednadžbe.</li>
 <li><b>Linearnost/nelinearnost (dinamičkih) sustava; linearizacija, zašto i kako se provodi</b><br/>
 Linearni sustav znači da za njega vrijedi princip superpozicije, da odziv na kompleksnu pobudu bude jednak zbroju odziva na pobude od kojih je ta kompleksna pobuda sastavljena. Svaki je realni sustav više ili manje nelinearan. Linearizacija je aproksimacija nelinearnog sustava oko neke radne točke linearnim sustavom. Ona se provodi preko parcijalnih derivacija:
 \[ \frac{dy}{dt}=f[y(t),x(t)] \]
@@ -73,7 +73,8 @@ Bodeov dijagram izgleda ovako (ovo ispisuje Octave na <code>bode(1/(s*(s+1)))</c
 <img src="Bode_IT1.jpg"><br/>
 U Periću na 108. stranici u tablici ima ovaj primjer sustava s IT<sub>1</sub> vladanjem:<br/>
 <img src="primjer_IT1.jpg"><br/>
-(UPDATE: Rekao mi je profesor na konzultacijama da je primjer sustava s IT<sub>1</sub> vladanjem spremnik bez rupe na dnu s ventilom, jer je sam spremnik bez rupe I-član, a ventil je PT<sub>1</sub>-član.)
+(UPDATE: Rekao mi je profesor na konzultacijama da je primjer sustava s IT<sub>1</sub> vladanjem spremnik bez rupe na dnu s ventilom, jer je sam spremnik bez rupe I-član, a ventil je PT<sub>1</sub>-član.)<br/>
+(UPDATE on 12/03/2025: Ono što kažu da, ako je neki sustav "<i>malo manje od integrala</i>", da je onda vjerojatno riječ o IT<sub>1</sub> sustavu, to, po mom iskustvu, nije točno. Recimo, koncentracija metana u atmosferi s obzirom na naše emisije metana jest "<i>malo manje od integrala</i>", ali nije IT<sub>1</sub> sustav. Njegova prijelazna funkcija konvergira. Možete čitati više o tome <a href="../factory_farming#second_argument">ovdje</a>.)
 <li><b>Dinamički član s PI-vladanjem; opis u t, s i &omega;-području, primjer sustava s ovakvim vladanjem</b><br/>
 PI-član ima ovakvu prijenosnu funkciju:
 \[ G(s)=K\left( 1+\frac{1}{T_Is}\right) \]
