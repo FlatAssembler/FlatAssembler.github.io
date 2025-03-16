@@ -542,7 +542,7 @@
                 used to, because it generates direct current (rather than
                 alternating current, as traditional sources of energy do) and it
                 generates constant current rather than constant voltage.
-                Connecting solar panels to a national grid is an electrical
+                Connecting solar panels to a national grid is an electrical and electronic
                 engineering nightmare.
               </li>
             </ol>
@@ -568,7 +568,7 @@
             deep-packet-inspection middle-boxes everywhere which would filter
             unencrypted DNS? Wouldn't that slow down the Internet a lot?
             Besides, how do you make all the devices connected to the Internet
-            compatible with DNS-over-HTTPS? And so on... Internet in an anarchy,
+            compatible with DNS-over-HTTPS? And so on... And in case you think that is a self-solving problem because the Internet will, over time, naturally switch to using DNS-over-HTTPS, well, I think the Internet of the near future will be even more vulnerable to such attacks than the Internet of today is. If the current trends continue, there will be a widespread adoption of HTTP 3 and other QUIC-based protocols. And, since QUIC is based on UDP rather than TCP, there are no TCP shakings inherent in it to prevent IP spoofing attacks. QUIC does have its own ways of preventing IP spoofing attacks, but those take extra processing power. In an anarchy, what will force the Internet hosting providers (Hostinger...) that, if they support HTTP 3, they implement it properly? An improperly set up HTTP 3 server (that doesn't properly verify whether the handshake has been done correctly or that doesn't check whether the session of some request has expired before responding to it) can be used to implement a DNS-reflection-like attack on steroids. I say "on steroids" because HTTP 3, unlike DNS, has no limit as to how many UDP packets a response might contain. Internet in an anarchy,
             if possible at all, would be a huge engineering challenge.
           </li>
           <li>
