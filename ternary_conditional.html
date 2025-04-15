@@ -511,7 +511,7 @@
         So, you are making a programming language, and you would like to implement the ternary conditional operator <code>?:</code> in it? Let's not go into discussing how it might make code written in your language less legible, and let's focus only on the strictly technical aspect of it. Here are 5 things I think it's important to be careful about when implementing the ternary conditional operator.
 <ol>
 <li><b>Make sure it's parsed as right-associative.</b><br/>
-Because PHP famously parses it incorrectly as left-associative, preventing it from being used to shortly write if-else-if-else statements. <code>a ? b : c ? d : e</code> should parse as <code>a ? b : (c ? d : e)</code>, not as <code>(a ? b : c) ? d :e</code>.</li>
+Because PHP famously parses it incorrectly as left-associative, preventing it from being used to shortly write if-else-if-else statements. <code>a ? b : c ? d : e</code> should parse as <code>a ? b : (c ? d : e)</code>, not as <code>(a ? b : c) ? d : e</code>.</li>
 <li><b>Make sure the code specifying the condition is being executed <i>before</i> the second and the third operand.</b><br/>
 In <a href="compiler.html">my AEC-to-x86 compiler</a>, I screwed that one up. Why is it important? Because, sooner or later, some user of your language will try to protect themselves from a divide-by-zero error by writing something like this: <code>d == 0 ? 0 : 1 / d </code>. If d is zero, the code compiled with my AEC-to-x86 compiler will still trigger a division by zero error.</li>
 <li><b>Make sure you output a sensible error message in case somebody puts structures of different types as the third and the second argument.</b><br/>
@@ -521,7 +521,7 @@ A good way to determine that is: if the colon is the second token in a statement
 <li><b>In case you are writing an assembler, make sure the preprocessor can deal with labels being put as the second and the third operand.</b><br/>
 Because, sooner or later, somebody will try to use the ternary conditional operator to determine, based on some compile-time condition (say, whether we are in a release or a debugging mode), where the program should <code>jump</code> to. Like this, for example:
 <pre>jump NDEBUG ? the_permutations_algorithm : printing_the_sorted_array</pre>
-(That's an excerpt from <a href="https://picoblaze-simulator.sourceforge.io/PicoBlaze.html?id=99">my implementation of the permutations algorithm in PicoBlaze assembly language</a>.). Your assembler must not crash on such a line of code, <a href="https://github.com/FlatAssembler/PicoBlaze_Simulator_in_JS/issues/38">like mine used to</a></li>
+(That's an excerpt from <a href="https://picoblaze-simulator.sourceforge.io/PicoBlaze.html?id=99">my implementation of the permutations algorithm in PicoBlaze assembly language</a>.). Your assembler must not crash on such a line of code, <a href="https://github.com/FlatAssembler/PicoBlaze_Simulator_in_JS/issues/38">like mine used to</a>.</li>
 </ol>
 I hope this will come useful to somebody. Pieces of advice coming from somebody who studied programming language design and implementation at the university of reality.
       </div>
