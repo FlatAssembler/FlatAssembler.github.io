@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Multiplying Strings - my solution to Leetcode 43</title>
+  </head>
+  <body>
+    <h1>Leetcode #43 - Multiply Strings</h1>
+    This is my attempt to solve the Leetcode problem #43. As the algorithm
+    requires some matrix manipulation, and AEC (a programming language I made
+    which compiles to WebAssembly) is not yet good at it, I will solve it in
+    JavaScript. JavaScript isn't excellent at matrix manipulation either (C++ is
+    better, but I cannot easily make C++ run in a browser), but it's still
+    better than AEC at that.<br />
+    <label for="input_with_first_number">Enter the first number: </label
+    ><input id="input_with_first_number" type="text" value="123" /><br />
+    <label for="input_with_second_number">Enter the second number: </label
+    ><input id="input_with_second_number" value="456" /><br />
+    <button onclick="multiply()">Multiply</button>
+    <pre id="output"></pre>
+    <script>
+      function multiply() {
+        //Fetching the numbers from the UI...
+        const first_number = document.getElementById(
+          "input_with_first_number"
+        ).value;
+        const second_number = document.getElementById(
+          "input_with_second_number"
+        ).value;
+
+        //Generating and filling up the matrix...
+        const matrix = [];
+        for (let i = 0; i < second_number.length; i++) {
+          let new_array = [];
+          for (
+            let i = 0;
+            i < first_number.length + second_number.length + 1;
+            i++
+          )
+            new_array.push(" ");
+          matrix.push(new_array);
+        }
+        for (
+          let pointer_to_the_digit_in_the_second_number = 0;
+          pointer_to_the_digit_in_the_second_number < second_number.length;
+          pointer_to_the_digit_in_the_second_number++
+        ) {
+          let carry = 0,
+            pointer_to_the_matrix_column =
+              first_number.length +
+              pointer_to_the_digit_in_the_second_number +
+              1;
+          for (
+            let pointer_to_the_digit_in_the_first_number =
+              first_number.length - 1;
+            pointer_to_the_digit_in_the_first_number >= 0;
+            pointer_to_the_digit_in_the_first_number--
+          ) {
+            const product =
+              (first_number[pointer_to_the_digit_in_the_first_number] | 0) *
+                (second_number[pointer_to_the_digit_in_the_second_number] | 0) +
+              carry;
+            matrix[pointer_to_the_digit_in_the_second_number][
+              pointer_to_the_matrix_column
+            ] = product % 10;
+            if (product >= 10) carry = Math.floor(product / 10);
+            else carry = 0;
+            pointer_to_the_matrix_column--;
+          }
+          if (carry)
+            matrix[pointer_to_the_digit_in_the_second_number][
+              pointer_to_the_matrix_column
+            ] = carry % 10;
+          if (carry >= 10) {
+            pointer_to_the_matrix_column--;
+            matrix[pointer_to_the_digit_in_the_second_number][
+              pointer_to_the_matrix_column
+            ] = Math.floor(carry / 10);
+          }
+        }
+
+        //Summing up the matrix...
+        let result = "",
+          carry = 0;
+        for (let i = first_number.length + second_number.length; i >= 0; i--) {
+          let sum = carry;
+          for (let j = 0; j < matrix.length; j++)
+            if (matrix[j][i] != " ") sum += matrix[j][i] | 0;
+          result = (sum % 10) + "" + result;
+          carry = Math.floor(sum / 10);
+        }
+        if (carry) result = carry + result;
+
+        //Replace the trailing zeros with space
+        let newResult = "",
+          areWeReplacing = true;
+        for (let i = 0; i < result.length; i++) {
+          if (result[i] != 0) areWeReplacing = false;
+          if (areWeReplacing) newResult += " ";
+          else newResult += result[i];
+        }
+        result = newResult;
+
+        //Print the result
+        let innerHTML = "  " + first_number + "*" + second_number + "\n";
+        for (
+          let i = 0;
+          i < first_number.length + second_number.length + 1 + 2;
+          i++
+        )
+          innerHTML += "-";
+        innerHTML += "\n";
+
+        for (let i = 0; i < matrix.length; i++) {
+          for (let j = 0; j < matrix[i].length; j++) innerHTML += matrix[i][j];
+          innerHTML += "\n";
+        }
+        for (let i = 0; i < first_number.length + second_number.length + 1; i++)
+          innerHTML += "-";
+        innerHTML += "\n" + result;
+
+        document.getElementById("output").innerHTML = innerHTML;
+      }
+    </script>
+  </body>
+</html>
