@@ -46,156 +46,164 @@
    <span class="LineNumber">3</span> <span class="Keyword">Function</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Is</span> <span class="Keyword">External</span><span class="Keyword">;</span>
    <span class="LineNumber">4</span> <span class="Keyword">Function</span> get_digit_of_the_second_number_at<span class="Parenthesis">(</span><span class="Type">Integer32</span> index<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Character</span> <span class="Keyword">Is</span> <span class="Keyword">External</span><span class="Keyword">;</span>
    <span class="LineNumber">5</span> <span class="Keyword">Function</span> putc<span class="Parenthesis">(</span><span class="Type">Character</span> char<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Is</span> <span class="Keyword">External</span><span class="Keyword">;</span>
-   <span class="LineNumber">6</span> 
-   <span class="LineNumber">7</span> <span class="Type">Character</span> matrix<span class="Parenthesis">[</span><span class="Constant">100</span><span class="Operator">*</span><span class="Constant">100</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
-   <span class="LineNumber">8</span> <span class="Keyword">Function</span> f<span class="Parenthesis">(</span><span class="Type">Integer16</span> i<span class="Operator">,</span> <span class="Type">Integer16</span> j<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span>
-   <span class="LineNumber">9</span> 	<span class="Keyword">Return</span> i <span class="Operator">*</span> <span class="Constant">100</span> <span class="Operator">+</span> j<span class="Keyword">;</span>
-  <span class="LineNumber">10</span> <span class="Keyword">EndFunction</span>
-  <span class="LineNumber">11</span> 
-  <span class="LineNumber">12</span> <span class="Type">Character</span> result<span class="Parenthesis">[</span><span class="Constant">100</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
-  <span class="LineNumber">13</span> 
-  <span class="LineNumber">14</span> <span class="Keyword">Function</span> get_length_of_the_result<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer16</span> <span class="Keyword">Does</span>
-  <span class="LineNumber">15</span> 	<span class="Type">Integer16</span> i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">16</span> 	<span class="Keyword">While</span> i <span class="Operator">&lt;</span> <span class="Constant">100</span> <span class="Keyword">Loop</span>
-  <span class="LineNumber">17</span> 		<span class="Keyword">If</span> result<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Operator">=</span><span class="Constant">0</span> <span class="Keyword">Then</span>
-  <span class="LineNumber">18</span> 			<span class="Keyword">Return</span> i<span class="Keyword">;</span>
-  <span class="LineNumber">19</span> 		<span class="Keyword">EndIf</span>
-  <span class="LineNumber">20</span> 		i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">21</span> 	<span class="Keyword">EndWhile</span>
-  <span class="LineNumber">22</span> 	<span class="Keyword">Return</span> i<span class="Keyword">;</span>
-  <span class="LineNumber">23</span> <span class="Keyword">EndFunction</span>
-  <span class="LineNumber">24</span> 
-  <span class="LineNumber">25</span> <span class="Keyword">Function</span> prepend_a_character_to_the_result<span class="Parenthesis">(</span><span class="Type">Character</span> char<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
-  <span class="LineNumber">26</span> 	<span class="Type">Integer16</span> i <span class="Operator">:</span><span class="Operator">=</span> get_length_of_the_result<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">27</span> 	<span class="Keyword">While</span> i <span class="Operator">&gt;</span> <span class="Constant">0</span> <span class="Keyword">Loop</span>
-  <span class="LineNumber">28</span> 		result<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Operator">:</span><span class="Operator">=</span>result<span class="Parenthesis">[</span>i <span class="Operator">-</span> <span class="Constant">1</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
-  <span class="LineNumber">29</span> 		i <span class="Operator">-</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">30</span> 	<span class="Keyword">EndWhile</span>
-  <span class="LineNumber">31</span> 	result<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span> char<span class="Keyword">;</span>
-  <span class="LineNumber">32</span> <span class="Keyword">EndFunction</span>
-  <span class="LineNumber">33</span> 
-  <span class="LineNumber">34</span> <span class="Keyword">Function</span> multiply<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
-  <span class="LineNumber">35</span> 	<span class="Comment">// Initializing the matrix...
-  <span class="LineNumber">36</span> </span>	<span class="Type">Integer32</span> i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Operator">,</span> j <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">37</span> 	<span class="Keyword">While</span> i <span class="Operator">&lt;</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Loop</span>
-  <span class="LineNumber">38</span> 		j <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">39</span> 		<span class="Keyword">While</span> j <span class="Operator">&lt;</span> get_length_of_the_first_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="Constant">1</span> <span class="Keyword">Loop</span>
-  <span class="LineNumber">40</span> 			matrix<span class="Parenthesis">[</span>f<span class="Parenthesis">(</span>i<span class="Operator">,</span>j<span class="Parenthesis">)</span><span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="String">' '</span><span class="Keyword">;</span>
-  <span class="LineNumber">41</span> 			j <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">42</span> 		<span class="Keyword">EndWhile</span>
-  <span class="LineNumber">43</span> 		i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">44</span> 	<span class="Keyword">EndWhile</span>
-  <span class="LineNumber">45</span> 
-  <span class="LineNumber">46</span> 	<span class="Comment">//Filling up the matrix...
-  <span class="LineNumber">47</span> </span>	<span class="Type">Integer32</span> pointer_to_the_digit_in_the_second_number <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">48</span> 	<span class="Keyword">While</span> pointer_to_the_digit_in_the_second_number <span class="Operator">&lt;</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Loop</span>
-  <span class="LineNumber">49</span> 		<span class="Type">Integer16</span> carry <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Operator">,</span>
-  <span class="LineNumber">50</span> 			pointer_to_the_matrix_column <span class="Operator">:</span><span class="Operator">=</span> get_length_of_the_first_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span>
-  <span class="LineNumber">51</span> 				pointer_to_the_digit_in_the_second_number <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">52</span> 		<span class="Type">Integer16</span> pointer_to_the_digit_in_the_first_number <span class="Operator">:</span><span class="Operator">=</span> get_length_of_the_first_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">-</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">53</span> 		<span class="Keyword">While</span> pointer_to_the_digit_in_the_first_number <span class="Operator">&gt;</span><span class="Operator">=</span> <span class="Constant">0</span> <span class="Keyword">Loop</span>
-  <span class="LineNumber">54</span> 			<span class="Type">Integer16</span> product <span class="Operator">:</span><span class="Operator">=</span>
-  <span class="LineNumber">55</span> 				<span class="Parenthesis">(</span>get_digit_of_the_first_number_at<span class="Parenthesis">(</span>pointer_to_the_digit_in_the_first_number<span class="Parenthesis">)</span> <span class="Operator">-</span> <span class="String">'0'</span><span class="Parenthesis">)</span> <span class="Operator">*</span>
-  <span class="LineNumber">56</span> 				<span class="Parenthesis">(</span>get_digit_of_the_second_number_at<span class="Parenthesis">(</span>pointer_to_the_digit_in_the_second_number<span class="Parenthesis">)</span> <span class="Operator">-</span> <span class="String">'0'</span><span class="Parenthesis">)</span> <span class="Operator">+</span>
-  <span class="LineNumber">57</span> 				carry<span class="Keyword">;</span>
-  <span class="LineNumber">58</span> 			matrix<span class="Parenthesis">[</span>f<span class="Parenthesis">(</span>pointer_to_the_digit_in_the_second_number<span class="Operator">,</span> pointer_to_the_matrix_column<span class="Parenthesis">)</span><span class="Parenthesis">]</span>
-  <span class="LineNumber">59</span> 				<span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">mod</span><span class="Parenthesis">(</span>product<span class="Operator">,</span> <span class="Constant">10</span><span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="String">'0'</span><span class="Keyword">;</span>
-  <span class="LineNumber">60</span> 			<span class="Keyword">If</span> product <span class="Operator">&gt;</span><span class="Operator">=</span> <span class="Constant">10</span> <span class="Keyword">Then</span>
-  <span class="LineNumber">61</span> 				carry <span class="Operator">:</span><span class="Operator">=</span> product <span class="Operator">/</span> <span class="Constant">10</span><span class="Keyword">;</span>
-  <span class="LineNumber">62</span> 			<span class="Keyword">Else</span>
-  <span class="LineNumber">63</span> 				carry <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">64</span> 			<span class="Keyword">EndIf</span>
-  <span class="LineNumber">65</span> 			pointer_to_the_matrix_column <span class="Operator">-</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">66</span> 			pointer_to_the_digit_in_the_first_number <span class="Operator">-</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">67</span> 		<span class="Keyword">EndWhile</span>
-  <span class="LineNumber">68</span> 		<span class="Keyword">If</span> carry <span class="Keyword">Then</span>
-  <span class="LineNumber">69</span> 			matrix<span class="Parenthesis">[</span>f<span class="Parenthesis">(</span>pointer_to_the_digit_in_the_second_number<span class="Operator">,</span>pointer_to_the_matrix_column<span class="Parenthesis">)</span><span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span>
-  <span class="LineNumber">70</span> 				<span class="Operator">mod</span><span class="Parenthesis">(</span>carry<span class="Operator">,</span> <span class="Constant">10</span><span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="String">'0'</span><span class="Keyword">;</span>
-  <span class="LineNumber">71</span> 		<span class="Keyword">EndIf</span>
-  <span class="LineNumber">72</span> 		<span class="Keyword">If</span> carry <span class="Operator">&gt;</span><span class="Operator">=</span> <span class="Constant">10</span> <span class="Keyword">Then</span>
-  <span class="LineNumber">73</span> 			pointer_to_the_matrix_column <span class="Operator">-</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">74</span> 			matrix<span class="Parenthesis">[</span>f<span class="Parenthesis">(</span>pointer_to_the_digit_in_the_second_number<span class="Operator">,</span> pointer_to_the_matrix_column<span class="Parenthesis">)</span><span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span> carry <span class="Operator">/</span> <span class="Constant">10</span> <span class="Operator">+</span> <span class="String">'0'</span><span class="Keyword">;</span>
-  <span class="LineNumber">75</span> 		<span class="Keyword">EndIf</span>
-  <span class="LineNumber">76</span> 		pointer_to_the_digit_in_the_second_number <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">77</span> 	<span class="Keyword">EndWhile</span>
-  <span class="LineNumber">78</span> 	
-  <span class="LineNumber">79</span> 	<span class="Comment">//Summing up the matrix...
-  <span class="LineNumber">80</span> </span>	result<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Operator">:</span><span class="Operator">=</span><span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">81</span> 	<span class="Type">Integer16</span> carry <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">82</span> 	i <span class="Operator">:</span><span class="Operator">=</span> get_length_of_the_first_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">83</span> 	<span class="Keyword">While</span> i <span class="Operator">&gt;</span><span class="Operator">=</span> <span class="Constant">0</span> <span class="Keyword">Loop</span>
-  <span class="LineNumber">84</span> 		<span class="Type">Integer32</span> sum <span class="Operator">:</span><span class="Operator">=</span> carry<span class="Keyword">;</span>
-  <span class="LineNumber">85</span> 		j <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
-  <span class="LineNumber">86</span> 		<span class="Keyword">While</span> j <span class="Operator">&lt;</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Loop</span>
-  <span class="LineNumber">87</span> 			<span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>matrix<span class="Parenthesis">[</span>f<span class="Parenthesis">(</span>j<span class="Operator">,</span> i<span class="Parenthesis">)</span><span class="Parenthesis">]</span> <span class="Operator">=</span> <span class="String">' '</span><span class="Parenthesis">)</span> <span class="Keyword">Then</span>
-  <span class="LineNumber">88</span> 				sum <span class="Operator">+</span><span class="Operator">=</span> matrix<span class="Parenthesis">[</span>f<span class="Parenthesis">(</span>j<span class="Operator">,</span> i<span class="Parenthesis">)</span><span class="Parenthesis">]</span> <span class="Operator">-</span> <span class="String">'0'</span><span class="Keyword">;</span>
-  <span class="LineNumber">89</span> 			<span class="Keyword">EndIf</span>
-  <span class="LineNumber">90</span> 			j <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">91</span> 		<span class="Keyword">EndWhile</span>
-  <span class="LineNumber">92</span> 		prepend_a_character_to_the_result<span class="Parenthesis">(</span><span class="Operator">mod</span><span class="Parenthesis">(</span>sum<span class="Operator">,</span> <span class="Constant">10</span><span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="String">'0'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">93</span> 		carry <span class="Operator">:</span><span class="Operator">=</span> sum <span class="Operator">/</span> <span class="Constant">10</span><span class="Keyword">;</span>
-  <span class="LineNumber">94</span> 		i <span class="Operator">-</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
-  <span class="LineNumber">95</span> 	<span class="Keyword">EndWhile</span>
-  <span class="LineNumber">96</span> 	<span class="Keyword">If</span> carry <span class="Keyword">Then</span>
-  <span class="LineNumber">97</span> 		prepend_a_character_to_the_result<span class="Parenthesis">(</span>carry <span class="Operator">+</span> <span class="String">'0'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
-  <span class="LineNumber">98</span> 	<span class="Keyword">EndIf</span>
-  <span class="LineNumber">99</span> 
- <span class="LineNumber">100</span> 	<span class="Comment">//Replace the trailing zeros with spaces. Now that's a lot easier to do in AEC than in JavaScript...
- <span class="LineNumber">101</span> </span>	i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">102</span> 	<span class="Keyword">While</span> result<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">=</span> <span class="String">'0'</span> <span class="Keyword">Loop</span>
- <span class="LineNumber">103</span> 		result<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="String">' '</span><span class="Keyword">;</span>
- <span class="LineNumber">104</span> 		i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">105</span> 	<span class="Keyword">EndWhile</span>
- <span class="LineNumber">106</span> 
- <span class="LineNumber">107</span> 	<span class="Comment">//Print the result...
- <span class="LineNumber">108</span> </span>	putc<span class="Parenthesis">(</span><span class="String">' '</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">109</span> 	putc<span class="Parenthesis">(</span><span class="String">' '</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">110</span> 	i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">111</span> 	<span class="Keyword">While</span> i <span class="Operator">&lt;</span> get_length_of_the_first_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Loop</span>
- <span class="LineNumber">112</span> 		putc<span class="Parenthesis">(</span>get_digit_of_the_first_number_at<span class="Parenthesis">(</span>i<span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">113</span> 		i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">114</span> 	<span class="Keyword">EndWhile</span>
- <span class="LineNumber">115</span> 	putc<span class="Parenthesis">(</span><span class="String">'*'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+   <span class="LineNumber">6</span> <span class="Keyword">Function</span> logString<span class="Parenthesis">(</span><span class="Type">PointerToCharacter</span> string<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Is</span> <span class="Keyword">External</span><span class="Keyword">;</span>
+   <span class="LineNumber">7</span> 
+   <span class="LineNumber">8</span> <span class="Type">Character</span> matrix<span class="Parenthesis">[</span><span class="Constant">100</span><span class="Operator">*</span><span class="Constant">100</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
+   <span class="LineNumber">9</span> <span class="Keyword">Function</span> f<span class="Parenthesis">(</span><span class="Type">Integer16</span> i<span class="Operator">,</span> <span class="Type">Integer16</span> j<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer32</span> <span class="Keyword">Does</span>
+  <span class="LineNumber">10</span> 	<span class="Keyword">Return</span> i <span class="Operator">*</span> <span class="Constant">100</span> <span class="Operator">+</span> j<span class="Keyword">;</span>
+  <span class="LineNumber">11</span> <span class="Keyword">EndFunction</span>
+  <span class="LineNumber">12</span> 
+  <span class="LineNumber">13</span> <span class="Type">Character</span> result<span class="Parenthesis">[</span><span class="Constant">100</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
+  <span class="LineNumber">14</span> 
+  <span class="LineNumber">15</span> <span class="Keyword">Function</span> get_length_of_the_result<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Integer16</span> <span class="Keyword">Does</span>
+  <span class="LineNumber">16</span> 	<span class="Type">Integer16</span> i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">17</span> 	<span class="Keyword">While</span> i <span class="Operator">&lt;</span> <span class="Constant">100</span> <span class="Keyword">Loop</span>
+  <span class="LineNumber">18</span> 		<span class="Keyword">If</span> result<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Operator">=</span><span class="Constant">0</span> <span class="Keyword">Then</span>
+  <span class="LineNumber">19</span> 			<span class="Keyword">Return</span> i<span class="Keyword">;</span>
+  <span class="LineNumber">20</span> 		<span class="Keyword">EndIf</span>
+  <span class="LineNumber">21</span> 		i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">22</span> 	<span class="Keyword">EndWhile</span>
+  <span class="LineNumber">23</span> 	<span class="Keyword">Return</span> i<span class="Keyword">;</span>
+  <span class="LineNumber">24</span> <span class="Keyword">EndFunction</span>
+  <span class="LineNumber">25</span> 
+  <span class="LineNumber">26</span> <span class="Keyword">Function</span> prepend_a_character_to_the_result<span class="Parenthesis">(</span><span class="Type">Character</span> char<span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
+  <span class="LineNumber">27</span> 	<span class="Type">Integer16</span> i <span class="Operator">:</span><span class="Operator">=</span> get_length_of_the_result<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">28</span> 	<span class="Keyword">While</span> i <span class="Operator">&gt;</span> <span class="Constant">0</span> <span class="Keyword">Loop</span>
+  <span class="LineNumber">29</span> 		result<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Operator">:</span><span class="Operator">=</span>result<span class="Parenthesis">[</span>i <span class="Operator">-</span> <span class="Constant">1</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
+  <span class="LineNumber">30</span> 		i <span class="Operator">-</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">31</span> 	<span class="Keyword">EndWhile</span>
+  <span class="LineNumber">32</span> 	result<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span> char<span class="Keyword">;</span>
+  <span class="LineNumber">33</span> <span class="Keyword">EndFunction</span>
+  <span class="LineNumber">34</span> 
+  <span class="LineNumber">35</span> <span class="Keyword">Function</span> multiply<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
+  <span class="LineNumber">36</span> 	<span class="Comment">// Initializing the matrix...
+  <span class="LineNumber">37</span> </span>	<span class="Type">Integer32</span> i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Operator">,</span> j <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">38</span> 	<span class="Keyword">While</span> i <span class="Operator">&lt;</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Loop</span>
+  <span class="LineNumber">39</span> 		j <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">40</span> 		<span class="Keyword">While</span> j <span class="Operator">&lt;</span> get_length_of_the_first_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="Constant">1</span> <span class="Keyword">Loop</span>
+  <span class="LineNumber">41</span> 			matrix<span class="Parenthesis">[</span>f<span class="Parenthesis">(</span>i<span class="Operator">,</span>j<span class="Parenthesis">)</span><span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="String">' '</span><span class="Keyword">;</span>
+  <span class="LineNumber">42</span> 			j <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">43</span> 		<span class="Keyword">EndWhile</span>
+  <span class="LineNumber">44</span> 		i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">45</span> 	<span class="Keyword">EndWhile</span>
+  <span class="LineNumber">46</span> 	logString<span class="Parenthesis">(</span><span class="String">"The matrix is successfully filled with spaces."</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">47</span> 
+  <span class="LineNumber">48</span> 	<span class="Comment">//Filling up the matrix...
+  <span class="LineNumber">49</span> </span>	<span class="Type">Integer32</span> pointer_to_the_digit_in_the_second_number <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">50</span> 	<span class="Keyword">While</span> pointer_to_the_digit_in_the_second_number <span class="Operator">&lt;</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Loop</span>
+  <span class="LineNumber">51</span> 		<span class="Type">Integer16</span> carry <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Operator">,</span>
+  <span class="LineNumber">52</span> 			pointer_to_the_matrix_column <span class="Operator">:</span><span class="Operator">=</span> get_length_of_the_first_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span>
+  <span class="LineNumber">53</span> 				pointer_to_the_digit_in_the_second_number <span class="Operator">+</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">54</span> 		<span class="Type">Integer16</span> pointer_to_the_digit_in_the_first_number <span class="Operator">:</span><span class="Operator">=</span> get_length_of_the_first_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">-</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">55</span> 		<span class="Keyword">While</span> pointer_to_the_digit_in_the_first_number <span class="Operator">&gt;</span><span class="Operator">=</span> <span class="Constant">0</span> <span class="Keyword">Loop</span>
+  <span class="LineNumber">56</span> 			<span class="Type">Integer16</span> product <span class="Operator">:</span><span class="Operator">=</span>
+  <span class="LineNumber">57</span> 				<span class="Parenthesis">(</span>get_digit_of_the_first_number_at<span class="Parenthesis">(</span>pointer_to_the_digit_in_the_first_number<span class="Parenthesis">)</span> <span class="Operator">-</span> <span class="String">'0'</span><span class="Parenthesis">)</span> <span class="Operator">*</span>
+  <span class="LineNumber">58</span> 				<span class="Parenthesis">(</span>get_digit_of_the_second_number_at<span class="Parenthesis">(</span>pointer_to_the_digit_in_the_second_number<span class="Parenthesis">)</span> <span class="Operator">-</span> <span class="String">'0'</span><span class="Parenthesis">)</span> <span class="Operator">+</span>
+  <span class="LineNumber">59</span> 				carry<span class="Keyword">;</span>
+  <span class="LineNumber">60</span> 			matrix<span class="Parenthesis">[</span>f<span class="Parenthesis">(</span>pointer_to_the_digit_in_the_second_number<span class="Operator">,</span> pointer_to_the_matrix_column<span class="Parenthesis">)</span><span class="Parenthesis">]</span>
+  <span class="LineNumber">61</span> 				<span class="Operator">:</span><span class="Operator">=</span> <span class="Operator">mod</span><span class="Parenthesis">(</span>product<span class="Operator">,</span> <span class="Constant">10</span><span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="String">'0'</span><span class="Keyword">;</span>
+  <span class="LineNumber">62</span> 			<span class="Keyword">If</span> product <span class="Operator">&gt;</span><span class="Operator">=</span> <span class="Constant">10</span> <span class="Keyword">Then</span>
+  <span class="LineNumber">63</span> 				carry <span class="Operator">:</span><span class="Operator">=</span> product <span class="Operator">/</span> <span class="Constant">10</span><span class="Keyword">;</span>
+  <span class="LineNumber">64</span> 			<span class="Keyword">Else</span>
+  <span class="LineNumber">65</span> 				carry <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">66</span> 			<span class="Keyword">EndIf</span>
+  <span class="LineNumber">67</span> 			pointer_to_the_matrix_column <span class="Operator">-</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">68</span> 			pointer_to_the_digit_in_the_first_number <span class="Operator">-</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">69</span> 		<span class="Keyword">EndWhile</span>
+  <span class="LineNumber">70</span> 		<span class="Keyword">If</span> carry <span class="Keyword">Then</span>
+  <span class="LineNumber">71</span> 			matrix<span class="Parenthesis">[</span>f<span class="Parenthesis">(</span>pointer_to_the_digit_in_the_second_number<span class="Operator">,</span>pointer_to_the_matrix_column<span class="Parenthesis">)</span><span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span>
+  <span class="LineNumber">72</span> 				<span class="Operator">mod</span><span class="Parenthesis">(</span>carry<span class="Operator">,</span> <span class="Constant">10</span><span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="String">'0'</span><span class="Keyword">;</span>
+  <span class="LineNumber">73</span> 		<span class="Keyword">EndIf</span>
+  <span class="LineNumber">74</span> 		<span class="Keyword">If</span> carry <span class="Operator">&gt;</span><span class="Operator">=</span> <span class="Constant">10</span> <span class="Keyword">Then</span>
+  <span class="LineNumber">75</span> 			pointer_to_the_matrix_column <span class="Operator">-</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">76</span> 			matrix<span class="Parenthesis">[</span>f<span class="Parenthesis">(</span>pointer_to_the_digit_in_the_second_number<span class="Operator">,</span> pointer_to_the_matrix_column<span class="Parenthesis">)</span><span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span> 
+  <span class="LineNumber">77</span> 				carry <span class="Operator">/</span> <span class="Constant">10</span> <span class="Operator">+</span> <span class="String">'0'</span><span class="Keyword">;</span>
+  <span class="LineNumber">78</span> 		<span class="Keyword">EndIf</span>
+  <span class="LineNumber">79</span> 		pointer_to_the_digit_in_the_second_number <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">80</span> 	<span class="Keyword">EndWhile</span>
+  <span class="LineNumber">81</span> 	logString<span class="Parenthesis">(</span><span class="String">"The matrix is now filled with the products of the first number and the digits of the second."</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">82</span> 	
+  <span class="LineNumber">83</span> 	<span class="Comment">//Summing up the matrix...
+  <span class="LineNumber">84</span> </span>	result<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Operator">:</span><span class="Operator">=</span><span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">85</span> 	<span class="Type">Integer16</span> carry <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">86</span> 	i <span class="Operator">:</span><span class="Operator">=</span> get_length_of_the_first_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">87</span> 	<span class="Keyword">While</span> i <span class="Operator">&gt;</span><span class="Operator">=</span> <span class="Constant">0</span> <span class="Keyword">Loop</span>
+  <span class="LineNumber">88</span> 		<span class="Type">Integer32</span> sum <span class="Operator">:</span><span class="Operator">=</span> carry<span class="Keyword">;</span>
+  <span class="LineNumber">89</span> 		j <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+  <span class="LineNumber">90</span> 		<span class="Keyword">While</span> j <span class="Operator">&lt;</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Loop</span>
+  <span class="LineNumber">91</span> 			<span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>matrix<span class="Parenthesis">[</span>f<span class="Parenthesis">(</span>j<span class="Operator">,</span> i<span class="Parenthesis">)</span><span class="Parenthesis">]</span> <span class="Operator">=</span> <span class="String">' '</span><span class="Parenthesis">)</span> <span class="Keyword">Then</span>
+  <span class="LineNumber">92</span> 				sum <span class="Operator">+</span><span class="Operator">=</span> matrix<span class="Parenthesis">[</span>f<span class="Parenthesis">(</span>j<span class="Operator">,</span> i<span class="Parenthesis">)</span><span class="Parenthesis">]</span> <span class="Operator">-</span> <span class="String">'0'</span><span class="Keyword">;</span>
+  <span class="LineNumber">93</span> 			<span class="Keyword">EndIf</span>
+  <span class="LineNumber">94</span> 			j <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">95</span> 		<span class="Keyword">EndWhile</span>
+  <span class="LineNumber">96</span> 		prepend_a_character_to_the_result<span class="Parenthesis">(</span><span class="Operator">mod</span><span class="Parenthesis">(</span>sum<span class="Operator">,</span> <span class="Constant">10</span><span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="String">'0'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+  <span class="LineNumber">97</span> 		carry <span class="Operator">:</span><span class="Operator">=</span> sum <span class="Operator">/</span> <span class="Constant">10</span><span class="Keyword">;</span>
+  <span class="LineNumber">98</span> 		i <span class="Operator">-</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+  <span class="LineNumber">99</span> 	<span class="Keyword">EndWhile</span>
+ <span class="LineNumber">100</span> 	<span class="Keyword">If</span> carry <span class="Keyword">Then</span>
+ <span class="LineNumber">101</span> 		prepend_a_character_to_the_result<span class="Parenthesis">(</span>carry <span class="Operator">+</span> <span class="String">'0'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">102</span> 	<span class="Keyword">EndIf</span>
+ <span class="LineNumber">103</span> 	logString<span class="Parenthesis">(</span><span class="String">"The matrix is now summed up and the product of the two numbers is calculated."</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">104</span> 
+ <span class="LineNumber">105</span> 	<span class="Comment">//Replace the trailing zeros with spaces. Now that's a lot easier to do in AEC than in JavaScript...
+ <span class="LineNumber">106</span> </span>	i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">107</span> 	<span class="Keyword">While</span> result<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">=</span> <span class="String">'0'</span> <span class="Keyword">Loop</span>
+ <span class="LineNumber">108</span> 		result<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="String">' '</span><span class="Keyword">;</span>
+ <span class="LineNumber">109</span> 		i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">110</span> 	<span class="Keyword">EndWhile</span>
+ <span class="LineNumber">111</span> 	logString<span class="Parenthesis">(</span><span class="String">"The trailing zeros in the result are now replaced by spaces."</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">112</span> 
+ <span class="LineNumber">113</span> 	<span class="Comment">//Print the result...
+ <span class="LineNumber">114</span> </span>	putc<span class="Parenthesis">(</span><span class="String">' '</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">115</span> 	putc<span class="Parenthesis">(</span><span class="String">' '</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">116</span> 	i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">117</span> 	<span class="Keyword">While</span> i <span class="Operator">&lt;</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Loop</span>
- <span class="LineNumber">118</span> 		putc<span class="Parenthesis">(</span>get_digit_of_the_second_number_at<span class="Parenthesis">(</span>i<span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">117</span> 	<span class="Keyword">While</span> i <span class="Operator">&lt;</span> get_length_of_the_first_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Loop</span>
+ <span class="LineNumber">118</span> 		putc<span class="Parenthesis">(</span>get_digit_of_the_first_number_at<span class="Parenthesis">(</span>i<span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">119</span> 		i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
  <span class="LineNumber">120</span> 	<span class="Keyword">EndWhile</span>
- <span class="LineNumber">121</span> 	putc<span class="Parenthesis">(</span><span class="String">'<b>\<i>n</i></b>'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">122</span> 	
- <span class="LineNumber">123</span> 	i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">124</span> 	<span class="Keyword">While</span> i <span class="Operator">&lt;</span> get_length_of_the_first_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="Constant">1</span> <span class="Operator">+</span> <span class="Constant">2</span> <span class="Keyword">Loop</span>
- <span class="LineNumber">125</span> 		putc<span class="Parenthesis">(</span><span class="String">'-'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">126</span> 		i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">127</span> 	<span class="Keyword">EndWhile</span>
- <span class="LineNumber">128</span> 	putc<span class="Parenthesis">(</span><span class="String">'<b>\<i>n</i></b>'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">129</span> 
- <span class="LineNumber">130</span> 	i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">131</span> 	<span class="Keyword">While</span> i <span class="Operator">&lt;</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Loop</span>
- <span class="LineNumber">132</span> 		j <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">133</span> 		<span class="Keyword">While</span> j <span class="Operator">&lt;</span> get_length_of_the_first_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="Constant">1</span> <span class="Keyword">Loop</span>
- <span class="LineNumber">134</span> 			putc<span class="Parenthesis">(</span>matrix<span class="Parenthesis">[</span>f<span class="Parenthesis">(</span>i<span class="Operator">,</span>j<span class="Parenthesis">)</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">135</span> 			j <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">136</span> 		<span class="Keyword">EndWhile</span>
- <span class="LineNumber">137</span> 		putc<span class="Parenthesis">(</span><span class="String">'<b>\<i>n</i></b>'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">138</span> 		i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">139</span> 	<span class="Keyword">EndWhile</span>
- <span class="LineNumber">140</span> 	
- <span class="LineNumber">141</span> 	i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">142</span> 	<span class="Keyword">While</span> i <span class="Operator">&lt;</span> get_length_of_the_first_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="Constant">1</span> <span class="Keyword">Loop</span>
- <span class="LineNumber">143</span> 		putc<span class="Parenthesis">(</span><span class="String">'-'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">121</span> 	putc<span class="Parenthesis">(</span><span class="String">'*'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">122</span> 	i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">123</span> 	<span class="Keyword">While</span> i <span class="Operator">&lt;</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Loop</span>
+ <span class="LineNumber">124</span> 		putc<span class="Parenthesis">(</span>get_digit_of_the_second_number_at<span class="Parenthesis">(</span>i<span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">125</span> 		i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">126</span> 	<span class="Keyword">EndWhile</span>
+ <span class="LineNumber">127</span> 	putc<span class="Parenthesis">(</span><span class="String">'<b>\<i>n</i></b>'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">128</span> 	
+ <span class="LineNumber">129</span> 	i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">130</span> 	<span class="Keyword">While</span> i <span class="Operator">&lt;</span> get_length_of_the_first_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="Constant">1</span> <span class="Operator">+</span> <span class="Constant">2</span> <span class="Keyword">Loop</span>
+ <span class="LineNumber">131</span> 		putc<span class="Parenthesis">(</span><span class="String">'-'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">132</span> 		i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">133</span> 	<span class="Keyword">EndWhile</span>
+ <span class="LineNumber">134</span> 	putc<span class="Parenthesis">(</span><span class="String">'<b>\<i>n</i></b>'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">135</span> 
+ <span class="LineNumber">136</span> 	i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">137</span> 	<span class="Keyword">While</span> i <span class="Operator">&lt;</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Loop</span>
+ <span class="LineNumber">138</span> 		j <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">139</span> 		<span class="Keyword">While</span> j <span class="Operator">&lt;</span> get_length_of_the_first_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="Constant">1</span> <span class="Keyword">Loop</span>
+ <span class="LineNumber">140</span> 			putc<span class="Parenthesis">(</span>matrix<span class="Parenthesis">[</span>f<span class="Parenthesis">(</span>i<span class="Operator">,</span>j<span class="Parenthesis">)</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">141</span> 			j <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">142</span> 		<span class="Keyword">EndWhile</span>
+ <span class="LineNumber">143</span> 		putc<span class="Parenthesis">(</span><span class="String">'<b>\<i>n</i></b>'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">144</span> 		i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
  <span class="LineNumber">145</span> 	<span class="Keyword">EndWhile</span>
- <span class="LineNumber">146</span> 	putc<span class="Parenthesis">(</span><span class="String">'<b>\<i>n</i></b>'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">147</span> 
- <span class="LineNumber">148</span> 	i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">149</span> 	<span class="Keyword">While</span> result<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Keyword">Loop</span>
- <span class="LineNumber">150</span> 		putc<span class="Parenthesis">(</span>result<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">151</span> 		i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">152</span> 	<span class="Keyword">EndWhile</span>
- <span class="LineNumber">153</span> 	putc<span class="Parenthesis">(</span><span class="String">'<b>\<i>n</i></b>'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">154</span> <span class="Keyword">EndFunction</span>
- <span class="LineNumber">155</span> 
+ <span class="LineNumber">146</span> 	
+ <span class="LineNumber">147</span> 	i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">148</span> 	<span class="Keyword">While</span> i <span class="Operator">&lt;</span> get_length_of_the_first_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> get_length_of_the_second_number<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="Constant">1</span> <span class="Keyword">Loop</span>
+ <span class="LineNumber">149</span> 		putc<span class="Parenthesis">(</span><span class="String">'-'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">150</span> 		i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">151</span> 	<span class="Keyword">EndWhile</span>
+ <span class="LineNumber">152</span> 	putc<span class="Parenthesis">(</span><span class="String">'<b>\<i>n</i></b>'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">153</span> 
+ <span class="LineNumber">154</span> 	i <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">155</span> 	<span class="Keyword">While</span> result<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Keyword">Loop</span>
+ <span class="LineNumber">156</span> 		putc<span class="Parenthesis">(</span>result<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">157</span> 		i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">158</span> 	<span class="Keyword">EndWhile</span>
+ <span class="LineNumber">159</span> 	putc<span class="Parenthesis">(</span><span class="String">'<b>\<i>n</i></b>'</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">160</span> 
+ <span class="LineNumber">161</span> 	logString<span class="Parenthesis">(</span><span class="String">"The result should be visible on the screen now!"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">162</span> <span class="Keyword">EndFunction</span>
+ <span class="LineNumber">163</span> 
 </pre>
 </body>
 </html>
