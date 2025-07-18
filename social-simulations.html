@@ -1,0 +1,806 @@
+<html lang="en">
+  <head>
+    <meta name="author" content="Teo Samarzija" />
+    <meta
+      name="description"
+      content="Explanation of why not to trust computer simulations in social sciences"
+    />
+    <meta name="keywords" content="Social sciences, computer simulations" />
+    <title>Don't trust computer simulations in social sciences!</title>
+    <style type="text/css">
+      header {
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        background: #ffaaaa;
+        color: darkblue;
+        font-weight: bold;
+        font-size: 36px;
+        font-family: Lucida;
+      }
+      aside {
+        width: 25%;
+        background: #aaaaff;
+        height: 100%;
+        float: left;
+        color: #aa4400;
+        overflow: auto;
+      }
+      aside a {
+        text-decoration: none;
+      }
+      section {
+        width: 25%;
+        background: #ffffaa;
+        height: 100%;
+        float: right;
+        color: purple;
+        text-align: center;
+        overflow: auto;
+      }
+      .main1 {
+        background: black;
+        color: darkgray;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+        font-family: Verdana;
+      }
+      .main1 a {
+        color: lightgreen;
+      }
+      .main2 {
+        background: black;
+        color: lightgreen;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+      }
+      .main2 a {
+        color: #00ffff;
+      }
+      .main3 {
+        background: #eeeeee;
+        color: #333333;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+        font-family: Arial;
+      }
+      .main3 a {
+        color: #00aaaa;
+      }
+      .link1 {
+        text-decoration: none;
+        background: linear-gradient(to right, #111111, #333333);
+        height: 30px;
+        width: 100%;
+        color: #ff3300;
+        line-height: 30px;
+        text-indent: 10px;
+        font-family: Verdana;
+        text-indent: 5px;
+      }
+      .popup {
+        display: none;
+        background: black;
+        font-size: 14px;
+        line-height: 18px;
+        color: white;
+        opacity: 0.75;
+        position: absolute;
+        left: 25%;
+        border-width: 7px;
+        border-style: solid;
+        border-color: black;
+        max-width: 200px;
+        text-indent: 0px;
+      }
+      .popup::before {
+        content: " ";
+      }
+      .link1:hover {
+        background: darkGray;
+        color: black;
+      }
+      .link1:hover .popup {
+        display: block;
+      }
+      .link2 {
+        background: linear-gradient(to right, #333333, #111111);
+        color: #ff3300;
+      }
+      footer {
+        width: 100%;
+        height: 50px;
+        background: #aaffaa;
+        text-align: center;
+        color: #007777;
+        line-height: 50px;
+      }
+      pre {
+        color: lightGreen;
+      }
+      .quotation {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        display: block;
+        font-family: Times;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        background: #ffffdd;
+        color: black;
+      }
+      .quotation table,
+      .quotation tr,
+      .quotation th,
+      .quotation td {
+        border-collapse: collapse;
+        border-style: solid;
+        border-color: black;
+      }
+      .quotation td {
+        text-align: justify;
+        padding: 3px;
+      }
+      .quotation a {
+        color: #00aaaa;
+      }
+      .quotation .quotation {
+        background-color: #ccccaa;
+      }
+      .quotation .quotation .quotation {
+        background-color: #ffffdd;
+      }
+      .quotation .quotation .quotation .quotation {
+        background-color: #ccccaa;
+      }
+      .quotation .quotation .quotation .quotation .quotation {
+        background-color: #ffffdd;
+      }
+      .quotation .quotation .quotation .quotation .quotation .quotation {
+        background-color: #ccccaa;
+      }
+      .quotation
+        .quotation
+        .quotation
+        .quotation
+        .quotation
+        .quotation
+        .quotation {
+        background-color: #ffffdd;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <img
+        src="gornjiLijevi.svg"
+        style="
+          position: absolute;
+          left: 8px;
+          width: 25%;
+          height: 200px;
+          top: 8px;
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+      />
+      <img
+        src="gornjiDesni.svg"
+        style="
+          position: absolute;
+          width: 25%;
+          height: 200px;
+          left: -webkit-calc(75% - 8px);
+          left: calc(75% - 8px);
+          top: 8px;
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+      />
+      <img
+        src="donjiLijevi.svg"
+        style="
+          position: absolute;
+          width: 25%;
+          height: 50px;
+          left: 8px;
+          top: calc(100% + 200px - 8px);
+          top: -webkit-calc(100% + 200px - 8px);
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+      />
+      <div
+        style="
+          position: absolute;
+          top: -webkit-calc(100% + 200px + 50px + 8px);
+          top: calc(100% + 200px + 50px + 8px);
+          width: 100%;
+          height: 50px;
+          font-size: 36px;
+          font-family: Arial;
+          text-align: center;
+          background: #333333;
+          color: #aaaaaa;
+          line-height: 50px;
+        "
+      >
+        Please enable JavaScript!
+      </div>
+    </noscript>
+    <header>
+      <svg
+        id="gornjiLijevi"
+        style="float: left; width: 25%; height: 200px; background: white"
+      ></svg>
+      Simulations in Social Sciences
+      <svg
+        id="gornjiDesni"
+        style="float: right; width: 25%; height: 200px; background: white"
+      ></svg>
+      <script type="text/javascript">
+        var svgNS = "http://www.w3.org/2000/svg";
+        function nacrtajRubove() {
+          var crtanje = document.getElementById("gornjiLijevi");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          var visina = crtanje.clientHeight;
+          var sirina = crtanje.clientWidth;
+          if (!visina || !sirina) {
+            visina = crtanje.parentNode.clientHeight;
+            sirina = crtanje.parentNode.clientWidth / 4;
+          }
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (270 + i * 3) / 57.3;
+            var kut2 = (274 + i * 3) / 57.3;
+            var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+            var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+            var y1 = Math.round(visina + Math.sin(kut1) * visina);
+            var y2 = Math.round(visina + Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(" +
+                Math.round(255 - i * 2.83) +
+                ",170," +
+                Math.round(170 + i * 2.83) +
+                ")"
+            );
+            crtanje.appendChild(trokut);
+          }
+          crtanje = document.getElementById("gornjiDesni");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (i * 3) / 57.3;
+            var kut2 = (4 + i * 3) / 57.3;
+            var x1 = Math.round(Math.cos(kut1) * sirina);
+            var x2 = Math.round(Math.cos(kut2) * sirina);
+            var y1 = Math.round(visina - Math.sin(kut1) * visina);
+            var y2 = Math.round(visina - Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(255," + Math.round(255 - i * 2.83) + ",170)"
+            );
+            crtanje.appendChild(trokut);
+          }
+        }
+        nacrtajRubove();
+        window.addEventListener("resize", nacrtajRubove);
+      </script>
+    </header>
+    <aside>
+      <br />
+      <center><b>Here are my online publications:</b></center>
+      <br />
+      <b style="margin-left: 5px">HTML5 stuff:</b>
+      <a href="sat.html"
+        ><div class="link1">
+          <div class="popup">
+            A simple "grandfather clock" animation made in Javascript.
+          </div>
+          Analog Clock
+        </div></a
+      >
+      <a href="calculator.html"
+        ><div class="link2 link1">
+          <div class="popup">
+            A simple HTML5 online calculator. Can solve parentheses!
+          </div>
+          Calculator
+        </div></a
+      >
+      <a href="fraktal.html"
+        ><div class="link1">
+          <div class="popup">
+            A spiral fractal I've made by modifying the "Dragon Curve".
+          </div>
+          The Dragon Curve
+        </div></a
+      >
+      <a href="pacman.html"
+        ><div class="link2 link1">
+          <div class="popup">
+            A Pacman game playable on touch screens. Made in Javascript using
+            the SVG graphics.
+          </div>
+          PacMan
+        </div></a
+      >
+      <a href="etymologist.html">
+        <div class="link1">
+          <div class="popup">
+            A flashcard game in which the goal is to guess the etymologies of
+            the words in simulated languages.
+          </div>
+          Etymology Game
+        </div></a
+      >
+      <br /><b style="margin-left: 5px">Webpages on this website:</b>
+      <a href="index.html"
+        ><div class="link1">
+          <div class="popup">A webpage with a bunch of links.</div>
+          Homepage
+        </div></a
+      >
+      <a href="libertarianism.html"
+        ><div class="link2 link1">
+          <div class="popup">What do I think about politics?</div>
+          Libertarianism
+        </div></a
+      >
+      <a href="vegetarianism.html"
+        ><div class="link1">
+          <div class="popup">Why I don't eat meat.</div>
+          Vegetarianism
+        </div></a
+      >
+      <a href="Simulation.html"
+        ><div class="link2 link1">
+          <div class="popup">Could the universe be a giant computer?</div>
+          Digital Physics
+        </div></a
+      >
+      <a href="linguistics.html"
+        ><div class="link1">
+          <div class="popup">
+            Why I like languages.<br /><br />
+            See also:<br />
+            <u
+              style="color: #0077ff"
+              onclick="window.open('http://flatassembler.github.io/toponyms.html'); window.close();"
+              >Croatian Toponyms</u
+            ><br />
+            <u
+              style="color: #0077ff"
+              onclick="window.open('http://flatassembler.github.io/Indo-Austronesian.html'); window.close();"
+              >Indo-Austronesian</u
+            >
+          </div>
+          Linguistics
+        </div></a
+      >
+      <a href="informatics.html"
+        ><div class="link2 link1">
+          <div class="popup">Why I like computers.</div>
+          Informatics
+        </div></a
+      >
+      <a href="pseudosciences.html"
+        ><div class="link1">
+          <div class="popup">
+            My advice on how to recognize and deal with false sciences.
+          </div>
+          Pseudosciences
+        </div></a
+      >
+      <br /><b style="margin-left: 5px">On Internet forums and blogs:</b>
+      <a href="http://linguistforum.com/outside-of-the-box/croatian-toponyms/"
+        ><div class="link1">
+          <div class="popup">
+            The forum thread in which I explained my linguistic theories in
+            detail.
+          </div>
+          Croatian Toponyms
+        </div></a
+      >
+      <a href="https://atheistforums.org/thread-50241.html"
+        ><div class="link2 link1">
+          <div class="popup">My parody of the conspiracy theorists.</div>
+          Airplanes Don't Exist
+        </div></a
+      >
+    </aside>
+    <section>
+      <p style="margin-left: 5px; margin-right: 5px">
+        The ideas of predicting how the society at large will behave in extreme
+        situations using computer simulations came into public discourse in
+        2019, when many epidemiologists tried making computer models to predict
+        how people will behave in a pandemic with or without certain government
+        policies. Of course, nearly all of them significantly overestimated the
+        empirically measured effects of government policies and nearly none of
+        them predicted things such as that deaths from traffic accidents would
+        increase in 2020 compared to 2019.
+      </p>
+      <br />
+      <a id="loptica" href="#vrh" style="position: absolute">
+        <svg width="100" height="100">
+          <defs>
+            <radialgradient id="modrozelen">
+              <stop offset="0%" stop-color="#00FFFF" />
+              <stop offset="100%" stop-color="#0000FF" />
+            </radialgradient>
+            <radialgradient id="ljubicastoplav">
+              <stop offset="0%" stop-color="#FF00FF" />
+              <stop offset="100%" stop-color="#0000FF" />
+            </radialgradient>
+          </defs>
+          <circle cx="50" cy="50" r="50" fill="url(#modrozelen)" />
+          <polygon
+            points="50,25 25,50 38,50 38,75 62,75 62,50 75,50"
+            fill="url(#ljubicastoplav)"
+          />
+        </svg>
+      </a>
+      <script type="text/javascript">
+        var udaraca = 0;
+        var loptica = document.getElementById("loptica");
+        var pocetna = loptica.parentNode.clientHeight + 200 - 100;
+        loptica.style.top = pocetna;
+        loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+        var h = 0;
+        var gk = 1;
+        var v = 15;
+        window.setInterval(pomakniLopticu, 80);
+        window.addEventListener("resize", promijeniPocetnu);
+        function promijeniPocetnu() {
+          pocetna = loptica.parentNode.clientHeight + 210 - 100;
+          loptica.style.top = pocetna;
+          loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+          h = 0;
+          gk = 1;
+          v = 15;
+        }
+        function pomakniLopticu() {
+          h += v;
+          v -= gk;
+          if (h < 0) {
+            v = -v * 0.75;
+            h = 0;
+            udaraca++;
+            if (udaraca > 20) {
+              udaraca = 0;
+              v = 15;
+            }
+          }
+          loptica.style.top = pocetna - h;
+        }
+      </script>
+    </section>
+    <main class="main1" id="glavni" style="display: block">
+      <a name="vrh"></a>
+      <h1 style="text-align: center">
+        Why you shouldn't trust computer simulations in social sciences
+      </h1>
+      <div
+        style="
+          text-align: justify;
+          margin-left: 10px;
+          margin-right: 10px;
+          margin-bottom: 100px;
+        "
+      >
+        One of the first lessons about epistemology you will learn when you
+        start studying natural sciences is that mathematics is a useful tool for
+        telling apart simple explanations (those supported by the Occam's Razor)
+        from ad-hoc hypotheses. Take, for example, Flat-Earthism and the
+        illusion that ships appear to sink as they recede over the horizon.
+        Flat-Earthers generally offer three explanations for that illusion:
+        <ol>
+          <li>It's an illusion caused by waves.</li>
+          <li>
+            It's an illusion caused by the fact that the human eye cannot see
+            infinitely small angles, so the middle of the ship will merge with
+            the sea sooner than the top of the ship will.
+          </li>
+          <li>
+            It's an illusion caused by the light being affected by gravity.
+            Gravity pulls the light downwards, so it should not be surprising
+            that there is a time when the light from the top of the ship reaches
+            the eye whereas the light from the bottom of the ship doesn't.
+          </li>
+        </ol>
+        Now, if you ask the Flat-Earthers to give you the mathematical formula
+        for approximating the distance how far the ship needs to be for that
+        effect to start occurring depending on how high the observer's elevation
+        is, none of them will be able to. For the first explanation, one who is
+        trying to do the mathematics will quickly realize the waves would need
+        to be higher than your eye level for that to happen. For the second
+        explanation, one will quickly realize that explanation predicts, if
+        anything, that the horizon is nearer the higher the observer is, whereas
+        we empirically see it's further away the higher the observer is. For the
+        third explanation... Really, if there is gravity, we would expect it to
+        crash a disc-shaped planet into a sphere. You almost certainly cannot
+        have a coherent-enough theory of gravity on a flat Earth to be able to
+        provide a mathematical formula for that. And, yet, the Earth being round
+        provides a way to predict how far a ship would have to be for that to
+        occur with no more advanced math than the Pythagorean Theorem. That's
+        why the Occam's Razor favors the explanation of the Earth being round:
+        it allows you to predict things with extraordinarily simple math.<br />
+        From that, it's easy to draw a conclusion that social sciences should
+        use as much mathematics as possible for it not to, well, become like
+        Flat-Earthism: having explanations which sound simple, but are in fact
+        going wildly against the Occam's Razor. Now, obviously, simple
+        mathematics such as the Pythagorean Theorem is rarely ready to use in
+        social sciences. However, it often seems that
+        <i>computer simulations</i> can come useful in providing numbers of how
+        likely some result of social processes is. It seemed appealing to me
+        because, well, I got burned onto Flat-Earthism and I don't want to do
+        the same mistake again, and, as well, I am a computer engineer. I know
+        much more about computer simulations than an average person, so no
+        wonder using computer simulations seems appealing to me. However, I
+        would argue now that relying on computer simulations in social sciences
+        is almost never the right thing to do.<br />
+        I will give you two examples of how I tried to use computer simulations
+        in historical linguistics and got things wildly wrong:
+        <ol>
+          <li>
+            <b>The Etymology Game</b><br />
+            When I was a high-school senior, I read about
+            <a href="https://ioling.org/problems/2003/t1/"
+              >the task Tocharian from International Olympiad in Linguistics
+              2003</a
+            >. In it, you are supposed to guess which of the words in pairs
+            belongs to Tocharian A and which belongs to Tocharian B. It seemed
+            like a fun puzzle to solve. I asked myself whether I could make a
+            computer program that generates such tasks automatically, using
+            simulated languages. So I did, and I linked to it in the navigation,
+            the 4th link from the top. Of course, in order to do that, I needed
+            to make a whole bunch of assumptions of how languages really behave.
+            So, when I was a 3rd year computer engineering student, I decided to
+            test those assumptions. I decided to test how well the algorithm
+            implemented in the Etymology Game will predict how the names of the
+            numbers one to ten (the data about which is easily found on the
+            Internet) will evolve in various languages. The results were very
+            far from impressive: it guessed the correct result in
+            <a href="https://flatassembler.github.io/validation_results.html"
+              >0.5602715172868801% of the time</a
+            >, whereas a random algorithm which does not even take care that the
+            result is pronounceable guessed it
+            <a
+              href="https://flatassembler.github.io/validation_of_control_algorithm.html"
+              >0.4797068286747768% of the time</a
+            >. What is going on here? Well, first of all, sometimes the words
+            which my algorithms considers unpronounceable are the correct
+            result. For instance, my algorithm considers the words starting in
+            mr- to be unpronounceable, but quite a few languages do allow them.
+            A random algorithm will easily derive Tamazit word "mraw" from
+            Proto-Berber *meraw, whereas my algorithm will give the probability
+            of that word to be zero. As well, my algorithm considers that the
+            languages generally respond to difficult-to-pronounce consonant
+            cluster at the end of a word by adding a paragogue vowel at the end
+            of it. In reality, languages are much more likely to insert an
+            epenthetic vowel between the two consonants. From Indo-European
+            *dek<sup>j</sup>m (ten), my algorithm claims that results of
+            phonetic evolution such as *decme are far more likely than Latin
+            <i>decem</i>, even though empirical data shows it significantly
+            differently. And it's not just Latin <i>decem</i>, it's also Gothic
+            <i>taihun</i> and Armenian <i>tasun</i>. That skews the results a
+            lot.<br />
+            Beginners in historical lingusitics often think that such a computer
+            model, if it were close to accurate, would be useful to historical
+            linguistics. But, once you think this through, you will quickly come
+            to the conclusion that such a computer model of the evolution of
+            languages, even if it were completely accurate, would be little more
+            than curiosity. You can nearly always surmise some sound changes
+            about whatever extinct language you are talking about, and sound
+            changes do not occur independently of one another (phonological
+            balance). That's another reason why using computer models to argue
+            whether some phonological evolution of a word is likely or unlikely
+            would be little more than misleading nonsense.
+          </li>
+          <li>
+            <b>My paper <i>Etimologija Kara&scaron;ica</i></b
+            ><br />
+            In 2022, I published a paper called
+            <i>Etimologija Kara&scaron;ica</i> in two peer-reviewed (or at least
+            nominally peer-reviewed) journals: Valpova&ccaron;ki
+            Godi&scaron;njak and Regionalne Studije. In it, I argued that the
+            p-value of that k-r pattern in the Croatian river names (Krka,
+            Krapina, Krbavica, Kravar&scaron;&ccaron;ica, Korana, and two rivers
+            named Kara&scaron;ica) can be calculated using computer simulations
+            to be between 1/300 and 1/17, that therefore there must have been a
+            word such as *karr~kurr meaning <i>to flow</i> in Illyrian, and that
+            Kara&scaron;ica comes from Illyrian *Kurr-urr-issia
+            (flow-water-suffix). The responses I got from the experts in
+            informatics were overwhelmingly positive, whereas the responses I
+            received from linguists were mixed. Then, in mid-2025, an expert on
+            Semitic languages on an Internet forum (so, knowing almost nothing
+            about Croatian names of places) asked me if I had taken into account
+            the Law of Sonority (also known as Sonority Sequencing Principle),
+            as it seems to her that it could have giant effects. That I am
+            assuming that the collision entropy of the consonant pairs is
+            distributed equally among the consonant pairs in a word, and that's
+            not the case. That, for languages such as English or Croatian (which
+            allow for many consonant clusters in the beginnings and the ends of
+            the words), word-initial and word-final consonant pairs have around
+            1 bit per consonant pair lower collision entropy than the consonant
+            pairs in the middle of a word because of the Law of Sonority:
+            consnonat clusters (and therefore, to some degree, consonant pairs)
+            which are likely in the beginning of a word are unlikely at the end
+            of it, and vice versa. I knew about the Law of Sonority, I just
+            didn't make that connection. So, when I tried to make a computer
+            simulation that controls for the Law of Sonority (by tokenizing the
+            Aspell word-list), I got the result that the p-value is around 85%.
+            I will try to publish a paper correcting myself.
+          </li>
+        </ol>
+        See, the problem with computer simulations in social sciences is that it
+        is very easy to tacitly make an assumption that's very far from reality.
+        Sometimes you are even aware of that other factor and it's easy to
+        control for it, but you somehow miss that connection.<br />
+        Though, makes me wonder, what if my computer models were proven wrong
+        precisely because they are presented in a way that can be falsified?
+        What if everybody else who isn't using computer models is every bit as
+        wrong as I was, it's just that their &quot;theories&quot; aren't even
+        presented in a way that can be easily evaluated?
+      </div>
+    </main>
+    <footer>
+      <div style="width: 25%; float: right; text-align: left; bottom: 30px">
+        Choose the style:
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main1')"
+          >[1]</a
+        >
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main2')"
+          >[2]</a
+        >
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main3')"
+          >[3]</a
+        >
+      </div>
+      Uploaded by Teo Samar&zcaron;ija on 18/07/2025
+      <svg
+        id="donjiLijevi"
+        style="float: left; width: 25%; height: 100%; background: white"
+      ></svg>
+      <script type="text/javascript">
+        if (navigator.appName == "Microsoft Internet Explorer") {
+          var niz = document.getElementsByTagName("div");
+          for (var i = 0; i < niz.length; i++) {
+            if (niz[i].className.indexOf("link1") == -1) continue;
+            niz[i].onmouseenter = function () {
+              this.children[0].style.display = "inline";
+            };
+            niz[i].onmouseleave = function () {
+              this.children[0].style.display = "none";
+            };
+          }
+          document.getElementById("glavni").removeAttribute("style");
+        } else if (navigator.appName == "Opera") {
+          document.getElementById("glavni").style.color = "black";
+          document.getElementById("glavni").style.backgroundColor = "white";
+          var gornjiDesni = document.getElementById("gornjiDesni");
+          gornjiDesni.parentNode.removeChild(gornjiDesni);
+        } else if (
+          (((navigator.userAgent.indexOf("Safari") + 1 ||
+            navigator.userAgent.indexOf("WebKit") + 1) &&
+            navigator.userAgent.indexOf("Mobile") + 1 &&
+            (!(navigator.userAgent.indexOf("Chrome") + 1) ||
+              (navigator.userAgent.indexOf("Version") + 1 &&
+                navigator.userAgent.indexOf("Chrome") + 1))) ||
+            (navigator.userAgent.indexOf("Mobile") + 1 &&
+              navigator.userAgent.indexOf("Gecko") + 1 &&
+              !(navigator.userAgent.indexOf("like Gecko") + 1) &&
+              !(navigator.userAgent.indexOf("Dolfin") + 1))) &&
+          !(navigator.userAgent.indexOf("iPad") + 1) &&
+          !(navigator.userAgent.indexOf("iPhone") + 1)
+        )
+          document.getElementById("glavni").style.fontSize = "36px";
+        else if (navigator.userAgent.indexOf("Mobi") + 1) {
+          document.head.innerHTML +=
+            '<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">';
+          var niz = document.getElementsByTagName("svg");
+          for (var i = 0; i < niz.length; i++) niz[i].style.display = "none";
+          document.getElementsByTagName("aside")[0].style.display = "none";
+          document.getElementsByTagName("aside")[0].style.float = "none";
+          document.getElementsByTagName("aside")[0].style.width = "100%";
+          document.getElementsByTagName("aside")[0].style.height = "auto";
+          niz = document.getElementsByClassName("popup");
+          for (var i = 0; i < niz.length; i++) {
+            niz[i].style.width = "50%";
+            niz[i].style.left = "45%";
+            niz[i].style.maxWidth = "none";
+          }
+          document.getElementsByTagName("section")[0].style.height = "auto";
+          document.getElementsByTagName("section")[0].style.float = "none";
+          document.getElementsByTagName("section")[0].style.width = "100%";
+          document.getElementsByTagName("header")[0].style.height = "auto";
+          document.getElementsByTagName("header")[0].style.lineHeight =
+            "normal";
+          document.getElementsByTagName("main")[0].style.width = "100%";
+          document.getElementsByTagName("footer")[0].children[0].style.display =
+            "inline";
+          document.getElementsByTagName("footer")[0].children[0].style.float =
+            "none";
+          document.getElementsByTagName("footer")[0].children[0].innerHTML +=
+            "<br/><br/>";
+          document.getElementsByTagName("footer")[0].style.height = "auto";
+          document.getElementsByTagName("footer")[0].style.lineHeight =
+            "normal";
+          document.getElementsByTagName("header")[0].outerHTML +=
+            '<button id="showNavigation" style="width:100%;line-height:36px;height:41px;">Show navigation<\/button>';
+          document.getElementById("showNavigation").onclick = function () {
+            if (
+              document.getElementsByTagName("aside")[0].style.display == "none"
+            ) {
+              this.innerHTML = "Hide navigation";
+              document.getElementsByTagName("aside")[0].style.display = "block";
+            } else {
+              this.innerHTML = "Show navigation";
+              document.getElementsByTagName("aside")[0].style.display = "none";
+            }
+          };
+          //window.setTimeout(function(){document.body.removeChild(document.body.children[document.body.children.length-1]);},1000);
+        }
+        function footerScript() {
+          var crtanje = document.getElementById("donjiLijevi");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          var visina = crtanje.clientHeight;
+          var sirina = crtanje.clientWidth;
+          if (!visina || !sirina) {
+            visina = crtanje.parentNode.clientHeight;
+            sirina = crtanje.parentNode.clientWidth / 4;
+          }
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (270 + i * 3) / 57.3;
+            var kut2 = (274 + i * 3) / 57.3;
+            var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+            var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+            var y1 = -Math.round(Math.sin(kut1) * visina);
+            var y2 = -Math.round(Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0"
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(170," +
+                Math.round(255 - i * 2.83) +
+                "," +
+                Math.min(Math.round(170 + i * 4), 255) +
+                ")"
+            );
+            crtanje.appendChild(trokut);
+          }
+        }
+        footerScript();
+        window.addEventListener("resize", footerScript);
+      </script>
+    </footer>
+  </body>
+</html>
