@@ -322,11 +322,24 @@
  <span class="LineNumber">279</span>   printString<span class="Parenthesis">(</span><span class="String">"The result for the third test sample: "</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">280</span>   printString<span class="Parenthesis">(</span>solveFor<span class="Parenthesis">(</span><span class="Constant">9</span><span class="Operator">,</span> <span class="Constant">8</span><span class="Operator">,</span> <span class="Constant">7</span><span class="Operator">,</span> <span class="Constant">7</span><span class="Operator">,</span> <span class="Constant">6</span><span class="Operator">,</span> <span class="Constant">8</span><span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">281</span>   printString<span class="Parenthesis">(</span><span class="String">"<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">282</span> <span class="Parenthesis">}</span>
- <span class="LineNumber">283</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
- <span class="LineNumber">284</span> 
- <span class="LineNumber">285</span> <span class="Keyword">asm</span><span class="Parenthesis">(</span><span class="String">"(export <b>\<i>"</i></b>_start<b>\<i>"</i></b> (func $main))"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">286</span> 
+ <span class="LineNumber">282</span>   <span class="Comment">/*
+ <span class="LineNumber">283</span>   So, this outputs:
+ <span class="LineNumber">284</span>   ```
+ <span class="LineNumber">285</span> The result for the first test sample: 993=668+325
+ <span class="LineNumber">286</span> The result for the second test sample: 630=420+210
+ <span class="LineNumber">287</span> The result for the third test sample: Bilbo
+ <span class="LineNumber">288</span>   ```
+ <span class="LineNumber">289</span>   */</span>
+ <span class="LineNumber">290</span> <span class="Parenthesis">}</span>
+ <span class="LineNumber">291</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
+ <span class="LineNumber">292</span> 
+ <span class="LineNumber">293</span> <span class="Keyword">asm</span><span class="Parenthesis">(</span><span class="String">R"WebAssembly(</span>
+ <span class="LineNumber">294</span> <span class="String">	(export</span>
+ <span class="LineNumber">295</span> <span class="String">		"_start"</span>
+ <span class="LineNumber">296</span> <span class="String">		(func $main)</span>
+ <span class="LineNumber">297</span> <span class="String">	)</span>
+ <span class="LineNumber">298</span> <span class="String">)WebAssembly"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">299</span> 
 </pre>
 </body>
 </html>
