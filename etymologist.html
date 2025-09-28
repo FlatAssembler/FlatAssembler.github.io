@@ -1918,6 +1918,8 @@
         );
         var prozor = document.createElement("div");
         prozor.setAttribute("class", "rjesenje");
+        prozor.style.width = "350px";
+        prozor.style.left = "75px";
         prozor.setAttribute("id", "draggable-element");
         var score = 0;
         if (odgovor1[0] === "two") score++;
@@ -1926,17 +1928,17 @@
         if (odgovor1[3] === "dream") score++;
         if (score === 4)
           $(prozor).append(
-            '<div style="background: green; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor: move;">CORRECT!</div>'
+            '<div style="background: green; color:white; position:relative; width:350px; height:30px; text-align:center; line-height:30px; cursor: move;">CORRECT!</div>'
           );
         else
           $(prozor).append(
-            '<div style="background: red; color:white; position:relative; width:300px; height:30px; text-align:center; line-height:30px; cursor:move;">INCORRECT!</div>'
+            '<div style="background: red; color:white; position:relative; width:350px; height:30px; text-align:center; line-height:30px; cursor:move;">INCORRECT!</div>'
           );
         $(prozor).append(
-          '<div style="text-align:justify; margin-top:5px; margin-bottom:10px; color:#222222; width:290px; margin-left:5px; margin-right:5px;" align="justfy">' +
+          '<div style="text-align:justify; margin-top:5px; margin-bottom:10px; color:#222222; width:340px; margin-left:5px; margin-right:5px;" align="justfy">' +
             "You scored " +
             score +
-            "/4. The words 'ten', 'two' and 'twig' belong to English while the words 'zweig', 'zwei' and 'zehn' belong to German, because there is a regular sound correspondence between English 't' and German 'z' in the beginning of a word. The word 'traum' belongs to German while the word 'dream' belongs to English, because English 'd' corresponds to German 't' ('<i><b>d</b>ay</i>'-'<i lang=\"de\"><b>T</b>ag</i>', '<i>col<b>d</b></i>'-'<i lang=\"de\">kal<b>t</b></i>', '<i>ol<b>d</b></i>'-'<i lang=\"de\">al<b>t</b></i>', '<i><b>d</b>ream</i>'-'<i lang=\"de\"><b>T</b>raum</i>', '<i>re<b>d</b></i>'-'<i lang=\"de\">ro<b>t</b></i>', '<i><b>d</b>o</i>'-'<i lang=\"de\"><b>t</b>un</i>', '<i><b>d</b>eath</i>'-'<i lang=\"de\"><b>T</b>od</i>', '<i><b>d</b>ale</i>'-'<i lang=\"de\"><b>T</b>al</i>', '<i>ri<b>d</b>e</i>'-'<i lang=\"de\">rei<b>t</b>en</i>', '<i>bloo<b>d</b></i>'-'<i lang=\"de\">Blu<b>t</b></i>', '<i><b>d</b>ew</i>'-'<i lang=\"de\"><b>T</b>au</i>', '<i><b>d</b>eep</i>'-'<i lang=\"de\"><b>t</b>ief</i>', '<i>goo<b>d</b></i>'-'<i lang=\"de\">gu<b>t</b></i>', '<i>go<b>d</b></i>'-'<i lang=\"de\">Go<b>tt</b></i>', '<i>be<b>d</b></i>'-'<i lang=\"de\">Be<b>tt</b></i>', '<i><b>d</b>rive</i>'-'<i lang=\"de\"><b>t</b>reiben</i>', '<i><b>d</b>rink</i>'-'<i lang=\"de\"><b>t</b>rinken</i>', '<i><b>d</b>rop</i>'-'<i lang=\"de\"><b>T</b>ropfen</i>', '<i><b>d</b>ove</i>'-'<i lang=\"de\"><b>T</b>aube</i>', '<i><b>d</b>eaf</i>'-'<i lang=\"de\"><b>t</b>aub</i>', '<i><b>d</b>aughter</i>'-'<i lang=\"de\"><b>T</b>ochter</i>', '<i>brea<b>d</b></i>'-'<i lang=\"de\">Bro<b>t</b></i>', '<i><b>d</b>oor</i>'-'<i lang=\"de\"><b>T</b>&#x00fc;r</i>', '<i>wor<b>d</b></i>'-'<i lang=\"de\">Wor<b>t</b></i>', '<i>worl<b>d</b></i>'-'<i lang=\"de\">Wel<b>t</b></i>'...). If 'traum' was an English word, the German cognate would have to start with a 'z'." +
+            "/4. The words 'ten', 'two' and 'twig' belong to English while the words 'zweig', 'zwei' and 'zehn' belong to German, because there is a regular sound correspondence between English 't' and German 'z' in the beginning of a word ('<i><b>t</b>wo</i>'-'<i lang=\"de\"><b>z</b>wei</i>', '<i><b>t</b>en</i>'-'<i lang=\"de\"><b>z</b>ehn</i>', '<i><b>t</b>ooth</i>'-'<i lang=\"de\"><b>Z</b>ahn</i>', '<i><b>t</b>ongue</i>'-'<i lang=\"de\"><b>Z</b>unge</i>', '<i><b>t</b>wig</i>'-'<i lang=\"de\"><b>Z</b>weig</i>', '<i><b>t</b>oe</i>'-'<i lang=\"de\"><b>Z</b>eh</i>', '<i><b>t</b>oo</i>'-'<i lang=\"de\"><b>z</b>u</i>', '<i><b>t</b>ame</i>'-'<i lang=\"de\"><b>z</b>ahm</i>', '<i><b>t</b>oken</i>'-'<i lang=\"de\"><b>Z</b>eichen</i>', '<i><b>t</b>winkle</i>'-'<i lang=\"de\"><b>z</b>winkern</i>', '<i><b>t</b>wilight</i>'-'<i><b>Z</b>wielicht</i>'...). The word 'traum' belongs to German while the word 'dream' belongs to English, because English 'd' corresponds to German 't' ('<i><b>d</b>ay</i>'-'<i lang=\"de\"><b>T</b>ag</i>', '<i>col<b>d</b></i>'-'<i lang=\"de\">kal<b>t</b></i>', '<i>ol<b>d</b></i>'-'<i lang=\"de\">al<b>t</b></i>', '<i><b>d</b>ream</i>'-'<i lang=\"de\"><b>T</b>raum</i>', '<i>re<b>d</b></i>'-'<i lang=\"de\">ro<b>t</b></i>', '<i><b>d</b>o</i>'-'<i lang=\"de\"><b>t</b>un</i>', '<i><b>d</b>eath</i>'-'<i lang=\"de\"><b>T</b>od</i>', '<i><b>d</b>ale</i>'-'<i lang=\"de\"><b>T</b>al</i>', '<i>ri<b>d</b>e</i>'-'<i lang=\"de\">rei<b>t</b>en</i>', '<i>bloo<b>d</b></i>'-'<i lang=\"de\">Blu<b>t</b></i>', '<i><b>d</b>ew</i>'-'<i lang=\"de\"><b>T</b>au</i>', '<i><b>d</b>eep</i>'-'<i lang=\"de\"><b>t</b>ief</i>', '<i>goo<b>d</b></i>'-'<i lang=\"de\">gu<b>t</b></i>', '<i>go<b>d</b></i>'-'<i lang=\"de\">Go<b>tt</b></i>', '<i>be<b>d</b></i>'-'<i lang=\"de\">Be<b>tt</b></i>', '<i><b>d</b>rive</i>'-'<i lang=\"de\"><b>t</b>reiben</i>', '<i><b>d</b>rink</i>'-'<i lang=\"de\"><b>t</b>rinken</i>', '<i><b>d</b>rop</i>'-'<i lang=\"de\"><b>T</b>ropfen</i>', '<i><b>d</b>ove</i>'-'<i lang=\"de\"><b>T</b>aube</i>', '<i><b>d</b>eaf</i>'-'<i lang=\"de\"><b>t</b>aub</i>', '<i><b>d</b>aughter</i>'-'<i lang=\"de\"><b>T</b>ochter</i>', '<i>brea<b>d</b></i>'-'<i lang=\"de\">Bro<b>t</b></i>', '<i><b>d</b>oor</i>'-'<i lang=\"de\"><b>T</b>&#x00fc;r</i>', '<i>wor<b>d</b></i>'-'<i lang=\"de\">Wor<b>t</b></i>', '<i>worl<b>d</b></i>'-'<i lang=\"de\">Wel<b>t</b></i>', '<i>shoul<b>d</b>er</i>'-'<i lang=\"de\">Schul<b>t</b>er</i>', '<i>har<b>d</b></i>'-'<i lang=\"de\">har<b>t</b></i>'...). If 'traum' was an English word, the German cognate would have to start with a 'z'." +
             "</div>" +
             '<center><div class="okButton">OK</div></center>'
         );
