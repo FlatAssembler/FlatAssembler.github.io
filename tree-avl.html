@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <title>AVL stablo</title>
+    <meta name="author" content="Teo Samar&zcaron;ija" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="tree-avl.js"></script>
+  </head>
+  <body>
+    <h1 style="text-align: center">AVL stablo u JavaScriptu</h1>
+    <div style="margin-bottom: 5px">
+      Ovo je implementacija AVL stabla u JavaScriptu, najjednostavnijeg oblika
+      samobalansirajućeg binarnog stabla.
+    </div>
+    <label for="inputSUnesenimBrojem">Unesi broj:</label>
+    <input type="number" id="inputSUnesenimBrojem" />
+    <button
+      onclick="umetniBrojUStablo(document.getElementById('inputSUnesenimBrojem').value | 0); nacrtajStablo()"
+    >
+      Dodaj broj u stablo
+    </button>
+    <div
+      id="diagramSpan"
+      style="
+        display: block;
+        width: 100%;
+        height: 50%;
+        overflow: scroll;
+        margin-top: 10px;
+      "
+    >
+      <svg id="tree"></svg>
+    </div>
+  </body>
+</html>
