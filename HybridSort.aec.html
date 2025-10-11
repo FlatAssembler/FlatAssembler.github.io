@@ -392,7 +392,7 @@
  <span class="LineNumber">349</span>     printString<span class="Parenthesis">(</span><span class="String">"Kraj relevantnog dijela niza!"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">350</span>   <span class="Parenthesis">}</span>
  <span class="LineNumber">351</span>   <span class="Keyword">EndIf</span><span class="Keyword">;</span>
- <span class="LineNumber">352</span>   <span class="Keyword">If</span> je_li_niz_vec_poredan <span class="Operator">and</span> <span class="Operator">not</span><span class="Parenthesis">(</span>razvrstanost <span class="Operator">=</span> <span class="Constant">1</span> <span class="Operator">or</span> razvrstanost <span class="Operator">&gt;</span> <span class="Constant">1</span><span class="Parenthesis">)</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">352</span>   <span class="Keyword">If</span> je_li_niz_vec_poredan <span class="Operator">and</span> <span class="Operator">not</span><span class="Parenthesis">(</span>razvrstanost <span class="Operator">=</span> <span class="Constant">1</span><span class="Parenthesis">)</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
  <span class="LineNumber">353</span>     <span class="Comment">// Opet ne smije biti...
  <span class="LineNumber">354</span> </span>    printString<span class="Parenthesis">(</span><span class="String">"Niz je poredan, a razvrstanost nije 1."</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">355</span>     printString<span class="Parenthesis">(</span><span class="String">"Relevantni dio niza iznosi:"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
@@ -406,7 +406,7 @@
  <span class="LineNumber">363</span>     printString<span class="Parenthesis">(</span><span class="String">"Kraj relevantnog dijela niza!"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">364</span>   <span class="Parenthesis">}</span>
  <span class="LineNumber">365</span>   <span class="Keyword">EndIf</span><span class="Keyword">;</span>
- <span class="LineNumber">366</span>   <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>je_li_niz_vec_poredan<span class="Parenthesis">)</span> <span class="Operator">and</span> <span class="Parenthesis">(</span>razvrstanost <span class="Operator">=</span> <span class="Constant">1</span> <span class="Operator">or</span> razvrstanost <span class="Operator">&gt;</span> <span class="Constant">1</span><span class="Parenthesis">)</span>
+ <span class="LineNumber">366</span>   <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>je_li_niz_vec_poredan<span class="Parenthesis">)</span> <span class="Operator">and</span> razvrstanost <span class="Operator">&gt;</span><span class="Operator">=</span> <span class="Constant">1</span>
  <span class="LineNumber">367</span>                                         <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
  <span class="LineNumber">368</span>     <span class="Comment">// Open ne smije biti...
  <span class="LineNumber">369</span> </span>    printString<span class="Parenthesis">(</span><span class="String">"Razvrstanost je 1, a niz nije poredan!"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
@@ -477,11 +477,11 @@
  <span class="LineNumber">434</span> </span>          prirodni_logaritam<span class="Parenthesis">(</span>gornja_granica <span class="Operator">-</span> donja_granica<span class="Parenthesis">)</span> <span class="Operator">/</span>
  <span class="LineNumber">435</span>           prirodni_logaritam<span class="Parenthesis">(</span><span class="Constant">2</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">436</span>   <span class="Comment">// I sada kreće grananje na temelju izračunatog...
- <span class="LineNumber">437</span> </span>  <span class="Keyword">If</span> razvrstanost <span class="Operator">=</span> <span class="Constant">1</span> <span class="Operator">or</span> razvrstanost <span class="Operator">&gt;</span> <span class="Constant">1</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">437</span> </span>  <span class="Keyword">If</span> razvrstanost <span class="Operator">&gt;</span><span class="Operator">=</span> <span class="Constant">1</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
  <span class="LineNumber">438</span>     broj_vec_poredanih_podniza <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
  <span class="LineNumber">439</span>     <span class="Keyword">Return</span><span class="Keyword">;</span>
  <span class="LineNumber">440</span>   <span class="Parenthesis">}</span>
- <span class="LineNumber">441</span>   <span class="Keyword">ElseIf</span> razvrstanost <span class="Operator">=</span> <span class="Operator">-</span><span class="Constant">1</span> <span class="Operator">or</span> razvrstanost <span class="Operator">&lt;</span> <span class="Operator">-</span><span class="Constant">1</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">441</span>   <span class="Keyword">ElseIf</span> razvrstanost <span class="Operator">&lt;</span><span class="Operator">=</span> <span class="Operator">-</span><span class="Constant">1</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
  <span class="LineNumber">442</span>     broj_obrnuto_poredanih_podniza <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
  <span class="LineNumber">443</span>     <span class="Type">Integer32</span> i <span class="Operator">:</span> <span class="Operator">=</span> donja_granica<span class="Keyword">;</span>
  <span class="LineNumber">444</span>     <span class="Type">Integer32</span> j <span class="Operator">:</span> <span class="Operator">=</span> gornja_granica <span class="Operator">-</span> <span class="Constant">1</span><span class="Keyword">;</span>
