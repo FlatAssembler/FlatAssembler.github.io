@@ -601,25 +601,25 @@
  <span class="LineNumber">558</span>     <span class="Parenthesis">}</span>
  <span class="LineNumber">559</span>     <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
  <span class="LineNumber">560</span>     lengthOfTheArray <span class="Operator">-</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">561</span> 
- <span class="LineNumber">562</span>     <span class="Keyword">If</span> MAINTAIN_COMPATIBILITY_WITH_JAVASCRIPT_IMPLEMENTATION <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
- <span class="LineNumber">563</span>       <span class="Comment">// Delete the first minimum from the array...
- <span class="LineNumber">564</span> </span>      <span class="Keyword">If</span> minimum <span class="Operator">&gt;</span>
- <span class="LineNumber">565</span>           secondMinimum <span class="Keyword">Then</span> <span class="Parenthesis">{</span> <span class="Comment">// If the first minimum moved while we were
- <span class="LineNumber">566</span> </span>                               <span class="Comment">// deleting the second minimum from the array.
- <span class="LineNumber">567</span> </span>        minimum <span class="Operator">-</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">568</span>       <span class="Parenthesis">}</span>
- <span class="LineNumber">569</span>       <span class="Keyword">EndIf</span><span class="Keyword">;</span>
- <span class="LineNumber">570</span>     i<span class="Operator">:</span>
- <span class="LineNumber">571</span>       <span class="Operator">=</span> minimum<span class="Keyword">;</span>
- <span class="LineNumber">572</span>       <span class="Keyword">While</span> i <span class="Operator">&lt;</span> lengthOfTheArray <span class="Operator">-</span> <span class="Constant">1</span> <span class="Keyword">Loop</span> <span class="Parenthesis">{</span>
- <span class="LineNumber">573</span>         array<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">:</span> <span class="Operator">=</span> array<span class="Parenthesis">[</span>i <span class="Operator">+</span> <span class="Constant">1</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
- <span class="LineNumber">574</span>         i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">575</span>       <span class="Parenthesis">}</span>
- <span class="LineNumber">576</span>       <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
- <span class="LineNumber">577</span>       array<span class="Parenthesis">[</span>lengthOfTheArray <span class="Operator">-</span> <span class="Constant">1</span><span class="Parenthesis">]</span> <span class="Operator">:</span> <span class="Operator">=</span> sumOfTheTwoMostFrequent<span class="Keyword">;</span>
- <span class="LineNumber">578</span>     <span class="Parenthesis">}</span>
- <span class="LineNumber">579</span>     <span class="Keyword">EndIf</span><span class="Keyword">;</span>
+ <span class="LineNumber">561</span>     <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>MAINTAIN_COMPATIBILITY_WITH_JAVASCRIPT_IMPLEMENTATION<span class="Parenthesis">)</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">562</span>       <span class="Keyword">Continue</span><span class="Keyword">;</span>
+ <span class="LineNumber">563</span>     <span class="Parenthesis">}</span>
+ <span class="LineNumber">564</span>     <span class="Keyword">EndIf</span><span class="Keyword">;</span>
+ <span class="LineNumber">565</span>     <span class="Comment">// Delete the first minimum from the array...
+ <span class="LineNumber">566</span> </span>    <span class="Keyword">If</span> minimum <span class="Operator">&gt;</span>
+ <span class="LineNumber">567</span>         secondMinimum <span class="Keyword">Then</span> <span class="Parenthesis">{</span> <span class="Comment">// If the first minimum moved while we were
+ <span class="LineNumber">568</span> </span>                             <span class="Comment">// deleting the second minimum from the array.
+ <span class="LineNumber">569</span> </span>      minimum <span class="Operator">-</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">570</span>     <span class="Parenthesis">}</span>
+ <span class="LineNumber">571</span>     <span class="Keyword">EndIf</span><span class="Keyword">;</span>
+ <span class="LineNumber">572</span>   i<span class="Operator">:</span>
+ <span class="LineNumber">573</span>     <span class="Operator">=</span> minimum<span class="Keyword">;</span>
+ <span class="LineNumber">574</span>     <span class="Keyword">While</span> i <span class="Operator">&lt;</span> lengthOfTheArray <span class="Operator">-</span> <span class="Constant">1</span> <span class="Keyword">Loop</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">575</span>       array<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">:</span> <span class="Operator">=</span> array<span class="Parenthesis">[</span>i <span class="Operator">+</span> <span class="Constant">1</span><span class="Parenthesis">]</span><span class="Keyword">;</span>
+ <span class="LineNumber">576</span>       i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">577</span>     <span class="Parenthesis">}</span>
+ <span class="LineNumber">578</span>     <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
+ <span class="LineNumber">579</span>     array<span class="Parenthesis">[</span>lengthOfTheArray <span class="Operator">-</span> <span class="Constant">1</span><span class="Parenthesis">]</span> <span class="Operator">:</span> <span class="Operator">=</span> sumOfTheTwoMostFrequent<span class="Keyword">;</span>
  <span class="LineNumber">580</span>   <span class="Parenthesis">}</span>
  <span class="LineNumber">581</span>   <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
  <span class="LineNumber">582</span> 
@@ -685,7 +685,7 @@
  <span class="LineNumber">642</span>   strcat<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Operator">,</span> <span class="String">"Decoding the output...<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">643</span>   printString<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">644</span> 
- <span class="LineNumber">645</span>   <span class="Type">Integer16</span> j <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">645</span>   <span class="Type">Integer16</span> j <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Operator">,</span> k <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
  <span class="LineNumber">646</span>   <span class="Keyword">While</span> j <span class="Operator">&lt;</span> strlen<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>output<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Parenthesis">)</span> <span class="Operator">-</span> <span class="Constant">1</span> <span class="Keyword">Loop</span> <span class="Parenthesis">{</span>
  <span class="LineNumber">647</span>   i<span class="Operator">:</span>
  <span class="LineNumber">648</span>     <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
@@ -729,11 +729,17 @@
  <span class="LineNumber">686</span>     strcat<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Operator">,</span> <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>stringToBeAdded<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">687</span>     printString<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">688</span>     j <span class="Operator">+</span><span class="Operator">=</span> strlen<span class="Parenthesis">(</span>mapOfCodes<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">689</span>   <span class="Parenthesis">}</span>
- <span class="LineNumber">690</span>   <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
- <span class="LineNumber">691</span> <span class="Parenthesis">}</span>
- <span class="LineNumber">692</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
- <span class="LineNumber">693</span> 
+ <span class="LineNumber">689</span>     <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>i <span class="Operator">=</span> getCharacterOfTheInput<span class="Parenthesis">(</span>k<span class="Parenthesis">)</span><span class="Parenthesis">)</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">690</span>       printString<span class="Parenthesis">(</span><span class="String">"ERROR: The decoded output does not match the input!<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">691</span>       <span class="Keyword">Break</span><span class="Keyword">;</span>
+ <span class="LineNumber">692</span>     <span class="Parenthesis">}</span>
+ <span class="LineNumber">693</span>     <span class="Keyword">EndIf</span><span class="Keyword">;</span>
+ <span class="LineNumber">694</span>     k <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">695</span>   <span class="Parenthesis">}</span>
+ <span class="LineNumber">696</span>   <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
+ <span class="LineNumber">697</span> <span class="Parenthesis">}</span>
+ <span class="LineNumber">698</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
+ <span class="LineNumber">699</span> 
 </pre>
 </body>
 </html>
