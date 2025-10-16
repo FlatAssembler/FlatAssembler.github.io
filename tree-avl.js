@@ -73,6 +73,52 @@ function InsertAvl(node, X) {
 }
 let korijenStabla = null;
 function umetniBrojUStablo(x) { korijenStabla = InsertAvl(korijenStabla, x); }
+function SmallestNode(node) {
+  let t = node;
+  while (t.left != null)
+    t = t.left;
+  return t;
+}
+function DeleteAVL(node, X) {
+  if (!node)
+    return node;
+  if (X < node.x)
+    node.left = DeleteAVL(node.left, X);
+  else if (X > node.x)
+    node.right = DeleteAVL(node.right, X);
+  else {
+    if ((node.left == null) || (node.right == null)) {
+      let temp = node.left ? node.left : node.right;
+      if (temp == null) {
+        temp = node;
+        node = null;
+      } else
+        Object.assign(node, temp);
+    } else {
+      const temp = SmallestNode(node.right);
+      node.x = temp.x;
+      node.right = DeleteAVL(node.right, temp.x);
+    }
+  }
+  if (!node)
+    return node;
+  node.height = height(node);
+  const bf = BalanceFactor(node);
+  if (bf > 1 && BalanceFactor(node.left) >= 0)
+    return RightRotate(node);
+  if (bf > 1 && BalanceFactor(node.left) < 0) {
+    node.left = LeftRotate(node.left);
+    return RightRotate(node);
+  }
+  if (bf < -1 && BalanceFactor(node.right) <= 0)
+    return LeftRotate(node);
+  if (bf < -1 && BalanceFactor(node.right) > 0) {
+    node.right = RightRotate(node.right);
+    return LeftRotate(node);
+  }
+  return node;
+}
+function izbrisiBrojIzStabla(x) { korijenStabla = DeleteAVL(korijenStabla, x); }
 function nacrtajStablo() {
   let tree = document.getElementById("tree");
   while (tree.childNodes.length)
@@ -146,7 +192,7 @@ function draw(nodeName, x, y, space, id) {
     if (nodeName.childrenNodes[i] == null)
       continue;
     draw(nodeName.childrenNodes[i], x + (i - 1 / 2) * space, y + 100 + 25,
-         space / 2, id + 1);
+         50 * 2 ** (nodeName.childrenNodes[i].height), id + 1);
     let line = document.createElementNS(svgNS, "line");
     line.setAttribute("x1", x + 25 + 25 + 25 / 2);
     line.setAttribute("y1", y + 75);

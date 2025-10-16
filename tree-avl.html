@@ -14,10 +14,20 @@
     </div>
     <label for="inputSUnesenimBrojem">Unesi broj:</label>
     <input type="number" id="inputSUnesenimBrojem" />
-    <button
-      onclick="umetniBrojUStablo(document.getElementById('inputSUnesenimBrojem').value | 0); nacrtajStablo()"
+    <input
+      type="radio"
+      id="upisiBrojUStablo"
+      name="sto_napraviti"
+      checked
+    /><label for="upisiBrojUStablo">Upiši broj u stablo</label>
+    <input type="radio" id="izbrisiBrojIzStabla" name="sto_napraviti" /><label
+      for="izbrisiBrojIzStabla"
+      >Izbriši broj iz stabla</label
     >
-      Dodaj broj u stablo
+    <button
+      onclick="if (document.getElementById('upisiBrojUStablo').checked) umetniBrojUStablo(document.getElementById('inputSUnesenimBrojem').value | 0); else izbrisiBrojIzStabla(document.getElementById('inputSUnesenimBrojem').value | 0); nacrtajStablo()"
+    >
+      Izvrši operaciju
     </button>
     <div
       id="diagramSpan"
