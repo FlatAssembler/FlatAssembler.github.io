@@ -1,3 +1,5 @@
+let number_of_rotations = 0, maximum_number_of_rotations = 0,
+    total_number_of_rotations = 0;
 class TreeNodeOfAVL {
   constructor(x) {
     this.left = null;
@@ -24,6 +26,7 @@ function height(node) {
   return maximum + 1;
 }
 function RightRotate(C) {
+  number_of_rotations++;
   const B = C.left;
   const V3 = B.right;
   B.right = C;
@@ -33,6 +36,7 @@ function RightRotate(C) {
   return B;
 }
 function LeftRotate(C) {
+  number_of_rotations++;
   const B = C.right;
   const V3 = B.left;
   B.left = C;
@@ -72,7 +76,13 @@ function InsertAvl(node, X) {
   return node;
 }
 let korijenStabla = null;
-function umetniBrojUStablo(x) { korijenStabla = InsertAvl(korijenStabla, x); }
+function umetniBrojUStablo(x) {
+  number_of_rotations = 0;
+  korijenStabla = InsertAvl(korijenStabla, x);
+  maximum_number_of_rotations =
+      Math.max(maximum_number_of_rotations, number_of_rotations);
+  total_number_of_rotations += number_of_rotations;
+}
 function SmallestNode(node) {
   let t = node;
   while (t.left != null)
@@ -118,7 +128,13 @@ function DeleteAVL(node, X) {
   }
   return node;
 }
-function izbrisiBrojIzStabla(x) { korijenStabla = DeleteAVL(korijenStabla, x); }
+function izbrisiBrojIzStabla(x) {
+  number_of_rotations = 0;
+  korijenStabla = DeleteAVL(korijenStabla, x);
+  maximum_number_of_rotations =
+      Math.max(maximum_number_of_rotations, number_of_rotations);
+  total_number_of_rotations += number_of_rotations;
+}
 function nacrtajStablo() {
   let tree = document.getElementById("tree");
   while (tree.childNodes.length)
@@ -144,6 +160,10 @@ function nacrtajStablo() {
       document.getElementById("node0").getAttribute("x") -
       document.getElementById("diagramSpan").clientWidth / 2 +
       75; // The root of the tree will be in the center of the screen.
+  document.getElementById("number_of_rotations").innerText =
+      total_number_of_rotations;
+  document.getElementById("maximal_number_of_rotations").innerText =
+      maximum_number_of_rotations;
 }
 function draw(nodeName, x, y, space, id) {
   if (x > maxX)

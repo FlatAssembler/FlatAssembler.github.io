@@ -12,23 +12,25 @@
       Ovo je implementacija AVL stabla u JavaScriptu, najjednostavnijeg oblika
       samobalansirajućeg binarnog stabla.
     </div>
-    <label for="inputSUnesenimBrojem">Unesi broj:</label>
-    <input type="number" id="inputSUnesenimBrojem" />
-    <input
-      type="radio"
-      id="upisiBrojUStablo"
-      name="sto_napraviti"
-      checked
-    /><label for="upisiBrojUStablo">Upiši broj u stablo</label>
-    <input type="radio" id="izbrisiBrojIzStabla" name="sto_napraviti" /><label
-      for="izbrisiBrojIzStabla"
-      >Izbriši broj iz stabla</label
-    >
-    <button
-      onclick="if (document.getElementById('upisiBrojUStablo').checked) umetniBrojUStablo(document.getElementById('inputSUnesenimBrojem').value | 0); else izbrisiBrojIzStabla(document.getElementById('inputSUnesenimBrojem').value | 0); nacrtajStablo()"
-    >
-      Izvrši operaciju
-    </button>
+    <div>
+      <label for="inputSUnesenimBrojem">Unesi broj:</label>
+      <input type="number" id="inputSUnesenimBrojem" /><br />
+      <input
+        type="radio"
+        id="upisiBrojUStablo"
+        name="sto_napraviti"
+        checked
+      /><label for="upisiBrojUStablo">Upiši broj u stablo</label>
+      <input type="radio" id="izbrisiBrojIzStabla" name="sto_napraviti" /><label
+        for="izbrisiBrojIzStabla"
+        >Izbriši broj iz stabla</label
+      ><br />
+      <button
+        onclick="if (document.getElementById('upisiBrojUStablo').checked) umetniBrojUStablo(document.getElementById('inputSUnesenimBrojem').value | 0); else izbrisiBrojIzStabla(document.getElementById('inputSUnesenimBrojem').value | 0); nacrtajStablo()"
+      >
+        Izvrši operaciju
+      </button>
+    </div>
     <div
       id="diagramSpan"
       style="
@@ -41,5 +43,8 @@
     >
       <svg id="tree"></svg>
     </div>
+    The number of rotations: <span id="number_of_rotations">0</span>.<br />
+    Maximal number of rotations per a node:
+    <span id="maximal_number_of_rotations">0</span>.<br />
   </body>
 </html>
