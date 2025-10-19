@@ -495,7 +495,7 @@
  <span class="LineNumber">452</span>   <span class="Type">PointerToAVLNode</span> root <span class="Operator">:</span> <span class="Operator">=</span> <span class="Type">PointerToAVLNode</span><span class="Parenthesis">(</span><span class="Constant">0</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">453</span>   <span class="Type">Integer32</span> i <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
  <span class="LineNumber">454</span>   <span class="Keyword">While</span> i <span class="Operator">&lt;</span> numberOfKeys <span class="Keyword">Loop</span> <span class="Parenthesis">{</span>
- <span class="LineNumber">455</span>     <span class="Keyword">If</span> insert_or_delete<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Operator">=</span><span class="String">'I'</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">455</span>     <span class="Keyword">If</span> insert_or_delete<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">=</span> <span class="String">'I'</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
  <span class="LineNumber">456</span>       <span class="Type">Character</span> stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">32</span><span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="Parenthesis">{</span><span class="Constant">0</span><span class="Parenthesis">}</span><span class="Keyword">;</span>
  <span class="LineNumber">457</span>       strcat<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Operator">,</span> <span class="String">"Inserting "</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">458</span>       convertIntegerToString<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span> <span class="Operator">+</span> strlen<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Operator">,</span> keys<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
@@ -504,7 +504,7 @@
  <span class="LineNumber">461</span> 
  <span class="LineNumber">462</span>       root <span class="Operator">:</span> <span class="Operator">=</span> avlInsert<span class="Parenthesis">(</span>root<span class="Operator">,</span> keys<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">463</span>     <span class="Parenthesis">}</span>
- <span class="LineNumber">464</span>     <span class="Keyword">Else</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">464</span>     <span class="Keyword">ElseIf</span> insert_or_delete<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">=</span> <span class="String">'D'</span> <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
  <span class="LineNumber">465</span>       <span class="Type">Character</span> stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">32</span><span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="Parenthesis">{</span><span class="Constant">0</span><span class="Parenthesis">}</span><span class="Keyword">;</span>
  <span class="LineNumber">466</span>       strcat<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Operator">,</span> <span class="String">"Deleting "</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">467</span>       convertIntegerToString<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span> <span class="Operator">+</span> strlen<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Operator">,</span> keys<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
@@ -513,44 +513,48 @@
  <span class="LineNumber">470</span> 
  <span class="LineNumber">471</span>       root <span class="Operator">:</span> <span class="Operator">=</span> avlDelete<span class="Parenthesis">(</span>root<span class="Operator">,</span> keys<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">472</span>     <span class="Parenthesis">}</span>
- <span class="LineNumber">473</span>     <span class="Keyword">EndIf</span><span class="Keyword">;</span>
- <span class="LineNumber">474</span>     i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">475</span>   <span class="Parenthesis">}</span>
- <span class="LineNumber">476</span>   <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
- <span class="LineNumber">477</span> 
- <span class="LineNumber">478</span>   <span class="Comment">// Layout with some spacing; adjust constants as you prefer
- <span class="LineNumber">479</span> </span>  inorderCounter <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">480</span>   assignCoordinatesInorder<span class="Parenthesis">(</span>root<span class="Operator">,</span> <span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">110</span><span class="Operator">,</span> <span class="Constant">90</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">473</span>     <span class="Keyword">Else</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">474</span>       printString<span class="Parenthesis">(</span><span class="String">"The character array <b>\<i>"</i></b>insert_or_delete<b>\<i>"</i></b> can only contain characters 'I' and 'D'!<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">475</span>       <span class="Keyword">asm</span><span class="Parenthesis">(</span><span class="String">"unreachable"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">476</span>     <span class="Parenthesis">}</span>
+ <span class="LineNumber">477</span>     <span class="Keyword">EndIf</span><span class="Keyword">;</span>
+ <span class="LineNumber">478</span>     i <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">479</span>   <span class="Parenthesis">}</span>
+ <span class="LineNumber">480</span>   <span class="Keyword">EndWhile</span><span class="Keyword">;</span>
  <span class="LineNumber">481</span> 
- <span class="LineNumber">482</span>   <span class="Type">InstantiateStructure</span> Maxima globalMax<span class="Keyword">;</span>
- <span class="LineNumber">483</span>   globalMax.minimumX <span class="Operator">:</span> <span class="Operator">=</span> globalMax.maximumX <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
- <span class="LineNumber">484</span>   <span class="Keyword">If</span> root <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
- <span class="LineNumber">485</span>     globalMax.minimumX <span class="Operator">:</span> <span class="Operator">=</span> root<span class="Operator">-</span><span class="Operator">&gt;</span>x<span class="Keyword">;</span>
- <span class="LineNumber">486</span>     globalMax.maximumX <span class="Operator">:</span> <span class="Operator">=</span> root<span class="Operator">-</span><span class="Operator">&gt;</span>x<span class="Keyword">;</span>
- <span class="LineNumber">487</span>     findMinMaxX<span class="Parenthesis">(</span>root<span class="Operator">,</span> <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>globalMax<span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">488</span>   <span class="Parenthesis">}</span>
- <span class="LineNumber">489</span>   <span class="Keyword">EndIf</span><span class="Keyword">;</span>
- <span class="LineNumber">490</span> 
- <span class="LineNumber">491</span>   <span class="Type">Integer32</span> margin <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">20</span><span class="Keyword">;</span>
- <span class="LineNumber">492</span>   <span class="Type">Integer32</span> diagramWidth <span class="Operator">:</span> <span class="Operator">=</span> <span class="Parenthesis">(</span>globalMax.maximumX <span class="Operator">-</span> globalMax.minimumX<span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="Constant">120</span> <span class="Operator">+</span> margin <span class="Operator">*</span> <span class="Constant">2</span><span class="Keyword">;</span>
- <span class="LineNumber">493</span>   <span class="Type">Integer32</span> diagramHeight <span class="Operator">:</span> <span class="Operator">=</span> <span class="Parenthesis">(</span>nodeHeight<span class="Parenthesis">(</span>root<span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="Constant">1</span><span class="Parenthesis">)</span> <span class="Operator">*</span> <span class="Constant">90</span> <span class="Operator">+</span> margin<span class="Keyword">;</span>
+ <span class="LineNumber">482</span>   <span class="Comment">// Layout with some spacing; adjust constants as you prefer
+ <span class="LineNumber">483</span> </span>  inorderCounter <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">484</span>   assignCoordinatesInorder<span class="Parenthesis">(</span>root<span class="Operator">,</span> <span class="Constant">0</span><span class="Operator">,</span> <span class="Constant">110</span><span class="Operator">,</span> <span class="Constant">90</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">485</span> 
+ <span class="LineNumber">486</span>   <span class="Type">InstantiateStructure</span> Maxima globalMax<span class="Keyword">;</span>
+ <span class="LineNumber">487</span>   globalMax.minimumX <span class="Operator">:</span> <span class="Operator">=</span> globalMax.maximumX <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
+ <span class="LineNumber">488</span>   <span class="Keyword">If</span> root <span class="Keyword">Then</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">489</span>     globalMax.minimumX <span class="Operator">:</span> <span class="Operator">=</span> root<span class="Operator">-</span><span class="Operator">&gt;</span>x<span class="Keyword">;</span>
+ <span class="LineNumber">490</span>     globalMax.maximumX <span class="Operator">:</span> <span class="Operator">=</span> root<span class="Operator">-</span><span class="Operator">&gt;</span>x<span class="Keyword">;</span>
+ <span class="LineNumber">491</span>     findMinMaxX<span class="Parenthesis">(</span>root<span class="Operator">,</span> <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>globalMax<span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">492</span>   <span class="Parenthesis">}</span>
+ <span class="LineNumber">493</span>   <span class="Keyword">EndIf</span><span class="Keyword">;</span>
  <span class="LineNumber">494</span> 
- <span class="LineNumber">495</span>   setDiagramWidth<span class="Parenthesis">(</span>diagramWidth<span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">496</span>   setDiagramHeight<span class="Parenthesis">(</span>diagramHeight<span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">497</span> 
- <span class="LineNumber">498</span>   drawAVL<span class="Parenthesis">(</span>root<span class="Operator">,</span> globalMax.minimumX <span class="Operator">-</span> margin<span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">499</span> 
- <span class="LineNumber">500</span>   freeAVLTree<span class="Parenthesis">(</span>root<span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">501</span>   printString<span class="Parenthesis">(</span><span class="String">"AVL rendered.<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">502</span> <span class="Parenthesis">}</span>
- <span class="LineNumber">503</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
- <span class="LineNumber">504</span> 
- <span class="LineNumber">505</span> <span class="Comment">// Keep main for compatibility (just calls render), but JS can call render() directly.
- <span class="LineNumber">506</span> </span><span class="Keyword">Function</span> main<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
- <span class="LineNumber">507</span>   render<span class="Parenthesis">(</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">508</span> <span class="Parenthesis">}</span>
- <span class="LineNumber">509</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
- <span class="LineNumber">510</span> 
+ <span class="LineNumber">495</span>   <span class="Type">Integer32</span> margin <span class="Operator">:</span> <span class="Operator">=</span> <span class="Constant">20</span><span class="Keyword">;</span>
+ <span class="LineNumber">496</span>   <span class="Type">Integer32</span> diagramWidth <span class="Operator">:</span> <span class="Operator">=</span> <span class="Parenthesis">(</span>globalMax.maximumX <span class="Operator">-</span> globalMax.minimumX<span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="Constant">120</span> <span class="Operator">+</span> margin <span class="Operator">*</span> <span class="Constant">2</span><span class="Keyword">;</span>
+ <span class="LineNumber">497</span>   <span class="Type">Integer32</span> diagramHeight <span class="Operator">:</span> <span class="Operator">=</span> <span class="Parenthesis">(</span>nodeHeight<span class="Parenthesis">(</span>root<span class="Parenthesis">)</span> <span class="Operator">+</span> <span class="Constant">1</span><span class="Parenthesis">)</span> <span class="Operator">*</span> <span class="Constant">90</span> <span class="Operator">+</span> margin<span class="Keyword">;</span>
+ <span class="LineNumber">498</span> 
+ <span class="LineNumber">499</span>   setDiagramWidth<span class="Parenthesis">(</span>diagramWidth<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">500</span>   setDiagramHeight<span class="Parenthesis">(</span>diagramHeight<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">501</span> 
+ <span class="LineNumber">502</span>   drawAVL<span class="Parenthesis">(</span>root<span class="Operator">,</span> globalMax.minimumX <span class="Operator">-</span> margin<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">503</span> 
+ <span class="LineNumber">504</span>   freeAVLTree<span class="Parenthesis">(</span>root<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">505</span>   printString<span class="Parenthesis">(</span><span class="String">"AVL rendered.<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">506</span> <span class="Parenthesis">}</span>
+ <span class="LineNumber">507</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
+ <span class="LineNumber">508</span> 
+ <span class="LineNumber">509</span> <span class="Comment">// Keep main for compatibility (just calls render), but JS can call render() directly.
+ <span class="LineNumber">510</span> </span><span class="Keyword">Function</span> main<span class="Parenthesis">(</span><span class="Parenthesis">)</span> <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span> <span class="Parenthesis">{</span>
+ <span class="LineNumber">511</span>   render<span class="Parenthesis">(</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">512</span> <span class="Parenthesis">}</span>
+ <span class="LineNumber">513</span> <span class="Keyword">EndFunction</span><span class="Keyword">;</span>
+ <span class="LineNumber">514</span> 
 </pre>
 </body>
 </html>
