@@ -53,7 +53,7 @@
   <span class="LineNumber">10</span>     <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Is</span> <span class="Keyword">External</span><span class="Keyword">;</span>
   <span class="LineNumber">11</span> <span class="Keyword">Function</span> drawRectangle<span class="Parenthesis">(</span><span class="Type">Integer32</span> x<span class="Operator">,</span> <span class="Type">Integer32</span> y<span class="Operator">,</span>
   <span class="LineNumber">12</span>                        <span class="Type">Integer32</span> width<span class="Operator">,</span> <span class="Type">Integer32</span> height<span class="Operator">,</span>
-  <span class="LineNumber">13</span> 		       <span class="Type">PointerToCharacter</span> color<span class="Parenthesis">)</span>
+  <span class="LineNumber">13</span>                        <span class="Type">PointerToCharacter</span> color<span class="Parenthesis">)</span>
   <span class="LineNumber">14</span>     <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Is</span> <span class="Keyword">External</span><span class="Keyword">;</span>
   <span class="LineNumber">15</span> <span class="Keyword">Function</span> drawText<span class="Parenthesis">(</span><span class="Type">Integer32</span> x<span class="Operator">,</span> <span class="Type">Integer32</span> y<span class="Operator">,</span> <span class="Type">PointerToCharacter</span> text<span class="Parenthesis">)</span>
   <span class="LineNumber">16</span>     <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Is</span> <span class="Keyword">External</span><span class="Keyword">;</span>
@@ -144,7 +144,7 @@
  <span class="LineNumber">101</span>       redBlackTreeNodes<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span>.key <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
  <span class="LineNumber">102</span>       redBlackTreeNodes<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span>.leftChild <span class="Operator">:</span><span class="Operator">=</span>
  <span class="LineNumber">103</span>          redBlackTreeNodes<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span>.rightChild <span class="Operator">:</span><span class="Operator">=</span>
- <span class="LineNumber">104</span> 	   <span class="Type">PointerToRedBlackTreeNode</span><span class="Parenthesis">(</span><span class="Constant">0</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">104</span>            <span class="Type">PointerToRedBlackTreeNode</span><span class="Parenthesis">(</span><span class="Constant">0</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">105</span>       redBlackTreeNodes<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span>.color <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'R'</span><span class="Keyword">;</span>
  <span class="LineNumber">106</span>       redBlackTreeNodes<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span>.x <span class="Operator">:</span><span class="Operator">=</span> redBlackTreeNodes<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span>.y <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
  <span class="LineNumber">107</span>       isRedBlackTreeNodeUsed<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span> <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
@@ -239,17 +239,17 @@
  <span class="LineNumber">196</span>         node<span class="Operator">-</span><span class="Operator">&gt;</span>leftChild<span class="Operator">-</span><span class="Operator">&gt;</span>parent <span class="Operator">:</span><span class="Operator">=</span> node<span class="Keyword">;</span>
  <span class="LineNumber">197</span>         <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>node<span class="Operator">=</span>root<span class="Parenthesis">)</span> <span class="Keyword">Then</span>
  <span class="LineNumber">198</span>           <span class="Keyword">If</span> node<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">=</span> <span class="String">'R'</span> <span class="Operator">and</span> node<span class="Operator">-</span><span class="Operator">&gt;</span>leftChild<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">=</span> <span class="String">'R'</span> <span class="Keyword">Then</span>
- <span class="LineNumber">199</span> 	    flag <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">200</span> 	  <span class="Keyword">EndIf</span>
- <span class="LineNumber">201</span> 	<span class="Keyword">EndIf</span>
+ <span class="LineNumber">199</span>             flag <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">200</span>           <span class="Keyword">EndIf</span>
+ <span class="LineNumber">201</span>         <span class="Keyword">EndIf</span>
  <span class="LineNumber">202</span>     <span class="Keyword">ElseIf</span> X <span class="Operator">&gt;</span> node<span class="Operator">-</span><span class="Operator">&gt;</span>key <span class="Keyword">Then</span>
  <span class="LineNumber">203</span>         node<span class="Operator">-</span><span class="Operator">&gt;</span>rightChild <span class="Operator">:</span><span class="Operator">=</span> Insert<span class="Parenthesis">(</span>node<span class="Operator">-</span><span class="Operator">&gt;</span>rightChild<span class="Operator">,</span> X<span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">204</span>         node<span class="Operator">-</span><span class="Operator">&gt;</span>rightChild<span class="Operator">-</span><span class="Operator">&gt;</span>parent <span class="Operator">:</span><span class="Operator">=</span> node<span class="Keyword">;</span>
  <span class="LineNumber">205</span>         <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>node<span class="Operator">=</span>root<span class="Parenthesis">)</span> <span class="Keyword">Then</span>
  <span class="LineNumber">206</span>            <span class="Keyword">If</span> node<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">=</span> <span class="String">'R'</span> <span class="Operator">and</span> node<span class="Operator">-</span><span class="Operator">&gt;</span>rightChild<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">=</span> <span class="String">'R'</span> <span class="Keyword">Then</span>
- <span class="LineNumber">207</span> 	     flag <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">208</span> 	   <span class="Keyword">EndIf</span>
- <span class="LineNumber">209</span> 	<span class="Keyword">EndIf</span>
+ <span class="LineNumber">207</span>              flag <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">208</span>            <span class="Keyword">EndIf</span>
+ <span class="LineNumber">209</span>         <span class="Keyword">EndIf</span>
  <span class="LineNumber">210</span>     <span class="Keyword">Else</span>
  <span class="LineNumber">211</span>       <span class="Keyword">Return</span> node<span class="Keyword">;</span>
  <span class="LineNumber">212</span>     <span class="Keyword">EndIf</span>
@@ -284,30 +284,30 @@
  <span class="LineNumber">241</span> </span>        <span class="Keyword">If</span> node<span class="Operator">-</span><span class="Operator">&gt;</span>parent<span class="Operator">-</span><span class="Operator">&gt;</span>rightChild <span class="Operator">=</span> node <span class="Keyword">Then</span>
  <span class="LineNumber">242</span>             <span class="Keyword">If</span> node<span class="Operator">-</span><span class="Operator">&gt;</span>parent<span class="Operator">-</span><span class="Operator">&gt;</span>leftChild <span class="Operator">=</span> <span class="Constant">0</span> <span class="Operator">or</span> node<span class="Operator">-</span><span class="Operator">&gt;</span>parent<span class="Operator">-</span><span class="Operator">&gt;</span>leftChild<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">=</span> <span class="String">'B'</span> <span class="Keyword">Then</span>
  <span class="LineNumber">243</span>                 <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>node<span class="Operator">-</span><span class="Operator">&gt;</span>leftChild <span class="Operator">=</span> <span class="Constant">0</span><span class="Parenthesis">)</span> <span class="Operator">and</span> node<span class="Operator">-</span><span class="Operator">&gt;</span>leftChild<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">=</span> <span class="String">'R'</span> <span class="Keyword">Then</span>
- <span class="LineNumber">244</span> 		  rl <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">244</span>                   rl <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
  <span class="LineNumber">245</span>                 <span class="Keyword">ElseIf</span> <span class="Operator">not</span><span class="Parenthesis">(</span>node<span class="Operator">-</span><span class="Operator">&gt;</span>rightChild <span class="Operator">=</span> <span class="Constant">0</span><span class="Parenthesis">)</span> <span class="Operator">and</span> node<span class="Operator">-</span><span class="Operator">&gt;</span>rightChild<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">=</span> <span class="String">'R'</span> <span class="Keyword">Then</span>
- <span class="LineNumber">246</span> 		  ll <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">247</span> 		<span class="Keyword">EndIf</span>
+ <span class="LineNumber">246</span>                   ll <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">247</span>                 <span class="Keyword">EndIf</span>
  <span class="LineNumber">248</span>             <span class="Keyword">Else</span>
  <span class="LineNumber">249</span>                 node<span class="Operator">-</span><span class="Operator">&gt;</span>parent<span class="Operator">-</span><span class="Operator">&gt;</span>leftChild<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'B'</span><span class="Keyword">;</span>
  <span class="LineNumber">250</span>                 node<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'B'</span><span class="Keyword">;</span>
  <span class="LineNumber">251</span>                 <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>node<span class="Operator">-</span><span class="Operator">&gt;</span>parent <span class="Operator">=</span> root<span class="Parenthesis">)</span> <span class="Keyword">Then</span>
- <span class="LineNumber">252</span> 		  node<span class="Operator">-</span><span class="Operator">&gt;</span>parent<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'R'</span><span class="Keyword">;</span>
- <span class="LineNumber">253</span> 		<span class="Keyword">EndIf</span>
+ <span class="LineNumber">252</span>                   node<span class="Operator">-</span><span class="Operator">&gt;</span>parent<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'R'</span><span class="Keyword">;</span>
+ <span class="LineNumber">253</span>                 <span class="Keyword">EndIf</span>
  <span class="LineNumber">254</span>             <span class="Keyword">EndIf</span>
  <span class="LineNumber">255</span>         <span class="Keyword">Else</span>
  <span class="LineNumber">256</span>             <span class="Keyword">If</span> node<span class="Operator">-</span><span class="Operator">&gt;</span>parent<span class="Operator">-</span><span class="Operator">&gt;</span>rightChild <span class="Operator">=</span> <span class="Constant">0</span> <span class="Operator">or</span> node<span class="Operator">-</span><span class="Operator">&gt;</span>parent<span class="Operator">-</span><span class="Operator">&gt;</span>rightChild<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">=</span> <span class="String">'B'</span> <span class="Keyword">Then</span>
  <span class="LineNumber">257</span>                 <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>node<span class="Operator">-</span><span class="Operator">&gt;</span>leftChild <span class="Operator">=</span> <span class="Constant">0</span><span class="Parenthesis">)</span> <span class="Operator">and</span> node<span class="Operator">-</span><span class="Operator">&gt;</span>leftChild<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">=</span> <span class="String">'R'</span> <span class="Keyword">Then</span>
- <span class="LineNumber">258</span> 		  rr <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">258</span>                   rr <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
  <span class="LineNumber">259</span>                 <span class="Keyword">ElseIf</span> <span class="Operator">not</span><span class="Parenthesis">(</span>node<span class="Operator">-</span><span class="Operator">&gt;</span>rightChild <span class="Operator">=</span> <span class="Constant">0</span><span class="Parenthesis">)</span> <span class="Operator">and</span> node<span class="Operator">-</span><span class="Operator">&gt;</span>rightChild<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">=</span> <span class="String">'R'</span> <span class="Keyword">Then</span>
- <span class="LineNumber">260</span> 		  lr <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
- <span class="LineNumber">261</span> 		<span class="Keyword">EndIf</span>
+ <span class="LineNumber">260</span>                   lr <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
+ <span class="LineNumber">261</span>                 <span class="Keyword">EndIf</span>
  <span class="LineNumber">262</span>             <span class="Keyword">Else</span>
  <span class="LineNumber">263</span>                 node<span class="Operator">-</span><span class="Operator">&gt;</span>parent<span class="Operator">-</span><span class="Operator">&gt;</span>rightChild<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'B'</span><span class="Keyword">;</span>
  <span class="LineNumber">264</span>                 node<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'B'</span><span class="Keyword">;</span>
  <span class="LineNumber">265</span>                 <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>node<span class="Operator">-</span><span class="Operator">&gt;</span>parent <span class="Operator">=</span> root<span class="Parenthesis">)</span> <span class="Keyword">Then</span>
- <span class="LineNumber">266</span> 		  node<span class="Operator">-</span><span class="Operator">&gt;</span>parent<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'R'</span><span class="Keyword">;</span>
- <span class="LineNumber">267</span> 		<span class="Keyword">EndIf</span>
+ <span class="LineNumber">266</span>                   node<span class="Operator">-</span><span class="Operator">&gt;</span>parent<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'R'</span><span class="Keyword">;</span>
+ <span class="LineNumber">267</span>                 <span class="Keyword">EndIf</span>
  <span class="LineNumber">268</span>             <span class="Keyword">EndIf</span>
  <span class="LineNumber">269</span>         <span class="Keyword">EndIf</span>
  <span class="LineNumber">270</span>         flag <span class="Operator">:</span><span class="Operator">=</span> <span class="Constant">0</span><span class="Keyword">;</span>
@@ -398,7 +398,7 @@
  <span class="LineNumber">355</span>        <span class="Keyword">If</span> sibling <span class="Operator">=</span> sibling<span class="Operator">-</span><span class="Operator">&gt;</span>parent<span class="Operator">-</span><span class="Operator">&gt;</span>leftChild <span class="Keyword">Then</span>
  <span class="LineNumber">356</span>          rightRotate<span class="Parenthesis">(</span>parent<span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">357</span>        <span class="Keyword">Else</span> 
- <span class="LineNumber">358</span> 	   leftRotate<span class="Parenthesis">(</span>parent<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">358</span>            leftRotate<span class="Parenthesis">(</span>parent<span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">359</span>        <span class="Keyword">EndIf</span>
  <span class="LineNumber">360</span>        FixDoubleBlack<span class="Parenthesis">(</span>x<span class="Parenthesis">)</span><span class="Keyword">;</span> 
  <span class="LineNumber">361</span>      <span class="Keyword">Else</span>
@@ -427,9 +427,9 @@
  <span class="LineNumber">384</span>        <span class="Keyword">Else</span>
  <span class="LineNumber">385</span>          sibling<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'R'</span><span class="Keyword">;</span>
  <span class="LineNumber">386</span>          <span class="Keyword">If</span> parent<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">=</span> <span class="String">'B'</span> <span class="Keyword">Then</span>
- <span class="LineNumber">387</span> 	   FixDoubleBlack<span class="Parenthesis">(</span>parent<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">387</span>            FixDoubleBlack<span class="Parenthesis">(</span>parent<span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">388</span>          <span class="Keyword">Else</span>
- <span class="LineNumber">389</span> 	   parent<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'B'</span><span class="Keyword">;</span>
+ <span class="LineNumber">389</span>            parent<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'B'</span><span class="Keyword">;</span>
  <span class="LineNumber">390</span>          <span class="Keyword">EndIf</span>
  <span class="LineNumber">391</span>        <span class="Keyword">EndIf</span>
  <span class="LineNumber">392</span>     <span class="Keyword">EndIf</span>
@@ -472,9 +472,9 @@
  <span class="LineNumber">429</span>         FixDoubleBlack<span class="Parenthesis">(</span>v<span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">430</span>       <span class="Keyword">Else</span>
  <span class="LineNumber">431</span>         <span class="Type">PointerToRedBlackTreeNode</span> vsib <span class="Operator">:</span><span class="Operator">=</span> Sibling<span class="Parenthesis">(</span>v<span class="Parenthesis">)</span><span class="Keyword">;</span>
- <span class="LineNumber">432</span> 	<span class="Keyword">If</span> vsib <span class="Keyword">Then</span>
- <span class="LineNumber">433</span> 	  vsib<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'R'</span><span class="Keyword">;</span>
- <span class="LineNumber">434</span> 	<span class="Keyword">EndIf</span>
+ <span class="LineNumber">432</span>         <span class="Keyword">If</span> vsib <span class="Keyword">Then</span>
+ <span class="LineNumber">433</span>           vsib<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">:</span><span class="Operator">=</span> <span class="String">'R'</span><span class="Keyword">;</span>
+ <span class="LineNumber">434</span>         <span class="Keyword">EndIf</span>
  <span class="LineNumber">435</span>       <span class="Keyword">EndIf</span>
  <span class="LineNumber">436</span>       <span class="Keyword">If</span> v <span class="Operator">=</span> v<span class="Operator">-</span><span class="Operator">&gt;</span>parent<span class="Operator">-</span><span class="Operator">&gt;</span>leftChild <span class="Keyword">Then</span>
  <span class="LineNumber">437</span>         parent<span class="Operator">-</span><span class="Operator">&gt;</span>leftChild <span class="Operator">:</span><span class="Operator">=</span> <span class="Type">PointerToRedBlackTreeNode</span><span class="Parenthesis">(</span><span class="Constant">0</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
@@ -579,23 +579,23 @@
  <span class="LineNumber">536</span> 
  <span class="LineNumber">537</span> <span class="Keyword">Function</span> assignCoordinatesInorder<span class="Parenthesis">(</span><span class="Type">PointerToRedBlackTreeNode</span> node<span class="Operator">,</span>
  <span class="LineNumber">538</span>                                   <span class="Type">Integer32</span> depth<span class="Operator">,</span>
- <span class="LineNumber">539</span> 				  <span class="Type">Integer32</span> horizontalSpacing<span class="Operator">,</span>
- <span class="LineNumber">540</span> 				  <span class="Type">Integer32</span> verticalSpacing<span class="Parenthesis">)</span>
+ <span class="LineNumber">539</span>                                   <span class="Type">Integer32</span> horizontalSpacing<span class="Operator">,</span>
+ <span class="LineNumber">540</span>                                   <span class="Type">Integer32</span> verticalSpacing<span class="Parenthesis">)</span>
  <span class="LineNumber">541</span>     <span class="Keyword">Which</span> <span class="Keyword">Returns</span> <span class="Type">Nothing</span> <span class="Keyword">Does</span>
  <span class="LineNumber">542</span>   <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>node<span class="Parenthesis">)</span> <span class="Keyword">Then</span>
  <span class="LineNumber">543</span>     <span class="Keyword">Return</span><span class="Keyword">;</span>
  <span class="LineNumber">544</span>   <span class="Keyword">EndIf</span>
  <span class="LineNumber">545</span>   assignCoordinatesInorder<span class="Parenthesis">(</span>node<span class="Operator">-</span><span class="Operator">&gt;</span>leftChild<span class="Operator">,</span>
  <span class="LineNumber">546</span>                            depth <span class="Operator">+</span> <span class="Constant">1</span><span class="Operator">,</span>
- <span class="LineNumber">547</span> 			   horizontalSpacing<span class="Operator">,</span>
- <span class="LineNumber">548</span> 			   verticalSpacing<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">547</span>                            horizontalSpacing<span class="Operator">,</span>
+ <span class="LineNumber">548</span>                            verticalSpacing<span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">549</span>   node<span class="Operator">-</span><span class="Operator">&gt;</span>x <span class="Operator">:</span><span class="Operator">=</span> inorderCounter <span class="Operator">*</span> horizontalSpacing<span class="Keyword">;</span>
  <span class="LineNumber">550</span>   node<span class="Operator">-</span><span class="Operator">&gt;</span>y <span class="Operator">:</span><span class="Operator">=</span> depth <span class="Operator">*</span> verticalSpacing<span class="Keyword">;</span>
  <span class="LineNumber">551</span>   inorderCounter <span class="Operator">+</span><span class="Operator">=</span> <span class="Constant">1</span><span class="Keyword">;</span>
  <span class="LineNumber">552</span>   assignCoordinatesInorder<span class="Parenthesis">(</span>node<span class="Operator">-</span><span class="Operator">&gt;</span>rightChild<span class="Operator">,</span>
  <span class="LineNumber">553</span>                            depth <span class="Operator">+</span> <span class="Constant">1</span><span class="Operator">,</span>
- <span class="LineNumber">554</span> 			   horizontalSpacing<span class="Operator">,</span>
- <span class="LineNumber">555</span> 			   verticalSpacing<span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">554</span>                            horizontalSpacing<span class="Operator">,</span>
+ <span class="LineNumber">555</span>                            verticalSpacing<span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">556</span> <span class="Keyword">EndFunction</span>
  <span class="LineNumber">557</span> 
  <span class="LineNumber">558</span> <span class="Keyword">Structure</span> Maxima <span class="Keyword">Consists</span> <span class="Keyword">Of</span>
@@ -674,7 +674,7 @@
  <span class="LineNumber">631</span>       strcat<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Operator">,</span> <span class="String">"Inserting "</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">632</span>       appendIntegerToString<span class="Parenthesis">(</span>
  <span class="LineNumber">633</span>         <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Operator">,</span>
- <span class="LineNumber">634</span> 	keys<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">634</span>         keys<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">635</span>       strcat<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Operator">,</span> <span class="String">"...<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">636</span>       printString<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">637</span> 
@@ -684,7 +684,7 @@
  <span class="LineNumber">641</span>       strcat<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Operator">,</span> <span class="String">"Deleting "</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">642</span>       appendIntegerToString<span class="Parenthesis">(</span>
  <span class="LineNumber">643</span>         <span class="Operator">AddressOf</span><span class="Parenthesis">(</span>stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Operator">,</span>
- <span class="LineNumber">644</span> 	keys<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
+ <span class="LineNumber">644</span>         keys<span class="Parenthesis">[</span>i<span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">645</span>       strcat<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Operator">,</span> <span class="String">"...<b>\<i>n</i></b>"</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">646</span>       printString<span class="Parenthesis">(</span><span class="Operator">AddressOf</span><span class="Parenthesis">(</span>stringToBePrinted<span class="Parenthesis">[</span><span class="Constant">0</span><span class="Parenthesis">]</span><span class="Parenthesis">)</span><span class="Parenthesis">)</span><span class="Keyword">;</span>
  <span class="LineNumber">647</span> 
