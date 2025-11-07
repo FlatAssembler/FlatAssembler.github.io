@@ -244,7 +244,7 @@
             var trokut = document.createElementNS(svgNS, "polygon");
             trokut.setAttribute(
               "points",
-              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina,
             );
             trokut.setAttribute(
               "fill",
@@ -252,7 +252,7 @@
                 Math.round(255 - i * 2.83) +
                 ",170," +
                 Math.round(170 + i * 2.83) +
-                ")"
+                ")",
             );
             crtanje.appendChild(trokut);
           }
@@ -269,11 +269,11 @@
             var trokut = document.createElementNS(svgNS, "polygon");
             trokut.setAttribute(
               "points",
-              x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina
+              x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina,
             );
             trokut.setAttribute(
               "fill",
-              "rgb(255," + Math.round(255 - i * 2.83) + ",170)"
+              "rgb(255," + Math.round(255 - i * 2.83) + ",170)",
             );
             crtanje.appendChild(trokut);
           }
@@ -3033,6 +3033,27 @@ cmp dword [result],0</pre
               mother).</i
             >&quot;.
           </li>
+          <li>
+            Somebody asked (probably jokingly): &quot;<i
+              >Why doesn't cigarette smoke sterilize the air by giving bacteria
+              a mitochondrial cancer?</i
+            >&quot;.<br />
+            <a
+              href="https://www.reddit.com/r/AskReddit/comments/1oq832q/comment/nnhch2p/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
+              >I responded</a
+            >: &quot;<i
+              >Bacteria do not have mitochondria, in fact, mitochondria
+              themselves are reduced form of aerobic bacteria. And a mutation in
+              mitochondrial DNA causing mitochondria to divide uncontrollably
+              (if that's what you mean by "mitochondrial cancer") would not be
+              overly dangerous since mitochondria have no mechanism to use
+              energy stored as ATP that's not produced by themselves (unlike
+              cancer cells which can use external glucose).</i
+            >&quot;. That received many upvotes and comments from people telling
+            me they learned something new. I assumed it was common knowledge and
+            that one probably cannot pass 9th grade science classes without
+            knowing that, but, apparently, it is not so.
+          </li>
         </ul>
         If you have some interesting thoughts about what makes a good answer on
         an Internet forum, feel free to contact me about that.<br />
@@ -4019,7 +4040,7 @@ cmp dword [result],0</pre
             var trokut = document.createElementNS(svgNS, "polygon");
             trokut.setAttribute(
               "points",
-              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0"
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0",
             );
             trokut.setAttribute(
               "fill",
@@ -4027,7 +4048,7 @@ cmp dword [result],0</pre
                 Math.round(255 - i * 2.83) +
                 "," +
                 Math.min(Math.round(170 + i * 4), 255) +
-                ")"
+                ")",
             );
             crtanje.appendChild(trokut);
           }
@@ -4056,26 +4077,26 @@ cmp dword [result],0</pre
           } else if (brojac >= 50 && brojac <= 100) {
             plavi.setAttribute(
               "transform",
-              "translate(0 " + (-brojac + 50) + ")"
+              "translate(0 " + (-brojac + 50) + ")",
             );
             textA.style.display = "none";
           } else if (brojac > 100 && brojac <= 150) {
             zeleni.setAttribute(
               "transform",
-              "rotate(" + ((brojac - 100) * 90) / 50 + " 50 200)"
+              "rotate(" + ((brojac - 100) * 90) / 50 + " 50 200)",
             );
             textB.style.display = "none";
           } else if (brojac > 150 && brojac <= 200) {
             zeleni.setAttribute(
               "transform",
-              "rotate(90 50 200) translate(0 " + (brojac - 150) + ")"
+              "rotate(90 50 200) translate(0 " + (brojac - 150) + ")",
             );
           } else if (brojac > 200 && brojac <= 250) {
             polyLines[0].style.display = "inline";
             if (brojac > 205) polyLines[1].style.display = "inline";
             zuti.setAttribute(
               "transform",
-              "rotate(" + ((200 - brojac) * 90) / 50 + " 200 50)"
+              "rotate(" + ((200 - brojac) * 90) / 50 + " 200 50)",
             );
           } else {
             textC.style.display = "inline";
