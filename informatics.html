@@ -270,7 +270,7 @@
             var trokut = document.createElementNS(svgNS, "polygon");
             trokut.setAttribute(
               "points",
-              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina,
             );
             trokut.setAttribute(
               "fill",
@@ -278,7 +278,7 @@
                 Math.round(255 - i * 2.83) +
                 ",170," +
                 Math.round(170 + i * 2.83) +
-                ")"
+                ")",
             );
             crtanje.appendChild(trokut);
           }
@@ -295,11 +295,11 @@
             var trokut = document.createElementNS(svgNS, "polygon");
             trokut.setAttribute(
               "points",
-              x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina
+              x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina,
             );
             trokut.setAttribute(
               "fill",
-              "rgb(255," + Math.round(255 - i * 2.83) + ",170)"
+              "rgb(255," + Math.round(255 - i * 2.83) + ",170)",
             );
             crtanje.appendChild(trokut);
           }
@@ -1744,6 +1744,11 @@ fibonacci n <span class="Statement">=</span> fibonacci (n<span class="Statement"
         UPDATE on 15/04/2025: I've written
         <a href="ternary_conditional.html"
           >a blog-post about implementing the ternary conditional operator</a
+        >.<br /><br />
+        UPDATE on 09/11/2025: For my Systems Programming classes, I've written
+        <a href="usporedba_paralelnih_sortiranja.pdf"
+          >a seminar in which I measure how much MergeSort paralizes itself
+          better than QuickSort on multi-CPU systems</a
         >.
       </div>
       <center>
@@ -2020,7 +2025,7 @@ fibonacci n <span class="Statement">=</span> fibonacci (n<span class="Statement"
             var trokut = document.createElementNS(svgNS, "polygon");
             trokut.setAttribute(
               "points",
-              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0"
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0",
             );
             trokut.setAttribute(
               "fill",
@@ -2028,7 +2033,7 @@ fibonacci n <span class="Statement">=</span> fibonacci (n<span class="Statement"
                 Math.round(255 - i * 2.83) +
                 "," +
                 Math.min(Math.round(170 + i * 4), 255) +
-                ")"
+                ")",
             );
             crtanje.appendChild(trokut);
           }
