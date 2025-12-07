@@ -222,7 +222,7 @@
             var trokut = document.createElementNS(svgNS, "polygon");
             trokut.setAttribute(
               "points",
-              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina,
             );
             trokut.setAttribute(
               "fill",
@@ -230,7 +230,7 @@
                 Math.round(255 - i * 2.83) +
                 ",170," +
                 Math.round(170 + i * 2.83) +
-                ")"
+                ")",
             );
             crtanje.appendChild(trokut);
           }
@@ -247,11 +247,11 @@
             var trokut = document.createElementNS(svgNS, "polygon");
             trokut.setAttribute(
               "points",
-              x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina
+              x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina,
             );
             trokut.setAttribute(
               "fill",
-              "rgb(255," + Math.round(255 - i * 2.83) + ",170)"
+              "rgb(255," + Math.round(255 - i * 2.83) + ",170)",
             );
             crtanje.appendChild(trokut);
           }
@@ -339,12 +339,20 @@
             See also:<br />
             <u
               style="color: #0077ff"
-              onclick="window.open('http://flatassembler.github.io/toponyms.html'); window.close();"
+              onclick="
+                window.open('http://flatassembler.github.io/toponyms.html');
+                window.close();
+              "
               >Croatian Toponyms</u
             ><br />
             <u
               style="color: #0077ff"
-              onclick="window.open('http://flatassembler.github.io/Indo-Austronesian.html'); window.close();"
+              onclick="
+                window.open(
+                  'http://flatassembler.github.io/Indo-Austronesian.html',
+                );
+                window.close();
+              "
               >Indo-Austronesian</u
             >
           </div>
@@ -1050,6 +1058,28 @@
         valuing revelation as the source of knowledge did the science start to
         advance?
         <br />
+        In my opinion, the only theodicy (the explanation of how a god can exist
+        in the light of all the evil in the world) that is not ridiculous in the
+        face of it is saying something like: &quot;<i
+          >God will not fight the injustices in this world because this world is
+          not God'd jurisdiction. God's jurisdiction is the afterlife. It would
+          be silly for God to fight the injustices in this world when he will
+          give most people a life in the world of endless pleasures in the
+          afterlife. The sufferings of this world are negligible compared to the
+          pleasures of heaven.</i
+        >&quot;. Saint Paul probably thought something similar to this when he
+        wrote Romans 8:18 (&quot;<i
+          >I consider that our present sufferings are not worth comparing with
+          the glory that will be revealed in us.</i
+        >&quot;). But the most obvious problem with that theodicy is all the
+        evidence we have that mind is dependent on the brain and that therefore
+        afterlife does not exist. Besides, there is a similar argument that can
+        be made <b>against</b> afterlife as is commonly imagined:
+        <a href="https://christianity.stackexchange.com/q/101213/62325"
+          >the problem of how hell can possibly be a just punishment for a
+          finite crime (any crime we can do in this life)</a
+        >.
+        <br />
         Many people find the idea that there is no afterlife frightening. Well,
         I find the idea of there being one way more frightening. Think of it
         this way: you were dead for eternity before you were born. It's not that
@@ -1070,10 +1100,11 @@
         physical death) are actually claiming is that a complete destruction of
         the brain is a cure for psychiatric and neurological illnesses that has
         somehow eluded medical science, and that is obviously an absurd
-        suggestion.<br />Atheism has a bad name, because some of the well-known
-        atheists, like Karl Marx, just replaced God with another dogma, like
-        communism. Socialism and communism don't logically follow from atheism
-        in any way.
+        suggestion.
+        <br />
+        Atheism has a bad name, because some of the well-known atheists, like
+        Karl Marx, just replaced God with another dogma, like communism.
+        Socialism and communism don't logically follow from atheism in any way.
         <span id="TheocracyWorseThanCommunism"
           >Besides, how is theocracy, advocated by many religious people, any
           better than communism? Like Clive Staples Lewis (otherwise a devout
@@ -1648,19 +1679,25 @@
         <a
           href="#"
           style="color: red"
-          onclick="document.getElementById('glavni').setAttribute('class', 'main1')"
+          onclick="
+            document.getElementById('glavni').setAttribute('class', 'main1')
+          "
           >[1]</a
         >
         <a
           href="#"
           style="color: red"
-          onclick="document.getElementById('glavni').setAttribute('class', 'main2')"
+          onclick="
+            document.getElementById('glavni').setAttribute('class', 'main2')
+          "
           >[2]</a
         >
         <a
           href="#"
           style="color: red"
-          onclick="document.getElementById('glavni').setAttribute('class', 'main3')"
+          onclick="
+            document.getElementById('glavni').setAttribute('class', 'main3')
+          "
           >[3]</a
         >
       </div>
@@ -1768,7 +1805,7 @@
             var trokut = document.createElementNS(svgNS, "polygon");
             trokut.setAttribute(
               "points",
-              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0"
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0",
             );
             trokut.setAttribute(
               "fill",
@@ -1776,7 +1813,7 @@
                 Math.round(255 - i * 2.83) +
                 "," +
                 Math.min(Math.round(170 + i * 4), 255) +
-                ")"
+                ")",
             );
             crtanje.appendChild(trokut);
           }
