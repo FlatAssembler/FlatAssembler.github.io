@@ -244,7 +244,7 @@
             var trokut = document.createElementNS(svgNS, "polygon");
             trokut.setAttribute(
               "points",
-              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina,
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina
             );
             trokut.setAttribute(
               "fill",
@@ -252,7 +252,7 @@
                 Math.round(255 - i * 2.83) +
                 ",170," +
                 Math.round(170 + i * 2.83) +
-                ")",
+                ")"
             );
             crtanje.appendChild(trokut);
           }
@@ -269,11 +269,11 @@
             var trokut = document.createElementNS(svgNS, "polygon");
             trokut.setAttribute(
               "points",
-              x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina,
+              x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina
             );
             trokut.setAttribute(
               "fill",
-              "rgb(255," + Math.round(255 - i * 2.83) + ",170)",
+              "rgb(255," + Math.round(255 - i * 2.83) + ",170)"
             );
             crtanje.appendChild(trokut);
           }
@@ -361,12 +361,20 @@
             See also:<br />
             <u
               style="color: #0077ff"
-              onclick="window.open('http://flatassembler.github.io/toponyms.html'); window.close();"
+              onclick="
+                window.open('http://flatassembler.github.io/toponyms.html');
+                window.close();
+              "
               >Croatian Toponyms</u
             ><br />
             <u
               style="color: #0077ff"
-              onclick="window.open('http://flatassembler.github.io/Indo-Austronesian.html'); window.close();"
+              onclick="
+                window.open(
+                  'http://flatassembler.github.io/Indo-Austronesian.html'
+                );
+                window.close();
+              "
               >Indo-Austronesian</u
             >
           </div>
@@ -1166,7 +1174,34 @@
         data structures and algorithms as possible, short variable names and
         other things that help you write short programs fast...). I have written
         a lot about it at the beginning on my
-        <a href="informatics.html">Informatics page</a>.
+        <a href="informatics.html">Informatics page</a>.<br />
+        UPDATE on 07/01/2026: Another example of a potentially-dangerous
+        half-truth taught in school. In our 9th-grade biology classes, we are
+        taught that Vitamin K is necessary for the osteoblasts to extract the
+        calcium from your blood in order to store them into the bone's
+        calcium-II-phosphate. And we are also taught that very low levels of
+        Vitamin K cause heart attacks. I am sure quite a few students
+        misunderstand it or even misremember it as if it is written in our
+        textbook that Vitamin K decreases the risk of heart attacks
+        <b>because</b> it makes osteoblasts extract calcium from your blood into
+        the bones. Which is totally false. Calcium in your blood is basically
+        never the limiting factor in calcifying your cholesterol: there is
+        always too much of it for the exact amount to matter. Vitamin K works to
+        prevent heart attacks by enabling the production of the enzyme called
+        Matrix GLA Protein, which decalcifies the cholesterol, however, taking
+        megadoses of Vitamin K does not make your body produce more of the
+        Matrix GLA Protein. And thinking Vitamin K prevents heart attacks by
+        lowering the amount of calcium in your blood is a dangerous
+        misconception because it makes wrong advices like &quot;<i
+          >Don't worry about saturated fat or trans fat you eat, just eat enough
+          vegetables to get enough Vitamin K, and you should probably avoid
+          calcium-rich foods such as orange juice.</i
+        >&quot; seem scientifically plausible. I've made
+        <a href="https://youtu.be/0u5dhZnyj_4">a YouTube video about that</a>
+        (<a
+          href="https://flatassembler.github.io/just-eat-more-vegetables-no-need-to-give-up-meat.mp4"
+          >MP4</a
+        >).<br />
         <h2 id="censorship_not_an_answer">
           Why censorship is not a good answer to pseudoscience?
         </h2>
@@ -3919,19 +3954,25 @@ cmp dword [result],0</pre
         <a
           href="#"
           style="color: red"
-          onclick="document.getElementById('glavni').setAttribute('class', 'main1')"
+          onclick="
+            document.getElementById('glavni').setAttribute('class', 'main1')
+          "
           >[1]</a
         >
         <a
           href="#"
           style="color: red"
-          onclick="document.getElementById('glavni').setAttribute('class', 'main2')"
+          onclick="
+            document.getElementById('glavni').setAttribute('class', 'main2')
+          "
           >[2]</a
         >
         <a
           href="#"
           style="color: red"
-          onclick="document.getElementById('glavni').setAttribute('class', 'main3')"
+          onclick="
+            document.getElementById('glavni').setAttribute('class', 'main3')
+          "
           >[3]</a
         >
       </div>
@@ -4040,7 +4081,7 @@ cmp dword [result],0</pre
             var trokut = document.createElementNS(svgNS, "polygon");
             trokut.setAttribute(
               "points",
-              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0"
             );
             trokut.setAttribute(
               "fill",
@@ -4048,7 +4089,7 @@ cmp dword [result],0</pre
                 Math.round(255 - i * 2.83) +
                 "," +
                 Math.min(Math.round(170 + i * 4), 255) +
-                ")",
+                ")"
             );
             crtanje.appendChild(trokut);
           }
@@ -4077,26 +4118,26 @@ cmp dword [result],0</pre
           } else if (brojac >= 50 && brojac <= 100) {
             plavi.setAttribute(
               "transform",
-              "translate(0 " + (-brojac + 50) + ")",
+              "translate(0 " + (-brojac + 50) + ")"
             );
             textA.style.display = "none";
           } else if (brojac > 100 && brojac <= 150) {
             zeleni.setAttribute(
               "transform",
-              "rotate(" + ((brojac - 100) * 90) / 50 + " 50 200)",
+              "rotate(" + ((brojac - 100) * 90) / 50 + " 50 200)"
             );
             textB.style.display = "none";
           } else if (brojac > 150 && brojac <= 200) {
             zeleni.setAttribute(
               "transform",
-              "rotate(90 50 200) translate(0 " + (brojac - 150) + ")",
+              "rotate(90 50 200) translate(0 " + (brojac - 150) + ")"
             );
           } else if (brojac > 200 && brojac <= 250) {
             polyLines[0].style.display = "inline";
             if (brojac > 205) polyLines[1].style.display = "inline";
             zuti.setAttribute(
               "transform",
-              "rotate(" + ((200 - brojac) * 90) / 50 + " 200 50)",
+              "rotate(" + ((200 - brojac) * 90) / 50 + " 200 50)"
             );
           } else {
             textC.style.display = "inline";
