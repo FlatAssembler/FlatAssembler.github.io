@@ -1,0 +1,1524 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<svg
+	width="840"
+	height="870"
+	version="1.1"
+	xmlns="http://www.w3.org/2000/svg"
+>
+<rect x="0" y="0" width="100%" height="100%" fill="white" />
+<text x="42" y="15">b</text>
+	<text x="12" y="37">b</text>
+	<text x="72" y="15">c</text>
+	<text x="12" y="67">c</text>
+	<text x="102" y="15">č</text>
+	<text x="12" y="97">č</text>
+	<text x="132" y="15">ć</text>
+	<text x="12" y="127">ć</text>
+	<text x="162" y="15">d</text>
+	<text x="12" y="157">d</text>
+	<text x="192" y="15">đ</text>
+	<text x="12" y="187">đ</text>
+	<text x="222" y="15">f</text>
+	<text x="12" y="217">f</text>
+	<text x="252" y="15">g</text>
+	<text x="12" y="247">g</text>
+	<text x="282" y="15">h</text>
+	<text x="12" y="277">h</text>
+	<text x="312" y="15">j</text>
+	<text x="12" y="307">j</text>
+	<text x="342" y="15">k</text>
+	<text x="12" y="337">k</text>
+	<text x="372" y="15">l</text>
+	<text x="12" y="367">l</text>
+	<text x="402" y="15">m</text>
+	<text x="12" y="397">m</text>
+	<text x="432" y="15">n</text>
+	<text x="12" y="427">n</text>
+	<text x="462" y="15">p</text>
+	<text x="12" y="457">p</text>
+	<text x="492" y="15">q</text>
+	<text x="12" y="487">q</text>
+	<text x="522" y="15">r</text>
+	<text x="12" y="517">r</text>
+	<text x="552" y="15">s</text>
+	<text x="12" y="547">s</text>
+	<text x="582" y="15">š</text>
+	<text x="12" y="577">š</text>
+	<text x="612" y="15">t</text>
+	<text x="12" y="607">t</text>
+	<text x="642" y="15">v</text>
+	<text x="12" y="637">v</text>
+	<text x="672" y="15">w</text>
+	<text x="12" y="667">w</text>
+	<text x="702" y="15">x</text>
+	<text x="12" y="697">x</text>
+	<text x="732" y="15">y</text>
+	<text x="12" y="727">y</text>
+	<text x="762" y="15">z</text>
+	<text x="12" y="757">z</text>
+	<text x="792" y="15">ž</text>
+	<text x="12" y="787">ž</text>
+	<text x="822" y="15">0</text>
+	<text x="12" y="817">0</text>
+	<line x1="30" y1="0" x2="30" y2="840" stroke="black" />
+<line x1="0" y1="20" x2="840" y2="20" stroke="black" /><circle cx="45" cy="33" fill="none" stroke="red" stroke-width="2" r="0.11659513590844062" />
+			<rect x="44.987124463519315" y="32.987124463519315" width="0.02575107296137339" height="0.02575107296137339" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="63" fill="none" stroke="red" stroke-width="2" r="0.09871244635193133" />
+			<rect x="44.900572246065806" y="62.900572246065806" width="0.1988555078683834" height="0.1988555078683834" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="45" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="45" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="153" fill="none" stroke="red" stroke-width="2" r="0.259656652360515" />
+			<rect x="44.93919885550787" y="152.93919885550787" width="0.12160228898426324" height="0.12160228898426324" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="45" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="213" fill="none" stroke="red" stroke-width="2" r="0.010014306151645207" />
+			<rect x="44.997854077253216" y="212.9978540772532" width="0.004291845493562232" height="0.004291845493562232" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="243" fill="none" stroke="red" stroke-width="2" r="0.2085121602288984" />
+			<rect x="44.987124463519315" y="242.9871244635193" width="0.02575107296137339" height="0.02575107296137339" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="273" fill="none" stroke="red" stroke-width="2" r="0.050786838340486404" />
+			<rect x="44.93848354792561" y="272.9384835479256" width="0.12303290414878397" height="0.12303290414878397" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="303" fill="none" stroke="red" stroke-width="2" r="0.5890557939914164" />
+			<rect x="44.80543633762518" y="302.80543633762517" width="0.38912732474964234" height="0.38912732474964234" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="333" fill="none" stroke="red" stroke-width="2" r="0.20064377682403434" />
+			<rect x="44.93884120171674" y="332.93884120171674" width="0.12231759656652362" height="0.12231759656652362" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="363" fill="none" stroke="red" stroke-width="2" r="1.0836909871244635" />
+			<rect x="44.67918454935622" y="362.67918454935625" width="0.6416309012875536" height="0.6416309012875536" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="393" fill="none" stroke="red" stroke-width="2" r="0.11945636623748211" />
+			<rect x="44.72067238912732" y="392.72067238912734" width="0.5586552217453505" height="0.5586552217453505" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="423" fill="none" stroke="red" stroke-width="2" r="0.4295422031473533" />
+			<rect x="44.53648068669528" y="422.53648068669526" width="0.9270386266094421" height="0.9270386266094421" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="453" fill="none" stroke="red" stroke-width="2" r="0.013948497854077254" />
+			<rect x="44.99928469241774" y="452.99928469241775" width="0.001430615164520744" height="0.001430615164520744" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="45" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="513" fill="none" stroke="red" stroke-width="2" r="1.5944206008583692" />
+			<rect x="44.74034334763949" y="512.7403433476395" width="0.51931330472103" height="0.51931330472103" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="543" fill="none" stroke="red" stroke-width="2" r="0.46459227467811165" />
+			<rect x="44.97281831187411" y="542.9728183118741" width="0.05436337625178827" height="0.05436337625178827" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="45" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="603" fill="none" stroke="red" stroke-width="2" r="0.16344778254649497" />
+			<rect x="44.8293991416309" y="602.8293991416309" width="0.34120171673819744" height="0.34120171673819744" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="633" fill="none" stroke="red" stroke-width="2" r="0.27253218884120173" />
+			<rect x="44.85801144492132" y="632.8580114449213" width="0.28397711015736765" height="0.28397711015736765" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="45" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="45" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="45" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="753" fill="none" stroke="red" stroke-width="2" r="0.4245350500715308" />
+			<rect x="44.98855507868383" y="752.9885550786838" width="0.022889842632331903" height="0.022889842632331903" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="45" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="45" cy="813" fill="none" stroke="red" stroke-width="2" r="0.03969957081545065" />
+			<rect x="45" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="33" fill="none" stroke="red" stroke-width="2" r="0.001072961373390558" />
+			<rect x="75" y="33" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="63" fill="none" stroke="red" stroke-width="2" r="0.012875536480686695" />
+			<rect x="74.99785407725322" y="62.997854077253216" width="0.004291845493562232" height="0.004291845493562232" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="75" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="75" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="153" fill="none" stroke="red" stroke-width="2" r="0.010371959942775393" />
+			<rect x="74.9856938483548" y="152.9856938483548" width="0.02861230329041488" height="0.02861230329041488" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="75" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="213" fill="none" stroke="red" stroke-width="2" r="0.014663805436337624" />
+			<rect x="74.9989270386266" y="212.99892703862662" width="0.002145922746781116" height="0.002145922746781116" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="243" fill="none" stroke="red" stroke-width="2" r="0.0382689556509299" />
+			<rect x="74.9953505007153" y="242.99535050071532" width="0.009298998569384835" height="0.009298998569384835" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="273" fill="none" stroke="red" stroke-width="2" r="0.00715307582260372" />
+			<rect x="74.88161659513591" y="272.8816165951359" width="0.23676680972818312" height="0.23676680972818312" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="303" fill="none" stroke="red" stroke-width="2" r="0.22782546494992845" />
+			<rect x="73.70815450643777" y="301.7081545064378" width="2.5836909871244638" height="2.5836909871244638" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="333" fill="none" stroke="red" stroke-width="2" r="0.05329041487839772" />
+			<rect x="74.96065808297568" y="332.96065808297567" width="0.07868383404864092" height="0.07868383404864092" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="363" fill="none" stroke="red" stroke-width="2" r="0.05722460658082976" />
+			<rect x="74.8412017167382" y="362.84120171673817" width="0.3175965665236052" height="0.3175965665236052" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="393" fill="none" stroke="red" stroke-width="2" r="0.045064377682403435" />
+			<rect x="73.38805436337626" y="391.3880543633762" width="3.2238912732474962" height="3.2238912732474962" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="423" fill="none" stroke="red" stroke-width="2" r="0.16773962804005724" />
+			<rect x="74.87195994277539" y="422.8719599427754" width="0.2560801144492132" height="0.2560801144492132" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="453" fill="none" stroke="red" stroke-width="2" r="0.027181688125894134" />
+			<rect x="74.99427753934192" y="452.9942775393419" width="0.011444921316165951" height="0.011444921316165951" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="75" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="513" fill="none" stroke="red" stroke-width="2" r="0.41559370529327605" />
+			<rect x="74.89127324749643" y="512.8912732474964" width="0.21745350500715308" height="0.21745350500715308" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="543" fill="none" stroke="red" stroke-width="2" r="0.026824034334763946" />
+			<rect x="74.99391988555078" y="542.9939198855508" width="0.012160228898426323" height="0.012160228898426323" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="75" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="603" fill="none" stroke="red" stroke-width="2" r="0.03862660944206008" />
+			<rect x="74.89270386266094" y="602.8927038626609" width="0.21459227467811157" height="0.21459227467811157" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="633" fill="none" stroke="red" stroke-width="2" r="0.1405579399141631" />
+			<rect x="74.96816881258941" y="632.9681688125894" width="0.06366237482117311" height="0.06366237482117311" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="75" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="75" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="75" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="753" fill="none" stroke="red" stroke-width="2" r="0.012517882689556508" />
+			<rect x="74.9964234620887" y="752.9964234620887" width="0.00715307582260372" height="0.00715307582260372" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="75" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="75" cy="813" fill="none" stroke="red" stroke-width="2" r="0.016094420600858368" />
+			<rect x="75" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="33" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="33" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="63" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="63" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="153" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="153" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="213" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="213" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="243" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="243" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="273" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="273" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="303" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="303" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="333" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="333" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="363" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="363" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="393" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="393" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="423" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="423" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="453" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="453" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="513" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="513" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="543" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="543" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="603" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="603" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="633" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="633" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="753" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="753" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="105" cy="813" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="105" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="33" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="33" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="63" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="63" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="153" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="153" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="213" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="213" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="243" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="243" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="273" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="273" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="303" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="303" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="333" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="333" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="363" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="363" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="393" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="393" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="423" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="423" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="453" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="453" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="513" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="513" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="543" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="543" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="603" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="603" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="633" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="633" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="753" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="753" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="135" cy="813" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="135" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="33" fill="none" stroke="red" stroke-width="2" r="0.5261087267525036" />
+			<rect x="164.8719599427754" y="32.87195994277539" width="0.2560801144492132" height="0.2560801144492132" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="63" fill="none" stroke="red" stroke-width="2" r="0.08977110157367668" />
+			<rect x="164.8909155937053" y="62.890915593705294" width="0.21816881258941345" height="0.21816881258941345" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="165" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="165" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="153" fill="none" stroke="red" stroke-width="2" r="0.17703862660944206" />
+			<rect x="164.98068669527896" y="152.98068669527896" width="0.03862660944206008" height="0.03862660944206008" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="165" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="213" fill="none" stroke="red" stroke-width="2" r="0.11802575107296137" />
+			<rect x="164.9964234620887" y="212.9964234620887" width="0.00715307582260372" height="0.00715307582260372" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="243" fill="none" stroke="red" stroke-width="2" r="0.4871244635193133" />
+			<rect x="164.9713876967096" y="242.9713876967096" width="0.05722460658082976" height="0.05722460658082976" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="273" fill="none" stroke="red" stroke-width="2" r="0.13912732474964234" />
+			<rect x="164.8140200286123" y="272.8140200286123" width="0.3719599427753934" height="0.3719599427753934" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="303" fill="none" stroke="red" stroke-width="2" r="0.5597281831187411" />
+			<rect x="164.63340486409155" y="302.6334048640916" width="0.7331902718168812" height="0.7331902718168812" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="333" fill="none" stroke="red" stroke-width="2" r="0.44420600858369097" />
+			<rect x="164.88662374821172" y="332.8866237482117" width="0.2267525035765379" height="0.2267525035765379" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="363" fill="none" stroke="red" stroke-width="2" r="0.6573676680972819" />
+			<rect x="164.44420600858368" y="362.4442060085837" width="1.111587982832618" height="1.111587982832618" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="393" fill="none" stroke="red" stroke-width="2" r="0.6609442060085837" />
+			<rect x="164.2428469241774" y="392.2428469241774" width="1.5143061516452074" height="1.5143061516452074" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="423" fill="none" stroke="red" stroke-width="2" r="0.4721030042918455" />
+			<rect x="163.92989985693848" y="421.9298998569385" width="2.140200286123033" height="2.140200286123033" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="453" fill="none" stroke="red" stroke-width="2" r="0.4524320457796853" />
+			<rect x="164.98283261802575" y="452.9828326180257" width="0.034334763948497854" height="0.034334763948497854" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="165" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="513" fill="none" stroke="red" stroke-width="2" r="1.3551502145922747" />
+			<rect x="164.61766809728184" y="512.6176680972818" width="0.7646638054363376" height="0.7646638054363376" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="543" fill="none" stroke="red" stroke-width="2" r="0.9431330472103004" />
+			<rect x="164.96959942775393" y="542.9695994277539" width="0.06080114449213162" height="0.06080114449213162" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="165" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="603" fill="none" stroke="red" stroke-width="2" r="0.2932761087267525" />
+			<rect x="164.59227467811158" y="602.5922746781116" width="0.815450643776824" height="0.815450643776824" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="633" fill="none" stroke="red" stroke-width="2" r="1.1298283261802575" />
+			<rect x="164.71244635193133" y="632.7124463519314" width="0.5751072961373391" height="0.5751072961373391" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="165" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="165" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="723" fill="none" stroke="red" stroke-width="2" r="0.002145922746781116" />
+			<rect x="165" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="753" fill="none" stroke="red" stroke-width="2" r="0.3104434907010014" />
+			<rect x="164.98247496423463" y="752.9824749642346" width="0.035050071530758224" height="0.035050071530758224" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="165" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="165" cy="813" fill="none" stroke="red" stroke-width="2" r="0.04184549356223176" />
+			<rect x="165" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="33" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="33" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="63" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="63" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="153" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="153" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="213" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="213" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="243" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="243" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="273" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="273" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="303" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="303" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="333" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="333" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="363" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="363" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="393" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="393" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="423" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="423" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="453" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="453" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="513" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="513" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="543" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="543" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="603" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="603" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="633" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="633" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="753" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="753" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="195" cy="813" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="195" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="33" fill="none" stroke="red" stroke-width="2" r="0.02861230329041488" />
+			<rect x="224.99821173104434" y="32.99821173104435" width="0.00357653791130186" height="0.00357653791130186" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="63" fill="none" stroke="red" stroke-width="2" r="0.017525035765379112" />
+			<rect x="224.99177396280402" y="62.991773962804004" width="0.016452074391988557" height="0.016452074391988557" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="225" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="225" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="153" fill="none" stroke="red" stroke-width="2" r="0.026108726752503576" />
+			<rect x="224.9978540772532" y="152.9978540772532" width="0.004291845493562232" height="0.004291845493562232" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="225" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="213" fill="none" stroke="red" stroke-width="2" r="0.011802575107296136" />
+			<rect x="225" y="213" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="243" fill="none" stroke="red" stroke-width="2" r="0.032188841201716736" />
+			<rect x="224.99356223175965" y="242.99356223175965" width="0.012875536480686695" height="0.012875536480686695" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="273" fill="none" stroke="red" stroke-width="2" r="0.002503576537911302" />
+			<rect x="224.99535050071532" y="272.9953505007153" width="0.009298998569384835" height="0.009298998569384835" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="303" fill="none" stroke="red" stroke-width="2" r="0.025035765379113017" />
+			<rect x="224.90808297567955" y="302.9080829756795" width="0.1838340486409156" height="0.1838340486409156" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="333" fill="none" stroke="red" stroke-width="2" r="0.188483547925608" />
+			<rect x="224.98426323319026" y="332.9842632331903" width="0.031473533619456366" height="0.031473533619456366" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="363" fill="none" stroke="red" stroke-width="2" r="0.2374821173104435" />
+			<rect x="224.96137339055795" y="362.9613733905579" width="0.07725321888412016" height="0.07725321888412016" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="393" fill="none" stroke="red" stroke-width="2" r="0.03755364806866953" />
+			<rect x="224.95565092989986" y="392.95565092989983" width="0.08869814020028613" height="0.08869814020028613" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="423" fill="none" stroke="red" stroke-width="2" r="0.2263948497854077" />
+			<rect x="224.923104434907" y="422.92310443490703" width="0.15379113018597995" height="0.15379113018597995" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="453" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="224.99892703862662" y="452.9989270386266" width="0.002145922746781116" height="0.002145922746781116" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="225" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="513" fill="none" stroke="red" stroke-width="2" r="0.5064377682403434" />
+			<rect x="224.9241773962804" y="512.9241773962804" width="0.15164520743919885" height="0.15164520743919885" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="543" fill="none" stroke="red" stroke-width="2" r="0.07474964234620887" />
+			<rect x="224.99713876967095" y="542.997138769671" width="0.005722460658082976" height="0.005722460658082976" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="225" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="603" fill="none" stroke="red" stroke-width="2" r="0.10586552217453506" />
+			<rect x="224.9667381974249" y="602.9667381974249" width="0.06652360515021459" height="0.06652360515021459" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="633" fill="none" stroke="red" stroke-width="2" r="0.013948497854077254" />
+			<rect x="224.97889842632333" y="632.9788984263233" width="0.04220314735336195" height="0.04220314735336195" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="225" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="225" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="225" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="753" fill="none" stroke="red" stroke-width="2" r="0.05722460658082976" />
+			<rect x="224.98748211731044" y="752.9874821173105" width="0.025035765379113017" height="0.025035765379113017" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="225" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="225" cy="813" fill="none" stroke="red" stroke-width="2" r="0.003218884120171674" />
+			<rect x="225" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="33" fill="none" stroke="red" stroke-width="2" r="0.09763948497854077" />
+			<rect x="254.96959942775393" y="32.969599427753934" width="0.06080114449213162" height="0.06080114449213162" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="63" fill="none" stroke="red" stroke-width="2" r="0.02396280400572246" />
+			<rect x="254.98283261802575" y="62.98283261802575" width="0.034334763948497854" height="0.034334763948497854" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="255" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="255" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="153" fill="none" stroke="red" stroke-width="2" r="0.11373390557939914" />
+			<rect x="254.939556509299" y="152.939556509299" width="0.12088698140200287" height="0.12088698140200287" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="255" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="213" fill="none" stroke="red" stroke-width="2" r="0.007868383404864092" />
+			<rect x="254.9985693848355" y="212.9985693848355" width="0.002861230329041488" height="0.002861230329041488" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="243" fill="none" stroke="red" stroke-width="2" r="0.045064377682403435" />
+			<rect x="254.98497854077254" y="242.98497854077254" width="0.030042918454935622" height="0.030042918454935622" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="273" fill="none" stroke="red" stroke-width="2" r="0.002861230329041488" />
+			<rect x="254.95278969957081" y="272.9527896995708" width="0.09442060085836909" height="0.09442060085836909" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="303" fill="none" stroke="red" stroke-width="2" r="0.08226037195994278" />
+			<rect x="254.68633762517882" y="302.68633762517885" width="0.6273247496423462" height="0.6273247496423462" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="333" fill="none" stroke="red" stroke-width="2" r="0.010371959942775393" />
+			<rect x="254.97460658082974" y="332.97460658082974" width="0.050786838340486404" height="0.050786838340486404" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="363" fill="none" stroke="red" stroke-width="2" r="1.0103719599427754" />
+			<rect x="254.71638054363376" y="362.71638054363376" width="0.567238912732475" height="0.567238912732475" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="393" fill="none" stroke="red" stroke-width="2" r="0.1251788268955651" />
+			<rect x="254.77753934191702" y="392.777539341917" width="0.4449213161659513" height="0.4449213161659513" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="423" fill="none" stroke="red" stroke-width="2" r="0.5253934191702432" />
+			<rect x="254.59907010014305" y="422.5990701001431" width="0.8018597997138769" height="0.8018597997138769" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="453" fill="none" stroke="red" stroke-width="2" r="0.03648068669527897" />
+			<rect x="254.99749642346208" y="452.9974964234621" width="0.005007153075822604" height="0.005007153075822604" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="255" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="513" fill="none" stroke="red" stroke-width="2" r="1.7560801144492133" />
+			<rect x="254.80007153075823" y="512.8000715307583" width="0.399856938483548" height="0.399856938483548" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="543" fill="none" stroke="red" stroke-width="2" r="0.32010014306151646" />
+			<rect x="254.98962804005723" y="542.9896280400573" width="0.020743919885550785" height="0.020743919885550785" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="255" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="603" fill="none" stroke="red" stroke-width="2" r="0.1276824034334764" />
+			<rect x="254.90557939914163" y="602.9055793991416" width="0.18884120171673818" height="0.18884120171673818" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="633" fill="none" stroke="red" stroke-width="2" r="0.2088698140200286" />
+			<rect x="254.89270386266094" y="632.8927038626609" width="0.21459227467811157" height="0.21459227467811157" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="255" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="255" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="255" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="753" fill="none" stroke="red" stroke-width="2" r="0.13626609442060086" />
+			<rect x="254.9810443490701" y="752.9810443490701" width="0.03791130185979971" height="0.03791130185979971" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="255" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="255" cy="813" fill="none" stroke="red" stroke-width="2" r="0.026108726752503576" />
+			<rect x="255" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="33" fill="none" stroke="red" stroke-width="2" r="0.04971387696709585" />
+			<rect x="284.99678111587986" y="32.99678111587983" width="0.006437768240343348" height="0.006437768240343348" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="63" fill="none" stroke="red" stroke-width="2" r="0.005007153075822604" />
+			<rect x="284.99463519313304" y="62.99463519313305" width="0.01072961373390558" height="0.01072961373390558" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="285" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="285" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="153" fill="none" stroke="red" stroke-width="2" r="0.148068669527897" />
+			<rect x="284.9585121602289" y="152.9585121602289" width="0.08297567954220314" height="0.08297567954220314" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="285" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="213" fill="none" stroke="red" stroke-width="2" r="0.011444921316165951" />
+			<rect x="285" y="213" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="243" fill="none" stroke="red" stroke-width="2" r="0.032904148783977114" />
+			<rect x="284.99499284692416" y="242.9949928469242" width="0.010014306151645207" height="0.010014306151645207" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="273" fill="none" stroke="red" stroke-width="2" r="0.026108726752503576" />
+			<rect x="284.9867668097282" y="272.9867668097282" width="0.026466380543633764" height="0.026466380543633764" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="303" fill="none" stroke="red" stroke-width="2" r="0.06187410586552217" />
+			<rect x="284.9409871244635" y="302.9409871244635" width="0.11802575107296137" height="0.11802575107296137" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="333" fill="none" stroke="red" stroke-width="2" r="0.04935622317596566" />
+			<rect x="284.9738912732475" y="332.9738912732475" width="0.05221745350500715" height="0.05221745350500715" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="363" fill="none" stroke="red" stroke-width="2" r="0.2424892703862661" />
+			<rect x="284.9370529327611" y="362.9370529327611" width="0.12589413447782546" height="0.12589413447782546" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="393" fill="none" stroke="red" stroke-width="2" r="0.16773962804005724" />
+			<rect x="284.92596566523605" y="392.92596566523605" width="0.148068669527897" height="0.148068669527897" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="423" fill="none" stroke="red" stroke-width="2" r="0.0969241773962804" />
+			<rect x="284.87732474964236" y="422.87732474964236" width="0.24535050071530756" height="0.24535050071530756" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="453" fill="none" stroke="red" stroke-width="2" r="0.101931330472103" />
+			<rect x="284.99785407725324" y="452.99785407725324" width="0.004291845493562232" height="0.004291845493562232" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="285" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="513" fill="none" stroke="red" stroke-width="2" r="0.5046494992846924" />
+			<rect x="284.95064377682405" y="512.950643776824" width="0.09871244635193133" height="0.09871244635193133" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="543" fill="none" stroke="red" stroke-width="2" r="0.07331902718168813" />
+			<rect x="284.99928469241775" y="542.9992846924177" width="0.001430615164520744" height="0.001430615164520744" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="285" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="603" fill="none" stroke="red" stroke-width="2" r="0.09907010014306152" />
+			<rect x="284.9309728183119" y="602.9309728183118" width="0.13805436337625177" height="0.13805436337625177" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="633" fill="none" stroke="red" stroke-width="2" r="0.10085836909871244" />
+			<rect x="284.94456366237483" y="632.9445636623748" width="0.11087267525035766" height="0.11087267525035766" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="285" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="285" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="723" fill="none" stroke="red" stroke-width="2" r="0.000357653791130186" />
+			<rect x="285" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="753" fill="none" stroke="red" stroke-width="2" r="0.022174535050071532" />
+			<rect x="284.99785407725324" y="752.9978540772532" width="0.004291845493562232" height="0.004291845493562232" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="285" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="285" cy="813" fill="none" stroke="red" stroke-width="2" r="0.022889842632331903" />
+			<rect x="285" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="33" fill="none" stroke="red" stroke-width="2" r="0.044706723891273246" />
+			<rect x="314.9327610872675" y="32.93276108726752" width="0.13447782546494993" height="0.13447782546494993" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="63" fill="none" stroke="red" stroke-width="2" r="0.022532188841201718" />
+			<rect x="314.59978540772534" y="62.59978540772532" width="0.8004291845493562" height="0.8004291845493562" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="315" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="315" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="153" fill="none" stroke="red" stroke-width="2" r="0.48104434907010013" />
+			<rect x="314.777539341917" y="152.77753934191702" width="0.4449213161659513" height="0.4449213161659513" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="315" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="213" fill="none" stroke="red" stroke-width="2" r="0.011087267525035766" />
+			<rect x="314.99785407725324" y="212.9978540772532" width="0.004291845493562232" height="0.004291845493562232" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="243" fill="none" stroke="red" stroke-width="2" r="0.07582260371959942" />
+			<rect x="314.7510729613734" y="242.75107296137338" width="0.4978540772532189" height="0.4978540772532189" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="273" fill="none" stroke="red" stroke-width="2" r="0.031473533619456366" />
+			<rect x="314.0815450643777" y="272.0815450643777" width="1.8369098712446352" height="1.8369098712446352" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="303" fill="none" stroke="red" stroke-width="2" r="0.01967095851216023" />
+			<rect x="313.8333333333333" y="301.8333333333333" width="2.3333333333333335" height="2.3333333333333335" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="333" fill="none" stroke="red" stroke-width="2" r="0.06938483547925607" />
+			<rect x="314.31223175965664" y="332.31223175965664" width="1.3755364806866954" height="1.3755364806866954" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="363" fill="none" stroke="red" stroke-width="2" r="0.060085836909871244" />
+			<rect x="313.91988555078683" y="361.91988555078683" width="2.160228898426323" height="2.160228898426323" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="393" fill="none" stroke="red" stroke-width="2" r="0.07546494992846924" />
+			<rect x="308.7603719599428" y="386.7603719599428" width="12.47925608011445" height="12.47925608011445" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="423" fill="none" stroke="red" stroke-width="2" r="0.19706723891273248" />
+			<rect x="312.77646638054364" y="420.77646638054364" width="4.447067238912733" height="4.447067238912733" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="453" fill="none" stroke="red" stroke-width="2" r="0.013590844062947067" />
+			<rect x="314.92024320457796" y="452.92024320457796" width="0.15951359084406297" height="0.15951359084406297" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="315" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="513" fill="none" stroke="red" stroke-width="2" r="0.13304721030042918" />
+			<rect x="314.7439198855508" y="512.7439198855508" width="0.5121602288984264" height="0.5121602288984264" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="543" fill="none" stroke="red" stroke-width="2" r="0.09012875536480687" />
+			<rect x="314.95636623748214" y="542.9563662374821" width="0.08726752503576538" height="0.08726752503576538" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="315" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="603" fill="none" stroke="red" stroke-width="2" r="0.04828326180257511" />
+			<rect x="314.05257510729615" y="602.0525751072961" width="1.8948497854077253" height="1.8948497854077253" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="633" fill="none" stroke="red" stroke-width="2" r="0.0715307582260372" />
+			<rect x="313.8905579399142" y="631.8905579399142" width="2.2188841201716736" height="2.2188841201716736" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="315" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="315" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="315" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="753" fill="none" stroke="red" stroke-width="2" r="0.08047210300429185" />
+			<rect x="314.9796137339056" y="752.9796137339056" width="0.0407725321888412" height="0.0407725321888412" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="315" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="315" cy="813" fill="none" stroke="red" stroke-width="2" r="0.03648068669527897" />
+			<rect x="315" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="33" fill="none" stroke="red" stroke-width="2" r="0.1251788268955651" />
+			<rect x="344.9853361945637" y="32.985336194563665" width="0.02932761087267525" height="0.02932761087267525" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="63" fill="none" stroke="red" stroke-width="2" r="0.13984263233190272" />
+			<rect x="344.9180972818312" y="62.91809728183119" width="0.16380543633762518" height="0.16380543633762518" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="345" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="345" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="153" fill="none" stroke="red" stroke-width="2" r="0.16988555078683834" />
+			<rect x="344.9266809728183" y="152.9266809728183" width="0.14663805436337626" height="0.14663805436337626" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="345" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="213" fill="none" stroke="red" stroke-width="2" r="0.030758226037195992" />
+			<rect x="344.99356223175965" y="212.99356223175965" width="0.012875536480686695" height="0.012875536480686695" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="243" fill="none" stroke="red" stroke-width="2" r="0.059012875536480686" />
+			<rect x="344.612660944206" y="242.612660944206" width="0.7746781115879828" height="0.7746781115879828" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="273" fill="none" stroke="red" stroke-width="2" r="0.10407725321888411" />
+			<rect x="343.8723175965665" y="271.8723175965665" width="2.255364806866953" height="2.255364806866953" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="303" fill="none" stroke="red" stroke-width="2" r="0.1198140200286123" />
+			<rect x="343.66416309012874" y="301.66416309012874" width="2.671673819742489" height="2.671673819742489" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="333" fill="none" stroke="red" stroke-width="2" r="0.2696709585121603" />
+			<rect x="344.93669527897" y="332.93669527897" width="0.12660944206008584" height="0.12660944206008584" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="363" fill="none" stroke="red" stroke-width="2" r="1.6738197424892702" />
+			<rect x="344.4481402002861" y="362.4481402002861" width="1.103719599427754" height="1.103719599427754" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="393" fill="none" stroke="red" stroke-width="2" r="0.9180972818311874" />
+			<rect x="340.98211731044347" y="388.98211731044347" width="8.035765379113018" height="8.035765379113018" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="423" fill="none" stroke="red" stroke-width="2" r="1.5536480686695278" />
+			<rect x="344.4309728183119" y="422.4309728183119" width="1.1380543633762517" height="1.1380543633762517" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="453" fill="none" stroke="red" stroke-width="2" r="0.6208869814020028" />
+			<rect x="344.85872675250357" y="452.85872675250357" width="0.2825464949928469" height="0.2825464949928469" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="345" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="513" fill="none" stroke="red" stroke-width="2" r="2.7922031473533617" />
+			<rect x="344.7385550786838" y="512.7385550786838" width="0.522889842632332" height="0.522889842632332" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="543" fill="none" stroke="red" stroke-width="2" r="0.6723891273247496" />
+			<rect x="344.89020028612305" y="542.890200286123" width="0.2195994277539342" height="0.2195994277539342" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="345" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="603" fill="none" stroke="red" stroke-width="2" r="0.5171673819742489" />
+			<rect x="344.57296137339057" y="602.5729613733905" width="0.8540772532188842" height="0.8540772532188842" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="633" fill="none" stroke="red" stroke-width="2" r="0.4849785407725322" />
+			<rect x="344.626251788269" y="632.626251788269" width="0.7474964234620887" height="0.7474964234620887" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="663" fill="none" stroke="red" stroke-width="2" r="0.000715307582260372" />
+			<rect x="344.9996423462089" y="662.9996423462088" width="0.000715307582260372" height="0.000715307582260372" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="345" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="345" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="753" fill="none" stroke="red" stroke-width="2" r="0.1587982832618026" />
+			<rect x="344.95350500715307" y="752.9535050071531" width="0.09298998569384835" height="0.09298998569384835" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="345" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="345" cy="813" fill="none" stroke="red" stroke-width="2" r="0.06473533619456366" />
+			<rect x="345" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="33" fill="none" stroke="red" stroke-width="2" r="0.20958512160228898" />
+			<rect x="374.9359799713877" y="32.935979971387695" width="0.1280400572246066" height="0.1280400572246066" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="63" fill="none" stroke="red" stroke-width="2" r="0.1301859799713877" />
+			<rect x="374.52539341917026" y="62.52539341917024" width="0.9492131616595136" height="0.9492131616595136" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="375" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="375" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="153" fill="none" stroke="red" stroke-width="2" r="0.10550786838340487" />
+			<rect x="374.8272532188841" y="152.82725321888412" width="0.34549356223175964" height="0.34549356223175964" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="375" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="213" fill="none" stroke="red" stroke-width="2" r="0.026108726752503576" />
+			<rect x="374.9856938483548" y="212.9856938483548" width="0.02861230329041488" height="0.02861230329041488" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="243" fill="none" stroke="red" stroke-width="2" r="0.31437768240343344" />
+			<rect x="374.78934191702433" y="242.78934191702433" width="0.42131616595135907" height="0.42131616595135907" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="273" fill="none" stroke="red" stroke-width="2" r="0.023605150214592273" />
+			<rect x="374.7428469241774" y="272.7428469241774" width="0.5143061516452074" height="0.5143061516452074" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="303" fill="none" stroke="red" stroke-width="2" r="0.9173819742489271" />
+			<rect x="373.4134477825465" y="301.4134477825465" width="3.17310443490701" height="3.17310443490701" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="333" fill="none" stroke="red" stroke-width="2" r="0.6051502145922747" />
+			<rect x="374.52396280400575" y="332.52396280400575" width="0.9520743919885551" height="0.9520743919885551" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="363" fill="none" stroke="red" stroke-width="2" r="0.043991416309012876" />
+			<rect x="374.5847639484979" y="362.5847639484979" width="0.830472103004292" height="0.830472103004292" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="393" fill="none" stroke="red" stroke-width="2" r="0.25" />
+			<rect x="373.8605150214592" y="391.8605150214592" width="2.278969957081545" height="2.278969957081545" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="423" fill="none" stroke="red" stroke-width="2" r="0.3447782546494993" />
+			<rect x="373.4771101573677" y="421.4771101573677" width="3.045779685264664" height="3.045779685264664" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="453" fill="none" stroke="red" stroke-width="2" r="0.21852646638054365" />
+			<rect x="374.9052217453505" y="452.9052217453505" width="0.18955650929899856" height="0.18955650929899856" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="375" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="513" fill="none" stroke="red" stroke-width="2" r="0.11444921316165951" />
+			<rect x="374.8047210300429" y="512.804721030043" width="0.3905579399141631" height="0.3905579399141631" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="543" fill="none" stroke="red" stroke-width="2" r="0.2067238912732475" />
+			<rect x="374.92131616595134" y="542.9213161659513" width="0.15736766809728184" height="0.15736766809728184" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="375" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="603" fill="none" stroke="red" stroke-width="2" r="0.3261802575107296" />
+			<rect x="374.3555078683834" y="602.3555078683834" width="1.2889842632331903" height="1.2889842632331903" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="633" fill="none" stroke="red" stroke-width="2" r="0.21781115879828328" />
+			<rect x="374.64556509299" y="632.64556509299" width="0.7088698140200286" height="0.7088698140200286" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="375" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="693" fill="none" stroke="red" stroke-width="2" r="0.000357653791130186" />
+			<rect x="374.9996423462089" y="692.9996423462088" width="0.000715307582260372" height="0.000715307582260372" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="374.99928469241775" y="722.9992846924177" width="0.001430615164520744" height="0.001430615164520744" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="753" fill="none" stroke="red" stroke-width="2" r="0.08869814020028613" />
+			<rect x="374.8619456366238" y="752.8619456366238" width="0.27610872675250353" height="0.27610872675250353" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="375" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="375" cy="813" fill="none" stroke="red" stroke-width="2" r="0.06080114449213162" />
+			<rect x="375" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="33" fill="none" stroke="red" stroke-width="2" r="0.1251788268955651" />
+			<rect x="404.97210300429185" y="32.972103004291846" width="0.055793991416309016" height="0.055793991416309016" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="63" fill="none" stroke="red" stroke-width="2" r="0.0740343347639485" />
+			<rect x="404.8494277539342" y="62.849427753934194" width="0.3011444921316166" height="0.3011444921316166" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="405" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="405" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="153" fill="none" stroke="red" stroke-width="2" r="0.3186695278969957" />
+			<rect x="404.96638054363376" y="152.96638054363376" width="0.06723891273247497" height="0.06723891273247497" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="405" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="213" fill="none" stroke="red" stroke-width="2" r="0.031831187410586555" />
+			<rect x="404.99356223175965" y="212.99356223175965" width="0.012875536480686695" height="0.012875536480686695" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="243" fill="none" stroke="red" stroke-width="2" r="0.29685264663805433" />
+			<rect x="404.9653075822604" y="242.96530758226038" width="0.06938483547925607" height="0.06938483547925607" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="273" fill="none" stroke="red" stroke-width="2" r="0.11230329041487841" />
+			<rect x="404.8966380543634" y="272.8966380543634" width="0.2067238912732475" height="0.2067238912732475" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="303" fill="none" stroke="red" stroke-width="2" r="0.4027181688125894" />
+			<rect x="404.7596566523605" y="302.7596566523605" width="0.48068669527896996" height="0.48068669527896996" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="333" fill="none" stroke="red" stroke-width="2" r="0.41917024320457796" />
+			<rect x="404.8333333333333" y="332.8333333333333" width="0.3333333333333333" height="0.3333333333333333" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="363" fill="none" stroke="red" stroke-width="2" r="0.9105865522174534" />
+			<rect x="404.7299713876967" y="362.7299713876967" width="0.5400572246065808" height="0.5400572246065808" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="393" fill="none" stroke="red" stroke-width="2" r="0.23175965665236054" />
+			<rect x="404.4685264663805" y="392.4685264663805" width="1.0629470672389127" height="1.0629470672389127" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="423" fill="none" stroke="red" stroke-width="2" r="0.9695994277539342" />
+			<rect x="404.37839771101574" y="422.37839771101574" width="1.2432045779685266" height="1.2432045779685266" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="453" fill="none" stroke="red" stroke-width="2" r="0.2321173104434907" />
+			<rect x="404.96030042918454" y="452.96030042918454" width="0.0793991416309013" height="0.0793991416309013" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="405" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="513" fill="none" stroke="red" stroke-width="2" r="1.0726037195994278" />
+			<rect x="404.72067238912734" y="512.7206723891273" width="0.5586552217453505" height="0.5586552217453505" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="543" fill="none" stroke="red" stroke-width="2" r="0.39127324749642345" />
+			<rect x="404.96745350500714" y="542.9674535050071" width="0.06509298998569385" height="0.06509298998569385" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="405" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="603" fill="none" stroke="red" stroke-width="2" r="0.6698855507868383" />
+			<rect x="404.6931330472103" y="602.6931330472103" width="0.6137339055793992" height="0.6137339055793992" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="633" fill="none" stroke="red" stroke-width="2" r="0.10658082975679543" />
+			<rect x="404.9113018597997" y="632.9113018597997" width="0.17739628040057226" height="0.17739628040057226" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="663" fill="none" stroke="red" stroke-width="2" r="0.000357653791130186" />
+			<rect x="404.99928469241775" y="662.9992846924177" width="0.001430615164520744" height="0.001430615164520744" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="693" fill="none" stroke="red" stroke-width="2" r="0.000357653791130186" />
+			<rect x="405" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="405" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="753" fill="none" stroke="red" stroke-width="2" r="0.16988555078683834" />
+			<rect x="404.9653075822604" y="752.9653075822604" width="0.06938483547925607" height="0.06938483547925607" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="405" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="405" cy="813" fill="none" stroke="red" stroke-width="2" r="0.07224606580829757" />
+			<rect x="405" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="33" fill="none" stroke="red" stroke-width="2" r="0.4220314735336195" />
+			<rect x="434.9932045779685" y="32.99320457796853" width="0.013590844062947067" height="0.013590844062947067" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="63" fill="none" stroke="red" stroke-width="2" r="0.20278969957081547" />
+			<rect x="433.44957081545067" y="61.44957081545064" width="3.1008583690987126" height="3.1008583690987126" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="435" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="435" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="153" fill="none" stroke="red" stroke-width="2" r="1.2989985693848356" />
+			<rect x="434.8472818311874" y="152.84728183118742" width="0.30543633762517886" height="0.30543633762517886" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="435" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="213" fill="none" stroke="red" stroke-width="2" r="0.2017167381974249" />
+			<rect x="434.9996423462089" y="212.99964234620887" width="0.000715307582260372" height="0.000715307582260372" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="243" fill="none" stroke="red" stroke-width="2" r="0.5146638054363377" />
+			<rect x="433.8333333333333" y="241.83333333333334" width="2.3333333333333335" height="2.3333333333333335" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="273" fill="none" stroke="red" stroke-width="2" r="0.1430615164520744" />
+			<rect x="432.7110157367668" y="270.7110157367668" width="4.577968526466381" height="4.577968526466381" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="303" fill="none" stroke="red" stroke-width="2" r="1.7414163090128754" />
+			<rect x="424.1366237482117" y="292.1366237482117" width="21.726752503576538" height="21.726752503576538" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="333" fill="none" stroke="red" stroke-width="2" r="0.8075822603719599" />
+			<rect x="433.5200286123033" y="331.5200286123033" width="2.959942775393419" height="2.959942775393419" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="363" fill="none" stroke="red" stroke-width="2" r="0.4180972818311874" />
+			<rect x="434.1230329041488" y="362.1230329041488" width="1.7539341917024323" height="1.7539341917024323" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="393" fill="none" stroke="red" stroke-width="2" r="0.6802575107296137" />
+			<rect x="427.04649499284693" y="385.04649499284693" width="15.907010014306152" height="15.907010014306152" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="423" fill="none" stroke="red" stroke-width="2" r="0.39735336194563664" />
+			<rect x="434.56974248927037" y="422.56974248927037" width="0.8605150214592274" height="0.8605150214592274" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="453" fill="none" stroke="red" stroke-width="2" r="1.5085836909871244" />
+			<rect x="434.98211731044347" y="452.98211731044347" width="0.0357653791130186" height="0.0357653791130186" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="435" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="513" fill="none" stroke="red" stroke-width="2" r="0.8626609442060086" />
+			<rect x="434.7002861230329" y="512.7002861230329" width="0.5994277539341917" height="0.5994277539341917" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="543" fill="none" stroke="red" stroke-width="2" r="1.702074391988555" />
+			<rect x="434.82403433476395" y="542.824034334764" width="0.351931330472103" height="0.351931330472103" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="435" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="603" fill="none" stroke="red" stroke-width="2" r="1.3279685264663805" />
+			<rect x="433.56080114449213" y="601.5608011444922" width="2.8783977110157366" height="2.8783977110157366" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="633" fill="none" stroke="red" stroke-width="2" r="0.9363376251788269" />
+			<rect x="434.67346208869816" y="632.6734620886981" width="0.6530758226037195" height="0.6530758226037195" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="435" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="435" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="435" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="753" fill="none" stroke="red" stroke-width="2" r="0.6623748211731044" />
+			<rect x="434.9620886981402" y="752.9620886981402" width="0.07582260371959942" height="0.07582260371959942" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="435" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="435" cy="813" fill="none" stroke="red" stroke-width="2" r="0.09442060085836909" />
+			<rect x="435" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="33" fill="none" stroke="red" stroke-width="2" r="0.33297567954220314" />
+			<rect x="464.9989270386266" y="32.99892703862661" width="0.002145922746781116" height="0.002145922746781116" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="63" fill="none" stroke="red" stroke-width="2" r="0.19027181688125894" />
+			<rect x="464.88841201716735" y="62.88841201716738" width="0.22317596566523606" height="0.22317596566523606" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="465" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="465" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="153" fill="none" stroke="red" stroke-width="2" r="1.5407725321888412" />
+			<rect x="464.90844062947065" y="152.90844062947068" width="0.18311874105865522" height="0.18311874105865522" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="465" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="213" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="465" y="213" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="243" fill="none" stroke="red" stroke-width="2" r="0.42632331902718174" />
+			<rect x="464.9828326180257" y="242.98283261802575" width="0.034334763948497854" height="0.034334763948497854" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="273" fill="none" stroke="red" stroke-width="2" r="0.1988555078683834" />
+			<rect x="464.8683834048641" y="272.8683834048641" width="0.2632331902718169" height="0.2632331902718169" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="303" fill="none" stroke="red" stroke-width="2" r="0.5543633762517882" />
+			<rect x="464.752861230329" y="302.752861230329" width="0.494277539341917" height="0.494277539341917" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="333" fill="none" stroke="red" stroke-width="2" r="0.9377682403433476" />
+			<rect x="464.8744635193133" y="332.8744635193133" width="0.2510729613733906" height="0.2510729613733906" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="363" fill="none" stroke="red" stroke-width="2" r="2.295422031473534" />
+			<rect x="464.51359084406295" y="362.51359084406295" width="0.972818311874106" height="0.972818311874106" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="393" fill="none" stroke="red" stroke-width="2" r="0.5550786838340486" />
+			<rect x="464.61874105865525" y="392.61874105865525" width="0.7625178826895566" height="0.7625178826895566" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="423" fill="none" stroke="red" stroke-width="2" r="0.9763948497854078" />
+			<rect x="464.51788268955653" y="422.51788268955653" width="0.9642346208869814" height="0.9642346208869814" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="453" fill="none" stroke="red" stroke-width="2" r="0.6455650929899857" />
+			<rect x="464.972460658083" y="452.972460658083" width="0.05507868383404864" height="0.05507868383404864" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="465" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="513" fill="none" stroke="red" stroke-width="2" r="13" />
+			<rect x="464.71494992846925" y="512.7149499284692" width="0.5701001430615165" height="0.5701001430615165" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="543" fill="none" stroke="red" stroke-width="2" r="2.0218168812589417" />
+			<rect x="464.8816165951359" y="542.8816165951359" width="0.23676680972818312" height="0.23676680972818312" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="465" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="603" fill="none" stroke="red" stroke-width="2" r="1.7432045779685266" />
+			<rect x="464.5808297567954" y="602.5808297567954" width="0.8383404864091559" height="0.8383404864091559" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="633" fill="none" stroke="red" stroke-width="2" r="0.5425608011444921" />
+			<rect x="464.8290414878398" y="632.8290414878397" width="0.3419170243204578" height="0.3419170243204578" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="465" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="465" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="465" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="753" fill="none" stroke="red" stroke-width="2" r="0.41380543633762523" />
+			<rect x="464.9681688125894" y="752.9681688125894" width="0.06366237482117311" height="0.06366237482117311" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="465" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="465" cy="813" fill="none" stroke="red" stroke-width="2" r="0.06902718168812588" />
+			<rect x="465" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="33" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="33" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="63" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="63" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="153" fill="none" stroke="red" stroke-width="2" r="0.000357653791130186" />
+			<rect x="495" y="153" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="213" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="213" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="243" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="243" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="273" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="273" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="303" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="303" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="333" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="333" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="363" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="494.9996423462089" y="362.9996423462089" width="0.000715307582260372" height="0.000715307582260372" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="393" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="393" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="423" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="423" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="453" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="453" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="513" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="513" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="543" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="543" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="603" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="603" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="633" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="633" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="753" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="753" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="495" cy="813" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="495" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="33" fill="none" stroke="red" stroke-width="2" r="0.3011444921316166" />
+			<rect x="524.8086552217453" y="32.80865522174535" width="0.382689556509299" height="0.382689556509299" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="63" fill="none" stroke="red" stroke-width="2" r="0.15593705293276108" />
+			<rect x="524.4556509298999" y="62.45565092989986" width="1.088698140200286" height="1.088698140200286" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="525" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="525" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="153" fill="none" stroke="red" stroke-width="2" r="0.6323319027181689" />
+			<rect x="524.6030042918455" y="152.60300429184548" width="0.7939914163090129" height="0.7939914163090129" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="525" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="213" fill="none" stroke="red" stroke-width="2" r="0.18025751072961374" />
+			<rect x="524.93669527897" y="212.93669527896995" width="0.12660944206008584" height="0.12660944206008584" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="243" fill="none" stroke="red" stroke-width="2" r="0.39127324749642345" />
+			<rect x="524.8333333333334" y="242.83333333333334" width="0.3333333333333333" height="0.3333333333333333" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="273" fill="none" stroke="red" stroke-width="2" r="0.12052932761087268" />
+			<rect x="524.2288984263233" y="272.2288984263233" width="1.542203147353362" height="1.542203147353362" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="303" fill="none" stroke="red" stroke-width="2" r="0.2292560801144492" />
+			<rect x="523.5489985693848" y="301.5489985693848" width="2.9020028612303292" height="2.9020028612303292" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="333" fill="none" stroke="red" stroke-width="2" r="0.4180972818311874" />
+			<rect x="524.3519313304721" y="332.3519313304721" width="1.296137339055794" height="1.296137339055794" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="363" fill="none" stroke="red" stroke-width="2" r="0.3236766809728183" />
+			<rect x="523.2864806866953" y="361.28648068669526" width="3.427038626609442" height="3.427038626609442" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="393" fill="none" stroke="red" stroke-width="2" r="0.3590844062947067" />
+			<rect x="522.7195994277539" y="390.7195994277539" width="4.560801144492132" height="4.560801144492132" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="423" fill="none" stroke="red" stroke-width="2" r="0.7049356223175965" />
+			<rect x="521.6877682403433" y="419.68776824034336" width="6.624463519313305" height="6.624463519313305" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="453" fill="none" stroke="red" stroke-width="2" r="0.2932761087267525" />
+			<rect x="524.8476394849786" y="452.8476394849785" width="0.30472103004291845" height="0.30472103004291845" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="525" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="513" fill="none" stroke="red" stroke-width="2" r="0.10264663805436337" />
+			<rect x="524.8590844062948" y="512.8590844062948" width="0.28183118741058655" height="0.28183118741058655" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="543" fill="none" stroke="red" stroke-width="2" r="1.5972818311874106" />
+			<rect x="524.816165951359" y="542.816165951359" width="0.3676680972818312" height="0.3676680972818312" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="525" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="603" fill="none" stroke="red" stroke-width="2" r="0.46387696709585124" />
+			<rect x="523.4613733905579" y="601.4613733905579" width="3.0772532188841204" height="3.0772532188841204" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="633" fill="none" stroke="red" stroke-width="2" r="0.37374821173104433" />
+			<rect x="524.2414163090128" y="632.2414163090128" width="1.517167381974249" height="1.517167381974249" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="525" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="525" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="723" fill="none" stroke="red" stroke-width="2" r="0.000357653791130186" />
+			<rect x="525" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="753" fill="none" stroke="red" stroke-width="2" r="2.0261087267525038" />
+			<rect x="524.81330472103" y="752.81330472103" width="0.37339055793991416" height="0.37339055793991416" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="525" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="525" cy="813" fill="none" stroke="red" stroke-width="2" r="0.09227467811158797" />
+			<rect x="525" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="33" fill="none" stroke="red" stroke-width="2" r="0.27646638054363376" />
+			<rect x="554.9860515021459" y="32.98605150214592" width="0.027896995708154508" height="0.027896995708154508" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="63" fill="none" stroke="red" stroke-width="2" r="0.24856938483547925" />
+			<rect x="554.8905579399142" y="62.89055793991416" width="0.21888412017167383" height="0.21888412017167383" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="555" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="555" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="153" fill="none" stroke="red" stroke-width="2" r="0.32010014306151646" />
+			<rect x="554.9306151645208" y="152.93061516452073" width="0.13876967095851214" height="0.13876967095851214" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="555" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="213" fill="none" stroke="red" stroke-width="2" r="0.08869814020028613" />
+			<rect x="554.997138769671" y="212.99713876967095" width="0.005722460658082976" height="0.005722460658082976" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="243" fill="none" stroke="red" stroke-width="2" r="0.24821173104434907" />
+			<rect x="554.983547925608" y="242.983547925608" width="0.032904148783977114" height="0.032904148783977114" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="273" fill="none" stroke="red" stroke-width="2" r="0.18168812589413447" />
+			<rect x="554.9288268955651" y="272.92882689556507" width="0.14234620886981403" height="0.14234620886981403" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="303" fill="none" stroke="red" stroke-width="2" r="0.5354077253218884" />
+			<rect x="554.7346208869814" y="302.7346208869814" width="0.530758226037196" height="0.530758226037196" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="333" fill="none" stroke="red" stroke-width="2" r="1.8233190271816881" />
+			<rect x="551.442417739628" y="329.442417739628" width="7.11516452074392" height="7.11516452074392" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="363" fill="none" stroke="red" stroke-width="2" r="1.5185979971387698" />
+			<rect x="554.5200286123032" y="362.5200286123033" width="0.9599427753934191" height="0.9599427753934191" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="393" fill="none" stroke="red" stroke-width="2" r="1.393776824034335" />
+			<rect x="552.9084406294706" y="390.90844062947065" width="4.183118741058656" height="4.183118741058656" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="423" fill="none" stroke="red" stroke-width="2" r="0.9391988555078683" />
+			<rect x="554.1917024320458" y="422.19170243204576" width="1.6165951359084407" height="1.6165951359084407" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="453" fill="none" stroke="red" stroke-width="2" r="2.1859799713876966" />
+			<rect x="554.9324034334763" y="452.9324034334764" width="0.13519313304721028" height="0.13519313304721028" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="483" fill="none" stroke="red" stroke-width="2" r="0.000357653791130186" />
+			<rect x="555" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="513" fill="none" stroke="red" stroke-width="2" r="0.7718168812589413" />
+			<rect x="554.8497854077253" y="512.8497854077253" width="0.30042918454935624" height="0.30042918454935624" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="543" fill="none" stroke="red" stroke-width="2" r="0.402002861230329" />
+			<rect x="554.9788984263233" y="542.9788984263233" width="0.04220314735336195" height="0.04220314735336195" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="555" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="603" fill="none" stroke="red" stroke-width="2" r="3.022889842632332" />
+			<rect x="550.6090844062948" y="598.6090844062948" width="8.781831187410587" height="8.781831187410587" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="633" fill="none" stroke="red" stroke-width="2" r="1.401645207439199" />
+			<rect x="554.8344062947067" y="632.8344062947067" width="0.3311874105865522" height="0.3311874105865522" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="555" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="555" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="723" fill="none" stroke="red" stroke-width="2" r="0.000357653791130186" />
+			<rect x="555" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="753" fill="none" stroke="red" stroke-width="2" r="0.13841201716738197" />
+			<rect x="554.9881974248927" y="752.9881974248927" width="0.023605150214592273" height="0.023605150214592273" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="555" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="555" cy="813" fill="none" stroke="red" stroke-width="2" r="0.03111587982832618" />
+			<rect x="555" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="33" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="33" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="63" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="63" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="153" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="153" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="213" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="213" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="243" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="243" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="273" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="273" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="303" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="303" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="333" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="333" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="363" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="363" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="393" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="393" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="423" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="423" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="453" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="453" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="513" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="513" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="543" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="543" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="603" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="603" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="633" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="633" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="753" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="753" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="585" cy="813" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="585" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="33" fill="none" stroke="red" stroke-width="2" r="0.13090128755364808" />
+			<rect x="614.9788984263233" y="32.97889842632332" width="0.04220314735336195" height="0.04220314735336195" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="63" fill="none" stroke="red" stroke-width="2" r="0.0740343347639485" />
+			<rect x="614.7092274678112" y="62.70922746781116" width="0.5815450643776824" height="0.5815450643776824" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="615" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="615" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="153" fill="none" stroke="red" stroke-width="2" r="0.05507868383404864" />
+			<rect x="614.9445636623748" y="152.94456366237483" width="0.11087267525035766" height="0.11087267525035766" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="615" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="213" fill="none" stroke="red" stroke-width="2" r="0.015379113018597996" />
+			<rect x="614.994635193133" y="212.99463519313304" width="0.01072961373390558" height="0.01072961373390558" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="243" fill="none" stroke="red" stroke-width="2" r="0.09048640915593706" />
+			<rect x="614.8594420600858" y="242.85944206008583" width="0.2811158798283262" height="0.2811158798283262" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="273" fill="none" stroke="red" stroke-width="2" r="0.08547925608011445" />
+			<rect x="614.5314735336194" y="272.5314735336195" width="0.9370529327610873" height="0.9370529327610873" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="303" fill="none" stroke="red" stroke-width="2" r="0.30185979971387694" />
+			<rect x="614.1040772532189" y="302.10407725321886" width="1.7918454935622319" height="1.7918454935622319" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="333" fill="none" stroke="red" stroke-width="2" r="0.6241058655221745" />
+			<rect x="614.0214592274679" y="332.0214592274678" width="1.957081545064378" height="1.957081545064378" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="363" fill="none" stroke="red" stroke-width="2" r="0.4524320457796853" />
+			<rect x="614.1777539341917" y="362.1777539341917" width="1.6444921316165952" height="1.6444921316165952" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="393" fill="none" stroke="red" stroke-width="2" r="0.4746065808297568" />
+			<rect x="612.8497854077253" y="390.84978540772534" width="4.3004291845493565" height="4.3004291845493565" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="423" fill="none" stroke="red" stroke-width="2" r="0.5261087267525036" />
+			<rect x="613.1169527896996" y="421.11695278969955" width="3.766094420600859" height="3.766094420600859" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="453" fill="none" stroke="red" stroke-width="2" r="0.6806151645207439" />
+			<rect x="614.8748211731045" y="452.8748211731044" width="0.2503576537911302" height="0.2503576537911302" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="615" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="513" fill="none" stroke="red" stroke-width="2" r="2.224964234620887" />
+			<rect x="613.8551502145923" y="511.8551502145923" width="2.2896995708154506" height="2.2896995708154506" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="543" fill="none" stroke="red" stroke-width="2" r="0.20565092989985695" />
+			<rect x="614.9484978540772" y="542.9484978540772" width="0.10300429184549356" height="0.10300429184549356" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="615" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="603" fill="none" stroke="red" stroke-width="2" r="0.30150214592274677" />
+			<rect x="614.3758941344778" y="602.3758941344778" width="1.248211731044349" height="1.248211731044349" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="633" fill="none" stroke="red" stroke-width="2" r="0.46351931330472107" />
+			<rect x="614.0282546494993" y="632.0282546494993" width="1.9434907010014306" height="1.9434907010014306" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="663" fill="none" stroke="red" stroke-width="2" r="0.000357653791130186" />
+			<rect x="615" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="615" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="723" fill="none" stroke="red" stroke-width="2" r="0.000715307582260372" />
+			<rect x="615" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="753" fill="none" stroke="red" stroke-width="2" r="0.04148783977110157" />
+			<rect x="614.9624463519314" y="752.9624463519314" width="0.07510729613733906" height="0.07510729613733906" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="615" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="615" cy="813" fill="none" stroke="red" stroke-width="2" r="0.0815450643776824" />
+			<rect x="615" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="33" fill="none" stroke="red" stroke-width="2" r="0.032188841201716736" />
+			<rect x="644.9924892703863" y="32.992489270386265" width="0.015021459227467811" height="0.015021459227467811" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="63" fill="none" stroke="red" stroke-width="2" r="0.06366237482117311" />
+			<rect x="644.4871244635193" y="62.487124463519315" width="1.0257510729613735" height="1.0257510729613735" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="645" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="645" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="153" fill="none" stroke="red" stroke-width="2" r="0.3547925608011445" />
+			<rect x="644.8315450643777" y="152.83154506437768" width="0.33690987124463523" height="0.33690987124463523" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="645" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="213" fill="none" stroke="red" stroke-width="2" r="0.00178826895565093" />
+			<rect x="645" y="213" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="243" fill="none" stroke="red" stroke-width="2" r="0.08726752503576538" />
+			<rect x="644.8433476394849" y="242.843347639485" width="0.3133047210300429" height="0.3133047210300429" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="273" fill="none" stroke="red" stroke-width="2" r="0.028254649499284697" />
+			<rect x="644.2092274678112" y="272.20922746781116" width="1.5815450643776823" height="1.5815450643776823" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="303" fill="none" stroke="red" stroke-width="2" r="0.6194563662374821" />
+			<rect x="643.7228183118741" y="301.7228183118741" width="2.5543633762517883" height="2.5543633762517883" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="333" fill="none" stroke="red" stroke-width="2" r="0.13698140200286124" />
+			<rect x="644.7256795422031" y="332.7256795422031" width="0.5486409155937053" height="0.5486409155937053" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="363" fill="none" stroke="red" stroke-width="2" r="0.7560801144492132" />
+			<rect x="643.4155937052933" y="361.4155937052933" width="3.168812589413448" height="3.168812589413448" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="393" fill="none" stroke="red" stroke-width="2" r="0.044706723891273246" />
+			<rect x="642.9463519313305" y="390.94635193133047" width="4.107296137339056" height="4.107296137339056" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="423" fill="none" stroke="red" stroke-width="2" r="0.4202432045779685" />
+			<rect x="643.2918454935623" y="421.2918454935622" width="3.4163090128755367" height="3.4163090128755367" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="453" fill="none" stroke="red" stroke-width="2" r="0.04613733905579399" />
+			<rect x="644.9932045779685" y="452.9932045779685" width="0.013590844062947067" height="0.013590844062947067" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="645" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="513" fill="none" stroke="red" stroke-width="2" r="0.9703147353361946" />
+			<rect x="644.571530758226" y="512.571530758226" width="0.8569384835479256" height="0.8569384835479256" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="543" fill="none" stroke="red" stroke-width="2" r="0.23283261802575106" />
+			<rect x="644.9731759656653" y="542.9731759656653" width="0.05364806866952789" height="0.05364806866952789" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="645" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="603" fill="none" stroke="red" stroke-width="2" r="0.21387696709585124" />
+			<rect x="644.0089413447782" y="602.0089413447782" width="1.9821173104434906" height="1.9821173104434906" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="633" fill="none" stroke="red" stroke-width="2" r="0.030042918454935622" />
+			<rect x="644.9113018597997" y="632.9113018597997" width="0.17739628040057226" height="0.17739628040057226" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="645" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="645" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="645" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="753" fill="none" stroke="red" stroke-width="2" r="0.16738197424892703" />
+			<rect x="644.9220314735336" y="752.9220314735336" width="0.15593705293276108" height="0.15593705293276108" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="645" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="645" cy="813" fill="none" stroke="red" stroke-width="2" r="0.061516452074391985" />
+			<rect x="645" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="33" fill="none" stroke="red" stroke-width="2" r="0.001072961373390558" />
+			<rect x="674.9992846924177" y="32.99928469241774" width="0.001430615164520744" height="0.001430615164520744" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="63" fill="none" stroke="red" stroke-width="2" r="0.000357653791130186" />
+			<rect x="674.9996423462088" y="62.99964234620887" width="0.000715307582260372" height="0.000715307582260372" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="675" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="675" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="153" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="675" y="153" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="675" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="213" fill="none" stroke="red" stroke-width="2" r="0.000357653791130186" />
+			<rect x="675" y="213" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="243" fill="none" stroke="red" stroke-width="2" r="0.000715307582260372" />
+			<rect x="675" y="243" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="273" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="674.9996423462088" y="272.9996423462089" width="0.000715307582260372" height="0.000715307582260372" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="303" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="675" y="303" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="333" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="675" y="333" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="363" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="675" y="363" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="393" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="675" y="393" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="423" fill="none" stroke="red" stroke-width="2" r="0.002145922746781116" />
+			<rect x="674.9996423462088" y="422.9996423462089" width="0.000715307582260372" height="0.000715307582260372" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="453" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="675" y="453" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="675" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="513" fill="none" stroke="red" stroke-width="2" r="0.001430615164520744" />
+			<rect x="675" y="513" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="543" fill="none" stroke="red" stroke-width="2" r="0.001430615164520744" />
+			<rect x="674.9989270386266" y="542.9989270386266" width="0.002145922746781116" height="0.002145922746781116" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="675" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="603" fill="none" stroke="red" stroke-width="2" r="0.000357653791130186" />
+			<rect x="675" y="603" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="633" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="675" y="633" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="663" fill="none" stroke="red" stroke-width="2" r="0.000357653791130186" />
+			<rect x="674.9996423462088" y="662.9996423462088" width="0.000715307582260372" height="0.000715307582260372" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="675" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="675" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="753" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="675" y="753" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="675" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="675" cy="813" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="675" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="33" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="33" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="63" fill="none" stroke="red" stroke-width="2" r="0.000357653791130186" />
+			<rect x="705" y="63" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="153" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="153" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="213" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="213" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="243" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="243" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="273" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="273" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="303" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="303" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="333" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="333" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="363" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="363" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="393" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="393" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="423" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="423" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="453" fill="none" stroke="red" stroke-width="2" r="0.001430615164520744" />
+			<rect x="705" y="453" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="513" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="513" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="543" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="543" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="603" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="603" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="633" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="633" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="693" fill="none" stroke="red" stroke-width="2" r="0.000357653791130186" />
+			<rect x="704.9996423462088" y="692.9996423462088" width="0.000715307582260372" height="0.000715307582260372" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="753" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="753" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="705" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="705" cy="813" fill="none" stroke="red" stroke-width="2" r="0.001430615164520744" />
+			<rect x="705" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="33" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="33" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="63" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="63" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="153" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="153" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="213" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="213" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="243" fill="none" stroke="red" stroke-width="2" r="0.000357653791130186" />
+			<rect x="734.9996423462088" y="242.99964234620887" width="0.000715307582260372" height="0.000715307582260372" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="273" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="273" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="303" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="734.9992846924177" y="302.99928469241775" width="0.001430615164520744" height="0.001430615164520744" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="333" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="333" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="363" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="363" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="393" fill="none" stroke="red" stroke-width="2" r="0.001072961373390558" />
+			<rect x="735" y="393" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="423" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="423" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="453" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="453" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="513" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="513" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="543" fill="none" stroke="red" stroke-width="2" r="0.000357653791130186" />
+			<rect x="734.9992846924177" y="542.9992846924177" width="0.001430615164520744" height="0.001430615164520744" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="603" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="734.9996423462088" y="602.9996423462088" width="0.000715307582260372" height="0.000715307582260372" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="633" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="734.9989270386266" y="632.9989270386266" width="0.002145922746781116" height="0.002145922746781116" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="753" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="753" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="735" cy="813" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="735" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="33" fill="none" stroke="red" stroke-width="2" r="1.0092989985693848" />
+			<rect x="764.9592274678112" y="32.95922746781116" width="0.0815450643776824" height="0.0815450643776824" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="63" fill="none" stroke="red" stroke-width="2" r="0.059012875536480686" />
+			<rect x="764.9642346208869" y="62.964234620886984" width="0.0715307582260372" height="0.0715307582260372" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="765" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="765" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="153" fill="none" stroke="red" stroke-width="2" r="0.7814735336194564" />
+			<rect x="764.9134477825465" y="152.91344778254648" width="0.17310443490701" height="0.17310443490701" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="765" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="213" fill="none" stroke="red" stroke-width="2" r="0.015021459227467811" />
+			<rect x="764.9982117310443" y="212.99821173104434" width="0.00357653791130186" height="0.00357653791130186" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="243" fill="none" stroke="red" stroke-width="2" r="0.8512160228898427" />
+			<rect x="764.9831902718169" y="242.98319027181688" width="0.033619456366237484" height="0.033619456366237484" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="273" fill="none" stroke="red" stroke-width="2" r="0.11909871244635194" />
+			<rect x="764.9535050071531" y="272.95350500715307" width="0.09298998569384835" height="0.09298998569384835" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="303" fill="none" stroke="red" stroke-width="2" r="0.27145922746781115" />
+			<rect x="764.7871959942776" y="302.78719599427757" width="0.42560801144492133" height="0.42560801144492133" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="333" fill="none" stroke="red" stroke-width="2" r="0.5218168812589413" />
+			<rect x="764.9374105865522" y="332.93741058655223" width="0.1251788268955651" height="0.1251788268955651" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="363" fill="none" stroke="red" stroke-width="2" r="0.8733905579399142" />
+			<rect x="764.6716738197425" y="362.67167381974247" width="0.6566523605150214" height="0.6566523605150214" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="393" fill="none" stroke="red" stroke-width="2" r="0.9041487839771103" />
+			<rect x="764.2381974248927" y="392.2381974248927" width="1.5236051502145924" height="1.5236051502145924" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="423" fill="none" stroke="red" stroke-width="2" r="0.6688125894134478" />
+			<rect x="764.4220314735336" y="422.4220314735336" width="1.155937052932761" height="1.155937052932761" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="453" fill="none" stroke="red" stroke-width="2" r="0.7056509298998569" />
+			<rect x="764.9853361945636" y="452.9853361945637" width="0.02932761087267525" height="0.02932761087267525" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="765" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="513" fill="none" stroke="red" stroke-width="2" r="0.7660944206008583" />
+			<rect x="764.6734620886981" y="512.6734620886981" width="0.6530758226037195" height="0.6530758226037195" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="543" fill="none" stroke="red" stroke-width="2" r="0.5432761087267525" />
+			<rect x="764.991773962804" y="542.991773962804" width="0.016452074391988557" height="0.016452074391988557" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="765" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="603" fill="none" stroke="red" stroke-width="2" r="0.40164520743919885" />
+			<rect x="764.8015021459228" y="602.8015021459228" width="0.39699570815450647" height="0.39699570815450647" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="633" fill="none" stroke="red" stroke-width="2" r="1.1834763948497853" />
+			<rect x="764.8143776824035" y="632.8143776824035" width="0.37124463519313305" height="0.37124463519313305" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="765" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="765" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="765" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="753" fill="none" stroke="red" stroke-width="2" r="0.14949928469241774" />
+			<rect x="764.9967811158798" y="752.9967811158798" width="0.006437768240343348" height="0.006437768240343348" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="765" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="765" cy="813" fill="none" stroke="red" stroke-width="2" r="0.022532188841201718" />
+			<rect x="765" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="33" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="33" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="63" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="63" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="153" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="153" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="213" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="213" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="243" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="243" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="273" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="273" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="303" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="303" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="333" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="333" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="363" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="363" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="393" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="393" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="423" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="423" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="453" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="453" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="513" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="513" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="543" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="543" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="603" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="603" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="633" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="633" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="693" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="753" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="753" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="795" cy="813" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="795" y="813" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="33" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="824.9603004291846" y="32.96030042918455" width="0.0793991416309013" height="0.0793991416309013" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="63" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="824.9839055793991" y="62.98390557939914" width="0.032188841201716736" height="0.032188841201716736" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="93" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="825" y="93" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="123" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="825" y="123" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="153" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="824.9581545064377" y="152.95815450643778" width="0.08369098712446352" height="0.08369098712446352" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="183" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="825" y="183" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="213" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="824.9967811158798" y="212.99678111587983" width="0.006437768240343348" height="0.006437768240343348" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="243" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="824.9738912732475" y="242.9738912732475" width="0.05221745350500715" height="0.05221745350500715" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="273" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="824.9771101573676" y="272.9771101573677" width="0.045779685264663805" height="0.045779685264663805" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="303" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="824.9635193133047" y="302.96351931330474" width="0.07296137339055794" height="0.07296137339055794" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="333" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="824.9352646638055" y="332.9352646638054" width="0.12947067238912732" height="0.12947067238912732" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="363" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="824.9391988555079" y="362.93919885550787" width="0.12160228898426324" height="0.12160228898426324" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="393" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="824.9277539341917" y="392.9277539341917" width="0.14449213161659513" height="0.14449213161659513" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="423" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="824.9055793991416" y="422.90557939914163" width="0.18884120171673818" height="0.18884120171673818" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="453" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="824.9309728183118" y="452.9309728183119" width="0.13805436337625177" height="0.13805436337625177" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="483" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="825" y="483" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="513" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="824.9077253218884" y="512.9077253218884" width="0.18454935622317595" height="0.18454935622317595" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="543" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="824.9688841201717" y="542.9688841201717" width="0.06223175965665236" height="0.06223175965665236" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="573" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="825" y="573" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="603" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="824.9184549356223" y="602.9184549356223" width="0.1630901287553648" height="0.1630901287553648" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="633" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="824.9384835479256" y="632.9384835479256" width="0.12303290414878397" height="0.12303290414878397" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="663" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="825" y="663" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="693" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="824.9985693848355" y="692.9985693848355" width="0.002861230329041488" height="0.002861230329041488" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="723" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="825" y="723" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="753" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="824.9774678111588" y="752.9774678111588" width="0.045064377682403435" height="0.045064377682403435" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="783" fill="none" stroke="red" stroke-width="2" r="0" />
+			<rect x="825" y="783" width="0" height="0" fill="none" stroke="blue" stroke-width="2" />
+			<circle cx="825" cy="813" fill="none" stroke="red" stroke-width="2" r="0.044349070100143065" />
+			<rect x="824.9556509298999" y="812.9556509298999" width="0.08869814020028613" height="0.08869814020028613" fill="none" stroke="blue" stroke-width="2" />
+			<rect x="10" y="845" stroke="blue" stroke-width="2" width="10" height="10" fill="none" /><text x="30" y="855"> - Frekvencija para suglasnika na kraju riječi</text>
+<circle cx="350" cy="850" stroke-width="2" stroke="red" fill="none" r="5" /><text x="370" y="855"> - Frekvencija para suglasnika na početku riječi</text>
+</svg>
