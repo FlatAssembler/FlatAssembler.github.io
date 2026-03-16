@@ -476,8 +476,13 @@
       UPDATE on 30/08/2020: I've written an informal
       <a href="AEC_specification.html">specification</a>
       for my programming language.<br /><br />
-      UPDATE on 01/11/2020: As a part of an university project (<ins>more like, something that had to be done as soon as possible because of the pestilence, so that laboratory excercises from Computer Architecture can be done from home without the students having access to a real PicoBlaze</ins>), I've began to
-      write a <a href="PicoBlaze/PicoBlaze.html">PicoBlaze simulator</a> (more
+      UPDATE on 01/11/2020: As a part of an university project (<ins
+        >more like, something that had to be done as soon as possible because of
+        the pestilence, so that laboratory excercises from Computer Architecture
+        can be done from home without the students having access to a real
+        PicoBlaze</ins
+      >), I've began to write a
+      <a href="PicoBlaze/PicoBlaze.html">PicoBlaze simulator</a> (more
       accurately: an assembler and an emulator) in JavaScript (which can be run
       in a browser). So, if you want to try non-x86 assembly language
       programming to better understand how computers work, there might be no
@@ -1055,7 +1060,17 @@ $c_compiler -o aec aec.c duktape.c -lm <span class="Comment"># The linker that c
           for (var i = 0; i < this.operands.length; i++)
             this.operands[i].compile();
           if (verboseMode) asm(this.commentedLispExpression());
-          if (zamijeni) asm("fxch");
+          if (zamijeni)
+            asm(
+              "fxch " +
+                (highlight ? '<span style="color:#777777">' : "") +
+                (syntax == "gas" ? "#" : ";") +
+                (highlight
+                  ? '<a href="https://board.flatassembler.net/topic.php?p=202563#202563">'
+                  : "") +
+                "https://board.flatassembler.net/topic.php?p=202563#202563" +
+                (highlight ? "</a></span>" : "")
+            );
           if (this.text.charAt(0) >= "0" && this.text.charAt(0) <= "9") {
             //Broj
             if (typeof getIEEE754 != "function")
