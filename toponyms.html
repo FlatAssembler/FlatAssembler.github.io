@@ -1167,7 +1167,7 @@ Furthermore, there is another way of looking at that data, namely, this:
 <img src="table-diagram-for-Croatian.svg" class="centeredImage" />
 Now it does not really seem obvious that the Sonority Sequencing Principle correctly predicts the entropies, does it? Take a look at the frequency of the n+j consonant pair at the end of the words, for example.<br/>
 Maybe I am cherry-picking? Well, then, let's try to calculate it objectively. Let's make a Python script that will assign the numerical sonorities to the groups of phonemes and then assigning each letter to some group of phonemes, and then calculate the correlation between the differences in sonorities of the consonants in pairs and their frequencies at the beginnings and the ends of the words:
-<pre>
+<pre class="code">
 BEZVUCNI_PRASKAVAC = 1
 ZVUCNI_PRASKAVAC = 2
 BEZVUCNI_SLIVENIK = 3
@@ -1182,7 +1182,7 @@ SREDNJI_OTVORNIK = 11
 NISKI_OTVORNIK = 12
 </pre>
 And then we do this:
-<pre>
+<pre class="code">
 sonornost_fonema = {
         'a' : NISKI_OTVORNIK,
         'b' : ZVUCNI_PRASKAVAC,
