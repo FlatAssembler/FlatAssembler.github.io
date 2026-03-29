@@ -1142,7 +1142,7 @@
           linguistics were mixed). Three years later, I realized that's not
           correct, that a calculation that takes into account the positional
           variance in phoneme frequency (caused to a large degree, but not
-          exclusively, by the Law of Sonority) suggests that the p-value is
+          exclusively, by the Sonority Sequencing Principle) suggests that the p-value is
           around 85%. It seems to me that information theory just gives people
           who know it a way to mathematically appear to justify flawed
           intuitions about languages. I've written
@@ -1450,7 +1450,7 @@ fibonacci n <span class="Statement">=</span> fibonacci (n<span class="Statement"
           even download, anything. The program here is in x86 assembly, so it
           won't work in that simulator, but you have
           <a
-            href="https://picoblaze-simulator.sourceforge.io/PicoBlaze.html?id=6"
+            href="https://picoblaze-simulator-f0bjd5apf8bwcrdd.switzerlandnorth-01.azurewebsites.net/PicoBlaze.html?id=10"
             >an equivalent program as an example</a
           >
           there.)</i
@@ -1487,7 +1487,20 @@ fibonacci n <span class="Statement">=</span> fibonacci (n<span class="Statement"
         that language... hm... you cannot be certain it will be nearly as good
         as mainstream C++ compilers are. Furthermore, I think that any real
         high-level language makes the limits of the hardware far less
-        transparent. PicoBlaze guarantees you that each directive will run in
+        transparent
+        (<ins><b>UPDATE</b> on 29/03/2026: Though, to be honest, I am not really
+          convinced any more that the limits of the hardware tend to be 
+          transparent in a useful way when writing assembly. Take, for instance,
+          <a href="https://picoblaze-simulator-f0bjd5apf8bwcrdd.switzerlandnorth-01.azurewebsites.net/PicoBlaze.html?id=8"
+            >my solution to the Eight Queens Puzzle in the PicoBlaze assembly language</a>.
+          <a href="https://en.wikipedia.org/wiki/Eight_queens_puzzle"
+            >Eight Queens Puzzle</a> is, for those who don't know, one of the classic problems
+          in computer science solved using the depth-first-search (DFS) algorithm.
+          Until I actually ran it, I wasn't able to predict with any certainty it
+          is possible to run that algorithm on a computer with only 256 bytes of RAM.
+          And it barely has enough memory for that, the program crashes into an
+          infinite loop if run on a version of PicoBlaze with 128 bytes of RAM.</ins>).
+        PicoBlaze guarantees you that each directive will run in
         exactly two clock ticks, so its timing is completely predictable if you
         use assembly. If you use a high-level language, that benefit is lost. So
         is the insight that PicoBlaze can only have 16 bytes of local variables
@@ -1519,7 +1532,7 @@ fibonacci n <span class="Statement">=</span> fibonacci (n<span class="Statement"
         >, it takes completely different skills, and the benefits of using a
         high-level language there are questionable. For the record,
         <a
-          href="https://picoblaze-simulator.sourceforge.io/PicoBlaze.html?id=99"
+          href="https://picoblaze-simulator-f0bjd5apf8bwcrdd.switzerlandnorth-01.azurewebsites.net/PicoBlaze.html?id=7"
           >the permutations algorithm is actually relatively easy to implement
           in PicoBlaze assembly language</a
         >
