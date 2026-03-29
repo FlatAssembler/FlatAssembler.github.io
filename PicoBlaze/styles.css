@@ -77,8 +77,8 @@ h1 {
   display: inline-block;
   text-align: right;
   background: #aaaaaa;
-  height: 100vh;
-  max-height: 400px;
+  height: 400px;
+  max-height: 100vh;
   position: absolute;
   overflow: hidden;
   font-size: 1em;
@@ -103,8 +103,8 @@ h1 {
   text-align: left;
   display: inline-block;
   background: #eeeeee;
-  height: 100vh;
-  max-height: 400px;
+  height: 400px;
+  max-height: 100vh;
   position: absolute;
   left: 60px;
   left: var(--lineNumbersWidth);
@@ -202,10 +202,10 @@ label {
   position: absolute;
   width: calc(100% - 5px);
   background: white;
-  height: 100vh;
+  height: 400px;
   top: 450px;
   overflow: scroll;
-  max-height: 400px;
+  max-height: 100vh;
   margin-bottom: 10px;
 }
 #warningAboutJavaScript {
@@ -262,8 +262,8 @@ table {
   top: 910px;
   position: absolute;
   width: calc(100% - 8px);
-  height: 100vh;
-  max-height: 400px;
+  height: 400px;
+  max-height: 100vh;
   overflow: scroll;
   background-color: white;
   margin-bottom: 15px;
@@ -572,7 +572,7 @@ textarea {
   grid-template-areas:
     "label label label"
     "password password password"
-    ". . button";
+    "linkToControlPannel . button";
   background-color: white;
   padding: 5px;
 }
@@ -588,4 +588,128 @@ textarea {
   grid-area: button;
   float: right;
   display: block;
+}
+#linkToControlPannel {
+  grid-area: linkToControlPannel;
+  float: left;
+  display: block;
+}
+#greeting {
+  background-color: white;
+  width: calc(100% - 15px);
+  border-radius: 5px;
+  padding: 5px;
+  display: grid;
+}
+#greeting.logged_out {
+  grid-template-areas:
+  	"hello hello hello"
+	"form form form";
+}
+#greeting.logged_out #hello {
+  grid-area: hello;
+}
+#greeting.logged_out form {
+  background-color: whitesmoke;
+  grid-area: form;
+  padding: 5px;
+  gap: 5px;
+  display: grid;
+  grid-template-areas:
+  	"first_label first_label ."
+	"username username username"
+	"second_label second_label ."
+	"password password password"
+	"register . login"
+	"message message message";
+  border-radius: 5px;
+}
+#greeting.logged_out form label:first-of-type {
+  grid-area: first_label;
+}
+#greeting.logged_out form input[type="text"] {
+  grid-area: username;
+  width: calc(100% - 5px);
+}
+#greeting.logged_out form label:nth-of-type(2) {
+  grid-area: second_label;
+}
+#greeting.logged_out form input[type="password"] {
+  grid-area: password;
+  width: calc(100% - 5px);
+}
+#greeting.logged_out form button {
+  background-color: darkGreen;
+  color: white;
+  text-transform: uppercase;
+  grid-area: login;
+}
+#greeting.logged_out form a {
+  grid-area: register;
+}
+#greeting.logged_out form .loginMessage {
+  grid-area: message;
+  width: 100%;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+#greeting.logged_in {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+#greeting.logged_in button {
+  background-color: lightGray;
+  padding: 5px;
+}
+#mainNavigation {
+  max-width: calc(500px - 30px);
+  width: calc(100% - 30px);
+  margin-left:auto;
+  margin-right: auto;
+  background: white;
+  padding: 10px;
+}
+#mainNavigation ul {
+  list-style-type: none;
+}
+#mainNavigation a {
+  text-decoration: none;
+  color: black;
+}
+#mainNavigation li:hover:nth-of-type(2n + 1) {
+  background-color: darkBlue;
+  transform: scale(1, 1.1);
+  transition: transform 1s;
+}
+#mainNavigation li:hover:nth-of-type(2n) {
+  background-color: #103;
+  transform: scale(1, 1.1);
+  transition: transform 1s;
+}
+#mainNavigation li:hover a {
+  color:white;
+}
+#mainNavigation li {
+  padding: 3px;
+}
+#mainNavigation li {
+  background-color: lightYellow;
+  border: 1px black solid;
+}
+#mainNavigation li:nth-of-type(2n) {
+  background-color: #fea;
+}
+#references_used_to_make_this {
+  text-align: left;
+  background: white;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+div[data-linenumber]:target {
+  background-color: white;
 }
