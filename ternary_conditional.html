@@ -272,7 +272,7 @@
         id="gornjiLijevi"
         style="float: left; width: 25%; height: 200px; background: white"
       ></svg>
-      Operator ?:
+      Operator <code>?:</code>
       <svg
         id="gornjiDesni"
         style="float: right; width: 25%; height: 200px; background: white"
@@ -462,7 +462,7 @@
     <section>
       <p style="margin-left: 5px; margin-right: 5px">
         <br />The ternary conditional operator is sometimes called
-        <i>The Elvis Operator</i>, due to ?: looking similar to his hairstyle
+        <i>The Elvis Operator</i>, due to <code>?:</code> looking similar to his hairstyle
         when looked sideways.<br />
       </p>
       <br />
@@ -546,7 +546,7 @@
             preventing it from being used to shortly write if-else-if-else
             statements. <code>a ? b : c ? d : e</code> should parse as
             <code>a ? b : (c ? d : e)</code>, not as
-            <code>(a ? b : c) ? d : e</code>. Now, admittedly, it's not at all obvious how to do it <b>nicely</b> in the parser. In both my PicoBlaze assembler and my AEC-to-WebAssembly compiler, I am doing it by <i>scanning backwards</i>, which is considered to be an anti-pattern in the world of Programming Language Design and Implementation, whereas, in my AEC-to-x86 compiler, I am doing it by assuming the rest of the expression has already been parsed, because the <span class="inline_code">?:</span> is the operator with the lowest priority. That's nice to code, but it's not an option if the assignment operator is also an operator so that assignments can be chained.
+            <code>(a ? b : c) ? d : e</code>. Now, admittedly, it's not at all obvious how to do it <b>nicely</b> in the parser. In both my PicoBlaze assembler and my AEC-to-WebAssembly compiler, I am doing it by <i>scanning backwards</i>, which is considered to be an anti-pattern in the world of Programming Language Design and Implementation, whereas, in my AEC-to-x86 compiler, I am doing it by assuming the rest of the expression has already been parsed, because the <code>?:</code> is the operator with the lowest priority. That's nice to code, but it's not an option if the assignment operator is also an operator so that assignments can be chained. Namely, the assignment operator in that case is a part of the expression and has a lower priority than <code>?:</code>. I've opened <a href="https://langdev.stackexchange.com/q/4071/330">a LangDev StackExchange question about this</a>.
           </li>
           <li>
             <b
@@ -588,7 +588,7 @@
             problems such as
             <a href="https://langdev.stackexchange.com/q/4068"
               >this problem in my PicoBlaze assembler</a
-            >.
+            >. If you are parsing right-associative operators by <i>scanning backwards</i>, you will need to parse <code>?:</code> in <b>two</b> different passes: one to tell which <code>:</code> belongs to a label and which one to a ternary conditional, and the other to actually parse <code>?:</code>. In my PicoBlaze assembler, the tokenizer is doing the first pass (which is probably a significant violation of the separation of concerns).
           </li>
           <li>
             <b
