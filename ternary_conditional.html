@@ -546,7 +546,7 @@
             preventing it from being used to shortly write if-else-if-else
             statements. <code>a ? b : c ? d : e</code> should parse as
             <code>a ? b : (c ? d : e)</code>, not as
-            <code>(a ? b : c) ? d : e</code>.
+            <code>(a ? b : c) ? d : e</code>. Now, admittedly, it's not at all obvious how to do it <b>nicely</b> in the parser. In both my PicoBlaze assembler and my AEC-to-WebAssembly compiler, I am doing it by <i>scanning backwards</i>, which is considered to be an anti-pattern in the world of Programming Language Design and Implementation, whereas, in my AEC-to-x86 compiler, I am doing it by assuming the rest of the expression has already been parsed, because the <span class="inline_code">?:</span> is the operator with the lowest priority. That's nice to code, but it's not an option if the assignment operator is also an operator so that assignments can be chained.
           </li>
           <li>
             <b
