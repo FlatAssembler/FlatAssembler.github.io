@@ -165,6 +165,10 @@
       .Constant {
         color: #ffa0a0;
       }
+      .Special {
+        color: #ffa0a0;
+        font-weight: bold;
+      }
       .Statement {
         color: #f0e68c;
         font-weight: bold;
@@ -416,12 +420,20 @@
             See also:<br />
             <u
               style="color: #0077ff"
-              onclick="window.open('http://flatassembler.github.io/toponyms.html'); window.close();"
+              onclick="
+                window.open('http://flatassembler.github.io/toponyms.html');
+                window.close();
+              "
               >Croatian Toponyms</u
             ><br />
             <u
               style="color: #0077ff"
-              onclick="window.open('http://flatassembler.github.io/Indo-Austronesian.html'); window.close();"
+              onclick="
+                window.open(
+                  'http://flatassembler.github.io/Indo-Austronesian.html'
+                );
+                window.close();
+              "
               >Indo-Austronesian</u
             >
           </div>
@@ -462,8 +474,8 @@
     <section>
       <p style="margin-left: 5px; margin-right: 5px">
         <br />The ternary conditional operator is sometimes called
-        <i>The Elvis Operator</i>, due to <code>?:</code> looking similar to his hairstyle
-        when looked sideways.<br />
+        <i>The Elvis Operator</i>, due to <code>?:</code> looking similar to his
+        hairstyle when looked sideways.<br />
       </p>
       <br />
       <a id="loptica" href="#vrh" style="position: absolute">
@@ -546,7 +558,116 @@
             preventing it from being used to shortly write if-else-if-else
             statements. <code>a ? b : c ? d : e</code> should parse as
             <code>a ? b : (c ? d : e)</code>, not as
-            <code>(a ? b : c) ? d : e</code>. Now, admittedly, it's not at all obvious how to do it <b>nicely</b> in the parser. In both my PicoBlaze assembler and my AEC-to-WebAssembly compiler, I am doing it by <i>scanning backwards</i>, which is considered to be an anti-pattern in the world of Programming Language Design and Implementation, whereas, in my AEC-to-x86 compiler, I am doing it by assuming the rest of the expression has already been parsed, because the <code>?:</code> is the operator with the lowest priority. That's nice to code, but it's not an option if the assignment operator is also an operator so that assignments can be chained. Namely, the assignment operator in that case is a part of the expression and has a lower priority than <code>?:</code>. I've opened <a href="https://langdev.stackexchange.com/q/4071/330">a LangDev StackExchange question about this</a>.
+            <code>(a ? b : c) ? d : e</code>. Now, admittedly, it's not at all
+            obvious how to do it <b>nicely</b> in the parser. In both my
+            PicoBlaze assembler and my AEC-to-WebAssembly compiler, I am doing
+            it by <i>scanning backwards</i>, which is considered to be an
+            anti-pattern in the world of Programming Language Design and
+            Implementation, whereas, in my AEC-to-x86 compiler, I am doing it by
+            assuming the rest of the expression has already been parsed, because
+            the <code>?:</code> is the operator with the lowest priority. That's
+            nice to code, but it's not an option if the assignment operator is
+            also an operator so that assignments can be chained. Namely, the
+            assignment operator in that case is a part of the expression and has
+            a lower priority than <code>?:</code>. I've opened
+            <a href="https://langdev.stackexchange.com/q/4071/330"
+              >a LangDev StackExchange question about this</a
+            >. Maybe you can do it like this in C++ (I've refactored it many
+            times):
+            <pre>  <span class="Type">auto</span> findLastIndex = [](std::vector&lt;TreeNode&gt; treeNode,
+                          std::function&lt;<span class="Type">bool</span>(TreeNode, <span class="Type">int</span>)&gt; funcPtr) {
+    <span class="Statement">for</span> (<span class="Type">int</span> i = <span class="Type">int</span>(treeNode.size()) - <span class="Constant">1</span>; i &gt;= <span class="Constant">0</span>; i--)
+      <span class="Statement">if</span> (funcPtr(treeNode[i], i))
+        <span class="Statement">return</span> i;
+    <span class="Statement">return</span> -<span class="Constant">1</span>;
+  }; <span class="Comment">// The `findLastIndex` function from the JavaScript standard library</span>
+     <span class="Comment">// really comes useful when parsing the ternary conditional `?:` operator,</span>
+     <span class="Comment">// so why not make one here in C++?</span>
+
+  <span class="Comment">// Parsing the ternary conditional `?:` operator, which is right-associative.</span>
+  <span class="Comment">// We will parse it by </span><span class="Constant">&quot;scanning backwards&quot;</span><span class="Comment">, which is why we are using</span>
+  <span class="Comment">// `findLastIndex` instead of `std::find_if`.</span>
+  <span class="Type">int</span> lastColon;
+  <span class="Statement">while</span> ((lastColon =
+              findLastIndex(parsedExpression, [](TreeNode node, <span class="Type">int</span> index) {
+                index = <span class="Statement">not</span>(index); <span class="Comment">// To silence the warning by GCC.</span>
+                <span class="Statement">return</span> node.text == <span class="Constant">&quot;:&quot;</span>;
+              })) != -<span class="Constant">1</span>) {
+
+    <span class="Statement">if</span> (lastColon == <span class="Type">int</span>(parsedExpression.size()) - <span class="Constant">1</span>) {
+      std::cerr &lt;&lt; <span class="Constant">&quot;Line &quot;</span> &lt;&lt; parsedExpression[lastColon].lineNumber
+                &lt;&lt; <span class="Constant">&quot;, Column &quot;</span> &lt;&lt; parsedExpression[lastColon].columnNumber
+                &lt;&lt; <span class="Constant">&quot;, Parser error: The ternary operator </span><span class="Special">\&quot;</span><span class="Constant">?:</span><span class="Special">\&quot;</span><span class="Constant"> has less &quot;</span>
+                   <span class="Constant">&quot;than three operands.&quot;</span>
+                &lt;&lt; std::endl;
+      <span class="Statement">break</span>;
+    }
+
+    <span class="Type">int</span> colon = lastColon;
+    <span class="Type">int</span> colonCounter = <span class="Constant">1</span>;
+
+    <span class="Type">int</span> questionMark =
+        findLastIndex(parsedExpression, [&amp;](TreeNode node, <span class="Type">int</span> index) {
+          <span class="Statement">if</span> (index &gt;= colon)
+            <span class="Statement">return</span> <span class="Constant">false</span>;
+          <span class="Statement">if</span> (node.text == <span class="Constant">&quot;?&quot;</span>)
+            colonCounter--;
+          <span class="Statement">if</span> (node.text == <span class="Constant">&quot;:&quot;</span>)
+            colonCounter++;
+          <span class="Statement">return</span> colonCounter == <span class="Constant">0</span>;
+        });
+
+    <span class="Statement">if</span> (questionMark == -<span class="Constant">1</span>) {
+      std::cerr &lt;&lt; <span class="Constant">&quot;Line &quot;</span> &lt;&lt; parsedExpression.at(colon).lineNumber
+                &lt;&lt; <span class="Constant">&quot;, Column &quot;</span> &lt;&lt; parsedExpression[colon].columnNumber
+                &lt;&lt; <span class="Constant">&quot;, Parser error: Unexpected token </span><span class="Special">\&quot;</span><span class="Constant">:</span><span class="Special">\&quot;</span><span class="Constant">!&quot;</span> &lt;&lt; std::endl;
+      <span class="Statement">break</span>;
+    }
+    <span class="Statement">if</span> (questionMark == <span class="Constant">0</span>) {
+      std::cerr &lt;&lt; <span class="Constant">&quot;Line &quot;</span> &lt;&lt; parsedExpression.at(questionMark).lineNumber
+                &lt;&lt; <span class="Constant">&quot;, Column &quot;</span> &lt;&lt; parsedExpression[questionMark].columnNumber
+                &lt;&lt; <span class="Constant">&quot;, Parser error: The ternary operator </span><span class="Special">\&quot;</span><span class="Constant">?:</span><span class="Special">\&quot;</span><span class="Constant"> has less &quot;</span>
+                   <span class="Constant">&quot;than three operands.&quot;</span>
+                &lt;&lt; std::endl;
+      <span class="Statement">break</span>;
+    }
+
+    std::vector&lt;TreeNode&gt; nodesThatTheRecursionDealsWith(
+        parsedExpression.begin() + questionMark + <span class="Constant">1</span>,
+        parsedExpression.begin() + colon);
+
+    nodesThatTheRecursionDealsWith =
+        parseExpression(nodesThatTheRecursionDealsWith);
+
+    <span class="Statement">if</span> (nodesThatTheRecursionDealsWith.size() &gt; <span class="Constant">1</span>) {
+      std::cerr &lt;&lt; <span class="Constant">&quot;Line &quot;</span> &lt;&lt; nodesThatTheRecursionDealsWith.at(<span class="Constant">1</span>).lineNumber
+                &lt;&lt; <span class="Constant">&quot;, Column &quot;</span>
+                &lt;&lt; nodesThatTheRecursionDealsWith.at(<span class="Constant">1</span>).columnNumber
+                &lt;&lt; <span class="Constant">&quot;, Parser error: Unexpected token </span><span class="Special">\&quot;</span><span class="Constant">&quot;</span>
+                &lt;&lt; nodesThatTheRecursionDealsWith.at(<span class="Constant">1</span>).text &lt;&lt; <span class="Constant">&quot;</span><span class="Special">\&quot;</span><span class="Constant">!&quot;</span>
+                &lt;&lt; std::endl;
+      <span class="Statement">break</span>;
+    }
+    <span class="Statement">if</span> (nodesThatTheRecursionDealsWith.size() == <span class="Constant">0</span>) {
+      std::cerr &lt;&lt; <span class="Constant">&quot;Line &quot;</span> &lt;&lt; parsedExpression.at(questionMark).lineNumber
+                &lt;&lt; <span class="Constant">&quot;, Column &quot;</span> &lt;&lt; parsedExpression.at(questionMark).columnNumber
+                &lt;&lt; <span class="Constant">&quot;, Parser error: The ternary operator </span><span class="Special">\&quot;</span><span class="Constant">?:</span><span class="Special">\&quot;</span><span class="Constant"> has less &quot;</span>
+                   <span class="Constant">&quot;than three operands!&quot;</span>
+                &lt;&lt; std::endl;
+      <span class="Statement">break</span>;
+    }
+    parsedExpression[questionMark].text = <span class="Constant">&quot;?:&quot;</span>;
+    parsedExpression[questionMark].children.push_back(
+        parsedExpression[questionMark - <span class="Constant">1</span>]); <span class="Comment">// Condition</span>
+    parsedExpression[questionMark].children.push_back(
+        nodesThatTheRecursionDealsWith[<span class="Constant">0</span>]); <span class="Comment">// Then-clause</span>
+    parsedExpression[questionMark].children.push_back(
+        parsedExpression[colon + <span class="Constant">1</span>]); <span class="Comment">// Else-clause</span>
+    parsedExpression.erase(parsedExpression.begin() + questionMark - <span class="Constant">1</span>);
+    parsedExpression.erase(parsedExpression.begin() + questionMark,
+                           parsedExpression.begin() + colon + <span class="Constant">1</span>);
+  }
+	    </pre>
           </li>
           <li>
             <b
@@ -588,7 +709,13 @@
             problems such as
             <a href="https://langdev.stackexchange.com/q/4068"
               >this problem in my PicoBlaze assembler</a
-            >. If you are parsing right-associative operators by <i>scanning backwards</i>, you will need to parse <code>?:</code> in <b>two</b> different passes: one to tell which <code>:</code> belongs to a label and which one to a ternary conditional, and the other to actually parse <code>?:</code>. In my PicoBlaze assembler, the tokenizer is doing the first pass (which is probably a significant violation of the separation of concerns).
+            >. If you are parsing right-associative operators by
+            <i>scanning backwards</i>, you will need to parse <code>?:</code> in
+            <b>two</b> different passes: one to tell which
+            <code>:</code> belongs to a label and which one to a ternary
+            conditional, and the other to actually parse <code>?:</code>. In my
+            PicoBlaze assembler, the tokenizer is doing the first pass (which is
+            probably a significant violation of the separation of concerns).
           </li>
           <li>
             <b
@@ -607,7 +734,8 @@
               href="https://picoblaze-simulator-f0bjd5apf8bwcrdd.switzerlandnorth-01.azurewebsites.net/PicoBlaze.html?id=7#label_line_56"
               >my implementation of the permutations algorithm in PicoBlaze
               assembly language</a
-            >., line number 56). Your assembler must not crash on such a line of code,
+            >., line number 56). Your assembler must not crash on such a line of
+            code,
             <a
               href="https://github.com/FlatAssembler/PicoBlaze_Simulator_in_JS/issues/38"
               >like mine used to</a
@@ -625,19 +753,25 @@
         <a
           href="#"
           style="color: red"
-          onclick="document.getElementById('glavni').setAttribute('class', 'main1')"
+          onclick="
+            document.getElementById('glavni').setAttribute('class', 'main1')
+          "
           >[1]</a
         >
         <a
           href="#"
           style="color: red"
-          onclick="document.getElementById('glavni').setAttribute('class', 'main2')"
+          onclick="
+            document.getElementById('glavni').setAttribute('class', 'main2')
+          "
           >[2]</a
         >
         <a
           href="#"
           style="color: red"
-          onclick="document.getElementById('glavni').setAttribute('class', 'main3')"
+          onclick="
+            document.getElementById('glavni').setAttribute('class', 'main3')
+          "
           >[3]</a
         >
       </div>
