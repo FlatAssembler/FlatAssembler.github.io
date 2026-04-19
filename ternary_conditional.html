@@ -558,18 +558,25 @@
             preventing it from being used to shortly write if-else-if-else
             statements. <code>a ? b : c ? d : e</code> should parse as
             <code>a ? b : (c ? d : e)</code>, not as
-            <code>(a ? b : c) ? d : e</code>. Now, admittedly, it's not at all
-            obvious how to do it <b>nicely</b> in the parser. In both my
-            PicoBlaze assembler and my AEC-to-WebAssembly compiler, I am doing
-            it by <i>scanning backwards</i>, which is considered to be an
-            anti-pattern in the world of Programming Language Design and
-            Implementation, whereas, in my AEC-to-x86 compiler, I am doing it by
-            assuming the rest of the expression has already been parsed, because
-            the <code>?:</code> is the operator with the lowest priority. That's
+            <code>(a ? b : c) ? d : e</code>.<br />
+            Now, admittedly, it's not at all obvious how to do it
+            <b>nicely</b> in the parser. In both my PicoBlaze assembler and my
+            AEC-to-WebAssembly compiler, I am doing it by
+            <i>scanning backwards</i>, which is considered to be an anti-pattern
+            in the world of Programming Language Design and Implementation,
+            whereas, in my AEC-to-x86 compiler, I am doing it by assuming the
+            rest of the expression has already been parsed, because the
+            <code>?:</code> is the operator with the lowest priority. That's
             nice to code, but it's not an option if the assignment operator is
-            also an operator so that assignments can be chained. Namely, the
-            assignment operator in that case is a part of the expression and has
-            a lower priority than <code>?:</code>. I've opened
+            also an operator so that assignments can be chained. For those who
+            don't know (and, in that case, you probably should not be making
+            your programming language), in many programming languages the
+            assigniment operator <code>=</code> can be chained, so that, if you
+            write <code>a = b = c</code>, the value of <code>c</code> will be
+            assigned to both <code>a</code> and <code>b</code>. The assignment
+            operator in that case is a part of the expression and has a lower
+            priority than <code>?:</code> (and it is also a right-associative
+            operator). I've opened
             <a href="https://langdev.stackexchange.com/q/4071/330"
               >a LangDev StackExchange question about this</a
             >. Maybe you can do it like this in C++ (I've refactored it many
@@ -585,7 +592,7 @@
      <span class="Comment">// so why not make one here in C++?</span>
 
   <span class="Comment">// Parsing the ternary conditional `?:` operator, which is right-associative.</span>
-  <span class="Comment">// We will parse it by </span><span class="Constant">&quot;scanning backwards&quot;</span><span class="Comment">, which is why we are using</span>
+  <span class="Comment">// We will parse it by &quot;scanning backwards&quot;, which is why we are using</span>
   <span class="Comment">// `findLastIndex` instead of `std::find_if`.</span>
   <span class="Type">int</span> lastColon;
   <span class="Statement">while</span> ((lastColon =
@@ -668,7 +675,36 @@
                            parsedExpression.begin() + colon + <span class="Constant">1</span>);
   }
 	    </pre>
-Now, how much is it <i>idiomatic</i> C++, I suppose not very much. But I believe its intent is clear.
+            Now, how much is it <i>idiomatic</i> C++, I suppose not very much.
+            But I believe its intent is clear.<br />
+            By the way, in case you are writing an assembler or some other
+            programming language where whitespace ends the expression, it's
+            probably a good idea to check in the lambda-function in the
+            while-loop condition whether the colon <code>:</code> is immediately
+            followed by a new-line token, like this:
+            <pre>
+  <span class="Statement">if</span> (!<span class="Type">Array</span>.prototype
+           .findLastIndex) <span class="Comment">// Firefox 52 (the last version of Firefox to run on</span>
+                           <span class="Comment">// Windows XP) does not support the findLastIndex</span>
+                           <span class="Comment">// directive on an array.</span>
+    <span class="Type">Array</span>.prototype.findLastIndex = <span class="Statement">function</span>(lambda) <span class="Identifier">{</span>
+      <span class="Statement">for</span> (<span class="Statement">let</span> i = <span class="Identifier">this</span>.length - <span class="Constant">1</span>; i &gt;= <span class="Constant">0</span>; i--)
+        <span class="Statement">if</span> (lambda(<span class="Identifier">this</span><span class="Identifier">[</span>i<span class="Identifier">]</span>, i))
+          <span class="Statement">return</span> i;
+      <span class="Statement">return</span> -<span class="Constant">1</span>;
+    <span class="Identifier">}</span>;
+
+  <span class="Statement">let</span> lastColon;
+  <span class="Statement">while</span> ((lastColon = tokenized.findLastIndex((node, index) =&gt; <span class="Identifier">{</span>
+           <span class="Statement">if</span> (index &gt; tokenized.length - <span class="Constant">2</span>)
+             <span class="Statement">return</span> <span class="Constant">false</span>;
+           <span class="Statement">if</span> (node.text == <span class="Constant">':'</span> &amp;&amp; tokenized<span class="Identifier">[</span>index + <span class="Constant">1</span><span class="Identifier">]</span>.text != <span class="Special">'\n'</span>)
+             <span class="Statement">return</span> <span class="Constant">true</span>;
+           <span class="Statement">return</span> <span class="Constant">false</span>;
+         <span class="Identifier">}</span>)) != -<span class="Constant">1</span>) <span class="Identifier">{</span></pre>
+            I think the error message will be a lot more clear that way than if
+            you put the <code>\n</code> token as the third child of the
+            <code>?:</code> tree node.
           </li>
           <li>
             <b
@@ -681,7 +717,11 @@ Now, how much is it <i>idiomatic</i> C++, I suppose not very much. But I believe
             divide-by-zero error by writing something like this:
             <code>d == 0 ? 0 : 1 / d</code>. If <code>d</code> is zero, the code
             compiled with my AEC-to-x86 compiler will still trigger a division
-            by zero error.
+            by zero error.<br />
+            Such an error probably cannot happen when you are targetting
+            WebAssembly (rather than x86), as there <code>?:</code> translates
+            quite directly into the typed if-expression
+            <code>(if (result i32)...</code>.
           </li>
           <li>
             <b
@@ -695,7 +735,9 @@ Now, how much is it <i>idiomatic</i> C++, I suppose not very much. But I believe
               >an internal compiler error saying that some part of the compiler
               attempted to compile an array of negative size</a
             >, like my AEC-to-WebAssembly compiler used to output, because the
-            user won't be able to guess what's going on from that message.
+            user won't be able to guess what's going on from that message. It
+            took me who wrote that compiler three years earlier hours to figure
+            out what exactly is going in the compiler in that case.
           </li>
           <li>
             <b
@@ -716,7 +758,9 @@ Now, how much is it <i>idiomatic</i> C++, I suppose not very much. But I believe
             <code>:</code> belongs to a label and which one to a ternary
             conditional, and the other to actually parse <code>?:</code>. In my
             PicoBlaze assembler, the tokenizer is doing the first pass (which is
-            probably a significant violation of the separation of concerns).
+            probably a significant violation of the separation of concerns, as
+            that is almost certainly the parser's job, rather than the
+            tokenizer's job).
           </li>
           <li>
             <b
