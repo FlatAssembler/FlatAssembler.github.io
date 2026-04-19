@@ -580,7 +580,7 @@
             <a href="https://langdev.stackexchange.com/q/4071/330"
               >a LangDev StackExchange question about this</a
             >. Maybe you can do it like this in C++ (I've refactored it many
-            times):
+            times, this is an excerpt from my AEC-to-WebAssembly compiler):
             <pre>  <span class="Type">auto</span> findLastIndex = [](std::vector&lt;TreeNode&gt; treeNode,
                           std::function&lt;<span class="Type">bool</span>(TreeNode, <span class="Type">int</span>)&gt; funcPtr) {
     <span class="Statement">for</span> (<span class="Type">int</span> i = <span class="Type">int</span>(treeNode.size()) - <span class="Constant">1</span>; i &gt;= <span class="Constant">0</span>; i--)
@@ -681,7 +681,7 @@
             programming language where whitespace ends the expression, it's
             probably a good idea to check in the lambda-function in the
             while-loop condition whether the colon <code>:</code> is immediately
-            followed by a new-line token, like this:
+            followed by a new-line token, like this (This is an excerpt from my PicoBlaze assembler written in JavaScript, closely corresponding to the excerpt from the AEC-to-WebAssembly compiler dumped above):
             <pre>
   <span class="Statement">if</span> (!<span class="Type">Array</span>.prototype
            .findLastIndex) <span class="Comment">// Firefox 52 (the last version of Firefox to run on</span>
