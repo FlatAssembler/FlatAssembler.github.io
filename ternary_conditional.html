@@ -549,7 +549,7 @@
         implement the ternary conditional operator <code>?:</code> in it? Let's
         not go into discussing how it might make code written in your language
         less legible, and let's focus only on the strictly technical aspect of
-        it. Here are 5 things I think it's important to be careful about when
+        it. For the simple reason that the ternary conditional operator looks simple, but it is difficult to implement properly, as quite a few things can go wrong. Here are 5 things I think it's important to be careful about when
         implementing the ternary conditional operator.
         <ol>
           <li>
@@ -677,11 +677,11 @@
 	    </pre>
             Now, how much is it <i>idiomatic</i> C++, I suppose not very much.
             But I believe its intent is clear.<br />
-            By the way, in case you are writing an assembler or some other
-            programming language where whitespace ends the expression, it's
+            By the way, in case you are writing an assembler or some other whitespace-sensitive
+            programming language where a new-line token ends the expression, it's
             probably a good idea to check in the lambda-function in the
             while-loop condition whether the colon <code>:</code> is immediately
-            followed by a new-line token, like this (This is an excerpt from my PicoBlaze assembler written in JavaScript, closely corresponding to the excerpt from the AEC-to-WebAssembly compiler dumped above):
+            followed by a new-line token, like this (This is an excerpt from my PicoBlaze assembler written in JavaScript, closely corresponding to the beginning of the excerpt from the AEC-to-WebAssembly compiler dumped above):
             <pre>
   <span class="Statement">if</span> (!<span class="Type">Array</span>.prototype
            .findLastIndex) <span class="Comment">// Firefox 52 (the last version of Firefox to run on</span>
