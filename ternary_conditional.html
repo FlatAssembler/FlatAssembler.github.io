@@ -593,7 +593,7 @@
             <a href="https://langdev.stackexchange.com/q/4071/330"
               >a LangDev StackExchange question about this</a
             >. Maybe you can do it like this in C++ (I've refactored it many
-            times, this is an excerpt from my AEC-to-WebAssembly compiler):
+            times, this is an excerpt from <a href="https://github.com/FlatAssembler/AECforWebAssembly.git">my AEC-to-WebAssembly compiler</a>):
             <pre>  <span class="Type">auto</span> findLastIndex = [](std::vector&lt;TreeNode&gt; treeNode,
                           std::function&lt;<span class="Type">bool</span>(TreeNode, <span class="Type">int</span>)&gt; funcPtr) {
     <span class="Statement">for</span> (<span class="Type">int</span> i = <span class="Type">int</span>(treeNode.size()) - <span class="Constant">1</span>; i &gt;= <span class="Constant">0</span>; i--)
@@ -695,8 +695,8 @@
             ends the expression, it's probably a good idea to check in the
             lambda-function in the while-loop condition whether the colon
             <code>:</code> is immediately followed by a new-line token, like
-            this (This is an excerpt from my PicoBlaze assembler written in
-            JavaScript, closely corresponding to the beginning of the excerpt
+            this (This is an excerpt from <a href="https://github.com/FlatAssembler/PicoBlaze_Simulator_in_JS.git">my PicoBlaze assembler written in
+            JavaScript</a>, closely corresponding to the beginning of the excerpt
             from the AEC-to-WebAssembly compiler dumped above):
             <pre>
   <span class="Statement">if</span> (!<span class="Type">Array</span>.prototype
@@ -732,13 +732,13 @@
             user of your language will try to protect themselves from a
             divide-by-zero error by writing something like this:
             <code>d == 0 ? 0 : 1 / d</code>. If <code>d</code> is zero, the code
-            compiled with my AEC-to-x86 compiler will still trigger a division
+            compiled with <a href="compiler">my AEC-to-x86 compiler</a> will still trigger a division
             by zero error. So, for example, do <b>NOT</b> output something like
             this:
             <div id="assembly">
               <span style="color: #777777"
                 >; This is <b style="color: #700">incorrect</b> assembly code for the expresssion `d
-                = 0 ? 0 : 1 / d`,<br />
+                == 0 ? 0 : 1 / d`,<br />
                 ; as it triggers a division by zero in case `d` is zero.<br
               /></span>
               <span style="color: #000077">finit</span> <br /><span
@@ -955,7 +955,7 @@
               attempted to compile an array of negative size</a
             >, like my AEC-to-WebAssembly compiler used to output, because the
             user won't be able to guess what's going on from that message. It
-            took me who wrote that compiler three years earlier hours to figure
+            took me, a person who wrote that compiler three years earlier, hours to figure
             out what exactly is going in the compiler in that case.
           </li>
           <li>
@@ -998,7 +998,7 @@
               href="https://picoblaze-simulator-f0bjd5apf8bwcrdd.switzerlandnorth-01.azurewebsites.net/PicoBlaze.html?id=7#label_line_56"
               >my implementation of the permutations algorithm in PicoBlaze
               assembly language</a
-            >., line number 56). Your assembler must not crash on such a line of
+            >, line number 56. If we are in the debugging mode, so <code>NDEBUG</code> is zero, we will print the array to make sure BubbleSort has done its job correctly. Relying on the array being already sorted is <b>supposed</b> to make the algorithm for finding all the permutations significantly faster because then the permutations algorithm can check in constant time whether some lement from the original array has already been attempted to be add to the current attempt instead of doing it in the linear time, though the measurements do not really confirm that it makes it significantly faster.). Your assembler must not crash on such a line of
             code,
             <a
               href="https://github.com/FlatAssembler/PicoBlaze_Simulator_in_JS/issues/38"
