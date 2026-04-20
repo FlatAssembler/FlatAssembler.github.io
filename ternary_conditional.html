@@ -998,7 +998,21 @@
               href="https://picoblaze-simulator-f0bjd5apf8bwcrdd.switzerlandnorth-01.azurewebsites.net/PicoBlaze.html?id=7#label_line_56"
               >my implementation of the permutations algorithm in PicoBlaze
               assembly language</a
-            >, line number 56. If we are in the debugging mode, so <code>NDEBUG</code> is zero, we will print the array to make sure BubbleSort has done its job correctly. Relying on the array being already sorted is <b>supposed</b> to make the algorithm for finding all the permutations significantly faster because then the permutations algorithm can check in constant time whether some element from the original array has already been attempted for the adding to the current attempt instead of doing it in the linear time, though the measurements do not really confirm that <i>clever trick</i> makes the permutations algorithm significantly faster.). Your assembler must not crash on such a line of
+            >, line number 56. If we are in the debugging mode,
+			  so <code>NDEBUG</code> is zero, we will print the array to make
+			  sure BubbleSort has done its job correctly. Relying on the array
+			  being already sorted is <b>supposed</b> to make the algorithm for
+			  finding all the permutations of the array significantly faster
+			  because then the permutations algorithm can check in constant time
+			  whether some element from the original array has already been attempted
+			  for the adding to the current attempt instead of doing it in the linear
+			  time, though the measurements do not really confirm that <i>clever trick</i>
+			  makes the permutations algorithm significantly faster. And it's <b>not</b>
+			  due to BubbleSort being slow, as the time complexity of BubbleSort,
+			  O(n<sup><small>2</small></sup>), is negligible compared to the time complexity
+			  of finding all the permutations of an array O(n &middot; n!) that happens
+			  <b>after</b> it.).<br/>
+			  Your assembler must not crash on such a line of
             code,
             <a
               href="https://github.com/FlatAssembler/PicoBlaze_Simulator_in_JS/issues/38"
