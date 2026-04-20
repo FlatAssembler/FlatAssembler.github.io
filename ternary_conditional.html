@@ -211,6 +211,17 @@
         font-weight: bold;
         color: #ff7777;
       }
+      #assembly {
+        background: whitesmoke;
+        color: black;
+        font-family: monospace;
+        overflow: scroll;
+        padding: 3px;
+        white-space: nowrap;
+      }
+      #assembly a {
+        color: blue;
+      }
     </style>
   </head>
   <body>
@@ -549,8 +560,10 @@
         implement the ternary conditional operator <code>?:</code> in it? Let's
         not go into discussing how it might make code written in your language
         less legible, and let's focus only on the strictly technical aspect of
-        it. For the simple reason that the ternary conditional operator looks simple, but it is difficult to implement properly, as quite a few things can go wrong. Here are 5 things I think it's important to be careful about when
-        implementing the ternary conditional operator.
+        it. For the simple reason that the ternary conditional operator looks
+        simple, but it is difficult to implement properly, as quite a few things
+        can go wrong. Here are 5 things I think it's important to be careful
+        about when implementing the ternary conditional operator.
         <ol>
           <li>
             <b>Make sure it's parsed as right-associative.</b><br />
@@ -677,11 +690,14 @@
 	    </pre>
             Now, how much is it <i>idiomatic</i> C++, I suppose not very much.
             But I believe its intent is clear.<br />
-            By the way, in case you are writing an assembler or some other whitespace-sensitive
-            programming language where a new-line token ends the expression, it's
-            probably a good idea to check in the lambda-function in the
-            while-loop condition whether the colon <code>:</code> is immediately
-            followed by a new-line token, like this (This is an excerpt from my PicoBlaze assembler written in JavaScript, closely corresponding to the beginning of the excerpt from the AEC-to-WebAssembly compiler dumped above):
+            By the way, in case you are writing an assembler or some other
+            whitespace-sensitive programming language where a new-line token
+            ends the expression, it's probably a good idea to check in the
+            lambda-function in the while-loop condition whether the colon
+            <code>:</code> is immediately followed by a new-line token, like
+            this (This is an excerpt from my PicoBlaze assembler written in
+            JavaScript, closely corresponding to the beginning of the excerpt
+            from the AEC-to-WebAssembly compiler dumped above):
             <pre>
   <span class="Statement">if</span> (!<span class="Type">Array</span>.prototype
            .findLastIndex) <span class="Comment">// Firefox 52 (the last version of Firefox to run on</span>
@@ -717,7 +733,210 @@
             divide-by-zero error by writing something like this:
             <code>d == 0 ? 0 : 1 / d</code>. If <code>d</code> is zero, the code
             compiled with my AEC-to-x86 compiler will still trigger a division
-            by zero error.<br />
+            by zero error. So, for example, do <b>NOT</b> output something like
+            this:
+            <div id="assembly">
+              <span style="color: #777777"
+                >; This is <b>incorrect</b> assembly code for the expresssion `d
+                = 0 ? 0 : 1 / d`,<br />
+                ; as it triggers a division by zero in case `d` is zero.<br
+              /></span>
+              <span style="color: #000077">finit</span> <br /><span
+                style="color: #000077"
+                >mov</span
+              >
+              <span style="color: #770077">dword</span>
+              <span style="color: #770000">[result]</span
+              ><span style="color: #333333">,</span
+              ><span style="color: #007700">0x3f800000</span>
+              <span style="color: #777777"
+                >;<a href="https://en.wikipedia.org/wiki/IEEE_754">IEEE754</a>
+                hex of 1</span
+              >
+              <br /><span style="color: #000077">fld</span>
+              <span style="color: #770077">dword</span>
+              <span style="color: #770000">[result]</span> <br /><span
+                style="color: #000077"
+                >fld</span
+              >
+              <span style="color: #770077">dword</span>
+              <span style="color: #770000">[d]</span> <br /><span
+                style="color: #000077"
+                >fdivp</span
+              >
+              <br /><span style="color: #000077">mov</span>
+              <span style="color: #770077">dword</span>
+              <span style="color: #770000">[result]</span
+              ><span style="color: #333333">,</span
+              ><span style="color: #007700">0x0</span>
+              <span style="color: #777777"
+                >;<a href="https://en.wikipedia.org/wiki/IEEE_754">IEEE754</a>
+                hex of 0</span
+              >
+              <br /><span style="color: #000077">fld</span>
+              <span style="color: #770077">dword</span>
+              <span style="color: #770000">[result]</span> <br /><span
+                style="color: #000077"
+                >fld</span
+              >
+              <span style="color: #770077">dword</span>
+              <span style="color: #770000">[d]</span> <br /><span
+                style="color: #000077"
+                >mov</span
+              >
+              <span style="color: #770077">dword</span>
+              <span style="color: #770000">[result]</span
+              ><span style="color: #333333">,</span
+              ><span style="color: #007700">0x0</span>
+              <span style="color: #777777"
+                >;<a href="https://en.wikipedia.org/wiki/IEEE_754">IEEE754</a>
+                hex of 0</span
+              >
+              <br /><span style="color: #000077">fld</span>
+              <span style="color: #770077">dword</span>
+              <span style="color: #770000">[result]</span> <br /><span
+                style="color: #000077"
+                >fcomp</span
+              >
+              <br /><span style="color: #000077">push</span>
+              <span style="color: #007777">ax</span> <br /><span
+                style="color: #000077"
+                >fstsw</span
+              >
+              <span style="color: #007777">ax</span> <br /><span
+                style="color: #000077"
+                >mov</span
+              >
+              <span style="color: #007777">al</span
+              ><span style="color: #333333">,</span
+              ><span style="color: #007777">ah</span> <br /><span
+                style="color: #000077"
+                >lahf</span
+              >
+              <br /><span style="color: #000077">and</span>
+              <span style="color: #007777">ax</span
+              ><span style="color: #333333">,</span
+              ><span style="color: #007700">0xba45</span>
+              <span style="color: #777777"
+                >;<a
+                  href="https://www.vogons.org/viewtopic.php?p=1130827#p1130827"
+                  >https://www.vogons.org/viewtopic.php?p=1130827#p1130827</a
+                ></span
+              >
+              <br /><span style="color: #000077">or</span>
+              <span style="color: #007777">ah</span
+              ><span style="color: #333333">,</span
+              ><span style="color: #007777">al</span> <br /><span
+                style="color: #000077"
+                >sahf</span
+              >
+              <br /><span style="color: #000077">pop</span>
+              <span style="color: #007777">ax</span> <br /><span
+                style="color: #000077"
+                >fstp</span
+              >
+              <span style="color: #770077">dword</span>
+              <span style="color: #770000">[result]</span> <br /><span
+                style="color: #000077"
+                >jne</span
+              >
+              <span style="color: #777700"
+                >operandsOfTheEqualityOperatorAreNotEqualLabel883768</span
+              >
+              <br /><span style="color: #000077">fld1</span> <br /><span
+                style="color: #000077"
+                >jmp</span
+              >
+              <span style="color: #777700"
+                >endOfTheEqualityOperatorLabel577125</span
+              >
+              <br />
+              <span style="color: #777700"
+                >operandsOfTheEqualityOperatorAreNotEqualLabel883768</span
+              ><span style="color: #333333">:</span> <br /><span
+                style="color: #000077"
+                >fldz</span
+              >
+              <br />
+              <span style="color: #777700"
+                >endOfTheEqualityOperatorLabel577125</span
+              ><span style="color: #333333">:</span> <br /><span
+                style="color: #000077"
+                >fistp</span
+              >
+              <span style="color: #770077">dword</span>
+              <span style="color: #770000">[result]</span> <br /><span
+                style="color: #000077"
+                >xor</span
+              >
+              <span style="color: #007777">eax</span
+              ><span style="color: #333333">,</span
+              ><span style="color: #007777">eax</span> <br /><span
+                style="color: #000077"
+                >cmp</span
+              >
+              <span style="color: #770077">dword</span>
+              <span style="color: #770000">[result]</span
+              ><span style="color: #333333">,</span
+              ><span style="color: #007777">eax</span> <br /><span
+                style="color: #000077"
+                >jz</span
+              >
+              <span style="color: #777700"
+                >firstOperandOfTheTernaryOperatorIsZeroLabel537447</span
+              >
+              <br /><span style="color: #000077">fstp</span>
+              <span style="color: #770077">dword</span>
+              <span style="color: #770000">[result]</span> <br /><span
+                style="color: #000077"
+                >mov</span
+              >
+              <span style="color: #007777">eax</span
+              ><span style="color: #333333">,</span>
+              <span style="color: #770077">dword</span>
+              <span style="color: #770000">[result]</span> <br /><span
+                style="color: #000077"
+                >fstp</span
+              >
+              <span style="color: #770077">dword</span>
+              <span style="color: #770000">[result]</span> <br /><span
+                style="color: #000077"
+                >mov</span
+              >
+              <span style="color: #770077">dword</span>
+              <span style="color: #770000">[result]</span
+              ><span style="color: #333333">,</span
+              ><span style="color: #007777">eax</span> <br /><span
+                style="color: #000077"
+                >fld</span
+              >
+              <span style="color: #770077">dword</span>
+              <span style="color: #770000">[result]</span> <br /><span
+                style="color: #000077"
+                >jmp</span
+              >
+              <span style="color: #777700"
+                >endOfTheTernaryOperatorLabel775264</span
+              >
+              <br />
+              <span style="color: #777700"
+                >firstOperandOfTheTernaryOperatorIsZeroLabel537447</span
+              ><span style="color: #333333">:</span> <br /><span
+                style="color: #000077"
+                >fstp</span
+              >
+              <span style="color: #770077">dword</span>
+              <span style="color: #770000">[result]</span>
+              <br />
+              <span style="color: #777700"
+                >endOfTheTernaryOperatorLabel775264</span
+              ><span style="color: #333333">:</span> <br /><span
+                style="color: #000077"
+                >fstp</span
+              >
+              <span style="color: #770077">dword</span>
+              <span style="color: #770000">[result]</span> <br />
+            </div>
             Such an error probably cannot happen when you are targetting
             WebAssembly (rather than x86), as there <code>?:</code> translates
             quite directly into the typed if-expression
