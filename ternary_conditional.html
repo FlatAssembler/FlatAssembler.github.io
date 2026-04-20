@@ -1000,18 +1000,33 @@
               assembly language</a
             >, line number 56. If we are in the debugging mode,
 			  so <code>NDEBUG</code> is zero, we will print the array to make
-			  sure BubbleSort has done its job correctly. Relying on the array
-			  being already sorted is <b>supposed</b> to make the algorithm for
+			  sure BubbleSort has done its job correctly. To add some context, relying on the array
+			  being already sorted before starting the permutations algorithm
+			  is <b>supposed</b> to make the algorithm for
 			  finding all the permutations of the array significantly faster
-			  because then the permutations algorithm can check in constant time
+			  because then the permutations algorithm can check in a constant time
 			  whether some element from the original array has already been attempted
 			  for the adding to the current attempt instead of doing it in the linear
-			  time, though the measurements do not really confirm that <i>clever trick</i>
+			  time -- the permutations algorithm can simply check whether the next element
+			  in the sorted array is equal to the current one and conclude based on that
+			  whether the current one has already been tried, instead of iterating 
+			  all the way to the end of the input array to determine that.
+			  Though, the actual wall-clock-time measurements do
+			  not really confirm that the described <i>clever trick</i>
 			  makes the permutations algorithm significantly faster. And it's <b>not</b>
 			  due to BubbleSort being slow, as the time complexity of BubbleSort,
 			  O(n<sup><small>2</small></sup>), is negligible compared to the time complexity
 			  of finding all the permutations of an array O(n &middot; n!) that happens
-			  <b>after</b> it.).<br/>
+			  <b>after</b> it, and not <i>outside</i> of it so that the complexities multiply.
+			  A small constant speed-up (not quite linear, since there are other loops
+			  of length <i>n</i> running beside that loop -- those that check whether
+			  the count of the currently being added element is smaller in the current attempt than in the input array)
+			  of the permutations algorithm <b>should</b> speed up the program significantly,
+			  even if it is at the cost of a quadratic preprocessing of the input.
+			  <a 
+								   href="https://www.reddit.com/r/asm/comments/1qlxfrw/how_it_is_that_relying_on_an_input_array_being/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
+								   >I would really like to know why this seemingly-clever trick
+			  to speed up finding all the permutations does not seem to work.</a>)<br/>
 			  Your assembler must not crash on such a line of
             code,
             <a
