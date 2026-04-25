@@ -24,3 +24,7 @@ const preprocessor = [
   "BASE_HEXADECIMAL",
   "PRINT_STRING",
 ];
+
+if (typeof Bun !== "undefined") {
+  module.exports = {mnemonics, preprocessor};
+}

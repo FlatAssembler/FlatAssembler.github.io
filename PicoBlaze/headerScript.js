@@ -673,3 +673,7 @@ function fetchExample(exampleName) {
                  alert("Fetching the example code from GitHub unsuccessful! " +
                        error));
 }
+
+if (typeof Bun !== "undefined") {
+  module.exports = {formatAsAddress};
+}
