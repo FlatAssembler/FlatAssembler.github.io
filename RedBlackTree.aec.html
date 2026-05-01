@@ -724,7 +724,7 @@
  <span class="LineNumber">681</span>   <span class="Keyword">EndIf</span>
  <span class="LineNumber">682</span> 
  <span class="LineNumber">683</span>   <span class="Comment">// Color must be 'R' or 'B'
- <span class="LineNumber">684</span> </span>  <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>node<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">=</span> <span class="String">'R'</span><span class="Parenthesis">)</span> <span class="Operator">and</span> <span class="Operator">not</span><span class="Parenthesis">(</span>node<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">=</span> <span class="String">'B'</span><span class="Parenthesis">)</span> <span class="Keyword">Then</span>
+ <span class="LineNumber">684</span> </span>  <span class="Keyword">If</span> node<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">!</span><span class="Operator">=</span> <span class="String">'R'</span> <span class="Operator">and</span> node<span class="Operator">-</span><span class="Operator">&gt;</span>color <span class="Operator">!</span><span class="Operator">=</span> <span class="String">'B'</span> <span class="Keyword">Then</span>
  <span class="LineNumber">685</span>     <span class="Keyword">Return</span> <span class="Operator">-</span><span class="Constant">1</span><span class="Keyword">;</span>
  <span class="LineNumber">686</span>   <span class="Keyword">EndIf</span>
  <span class="LineNumber">687</span> 
@@ -746,7 +746,7 @@
  <span class="LineNumber">703</span>   <span class="Keyword">EndIf</span>
  <span class="LineNumber">704</span> 
  <span class="LineNumber">705</span>   <span class="Comment">// Black-height must match
- <span class="LineNumber">706</span> </span>  <span class="Keyword">If</span> <span class="Operator">not</span><span class="Parenthesis">(</span>leftBH <span class="Operator">=</span> rightBH<span class="Parenthesis">)</span> <span class="Keyword">Then</span>
+ <span class="LineNumber">706</span> </span>  <span class="Keyword">If</span> leftBH <span class="Operator">!</span><span class="Operator">=</span> rightBH <span class="Keyword">Then</span>
  <span class="LineNumber">707</span>     <span class="Keyword">Return</span> <span class="Operator">-</span><span class="Constant">1</span><span class="Keyword">;</span>
  <span class="LineNumber">708</span>   <span class="Keyword">EndIf</span>
  <span class="LineNumber">709</span> 
