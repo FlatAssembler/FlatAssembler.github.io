@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="hr">
+	<head>
+		<title>Vizualizacija Zakona sonornosti (Sonority Sequencing Principle) u JavaScriptu</title>
+		<meta name="author" content="Teo Samaržija" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script>
+"use strict";
+			const consonants = "bcčćdđfghjklmnpqrsštvwxyzž";
+const BEZVUCNI_PRASKAVAC = 1,
+ZVUCNI_PRASKAVAC = 2,
+BEZVUCNI_SLIVENIK = 3,
+ZVUCNI_SLIVENIK = 4,
+BEZVUCNI_TJESNJAC = 5,
+ZVUCNI_TJESNJAC = 6,
+NAZAL = 7,
+LATERAL = 8,
+ROTACIST = 9,
+VISOKI_OTVORNIK = 10,
+SREDNJI_OTVORNIK = 11,
+NISKI_OTVORNIK = 12;
+const sonornost_fonema = {
+        'a' : NISKI_OTVORNIK,
+        'b' : ZVUCNI_PRASKAVAC,
+        'c' : BEZVUCNI_SLIVENIK,
+        'č' : BEZVUCNI_SLIVENIK,
+        'ć' : BEZVUCNI_SLIVENIK,
+        'd' : ZVUCNI_PRASKAVAC,
+        'đ' : ZVUCNI_SLIVENIK,
+        'e' : SREDNJI_OTVORNIK,
+        'f' : BEZVUCNI_TJESNJAC,
+        'g' : ZVUCNI_PRASKAVAC,
+        'h' : BEZVUCNI_TJESNJAC,
+        'i' : VISOKI_OTVORNIK,
+        'j' : VISOKI_OTVORNIK, // Znam da tehnički nije.
+        'k' : BEZVUCNI_PRASKAVAC,
+        'l' : LATERAL,
+        'm' : NAZAL,
+        'n' : NAZAL,
+        'o' : SREDNJI_OTVORNIK,
+        'p' : BEZVUCNI_PRASKAVAC,
+        'q' : BEZVUCNI_PRASKAVAC,
+        'r' : ROTACIST,
+        's' : BEZVUCNI_TJESNJAC,
+        'š' : BEZVUCNI_TJESNJAC,
+        't' : BEZVUCNI_PRASKAVAC,
+        'u' : VISOKI_OTVORNIK,
+        'v' : ZVUCNI_TJESNJAC,
+        'w' : VISOKI_OTVORNIK, // Opet, znam da tehnički nije.
+        'x' : BEZVUCNI_SLIVENIK, // Nisam siguran bi li bio.
+	'y' : VISOKI_OTVORNIK,
+        'z' : ZVUCNI_TJESNJAC,
+        'ž' : ZVUCNI_TJESNJAC,
+	'0' : BEZVUCNI_PRASKAVAC
+        };
+let wordList;
+let mapWithWordInitialConsonantPairs;
+let mapWithWordFinalConsonantPairs;
+let setWithConsonantPairs;
+let maximalNumber;
+fetch("hr.wl").then((response)=>response.text()).then((input)=>{
+wordList = new Set();
+let currentWord = "";
+for (const character of input)
+  if (character == '\n' || character == ' ') {
+    wordList.add(currentWord);
+    currentWord = "";
+  } else
+    currentWord += character.toLowerCase();
+mapWithWordInitialConsonantPairs = new Map();
+mapWithWordFinalConsonantPairs = new Map();
+setWithConsonantPairs = new Set();
+const getFirstTwoConsonants = (word) => {
+  let consonantPair = "";
+  for (let i = 0; i < word.length; i++)
+    if (consonants.includes(word[i])) {
+      consonantPair += word[i];
+      if (consonantPair.length == 2)
+        break;
+    }
+  while (consonantPair.length < 2)
+    consonantPair += "0";
+  return consonantPair;
+};
+const getLastTwoConsonants = (word) => {
+  let consonantPair = "";
+  for (let i = word.length - 1; i >= 0; i--)
+    if (consonants.includes(word[i])) {
+      consonantPair = word[i] + consonantPair;
+      if (consonantPair.length == 2)
+        break;
+    }
+  while (consonantPair.length < 2)
+    consonantPair = "0" + consonantPair;
+  return consonantPair;
+};
+for (const word of wordList) {
+  mapWithWordInitialConsonantPairs.set(
+      getFirstTwoConsonants(word),
+      (mapWithWordInitialConsonantPairs.get(getFirstTwoConsonants(word)) || 0) +
+          1);
+  mapWithWordFinalConsonantPairs.set(
+      getLastTwoConsonants(word),
+      (mapWithWordFinalConsonantPairs.get(getLastTwoConsonants(word)) || 0) +
+          1);
+  setWithConsonantPairs.add(getFirstTwoConsonants(word));
+  setWithConsonantPairs.add(getLastTwoConsonants(word));
+}
+maximalNumber = 0;
+console.log("Consonant pair\tWords starting with it\tWords ending with it");
+for (const consonantPair of setWithConsonantPairs) {
+  console.log(consonantPair + "\t" +
+              (mapWithWordInitialConsonantPairs.get(consonantPair) || 0) +
+              "\t" + (mapWithWordFinalConsonantPairs.get(consonantPair) || 0));
+  maximalNumber = Math.max(
+      maximalNumber,
+      Math.sqrt(mapWithWordInitialConsonantPairs.get(consonantPair) || 0),
+      Math.sqrt(mapWithWordFinalConsonantPairs.get(consonantPair) || 0));
+}
+console.log("The maximal number is:" + maximalNumber);
+update();
+});
+function update() {
+let svg = `
+<svg
+	width="${(consonants.length + 3) * 30 + 300}"
+	height="${(consonants.length + 4) * 30 + 75}"
+	version="1.1"
+	xmlns="http://www.w3.org/2000/svg"
+>
+<rect x="0" y="0" width="100%" height="100%" fill="white" />
+<text x="400" y="20">Prvi suglasnik u paru</text>
+<g transform="rotate(-90 20 500)"><text x="20" y="500">Drugi suglasnik u paru</text></g>
+`;
+	let prviSuglasnici = consonants + "0";
+	let drugiSuglasnici = consonants + "0";
+	if (document.getElementById("sortirajPrveSuglasnike").value == "abecedi-obrnuto")
+		prviSuglasnici=prviSuglasnici.split("").reverse().join("");
+	if (document.getElementById("sortirajPrveSuglasnike").value == "sonornosti")
+		prviSuglasnici = prviSuglasnici.split("").sort((a,b)=>
+			{
+				if (sonornost_fonema[a] === undefined || sonornost_fonema[b] === undefined)
+					throw Error("Sonority difference of " + a + " and " + b + " cannot be calculated!");
+				return sonornost_fonema[a]-sonornost_fonema[b];
+			}).join("");
+	if (document.getElementById("sortirajPrveSuglasnike").value == "sonornosti-obrnuto")
+		prviSuglasnici = prviSuglasnici.split("").sort((a,b)=>
+			{
+				if (sonornost_fonema[a] === undefined || sonornost_fonema[b] === undefined)
+					throw Error("Sonority difference of " + a + " and " + b + " cannot be calculated!");
+				return sonornost_fonema[b]-sonornost_fonema[a];
+			}).join("");
+if (document.getElementById("sortirajDrugeSuglasnike").value == "abecedi-obrnuto")
+		drugiSuglasnici=drugiSuglasnici.split("").reverse().join("");
+	if (document.getElementById("sortirajDrugeSuglasnike").value == "sonornosti")
+		drugiSuglasnici = drugiSuglasnici.split("").sort((a,b)=>
+			{
+				if (sonornost_fonema[a] === undefined || sonornost_fonema[b] === undefined)
+					throw Error("Sonority difference of " + a + " and " + b + " cannot be calculated!");
+				return sonornost_fonema[a]-sonornost_fonema[b];
+			}).join("");
+	if (document.getElementById("sortirajDrugeSuglasnike").value == "sonornosti-obrnuto")
+		drugiSuglasnici = drugiSuglasnici.split("").sort((a,b)=>
+			{
+				if (sonornost_fonema[a] === undefined || sonornost_fonema[b] === undefined)
+					throw Error("Sonority difference of " + a + " and " + b + " cannot be calculated!");
+				return sonornost_fonema[b]-sonornost_fonema[a];
+			}).join("");
+for (let i = 0; i < prviSuglasnici.length; i++)
+	svg += `<text x="${(i + 2) * 30 + 12}" y="${15 + 30}" onclick="document.getElementById('suglasnik_${prviSuglasnici[i]}_gore').setAttribute('visibility','visible');">${
+      prviSuglasnici[i]}</text>
+      <text x="${12 + 30}" y="${(i + 1) * 30 + 7 + 30}"
+onclick="document.getElementById('suglasnik_${drugiSuglasnici[i]}_lijevo').setAttribute('visibility','visible');"
+		>${
+      drugiSuglasnici[i]}</text>
+	`;
+svg += `<line x1="${60}" y1="${30}" x2="${60}" y2="${
+    (prviSuglasnici.length + 1) * 30 + 30}" stroke="black" />
+<line x1="${30}" y1="${20 + 30}" x2="${
+    (drugiSuglasnici.length + 1) * 30 +
+    30}" y2="${20 + 30}" stroke="black" />`;
+for (let i = 0; i < prviSuglasnici.length; i++)
+  for (let j = 0; j < drugiSuglasnici.length; j++) {
+    const consonantPair = prviSuglasnici[i] + drugiSuglasnici[j];
+    const proportionInBeginning =
+        Math.sqrt(mapWithWordInitialConsonantPairs.get(consonantPair) || 0) /
+        maximalNumber;
+    const proportionAtTheEnd =
+        Math.sqrt(mapWithWordFinalConsonantPairs.get(consonantPair) || 0) /
+        maximalNumber;
+    console.log(`The consonant pair ${consonantPair} has proportions ${
+        proportionInBeginning} and ${proportionAtTheEnd}.`);
+    const rx = (i + 2) * 30 + 15;
+    const ry = (j + 2) * 30 + 3;
+    svg += `<circle cx="${rx}" cy="${ry}" stroke="red" stroke-width="1" r="${
+        proportionInBeginning * 13}"  fill="rgba(255,0,0,0.5)" />
+			<rect x="${rx - proportionAtTheEnd * 13}" y="${
+        ry - proportionAtTheEnd *
+                 13}" width="${proportionAtTheEnd * 2 * 13}" height="${
+        proportionAtTheEnd * 2 *
+        13}"  fill="rgba(0,0,255,0.5)" stroke="blue" stroke-width="1" />
+			`;
+    svg += `
+<rect x="${rx - 15 + 2}" y="${ry - 15 + 2}" width="25" height="25" opacity="0"
+    onclick="document.getElementById('par_suglasnika_${consonantPair}').setAttribute('visibility','visible');"
+></rect>
+	  `;
+  }
+	svg += `<rect x="10" y="${
+    (prviSuglasnici.length + 2) * 30 +
+    5}" stroke="blue" stroke-width="1" width="10" height="10"  fill="rgba(0,0,255,0.5)" /><text x="30" y="${
+    (prviSuglasnici.length + 2) * 30 +
+    15}"> - Frekvencija para suglasnika na kraju riječi</text>
+<circle cx="380" cy="${
+    (drugiSuglasnici.length + 2) * 30 +
+    10}" stroke-width="1" stroke="red" r="5"  fill="rgba(255,0,0,0.5)" /><text x="400" y="${
+    (drugiSuglasnici.length + 2) * 30 +
+    15}"> - Frekvencija para suglasnika na početku riječi</text>
+`
+for (let i=0; i<prviSuglasnici.length; i++)
+		svg += `
+<g id="suglasnik_${prviSuglasnici[i]}_gore" visibility="hidden">
+      <rect x="${(i + 2) * 30}" y="${25}" width="100" height="35" stroke="black" fill="white" onclick="document.getElementById('suglasnik_${prviSuglasnici[i]}_gore').setAttribute('visibility','hidden');" onmouseleave="document.getElementById('suglasnik_${prviSuglasnici[i]}_gore').setAttribute('visibility','hidden');">
+      </rect>
+      <text x="${(i + 2) * 30}" y="${15 + 25}">Suglasnik: ${prviSuglasnici[i]}</text>
+      <text x="${(i + 2) * 30}" y="${15 + 25 + 15}">Sonornost: ${sonornost_fonema[prviSuglasnici[i]]}</text>
+      </g>
+<g id="suglasnik_${drugiSuglasnici[i]}_lijevo" visibility="hidden">
+      <rect x="${30}" y="${(i + 1) * 30 + 7 + 15}" width="100" height="35" stroke="black" fill="white" onclick="document.getElementById('suglasnik_${drugiSuglasnici[i]}_lijevo').setAttribute('visibility','hidden');" onmouseleave="document.getElementById('suglasnik_${drugiSuglasnici[i]}_lijevo').setAttribute('visibility','hidden');">
+      </rect>
+      <text x="${30}" y="${15 + (i + 1) * 30 + 7 + 7 + 7}">Suglasnik: ${drugiSuglasnici[i]}</text>
+      <text x="${30}" y="${(i + 1) * 30 + 7 + 15 + 7 + 15 + 7}">Sonornost: ${sonornost_fonema[drugiSuglasnici[i]]}</text>
+      </g>
+		`;
+	for (let i=0; i<prviSuglasnici.length; i++)
+		for (let j=0; j<drugiSuglasnici.length; j++)
+		{
+			const consonantPair = prviSuglasnici[i] + drugiSuglasnici[j];
+    			const rx = (i + 2) * 30 + 15;
+    			const ry = (j + 2) * 30 + 3;
+ 			svg += `
+<g id="par_suglasnika_${consonantPair}" visibility="hidden">
+<rect x="${rx - 15}" y="${ry - 15}" width="300" height="75" fill="white"
+ stroke="black" onmouseleave="document.getElementById('par_suglasnika_${consonantPair}').setAttribute('visibility','hidden');"
+ onclick="document.getElementById('par_suglasnika_${consonantPair}').setAttribute('visibility','hidden');"></rect>
+<text x="${rx - 15}" y="${ry}">Par suglasnika: ${consonantPair}</text>
+<text x="${rx - 15}" y="${ry + 15}">Frekvencija na početku riječi: ${
+	mapWithWordInitialConsonantPairs.get(consonantPair) || 0
+}</text>
+<text x="${rx - 15}" y="${ry + 15 + 15}">Frekvencija na kraju riječi: ${
+	mapWithWordFinalConsonantPairs.get(consonantPair) || 0
+}</text>
+<text x="${rx - 15}" y="${ry + 15 + 15 + 15}">Razlika sonornosti: ${sonornost_fonema[consonantPair[1]]} - ${sonornost_fonema[consonantPair[0]]} = ${
+	sonornost_fonema[consonantPair[1]] - sonornost_fonema[consonantPair[0]]
+}</text>
+</g>
+			`;
+		}
+
+svg += "</svg>";
+document.getElementById("divWithVisualization").innerHTML = svg;
+}
+window.onload = () => {
+	const optionsHTML=`
+	<option value="abecedi">abecedi</option>
+	<option value="sonornosti">sonornosti</option>
+	<option value="sonornosti-obrnuto">sonornosti obrnuto</option>
+	<option value="abecedi-obrnuto">abecedi obrnuto</option>
+	`;
+	document.getElementById("sortirajPrveSuglasnike").innerHTML = optionsHTML;
+	document.getElementById("sortirajDrugeSuglasnike").innerHTML = optionsHTML;
+}
+
+		</script>
+	</head>
+	<body>
+		<h1>Vizualizacija Zakona sonornosti (Sonority Sequencing Principle) u JavaScriptu</h1>
+		<p>Autor: Teo Samaržija</p>
+		<section>
+			<h2>Prikaz pomoću <i>tablice</i></h2>
+		<div id="divWithControls">
+			Sortiraj prve suglasnike u paru po: <select id="sortirajPrveSuglasnike"></select>, a druge suglasnike po: <select id="sortirajDrugeSuglasnike"></select>. <button onclick="update()">Klikni ovdje za osvježavanje slike!</button>
+		</div>
+		<div id="divWithVisualization" style="width: 100%; overflow: scroll;"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail_unscaled&_=20151024034921"></div>
+		</section>
+		<section>
+			<h2>Prikaz pomoću scatter dijagrama</h2>
+			<img src="https://flatassembler.github.io/another-sonority-sequencing-principle-diagram.png" style="display: block; max-width: calc(100vw - 20px);">
+		</section>
+<section>
+<h2>Kako se računaju sonornosti</h2>
+<pre style="overflow: scroll; width: calc(100% - 20px);">
+BEZVUCNI_PRASKAVAC = 1
+ZVUCNI_PRASKAVAC = 2
+BEZVUCNI_SLIVENIK = 3
+ZVUCNI_SLIVENIK = 4
+BEZVUCNI_TJESNJAC = 5
+ZVUCNI_TJESNJAC = 6
+NAZAL = 7
+LATERAL = 8
+ROTACIST = 9
+VISOKI_OTVORNIK = 10
+SREDNJI_OTVORNIK = 11
+NISKI_OTVORNIK = 12
+sonornost_fonema = {
+        'a' : NISKI_OTVORNIK,
+        'b' : ZVUCNI_PRASKAVAC,
+        'c' : BEZVUCNI_SLIVENIK,
+        'č' : BEZVUCNI_SLIVENIK,
+        'ć' : BEZVUCNI_SLIVENIK,
+        'd' : ZVUCNI_PRASKAVAC,
+        'đ' : ZVUCNI_SLIVENIK,
+        'e' : SREDNJI_OTVORNIK,
+        'f' : BEZVUCNI_TJESNJAC,
+        'g' : ZVUCNI_PRASKAVAC,
+        'h' : BEZVUCNI_TJESNJAC,
+        'i' : VISOKI_OTVORNIK,
+        'j' : VISOKI_OTVORNIK, # Znam da tehnički nije.
+        'k' : BEZVUCNI_PRASKAVAC,
+        'l' : LATERAL,
+        'm' : NAZAL,
+        'n' : NAZAL,
+        'o' : SREDNJI_OTVORNIK,
+        'p' : BEZVUCNI_PRASKAVAC,
+        'q' : BEZVUCNI_PRASKAVAC,
+        'r' : ROTACIST,
+        's' : BEZVUCNI_TJESNJAC,
+        'š' : BEZVUCNI_TJESNJAC,
+        't' : BEZVUCNI_PRASKAVAC,
+        'u' : VISOKI_OTVORNIK,
+        'v' : ZVUCNI_TJESNJAC,
+        'w' : VISOKI_OTVORNIK, # Opet, znam da tehnički nije.
+        'x' : BEZVUCNI_SLIVENIK, # Nisam siguran bi li bio.
+        'z' : ZVUCNI_TJESNJAC,
+        'ž' : ZVUCNI_TJESNJAC
+        }
+</pre>
+</section>
+		<hr/>
+		<footer>Datoteka <code>hr.wl</code>, iz koje ova vizualizacija prikuplja podatke, Aspellova je lista riječi i ona je dostupna pod <a href="COPYING">GNU lesser public licence licencom</a>. Autor joj je Denis Lacković.</footer>
+	</body>
+</html>
