@@ -10,6 +10,7 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script>
       "use strict";
+      let mapaSLinijamaNaScatteru = new Map();
       const consonants = "bcčćdđfghjklmnpqrsštvwxyzž";
       const BEZVUCNI_PRASKAVAC = 1,
         ZVUCNI_PRASKAVAC = 2,
@@ -153,10 +154,12 @@
         let prviSuglasnici = (consonants + "0").split("");
         let drugiSuglasnici = (consonants + "0").split("");
 
-        const sortFirst =
-          document.getElementById("sortirajPrveSuglasnike").value;
-        const sortSecond =
-          document.getElementById("sortirajDrugeSuglasnike").value;
+        const sortFirst = document.getElementById(
+          "sortirajPrveSuglasnike",
+        ).value;
+        const sortSecond = document.getElementById(
+          "sortirajDrugeSuglasnike",
+        ).value;
 
         if (sortFirst === "abecedi-obrnuto") prviSuglasnici.reverse();
         else if (sortFirst === "sonornosti")
@@ -193,7 +196,11 @@
           .attr("fill", "white");
 
         // Axis labels
-        svg.append("text").attr("x", 400).attr("y", 20).text("Prvi suglasnik u paru");
+        svg
+          .append("text")
+          .attr("x", 400)
+          .attr("y", 20)
+          .text("Prvi suglasnik u paru");
         svg
           .append("g")
           .attr("transform", "rotate(-90 20 500)")
@@ -301,6 +308,13 @@
               .style("cursor", "pointer")
               .on("click", () => {
                 cellTooltips.get(consonantPair).attr("visibility", "visible");
+                mapaSLinijamaNaScatteru
+                  .get(
+                    sonornost_fonema[consonantPair[1]] -
+                      sonornost_fonema[consonantPair[0]],
+                  )
+                  .attr("stroke", "yellow")
+                  .attr("stroke-width", "3");
               });
           });
         });
@@ -398,8 +412,26 @@
               .attr("fill", "white")
               .attr("stroke", "black")
               .style("cursor", "pointer")
-              .on("click", () => g.attr("visibility", "hidden"))
-              .on("mouseleave", () => g.attr("visibility", "hidden"));
+              .on("click", () => {
+                g.attr("visibility", "hidden");
+                mapaSLinijamaNaScatteru
+                  .get(
+                    sonornost_fonema[consonantPair[1]] -
+                      sonornost_fonema[consonantPair[0]],
+                  )
+                  .attr("stroke", "black")
+                  .attr("stroke-width", "1");
+              })
+              .on("mouseleave", () => {
+                g.attr("visibility", "hidden");
+                mapaSLinijamaNaScatteru
+                  .get(
+                    sonornost_fonema[consonantPair[1]] -
+                      sonornost_fonema[consonantPair[0]],
+                  )
+                  .attr("stroke", "black")
+                  .attr("stroke-width", "1");
+              });
             g.append("text")
               .attr("x", rx - 15)
               .attr("y", ry)
@@ -436,7 +468,38 @@
           optionsHTML;
         document.getElementById("sortirajDrugeSuglasnike").innerHTML =
           optionsHTML;
+        resizingHandler();
+        const pocetak = 63;
+        const razmak = (107 - pocetak) / 2;
+        let XKoordinate = [pocetak];
+        for (let i = -10; i < 10; i++)
+          XKoordinate.push(XKoordinate[XKoordinate.length - 1] + razmak);
+        let brojac = -10;
+        for (const XKoordinata of XKoordinate) {
+          mapaSLinijamaNaScatteru.set(
+            brojac,
+            d3
+              .select("#svgNadScatterom")
+              .append("line")
+              .attr("x1", XKoordinata)
+              .attr("x2", XKoordinata)
+              .attr("y1", "161")
+              .attr("y2", "305")
+              .attr("stroke", "black")
+              .attr("stroke-width", "1"),
+          );
+          brojac++;
+        }
       };
+      function resizingHandler() {
+        document.getElementById("divSaScatterom").style.height =
+          document.getElementById("svgNadScatterom").style.height =
+            document.getElementById("scatter").clientHeight + 5 + "px";
+        document.getElementById("svgNadScatterom").style.width =
+          Math.min(667, document.getElementById("divSaScatterom").clientWidth) +
+          "px";
+      }
+      window.onresize = resizingHandler;
     </script>
   </head>
   <body>
@@ -463,10 +526,32 @@
     </section>
     <section>
       <h2>Prikaz pomoću scatter dijagrama</h2>
-      <img
-        src="https://flatassembler.github.io/another-sonority-sequencing-principle-diagram.png"
-        style="display: block; max-width: calc(100vw - 20px)"
-      />
+      <div style="position: relative" id="divSaScatterom">
+        <img
+          src="https://flatassembler.github.io/another-sonority-sequencing-principle-diagram.png"
+          style="
+            display: block;
+            max-width: calc(100vw - 20px);
+            position: absolute;
+            left: 0;
+            top: 0;
+          "
+          id="scatter"
+        />
+        <svg
+          style="
+            display: block;
+            width: 667px;
+            height: 377px;
+            max-width: calc(100vw-20px);
+            position: absolute;
+            left: 0;
+            top: 0;
+          "
+          id="svgNadScatterom"
+          viewBox="0 0 667 377"
+        ></svg>
+      </div>
     </section>
     <section>
       <h2>Kako se računaju sonornosti</h2>
