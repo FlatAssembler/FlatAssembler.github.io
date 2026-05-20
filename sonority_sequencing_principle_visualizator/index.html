@@ -496,7 +496,7 @@
           document.getElementById("svgNadScatterom").style.height =
             document.getElementById("scatter").clientHeight + 5 + "px";
         document.getElementById("svgNadScatterom").style.width =
-          Math.min(667, document.getElementById("divSaScatterom").clientWidth) +
+          document.getElementById("scatter").clientWidth +
           "px";
       }
       window.onresize = resizingHandler;
