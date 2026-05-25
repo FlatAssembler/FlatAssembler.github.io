@@ -612,7 +612,18 @@
             a signals assignment operator (so, a right-associative operator),
             and it's difficult to think of how that might be parsed. But when an
             error inevitably happens, knowing basic compiler theory often helps
-            you decypher the error message.
+            you decypher the error message.<br />
+            Artificial Intelligence is far from being a magic bullet when it
+            comes to this problem. I once tried to get GitHub Copilot to explain
+            the error messages given by my AEC-to-WebAssembly compiler (when
+            trying to vibe-code my
+            <a href="https://aecforwebassembly.sourceforge.io/AVLInAEC.html"
+              >implementation of the AVL trees in AEC</a
+            >, and it outputted total gibberish. There is the reason why Rust is
+            such a commonly used language for vibe-coding: The RUSTC (the
+            LLVM-based Rust compiler) outputs very good (non-cryptic) error
+            messages, so AI can understand them. Most compilers you will have to
+            deal with in your life, even during your studies, are not like that.
           </li>
           <li>
             <b
