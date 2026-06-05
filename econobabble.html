@@ -1,0 +1,675 @@
+<html lang="en">
+  <head>
+    <title>Econobabble - the reason people in social sciences tend not to trust mathematics</title>
+    <style type="text/css">
+      header {
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        background: #ffaaaa;
+        color: darkblue;
+        font-weight: bold;
+        font-size: 36px;
+        font-family: Lucida;
+      }
+      aside {
+        width: 25%;
+        background: #aaaaff;
+        height: 100%;
+        float: left;
+        color: #aa4400;
+        overflow: auto;
+      }
+      aside a {
+        text-decoration: none;
+      }
+      section {
+        width: 25%;
+        background: #ffffaa;
+        height: 100%;
+        float: right;
+        color: purple;
+        text-align: center;
+        overflow: auto;
+      }
+      .main1 {
+        background: black;
+        color: darkgray;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+        font-family: Verdana;
+      }
+      .main1 a {
+        color: lightgreen;
+      }
+      .main2 {
+        background: black;
+        color: lightgreen;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+      }
+      .main2 a {
+        color: #00ffff;
+      }
+      .main3 {
+        background: #eeeeee;
+        color: #333333;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+        font-family: Arial;
+      }
+      .main3 a {
+        color: #00aaaa;
+      }
+      .link1 {
+        text-decoration: none;
+        background: linear-gradient(to right, #111111, #333333);
+        height: 30px;
+        width: 100%;
+        color: #ff3300;
+        line-height: 30px;
+        text-indent: 10px;
+        font-family: Verdana;
+        text-indent: 5px;
+      }
+      .popup {
+        display: none;
+        background: black;
+        font-size: 14px;
+        line-height: 18px;
+        color: white;
+        opacity: 0.75;
+        position: absolute;
+        left: 25%;
+        border-width: 7px;
+        border-style: solid;
+        border-color: black;
+        max-width: 200px;
+        text-indent: 0px;
+      }
+      .popup::before {
+        content: " ";
+      }
+      .link1:hover {
+        background: darkGray;
+        color: black;
+      }
+      .link1:hover .popup {
+        display: block;
+      }
+      .link2 {
+        background: linear-gradient(to right, #333333, #111111);
+        color: #ff3300;
+      }
+      footer {
+        width: 100%;
+        height: 50px;
+        background: #aaffaa;
+        text-align: center;
+        color: #007777;
+        line-height: 50px;
+      }
+      .quotation {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        display: block;
+        font-family: Times;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        background: #ffffdd;
+        color: black;
+      }
+      .quotation table,
+      .quotation tr,
+      .quotation th,
+      .quotation td {
+        border-collapse: collapse;
+        border-style: solid;
+        border-color: black;
+      }
+      .quotation td {
+        text-align: justify;
+        padding: 3px;
+      }
+      .quotation a {
+        color: #00aaaa;
+      }
+      .quotation .quotation {
+        background-color: #ccccaa;
+      }
+      .quotation .quotation .quotation {
+        background-color: #ffffdd;
+      }
+      .quotation .quotation .quotation .quotation {
+        background-color: #ccccaa;
+      }
+      .quotation .quotation .quotation .quotation .quotation {
+        background-color: #ffffdd;
+      }
+      .quotation .quotation .quotation .quotation .quotation .quotation {
+        background-color: #ccccaa;
+      }
+      .quotation
+        .quotation
+        .quotation
+        .quotation
+        .quotation
+        .quotation
+        .quotation {
+        background-color: #ffffdd;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <img
+        src="gornjiLijevi.svg"
+        style="
+          position: absolute;
+          left: 8px;
+          width: 25%;
+          height: 200px;
+          top: 8px;
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+        alt=""
+      />
+      <img
+        src="gornjiDesni.svg"
+        style="
+          position: absolute;
+          width: 25%;
+          height: 200px;
+          left: -webkit-calc(75% - 8px);
+          left: calc(75% - 8px);
+          top: 8px;
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+        alt=""
+      />
+      <img
+        src="donjiLijevi.svg"
+        style="
+          position: absolute;
+          width: 25%;
+          height: 50px;
+          left: 8px;
+          top: calc(100% + 200px - 8px);
+          top: -webkit-calc(100% + 200px - 8px);
+          -webkit-animation-name: animacija;
+          -webkit-animation-duration: 2s;
+        "
+        alt=""
+      />
+      <div
+        style="
+          position: absolute;
+          top: -webkit-calc(100% + 200px + 50px + 8px);
+          top: calc(100% + 200px + 50px + 8px);
+          width: 100%;
+          height: 50px;
+          font-size: 36px;
+          font-family: Arial;
+          text-align: center;
+          background: #333333;
+          color: #aaaaaa;
+          line-height: 50px;
+        "
+      >
+        Please enable JavaScript!
+      </div>
+    </noscript>
+    <header>
+      <svg
+        id="gornjiLijevi"
+        style="float: left; width: 25%; height: 200px; background: white"
+      ></svg>
+      A Letter
+      <svg
+        id="gornjiDesni"
+        style="float: right; width: 25%; height: 200px; background: white"
+      ></svg>
+      <script type="text/javascript">
+        var svgNS = "http://www.w3.org/2000/svg";
+        function nacrtajRubove() {
+          var crtanje = document.getElementById("gornjiLijevi");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          var visina = crtanje.clientHeight;
+          var sirina = crtanje.clientWidth;
+          if (!visina || !sirina) {
+            visina = crtanje.parentNode.clientHeight;
+            sirina = crtanje.parentNode.clientWidth / 4;
+          }
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (270 + i * 3) / 57.3;
+            var kut2 = (274 + i * 3) / 57.3;
+            var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+            var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+            var y1 = Math.round(visina + Math.sin(kut1) * visina);
+            var y2 = Math.round(visina + Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + "," + visina
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(" +
+                Math.round(255 - i * 2.83) +
+                ",170," +
+                Math.round(170 + i * 2.83) +
+                ")"
+            );
+            crtanje.appendChild(trokut);
+          }
+          crtanje = document.getElementById("gornjiDesni");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (i * 3) / 57.3;
+            var kut2 = (4 + i * 3) / 57.3;
+            var x1 = Math.round(Math.cos(kut1) * sirina);
+            var x2 = Math.round(Math.cos(kut2) * sirina);
+            var y1 = Math.round(visina - Math.sin(kut1) * visina);
+            var y2 = Math.round(visina - Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " 0," + visina
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(255," + Math.round(255 - i * 2.83) + ",170)"
+            );
+            crtanje.appendChild(trokut);
+          }
+        }
+        nacrtajRubove();
+        window.addEventListener("resize", nacrtajRubove);
+      </script>
+    </header>
+    <aside>
+      <br />
+      <center><b>Here are my online publications:</b></center>
+      <br />
+      <b style="margin-left: 5px">HTML5 stuff:</b>
+      <a href="sat.html"
+        ><div class="link1">
+          <div class="popup">
+            A simple "grandfather clock" animation made in Javascript.
+          </div>
+          Analog Clock
+        </div></a
+      >
+      <a href="calculator.html"
+        ><div class="link2 link1">
+          <div class="popup">
+            A simple HTML5 online calculator. Can solve parentheses!
+          </div>
+          Calculator
+        </div></a
+      >
+      <a href="fraktal.html"
+        ><div class="link1">
+          <div class="popup">
+            A spiral fractal I've made by modifying the "Dragon Curve".
+          </div>
+          The Dragon Curve
+        </div></a
+      >
+      <a href="pacman.html"
+        ><div class="link2 link1">
+          <div class="popup">
+            A Pacman game playable on touch screens. Made in Javascript using
+            the SVG graphics.
+          </div>
+          PacMan
+        </div></a
+      >
+      <a href="etymologist.html">
+        <div class="link1">
+          <div class="popup">
+            A flashcard game in which the goal is to guess the etymologies of
+            the words in simulated languages.
+          </div>
+          Etymology Game
+        </div></a
+      >
+      <br /><b style="margin-left: 5px">Webpages on this website:</b>
+      <a href="index.html"
+        ><div class="link1">
+          <div class="popup">A webpage with a bunch of links.</div>
+          Homepage
+        </div></a
+      >
+      <a href="libertarianism.html"
+        ><div class="link2 link1">
+          <div class="popup">What I think about politics.</div>
+          Libertarianism
+        </div></a
+      >
+      <a href="vegetarianism.html"
+        ><div class="link1">
+          <div class="popup">Why I don't eat meat.</div>
+          Vegetarianism
+        </div></a
+      >
+      <a href="Simulation.html"
+        ><div class="link2 link1">
+          <div class="popup">Could the universe be a giant computer?</div>
+          Digital Physics
+        </div></a
+      >
+      <a href="linguistics.html"
+        ><div class="link1">
+          <div class="popup">
+            Why I like languages.<br /><br />
+            See also:<br />
+            <u
+              style="color: #0077ff"
+              onclick="window.open('http://flatassembler.github.io/toponyms.html'); window.close();"
+              >Croatian Toponyms</u
+            ><br />
+            <u
+              style="color: #0077ff"
+              onclick="window.open('http://flatassembler.github.io/Indo-Austronesian.html'); window.close();"
+              >Indo-Austronesian</u
+            >
+          </div>
+          Linguistics
+        </div></a
+      >
+      <a href="informatics.html"
+        ><div class="link2 link1">
+          <div class="popup">Why I like computers.</div>
+          Informatics
+        </div></a
+      >
+      <a href="pseudosciences.html"
+        ><div class="link1">
+          <div class="popup">
+            My advice on how to recognize and deal with false sciences.
+          </div>
+          Pseudosciences
+        </div></a
+      >
+      <br /><b style="margin-left: 5px">On Internet forums and blogs:</b>
+      <a href="http://linguistforum.com/outside-of-the-box/croatian-toponyms/"
+        ><div class="link1">
+          <div class="popup">
+            The forum thread in which I explained my linguistic theories in
+            detail.
+          </div>
+          Croatian Toponyms
+        </div></a
+      >
+      <a href="https://atheistforums.org/thread-50241.html"
+        ><div class="link2 link1">
+          <div class="popup">My parody of the conspiracy theorists.</div>
+          Airplanes Don't Exist
+        </div></a
+      >
+    </aside>
+    <section>
+      <p style="margin-left: 5px; margin-right: 5px">
+        <br />The phrase <i>econobabble</i> is usually used to dismiss the Austrian School of Economics, the &quot;school of economics&quot; which rejects most of the formal methods. I would argue there are some worse econobabbles than that.
+      </p>
+      <br />
+      <a id="loptica" href="#vrh" style="position: absolute">
+        <svg width="100" height="100">
+          <defs>
+            <radialgradient id="modrozelen">
+              <stop offset="0%" stop-color="#00FFFF" />
+              <stop offset="100%" stop-color="#0000FF" />
+            </radialgradient>
+            <radialgradient id="ljubicastoplav">
+              <stop offset="0%" stop-color="#FF00FF" />
+              <stop offset="100%" stop-color="#0000FF" />
+            </radialgradient>
+          </defs>
+          <circle cx="50" cy="50" r="50" fill="url(#modrozelen)" />
+          <polygon
+            points="50,25 25,50 38,50 38,75 62,75 62,50 75,50"
+            fill="url(#ljubicastoplav)"
+          />
+        </svg>
+      </a>
+      <script type="text/javascript">
+        var udaraca = 0;
+        var loptica = document.getElementById("loptica");
+        var pocetna = loptica.parentNode.clientHeight + 200 - 100;
+        loptica.style.top = pocetna;
+        loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+        var h = 0;
+        var gk = 1;
+        var v = 10;
+        window.setInterval(pomakniLopticu, 80);
+        window.addEventListener("resize", promijeniPocetnu);
+        function promijeniPocetnu() {
+          pocetna = loptica.parentNode.clientHeight + 210 - 100;
+          loptica.style.top = pocetna;
+          loptica.style.right = loptica.parentNode.clientWidth / 2 - 50;
+          h = 0;
+          gk = 1;
+          v = 10;
+        }
+        function pomakniLopticu() {
+          h += v;
+          v -= gk;
+          if (h < 0) {
+            v = -v * 0.75;
+            h = 0;
+            udaraca++;
+            if (udaraca > 20) {
+              udaraca = 0;
+              v = 10;
+            }
+          }
+          loptica.style.top = pocetna - h;
+        }
+      </script>
+    </section>
+    <main class="main1" id="glavni" style="display: block">
+      <a name="vrh"></a>
+      <h2 style="text-align: center">
+        Econobabble - the reason people distrust math
+      </h2>
+      <div
+        style="
+          text-align: justify;
+          margin-left: 10px;
+          margin-right: 10px;
+          margin-bottom: 100px;
+        "
+      >
+      You know, the thing I've noticed is that the proponents of the policies such as the minimum wage and the proponents of nuclear weapons tend to be using almost the same tactics when debating. The way of debating they use is what I call <i>econobabble</i> (a word modelled after <i>technobabble</i>). Here is how it goes:
+      <ol>
+	      <li>They make what appears to be an outrageous claim about something in social sciences.</li>
+	      <li>You ask them why they think that.</li>
+	      <li>They point to some mathematical theory which supposedly predicts that.</li>
+	      <li>You explain to them that the mathematical theory they point to, if anything, makes the opposite prediction.</li>
+	      <li>Instead of addressing your arguments, they go on to question your competence, almost as an ad-hominem.</li>
+      </ol>
+      For instance, here is how an actual debate about nuclear weapons I had on Reddit went (it was in the Croatian language, which may be the weirdest thing of all, since Croatians have basically never been exposed to propaganda about how good it would be that their country has nuclear weapons):
+      <div class="quotation">
+	      <b>Him:</b> The nuclear disarmament of the 1990s is responsible for the current geopolitical crises. Had the world had as many nuclear weapons as it had in the 1980s, the world would be at peace.<br/>
+	      <b>Me:</b> Why do you think that? Doesn't it seem to you more probable that, if not for the nuclear disarmament, we would have already had a nuclear holocaust?<br/>
+	      <b>Him:</b> But the Game Theory predicts. We've known this since ancient times. Have you not heard of the Latin saying <i>Si vis pacem, para bellum!</i>?<br/>
+	      <b>Me:</b> How does the Game Theory predict that? I think the right analogy to this idea of nuclear peace might be the conspiracy theories, the Game Theory of which has been explained in the David Robert Grimes's famous paper <i>On the Viability of Conspiratorial Beliefs</i>. Just like conspiracies fall apart when somebody in it makes a mistake or doesn't feel like participating in the conspiracy any more, so too does nuclear peace fall apart when a nuclear weapon is fired by accident, as has almost happened quite a few times in recent history. And more countries having nuclear weapons and for an extended period of time massively increases the chance of that happening.<br/>
+	      <b>Him:</b> Are you any kind of expert in international relations?<br/>
+	      <b>Me:</b> Well, no, I am a computer engineer. I've studied some basic Game Theory from the Domagoj Kusalić'es book about programming, where he explained some basic Game Theory which is relevant to understanding Dynamic Programming.<br/>
+	      <b>Him:</b> OK, then, let's just take a look at history. See how the violence in the world has been falling ever since the end of World War 2, that is, ever since the nuclear weapons have been invented?<br/>
+	      <b>Me:</b> Now, this is an obvious <i>since-when</i> fallacy. The decrease in violence is a long-term trend that's been going on for centuries if not millennia. The 13th century was by an order of magnitude more bloody than the 20th century, there is no question about it among professional historians. Genghis Khan killed almost ten times more people than Hitler did in a world when the human population was by almost two orders of magnitude lower than it was at the time of Hitler. See the data about violence in the world from the Steven Pinker's book The Better Angels of our Nature and try to calculate the p-value of the Chow test of structural break in trend for the end of World War 2 and violence over time, I guarantee you the p-value will be around 50% of more.<br/>
+	      <b>Him:</b> What kind of violence? Some forms of violence are relevant to nuclear weapons, while some are not. Domestic violence is not relevant to nuclear weapons, whereas the form of violence in which young men are forced to arm themselves and fight against the other group of young men is relevant.<br/>
+	      <b>Me:</b> Then you are going to have to take into account when calculating the p-value the fact that you chose seemignly-arbitrarily one form of violence among many. Go ahead, try to calculate the p-value for that assertion that nuclear weapons made the world more peaceful, I guarantee you it will be very far from statistical significance.<br/>
+	      <b>Him:</b> Obviously studying computer engineering has turned you into a lunatic. An incredibly bookish person without common sense.
+      </div>
+      Does that conversation sound insane? Well, I had quite a few similar conversations about the minimum wage:
+      <div class="quotation">
+	      <b>Him:</b> Minimum wage is necessary not to make the economy sluggish. It increases the velocity of money. It gives more money to the people who will likely spend almost all of their income. If done properly, it can even increase employment, rather than causing unemployment.<br/>
+	      <b>Me:</b> Is there any credible economic theory that predicts that?<br/>
+	      <b>Him:</b> Well, it's the Keynesian economics that predicts that, the only school of economics widely taught at the universities.<br/>
+	      <b>Me:</b> Are you joking? The Keynesian economics appears to be based on the idea that the minimum wage causes unemployment. The Kaynesian economics explains the fact that the unemployment tends to progressively rise during the periods of economic booms by asserting that prices and wages are sticky, but that prices fall significantly faster than wages (lowering prices attracts customers, whereas lowering wages repells workers, so there is that incentive), so the unemployment is partly this integral of the difference between the curve of the prices through time and the curve of wages through time multiplied by the exponential function with the x=0 (and y=1) set on the current time (we multiply by the exponential function because the previous differences matter a lot less than the current ones). Now how do you explain why sticky wages cause unemployment without implying that government-imposed minimum wage will do that as well? You cannot, right?<br/>
+	      <b>Him:</b> Do you have some relevant education in economics?<br/>
+	      <b>Me:</b> Well, I've taken one semester of economics as a part of my computer engineering curriculum.<br/>
+	      <b>Him:</b> So, no.
+      </div>
+      If you see the absurdity in the above discussion about nuclear weapons, you should see the absurdity in the above discussion about minimum wage.<br/>
+      However, it seems to me that many if not most of the people in the science of Croatian names of places make the opposite mistake: refusing to look into what some mathematical theory does indeed appear to say about the names of places. I am talking about what the Information Theory appears to say about that k-r pattern in the Croatian river names (Krka, Korana, Krapina, Krbavica, Kravarščica, and two rivers named Karašica). Mainstream linguistics insists that pattern is coincidental. However, using the methods taught at the Information Theory course in Computer Engineering curriculum, you can measure that the collision entropy of the syntax of the Croatian language is 0.214 bits per consonant pair, that the entropy of phonotactics is 1.623 bits per consonant pair, that the entropy of semantics is 5.992 bits per consonant pair, and that the entropy of morphology can at most be 1.572 bits per consonant pair. It appears to follow, via the Birthday Paradox, that the p-value of that k-r pattern is somewhere between 1/300 and 1/17. The proponents of mainstream onomastics generally appear to be ignoring the issue, presumably because they think it's econobabble comparable to the stories about how the Game Theory proves nuclear weapons are a good thing or that Keynesian economics somehow argues for increasing the minimum wage. But it's different because it gives actual numbers (or, more accurately, confidence intervals). It gives us an actual way to numerically estimate the p-values. That's why it should be taken much more seriously. In case you are interested, I made <a href="https://youtu.be/2VRH4e-Us_w">a video about that in the Latin language with English slides</a> (in case your browser cannot stream it, <a href="river-names.mp4">download this MP4 file</a>).<br/>
+      I hope you realize now how damaging econobabble is and how prevalent it is.
+      </div>
+    </main>
+    <footer>
+      <div style="width: 25%; float: right; text-align: left; bottom: 30px">
+        Choose the style:
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main1')"
+          >[1]</a
+        >
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main2')"
+          >[2]</a
+        >
+        <a
+          href="#"
+          style="color: red"
+          onclick="document.getElementById('glavni').setAttribute('class', 'main3')"
+          >[3]</a
+        >
+      </div>
+      Uploaded by Teo Samarzija on 05/06/2026
+      <svg
+        id="donjiLijevi"
+        style="float: left; width: 25%; height: 100%; background: white"
+      ></svg>
+      <script type="text/javascript">
+        if (navigator.appName == "Microsoft Internet Explorer") {
+          var niz = document.getElementsByTagName("div");
+          for (var i = 0; i < niz.length; i++) {
+            if (niz[i].className.indexOf("link1") == -1) continue;
+            niz[i].onmouseenter = function () {
+              this.children[0].style.display = "inline";
+            };
+            niz[i].onmouseleave = function () {
+              this.children[0].style.display = "none";
+            };
+          }
+          document.getElementById("glavni").removeAttribute("style");
+        } else if (navigator.appName == "Opera") {
+          document.getElementById("glavni").style.color = "black";
+          document.getElementById("glavni").style.backgroundColor = "white";
+          var gornjiDesni = document.getElementById("gornjiDesni");
+          gornjiDesni.parentNode.removeChild(gornjiDesni);
+        } else if (
+          (((navigator.userAgent.indexOf("Safari") + 1 ||
+            navigator.userAgent.indexOf("WebKit") + 1) &&
+            navigator.userAgent.indexOf("Mobile") + 1 &&
+            (!(navigator.userAgent.indexOf("Chrome") + 1) ||
+              (navigator.userAgent.indexOf("Version") + 1 &&
+                navigator.userAgent.indexOf("Chrome") + 1))) ||
+            (navigator.userAgent.indexOf("Mobile") + 1 &&
+              navigator.userAgent.indexOf("Gecko") + 1 &&
+              !(navigator.userAgent.indexOf("like Gecko") + 1) &&
+              !(navigator.userAgent.indexOf("Dolfin") + 1))) &&
+          !(navigator.userAgent.indexOf("iPad") + 1) &&
+          !(navigator.userAgent.indexOf("iPhone") + 1)
+        )
+          document.getElementById("glavni").style.fontSize = "36px";
+        else if (navigator.userAgent.indexOf("Mobi") + 1) {
+          document.head.innerHTML +=
+            '<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">';
+          var niz = document.getElementsByTagName("svg");
+          for (var i = 0; i < niz.length; i++)
+            if (niz[i].id != "polarRose") niz[i].style.display = "none";
+          document.getElementsByTagName("aside")[0].style.display = "none";
+          document.getElementsByTagName("aside")[0].style.float = "none";
+          document.getElementsByTagName("aside")[0].style.width = "100%";
+          document.getElementsByTagName("aside")[0].style.height = "auto";
+          niz = document.getElementsByClassName("popup");
+          for (var i = 0; i < niz.length; i++) {
+            niz[i].style.width = "50%";
+            niz[i].style.left = "45%";
+            niz[i].style.maxWidth = "none";
+          }
+          document.getElementsByTagName("section")[0].style.height = "auto";
+          document.getElementsByTagName("section")[0].style.float = "none";
+          document.getElementsByTagName("section")[0].style.width = "100%";
+          document.getElementsByTagName("header")[0].style.height = "auto";
+          document.getElementsByTagName("header")[0].style.lineHeight =
+            "normal";
+          document.getElementsByTagName("main")[0].style.width = "100%";
+          document.getElementsByTagName("footer")[0].children[0].style.display =
+            "inline";
+          document.getElementsByTagName("footer")[0].children[0].style.float =
+            "none";
+          document.getElementsByTagName("footer")[0].children[0].innerHTML +=
+            "<br/><br/>";
+          document.getElementsByTagName("footer")[0].style.height = "auto";
+          document.getElementsByTagName("footer")[0].style.lineHeight =
+            "normal";
+          document.getElementsByTagName("header")[0].outerHTML +=
+            '<button id="showNavigation" style="width:100%;line-height:36px;height:41px;">Show navigation<\/button>';
+          document.getElementById("showNavigation").onclick = function () {
+            if (
+              document.getElementsByTagName("aside")[0].style.display == "none"
+            ) {
+              this.innerHTML = "Hide navigation";
+              document.getElementsByTagName("aside")[0].style.display = "block";
+            } else {
+              this.innerHTML = "Show navigation";
+              document.getElementsByTagName("aside")[0].style.display = "none";
+            }
+          };
+          //window.setTimeout(function(){document.body.removeChild(document.body.children[document.body.children.length-1]);},1000);
+        }
+        function footerScript() {
+          var crtanje = document.getElementById("donjiLijevi");
+          while (crtanje.childNodes.length)
+            crtanje.removeChild(crtanje.childNodes[0]);
+          var visina = crtanje.clientHeight;
+          var sirina = crtanje.clientWidth;
+          if (!visina || !sirina) {
+            visina = crtanje.parentNode.clientHeight;
+            sirina = crtanje.parentNode.clientWidth / 4;
+          }
+          for (var i = 0; i < 30; i++) {
+            var kut1 = (270 + i * 3) / 57.3;
+            var kut2 = (274 + i * 3) / 57.3;
+            var x1 = Math.round(sirina - Math.cos(kut1) * sirina);
+            var x2 = Math.round(sirina - Math.cos(kut2) * sirina);
+            var y1 = -Math.round(Math.sin(kut1) * visina);
+            var y2 = -Math.round(Math.sin(kut2) * visina);
+            var trokut = document.createElementNS(svgNS, "polygon");
+            trokut.setAttribute(
+              "points",
+              x1 + "," + y1 + " " + x2 + "," + y2 + " " + sirina + ",0"
+            );
+            trokut.setAttribute(
+              "fill",
+              "rgb(170," +
+                Math.round(255 - i * 2.83) +
+                "," +
+                Math.min(Math.round(170 + i * 4), 255) +
+                ")"
+            );
+            crtanje.appendChild(trokut);
+          }
+        }
+        footerScript();
+        window.addEventListener("resize", footerScript);
+      </script>
+    </footer>
+  </body>
+</html>
