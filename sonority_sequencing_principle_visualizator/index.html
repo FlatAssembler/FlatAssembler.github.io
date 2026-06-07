@@ -8,6 +8,16 @@
     <meta name="author" content="Teo Samaržija" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    main section:first-of-type {
+      max-width: wrap-content;
+    }
+    </style>
     <script>
       "use strict";
       let mapaSLinijamaNaScatteru = new Map();
@@ -495,7 +505,7 @@
         document.getElementById("divSaScatterom").style.height =
           document.getElementById("svgNadScatterom").style.height =
             document.getElementById("scatter").clientHeight + 5 + "px";
-        document.getElementById("svgNadScatterom").style.width =
+        document.getElementById("svgNadScatterom").style.width = document.getElementById("divSaScatterom").style.width =
           document.getElementById("scatter").clientWidth + "px";
       }
       window.onresize = resizingHandler;
@@ -507,6 +517,7 @@
       JavaScriptu
     </h1>
     <p>Autor: Teo Samaržija</p>
+    <main>
     <section>
       <h2>Prikaz pomoću <i>tablice</i></h2>
       <div id="divWithControls">
@@ -608,6 +619,7 @@ sonornost_fonema = {
 </pre
       >
     </section>
+    </main>
     <hr />
     <footer>
       Datoteka <code>hr.wl</code>, iz koje ova vizualizacija prikuplja podatke,
