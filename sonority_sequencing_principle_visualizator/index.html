@@ -16,6 +16,7 @@
     }
     main section:first-of-type {
       max-width: wrap-content;
+      width: calc(100vw - 20px);
     }
     </style>
     <script>
@@ -507,6 +508,7 @@
             document.getElementById("scatter").clientHeight + 5 + "px";
         document.getElementById("svgNadScatterom").style.width = document.getElementById("divSaScatterom").style.width =
           document.getElementById("scatter").clientWidth + "px";
+	document.querySelector("main section:first-of-type").style.width = Math.min(window.outerWidth - 20, (consonants.length + 4) * 30 + 300) + "px";
       }
       window.onresize = resizingHandler;
     </script>
