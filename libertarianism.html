@@ -556,7 +556,11 @@
 	servers work faster. But that's not remotely how computer networks work:
 	filtering traffic nearly always makes the network slower. But it's very
 	hard to explain that to somebody who is not a computer engineer and who
-	has not tried that in a laboratory. And for the regulations requiring
+	has not tried that in a laboratory. Quite a few people, in my 
+	experience, also seem to think that your ISP can, although at a high
+	cost, protect you from the DNS reflection attacks done with the help of
+	the DNS servers of other ISPs. Now, how they imagine this to work is
+	truly beyond me. And for the regulations requiring
 	the Internet browsers to check the <code>Content-Type</code> HTTP header
 	before proceding to execute the JavaScript, I am not convinced that
 	somebody who has not actually participated in making a collaborative
@@ -567,7 +571,10 @@
 	catastrophic the effects of cancelling those regulations would be on
 	the open-source software. It would force GitHub and similar services 
 	to stop hosting JavaScript projects, or at least stop serving JavaScript
-	from the <code>raw.githubusercontent.com</code> domain.<br/>
+	from the <code>raw.githubusercontent.com</code> domain (and any real
+	algorithm for quickly detecting whether some computer code is written in JavaScript
+	or not is going to have a ton of false positives - just take a look at how similar modern C# and JavaScript look - so it would effectively
+	cause a bunch or random files to stop being available via that interface).<br/>
 	And, on the other hand, quite a few politicians in the European Union are
 	proposing investing money into the research and development of autonomous
 	weapons, primarily AI drones. Well, I have formal education in the relevant
