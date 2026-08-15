@@ -713,3 +713,9 @@ textarea {
 div[data-linenumber]:target {
   background-color: white;
 }
+blockquote {
+  background-color: lightyellow;
+  border-left: 5px double brown;
+  box-shadow: -5px 3px 3px 2px yellow;
+  padding: 2px;
+}
