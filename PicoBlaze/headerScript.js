@@ -314,9 +314,9 @@ function setupLayout() {
 
     document.getElementById("assemblyCode").style.height = windowHeight + "px";
     document.getElementById("buttons").style.top =
-        heightOfTheGreetings + windowHeight + 200 + 3 * 4 + "px";
+        heightOfTheGreetings + windowHeight + 200 + 3 * 4 + (/Firefox/.test(navigator.userAgent) | 0) * 3 + "px";
     document.getElementById("whyClickAssemble").style.top =
-        heightOfTheGreetings + windowHeight + 200 + 3 * 4 + 20 + 5 + "px";
+        heightOfTheGreetings + windowHeight + 200 + 3 * 4 + 20 + 5 + (/Firefox/.test(navigator.userAgent) | 0) * 3 + "px";
     const heightOfTheDivWithTheInstructionAboutAssembling =
         document.getElementById("whyClickAssemble").clientHeight +
         ((document.getElementById("deleteTheProgram") &&
@@ -325,40 +325,40 @@ function setupLayout() {
              : 0);
     document.getElementById("divWithMachineCode").style.top =
         heightOfTheGreetings + windowHeight + 4 * 4 + 20 + 200 +
-        heightOfTheDivWithTheInstructionAboutAssembling + "px";
+        heightOfTheDivWithTheInstructionAboutAssembling + (/Firefox/.test(navigator.userAgent) | 0) * 3 + "px";
 
     document.getElementById("divWithMachineCode").style.height =
         windowHeight + "px";
     document.getElementById("simulationButtons").style.top =
         heightOfTheGreetings + 2 * windowHeight + 3 * 4 + 30 + 200 +
-        heightOfTheDivWithTheInstructionAboutAssembling + "px";
+        heightOfTheDivWithTheInstructionAboutAssembling + (/Firefox/.test(navigator.userAgent) | 0) * 3 + "px";
     document.getElementsByTagName("footer")[0].style.top =
         (document.getElementById("mainNavigation")
              ? document.getElementById("mainNavigation").clientHeight
              : 0) +
         30 + heightOfTheGreetings + 65 + 4 + 2 * 50 + 3 * windowHeight + 200 +
         210 + is_UART_enabled * 260 + 50 +
-        heightOfTheDivWithTheInstructionAboutAssembling + "px";
+        heightOfTheDivWithTheInstructionAboutAssembling + (/Firefox/.test(navigator.userAgent) | 0) * 3 + "px";
     document.getElementById("divWithExamples").style.top =
         heightOfTheGreetings + windowHeight + 4 + "px";
     document.getElementById("simulationResults").style.top =
         heightOfTheGreetings + windowHeight * 2 + 200 + 65 + 50 - 30 + 210 +
         is_UART_enabled * 260 + 50 +
-        heightOfTheDivWithTheInstructionAboutAssembling + "px";
+        heightOfTheDivWithTheInstructionAboutAssembling + (/Firefox/.test(navigator.userAgent) | 0) * 3 + "px";
 
     document.getElementById("simulationResults").style.height =
         windowHeight + "px";
     document.getElementById("graphicalResults").style.top =
         heightOfTheGreetings + windowHeight * 2 +
-        heightOfTheDivWithTheInstructionAboutAssembling + 200 + 65 + 50 - 30 +
+        heightOfTheDivWithTheInstructionAboutAssembling + 200 + 65 + 50 - 30 + (/Firefox/.test(navigator.userAgent) | 0) * 3 +
         "px";
     document.getElementById("UART_enable_button").style.top =
         heightOfTheGreetings + windowHeight * 2 + 200 + 65 + 50 - 30 + 210 +
-        heightOfTheDivWithTheInstructionAboutAssembling +
+        heightOfTheDivWithTheInstructionAboutAssembling + (/Firefox/.test(navigator.userAgent) | 0) * 3 +
         "px"; // Usually has no effect, see below...
     document.getElementById("UART_IO").style.top =
         heightOfTheGreetings + windowHeight * 2 + 200 + 65 + 50 - 30 + 210 +
-        50 + heightOfTheDivWithTheInstructionAboutAssembling + "px";
+        50 + heightOfTheDivWithTheInstructionAboutAssembling + (/Firefox/.test(navigator.userAgent) | 0) * 3 + "px";
   } else {
     document.getElementById("lineNumbers").style.top =
         heightOfTheGreetings + "px";
