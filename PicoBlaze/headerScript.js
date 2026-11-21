@@ -484,7 +484,9 @@ Displaying registers and flags on every step is useful for debugging, but it slo
   if (reverse_nameregs[i].length == 0)
     		registersTable += "<th>s" + i.toString(16) + "</th>";
 	else
-		registersTable += "<th><abbr title=\"" + reverse_nameregs[i].join(", ") +"\">s" + i.toString(16) + "</abbr></th>";
+		registersTable += "<th><abbr tabindex=\"0\" title=\"" +
+			reverse_nameregs[i].join(", ") + 
+			"\">s" + i.toString(16) + "</abbr></th>";
   registersTable += "<th>PC</th>";
   registersTable += '</tr><tr class="regbank_a"><th>REGBANK A</th>';
   for (let i = 0; i < 16; i++)
