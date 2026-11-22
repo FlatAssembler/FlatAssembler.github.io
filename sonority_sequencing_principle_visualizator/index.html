@@ -9,15 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
-    main {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    main section:first-of-type {
-      max-width: wrap-content;
-      width: calc(100vw - 20px);
-    }
+      main {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      main section:first-of-type {
+        max-width: wrap-content;
+        width: calc(100vw - 20px);
+      }
     </style>
     <script>
       "use strict";
@@ -506,10 +506,16 @@
         document.getElementById("divSaScatterom").style.height =
           document.getElementById("svgNadScatterom").style.height =
             document.getElementById("scatter").clientHeight + 5 + "px";
-        document.getElementById("svgNadScatterom").style.width = document.getElementById("divSaScatterom").style.width = document.getElementById("komentarIspodScattera").style.width =
-          document.getElementById("scatter").clientWidth + "px";
-	document.querySelector("main section:first-of-type").style.width = Math.min(window.outerWidth - 20, (consonants.length + 4) * 30 + 300) + "px";
-	document.getElementById("div_s_kodom_o_racunanju_sonornosti").style.maxWidth = window.outerWidth - 20 + "px";
+        document.getElementById("svgNadScatterom").style.width =
+          document.getElementById("divSaScatterom").style.width =
+          document.getElementById("komentarIspodScattera").style.width =
+            document.getElementById("scatter").clientWidth + "px";
+        document.querySelector("main section:first-of-type").style.width =
+          Math.min(window.outerWidth - 20, (consonants.length + 4) * 30 + 300) +
+          "px";
+        document.getElementById(
+          "div_s_kodom_o_racunanju_sonornosti",
+        ).style.maxWidth = window.outerWidth - 20 + "px";
       }
       window.onresize = resizingHandler;
     </script>
@@ -521,61 +527,77 @@
     </h1>
     <p>Autor: Teo Samaržija</p>
     <main>
-    <section>
-      <h2>Prikaz pomoću <i>tablice</i></h2>
-      <div id="divWithControls">
-        Sortiraj prve suglasnike u paru po:
-        <select id="sortirajPrveSuglasnike"></select
-        >, a druge suglasnike po:
-        <select id="sortirajDrugeSuglasnike"></select
-        >.
-        <button onclick="update()">Klikni ovdje za osvježavanje slike!</button>
-      </div>
-      <div id="divWithVisualization" style="width: 100%; overflow: scroll">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail_unscaled&_=20151024034921"
-        />
-      </div>
-    </section>
-    <section>
-      <h2>Prikaz pomoću scatter dijagrama</h2>
-      <div style="position: relative" id="divSaScatterom">
-        <img
-          src="https://flatassembler.github.io/another-sonority-sequencing-principle-diagram.png"
-          style="
-            display: block;
-            max-width: calc(100vw - 20px);
-            position: absolute;
-            left: 0;
-            top: 0;
-          "
-          id="scatter"
-        />
-        <svg
-          style="
-            display: block;
-            width: 667px;
-            height: 377px;
-            max-width: calc(100vw-20px);
-            position: absolute;
-            left: 0;
-            top: 0;
-          "
-          id="svgNadScatterom"
-          viewBox="0 0 667 377"
-        ></svg>
-      </div>
-      <p id="komentarIspodScattera">Mislim da je izvrsno pitanje zašto je korelacija za završne parove suglasnika pozitivna? Po Zakonu sonornosti svakako bismo očekivali da je negativna, zar ne? Otvorio sam <a href="https://www.forum.hr/showthread.php?t=1412125">pitanje na forumu o ideji da je to zato što Zakon sonornosti u ljudskim jezicima igru približno istu ulogu kao preambula u računalnim</a>. Naravno, bilo bi dobro provjeriti vrijedi li otprilike isto i za druge jezike, jer je ovako posve moguće da se u hrvatskom jeziku jednostavno ovakvim mjerenjima vide ostaci Zakona otvorenih slogova (zbog kojega su se mnogi praskavci, s niskom sonornosti, u sredini riječi i na kraju riječi obrisali, kao u riječi "san" -- pogledajte njezinu etimologiju).</p>
-    </section>
-    <section id="div_s_kodom_o_racunanju_sonornosti">
-      <h2>Kako se računaju sonornosti</h2>
-      <p>
-        Podaci prilagođeni
-        <a href="https://en.wikipedia.org/wiki/Sonority_sequencing_principle"
-          >sa stranice na engleskoj Wikipediji o Zakonu sonornosti</a
-        >.
-      </p>
-      <pre style="overflow: scroll; width: calc(100% - 20px)">
+      <section>
+        <h2>Prikaz pomoću <i>tablice</i></h2>
+        <div id="divWithControls">
+          Sortiraj prve suglasnike u paru po:
+          <select id="sortirajPrveSuglasnike"></select
+          >, a druge suglasnike po:
+          <select id="sortirajDrugeSuglasnike"></select
+          >.
+          <button onclick="update()">
+            Klikni ovdje za osvježavanje slike!
+          </button>
+        </div>
+        <div id="divWithVisualization" style="width: 100%; overflow: scroll">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail_unscaled&_=20151024034921"
+          />
+        </div>
+      </section>
+      <section>
+        <h2>Prikaz pomoću scatter dijagrama</h2>
+        <div style="position: relative" id="divSaScatterom">
+          <img
+            src="https://flatassembler.github.io/another-sonority-sequencing-principle-diagram.png"
+            style="
+              display: block;
+              max-width: calc(100vw - 20px);
+              position: absolute;
+              left: 0;
+              top: 0;
+            "
+            id="scatter"
+          />
+          <svg
+            style="
+              display: block;
+              width: 667px;
+              height: 377px;
+              max-width: calc(100vw-20px);
+              position: absolute;
+              left: 0;
+              top: 0;
+            "
+            id="svgNadScatterom"
+            viewBox="0 0 667 377"
+          ></svg>
+        </div>
+        <p id="komentarIspodScattera">
+          Mislim da je izvrsno pitanje zašto je korelacija za završne parove
+          suglasnika pozitivna? Po Zakonu sonornosti svakako bismo očekivali da
+          je negativna, zar ne? Otvorio sam
+          <a href="https://www.forum.hr/showthread.php?t=1412125"
+            >pitanje na forumu o ideji da je to zato što Zakon sonornosti u
+            ljudskim jezicima igru približno istu ulogu kao preambula u
+            računalnim</a
+          >. Naravno, bilo bi dobro provjeriti vrijedi li otprilike isto i za
+          druge jezike, jer je ovako posve moguće da se u hrvatskom jeziku
+          jednostavno ovakvim mjerenjima vide ostaci Zakona otvorenih slogova
+          (zbog kojega su se mnogi praskavci, s niskom sonornosti, u sredini
+          riječi i na kraju riječi obrisali, kao u riječi "san" -- pogledajte
+          njezinu etimologiju).
+        </p>
+      </section>
+      <section id="div_s_kodom_o_racunanju_sonornosti">
+        <h2>Kako se računaju sonornosti</h2>
+        <p>
+          Podaci prilagođeni
+          <a href="https://en.wikipedia.org/wiki/Sonority_sequencing_principle"
+            >sa stranice na engleskoj Wikipediji o Zakonu sonornosti</a
+          >.
+        </p>
+        <pre style="overflow: scroll; width: calc(100% - 20px)">
 BEZVUCNI_PRASKAVAC = 1
 ZVUCNI_PRASKAVAC = 2
 BEZVUCNI_SLIVENIK = 3
@@ -620,9 +642,8 @@ sonornost_fonema = {
         'z' : ZVUCNI_TJESNJAC,
         'ž' : ZVUCNI_TJESNJAC
         }
-</pre
-      >
-    </section>
+</pre>
+      </section>
     </main>
     <hr />
     <footer>
@@ -630,6 +651,25 @@ sonornost_fonema = {
       Aspellova je lista riječi i ona je dostupna pod
       <a href="COPYING">GNU lesser public licence licencom</a>. Autor joj je
       Denis Lacković.
+
+      <br /><br />
+      Da dodam malo konteksta, 2022. godine objavio sam u Valpovačkom godišnjaku
+      tekst zvan Etimologija Karašica. U njemu sam tvrdio kako iz osnova teorije
+      informacije (one metode s Paradoksom rođendana i Kolizijskom entropijom)
+      slijedi da je p-vrijednost tog uzorka u hrvatskim toponimima da imena
+      rijeka često počinju suglasnicima 'k' i 'r' (Krka, Korana, Krapina,
+      Krbavica, Kravarščica, dvije rijeke po imenu Karašica) negdje između 1/300
+      i 1/17. I tvrdio sam da je prema tome u ilirskom jeziku morao postojati
+      glagolski korijen *kurr sa značenjem "teći" i da ime rijeke "Karašica"
+      onda vjerojatno dolazi od ilirskog *Kurr-urr-issia (teći - voda - sufiks),
+      posuđeno u praslavenski izravno iz ilirskog kao *Kъrъrьsьja, što je nakon
+      Havlikovog zakona dalo *Karrasja, nakon nestanka geminata i jotacije
+      *Karaša, i da su Hrvati na to ime dodali svoj sufiks -ica. Korisnica
+      Discorda <code>rywko_5626</code>, inače stručnjak za semitsku povijesnu
+      lingvistiku, tvrdi da Zakon sonornosti vjerojatno u hrvatskom jeziku ima
+      velik utjecaj na kolizijsku entropiju raznih dijelova gramatike, i da su
+      moji izračuni zbog toga nevaljani. Mislim da ova vizualizacija pokazuje da
+      taj protuargument na moje izračune nije plauzibilan.
     </footer>
   </body>
 </html>
